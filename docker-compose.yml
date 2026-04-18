@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: apps/frontend/Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./apps/frontend:/app
+      - /app/node_modules
+
+  gateway:
+    build:
+      context: .
+      dockerfile: apps/gateway/Dockerfile
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./apps/gateway:/app
+      - /app/node_modules
+
+  cpp-service:
+    build:
+      context: .
+      dockerfile: apps/frontend/src/server/cpp-core/Dockerfile
+    volumes:
+      - ./apps/frontend/src/server/cpp-core:/app
+
+  java-service:
+    build:
+      context: .
+      dockerfile: apps/frontend/src/server/java-service/Dockerfile
+    volumes:
+      - ./apps/frontend/src/server/java-service:/app
+
+  python-api:
+    build:
+      context: .
+      dockerfile: apps/frontend/src/server/python-api/Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./apps/frontend/src/server/python-api:/app
+
+  rust-service:
+    build:
+      context: .
+      dockerfile: apps/frontend/src/server/rust-service/Dockerfile
+    volumes:
+      - ./apps/frontend/src/server/rust-service:/app
+
+  go-backend:
+    build:
+      context: .
+      dockerfile: apps/frontend/src/server/go-backend/Dockerfile
+    volumes:
+      - ./apps/frontend/src/server/go-backend:/app
