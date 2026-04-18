@@ -15,6 +15,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   const engineRef = useRef<CanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [data, setData] = useState<GeoJsonData | null>(null);
+  const [countries, setCountries] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   // Interaction State
@@ -29,9 +30,16 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   useEffect(() => {
     async function loadData() {
       try {
-        const response = await fetch('/data/world.json');
-        const json = await response.json();
-        setData(json);
+        const [geoRes, countryRes] = await Promise.all([
+          fetch('/data/world.json'),
+          fetch('http://localhost:4000/api/countries')
+        ]);
+        
+        const geoJson = await geoRes.json();
+        const countryList = await countryRes.json();
+        
+        setData(geoJson);
+        setCountries(countryList);
         setIsLoading(false);
       } catch (error) {
         console.error('Failed to load map data:', error);
@@ -56,6 +64,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
 
     const engine = new CanvasEngine(ctx, width, height);
     engine.setData(data);
+    engine.setCountries(countries);
     engine.setTransform(transform.scale, transform.x, transform.y);
     engineRef.current = engine;
 
@@ -72,7 +81,15 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [data]);
+  }, [data, countries]);
+
+  // Sync Countries with Engine (Secondary Sync)
+  useEffect(() => {
+    if (engineRef.current) {
+      engineRef.current.setCountries(countries);
+      engineRef.current.render();
+    }
+  }, [countries]);
 
   // Sync Transform with Engine
   useEffect(() => {
@@ -112,7 +129,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     // Smooth Animation Loop
     let startTransform = { ...transform };
     let startTime: number | null = null;
-    const duration = 1500; // 1.5s for a smooth cinematic feel
+    const duration = 800; // Accelerated from 1500ms for a more responsive feel
 
     const animate = (time: number) => {
       if (startTime === null) startTime = time;
@@ -143,7 +160,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   // Interaction Handlers
   const handleWheel = useCallback((e: React.WheelEvent) => {
     e.preventDefault();
-    const zoomSpeed = 0.001;
+    const zoomSpeed = 0.005; // Snappier, faster zoom response
     const newScale = Math.min(Math.max(transform.scale - e.deltaY * zoomSpeed, 1.0), 10);
     
     // Zoom focus on mouse position

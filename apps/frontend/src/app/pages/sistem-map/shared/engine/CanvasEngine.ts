@@ -29,6 +29,7 @@ export class CanvasEngine {
   private ctx: CanvasRenderingContext2D;
   private projector: Projector;
   private data: GeoJsonData | null = null;
+  private countries: any[] = [];
   private selectedCountryName: string | null = null;
   private selectedCountryCode: string | null = null;
 
@@ -44,6 +45,11 @@ export class CanvasEngine {
 
   public setData(data: GeoJsonData) {
     this.data = data;
+  }
+
+  public setCountries(countries: any[]) {
+    this.countries = countries;
+    this.render();
   }
 
   public setSelectedCountry(name: string | null, code: string | null = null) {
@@ -75,6 +81,9 @@ export class CanvasEngine {
     for (const feature of this.data.features) {
       this.drawFeature(feature);
     }
+
+    // Draw Capitals - On top of land
+    this.drawCapitals();
   }
 
   private drawFeature(feature: GeoJsonFeature) {
@@ -131,6 +140,78 @@ export class CanvasEngine {
     if (isTiny && this.scale < 3) {
       this.drawMicrostatePulse(feature);
     }
+  }
+
+  private drawCapitals() {
+    if (!this.countries || this.countries.length === 0) return;
+
+    this.ctx.save();
+    
+    // Tactical styling for dots
+    this.ctx.shadowBlur = 4 / this.scale;
+    this.ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
+
+    for (const country of this.countries) {
+      if (country.latitude === undefined || country.longitude === undefined || country.latitude === null || country.longitude === null) continue;
+
+      // Ensure coordinates are numbers (Postgres NUMERIC can come as strings)
+      const lat = Number(country.latitude);
+      const lng = Number(country.longitude);
+
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const { x, y } = this.projector.project(lng, lat);
+      const dotSize = Math.max(2 / this.scale, 0.5);
+
+      // Draw Capital Star Icon
+      const outerRadius = Math.max(3.5 / this.scale, 0.8);
+      const innerRadius = outerRadius / 2.5;
+      this.drawStar(x, y, 5, outerRadius, innerRadius);
+      this.ctx.fillStyle = '#22d3ee'; // Tactical Neon Cyan
+      this.ctx.fill();
+
+      // Draw Capital Label (Contextual)
+      if (this.scale > 4.5 && country.ibukota) {
+        this.ctx.font = `bold ${10 / this.scale}px "Cascadia Code", "Fira Code", monospace`;
+        this.ctx.fillStyle = '#22d3ee'; // Match dot color
+        this.ctx.textAlign = 'center';
+        
+        // Add subtle text shadow for legibility
+        this.ctx.shadowBlur = 2 / this.scale;
+        this.ctx.fillText(
+          country.ibukota.toUpperCase(), 
+          x, 
+          y - (6 / this.scale)
+        );
+      }
+    }
+
+    this.ctx.restore();
+  }
+
+  private drawStar(cx: number, cy: number, spikes: number, outerRadius: number, innerRadius: number) {
+    let rot = Math.PI / 2 * 3;
+    let x = cx;
+    let y = cy;
+    const step = Math.PI / spikes;
+
+    this.ctx.beginPath();
+    this.ctx.moveTo(cx, cy - outerRadius);
+    
+    for (let i = 0; i < spikes; i++) {
+      x = cx + Math.cos(rot) * outerRadius;
+      y = cy + Math.sin(rot) * outerRadius;
+      this.ctx.lineTo(x, y);
+      rot += step;
+
+      x = cx + Math.cos(rot) * innerRadius;
+      y = cy + Math.sin(rot) * innerRadius;
+      this.ctx.lineTo(x, y);
+      rot += step;
+    }
+    
+    this.ctx.lineTo(cx, cy - outerRadius);
+    this.ctx.closePath();
   }
 
   private drawMicrostatePulse(feature: GeoJsonFeature) {
