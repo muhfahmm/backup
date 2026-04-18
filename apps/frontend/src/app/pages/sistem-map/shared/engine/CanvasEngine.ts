@@ -30,6 +30,7 @@ export class CanvasEngine {
   private projector: Projector;
   private data: GeoJsonData | null = null;
   private selectedCountryName: string | null = null;
+  private selectedCountryCode: string | null = null;
 
   // Transformation State
   private scale: number = 1;
@@ -45,8 +46,9 @@ export class CanvasEngine {
     this.data = data;
   }
 
-  public setSelectedCountry(name: string | null) {
+  public setSelectedCountry(name: string | null, code: string | null = null) {
     this.selectedCountryName = name;
+    this.selectedCountryCode = code;
   }
 
   public setTransform(scale: number, offsetX: number, offsetY: number) {
@@ -80,10 +82,19 @@ export class CanvasEngine {
     const name = feature.properties.NAME || 'Unknown';
     const nameLong = feature.properties.NAME_LONG || '';
 
-    // Logic pendeteksi negara yang dipilih
-    const isSelected = this.selectedCountryName && (
-      name.toLowerCase() === this.selectedCountryName.toLowerCase() ||
-      nameLong.toLowerCase() === this.selectedCountryName.toLowerCase()
+    // Prioritas 1: Pencocokan ISO Code (A2 atau A3) - Paling Akurat
+    // Prioritas 2: Pencocokan Nama (ID atau EN) - Backup
+    const isSelected = (
+      (this.selectedCountryCode && (
+        feature.properties.ISO_A3?.toLowerCase() === this.selectedCountryCode.toLowerCase() ||
+        feature.properties.ISO_A2?.toLowerCase() === this.selectedCountryCode.toLowerCase() ||
+        feature.properties.ADM0_A3?.toLowerCase() === this.selectedCountryCode.toLowerCase()
+      )) ||
+      (this.selectedCountryName && (
+        name.toLowerCase() === this.selectedCountryName.toLowerCase() ||
+        nameLong.toLowerCase() === this.selectedCountryName.toLowerCase() ||
+        feature.properties.NAME_ID?.toLowerCase() === this.selectedCountryName.toLowerCase()
+      ))
     );
 
     let color = CONTINENT_COLORS[continent] || '#475569';

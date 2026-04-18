@@ -7,10 +7,12 @@ import CountryCarousel from '../sistem-map/shared/components/CountryCarousel';
 export default function PilihNegaraPage() {
   const [selectedCoords, setSelectedCoords] = useState<{ lat: number; lng: number } | null>(null);
   const [selectedName, setSelectedName] = useState<string | null>(null);
+  const [selectedCode, setSelectedCode] = useState<string | null>(null);
 
-  const handleSelectCountry = (name: string, lat: number, lng: number) => {
+  const handleSelectCountry = (name: string, lat: number, lng: number, code: string) => {
     setSelectedName(name);
     setSelectedCoords({ lat, lng });
+    setSelectedCode(code);
   };
 
   return (
@@ -20,10 +22,10 @@ export default function PilihNegaraPage() {
       
       {/* The Fullscreen Map Container */}
       <div className="w-full h-full">
-        <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} />
+        <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} selectedCode={selectedCode} />
       </div>
 
-      <CountryCarousel onSelectCountry={handleSelectCountry} />
+      <CountryCarousel onSelectCountry={handleSelectCountry} selectedName={selectedName} selectedCode={selectedCode} />
 
 
       {/* Overlay Vignette */}

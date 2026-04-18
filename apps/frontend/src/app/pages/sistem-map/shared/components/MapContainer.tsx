@@ -7,9 +7,10 @@ interface MapContainerProps {
   mode?: 'MAIN' | 'TRADE' | 'RELATION' | 'RESOURCE';
   targetCoords?: { lat: number; lng: number } | null;
   selectedName?: string | null;
+  selectedCode?: string | null;
 }
 
-export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName }: MapContainerProps) {
+export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName, selectedCode }: MapContainerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<CanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -80,13 +81,13 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     }
   }, [transform]);
 
-  // Sync Selected Country Name
+  // Sync Selected Country Name & ISO Code
   useEffect(() => {
     if (engineRef.current) {
-      engineRef.current.setSelectedCountry(selectedName || null);
+      engineRef.current.setSelectedCountry(selectedName || null, selectedCode || null);
       engineRef.current.render();
     }
-  }, [selectedName]);
+  }, [selectedName, selectedCode]);
 
   // Handle Target Zooming
   useEffect(() => {
