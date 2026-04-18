@@ -1,9 +1,11 @@
 CREATE TABLE IF NOT EXISTS "1_nama_negara" (
     id SERIAL PRIMARY KEY,
-    nama_negara VARCHAR(255) NOT NULL,
+    nama_negara VARCHAR(255) NOT NULL UNIQUE,
     ibukota VARCHAR(255) DEFAULT '',
     jumlah_penduduk BIGINT DEFAULT 0,
-    anggaran BIGINT DEFAULT 0
+    anggaran BIGINT DEFAULT 0,
+    latitude NUMERIC,
+    longitude NUMERIC
 );
 
 INSERT INTO "1_nama_negara" (nama_negara, ibukota, jumlah_penduduk, anggaran) VALUES

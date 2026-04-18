@@ -30,7 +30,7 @@ export class CanvasEngine {
   private projector: Projector;
   private data: GeoJsonData | null = null;
   private selectedCountryName: string | null = null;
-  
+
   // Transformation State
   private scale: number = 1;
   private offsetX: number = 0;
@@ -62,9 +62,9 @@ export class CanvasEngine {
     // Reset transform to draw background
     this.ctx.setTransform(1, 0, 0, 1, 0, 0);
     this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
-    
+
     // Draw Ocean Background - Tactical Blue
-    this.ctx.fillStyle = '#1e3a8a'; 
+    this.ctx.fillStyle = '#1e3a8a';
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
 
     // Apply Global Transform
@@ -79,7 +79,7 @@ export class CanvasEngine {
     const continent = feature.properties.CONTINENT || 'Unknown';
     const name = feature.properties.NAME || 'Unknown';
     const nameLong = feature.properties.NAME_LONG || '';
-    
+
     // Logic pendeteksi negara yang dipilih
     const isSelected = this.selectedCountryName && (
       name.toLowerCase() === this.selectedCountryName.toLowerCase() ||
@@ -91,14 +91,14 @@ export class CanvasEngine {
     let lineWidth = Math.max(0.7 / this.scale, 0.4);
 
     if (isSelected) {
-        color = '#10b981'; // Emerald-500 Tactical Highlight
-        borderColor = '#34d399'; // Brighter Emerald for border
-        lineWidth = Math.max(2 / this.scale, 1); 
+      color = '#10b981'; // Emerald-500 Tactical Highlight
+      borderColor = '#34d399'; // Brighter Emerald for border
+      lineWidth = Math.max(2 / this.scale, 1);
     }
 
     this.ctx.beginPath();
     this.ctx.fillStyle = color;
-    this.ctx.strokeStyle = borderColor; 
+    this.ctx.strokeStyle = borderColor;
     this.ctx.lineWidth = lineWidth;
 
     const { type, coordinates } = feature.geometry;
@@ -116,9 +116,9 @@ export class CanvasEngine {
 
     // Check if it's a microstate for pulse logic
     const isTiny = feature.properties.TINY > 0 || feature.properties.LABELRANK > 5;
-    
+
     if (isTiny && this.scale < 3) {
-        this.drawMicrostatePulse(feature);
+      this.drawMicrostatePulse(feature);
     }
   }
 
@@ -129,7 +129,7 @@ export class CanvasEngine {
     if (labelX === undefined || labelY === undefined) return;
 
     const { x, y } = this.projector.project(labelX, labelY);
-    
+
     this.ctx.beginPath();
     this.ctx.arc(x, y, 2 / this.scale, 0, Math.PI * 2);
     this.ctx.fillStyle = 'rgba(255, 255, 255, 0.5)';
@@ -139,22 +139,22 @@ export class CanvasEngine {
   private drawPolygon(polygon: number[][][]) {
     const rings = polygon;
     for (let i = 0; i < rings.length; i++) {
-        const ring = rings[i];
-        if (ring.length === 0) continue;
+      const ring = rings[i];
+      if (ring.length === 0) continue;
 
-        // Skip extremely small rings for performance if zoomed out
-        // (Perfection: only for very high resolution datasets)
-        
-        for (let j = 0; j < ring.length; j++) {
-            const [lng, lat] = ring[j];
-            const { x, y } = this.projector.project(lng, lat);
-            
-            if (j === 0) {
-            this.ctx.moveTo(x, y);
-            } else {
-            this.ctx.lineTo(x, y);
-            }
+      // Skip extremely small rings for performance if zoomed out
+      // (Perfection: only for very high resolution datasets)
+
+      for (let j = 0; j < ring.length; j++) {
+        const [lng, lat] = ring[j];
+        const { x, y } = this.projector.project(lng, lat);
+
+        if (j === 0) {
+          this.ctx.moveTo(x, y);
+        } else {
+          this.ctx.lineTo(x, y);
         }
+      }
     }
   }
 
