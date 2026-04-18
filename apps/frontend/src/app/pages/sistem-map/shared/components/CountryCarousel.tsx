@@ -2,20 +2,13 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getFlagUrl } from '../utils/countryMapping';
+import { Country } from '../types/country';
 
-interface Country {
-  id: number;
-  nama_negara: string;
-  ibukota: string;
-  jumlah_penduduk: string;
-  anggaran: string;
-  latitude?: string;
-  longitude?: string;
-  kode_negara: string;
-}
+// Replaced local interface with shared import
 
 interface CountryCarouselProps {
-  onSelectCountry?: (name: string, lat: number, lng: number, code: string) => void;
+  onSelectCountry?: (country: Country) => void;
   selectedName?: string | null;
   selectedCode?: string | null;
 }
@@ -111,21 +104,50 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                       <p className={`font-mono text-[7px] tracking-[0.4em] uppercase mb-2 ${isActive ? 'text-emerald-400 font-bold' : 'text-emerald-500/40'}`}>
                         {isActive ? 'Target Locked' : 'Target Nation'}
                       </p>
-                      <h3 className={`text-lg font-black uppercase tracking-widest truncate transition-colors ${isActive ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'}`}>
+                      <h3 className={`font-black uppercase tracking-widest leading-tight line-clamp-2 min-h-[2.5rem] flex items-center justify-center transition-colors 
+                        ${country.nama_negara.length > 20 ? 'text-[10px]' : country.nama_negara.length > 15 ? 'text-xs' : 'text-sm'}
+                        ${isActive ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'}`}>
                         {country.nama_negara}
                       </h3>
                     </header>
+
+                    {/* Flag Display Area */}
+                    <div className="relative mt-2 mb-4 h-24 w-full flex items-center justify-center">
+                        <div className={`absolute inset-0 bg-white/5 rounded-lg border border-white/10 overflow-hidden ${isActive ? 'ring-1 ring-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.3)]' : ''}`}>
+                            {getFlagUrl(country.kode_negara) ? (
+                                <img 
+                                    src={getFlagUrl(country.kode_negara)!} 
+                                    alt={`${country.nama_negara} flag`}
+                                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                                />
+                            ) : (
+                                <div className="w-full h-full flex items-center justify-center bg-black/40">
+                                    <span className="text-[10px] text-white/20 font-mono">NO_FLAG</span>
+                                </div>
+                            )}
+                            
+                            {/* Scanning Light Effect */}
+                            <motion.div 
+                                animate={{ left: ['-100%', '100%'] }}
+                                transition={{ repeat: Infinity, duration: 3, ease: 'linear' }}
+                                className="absolute top-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12"
+                            />
+                        </div>
+                        
+                        {/* Overlay HUD lines */}
+                        <div className="absolute -top-1 -left-1 w-2 h-2 border-t border-l border-emerald-500/50" />
+                        <div className="absolute -top-1 -right-1 w-2 h-2 border-t border-r border-emerald-500/50" />
+                        <div className="absolute -bottom-1 -left-1 w-2 h-2 border-b border-l border-emerald-500/50" />
+                        <div className="absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-emerald-500/50" />
+                    </div>
 
                     {/* Select Trigger Overlay */}
                     <motion.div 
                       initial={{ opacity: 0 }}
                       whileHover={{ opacity: 1 }}
                       onClick={() => {
-                          const lat = country.latitude !== undefined && country.latitude !== null ? Number(country.latitude) : null;
-                          const lng = country.longitude !== undefined && country.longitude !== null ? Number(country.longitude) : null;
-
-                          if (lat !== null && lng !== null && onSelectCountry) {
-                              onSelectCountry(country.nama_negara, lat, lng, country.kode_negara);
+                          if (onSelectCountry) {
+                              onSelectCountry(country);
                           }
                       }}
                       className="absolute inset-0 flex items-center justify-center bg-emerald-600/20 rounded-xl cursor-pointer"

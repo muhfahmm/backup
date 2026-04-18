@@ -18,7 +18,7 @@ app.get('/', (req: Request, res: Response) => {
 
 app.get('/api/countries', async (req: Request, res: Response) => {
   try {
-    const result = await pool.query('SELECT id, nama_negara, ibukota, jumlah_penduduk, anggaran, latitude, longitude FROM "1_nama_negara" ORDER BY nama_negara ASC');
+    const result = await pool.query('SELECT id, nama_negara, ibukota, jumlah_penduduk, anggaran, latitude, longitude, kode_negara, agama, ideologi FROM "1_nama_negara" ORDER BY nama_negara ASC');
     res.json(result.rows);
   } catch (err: any) {
     console.error('DATABASE CONNECTION ERROR:', err.message);

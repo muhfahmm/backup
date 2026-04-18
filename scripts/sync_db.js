@@ -12,13 +12,22 @@ const pool = new Pool({
 });
 
 async function sync() {
-  const sqlPath = path.join(__dirname, '../apps/database/init_nations.sql');
-  const sql = fs.readFileSync(sqlPath, 'utf8');
+  const dbDir = path.join(__dirname, '../apps/database');
+  const files = fs.readdirSync(dbDir)
+    .filter(file => file.endsWith('.sql'))
+    .sort(); // Sort to ensure predictable execution order
 
   try {
     console.log('Connecting to database...');
-    await pool.query(sql);
-    console.log('Successfully synchronized 207 nations with ISO codes!');
+    
+    for (const file of files) {
+      console.log(`Executing ${file}...`);
+      const sqlPath = path.join(dbDir, file);
+      const sql = fs.readFileSync(sqlPath, 'utf8');
+      await pool.query(sql);
+    }
+    
+    console.log('Successfully synchronized all database files!');
   } catch (err) {
     console.error('Failed to sync database:', err.message);
   } finally {
