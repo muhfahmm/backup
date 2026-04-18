@@ -4,6 +4,9 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { CanvasEngine, GeoJsonData } from '../engine/CanvasEngine';
 
 interface MapContainerProps {
+  mode?: 'MAIN' | 'TRADE' | 'RELATION' | 'RESOURCE';
+  targetCoords?: { lat: number; lng: number } | null;
+  selectedName?: string | null;
   selectedCode?: string | null;
   onSelectCountry?: (country: any) => void;
 }
@@ -233,6 +236,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     setLastMousePos({ x: e.clientX, y: e.clientY });
 
     // Handle Star Hover Effect
+    const rect = canvasRef.current?.getBoundingClientRect();
     if (rect && engineRef.current && !isDragging) {
       const mouseX = e.clientX - rect.left;
       const mouseY = e.clientY - rect.top;

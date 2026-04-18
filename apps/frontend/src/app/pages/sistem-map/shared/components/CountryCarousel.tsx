@@ -18,6 +18,7 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
   useEffect(() => {
     fetch('http://127.0.0.1:4000/api/countries')
@@ -38,6 +39,20 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
         setLoading(false);
       });
   }, []);
+
+  // Handle Auto-Scroll when selection changes
+  useEffect(() => {
+    if (selectedCode && itemRefs.current.has(selectedCode)) {
+      const element = itemRefs.current.get(selectedCode);
+      if (element) {
+        element.scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
+    }
+  }, [selectedCode]);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -86,6 +101,9 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
             return (
               <motion.div
                 key={country.id}
+                ref={(el) => {
+                  if (el) itemRefs.current.set(country.kode_negara, el);
+                }}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.02, duration: 0.5 }}
@@ -101,6 +119,18 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                   
                   <div className="relative">
                     <header className="mb-0 py-2 flex flex-col items-center justify-center text-center">
+                      <AnimatePresence>
+                        {isActive && (
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            className="mb-1 text-emerald-400"
+                          >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                       <p className={`font-mono text-[8px] tracking-[0.4em] uppercase ${isActive ? 'text-emerald-400 font-black' : 'text-emerald-500/30'}`}>
                         {isActive ? 'Target Locked' : 'Target Nation'}
                       </p>

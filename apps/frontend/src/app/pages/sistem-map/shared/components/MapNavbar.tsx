@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useRouter } from 'next/navigation';
 import { Country } from '../types/country';
 import { getFlagUrl } from '../utils/countryMapping';
 
@@ -10,6 +11,8 @@ interface MapNavbarProps {
 }
 
 export default function MapNavbar({ selectedCountry }: MapNavbarProps) {
+    const router = useRouter();
+
     const formatNumber = (num: string | number) => {
         return new Intl.NumberFormat('id-ID').format(Number(num));
     };
@@ -115,6 +118,23 @@ export default function MapNavbar({ selectedCountry }: MapNavbarProps) {
                                     </span>
                                     <span className="text-emerald-500/60 text-[9px] font-bold uppercase">USD</span>
                                 </div>
+                            </div>
+
+                            {/* START BUTTON SECTION */}
+                            <div className="pl-6 pr-4 h-full flex items-center border-l border-white/10">
+                                <motion.button
+                                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="relative px-10 py-3 bg-transparent border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.5em] uppercase transition-all duration-300 group overflow-hidden cursor-pointer"
+                                    onClick={() => router.push('/pages/main_pages')}
+                                >
+                                    <span className="relative z-10">MULAI</span>
+                                    <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-500 group-hover:border-black" />
+                                    <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-emerald-500 group-hover:border-black" />
+                                    <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-emerald-500 group-hover:border-black" />
+                                    <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-emerald-500 group-hover:border-black" />
+                                    <div className="absolute inset-0 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                </motion.button>
                             </div>
                         </motion.div>
                     ) : (
