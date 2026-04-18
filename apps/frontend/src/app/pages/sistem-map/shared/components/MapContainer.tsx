@@ -5,9 +5,11 @@ import { CanvasEngine, GeoJsonData } from '../engine/CanvasEngine';
 
 interface MapContainerProps {
   mode?: 'MAIN' | 'TRADE' | 'RELATION' | 'RESOURCE';
+  targetCoords?: { lat: number; lng: number } | null;
+  selectedName?: string | null;
 }
 
-export default function MapContainer({ mode = 'MAIN' }: MapContainerProps) {
+export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName }: MapContainerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<CanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -18,6 +20,9 @@ export default function MapContainer({ mode = 'MAIN' }: MapContainerProps) {
   const [transform, setTransform] = useState({ scale: 1, x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
+  
+  // Animation State
+  const animationRef = useRef<number | null>(null);
 
   // Load Map Data
   useEffect(() => {
@@ -74,6 +79,65 @@ export default function MapContainer({ mode = 'MAIN' }: MapContainerProps) {
       engineRef.current.setTransform(transform.scale, transform.x, transform.y);
     }
   }, [transform]);
+
+  // Sync Selected Country Name
+  useEffect(() => {
+    if (engineRef.current) {
+      engineRef.current.setSelectedCountry(selectedName || null);
+      engineRef.current.render();
+    }
+  }, [selectedName]);
+
+  // Handle Target Zooming
+  useEffect(() => {
+    if (!targetCoords || !engineRef.current || !canvasRef.current || !containerRef.current) return;
+
+    const { lat, lng } = targetCoords;
+    const width = containerRef.current.clientWidth;
+    const height = containerRef.current.clientHeight;
+
+    // Get target projection from Projector (re-using engine logic)
+    // We can't access engine.projector easily here, so we recreate the simple projection logic
+    // normalized Lng [-180, 180] -> [0, 1], Lat [90, -90] -> [0, 1]
+    const xNorm = (lng + 180) / 360;
+    const yNorm = (90 - lat) / 180;
+    const targetMapX = xNorm * width;
+    const targetMapY = yNorm * height;
+
+    const targetScale = 6; // Perfect zoom level for individual nations
+    const targetX = width / 2 - targetMapX * targetScale;
+    const targetY = height / 2 - targetMapY * targetScale;
+
+    // Smooth Animation Loop
+    let startTransform = { ...transform };
+    let startTime: number | null = null;
+    const duration = 1500; // 1.5s for a smooth cinematic feel
+
+    const animate = (time: number) => {
+      if (startTime === null) startTime = time;
+      const progress = Math.min((time - startTime) / duration, 1);
+      
+      // Easing: easeOutCubic
+      const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+      const nextScale = startTransform.scale + (targetScale - startTransform.scale) * easedProgress;
+      const nextX = startTransform.x + (targetX - startTransform.x) * easedProgress;
+      const nextY = startTransform.y + (targetY - startTransform.y) * easedProgress;
+
+      setTransform({ scale: nextScale, x: nextX, y: nextY });
+
+      if (progress < 1) {
+        animationRef.current = requestAnimationFrame(animate);
+      }
+    };
+
+    if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
+    };
+  }, [targetCoords]);
 
   // Interaction Handlers
   const handleWheel = useCallback((e: React.WheelEvent) => {

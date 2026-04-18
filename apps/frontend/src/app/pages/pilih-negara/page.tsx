@@ -1,9 +1,18 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import MapContainer from '../sistem-map/shared/components/MapContainer';
+import CountryCarousel from '../sistem-map/shared/components/CountryCarousel';
 
 export default function PilihNegaraPage() {
+  const [selectedCoords, setSelectedCoords] = useState<{ lat: number; lng: number } | null>(null);
+  const [selectedName, setSelectedName] = useState<string | null>(null);
+
+  const handleSelectCountry = (name: string, lat: number, lng: number) => {
+    setSelectedName(name);
+    setSelectedCoords({ lat, lng });
+  };
+
   return (
     <main className="fixed inset-0 bg-[#070b14] overflow-hidden">
       {/* Background Grid - Minimalist */}
@@ -11,8 +20,10 @@ export default function PilihNegaraPage() {
       
       {/* The Fullscreen Map Container */}
       <div className="w-full h-full">
-        <MapContainer mode="MAIN" />
+        <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} />
       </div>
+
+      <CountryCarousel onSelectCountry={handleSelectCountry} />
 
 
       {/* Overlay Vignette */}

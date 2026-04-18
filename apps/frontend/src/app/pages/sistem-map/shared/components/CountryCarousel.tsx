@@ -1,0 +1,142 @@
+'use client';
+
+import React, { useEffect, useState, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+interface Country {
+  id: number;
+  nama_negara: string;
+  ibukota: string;
+  jumlah_penduduk: string;
+  anggaran: string;
+  latitude?: string;
+  longitude?: string;
+}
+
+interface CountryCarouselProps {
+  onSelectCountry?: (name: string, lat: number, lng: number) => void;
+}
+
+export default function CountryCarousel({ onSelectCountry }: CountryCarouselProps) {
+  const [countries, setCountries] = useState<Country[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    fetch('http://127.0.0.1:4000/api/countries')
+      .then(async res => {
+        const data = await res.json();
+        if (!res.ok) {
+            throw new Error(data.message || 'Server Error');
+        }
+        return data;
+      })
+      .then(data => {
+        setCountries(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch countries:', err);
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300;
+      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  if (loading) {
+// ... existing loading state ...
+  }
+
+  if (error) {
+// ... existing error state ...
+  }
+
+  return (
+    <div className="absolute bottom-12 left-0 w-full z-30 pointer-events-none overflow-hidden select-none group/carousel">
+      {/* HUD Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+      
+      {/* Navigation Chevrons */}
+      <button 
+        onClick={() => scroll('left')}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-emerald-500/10 hover:bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+
+      <button 
+        onClick={() => scroll('right')}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-emerald-500/10 hover:bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+
+      <div className="relative max-w-[100vw] px-20 pb-4">
+        <div 
+          ref={scrollRef}
+          className="flex gap-4 overflow-x-auto no-scrollbar pointer-events-auto pb-6 scroll-smooth"
+          style={{ maskImage: 'linear-gradient(90deg, transparent, white 15%, white 85%, transparent)' }}
+        >
+          {countries.map((country, index) => (
+            <motion.div
+              key={country.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.02, duration: 0.5 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className="flex-shrink-0 w-44 group"
+            >
+              <div className="relative bg-[#1e293b]/30 backdrop-blur-2xl border border-white/10 rounded-xl p-4 overflow-hidden transition-all group-hover:border-emerald-500/50 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]">
+                {/* Decorative Elements */}
+                <div className="absolute top-0 right-0 w-16 h-16 bg-emerald-500/5 rotate-45 translate-x-8 -translate-y-8" />
+                <div className="absolute bottom-0 left-0 w-1 h-1/2 bg-gradient-to-t from-emerald-500/40 to-transparent" />
+                
+                <div className="relative">
+                  <header className="mb-0 py-4 flex flex-col items-center justify-center text-center">
+                    <p className="text-emerald-500/40 font-mono text-[7px] tracking-[0.4em] uppercase mb-2">Target Nation</p>
+                    <h3 className="text-white text-lg font-black uppercase tracking-widest truncate group-hover:text-emerald-400 transition-colors">
+                      {country.nama_negara}
+                    </h3>
+                  </header>
+
+                  {/* Select Trigger Overlay */}
+                  <motion.div 
+                    initial={{ opacity: 0 }}
+                    whileHover={{ opacity: 1 }}
+                    onClick={() => {
+                        if (country.latitude && country.longitude && onSelectCountry) {
+                            onSelectCountry(country.nama_negara, Number(country.latitude), Number(country.longitude));
+                        }
+                    }}
+                    className="absolute inset-0 flex items-center justify-center bg-emerald-600/10 backdrop-blur-sm rounded-xl cursor-pointer"
+                  >
+                    <div className="px-5 py-2 bg-emerald-500 text-white rounded-lg font-black text-[9px] tracking-[0.2em] uppercase shadow-lg shadow-emerald-500/50">
+                      Select {country.nama_negara}
+                    </div>
+                  </motion.div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <style jsx global>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
+    </div>
+  );
+}

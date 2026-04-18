@@ -29,6 +29,7 @@ export class CanvasEngine {
   private ctx: CanvasRenderingContext2D;
   private projector: Projector;
   private data: GeoJsonData | null = null;
+  private selectedCountryName: string | null = null;
   
   // Transformation State
   private scale: number = 1;
@@ -42,6 +43,10 @@ export class CanvasEngine {
 
   public setData(data: GeoJsonData) {
     this.data = data;
+  }
+
+  public setSelectedCountry(name: string | null) {
+    this.selectedCountryName = name;
   }
 
   public setTransform(scale: number, offsetX: number, offsetY: number) {
@@ -73,18 +78,28 @@ export class CanvasEngine {
   private drawFeature(feature: GeoJsonFeature) {
     const continent = feature.properties.CONTINENT || 'Unknown';
     const name = feature.properties.NAME || 'Unknown';
-    const color = CONTINENT_COLORS[continent] || '#475569';
+    const nameLong = feature.properties.NAME_LONG || '';
+    
+    // Logic pendeteksi negara yang dipilih
+    const isSelected = this.selectedCountryName && (
+      name.toLowerCase() === this.selectedCountryName.toLowerCase() ||
+      nameLong.toLowerCase() === this.selectedCountryName.toLowerCase()
+    );
+
+    let color = CONTINENT_COLORS[continent] || '#475569';
+    let borderColor = 'rgba(255, 255, 255, 0.6)';
+    let lineWidth = Math.max(0.7 / this.scale, 0.4);
+
+    if (isSelected) {
+        color = '#10b981'; // Emerald-500 Tactical Highlight
+        borderColor = '#34d399'; // Brighter Emerald for border
+        lineWidth = Math.max(2 / this.scale, 1); 
+    }
 
     this.ctx.beginPath();
     this.ctx.fillStyle = color;
-    // Consistent borders: Standard thin line across all nations
-    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.6)'; 
-    
-    // Check if it's a microstate for pulse logic
-    const isTiny = feature.properties.TINY > 0 || feature.properties.LABELRANK > 5;
-    
-    // Use a fixed width relative to scale but with a floor to keep it thin but visible
-    this.ctx.lineWidth = Math.max(0.7 / this.scale, 0.4);
+    this.ctx.strokeStyle = borderColor; 
+    this.ctx.lineWidth = lineWidth;
 
     const { type, coordinates } = feature.geometry;
 
@@ -99,9 +114,9 @@ export class CanvasEngine {
     this.ctx.fill();
     this.ctx.stroke();
 
-    // Extra "Perfection" Step: 
-    // If it's a tiny state (like Singapore/Vatican), draw a small highlight glow
-    // so it doesn't disappear into the ocean pixel cluster.
+    // Check if it's a microstate for pulse logic
+    const isTiny = feature.properties.TINY > 0 || feature.properties.LABELRANK > 5;
+    
     if (isTiny && this.scale < 3) {
         this.drawMicrostatePulse(feature);
     }

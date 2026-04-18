@@ -1,0 +1,2 @@
+ALTER TABLE "1_nama_negara" ADD COLUMN IF NOT EXISTS latitude NUMERIC;
+ALTER TABLE "1_nama_negara" ADD COLUMN IF NOT EXISTS longitude NUMERIC;
