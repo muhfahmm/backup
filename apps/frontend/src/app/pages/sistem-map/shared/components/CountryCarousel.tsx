@@ -100,15 +100,10 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                   <div className={`absolute bottom-0 left-0 w-1 h-1/2 bg-gradient-to-t from-emerald-500/40 to-transparent ${isActive ? 'opacity-100' : 'opacity-60'}`} />
                   
                   <div className="relative">
-                    <header className="mb-0 py-4 flex flex-col items-center justify-center text-center">
-                      <p className={`font-mono text-[7px] tracking-[0.4em] uppercase mb-2 ${isActive ? 'text-emerald-400 font-bold' : 'text-emerald-500/40'}`}>
+                    <header className="mb-0 py-2 flex flex-col items-center justify-center text-center">
+                      <p className={`font-mono text-[8px] tracking-[0.4em] uppercase ${isActive ? 'text-emerald-400 font-black' : 'text-emerald-500/30'}`}>
                         {isActive ? 'Target Locked' : 'Target Nation'}
                       </p>
-                      <h3 className={`font-black uppercase tracking-widest leading-tight line-clamp-2 min-h-[2.5rem] flex items-center justify-center transition-colors 
-                        ${country.nama_negara.length > 20 ? 'text-[10px]' : country.nama_negara.length > 15 ? 'text-xs' : 'text-sm'}
-                        ${isActive ? 'text-emerald-400' : 'text-white group-hover:text-emerald-400'}`}>
-                        {country.nama_negara}
-                      </h3>
                     </header>
 
                     {/* Flag Display Area */}
@@ -153,7 +148,7 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                       className="absolute inset-0 flex items-center justify-center bg-emerald-600/20 rounded-xl cursor-pointer"
                     >
                       <div className="px-5 py-2 bg-emerald-500 text-white rounded-lg font-black text-[9px] tracking-[0.2em] uppercase shadow-lg shadow-emerald-500/50">
-                        {isActive ? 'Current Active' : `Select ${country.nama_negara}`}
+                        {isActive ? 'Current Active' : 'Select Target'}
                       </div>
                     </motion.div>
                   </div>

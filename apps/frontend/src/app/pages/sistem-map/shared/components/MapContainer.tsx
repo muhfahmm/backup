@@ -4,13 +4,11 @@ import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { CanvasEngine, GeoJsonData } from '../engine/CanvasEngine';
 
 interface MapContainerProps {
-  mode?: 'MAIN' | 'TRADE' | 'RELATION' | 'RESOURCE';
-  targetCoords?: { lat: number; lng: number } | null;
-  selectedName?: string | null;
   selectedCode?: string | null;
+  onSelectCountry?: (country: any) => void;
 }
 
-export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName, selectedCode }: MapContainerProps) {
+export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName, selectedCode, onSelectCountry }: MapContainerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<CanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -22,6 +20,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   const [transform, setTransform] = useState({ scale: 1, x: 0, y: 0 });
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
+  const [isHoveringStar, setIsHoveringStar] = useState(false);
   
   // Animation State
   const animationRef = useRef<number | null>(null);
@@ -232,10 +231,32 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     });
 
     setLastMousePos({ x: e.clientX, y: e.clientY });
+
+    // Handle Star Hover Effect
+    if (rect && engineRef.current && !isDragging) {
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+      const hoveredCountry = engineRef.current.getCountryAt(mouseX, mouseY);
+      setIsHoveringStar(!!hoveredCountry);
+    }
   }, [isDragging, lastMousePos, transform.scale]);
 
   const handleMouseUp = () => {
     setIsDragging(false);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    // Only trigger click if we weren't dragging (or moved very little)
+    const rect = canvasRef.current?.getBoundingClientRect();
+    if (!rect || !engineRef.current || !onSelectCountry) return;
+
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const country = engineRef.current.getCountryAt(mouseX, mouseY);
+
+    if (country) {
+      onSelectCountry(country);
+    }
   };
 
   return (
@@ -258,7 +279,10 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
       )}
       <canvas 
         ref={canvasRef} 
-        className={`w-full h-full block cursor-${isDragging ? 'grabbing' : 'grab'} transition-opacity duration-1000`}
+        className={`w-full h-full block transition-opacity duration-1000 ${
+          isDragging ? 'cursor-grabbing' : isHoveringStar ? 'cursor-pointer' : 'cursor-grab'
+        }`}
+        onClick={handleClick}
         style={{ opacity: isLoading ? 0 : 1 }}
       />
       

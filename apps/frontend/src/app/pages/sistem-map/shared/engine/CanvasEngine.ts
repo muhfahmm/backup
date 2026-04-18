@@ -250,6 +250,38 @@ export class CanvasEngine {
     }
   }
 
+  public getCountryAt(mouseX: number, mouseY: number): any | null {
+    if (!this.countries || this.countries.length === 0) return null;
+
+    // We check distance in screen space (pixels)
+    // A 10px radius is usually good for mouse interaction
+    const hitThreshold = 10;
+
+    for (const country of this.countries) {
+      if (country.latitude === undefined || country.longitude === undefined || country.latitude === null || country.longitude === null) continue;
+
+      const lat = Number(country.latitude);
+      const lng = Number(country.longitude);
+      if (isNaN(lat) || isNaN(lng)) continue;
+
+      const { x, y } = this.projector.project(lng, lat);
+      
+      // Convert map-space coordinates to screen-space (after scale and offset)
+      const screenX = x * this.scale + this.offsetX;
+      const screenY = y * this.scale + this.offsetY;
+
+      const dx = mouseX - screenX;
+      const dy = mouseY - screenY;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance <= hitThreshold) {
+        return country;
+      }
+    }
+
+    return null;
+  }
+
   public resize(width: number, height: number) {
     this.projector.updateDimensions(width, height);
     this.render();

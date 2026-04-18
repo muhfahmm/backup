@@ -34,7 +34,7 @@ export default function PilihNegaraPage() {
 
       {/* The Fullscreen Map Container */}
       <div className="w-full h-full">
-        <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} selectedCode={selectedCode} />
+        <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} selectedCode={selectedCode} onSelectCountry={handleSelectCountry} />
       </div>
 
       <CountryCarousel onSelectCountry={handleSelectCountry} selectedName={selectedName} selectedCode={selectedCode} />
