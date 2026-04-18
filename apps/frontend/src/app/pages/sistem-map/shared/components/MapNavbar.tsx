@@ -8,9 +8,17 @@ import { getFlagUrl } from '../utils/countryMapping';
 
 interface MapNavbarProps {
     selectedCountry: Country | null;
+    isSimulation?: boolean;
+    satisfaction?: number;
+    stability?: number;
 }
 
-export default function MapNavbar({ selectedCountry }: MapNavbarProps) {
+export default function MapNavbar({ 
+    selectedCountry, 
+    isSimulation = false, 
+    satisfaction = 50, 
+    stability = 50 
+}: MapNavbarProps) {
     const router = useRouter();
 
     const formatNumber = (num: string | number) => {
@@ -79,63 +87,74 @@ export default function MapNavbar({ selectedCountry }: MapNavbarProps) {
                             exit={{ opacity: 0, y: 10 }}
                             className="flex items-center h-full"
                         >
-                            {/* POPULATION */}
-                            <div className="flex flex-col justify-center px-8 h-full">
-                                <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Populasi Nasional</span>
-                                <div className="flex items-baseline gap-2">
-                                    <span className="text-white font-mono text-xl font-black tracking-wider">
-                                        {formatNumber(selectedCountry.jumlah_penduduk)}
-                                    </span>
-                                    <span className="text-emerald-500/40 text-[9px] font-bold uppercase">UNIT</span>
-                                </div>
-                            </div>
-
-                            {/* VERTICAL DIVIDER */}
-                            <div className="w-[1px] h-8 bg-white/10" />
-
-                            {/* IDEOLOGY / RELIGION */}
-                            <div className="flex flex-col justify-center px-8 h-full">
-                                <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Keamanan & Ideologi</span>
-                                <div className="flex flex-col leading-tight">
-                                    <span className="text-emerald-400 font-mono text-xs font-black uppercase tracking-widest leading-none">
-                                        {selectedCountry.agama}
-                                    </span>
-                                    <span className="text-white/60 font-mono text-[10px] uppercase tracking-[0.1em]">
-                                        {selectedCountry.ideologi}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* VERTICAL DIVIDER */}
-                            <div className="w-[1px] h-8 bg-white/10" />
-
-                            {/* BUDGET */}
-                            <div className="flex flex-col justify-center px-8 h-full bg-emerald-500/5 min-w-[200px]">
-                                <span className="text-emerald-500/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Anggaran Negara</span>
+                            {/* MONEY */}
+                            <div className="flex flex-col justify-center px-6 h-full bg-emerald-500/5">
+                                <span className="text-emerald-500/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Uang Negara</span>
                                 <div className="flex items-baseline gap-2 text-emerald-400">
-                                    <span className="text-emerald-400 font-mono text-xl font-black tracking-wider drop-shadow-[0_0_8px_rgba(52,211,153,0.3)]">
+                                    <span className="text-emerald-400 font-mono text-lg font-black tracking-wider">
                                         ${formatNumber(selectedCountry.anggaran)}
                                     </span>
-                                    <span className="text-emerald-500/60 text-[9px] font-bold uppercase">USD</span>
+                                    <span className="text-emerald-500/60 text-[8px] font-bold uppercase">USD</span>
                                 </div>
                             </div>
 
-                            {/* START BUTTON SECTION */}
-                            <div className="pl-6 pr-4 h-full flex items-center border-l border-white/10">
-                                <motion.button
-                                    whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="relative px-10 py-3 bg-transparent border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.5em] uppercase transition-all duration-300 group overflow-hidden cursor-pointer"
-                                    onClick={() => router.push('/pages/main_pages')}
-                                >
-                                    <span className="relative z-10">MULAI</span>
-                                    <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-500 group-hover:border-black" />
-                                    <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-emerald-500 group-hover:border-black" />
-                                    <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-emerald-500 group-hover:border-black" />
-                                    <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-emerald-500 group-hover:border-black" />
-                                    <div className="absolute inset-0 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                                </motion.button>
+                            <div className="w-[1px] h-8 bg-white/10" />
+
+                            {/* POPULATION */}
+                            <div className="flex flex-col justify-center px-6 h-full">
+                                <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Populasi</span>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-white font-mono text-lg font-black tracking-wider">
+                                        {formatNumber(selectedCountry.jumlah_penduduk)}
+                                    </span>
+                                    <span className="text-emerald-500/30 text-[8px] font-bold uppercase">UNIT</span>
+                                </div>
                             </div>
+
+                            <div className="w-[1px] h-8 bg-white/10" />
+
+                            {/* SATISFACTION */}
+                            <div className="flex flex-col justify-center px-6 h-full">
+                                <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Kepuasan Rakyat</span>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-yellow-400 font-mono text-lg font-black tracking-wider">{satisfaction}%</span>
+                                    <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                                        <div className="h-full bg-yellow-400" style={{ width: `${satisfaction}%` }} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="w-[1px] h-8 bg-white/10" />
+
+                            {/* STABILITY */}
+                            <div className="flex flex-col justify-center px-6 h-full">
+                                <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Stabilitas</span>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-blue-400 font-mono text-lg font-black tracking-wider">{stability}%</span>
+                                    <div className="w-16 h-1 bg-white/10 rounded-full overflow-hidden">
+                                        <div className="h-full bg-blue-400" style={{ width: `${stability}%` }} />
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* START BUTTON SECTION - Only show in non-simulation mode */}
+                            {!isSimulation && (
+                                <div className="pl-6 pr-4 h-full flex items-center border-l border-white/10">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="relative px-10 py-3 bg-transparent border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.5em] uppercase transition-all duration-300 group overflow-hidden cursor-pointer"
+                                        onClick={() => router.push(`/pages/main_pages?id=${selectedCountry.id}`)}
+                                    >
+                                        <span className="relative z-10">MULAI</span>
+                                        <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-500 group-hover:border-black" />
+                                        <div className="absolute top-0 right-0 w-2 h-2 border-t-2 border-r-2 border-emerald-500 group-hover:border-black" />
+                                        <div className="absolute bottom-0 left-0 w-2 h-2 border-b-2 border-l-2 border-emerald-500 group-hover:border-black" />
+                                        <div className="absolute bottom-0 right-0 w-2 h-2 border-b-2 border-r-2 border-emerald-500 group-hover:border-black" />
+                                        <div className="absolute inset-0 bg-emerald-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </motion.button>
+                                </div>
+                            )}
                         </motion.div>
                     ) : (
                         <div className="flex items-center px-8 h-full bg-emerald-500/5 gap-6 border-l border-white/5">
