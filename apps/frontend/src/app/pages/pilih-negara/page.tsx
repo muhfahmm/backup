@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import MapContainer from '../sistem-map/shared/components/MapContainer';
 import CountryCarousel from '../sistem-map/shared/components/CountryCarousel';
+import MapNavbar from '../sistem-map/shared/components/MapNavbar';
 
 export default function PilihNegaraPage() {
   const [selectedCoords, setSelectedCoords] = useState<{ lat: number; lng: number } | null>(null);
@@ -20,6 +21,8 @@ export default function PilihNegaraPage() {
       {/* Background Grid - Minimalist */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px] pointer-events-none" />
       
+      <MapNavbar />
+
       {/* The Fullscreen Map Container */}
       <div className="w-full h-full">
         <MapContainer mode="MAIN" targetCoords={selectedCoords} selectedName={selectedName} selectedCode={selectedCode} />

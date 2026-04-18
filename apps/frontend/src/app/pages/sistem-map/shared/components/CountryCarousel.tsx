@@ -63,20 +63,19 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
 
   return (
     <div className="absolute bottom-12 left-0 w-full z-30 pointer-events-none overflow-hidden select-none group/carousel">
-      {/* HUD Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+      {/* Background is now fully cleared for a cleaner floating look */}
       
       {/* Navigation Chevrons */}
       <button 
         onClick={() => scroll('left')}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-emerald-500/10 hover:bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-[#0f172a] hover:bg-[#1e293b] border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </button>
 
       <button 
         onClick={() => scroll('right')}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-emerald-500/10 hover:bg-emerald-500/20 backdrop-blur-md border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-40 p-3 bg-[#0f172a] hover:bg-[#1e293b] border border-emerald-500/30 rounded-full text-emerald-500 pointer-events-auto transition-all opacity-0 group-hover/carousel:opacity-100 shadow-[0_0_20px_rgba(16,185,129,0.2)] active:scale-90"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
       </button>
@@ -85,7 +84,6 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
         <div 
           ref={scrollRef}
           className="flex gap-4 overflow-x-auto no-scrollbar pointer-events-auto pb-6 scroll-smooth"
-          style={{ maskImage: 'linear-gradient(90deg, transparent, white 15%, white 85%, transparent)' }}
         >
           {countries.map((country, index) => {
             const isActive = selectedCode 
@@ -101,7 +99,7 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="flex-shrink-0 w-44 group"
               >
-                <div className={`relative bg-[#1e293b]/30 backdrop-blur-2xl border rounded-xl p-4 overflow-hidden transition-all 
+                <div className={`relative bg-[#0f172a] border rounded-xl p-4 overflow-hidden transition-all 
                   ${isActive ? 'border-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.4)] ring-1 ring-emerald-500/50' : 'border-white/10 group-hover:border-emerald-500/50 group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)]'}`}
                 >
                   {/* Decorative Elements */}
@@ -130,7 +128,7 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
                               onSelectCountry(country.nama_negara, lat, lng, country.kode_negara);
                           }
                       }}
-                      className="absolute inset-0 flex items-center justify-center bg-emerald-600/10 backdrop-blur-sm rounded-xl cursor-pointer"
+                      className="absolute inset-0 flex items-center justify-center bg-emerald-600/20 rounded-xl cursor-pointer"
                     >
                       <div className="px-5 py-2 bg-emerald-500 text-white rounded-lg font-black text-[9px] tracking-[0.2em] uppercase shadow-lg shadow-emerald-500/50">
                         {isActive ? 'Current Active' : `Select ${country.nama_negara}`}
