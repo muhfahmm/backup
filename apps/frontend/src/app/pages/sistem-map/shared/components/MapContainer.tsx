@@ -2,16 +2,21 @@
 
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { CanvasEngine, GeoJsonData } from '../engine/CanvasEngine';
+import MapSDA from './MapSDA';
+import { Globe, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface MapContainerProps {
   mode?: 'MAIN' | 'TRADE' | 'RELATION' | 'RESOURCE';
+  userCountry?: string;
   targetCoords?: { lat: number; lng: number } | null;
   selectedName?: string | null;
   selectedCode?: string | null;
   onSelectCountry?: (country: any) => void;
+  onResetMode?: () => void;
 }
 
-export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName, selectedCode, onSelectCountry }: MapContainerProps) {
+export default function MapContainer({ mode = 'MAIN', userCountry = "Indonesia", targetCoords, selectedName, selectedCode, onSelectCountry, onResetMode }: MapContainerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<CanvasEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -24,27 +29,53 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   const [isDragging, setIsDragging] = useState(false);
   const [lastMousePos, setLastMousePos] = useState({ x: 0, y: 0 });
   const [isHoveringStar, setIsHoveringStar] = useState(false);
-  
+
   // Animation State
   const animationRef = useRef<number | null>(null);
 
   // Load Map Data
   useEffect(() => {
+    let retryCount = 0;
+    const maxRetries = 3;
+
     async function loadData() {
       try {
+        console.log(`[Map] Initiating data fetch (Attempt ${retryCount + 1})...`);
         const [geoRes, countryRes] = await Promise.all([
           fetch('/data/world.json'),
-          fetch('http://localhost:4000/api/countries')
+          fetch('/api/gateway/api/countries')
         ]);
-        
+
+        if (!geoRes.ok || !countryRes.ok) {
+          let details = '';
+          try {
+            const errorData = !countryRes.ok ? await countryRes.json() : await geoRes.json();
+            details = errorData.details || errorData.error || '';
+          } catch (e) { }
+
+          throw new Error(`Network response error: Geo(${geoRes.status}) Country(${countryRes.status})${details ? ' - ' + details : ''}`);
+        }
+
         const geoJson = await geoRes.json();
         const countryList = await countryRes.json();
-        
+
+        console.log(`[Map] Data loaded successfully: ${countryList.length} countries found.`);
         setData(geoJson);
         setCountries(countryList);
         setIsLoading(false);
-      } catch (error) {
-        console.error('Failed to load map data:', error);
+      } catch (error: any) {
+        console.error('[Map] ERROR LOADING DATA:', error.message);
+
+        if (retryCount < maxRetries) {
+          retryCount++;
+          console.log(`[Map] Retrying in 2s... (${retryCount}/${maxRetries})`);
+          setTimeout(loadData, 2000);
+          return;
+        }
+
+        if (error.message.includes('Failed to fetch')) {
+          console.warn('[Map] GATEWAY IS UNREACHABLE. Ensure Node.js gateway is running on localhost:4000');
+        }
         setIsLoading(false);
       }
     }
@@ -74,7 +105,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
       if (!containerRef.current || !canvasRef.current || !engineRef.current) return;
       const newWidth = containerRef.current.clientWidth;
       const newHeight = containerRef.current.clientHeight;
-      
+
       canvasRef.current.width = newWidth;
       canvasRef.current.height = newHeight;
       engineRef.current.resize(newWidth, newHeight);
@@ -136,7 +167,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     const animate = (time: number) => {
       if (startTime === null) startTime = time;
       const progress = Math.min((time - startTime) / duration, 1);
-      
+
       // Easing: easeOutCubic
       const easedProgress = 1 - Math.pow(1 - progress, 3);
 
@@ -164,11 +195,11 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
     e.preventDefault();
     const zoomSpeed = 0.005; // Snappier, faster zoom response
     const newScale = Math.min(Math.max(transform.scale - e.deltaY * zoomSpeed, 1.0), 10);
-    
+
     // Zoom focus on mouse position
     const rect = canvasRef.current?.getBoundingClientRect();
     if (!rect) return;
-    
+
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
@@ -188,10 +219,10 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
       // Clamp offsets after zoom
       newX = Math.min(newX, 0);
       newY = Math.min(newY, 0);
-      
+
       const minX = width * (1 - newScale);
       const minY = height * (1 - newScale);
-      
+
       newX = Math.max(newX, minX);
       newY = Math.max(newY, minY);
     }
@@ -226,7 +257,7 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
       // Right/Bottom bounds (Width * (1 - scale))
       const minX = width * (1 - prev.scale);
       const minY = height * (1 - prev.scale);
-      
+
       newX = Math.max(newX, minX);
       newY = Math.max(newY, minY);
 
@@ -264,8 +295,8 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
   };
 
   return (
-    <div 
-      ref={containerRef} 
+    <div
+      ref={containerRef}
       className="w-full h-full relative bg-[#070b14] overflow-hidden"
       onWheel={handleWheel}
       onMouseDown={handleMouseDown}
@@ -281,16 +312,50 @@ export default function MapContainer({ mode = 'MAIN', targetCoords, selectedName
           </div>
         </div>
       )}
-      <canvas 
-        ref={canvasRef} 
-        className={`w-full h-full block transition-opacity duration-1000 ${
-          isDragging ? 'cursor-grabbing' : isHoveringStar ? 'cursor-pointer' : 'cursor-grab'
-        }`}
-        onClick={handleClick}
-        style={{ opacity: isLoading ? 0 : 1 }}
-      />
-      
+      {mode === 'RESOURCE' ? (
+        <MapSDA
+          userCountry={userCountry}
+          targetCountry={selectedName || null}
+          onSelect={(name) => {
+            // Find country by name and select it
+            const country = countries.find(c => c.nama_negara === name || c.name_en === name);
+            if (country && onSelectCountry) onSelectCountry(country);
+          }}
+          geoData={data}
+          active={!isLoading}
+        />
+      ) : (
+        <canvas
+          ref={canvasRef}
+          className={`w-full h-full block transition-opacity duration-1000 ${isDragging ? 'cursor-grabbing' : isHoveringStar ? 'cursor-pointer' : 'cursor-grab'
+            }`}
+          onClick={handleClick}
+          style={{ opacity: isLoading ? 0 : 1 }}
+        />
+      )}
 
+      {/* Floating Tactical Exit Button */}
+      <AnimatePresence>
+        {mode !== 'MAIN' && (
+          <motion.div 
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 50 }}
+            className="absolute bottom-32 left-1/2 -translate-x-1/2 z-50 pointer-events-auto"
+          >
+            <button
+              onClick={() => onResetMode?.()}
+              className="group flex items-center gap-3 bg-[#070b14]/80 border border-emerald-500/30 backdrop-blur-xl px-6 py-3 rounded-full hover:border-emerald-400/60 hover:bg-emerald-500/10 transition-all duration-300 shadow-[0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_0_30px_rgba(16,185,129,0.25)]"
+            >
+              <div className="bg-emerald-500/20 p-1.5 rounded-full group-hover:scale-110 transition-transform">
+                <Globe size={16} className="text-emerald-400" />
+              </div>
+              <span className="text-emerald-400 font-black text-[10px] tracking-[0.3em] uppercase">Return to Global Map</span>
+              <X size={14} className="text-emerald-500/50 group-hover:text-emerald-400 transition-colors" />
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

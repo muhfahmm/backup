@@ -144,7 +144,7 @@ export default function MapNavbar({
                                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
                                         whileTap={{ scale: 0.95 }}
                                         className="relative px-10 py-3 bg-transparent border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.5em] uppercase transition-all duration-300 group overflow-hidden cursor-pointer"
-                                        onClick={() => router.push(`/pages/main_pages?id=${selectedCountry.id}`)}
+                                        onClick={() => router.push(`/game?id=${selectedCountry.id}`)}
                                     >
                                         <span className="relative z-10">MULAI</span>
                                         <div className="absolute top-0 left-0 w-2 h-2 border-t-2 border-l-2 border-emerald-500 group-hover:border-black" />

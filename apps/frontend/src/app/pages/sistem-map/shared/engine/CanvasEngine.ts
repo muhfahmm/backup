@@ -146,7 +146,7 @@ export class CanvasEngine {
     if (!this.countries || this.countries.length === 0) return;
 
     this.ctx.save();
-    
+
     // Tactical styling for dots
     this.ctx.shadowBlur = 4 / this.scale;
     this.ctx.shadowColor = 'rgba(0, 0, 0, 0.8)';
@@ -175,12 +175,12 @@ export class CanvasEngine {
         this.ctx.font = `bold ${10 / this.scale}px "Cascadia Code", "Fira Code", monospace`;
         this.ctx.fillStyle = '#22d3ee'; // Match dot color
         this.ctx.textAlign = 'center';
-        
+
         // Add subtle text shadow for legibility
         this.ctx.shadowBlur = 2 / this.scale;
         this.ctx.fillText(
-          country.ibukota.toUpperCase(), 
-          x, 
+          country.ibukota.toUpperCase(),
+          x,
           y - (6 / this.scale)
         );
       }
@@ -197,7 +197,7 @@ export class CanvasEngine {
 
     this.ctx.beginPath();
     this.ctx.moveTo(cx, cy - outerRadius);
-    
+
     for (let i = 0; i < spikes; i++) {
       x = cx + Math.cos(rot) * outerRadius;
       y = cy + Math.sin(rot) * outerRadius;
@@ -209,7 +209,7 @@ export class CanvasEngine {
       this.ctx.lineTo(x, y);
       rot += step;
     }
-    
+
     this.ctx.lineTo(cx, cy - outerRadius);
     this.ctx.closePath();
   }
@@ -265,7 +265,7 @@ export class CanvasEngine {
       if (isNaN(lat) || isNaN(lng)) continue;
 
       const { x, y } = this.projector.project(lng, lat);
-      
+
       // Convert map-space coordinates to screen-space (after scale and offset)
       const screenX = x * this.scale + this.offsetX;
       const screenY = y * this.scale + this.offsetY;
