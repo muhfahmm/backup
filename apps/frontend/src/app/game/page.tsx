@@ -10,11 +10,44 @@ import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/Ma
 import SDADetailModal from './components/1_navigasi_menu/1_navigasi_atas/modals_SDA/SDADetailModal';
 import { handleTogglePause, handleSpeedChange, getNextDate } from '../map-system/actions/time/simulation';
 import CountryDetailDashboard from '../map-system/components/CountryDetailDashboard';
+import StatistikKepuasanModal from './components/1_navigasi_menu/2_navigasi_bawah/1_kepuasan/1_statistik_kepuasan/StatistikKepuasanModal';
+import NaikkanKepuasanModal from './components/1_navigasi_menu/2_navigasi_bawah/1_kepuasan/2_naikkan_kepuasan/NaikkanKepuasanModal';
+import StatistikPopulasiModal from './components/1_navigasi_menu/2_navigasi_bawah/2_sosial/1_data_sosial/StatistikPopulasiModal';
+import AgamaModal from './components/1_navigasi_menu/2_navigasi_bawah/2_sosial/3_agama/AgamaModal';
+import IdeologiModal from './components/1_navigasi_menu/2_navigasi_bawah/2_sosial/4_ideologi/IdeologiModal';
+import LaporanEkonomiModal from './components/1_navigasi_menu/2_navigasi_bawah/4_ekonomi/1_laporan_ekonomi/LaporanEkonomiModal';
+import StimulusFiskalModal from './components/1_navigasi_menu/2_navigasi_bawah/4_ekonomi/2_stimulus_fiskal/StimulusFiskalModal';
+import PerdaganganModal from './components/1_navigasi_menu/2_navigasi_bawah/4_ekonomi/3_perdagangan/PerdaganganModal';
+import HargaModal from './components/1_navigasi_menu/2_navigasi_bawah/4_ekonomi/4_harga/HargaModal';
+import ProyekStrategisModal from './components/1_navigasi_menu/2_navigasi_bawah/5_infrastruktur/1_proyek_strategis/ProyekStrategisModal';
+import PembangunanBaruModal from './components/1_navigasi_menu/2_navigasi_bawah/5_infrastruktur/2_pembangunan_baru/PembangunanBaruModal';
+import ProduksiMiliterModal from './components/1_navigasi_menu/2_navigasi_bawah/5_infrastruktur/3_produksi_militer/ProduksiMiliterModal';
+import KelistrikanModal from './components/1_navigasi_menu/2_navigasi_bawah/10_energi/1_kelistrikan/KelistrikanModal';
+import PerminyakanModal from './components/1_navigasi_menu/2_navigasi_bawah/10_energi/2_perminyakan/PerminyakanModal';
+import UraniumModal from './components/1_navigasi_menu/2_navigasi_bawah/10_energi/3_uranium/UraniumModal';
+import KekuatanPatroliModal from './components/1_navigasi_menu/2_navigasi_bawah/6_militer/1_kekuatan_patroli/KekuatanPatroliModal';
+import OperasiTaktisModal from './components/1_navigasi_menu/2_navigasi_bawah/6_militer/2_operasi_taktis/OperasiTaktisModal';
+import IntelijenModal from './components/1_navigasi_menu/2_navigasi_bawah/6_militer/3_intelijen/IntelijenModal';
+import ArmadaPolisiModal from './components/1_navigasi_menu/2_navigasi_bawah/6_militer/4_armada_polisi/ArmadaPolisiModal';
+import ManajemenPertahananModal from './components/1_navigasi_menu/2_navigasi_bawah/6_militer/5_manajemen_pertahanan/ManajemenPertahananModal';
+import PengaruhGlobalModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/1_pengaruh_global/PengaruhGlobalModal';
+import DiplomasiAktifModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/2_diplomasi_aktif/DiplomasiAktifModal';
+import KedutaanModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/3_kedutaan/KedutaanModal';
+import OrganisasiModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/4_organisasi/OrganisasiModal';
+import HubunganModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/5_hubungan/HubunganModal';
+import BantuanModal from './components/1_navigasi_menu/2_navigasi_bawah/7_geopolitik/6_bantuan/BantuanModal';
+import CadanganNasionalModal from './components/1_navigasi_menu/2_navigasi_bawah/8_sumber_daya/1_cadangan_nasional/CadanganNasionalModal';
+import EksplorasiProduksiModal from './components/1_navigasi_menu/2_navigasi_bawah/8_sumber_daya/2_eksplorasi_produksi/EksplorasiProduksiModal';
+import PemerintahanPusatModal from './components/1_navigasi_menu/2_navigasi_bawah/9_kementrian/1_pemerintahan_pusat/PemerintahanPusatModal';
+import AnggaranKabinetModal from './components/1_navigasi_menu/2_navigasi_bawah/9_kementrian/2_anggaran_kabinet/AnggaranKabinetModal';
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
   const idRaw = searchParams.get('id') || '';
-  const [countryId, modeSlug] = idRaw.split('/');
+  const idParts = idRaw.split('/');
+  const countryId = idParts[0];
+  const modeSlug = idParts[1];
+  const fullPath = idParts.slice(1).join('/');
   
   // Mapping between internal state and URL slugs
   const slugToMode: Record<string, 'default' | 'sda' | 'hubungan' | 'trade'> = {
@@ -31,26 +64,85 @@ export default function MainPagesSimulation() {
     'trade': 'perdagangan'
   };
 
+  // Mapping internal menu IDs to URL paths (Indonesian)
+  const menuToPath: Record<string, string> = {
+    // First Level Path (Categories)
+    'Kepuasan': 'kepuasan',
+    'Populasi': 'populasi',
+    'ProduksiKonsumsi': 'energi',
+    'Ekonomi': 'ekonomi',
+    'Pembangunan': 'pembangunan',
+    'Pertahanan': 'militer',
+    'Geopolitik': 'geopolitik',
+    'Sosial & Budaya': 'sosial',
+    'Kementerian': 'kementrian',
+
+    // Second Level Path (Detailed Modals)
+    'Dashboard:Kepuasan': 'kepuasan/statistik_kepuasan',
+    'Action:NaikkanKepuasan': 'kepuasan/naikkan_kepuasan',
+    'Dashboard:Populasi': 'populasi/statistik_populasi',
+    'Menu:Agama': 'sosial/agama',
+    'Menu:Ideologi': 'sosial/ideologi',
+    'Menu:Pajak': 'ekonomi/pajak_dan_laporan',
+    'Menu:Hutang': 'ekonomi/hutang_dan_stimulus',
+    'Menu:Perdagangan': 'ekonomi/perdagangan',
+    'Menu:Harga': 'ekonomi/kontrol_harga',
+    'Menu:Budget': 'ekonomi/anggaran_nasional',
+    'Menu:Produksi': 'infrastruktur/proyek_strategis',
+    'Menu:TempatUmum': 'infrastruktur/pembangunan_umum',
+    'Menu:ProduksiMiliter': 'infrastruktur/produksi_militer',
+    'Menu:Kelistrikan': 'energi/grid_nasional',
+    'Menu:Perminyakan': 'energi/perminyakan',
+    'Menu:Uranium': 'energi/uranium',
+    'Komando Pertahanan': 'militer/kekuatan_patroli',
+    'Menu:ArmadaMiliter': 'militer/operasi_taktis',
+    'Menu:Intelijen': 'militer/intelijen_pusat',
+    'Menu:ArmadaPolisi': 'militer/armada_polisi',
+    'Menu:ManajemenPertahanan': 'militer/manajemen_pertahanan',
+    'Menu:PBB': 'geopolitik/pbb',
+    'Menu:Diplomasi': 'geopolitik/diplomasi_aktif',
+    'Menu:KedutaanBesar': 'geopolitik/kedutaan_besar',
+    'Menu:OrganisasiInternasional': 'geopolitik/organisasi_internasional',
+    'Menu:TingkatHubungan': 'geopolitik/tingkat_hubungan',
+    'Menu:Bantuan': 'geopolitik/bantuan_luar_negeri',
+    'Dashboard:Kementerian': 'kementrian/pemerintahan_pusat',
+  };
+
+  // Reverse mapping for initial load
+  const pathToMenu: Record<string, string> = Object.fromEntries(
+    Object.entries(menuToPath).map(([k, v]) => [v, k])
+  );
+
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [resources, setResources] = useState<any | null>(null);
   const [worldRelations, setWorldRelations] = useState<any[]>([]);
   const [isLoadingResources, setIsLoadingResources] = useState(false);
-  const [activeMenu, setActiveMenu] = useState('Peta Taktis');
+
+  // Parse initial menu from URL
+  const initialMenu = fullPath && pathToMenu[fullPath] ? pathToMenu[fullPath] : 'Peta Taktis';
+  
+  const [activeMenu, setActiveMenu] = useState(initialMenu);
   const [mapMode, setMapMode] = useState<'default' | 'sda' | 'hubungan' | 'trade'>(
     (modeSlug && slugToMode[modeSlug]) || 'default'
   );
   const [tacticalSelectedCountry, setTacticalSelectedCountry] = useState<string | null>(null);
   const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
-  // Sync URL when mapMode changes
+  // Sync URL when mapMode or activeMenu changes
   useEffect(() => {
     if (countryId) {
-      const currentSlug = modeToSlug[mapMode];
-      const newIdParam = `${countryId}/${currentSlug}`;
+      let finalSlug = modeToSlug[mapMode];
+      
+      // If a menu is active, use its path instead of the basic map mode slug
+      if (activeMenu !== 'Peta Taktis' && menuToPath[activeMenu]) {
+        finalSlug = menuToPath[activeMenu];
+      }
+      
+      const newIdParam = `${countryId}/${finalSlug}`;
       const newUrl = `${window.location.pathname}?id=${newIdParam}`;
       window.history.replaceState({ ...window.history.state, as: newUrl, url: newUrl }, '', newUrl);
     }
-  }, [mapMode, countryId]);
+  }, [mapMode, countryId, activeMenu]);
 
   const getEngineMode = () => {
     switch (mapMode) {
@@ -62,8 +154,8 @@ export default function MainPagesSimulation() {
   };
 
   const [stats, setStats] = useState({
-    satisfaction: 66,
-    stability: 80
+    satisfaction: 50,
+    stability: 50
   });
 
   const [simState, setSimState] = useState({
@@ -210,40 +302,7 @@ export default function MainPagesSimulation() {
 
         {/* Floating Intelligence Panels - Triggered by Sub-Menus */}
         <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 w-full max-w-4xl px-8 flex justify-center pointer-events-none">
-            {activeMenu === 'Dashboard:Kepuasan' && (
-                <motion.div 
-                    initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    className="bg-[#070b14]/90 border border-emerald-500/30 backdrop-blur-xl p-8 rounded-[2rem] shadow-2xl w-full max-w-md pointer-events-auto"
-                >
-                    <div className="flex justify-between items-end mb-6">
-                        <div className="flex flex-col">
-                            <span className="text-emerald-500/50 font-black text-[10px] uppercase tracking-[0.2em] mb-1">Societal Pulse</span>
-                            <h3 className="text-white font-black text-xl uppercase tracking-wider">Kepuasan Rakyat</h3>
-                        </div>
-                        <span className="text-emerald-400 font-mono text-3xl font-black">{stats.satisfaction}%</span>
-                    </div>
-
-                    <div className="w-full h-2 bg-white/5 rounded-full overflow-hidden mb-8 border border-white/5">
-                        <motion.div 
-                            initial={{ width: 0 }}
-                            animate={{ width: `${stats.satisfaction}%` }}
-                            className="h-full bg-linear-to-r from-emerald-600 to-emerald-400 shadow-[0_0_15px_rgba(16,185,129,0.5)]" 
-                        />
-                    </div>
-
-                    <div className="grid grid-cols-2 gap-4">
-                        <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                            <span className="text-[9px] font-black uppercase text-white/30 block mb-1">Ideologi Dominan</span>
-                            <span className="text-white font-mono text-xs uppercase tracking-tight">{selectedCountry?.ideologi || 'N/A'}</span>
-                        </div>
-                        <div className="p-4 bg-white/5 border border-white/10 rounded-2xl">
-                            <span className="text-[9px] font-black uppercase text-white/30 block mb-1">Afiliasi Religi</span>
-                            <span className="text-white font-mono text-xs uppercase tracking-tight">{selectedCountry?.agama || 'N/A'}</span>
-                        </div>
-                    </div>
-                </motion.div>
-            )}
+            {/* Dashboard:Kepuasan has been removed for refactoring */}
 
             {activeMenu === 'Menu:Produksi' && (
                 <motion.div 
@@ -277,6 +336,156 @@ export default function MainPagesSimulation() {
         />
 
         {/* Tactical Modals */}
+        <StatistikKepuasanModal 
+            isOpen={activeMenu === 'Dashboard:Kepuasan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <NaikkanKepuasanModal 
+            isOpen={activeMenu === 'Action:NaikkanKepuasan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <StatistikPopulasiModal 
+            isOpen={activeMenu === 'Dashboard:Populasi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <AgamaModal 
+            isOpen={activeMenu === 'Menu:Agama'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <IdeologiModal 
+            isOpen={activeMenu === 'Menu:Ideologi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <LaporanEkonomiModal 
+            isOpen={activeMenu === 'Menu:Pajak'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <StimulusFiskalModal 
+            isOpen={activeMenu === 'Menu:Hutang'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <PerdaganganModal 
+            isOpen={activeMenu === 'Menu:Perdagangan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <HargaModal 
+            isOpen={activeMenu === 'Menu:Harga'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <ProyekStrategisModal 
+            isOpen={activeMenu === 'Menu:Produksi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <PembangunanBaruModal 
+            isOpen={activeMenu === 'Menu:TempatUmum'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <ProduksiMiliterModal 
+            isOpen={activeMenu === 'Menu:ProduksiMiliter'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <KelistrikanModal 
+            isOpen={activeMenu === 'Menu:Kelistrikan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <PerminyakanModal 
+            isOpen={activeMenu === 'Menu:Perminyakan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <UraniumModal 
+            isOpen={activeMenu === 'Menu:Uranium'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <KekuatanPatroliModal 
+            isOpen={activeMenu === 'Komando Pertahanan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <OperasiTaktisModal 
+            isOpen={activeMenu === 'Menu:ArmadaMiliter'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <IntelijenModal 
+            isOpen={activeMenu === 'Menu:Intelijen'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <ArmadaPolisiModal 
+            isOpen={activeMenu === 'Menu:ArmadaPolisi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <ManajemenPertahananModal 
+            isOpen={activeMenu === 'Menu:ManajemenPertahanan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <PengaruhGlobalModal 
+            isOpen={activeMenu === 'Menu:PBB'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <DiplomasiAktifModal 
+            isOpen={activeMenu === 'Menu:Diplomasi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <KedutaanModal 
+            isOpen={activeMenu === 'Menu:KedutaanBesar'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <OrganisasiModal 
+            isOpen={activeMenu === 'Menu:OrganisasiInternasional'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <HubunganModal 
+            isOpen={activeMenu === 'Menu:TingkatHubungan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <BantuanModal 
+            isOpen={activeMenu === 'Menu:Bantuan'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <CadanganNasionalModal 
+            isOpen={activeMenu === '8_sumber_daya'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <EksplorasiProduksiModal 
+            isOpen={activeMenu === '2_eksplorasi_produksi'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <PemerintahanPusatModal 
+            isOpen={activeMenu === 'Dashboard:Kementerian'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
+        <AnggaranKabinetModal 
+            isOpen={activeMenu === 'Menu:Budget'} 
+            onClose={() => setActiveMenu('Peta Taktis')} 
+        />
+
         <SDADetailModal 
             countryName={tacticalSelectedCountry} 
             onClose={() => setTacticalSelectedCountry(null)} 
