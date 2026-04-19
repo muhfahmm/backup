@@ -5,7 +5,8 @@ import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MapContainer, MapNavbar, Country } from './index';
 import ResourceHUD from './components/ResourceHUD';
-import BottomNav from './components/1_navigasi_menu/1_navigasi_bawah/BottomNav';
+import BottomNav from './components/1_navigasi_menu/2_navigasi_bawah/BottomNav';
+import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/MapCategorySelector';
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
@@ -27,8 +28,14 @@ export default function MainPagesSimulation() {
   };
   
   const [stats, setStats] = useState({
-    satisfaction: 50,
-    stability: 50
+    satisfaction: 66,
+    stability: 80
+  });
+
+  const [simState, setSimState] = useState({
+    isPaused: true,
+    speed: 1,
+    date: '01-01-2026'
   });
 
   useEffect(() => {
@@ -73,10 +80,16 @@ export default function MainPagesSimulation() {
         isSimulation={true}
         satisfaction={stats.satisfaction}
         stability={stats.stability}
+        simDate={simState.date}
+        simSpeed={simState.speed}
+        isPaused={simState.isPaused}
+        onSpeedChange={(speed) => setSimState(prev => ({ ...prev, speed }))}
+        onTogglePause={() => setSimState(prev => ({ ...prev, isPaused: !prev.isPaused }))}
       />
 
       <div className="w-full h-full pt-20">
-        {/* Map Visualization Selectors Removed */}
+        {/* Map Visualization Selectors */}
+        <MapCategorySelector currentMode={mapMode} onModeChange={setMapMode} />
 
         {/* Advanced Multi-Level Navigation */}
         <BottomNav activeMenu={activeMenu} setActiveMenu={setActiveMenu} />

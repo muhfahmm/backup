@@ -67,6 +67,15 @@ app.get('/health', (req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+app.use((req, res) => {
+  console.warn(`[404] UNMATCHED ROUTE: ${req.method} ${req.url}`);
+  res.status(404).json({ 
+    error: 'Route not found', 
+    path: req.url,
+    method: req.method 
+  });
+});
+
 app.listen(port, '127.0.0.1', () => {
   console.log(`Gateway listening at http://127.0.0.1:${port}`);
 });

@@ -6,8 +6,17 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "npm run dev --workspaces --if-present",
+    "dev": "concurrently -n \"frontend,gateway,go,rust,cpp\" -c \"cyan,magenta,blue,green,yellow\" \"npm run dev:frontend\" \"npm run dev:gateway\" \"npm run dev:go\" \"npm run dev:rust\" \"npm run dev:cpp\"",
+    "dev:frontend": "npm run dev -w frontend",
+    "dev:gateway": "npm run dev -w gateway",
+    "dev:go": "nodemon --watch apps/frontend/src/server/go-backend --ext go --exec \"go run apps/frontend/src/server/go-backend/main.go\"",
+    "dev:rust": "nodemon --watch apps/frontend/src/server/rust-service --ext rs --exec \"cargo run --manifest-path apps/frontend/src/server/rust-service/Cargo.toml\"",
+    "dev:cpp": "cmake -B apps/frontend/src/server/cpp-core/build -S apps/frontend/src/server/cpp-core && cmake --build apps/frontend/src/server/cpp-core/build && apps/frontend/src/server/cpp-core/build/cpp_core.exe",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.14"
   }
 }

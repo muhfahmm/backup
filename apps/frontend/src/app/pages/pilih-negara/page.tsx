@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
-import MapContainer from '../sistem-map/shared/components/MapContainer';
-import CountryCarousel from '../sistem-map/shared/components/CountryCarousel';
-import MapNavbar from '../sistem-map/shared/components/MapNavbar';
-import { Country } from '../sistem-map/shared/types/country';
+import MapContainer from '../../map-system/components/MapContainer';
+import CountryCarousel from '../../map-system/components/CountryCarousel';
+import MapNavbar from '../../map-system/components/MapNavbar';
+import { Country } from '../../map-system/types/country';
 
 export default function PilihNegaraPage() {
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
