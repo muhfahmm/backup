@@ -16,12 +16,14 @@ import {
     Scale,
     Sparkles,
     Fingerprint,
-    Save
+    Save,
+    ChevronLeft
 } from 'lucide-react';
 import { Country } from '../types/country';
 import { getFlagUrl } from '../utils/countryMapping';
 import { handleExit } from '../actions/exit';
 import { handleSave as handleSaveAction } from '../actions/save';
+import SelectionRequiredModal from './SelectionRequiredModal';
 
 interface MapNavbarProps {
     selectedCountry: Country | null;
@@ -47,6 +49,7 @@ export default function MapNavbar({
     onTogglePause
 }: MapNavbarProps) {
     const router = useRouter();
+    const [isModalOpen, setIsModalOpen] = React.useState(false);
 
     const formatNumber = (num: string | number) => {
         return new Intl.NumberFormat('id-ID').format(Number(num));
@@ -77,7 +80,20 @@ export default function MapNavbar({
             {!isSimulation ? (
                 /* SELECTION MODE NAVBAR: Original HUD Style */
                 <>
-                    <div className="flex items-center gap-8 relative z-10">
+                    <div className="flex items-center gap-6 relative z-10">
+                        {/* Back Button */}
+                        <motion.button 
+                            whileHover={{ scale: 1.1, backgroundColor: 'rgba(255,255,255,0.05)' }}
+                            whileTap={{ scale: 0.9 }}
+                            onClick={() => router.push('/pages')}
+                            className="p-2.5 rounded-xl border border-white/5 bg-white/5 text-white/40 hover:text-emerald-500 transition-all flex items-center justify-center group"
+                            title="Kembali ke Menu Utama"
+                        >
+                            <ChevronLeft size={20} />
+                        </motion.button>
+
+                        <div className="w-[1px] h-8 bg-white/10 mx-2" />
+
                         <AnimatePresence mode="wait">
                             <motion.div 
                                 key={selectedCountry?.kode_negara || 'default'}
@@ -96,7 +112,7 @@ export default function MapNavbar({
                                             />
                                         ) : (
                                             <div className="w-full h-full flex items-center justify-center bg-emerald-500/10">
-                                                <span className="text-emerald-500/40 text-xl font-black">P</span>
+                                                <span className="text-emerald-500/10 text-xl font-black italic">NAV</span>
                                             </div>
                                         )}
                                     </div>
@@ -105,10 +121,10 @@ export default function MapNavbar({
                                 </div>
                                 <div className="flex flex-col">
                                     <h1 className="text-emerald-400 font-black text-sm tracking-[0.4em] uppercase leading-none mb-1">
-                                        {selectedCountry?.nama_negara || 'Global Strategy Engine'}
+                                        {selectedCountry?.nama_negara || '-'}
                                     </h1>
                                     <span className="text-white/40 font-mono text-[10px] tracking-[0.2em] uppercase">
-                                        {selectedCountry ? `COMMAND CENTER : ${selectedCountry.ibukota}` : 'Tactical Map v4.5 | Awaiting Selection'}
+                                        {selectedCountry ? `COMMAND CENTER : ${selectedCountry.ibukota}` : 'COMMAND CENTER : -'}
                                     </span>
                                 </div>
                             </motion.div>
@@ -117,57 +133,57 @@ export default function MapNavbar({
 
                     <div className="flex items-center h-full relative z-10">
                         <AnimatePresence mode="wait">
-                            {selectedCountry ? (
-                                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center h-full">
-                                    <div className="flex flex-col justify-center px-6 h-full bg-emerald-500/5">
-                                        <span className="text-emerald-500/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Kas Negara</span>
-                                        <span className="text-emerald-400 font-mono text-lg font-black">${formatNumber(selectedCountry.anggaran)}</span>
-                                    </div>
-                                    <div className="w-[1px] h-8 bg-white/10" />
-                                    <div className="flex flex-col justify-center px-6 h-full">
-                                        <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Populasi</span>
-                                        <span className="text-white font-mono text-lg font-black">{formatNumber(selectedCountry.jumlah_penduduk)}</span>
-                                    </div>
-                                    <div className="w-[1px] h-8 bg-white/10" />
-                                    <div className="flex flex-col justify-center px-6 h-full bg-blue-500/5">
-                                        <span className="text-blue-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Suara PBB</span>
-                                        <div className="flex items-center gap-2">
-                                            <Scale size={14} className="text-blue-400" />
-                                            <span className="text-blue-400 font-mono text-lg font-black">{selectedCountry.un_vote}</span>
-                                        </div>
-                                    </div>
-                                    <div className="w-[1px] h-8 bg-white/10" />
-                                    <div className="flex flex-col justify-center px-6 h-full bg-purple-500/5">
-                                        <span className="text-purple-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Agama</span>
-                                        <div className="flex items-center gap-2">
-                                            <Sparkles size={14} className="text-purple-400" />
-                                            <span className="text-purple-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry.agama}</span>
-                                        </div>
-                                    </div>
-                                    <div className="w-[1px] h-8 bg-white/10" />
-                                    <div className="flex flex-col justify-center px-6 h-full bg-amber-500/5">
-                                        <span className="text-amber-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Ideologi</span>
-                                        <div className="flex items-center gap-2">
-                                            <Fingerprint size={14} className="text-amber-400" />
-                                            <span className="text-amber-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry.ideologi}</span>
-                                        </div>
-                                    </div>
-                                    <div className="pl-6 h-full flex items-center border-l border-white/10">
-                                        <motion.button
-                                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
-                                            whileTap={{ scale: 0.95 }}
-                                            className="px-8 py-2.5 border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.4em] uppercase transition-all duration-300 cursor-pointer"
-                                            onClick={() => router.push(`/game?id=${selectedCountry.id}`)}
-                                        >
-                                            MULAI
-                                        </motion.button>
-                                    </div>
-                                </motion.div>
-                            ) : (
-                                <div className="flex items-center px-8 h-full bg-emerald-500/5 gap-4 opacity-40">
-                                    <span className="text-emerald-500 font-black text-[10px] tracking-[0.3em] uppercase">S-LEVEL AUTH REQUIRED</span>
+                            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center h-full">
+                                <div className="flex flex-col justify-center px-6 h-full bg-emerald-500/5">
+                                    <span className="text-emerald-500/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Kas Negara</span>
+                                    <span className="text-emerald-400 font-mono text-lg font-black">{selectedCountry ? `$${formatNumber(selectedCountry.anggaran)}` : '$ -'}</span>
                                 </div>
-                            )}
+                                <div className="w-[1px] h-8 bg-white/10" />
+                                <div className="flex flex-col justify-center px-6 h-full">
+                                    <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Populasi</span>
+                                    <span className="text-white font-mono text-lg font-black">{selectedCountry ? formatNumber(selectedCountry.jumlah_penduduk) : '0'}</span>
+                                </div>
+                                <div className="w-[1px] h-8 bg-white/10" />
+                                <div className="flex flex-col justify-center px-6 h-full bg-blue-500/5">
+                                    <span className="text-blue-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Suara PBB</span>
+                                    <div className="flex items-center gap-2">
+                                        <Scale size={14} className="text-blue-400" />
+                                        <span className="text-blue-400 font-mono text-lg font-black">{selectedCountry?.un_vote || '0'}</span>
+                                    </div>
+                                </div>
+                                <div className="w-[1px] h-8 bg-white/10" />
+                                <div className="flex flex-col justify-center px-6 h-full bg-purple-500/5">
+                                    <span className="text-purple-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Agama</span>
+                                    <div className="flex items-center gap-2">
+                                        <Sparkles size={14} className="text-purple-400" />
+                                        <span className="text-purple-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry?.agama || '-'}</span>
+                                    </div>
+                                </div>
+                                <div className="w-[1px] h-8 bg-white/10" />
+                                <div className="flex flex-col justify-center px-6 h-full bg-amber-500/5">
+                                    <span className="text-amber-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Ideologi</span>
+                                    <div className="flex items-center gap-2">
+                                        <Fingerprint size={14} className="text-amber-400" />
+                                        <span className="text-amber-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry?.ideologi || '-'}</span>
+                                    </div>
+                                </div>
+                                <div className="pl-6 h-full flex items-center border-l border-white/10">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(16,185,129,1)', color: '#000' }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="px-8 py-2.5 border-2 border-emerald-500 text-emerald-500 font-black text-xs tracking-[0.4em] uppercase transition-all duration-300 cursor-pointer"
+                                        onClick={() => {
+                                            if (selectedCountry) {
+                                                router.push(`/game?id=${selectedCountry.id}`);
+                                            } else {
+                                                setIsModalOpen(true);
+                                            }
+                                        }}
+                                    >
+                                        MULAI
+                                    </motion.button>
+                                </div>
+                            </motion.div>
                         </AnimatePresence>
                     </div>
                 </>
@@ -245,6 +261,10 @@ export default function MapNavbar({
                     </div>
                 </>
             )}
+        <SelectionRequiredModal 
+            isOpen={isModalOpen} 
+            onClose={() => setIsModalOpen(false)} 
+        />
         </nav>
     );
 }

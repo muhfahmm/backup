@@ -23,7 +23,9 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
-  useEffect(() => {
+  const fetchCountries = () => {
+    setLoading(true);
+    setError(null);
     fetch('http://127.0.0.1:4000/api/countries')
       .then(async res => {
         const data = await res.json();
@@ -38,9 +40,13 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
       })
       .catch(err => {
         console.error('Failed to fetch countries:', err);
-        setError(err.message);
+        setError(err.message === 'Failed to fetch' ? 'Server Gateway Tidak Merespons' : err.message);
         setLoading(false);
       });
+  };
+
+  useEffect(() => {
+    fetchCountries();
   }, []);
 
   // Handle Auto-Scroll when selection changes
@@ -74,11 +80,44 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
     });
 
   if (loading) {
-// ... existing loading state ...
+    return (
+      <div className="absolute bottom-12 left-0 w-full z-30 flex flex-col items-center justify-center py-20 pointer-events-none">
+        <motion.div 
+          animate={{ opacity: [0.3, 1, 0.3] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="flex flex-col items-center gap-4"
+        >
+          <div className="w-16 h-16 border-2 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+          <span className="text-[10px] font-black tracking-[0.4em] text-emerald-500/60 uppercase">Scanning Frequencies...</span>
+        </motion.div>
+      </div>
+    );
   }
 
   if (error) {
-// ... existing error state ...
+    return (
+      <div className="absolute bottom-12 left-0 w-full z-30 flex flex-col items-center justify-center py-16 pointer-events-none">
+        <div className="bg-[#0f172a]/90 backdrop-blur-xl border border-red-500/30 p-8 rounded-2xl flex flex-col items-center gap-6 shadow-[0_0_50px_rgba(239,68,68,0.1)] pointer-events-auto">
+          <div className="flex items-center gap-3 text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span className="text-xs font-black tracking-[0.3em] uppercase">Signal Interrupted</span>
+          </div>
+          <p className="text-[10px] text-white/40 font-medium tracking-wider max-w-[200px] text-center uppercase leading-relaxed">
+            {error}
+          </p>
+          <button 
+            onClick={fetchCountries}
+            className="group relative px-6 py-3 bg-red-500/10 hover:bg-red-500/20 border border-red-500/50 rounded-lg transition-all active:scale-95"
+          >
+            <div className="relative z-10 flex items-center gap-3 text-red-500">
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-180 transition-transform duration-500"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>
+              <span className="text-[9px] font-black tracking-[0.2em] uppercase">Re-establish Link</span>
+            </div>
+            <div className="absolute inset-0 bg-red-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+          </button>
+        </div>
+      </div>
+    );
   }
 
   return (

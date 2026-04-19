@@ -1,3 +1,4 @@
+// Trigger restart to bind port 4000 after port clearance
 import * as dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
 
