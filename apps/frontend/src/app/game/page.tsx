@@ -7,6 +7,7 @@ import { MapContainer, MapNavbar, Country } from './index';
 import ResourceHUD from './components/ResourceHUD';
 import BottomNav from './components/1_navigasi_menu/2_navigasi_bawah/BottomNav';
 import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/MapCategorySelector';
+import SDADetailModal from './components/1_navigasi_menu/1_navigasi_atas/modals_SDA/SDADetailModal';
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
@@ -36,6 +37,7 @@ export default function MainPagesSimulation() {
   const [mapMode, setMapMode] = useState<'default' | 'sda' | 'hubungan' | 'trade'>(
     (modeSlug && slugToMode[modeSlug]) || 'default'
   );
+  const [tacticalSelectedCountry, setTacticalSelectedCountry] = useState<string | null>(null);
 
   // Sync URL when mapMode changes
   useEffect(() => {
@@ -109,6 +111,13 @@ export default function MainPagesSimulation() {
         });
     }
   }, [activeMenu, selectedCountry, resources]);
+
+  const handleMapCountrySelect = (country: any) => {
+    if (mapMode === 'sda') {
+        setTacticalSelectedCountry(country.nama_negara);
+    }
+    // Handle other tactical clicks here if needed
+  };
 
   return (
     <main className="fixed inset-0 bg-[#070b14] overflow-hidden">
@@ -192,7 +201,14 @@ export default function MainPagesSimulation() {
           selectedName={selectedCountry?.nama_negara}
           selectedCode={selectedCountry?.kode_negara}
           relations={worldRelations}
+          onSelectCountry={handleMapCountrySelect}
           onResetMode={() => setMapMode('default')}
+        />
+
+        {/* Tactical Modals */}
+        <SDADetailModal 
+            countryName={tacticalSelectedCountry} 
+            onClose={() => setTacticalSelectedCountry(null)} 
         />
 
         {/* Global FX */}
