@@ -9,6 +9,7 @@ import BottomNav from './components/1_navigasi_menu/2_navigasi_bawah/BottomNav';
 import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/MapCategorySelector';
 import SDADetailModal from './components/1_navigasi_menu/1_navigasi_atas/modals_SDA/SDADetailModal';
 import { handleTogglePause, handleSpeedChange, getNextDate } from '../map-system/actions/time/simulation';
+import CountryDetailDashboard from '../map-system/components/CountryDetailDashboard';
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
@@ -39,6 +40,7 @@ export default function MainPagesSimulation() {
     (modeSlug && slugToMode[modeSlug]) || 'default'
   );
   const [tacticalSelectedCountry, setTacticalSelectedCountry] = useState<string | null>(null);
+  const [isDashboardOpen, setIsDashboardOpen] = useState(false);
 
   // Sync URL when mapMode changes
   useEffect(() => {
@@ -96,9 +98,32 @@ export default function MainPagesSimulation() {
       fetch('/api/gateway/api/countries')
         .then(res => res.json())
         .then(data => {
-          const country = data.find((c: Country) => c.id.toString() === countryId);
-          if (country) {
-            setSelectedCountry(country);
+          let targetCountry: Country | null = null;
+
+          if (countryId.startsWith('save_')) {
+            // Jika ID adalah Save ID, cari nama negara dari localStorage
+            try {
+              const savedDataRaw = localStorage.getItem('president_simulator_saves');
+              if (savedDataRaw) {
+                const saves = JSON.parse(savedDataRaw);
+                const currentSave = saves.find((s: any) => s.id === countryId);
+                if (currentSave) {
+                  // Cari negara berdasarkan nama yang tersimpan di save
+                  targetCountry = data.find((c: Country) => 
+                    c.nama_negara.toLowerCase() === currentSave.country.toLowerCase()
+                  );
+                }
+              }
+            } catch (err) {
+              console.error('Failed to parse saves from localStorage:', err);
+            }
+          } else {
+            // Jika ID numerik biasa
+            targetCountry = data.find((c: Country) => c.id.toString() === countryId);
+          }
+
+          if (targetCountry) {
+            setSelectedCountry(targetCountry);
           }
         })
         .catch(err => console.error('Failed to fetch country data:', err));
@@ -135,6 +160,17 @@ export default function MainPagesSimulation() {
   }, [activeMenu, selectedCountry, resources]);
 
   const handleMapCountrySelect = (country: any) => {
+    console.log('Map Clicked:', country.nama_negara, 'ID:', country.id);
+    console.log('Player Country:', selectedCountry?.nama_negara, 'ID:', selectedCountry?.id);
+    
+    // Jika user mengklik negaranya sendiri, buka dashboard detail
+    // Gunakan perbandingan ID untuk presisi yang lebih tinggi
+    if (selectedCountry && String(country.id) === String(selectedCountry.id)) {
+      console.log('SUCCESS: Opening Dashboard');
+      setIsDashboardOpen(true);
+      return;
+    }
+
     if (mapMode === 'sda') {
         setTacticalSelectedCountry(country.nama_negara);
     }
@@ -146,25 +182,31 @@ export default function MainPagesSimulation() {
       {/* Simulation Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.02)_0%,transparent_100%)] pointer-events-none" />
       
-      {/* HUD Navbar for Simulation Phase */}
-      <MapNavbar 
-        selectedCountry={selectedCountry} 
-        isSimulation={true}
-        satisfaction={stats.satisfaction}
-        stability={stats.stability}
-        simDate={simState.date}
-        simSpeed={simState.speed}
-        isPaused={simState.isPaused}
-        onSpeedChange={(speed) => handleSpeedChange(speed, setSimState)}
-        onTogglePause={() => handleTogglePause(setSimState)}
-      />
+      {/* HUD Navbar for Simulation Phase - Hidden when dashboard is open */}
+      <div className={`transition-all duration-500 z-50 fixed top-0 left-0 w-full ${isDashboardOpen ? 'opacity-0 pointer-events-none -translate-y-20' : 'opacity-100'}`}>
+        <MapNavbar 
+          selectedCountry={selectedCountry} 
+          isSimulation={true}
+          satisfaction={stats.satisfaction}
+          stability={stats.stability}
+          simDate={simState.date}
+          simSpeed={simState.speed}
+          isPaused={simState.isPaused}
+          onSpeedChange={(speed) => handleSpeedChange(speed, setSimState)}
+          onTogglePause={() => handleTogglePause(setSimState)}
+        />
+      </div>
 
       <div className="w-full h-full pt-20">
-        {/* Map Visualization Selectors */}
-        <MapCategorySelector currentMode={mapMode} onModeChange={setMapMode} />
+        {/* Map Visualization Selectors - Hidden when dashboard is open */}
+        <div className={`transition-all duration-300 ${isDashboardOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
+            <MapCategorySelector currentMode={mapMode} onModeChange={setMapMode} />
+        </div>
 
-        {/* Advanced Multi-Level Navigation */}
-        <BottomNav activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+        {/* Advanced Multi-Level Navigation - Hidden when dashboard is open */}
+        <div className={`transition-all duration-500 ${isDashboardOpen ? 'opacity-0 pointer-events-none translate-y-20' : 'opacity-100'}`}>
+            <BottomNav activeMenu={activeMenu} setActiveMenu={setActiveMenu} />
+        </div>
 
         {/* Floating Intelligence Panels - Triggered by Sub-Menus */}
         <div className="absolute top-24 left-1/2 -translate-x-1/2 z-30 w-full max-w-4xl px-8 flex justify-center pointer-events-none">
@@ -225,6 +267,13 @@ export default function MainPagesSimulation() {
           relations={worldRelations}
           onSelectCountry={handleMapCountrySelect}
           onResetMode={() => setMapMode('default')}
+        />
+
+        {/* Dashboard Overlay */}
+        <CountryDetailDashboard 
+            isOpen={isDashboardOpen} 
+            onClose={() => setIsDashboardOpen(false)} 
+            country={selectedCountry} 
         />
 
         {/* Tactical Modals */}
