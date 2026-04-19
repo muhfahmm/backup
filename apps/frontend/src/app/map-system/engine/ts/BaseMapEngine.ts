@@ -32,20 +32,49 @@ export abstract class BaseMapEngine {
   protected countries: any[] = [];
   protected selectedCountryName: string | null = null;
   protected selectedCountryCode: string | null = null;
+  protected needsUpdate: boolean = false;
+  protected isLoopRunning: boolean = false;
 
   // Transformation State
   protected scale: number = 1;
   protected offsetX: number = 0;
   protected offsetY: number = 0;
   protected relations: any[] = []; // ID-based relations
+  protected externalCommands: any[] = []; // Unified Render Protocol commands
   protected width: number;
   protected height: number;
+  private animationFrameId: number | null = null;
 
   constructor(ctx: CanvasRenderingContext2D, width: number, height: number) {
     this.ctx = ctx;
     this.width = width;
     this.height = height;
     this.projector = new Projector(width, height);
+    this.startRenderLoop();
+  }
+
+  private startRenderLoop() {
+    if (this.isLoopRunning) return;
+    this.isLoopRunning = true;
+    const loop = () => {
+      if (this.needsUpdate) {
+        this.executeRender();
+        this.needsUpdate = false;
+      }
+      this.animationFrameId = requestAnimationFrame(loop);
+    };
+    this.animationFrameId = requestAnimationFrame(loop);
+  }
+
+  public stopRenderLoop() {
+    this.isLoopRunning = false;
+    if (this.animationFrameId !== null) {
+      cancelAnimationFrame(this.animationFrameId);
+    }
+  }
+
+  public requestRender() {
+    this.needsUpdate = true;
   }
 
   public setData(data: GeoJsonData) {
@@ -54,12 +83,17 @@ export abstract class BaseMapEngine {
 
   public setCountries(countries: any[]) {
     this.countries = countries;
-    this.render();
+    this.requestRender();
   }
 
   public setRelations(relations: any[]) {
     this.relations = relations;
-    this.render();
+    this.requestRender();
+  }
+
+  public setExternalCommands(commands: any[]) {
+    this.externalCommands = commands;
+    this.requestRender();
   }
 
   public setSelectedCountry(name: string | null, code: string | null = null) {
@@ -71,10 +105,14 @@ export abstract class BaseMapEngine {
     this.scale = scale;
     this.offsetX = offsetX;
     this.offsetY = offsetY;
-    this.render();
+    this.requestRender();
   }
 
   public render() {
+    this.requestRender();
+  }
+
+  protected executeRender() {
     if (!this.data) return;
 
     // 1. Reset transform to draw background (Global)
@@ -98,6 +136,32 @@ export abstract class BaseMapEngine {
 
     // 6. Draw Specialized Overlays (Implemented by sub-classes)
     this.drawOverlays();
+
+    // 7. Draw External Polyglot Overlays
+    this.drawExternalCommands();
+  }
+
+  protected drawExternalCommands() {
+    if (!this.externalCommands || this.externalCommands.length === 0) return;
+
+    this.ctx.save();
+    for (const cmd of this.externalCommands) {
+        try {
+            switch (cmd.action) {
+                case 'beginPath': this.ctx.beginPath(); break;
+                case 'moveTo': this.ctx.moveTo(cmd.x, cmd.y); break;
+                case 'lineTo': this.ctx.lineTo(cmd.x, cmd.y); break;
+                case 'arc': this.ctx.arc(cmd.x, cmd.y, cmd.r, cmd.sA, cmd.eA); break;
+                case 'fill': this.ctx.fillStyle = cmd.value; this.ctx.fill(); break;
+                case 'stroke': this.ctx.strokeStyle = cmd.value; this.ctx.lineWidth = cmd.width || 1; this.ctx.stroke(); break;
+                case 'closePath': this.ctx.closePath(); break;
+                case 'setAlpha': this.ctx.globalAlpha = cmd.value; break;
+            }
+        } catch (e) {
+            console.warn('Invalid external command:', cmd);
+        }
+    }
+    this.ctx.restore();
   }
 
   // Hook for subclasses to draw custom backgrounds (like ocean textures)
@@ -167,6 +231,6 @@ export abstract class BaseMapEngine {
 
   public resize(width: number, height: number) {
     this.projector.updateDimensions(width, height);
-    this.render();
+    this.requestRender();
   }
 }

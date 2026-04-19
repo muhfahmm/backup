@@ -19,6 +19,7 @@ import {
 } from 'lucide-react';
 import { Country } from '../types/country';
 import { getFlagUrl } from '../utils/countryMapping';
+import { handleLogout } from '../actions/logout';
 
 interface MapNavbarProps {
     selectedCountry: Country | null;
@@ -235,7 +236,7 @@ export default function MapNavbar({
                             <div className="w-[1px] h-6 bg-white/10" />
                             <div className="flex items-center gap-2">
                                 <button className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-white rounded-xl"><RotateCcw size={16} /></button>
-                                <button onClick={() => router.push('/pages/pilih-negara')} className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-red-400 rounded-xl"><LogOut size={16} /></button>
+                                <button onClick={() => handleLogout(router)} className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-red-400 rounded-xl"><LogOut size={16} /></button>
                             </div>
                         </div>
                     </div>

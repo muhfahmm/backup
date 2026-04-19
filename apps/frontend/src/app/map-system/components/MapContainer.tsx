@@ -121,7 +121,12 @@ export default function MapContainer({
     };
 
     window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+        window.removeEventListener('resize', handleResize);
+        if (engineRef.current) {
+            engineRef.current.stopRenderLoop();
+        }
+    };
   }, [data, countries, mode, relations, selectedName, selectedCode]); // Trigger swap and initial data sync
 
   // Sync Transform, Selections & Relations

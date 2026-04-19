@@ -1,4 +1,4 @@
-module github.com/presiden-simulator/backend
+module github.com/presiden-simulator/backend/go-backend
 
 go 1.25.0
 

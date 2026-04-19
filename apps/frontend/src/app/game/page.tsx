@@ -8,6 +8,7 @@ import ResourceHUD from './components/ResourceHUD';
 import BottomNav from './components/1_navigasi_menu/2_navigasi_bawah/BottomNav';
 import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/MapCategorySelector';
 import SDADetailModal from './components/1_navigasi_menu/1_navigasi_atas/modals_SDA/SDADetailModal';
+import { handleTogglePause, handleSpeedChange, getNextDate } from '../map-system/actions/time/simulation';
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
@@ -68,6 +69,27 @@ export default function MainPagesSimulation() {
     speed: 1,
     date: '01-01-2026'
   });
+
+  // Simulation Clock Tick Logic
+  useEffect(() => {
+    let interval: any = null;
+    
+    if (!simState.isPaused) {
+      // 1x = 1000ms, 2x = 500ms, 3x = 250ms
+      const tickRate = 1000 / simState.speed;
+      
+      interval = setInterval(() => {
+        setSimState(prev => ({
+          ...prev,
+          date: getNextDate(prev.date)
+        }));
+      }, tickRate);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [simState.isPaused, simState.speed]);
 
   useEffect(() => {
     if (countryId) {
@@ -133,8 +155,8 @@ export default function MainPagesSimulation() {
         simDate={simState.date}
         simSpeed={simState.speed}
         isPaused={simState.isPaused}
-        onSpeedChange={(speed) => setSimState(prev => ({ ...prev, speed }))}
-        onTogglePause={() => setSimState(prev => ({ ...prev, isPaused: !prev.isPaused }))}
+        onSpeedChange={(speed) => handleSpeedChange(speed, setSimState)}
+        onTogglePause={() => handleTogglePause(setSimState)}
       />
 
       <div className="w-full h-full pt-20">
