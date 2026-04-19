@@ -37,9 +37,14 @@ export abstract class BaseMapEngine {
   protected scale: number = 1;
   protected offsetX: number = 0;
   protected offsetY: number = 0;
+  protected relations: any[] = []; // ID-based relations
+  protected width: number;
+  protected height: number;
 
   constructor(ctx: CanvasRenderingContext2D, width: number, height: number) {
     this.ctx = ctx;
+    this.width = width;
+    this.height = height;
     this.projector = new Projector(width, height);
   }
 
@@ -49,6 +54,11 @@ export abstract class BaseMapEngine {
 
   public setCountries(countries: any[]) {
     this.countries = countries;
+    this.render();
+  }
+
+  public setRelations(relations: any[]) {
+    this.relations = relations;
     this.render();
   }
 

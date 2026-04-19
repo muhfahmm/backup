@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Search, ArrowDownAZ, ArrowUpAZ, X } from 'lucide-react';
 import { getFlagUrl } from '../utils/countryMapping';
 import { Country } from '../types/country';
 
@@ -17,6 +18,8 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
   const [countries, setCountries] = useState<Country[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const scrollRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
@@ -61,6 +64,15 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
     }
   };
 
+  const filteredAndSortedCountries = countries
+    .filter(c => c.nama_negara.toLowerCase().includes(searchTerm.toLowerCase()))
+    .sort((a, b) => {
+        const nameA = a.nama_negara.toLowerCase();
+        const nameB = b.nama_negara.toLowerCase();
+        if (sortOrder === 'asc') return nameA.localeCompare(nameB);
+        return nameB.localeCompare(nameA);
+    });
+
   if (loading) {
 // ... existing loading state ...
   }
@@ -88,12 +100,51 @@ export default function CountryCarousel({ onSelectCountry, selectedName, selecte
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
       </button>
 
-      <div className="relative max-w-[100vw] px-20 pb-4">
+      <div className="relative max-w-[100vw] px-20">
+        {/* Search & Sort HUD Bar */}
+        <div className="flex items-center gap-4 mb-6 px-4 pointer-events-auto max-w-4xl mx-auto">
+            <div className="relative flex-1 group/search">
+                <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none text-emerald-500/40 group-focus-within/search:text-emerald-500 transition-colors">
+                    <Search size={16} />
+                </div>
+                <input 
+                    type="text" 
+                    placeholder="CARI NEGARA TARGET..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="w-full bg-[#0f172a]/80 backdrop-blur-md border border-white/5 focus:border-emerald-500/50 outline-none rounded-xl py-3 pl-12 pr-10 text-xs font-black tracking-[0.2em] text-emerald-400 placeholder:text-white/10 transition-all shadow-lg"
+                />
+                {searchTerm && (
+                    <button 
+                        onClick={() => setSearchTerm('')}
+                        className="absolute inset-y-0 right-4 flex items-center text-white/20 hover:text-emerald-500 transition-colors"
+                    >
+                        <X size={14} />
+                    </button>
+                )}
+            </div>
+
+            <button 
+                onClick={() => setSortOrder(prev => prev === 'asc' ? 'desc' : 'asc')}
+                className="bg-[#0f172a]/80 backdrop-blur-md border border-white/5 hover:border-emerald-500/50 rounded-xl px-5 py-3 flex items-center gap-3 text-emerald-500 transition-all shadow-lg group/sort"
+            >
+                {sortOrder === 'asc' ? <ArrowDownAZ size={16} /> : <ArrowUpAZ size={16} />}
+                <span className="text-[10px] font-black tracking-[0.2em] uppercase hidden sm:block">
+                    {sortOrder === 'asc' ? 'A - Z' : 'Z - A'}
+                </span>
+            </button>
+            
+            <div className="bg-emerald-500/10 border border-emerald-500/20 rounded-xl px-4 py-3 min-w-[80px] text-center shadow-lg">
+                <span className="text-[10px] font-black text-emerald-500 tracking-widest">{filteredAndSortedCountries.length}</span>
+                <span className="text-[8px] text-emerald-500/40 font-black tracking-widest ml-2 uppercase">Match</span>
+            </div>
+        </div>
+
         <div 
           ref={scrollRef}
           className="flex gap-4 overflow-x-auto no-scrollbar pointer-events-auto pb-6 scroll-smooth"
         >
-          {countries.map((country, index) => {
+          {filteredAndSortedCountries.map((country, index) => {
             const isActive = selectedCode 
               ? country.kode_negara === selectedCode
               : selectedName && country.nama_negara.toLowerCase() === selectedName.toLowerCase();

@@ -9,4 +9,5 @@ export interface Country {
     kode_negara: string;
     agama: string;
     ideologi: string;
+    un_vote: number;
 }

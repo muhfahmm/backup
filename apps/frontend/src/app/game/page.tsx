@@ -10,13 +10,42 @@ import MapCategorySelector from './components/1_navigasi_menu/1_navigasi_atas/Ma
 
 export default function MainPagesSimulation() {
   const searchParams = useSearchParams();
-  const countryId = searchParams.get('id');
+  const idRaw = searchParams.get('id') || '';
+  const [countryId, modeSlug] = idRaw.split('/');
   
+  // Mapping between internal state and URL slugs
+  const slugToMode: Record<string, 'default' | 'sda' | 'hubungan' | 'trade'> = {
+    'peta_utama': 'default',
+    'sda': 'sda',
+    'hubungan': 'hubungan',
+    'perdagangan': 'trade'
+  };
+
+  const modeToSlug: Record<string, string> = {
+    'default': 'peta_utama',
+    'sda': 'sda',
+    'hubungan': 'hubungan',
+    'trade': 'perdagangan'
+  };
+
   const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
   const [resources, setResources] = useState<any | null>(null);
+  const [worldRelations, setWorldRelations] = useState<any[]>([]);
   const [isLoadingResources, setIsLoadingResources] = useState(false);
   const [activeMenu, setActiveMenu] = useState('Peta Taktis');
-  const [mapMode, setMapMode] = useState<'default' | 'sda' | 'hubungan' | 'trade'>('default');
+  const [mapMode, setMapMode] = useState<'default' | 'sda' | 'hubungan' | 'trade'>(
+    (modeSlug && slugToMode[modeSlug]) || 'default'
+  );
+
+  // Sync URL when mapMode changes
+  useEffect(() => {
+    if (countryId) {
+      const currentSlug = modeToSlug[mapMode];
+      const newIdParam = `${countryId}/${currentSlug}`;
+      const newUrl = `${window.location.pathname}?id=${newIdParam}`;
+      window.history.replaceState({ ...window.history.state, as: newUrl, url: newUrl }, '', newUrl);
+    }
+  }, [mapMode, countryId]);
 
   const getEngineMode = () => {
     switch (mapMode) {
@@ -26,7 +55,7 @@ export default function MainPagesSimulation() {
         default: return 'MAIN';
     }
   };
-  
+
   const [stats, setStats] = useState({
     satisfaction: 66,
     stability: 80
@@ -51,6 +80,18 @@ export default function MainPagesSimulation() {
         .catch(err => console.error('Failed to fetch country data:', err));
     }
   }, [countryId]);
+
+  // Fetch relations for the selected country
+  useEffect(() => {
+    if (mapMode === 'hubungan' && selectedCountry) {
+      fetch(`/api/gateway/api/relations/${selectedCountry.id}`)
+        .then(res => res.json())
+        .then(data => setWorldRelations(data))
+        .catch(err => console.error('Failed to fetch relations:', err));
+    } else if (mapMode !== 'hubungan') {
+      setWorldRelations([]); // Clear when not in use
+    }
+  }, [mapMode, selectedCountry]);
 
   useEffect(() => {
     // Fetch resources specifically when the Produksi sub-menu is active
@@ -145,13 +186,12 @@ export default function MainPagesSimulation() {
                 </motion.div>
             )}
         </div>
-
-        {/* Map Engine - Background Layer */}
         <MapContainer 
           mode={getEngineMode()} 
           userCountry={selectedCountry?.nama_negara}
           selectedName={selectedCountry?.nama_negara}
           selectedCode={selectedCountry?.kode_negara}
+          relations={worldRelations}
           onResetMode={() => setMapMode('default')}
         />
 

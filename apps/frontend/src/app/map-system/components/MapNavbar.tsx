@@ -12,7 +12,10 @@ import {
     Pause, 
     Play, 
     RotateCcw, 
-    LogOut 
+    LogOut,
+    Scale,
+    Sparkles,
+    Fingerprint
 } from 'lucide-react';
 import { Country } from '../types/country';
 import { getFlagUrl } from '../utils/countryMapping';
@@ -121,6 +124,30 @@ export default function MapNavbar({
                                     <div className="flex flex-col justify-center px-6 h-full">
                                         <span className="text-white/30 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Populasi</span>
                                         <span className="text-white font-mono text-lg font-black">{formatNumber(selectedCountry.jumlah_penduduk)}</span>
+                                    </div>
+                                    <div className="w-[1px] h-8 bg-white/10" />
+                                    <div className="flex flex-col justify-center px-6 h-full bg-blue-500/5">
+                                        <span className="text-blue-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Suara PBB</span>
+                                        <div className="flex items-center gap-2">
+                                            <Scale size={14} className="text-blue-400" />
+                                            <span className="text-blue-400 font-mono text-lg font-black">{selectedCountry.un_vote}</span>
+                                        </div>
+                                    </div>
+                                    <div className="w-[1px] h-8 bg-white/10" />
+                                    <div className="flex flex-col justify-center px-6 h-full bg-purple-500/5">
+                                        <span className="text-purple-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Agama</span>
+                                        <div className="flex items-center gap-2">
+                                            <Sparkles size={14} className="text-purple-400" />
+                                            <span className="text-purple-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry.agama}</span>
+                                        </div>
+                                    </div>
+                                    <div className="w-[1px] h-8 bg-white/10" />
+                                    <div className="flex flex-col justify-center px-6 h-full bg-amber-500/5">
+                                        <span className="text-amber-400/50 font-bold text-[9px] tracking-[0.2em] uppercase mb-1">Ideologi</span>
+                                        <div className="flex items-center gap-2">
+                                            <Fingerprint size={14} className="text-amber-400" />
+                                            <span className="text-amber-400 font-black text-xs tracking-wider uppercase leading-none">{selectedCountry.ideologi}</span>
+                                        </div>
                                     </div>
                                     <div className="pl-6 h-full flex items-center border-l border-white/10">
                                         <motion.button

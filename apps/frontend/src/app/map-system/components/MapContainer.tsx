@@ -15,11 +15,21 @@ interface MapContainerProps {
   targetCoords?: { lat: number; lng: number } | null;
   selectedName?: string | null;
   selectedCode?: string | null;
+  relations?: any[];
   onSelectCountry?: (country: any) => void;
   onResetMode?: () => void;
 }
 
-export default function MapContainer({ mode = 'MAIN', userCountry = "Indonesia", targetCoords, selectedName, selectedCode, onSelectCountry, onResetMode }: MapContainerProps) {
+export default function MapContainer({ 
+  mode = 'MAIN', 
+  userCountry = "Indonesia", 
+  targetCoords, 
+  selectedName, 
+  selectedCode, 
+  relations = [],
+  onSelectCountry, 
+  onResetMode 
+}: MapContainerProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const engineRef = useRef<BaseMapEngine | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -97,6 +107,7 @@ export default function MapContainer({ mode = 'MAIN', userCountry = "Indonesia",
     engine.setData(data);
     engine.setCountries(countries);
     engine.setSelectedCountry(selectedName || null, selectedCode || null);
+    engine.setRelations(relations);
     engine.setTransform(transform.scale, transform.x, transform.y);
     engineRef.current = engine;
 
@@ -111,15 +122,16 @@ export default function MapContainer({ mode = 'MAIN', userCountry = "Indonesia",
 
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, [data, countries, mode]); // Trigger swap when mode changes
+  }, [data, countries, mode, relations, selectedName, selectedCode]); // Trigger swap and initial data sync
 
-  // Sync Transform & Selections
+  // Sync Transform, Selections & Relations
   useEffect(() => {
     if (engineRef.current) {
         engineRef.current.setSelectedCountry(selectedName || null, selectedCode || null);
+        engineRef.current.setRelations(relations);
         engineRef.current.setTransform(transform.scale, transform.x, transform.y);
     }
-  }, [transform, selectedName, selectedCode]);
+  }, [transform, selectedName, selectedCode, relations]);
 
   // Handle Target Zooming Logic (Condensed)
   useEffect(() => {

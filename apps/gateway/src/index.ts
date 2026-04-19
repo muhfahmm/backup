@@ -63,6 +63,22 @@ app.get('/api/resources/:countryName', async (req: Request, res: Response) => {
   }
 });
 
+app.get('/api/relations/:id', async (req: Request, res: Response) => {
+  const { id } = req.params;
+  try {
+    console.log(`[DB] Fetching relations for country ID: ${id}...`);
+    const result = await pool.query(
+      'SELECT country_id_target, relation_score FROM "3_hubungan_antar_negara" WHERE country_id_source = $1',
+      [id]
+    );
+    console.log(`[DB] Query success: ${result.rows.length} relations returned`);
+    res.json(result.rows);
+  } catch (err: any) {
+    console.error('DATABASE ERROR:', err.message);
+    res.status(500).json({ error: 'Failed to fetch relationship data' });
+  }
+});
+
 app.get('/health', (req: Request, res: Response) => {
   res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });

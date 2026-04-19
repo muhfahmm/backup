@@ -1,22 +1,44 @@
-import { BaseMapEngine, GeoJsonFeature } from './BaseMapEngine';
+import { BaseMapEngine, GeoJsonFeature, CONTINENT_COLORS } from './BaseMapEngine';
 
 export class TradeMapEngine extends BaseMapEngine {
   protected drawBackground(): void {
-    // Deep Ocean Background for trade
-    this.ctx.fillStyle = '#020617';
+    // Ocean Background - Tactical Blue (Synced)
+    this.ctx.fillStyle = '#1e3a8a';
     this.ctx.fillRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
   }
 
   protected drawFeature(feature: GeoJsonFeature): void {
+    const continent = feature.properties.CONTINENT || 'Unknown';
+    const name = feature.properties.NAME || 'Unknown';
+    const nameLong = feature.properties.NAME_LONG || '';
+
     const isSelected = (
-      (this.selectedCountryCode && feature.properties.ISO_A3?.toLowerCase() === this.selectedCountryCode.toLowerCase()) ||
-      (this.selectedCountryName && feature.properties.NAME?.toLowerCase() === this.selectedCountryName.toLowerCase())
+      (this.selectedCountryCode && (
+        feature.properties.ISO_A3?.toLowerCase() === this.selectedCountryCode.toLowerCase() ||
+        feature.properties.ISO_A2?.toLowerCase() === this.selectedCountryCode.toLowerCase() ||
+        feature.properties.ADM0_A3?.toLowerCase() === this.selectedCountryCode.toLowerCase()
+      )) ||
+      (this.selectedCountryName && (
+        name.toLowerCase() === this.selectedCountryName.toLowerCase() ||
+        nameLong.toLowerCase() === this.selectedCountryName.toLowerCase() ||
+        feature.properties.NAME_ID?.toLowerCase() === this.selectedCountryName.toLowerCase()
+      ))
     );
 
+    let color = CONTINENT_COLORS[continent] || '#475569';
+    let borderColor = 'rgba(255, 255, 255, 0.6)';
+    let lineWidth = Math.max(0.7 / this.scale, 0.4);
+
+    if (isSelected) {
+      color = '#10b981'; // Emerald-500
+      borderColor = '#34d399';
+      lineWidth = Math.max(2 / this.scale, 1);
+    }
+
     this.ctx.beginPath();
-    this.ctx.fillStyle = isSelected ? '#38bdf8' : 'rgba(30, 41, 59, 0.5)';
-    this.ctx.strokeStyle = 'rgba(255, 255, 255, 0.05)';
-    this.ctx.lineWidth = 0.5 / this.scale;
+    this.ctx.fillStyle = color;
+    this.ctx.strokeStyle = borderColor;
+    this.ctx.lineWidth = lineWidth;
 
     const { type, coordinates } = feature.geometry;
     if (type === 'Polygon') this.drawPolygon(coordinates);
