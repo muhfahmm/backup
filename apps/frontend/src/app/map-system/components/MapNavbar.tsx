@@ -15,11 +15,13 @@ import {
     LogOut,
     Scale,
     Sparkles,
-    Fingerprint
+    Fingerprint,
+    Save
 } from 'lucide-react';
 import { Country } from '../types/country';
 import { getFlagUrl } from '../utils/countryMapping';
-import { handleLogout } from '../actions/logout';
+import { handleExit } from '../actions/exit';
+import { handleSave as handleSaveAction } from '../actions/save';
 
 interface MapNavbarProps {
     selectedCountry: Country | null;
@@ -235,8 +237,9 @@ export default function MapNavbar({
                             </div>
                             <div className="w-[1px] h-6 bg-white/10" />
                             <div className="flex items-center gap-2">
-                                <button className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-white rounded-xl"><RotateCcw size={16} /></button>
-                                <button onClick={() => handleLogout(router)} className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-red-400 rounded-xl"><LogOut size={16} /></button>
+                                <button className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-white rounded-xl" title="Ulangi Simulasi"><RotateCcw size={16} /></button>
+                                <button onClick={() => handleSaveAction(selectedCountry, simDate, stability)} className="p-2.5 bg-emerald-500/10 border border-emerald-500/20 text-emerald-500 hover:bg-emerald-500 hover:text-black rounded-xl transition-all" title="Simpan Progress"><Save size={16} /></button>
+                                <button onClick={() => handleExit(router)} className="p-2.5 bg-white/5 border border-white/5 text-white/40 hover:text-red-400 rounded-xl" title="Keluar ke Menu Utama"><LogOut size={16} /></button>
                             </div>
                         </div>
                     </div>
