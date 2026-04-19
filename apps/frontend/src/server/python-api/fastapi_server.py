@@ -1,14 +1,19 @@
+import os
+import psutil
 from fastapi import FastAPI
 import uvicorn
 
 app = FastAPI()
 
 @app.get("/api/simulation/status")
-def get_status():
+async def get_status():
+    process = psutil.Process(os.getpid())
+    memory_mb = process.memory_info().rss / (1024 * 1024)
     return {
         "engine": "Python",
         "framework": "FastAPI",
-        "status": "Ready",
+        "status": "Active",
+        "memory_mb": round(memory_mb, 2),
         "features": ["Asyncio", "Pydantic"]
     }
 

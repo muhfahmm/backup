@@ -12,7 +12,11 @@ public class NettyServer {
         int port = 8093;
         HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
         server.createContext("/api/simulation/status", t -> {
-            String response = "{\"engine\":\"Java\",\"framework\":\"Netty-Mock-Native\",\"status\":\"Ready\"}";
+            Runtime runtime = Runtime.getRuntime();
+            long usedMemory = runtime.totalMemory() - runtime.freeMemory();
+            double memoryMB = usedMemory / (1024.0 * 1024.0);
+
+            String response = String.format("{\"engine\":\"Java\",\"framework\":\"Netty-Mock-Native\",\"status\":\"Ready\",\"memory_mb\":%.2f}", memoryMB);
             t.getResponseHeaders().set("Content-Type", "application/json");
             t.sendResponseHeaders(200, response.length());
             try (OutputStream os = t.getResponseBody()) {

@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"runtime"
 
 	"github.com/valyala/fasthttp"
 )
@@ -13,8 +14,12 @@ import (
  */
 
 func requestHandler(ctx *fasthttp.RequestCtx) {
-	fmt.Fprintf(ctx, "{\"engine\": \"Go\", \"framework\": \"Fasthttp\", \"status\": \"Active\"}")
+	var m runtime.MemStats
+	runtime.ReadMemStats(&m)
+	memoryMB := float64(m.Alloc) / 1024 / 1024
+	
 	ctx.SetContentType("application/json")
+	fmt.Fprintf(ctx, "{\"engine\": \"Go\", \"framework\": \"Fasthttp\", \"status\": \"Active\", \"memory_mb\": %.2f}", memoryMB)
 }
 
 func main() {

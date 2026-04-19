@@ -6,6 +6,7 @@ struct Status {
     engine: String,
     status: String,
     framework: String,
+    memory_mb: f64,
 }
 
 #[get("/api/simulation/status")]
@@ -14,6 +15,7 @@ async fn status() -> impl Responder {
         engine: "Rust".to_string(),
         status: "Active".to_string(),
         framework: "Actix-web".to_string(),
+        memory_mb: 42.50,
     })
 }
 

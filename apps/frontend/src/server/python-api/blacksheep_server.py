@@ -1,16 +1,24 @@
-from blacksheep import Application, get, json
-import uvicorn
+import os
+import psutil
+from blacksheep import Application, json
+
+# PYTHON BlackSheep Server - High Performance
+# Port: 8090
 
 app = Application()
 
-@get("/api/simulation/status")
-def get_status():
+@app.route("/api/simulation/status")
+async def get_status():
+    process = psutil.Process(os.getpid())
+    memory_mb = process.memory_info().rss / (1024 * 1024)
     return json({
         "engine": "Python",
         "framework": "BlackSheep",
-        "status": "Running",
-        "features": ["Ultra-fast", "Dependency Injection"]
+        "status": "Active",
+        "memory_mb": round(memory_mb, 2)
     })
 
 if __name__ == "__main__":
+    import uvicorn
+    print("Starting BlackSheep Python Server on port 8090...")
     uvicorn.run(app, host="0.0.0.0", port=8090)
