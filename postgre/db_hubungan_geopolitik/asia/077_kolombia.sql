@@ -1,0 +1,13 @@
+-- Hubungan Geopolitik untuk kolombia (REALISTIC DATA)
+INSERT INTO hubungan_negara (country_id, target_country_id, relation_value) VALUES
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Afganistan' OR name_id = 'Afganistan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Afrika Selatan' OR name_id = 'Afrika Selatan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Albania' OR name_id = 'Albania' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Amerika Serikat' OR name_id = 'Amerika Serikat' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Andorra' OR name_id = 'Andorra' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Antigua dan Barbuda' OR name_id = 'Antigua dan Barbuda' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Armenia' OR name_id = 'Armenia' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Austria' OR name_id = 'Austria' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bahama' OR name_id = 'Bahama' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Belarus' OR name_id = 'Belarus' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'kolombia' OR name_id = 'kolombia' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Brunei' OR name_id = 'Brunei' LIMIT 1), 50);

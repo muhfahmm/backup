@@ -1,0 +1,12 @@
+-- Hubungan Geopolitik untuk jamaika (REALISTIC DATA)
+INSERT INTO hubungan_negara (country_id, target_country_id, relation_value) VALUES
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Afrika Selatan' OR name_id = 'Afrika Selatan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Albania' OR name_id = 'Albania' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Antigua dan Barbuda' OR name_id = 'Antigua dan Barbuda' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Arab Saudi' OR name_id = 'Arab Saudi' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Australia' OR name_id = 'Australia' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Barbados' OR name_id = 'Barbados' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Belize' OR name_id = 'Belize' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bermuda' OR name_id = 'Bermuda' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bolivia' OR name_id = 'Bolivia' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'jamaika' OR name_id = 'jamaika' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bosnia dan Hercegovina' OR name_id = 'Bosnia dan Hercegovina' LIMIT 1), 50);

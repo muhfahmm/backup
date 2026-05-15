@@ -1,0 +1,16 @@
+-- Hubungan Geopolitik untuk antigua dan barbuda (REALISTIC DATA)
+INSERT INTO hubungan_negara (country_id, target_country_id, relation_value) VALUES
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Afrika Selatan' OR name_id = 'Afrika Selatan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Amerika Serikat' OR name_id = 'Amerika Serikat' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Angola' OR name_id = 'Angola' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Armenia' OR name_id = 'Armenia' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Azerbaijan' OR name_id = 'Azerbaijan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bangladesh' OR name_id = 'Bangladesh' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Barbados' OR name_id = 'Barbados' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Belanda' OR name_id = 'Belanda' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Belize' OR name_id = 'Belize' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bermuda' OR name_id = 'Bermuda' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bhutan' OR name_id = 'Bhutan' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Botswana' OR name_id = 'Botswana' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Brazil' OR name_id = 'Brazil' LIMIT 1), 50),
+  ((SELECT id FROM countries WHERE name_en = 'antigua dan barbuda' OR name_id = 'antigua dan barbuda' LIMIT 1), (SELECT id FROM countries WHERE name_en = 'Bulgaria' OR name_id = 'Bulgaria' LIMIT 1), 50);
