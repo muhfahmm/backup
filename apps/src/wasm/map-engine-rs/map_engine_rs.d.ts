@@ -1,0 +1,74 @@
+/* tslint:disable */
+/* eslint-disable */
+
+export class MapEngine {
+    private constructor();
+    free(): void;
+    [Symbol.dispose](): void;
+    get_country_at(mouse_x: number, mouse_y: number): any;
+    get_menu_options(): any;
+    handle_mouse_down(x: number, y: number): void;
+    handle_mouse_move(x: number, y: number): void;
+    handle_mouse_up(): void;
+    handle_wheel(delta_y: number, mouse_x: number, mouse_y: number): void;
+    static new(ctx: CanvasRenderingContext2D, width: number, height: number): MapEngine;
+    render(): void;
+    set_capitals(capitals: any[]): void;
+    set_countries(countries: any[]): void;
+    set_data(geojson_str: string): void;
+}
+
+export function start_map_engine(canvas_id: string, world_text: string, countries_json: any, capitals_json: any): void;
+
+export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
+
+export interface InitOutput {
+    readonly memory: WebAssembly.Memory;
+    readonly __wbg_mapengine_free: (a: number, b: number) => void;
+    readonly mapengine_get_country_at: (a: number, b: number, c: number) => any;
+    readonly mapengine_get_menu_options: (a: number) => any;
+    readonly mapengine_handle_mouse_down: (a: number, b: number, c: number) => void;
+    readonly mapengine_handle_mouse_move: (a: number, b: number, c: number) => void;
+    readonly mapengine_handle_mouse_up: (a: number) => void;
+    readonly mapengine_handle_wheel: (a: number, b: number, c: number, d: number) => void;
+    readonly mapengine_new: (a: any, b: number, c: number) => number;
+    readonly mapengine_render: (a: number) => void;
+    readonly mapengine_set_capitals: (a: number, b: number, c: number) => void;
+    readonly mapengine_set_countries: (a: number, b: number, c: number) => void;
+    readonly mapengine_set_data: (a: number, b: number, c: number) => void;
+    readonly start_map_engine: (a: number, b: number, c: number, d: number, e: any, f: any) => [number, number];
+    readonly wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505: (a: number, b: number, c: any) => void;
+    readonly wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505_1: (a: number, b: number, c: any) => void;
+    readonly wasm_bindgen__convert__closures_____invoke__h7c7843953cea6124: (a: number, b: number) => void;
+    readonly __wbindgen_malloc: (a: number, b: number) => number;
+    readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+    readonly __wbindgen_exn_store: (a: number) => void;
+    readonly __externref_table_alloc: () => number;
+    readonly __wbindgen_externrefs: WebAssembly.Table;
+    readonly __wbindgen_free: (a: number, b: number, c: number) => void;
+    readonly __wbindgen_destroy_closure: (a: number, b: number) => void;
+    readonly __externref_table_dealloc: (a: number) => void;
+    readonly __wbindgen_start: () => void;
+}
+
+export type SyncInitInput = BufferSource | WebAssembly.Module;
+
+/**
+ * Instantiates the given `module`, which can either be bytes or
+ * a precompiled `WebAssembly.Module`.
+ *
+ * @param {{ module: SyncInitInput }} module - Passing `SyncInitInput` directly is deprecated.
+ *
+ * @returns {InitOutput}
+ */
+export function initSync(module: { module: SyncInitInput } | SyncInitInput): InitOutput;
+
+/**
+ * If `module_or_path` is {RequestInfo} or {URL}, makes a request and
+ * for everything else, calls `WebAssembly.instantiate` directly.
+ *
+ * @param {{ module_or_path: InitInput | Promise<InitInput> }} module_or_path - Passing `InitInput` directly is deprecated.
+ *
+ * @returns {Promise<InitOutput>}
+ */
+export default function __wbg_init (module_or_path?: { module_or_path: InitInput | Promise<InitInput> } | InitInput | Promise<InitInput>): Promise<InitOutput>;

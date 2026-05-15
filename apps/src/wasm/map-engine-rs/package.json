@@ -1,0 +1,15 @@
+{
+  "name": "map-engine-rs",
+  "type": "module",
+  "version": "0.1.0",
+  "files": [
+    "map_engine_rs_bg.wasm",
+    "map_engine_rs.js",
+    "map_engine_rs.d.ts"
+  ],
+  "main": "map_engine_rs.js",
+  "types": "map_engine_rs.d.ts",
+  "sideEffects": [
+    "./snippets/*"
+  ]
+}
