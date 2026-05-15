@@ -1,0 +1,16 @@
+export { australiaAgreements } from './179_australia';
+export { fijiAgreements } from './180_fiji';
+export { guamAgreements } from './181_guam';
+export { kiribatiAgreements } from './182_kiribati';
+export { marshallAgreements } from './183_marshall';
+export { mikronesiaAgreements } from './184_mikronesia';
+export { nauruAgreements } from './185_nauru';
+export { palauAgreements } from './186_palau';
+export { papua_nuginiAgreements } from './187_papua_nugini';
+export { samoaAgreements } from './188_samoa';
+export { samoa_amerikaAgreements } from './189_samoa_amerika';
+export { selandia_baruAgreements } from './190_selandia_baru';
+export { tahitiAgreements } from './191_tahiti';
+export { tongaAgreements } from './192_tonga';
+export { tuvaluAgreements } from './193_tuvalu';
+export { vanuatuAgreements } from './194_vanuatu';
