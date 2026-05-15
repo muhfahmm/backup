@@ -1,0 +1,12 @@
+1. emas
+2. uranium
+3. batu_bara
+4. minyak_bumi
+5. gas_alam
+6. garam
+7. nikel
+8. litium
+9. tembaga
+10. aluminium
+11. logam_tanah_jarang
+12. bijih_besi

@@ -1,0 +1,16 @@
+export const suriname_agrikultur = {
+  padi: 36,
+  gandum: 154,
+  jagung: 144,
+  sayur: 124,
+  umbi: 64,
+  kedelai: 40,
+  kelapa_sawit: 82,
+  kopi: 114,
+  teh: 138,
+  kakao: 46,
+  tebu: 150,
+  karet: 54,
+  kapas: 42,
+  tembakau: 46,
+} as const;

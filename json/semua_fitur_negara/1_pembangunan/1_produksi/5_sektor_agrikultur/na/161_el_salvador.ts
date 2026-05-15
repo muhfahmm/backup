@@ -1,0 +1,16 @@
+export const el_salvador_agrikultur = {
+  padi: 65,
+  gandum: 315,
+  jagung: 335,
+  sayur: 90,
+  umbi: 90,
+  kedelai: 330,
+  kelapa_sawit: 0,
+  kopi: 400,
+  teh: 115,
+  kakao: 0,
+  tebu: 370,
+  karet: 0,
+  kapas: 110,
+  tembakau: 315,
+} as const;

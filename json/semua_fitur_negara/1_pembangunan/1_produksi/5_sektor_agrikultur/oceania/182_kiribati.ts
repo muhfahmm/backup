@@ -1,0 +1,16 @@
+export const kiribati_agrikultur = {
+  padi: 146,
+  gandum: 80,
+  jagung: 128,
+  sayur: 88,
+  umbi: 120,
+  kedelai: 24,
+  kelapa_sawit: 0,
+  kopi: 62,
+  teh: 86,
+  kakao: 0,
+  tebu: 158,
+  karet: 0,
+  kapas: 136,
+  tembakau: 160,
+} as const;

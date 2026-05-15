@@ -1,0 +1,16 @@
+export const iran_agrikultur = {
+  padi: 966,
+  gandum: 2254,
+  jagung: 1610,
+  sayur: 782,
+  umbi: 2346,
+  kedelai: 1334,
+  kelapa_sawit: 0,
+  kopi: 690,
+  teh: 2484,
+  kakao: 0,
+  tebu: 1334,
+  karet: 0,
+  kapas: 1104,
+  tembakau: 3634,
+} as const;

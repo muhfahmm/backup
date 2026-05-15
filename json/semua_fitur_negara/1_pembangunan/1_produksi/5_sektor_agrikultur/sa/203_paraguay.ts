@@ -1,0 +1,16 @@
+export const paraguay_agrikultur = {
+  padi: 280,
+  gandum: 175,
+  jagung: 390,
+  sayur: 275,
+  umbi: 385,
+  kedelai: 395,
+  kelapa_sawit: 0,
+  kopi: 265,
+  teh: 340,
+  kakao: 0,
+  tebu: 270,
+  karet: 0,
+  kapas: 360,
+  tembakau: 85,
+} as const;

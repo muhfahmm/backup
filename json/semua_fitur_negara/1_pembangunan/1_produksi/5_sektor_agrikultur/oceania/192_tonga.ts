@@ -1,0 +1,16 @@
+export const tonga_agrikultur = {
+  padi: 76,
+  gandum: 66,
+  jagung: 39,
+  sayur: 26,
+  umbi: 47,
+  kedelai: 58,
+  kelapa_sawit: 0,
+  kopi: 48,
+  teh: 69,
+  kakao: 0,
+  tebu: 80,
+  karet: 0,
+  kapas: 75,
+  tembakau: 40,
+} as const;

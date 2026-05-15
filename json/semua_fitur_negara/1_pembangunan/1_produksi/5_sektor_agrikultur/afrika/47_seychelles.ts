@@ -1,0 +1,16 @@
+export const seychelles_agrikultur = {
+  padi: 132,
+  gandum: 142,
+  jagung: 40,
+  sayur: 122,
+  umbi: 114,
+  kedelai: 122,
+  kelapa_sawit: 0,
+  kopi: 98,
+  teh: 38,
+  kakao: 0,
+  tebu: 154,
+  karet: 0,
+  kapas: 26,
+  tembakau: 36,
+} as const;

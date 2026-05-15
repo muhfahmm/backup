@@ -1,20 +1,26 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  transpilePackages: ['../map-engine-rs/ts'],
+  webpack: (config) => {
+    config.experiments = {
+      ...config.experiments,
+      asyncWebAssembly: true,
+      layers: true,
+    };
+    return config;
+  },
   async redirects() {
     return [
       {
-        source: '/',
-        destination: '/pages',
-        permanent: false,
+        source: '/game',
+        destination: '/',
+        permanent: true,
       },
-    ];
-  },
-  async rewrites() {
-    return [
       {
-        source: '/api/gateway/:path*',
-        destination: 'http://127.0.0.1:4000/:path*',
+        source: '/pages',
+        destination: '/',
+        permanent: true,
       },
     ];
   },

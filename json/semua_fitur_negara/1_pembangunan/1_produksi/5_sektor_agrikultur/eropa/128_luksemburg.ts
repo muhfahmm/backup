@@ -1,0 +1,16 @@
+export const luksemburg_agrikultur = {
+  padi: 66,
+  gandum: 57,
+  jagung: 171,
+  sayur: 225,
+  umbi: 150,
+  kedelai: 198,
+  kelapa_sawit: 0,
+  kopi: 156,
+  teh: 117,
+  kakao: 0,
+  tebu: 60,
+  karet: 0,
+  kapas: 39,
+  tembakau: 213,
+} as const;

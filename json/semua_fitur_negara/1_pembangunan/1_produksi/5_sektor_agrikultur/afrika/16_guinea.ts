@@ -1,0 +1,16 @@
+export const guinea_agrikultur = {
+  padi: 92,
+  gandum: 160,
+  jagung: 138,
+  sayur: 56,
+  umbi: 128,
+  kedelai: 42,
+  kelapa_sawit: 0,
+  kopi: 106,
+  teh: 124,
+  kakao: 0,
+  tebu: 84,
+  karet: 0,
+  kapas: 128,
+  tembakau: 36,
+} as const;

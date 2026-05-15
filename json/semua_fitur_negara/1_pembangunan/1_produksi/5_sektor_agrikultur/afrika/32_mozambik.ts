@@ -1,0 +1,16 @@
+export const mozambik_agrikultur = {
+  padi: 55,
+  gandum: 47,
+  jagung: 49,
+  sayur: 17,
+  umbi: 65,
+  kedelai: 23,
+  kelapa_sawit: 0,
+  kopi: 52,
+  teh: 27,
+  kakao: 0,
+  tebu: 26,
+  karet: 0,
+  kapas: 38,
+  tembakau: 11,
+} as const;

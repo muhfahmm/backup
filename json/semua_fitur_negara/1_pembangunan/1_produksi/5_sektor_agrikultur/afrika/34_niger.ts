@@ -1,0 +1,16 @@
+export const niger_agrikultur = {
+  padi: 55,
+  gandum: 50,
+  jagung: 59,
+  sayur: 74,
+  umbi: 64,
+  kedelai: 63,
+  kelapa_sawit: 0,
+  kopi: 70,
+  teh: 79,
+  kakao: 0,
+  tebu: 69,
+  karet: 0,
+  kapas: 47,
+  tembakau: 70,
+} as const;

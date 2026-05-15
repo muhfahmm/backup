@@ -1,0 +1,16 @@
+export const nepal_agrikultur = {
+  padi: 276,
+  gandum: 188,
+  jagung: 220,
+  sayur: 132,
+  umbi: 236,
+  kedelai: 204,
+  kelapa_sawit: 0,
+  kopi: 200,
+  teh: 224,
+  kakao: 0,
+  tebu: 212,
+  karet: 0,
+  kapas: 244,
+  tembakau: 116,
+} as const;

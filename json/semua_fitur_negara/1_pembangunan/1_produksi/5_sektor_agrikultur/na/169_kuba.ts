@@ -1,0 +1,16 @@
+export const kuba_agrikultur = {
+  padi: 646,
+  gandum: 1406,
+  jagung: 1349,
+  sayur: 209,
+  umbi: 798,
+  kedelai: 589,
+  kelapa_sawit: 0,
+  kopi: 1501,
+  teh: 893,
+  kakao: 0,
+  tebu: 1330,
+  karet: 0,
+  kapas: 1254,
+  tembakau: 494,
+} as const;

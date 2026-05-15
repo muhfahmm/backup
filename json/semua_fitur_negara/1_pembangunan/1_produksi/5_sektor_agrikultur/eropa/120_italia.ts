@@ -1,0 +1,16 @@
+export const italia_agrikultur = {
+  padi: 21761,
+  gandum: 30558,
+  jagung: 36114,
+  sayur: 18983,
+  umbi: 25928,
+  kedelai: 31484,
+  kelapa_sawit: 0,
+  kopi: 11112,
+  teh: 6482,
+  kakao: 0,
+  tebu: 28243,
+  karet: 0,
+  kapas: 17594,
+  tembakau: 10186,
+} as const;

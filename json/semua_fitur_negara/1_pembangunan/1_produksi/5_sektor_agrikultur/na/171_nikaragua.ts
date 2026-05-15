@@ -1,0 +1,16 @@
+export const nikaragua_agrikultur = {
+  padi: 52,
+  gandum: 34,
+  jagung: 32,
+  sayur: 60,
+  umbi: 36,
+  kedelai: 62,
+  kelapa_sawit: 0,
+  kopi: 67,
+  teh: 18,
+  kakao: 0,
+  tebu: 60,
+  karet: 0,
+  kapas: 32,
+  tembakau: 19,
+} as const;

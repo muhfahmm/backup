@@ -1,0 +1,16 @@
+export const pantai_gading_agrikultur = {
+  padi: 250,
+  gandum: 330,
+  jagung: 125,
+  sayur: 165,
+  umbi: 135,
+  kedelai: 185,
+  kelapa_sawit: 55,
+  kopi: 315,
+  teh: 180,
+  kakao: 305,
+  tebu: 260,
+  karet: 270,
+  kapas: 330,
+  tembakau: 280,
+} as const;

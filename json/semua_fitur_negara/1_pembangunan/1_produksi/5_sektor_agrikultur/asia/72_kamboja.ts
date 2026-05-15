@@ -1,0 +1,16 @@
+export const kamboja_agrikultur = {
+  padi: 135,
+  gandum: 36,
+  jagung: 45,
+  sayur: 165,
+  umbi: 132,
+  kedelai: 72,
+  kelapa_sawit: 0,
+  kopi: 126,
+  teh: 234,
+  kakao: 0,
+  tebu: 114,
+  karet: 0,
+  kapas: 99,
+  tembakau: 228,
+} as const;

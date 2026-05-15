@@ -1,0 +1,16 @@
+export const liechtenstein_agrikultur = {
+  padi: 140,
+  gandum: 60,
+  jagung: 80,
+  sayur: 120,
+  umbi: 116,
+  kedelai: 108,
+  kelapa_sawit: 0,
+  kopi: 40,
+  teh: 68,
+  kakao: 0,
+  tebu: 252,
+  karet: 0,
+  kapas: 308,
+  tembakau: 200,
+} as const;

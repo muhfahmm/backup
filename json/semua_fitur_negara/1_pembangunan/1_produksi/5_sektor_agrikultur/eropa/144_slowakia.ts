@@ -1,0 +1,16 @@
+export const slowakia_agrikultur = {
+  padi: 910,
+  gandum: 832,
+  jagung: 624,
+  sayur: 494,
+  umbi: 260,
+  kedelai: 1027,
+  kelapa_sawit: 0,
+  kopi: 221,
+  teh: 416,
+  kakao: 0,
+  tebu: 702,
+  karet: 0,
+  kapas: 780,
+  tembakau: 247,
+} as const;

@@ -1,0 +1,16 @@
+export const chad_agrikultur = {
+  padi: 222,
+  gandum: 195,
+  jagung: 114,
+  sayur: 45,
+  umbi: 180,
+  kedelai: 123,
+  kelapa_sawit: 0,
+  kopi: 159,
+  teh: 192,
+  kakao: 0,
+  tebu: 135,
+  karet: 0,
+  kapas: 183,
+  tembakau: 198,
+} as const;

@@ -1,0 +1,16 @@
+export const yunani_agrikultur = {
+  padi: 150,
+  gandum: 320,
+  jagung: 490,
+  sayur: 650,
+  umbi: 370,
+  kedelai: 210,
+  kelapa_sawit: 0,
+  kopi: 690,
+  teh: 350,
+  kakao: 0,
+  tebu: 660,
+  karet: 0,
+  kapas: 640,
+  tembakau: 170,
+} as const;

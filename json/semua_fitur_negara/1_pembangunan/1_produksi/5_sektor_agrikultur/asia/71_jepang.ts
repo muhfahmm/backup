@@ -1,0 +1,16 @@
+export const jepang_agrikultur = {
+  padi: 6902,
+  gandum: 11186,
+  jagung: 5950,
+  sayur: 4998,
+  umbi: 13090,
+  kedelai: 17374,
+  kelapa_sawit: 0,
+  kopi: 8568,
+  teh: 10710,
+  kakao: 0,
+  tebu: 17612,
+  karet: 0,
+  kapas: 12852,
+  tembakau: 18802,
+} as const;

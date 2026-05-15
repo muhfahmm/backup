@@ -1,0 +1,16 @@
+export const belarus_agrikultur = {
+  padi: 195,
+  gandum: 290,
+  jagung: 150,
+  sayur: 120,
+  umbi: 275,
+  kedelai: 160,
+  kelapa_sawit: 0,
+  kopi: 65,
+  teh: 120,
+  kakao: 0,
+  tebu: 330,
+  karet: 0,
+  kapas: 345,
+  tembakau: 390,
+} as const;

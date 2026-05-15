@@ -1,0 +1,16 @@
+export const saint_lucia_agrikultur = {
+  padi: 71,
+  gandum: 56,
+  jagung: 56,
+  sayur: 29,
+  umbi: 14,
+  kedelai: 45,
+  kelapa_sawit: 0,
+  kopi: 15,
+  teh: 27,
+  kakao: 0,
+  tebu: 48,
+  karet: 0,
+  kapas: 48,
+  tembakau: 17,
+} as const;

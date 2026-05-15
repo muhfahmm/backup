@@ -1,0 +1,16 @@
+export const lesotho_agrikultur = {
+  padi: 171,
+  gandum: 129,
+  jagung: 201,
+  sayur: 30,
+  umbi: 66,
+  kedelai: 177,
+  kelapa_sawit: 0,
+  kopi: 192,
+  teh: 210,
+  kakao: 0,
+  tebu: 207,
+  karet: 0,
+  kapas: 183,
+  tembakau: 147,
+} as const;

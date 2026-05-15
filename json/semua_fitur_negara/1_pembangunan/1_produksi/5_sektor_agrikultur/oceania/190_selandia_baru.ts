@@ -1,0 +1,16 @@
+export const selandia_baru_agrikultur = {
+  padi: 630,
+  gandum: 546,
+  jagung: 882,
+  sayur: 735,
+  umbi: 1008,
+  kedelai: 231,
+  kelapa_sawit: 0,
+  kopi: 525,
+  teh: 819,
+  kakao: 0,
+  tebu: 1449,
+  karet: 0,
+  kapas: 1218,
+  tembakau: 588,
+} as const;

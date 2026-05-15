@@ -1,0 +1,16 @@
+export const latvia_agrikultur = {
+  padi: 148,
+  gandum: 52,
+  jagung: 68,
+  sayur: 304,
+  umbi: 264,
+  kedelai: 260,
+  kelapa_sawit: 0,
+  kopi: 116,
+  teh: 152,
+  kakao: 0,
+  tebu: 96,
+  karet: 0,
+  kapas: 56,
+  tembakau: 156,
+} as const;

@@ -1,0 +1,16 @@
+export const mauritania_agrikultur = {
+  padi: 20,
+  gandum: 132,
+  jagung: 38,
+  sayur: 42,
+  umbi: 72,
+  kedelai: 84,
+  kelapa_sawit: 0,
+  kopi: 74,
+  teh: 40,
+  kakao: 0,
+  tebu: 132,
+  karet: 0,
+  kapas: 94,
+  tembakau: 146,
+} as const;

@@ -1,0 +1,16 @@
+export const sudan_selatan_agrikultur = {
+  padi: 56,
+  gandum: 276,
+  jagung: 192,
+  sayur: 60,
+  umbi: 88,
+  kedelai: 84,
+  kelapa_sawit: 0,
+  kopi: 268,
+  teh: 124,
+  kakao: 0,
+  tebu: 204,
+  karet: 0,
+  kapas: 196,
+  tembakau: 280,
+} as const;

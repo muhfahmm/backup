@@ -1,0 +1,16 @@
+export const burundi_agrikultur = {
+  padi: 120,
+  gandum: 134,
+  jagung: 146,
+  sayur: 76,
+  umbi: 28,
+  kedelai: 132,
+  kelapa_sawit: 0,
+  kopi: 80,
+  teh: 142,
+  kakao: 0,
+  tebu: 28,
+  karet: 0,
+  kapas: 116,
+  tembakau: 46,
+} as const;

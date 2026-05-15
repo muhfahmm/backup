@@ -1,0 +1,16 @@
+export const fiji_agrikultur = {
+  padi: 156,
+  gandum: 58,
+  jagung: 108,
+  sayur: 88,
+  umbi: 26,
+  kedelai: 140,
+  kelapa_sawit: 0,
+  kopi: 68,
+  teh: 70,
+  kakao: 0,
+  tebu: 122,
+  karet: 0,
+  kapas: 154,
+  tembakau: 40,
+} as const;

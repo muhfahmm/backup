@@ -1,0 +1,16 @@
+export const sierra_leone_agrikultur = {
+  padi: 124,
+  gandum: 296,
+  jagung: 220,
+  sayur: 288,
+  umbi: 156,
+  kedelai: 212,
+  kelapa_sawit: 0,
+  kopi: 88,
+  teh: 40,
+  kakao: 0,
+  tebu: 88,
+  karet: 0,
+  kapas: 208,
+  tembakau: 204,
+} as const;

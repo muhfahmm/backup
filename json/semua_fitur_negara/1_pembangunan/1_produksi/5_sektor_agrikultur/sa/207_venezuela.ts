@@ -1,0 +1,16 @@
+export const venezuela_agrikultur = {
+  padi: 592,
+  gandum: 408,
+  jagung: 592,
+  sayur: 200,
+  umbi: 192,
+  kedelai: 88,
+  kelapa_sawit: 328,
+  kopi: 128,
+  teh: 232,
+  kakao: 608,
+  tebu: 576,
+  karet: 272,
+  kapas: 568,
+  tembakau: 304,
+} as const;

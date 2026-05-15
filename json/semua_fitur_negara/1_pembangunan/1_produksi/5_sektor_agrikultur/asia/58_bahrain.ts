@@ -1,0 +1,16 @@
+export const bahrain_agrikultur = {
+  padi: 480,
+  gandum: 512,
+  jagung: 128,
+  sayur: 88,
+  umbi: 392,
+  kedelai: 480,
+  kelapa_sawit: 0,
+  kopi: 368,
+  teh: 536,
+  kakao: 0,
+  tebu: 304,
+  karet: 0,
+  kapas: 632,
+  tembakau: 136,
+} as const;

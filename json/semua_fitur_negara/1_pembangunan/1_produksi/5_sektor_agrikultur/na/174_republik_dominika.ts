@@ -1,0 +1,16 @@
+export const republik_dominika_agrikultur = {
+  padi: 882,
+  gandum: 700,
+  jagung: 350,
+  sayur: 168,
+  umbi: 560,
+  kedelai: 532,
+  kelapa_sawit: 0,
+  kopi: 392,
+  teh: 532,
+  kakao: 0,
+  tebu: 1036,
+  karet: 0,
+  kapas: 434,
+  tembakau: 294,
+} as const;

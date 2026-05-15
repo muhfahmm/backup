@@ -1,0 +1,16 @@
+export const thailand_agrikultur = {
+  padi: 3075,
+  gandum: 2542,
+  jagung: 1312,
+  sayur: 1804,
+  umbi: 2542,
+  kedelai: 1968,
+  kelapa_sawit: 2542,
+  kopi: 2255,
+  teh: 656,
+  kakao: 2337,
+  tebu: 1517,
+  karet: 1845,
+  kapas: 738,
+  tembakau: 2542,
+} as const;

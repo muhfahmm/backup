@@ -1,0 +1,16 @@
+export const suriah_agrikultur = {
+  padi: 56,
+  gandum: 28,
+  jagung: 57,
+  sayur: 49,
+  umbi: 56,
+  kedelai: 72,
+  kelapa_sawit: 0,
+  kopi: 17,
+  teh: 59,
+  kakao: 0,
+  tebu: 50,
+  karet: 0,
+  kapas: 26,
+  tembakau: 75,
+} as const;

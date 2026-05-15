@@ -1,0 +1,29 @@
+/* tslint:disable */
+/* eslint-disable */
+export const memory: WebAssembly.Memory;
+export const __wbg_mapengine_free: (a: number, b: number) => void;
+export const mapengine_get_country_at: (a: number, b: number, c: number) => any;
+export const mapengine_handle_mouse_down: (a: number, b: number, c: number) => void;
+export const mapengine_handle_mouse_move: (a: number, b: number, c: number) => void;
+export const mapengine_handle_mouse_up: (a: number) => void;
+export const mapengine_handle_wheel: (a: number, b: number, c: number, d: number) => void;
+export const mapengine_new: (a: any, b: number, c: number) => number;
+export const mapengine_render: (a: number) => void;
+export const mapengine_set_capitals: (a: number, b: number, c: number) => void;
+export const mapengine_set_countries: (a: number, b: number, c: number) => void;
+export const mapengine_set_data: (a: number, b: number, c: number) => void;
+export const start_map_engine: (a: number, b: number) => any;
+export const wasm_bindgen__convert__closures_____invoke__hb45d559da7412429: (a: number, b: number, c: any) => [number, number];
+export const wasm_bindgen__convert__closures_____invoke__h41cf2b6b20971daf: (a: number, b: number, c: any, d: any) => void;
+export const wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505: (a: number, b: number, c: any) => void;
+export const wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505_2: (a: number, b: number, c: any) => void;
+export const wasm_bindgen__convert__closures_____invoke__h7c7843953cea6124: (a: number, b: number) => void;
+export const __wbindgen_malloc: (a: number, b: number) => number;
+export const __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;
+export const __wbindgen_exn_store: (a: number) => void;
+export const __externref_table_alloc: () => number;
+export const __wbindgen_externrefs: WebAssembly.Table;
+export const __wbindgen_free: (a: number, b: number, c: number) => void;
+export const __wbindgen_destroy_closure: (a: number, b: number) => void;
+export const __externref_table_dealloc: (a: number) => void;
+export const __wbindgen_start: () => void;

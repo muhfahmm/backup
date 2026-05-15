@@ -1,0 +1,16 @@
+export const aljazair_agrikultur = {
+  padi: 231,
+  gandum: 297,
+  jagung: 704,
+  sayur: 143,
+  umbi: 286,
+  kedelai: 781,
+  kelapa_sawit: 0,
+  kopi: 572,
+  teh: 759,
+  kakao: 0,
+  tebu: 319,
+  karet: 0,
+  kapas: 385,
+  tembakau: 528,
+} as const;

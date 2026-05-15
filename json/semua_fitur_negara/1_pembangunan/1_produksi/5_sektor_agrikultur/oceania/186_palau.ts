@@ -1,0 +1,16 @@
+export const palau_agrikultur = {
+  padi: 110,
+  gandum: 110,
+  jagung: 22,
+  sayur: 72,
+  umbi: 128,
+  kedelai: 52,
+  kelapa_sawit: 0,
+  kopi: 84,
+  teh: 116,
+  kakao: 0,
+  tebu: 58,
+  karet: 0,
+  kapas: 158,
+  tembakau: 66,
+} as const;

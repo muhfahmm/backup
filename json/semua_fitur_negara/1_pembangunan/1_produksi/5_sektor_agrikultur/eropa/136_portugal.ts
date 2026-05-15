@@ -1,0 +1,16 @@
+export const portugal_agrikultur = {
+  padi: 782,
+  gandum: 884,
+  jagung: 527,
+  sayur: 714,
+  umbi: 1241,
+  kedelai: 187,
+  kelapa_sawit: 0,
+  kopi: 1343,
+  teh: 1020,
+  kakao: 0,
+  tebu: 629,
+  karet: 0,
+  kapas: 1275,
+  tembakau: 833,
+} as const;

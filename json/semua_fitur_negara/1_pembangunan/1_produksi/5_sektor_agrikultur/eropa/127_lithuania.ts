@@ -1,0 +1,16 @@
+export const lithuania_agrikultur = {
+  padi: 205,
+  gandum: 175,
+  jagung: 110,
+  sayur: 200,
+  umbi: 210,
+  kedelai: 325,
+  kelapa_sawit: 0,
+  kopi: 155,
+  teh: 320,
+  kakao: 0,
+  tebu: 365,
+  karet: 0,
+  kapas: 365,
+  tembakau: 300,
+} as const;

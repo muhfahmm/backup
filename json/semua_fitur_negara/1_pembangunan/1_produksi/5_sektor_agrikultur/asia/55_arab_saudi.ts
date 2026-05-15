@@ -1,0 +1,16 @@
+export const arab_saudi_agrikultur = {
+  padi: 5320,
+  gandum: 6384,
+  jagung: 6118,
+  sayur: 3059,
+  umbi: 3990,
+  kedelai: 3458,
+  kelapa_sawit: 0,
+  kopi: 2660,
+  teh: 7049,
+  kakao: 0,
+  tebu: 6118,
+  karet: 0,
+  kapas: 6916,
+  tembakau: 6118,
+} as const;

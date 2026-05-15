@@ -1,0 +1,16 @@
+export const hong_kong_agrikultur = {
+  padi: 33,
+  gandum: 13,
+  jagung: 66,
+  sayur: 63,
+  umbi: 28,
+  kedelai: 57,
+  kelapa_sawit: 0,
+  kopi: 76,
+  teh: 37,
+  kakao: 0,
+  tebu: 72,
+  karet: 0,
+  kapas: 11,
+  tembakau: 76,
+} as const;

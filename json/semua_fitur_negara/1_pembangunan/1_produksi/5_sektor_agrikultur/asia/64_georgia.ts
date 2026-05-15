@@ -1,0 +1,16 @@
+export const georgia_agrikultur = {
+  padi: 136,
+  gandum: 240,
+  jagung: 68,
+  sayur: 176,
+  umbi: 296,
+  kedelai: 240,
+  kelapa_sawit: 0,
+  kopi: 116,
+  teh: 140,
+  kakao: 0,
+  tebu: 112,
+  karet: 0,
+  kapas: 112,
+  tembakau: 112,
+} as const;

@@ -1,0 +1,16 @@
+export const kazakhstan_agrikultur = {
+  padi: 377,
+  gandum: 195,
+  jagung: 871,
+  sayur: 338,
+  umbi: 676,
+  kedelai: 845,
+  kelapa_sawit: 0,
+  kopi: 962,
+  teh: 325,
+  kakao: 0,
+  tebu: 585,
+  karet: 0,
+  kapas: 689,
+  tembakau: 728,
+} as const;

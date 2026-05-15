@@ -1,0 +1,16 @@
+export const tajikistan_agrikultur = {
+  padi: 168,
+  gandum: 304,
+  jagung: 52,
+  sayur: 284,
+  umbi: 252,
+  kedelai: 84,
+  kelapa_sawit: 0,
+  kopi: 140,
+  teh: 72,
+  kakao: 0,
+  tebu: 228,
+  karet: 0,
+  kapas: 52,
+  tembakau: 172,
+} as const;

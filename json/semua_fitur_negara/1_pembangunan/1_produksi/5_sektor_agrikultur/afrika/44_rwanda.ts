@@ -1,0 +1,16 @@
+export const rwanda_agrikultur = {
+  padi: 62,
+  gandum: 10,
+  jagung: 77,
+  sayur: 22,
+  umbi: 60,
+  kedelai: 37,
+  kelapa_sawit: 0,
+  kopi: 32,
+  teh: 71,
+  kakao: 0,
+  tebu: 46,
+  karet: 0,
+  kapas: 10,
+  tembakau: 19,
+} as const;

@@ -1,0 +1,16 @@
+export const kongo_agrikultur = {
+  padi: 292,
+  gandum: 228,
+  jagung: 252,
+  sayur: 124,
+  umbi: 112,
+  kedelai: 180,
+  kelapa_sawit: 52,
+  kopi: 248,
+  teh: 300,
+  kakao: 96,
+  tebu: 72,
+  karet: 276,
+  kapas: 140,
+  tembakau: 196,
+} as const;

@@ -1,0 +1,16 @@
+export const djibouti_agrikultur = {
+  padi: 39,
+  gandum: 55,
+  jagung: 12,
+  sayur: 28,
+  umbi: 28,
+  kedelai: 14,
+  kelapa_sawit: 0,
+  kopi: 54,
+  teh: 31,
+  kakao: 0,
+  tebu: 52,
+  karet: 0,
+  kapas: 53,
+  tembakau: 42,
+} as const;

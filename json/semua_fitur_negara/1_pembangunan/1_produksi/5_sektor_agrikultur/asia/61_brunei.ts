@@ -1,0 +1,16 @@
+export const brunei_agrikultur = {
+  padi: 225,
+  gandum: 153,
+  jagung: 174,
+  sayur: 48,
+  umbi: 90,
+  kedelai: 30,
+  kelapa_sawit: 0,
+  kopi: 147,
+  teh: 165,
+  kakao: 0,
+  tebu: 78,
+  karet: 0,
+  kapas: 207,
+  tembakau: 63,
+} as const;

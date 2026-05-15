@@ -1,0 +1,16 @@
+export const australia_agrikultur = {
+  padi: 5202,
+  gandum: 1836,
+  jagung: 2958,
+  sayur: 8058,
+  umbi: 5610,
+  kedelai: 3876,
+  kelapa_sawit: 0,
+  kopi: 5712,
+  teh: 3366,
+  kakao: 0,
+  tebu: 1326,
+  karet: 0,
+  kapas: 3978,
+  tembakau: 4794,
+} as const;

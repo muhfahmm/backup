@@ -1,0 +1,16 @@
+export const palestina_agrikultur = {
+  padi: 116,
+  gandum: 72,
+  jagung: 70,
+  sayur: 98,
+  umbi: 52,
+  kedelai: 106,
+  kelapa_sawit: 0,
+  kopi: 78,
+  teh: 120,
+  kakao: 0,
+  tebu: 30,
+  karet: 0,
+  kapas: 90,
+  tembakau: 74,
+} as const;

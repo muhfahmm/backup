@@ -1,0 +1,16 @@
+export const san_marino_agrikultur = {
+  padi: 40,
+  gandum: 148,
+  jagung: 52,
+  sayur: 172,
+  umbi: 284,
+  kedelai: 256,
+  kelapa_sawit: 0,
+  kopi: 108,
+  teh: 320,
+  kakao: 0,
+  tebu: 168,
+  karet: 0,
+  kapas: 156,
+  tembakau: 192,
+} as const;

@@ -1,0 +1,16 @@
+export const irlandia_agrikultur = {
+  padi: 1127,
+  gandum: 2156,
+  jagung: 1813,
+  sayur: 1323,
+  umbi: 2744,
+  kedelai: 980,
+  kelapa_sawit: 0,
+  kopi: 2646,
+  teh: 1176,
+  kakao: 0,
+  tebu: 2597,
+  karet: 0,
+  kapas: 2009,
+  tembakau: 2842,
+} as const;

@@ -1,0 +1,16 @@
+export const kirgizstan_agrikultur = {
+  padi: 219,
+  gandum: 63,
+  jagung: 114,
+  sayur: 84,
+  umbi: 180,
+  kedelai: 108,
+  kelapa_sawit: 0,
+  kopi: 126,
+  teh: 192,
+  kakao: 0,
+  tebu: 174,
+  karet: 0,
+  kapas: 147,
+  tembakau: 132,
+} as const;

@@ -1,0 +1,16 @@
+export const republik_uganda_agrikultur = {
+  padi: 72,
+  gandum: 213,
+  jagung: 159,
+  sayur: 39,
+  umbi: 39,
+  kedelai: 117,
+  kelapa_sawit: 0,
+  kopi: 69,
+  teh: 33,
+  kakao: 0,
+  tebu: 231,
+  karet: 0,
+  kapas: 81,
+  tembakau: 51,
+} as const;

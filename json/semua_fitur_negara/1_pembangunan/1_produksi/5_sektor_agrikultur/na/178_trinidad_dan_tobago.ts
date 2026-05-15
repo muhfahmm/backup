@@ -1,0 +1,16 @@
+export const trinidad_dan_tobago_agrikultur = {
+  padi: 140,
+  gandum: 32,
+  jagung: 38,
+  sayur: 64,
+  umbi: 154,
+  kedelai: 124,
+  kelapa_sawit: 0,
+  kopi: 150,
+  teh: 158,
+  kakao: 0,
+  tebu: 106,
+  karet: 0,
+  kapas: 76,
+  tembakau: 92,
+} as const;

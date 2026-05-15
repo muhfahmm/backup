@@ -1,0 +1,16 @@
+export const marshall_agrikultur = {
+  padi: 188,
+  gandum: 212,
+  jagung: 256,
+  sayur: 64,
+  umbi: 308,
+  kedelai: 208,
+  kelapa_sawit: 0,
+  kopi: 44,
+  teh: 228,
+  kakao: 0,
+  tebu: 120,
+  karet: 0,
+  kapas: 128,
+  tembakau: 128,
+} as const;

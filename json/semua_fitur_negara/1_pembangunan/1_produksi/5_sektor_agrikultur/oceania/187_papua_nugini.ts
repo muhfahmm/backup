@@ -1,0 +1,16 @@
+export const papua_nugini_agrikultur = {
+  padi: 99,
+  gandum: 198,
+  jagung: 90,
+  sayur: 198,
+  umbi: 63,
+  kedelai: 213,
+  kelapa_sawit: 0,
+  kopi: 36,
+  teh: 201,
+  kakao: 0,
+  tebu: 165,
+  karet: 0,
+  kapas: 108,
+  tembakau: 186,
+} as const;

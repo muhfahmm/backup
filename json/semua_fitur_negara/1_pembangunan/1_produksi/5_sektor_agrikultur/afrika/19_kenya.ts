@@ -1,0 +1,16 @@
+export const kenya_agrikultur = {
+  padi: 560,
+  gandum: 518,
+  jagung: 539,
+  sayur: 245,
+  umbi: 497,
+  kedelai: 84,
+  kelapa_sawit: 0,
+  kopi: 161,
+  teh: 406,
+  kakao: 0,
+  tebu: 252,
+  karet: 0,
+  kapas: 469,
+  tembakau: 371,
+} as const;

@@ -1,0 +1,16 @@
+export const ethiopia_agrikultur = {
+  padi: 1422,
+  gandum: 1224,
+  jagung: 342,
+  sayur: 288,
+  umbi: 1296,
+  kedelai: 1044,
+  kelapa_sawit: 0,
+  kopi: 612,
+  teh: 1278,
+  kakao: 0,
+  tebu: 828,
+  karet: 0,
+  kapas: 684,
+  tembakau: 1242,
+} as const;

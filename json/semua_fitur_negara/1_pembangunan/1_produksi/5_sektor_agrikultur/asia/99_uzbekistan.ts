@@ -1,0 +1,16 @@
+export const uzbekistan_agrikultur = {
+  padi: 525,
+  gandum: 112,
+  jagung: 525,
+  sayur: 287,
+  umbi: 112,
+  kedelai: 217,
+  kelapa_sawit: 0,
+  kopi: 105,
+  teh: 203,
+  kakao: 0,
+  tebu: 413,
+  karet: 0,
+  kapas: 413,
+  tembakau: 497,
+} as const;

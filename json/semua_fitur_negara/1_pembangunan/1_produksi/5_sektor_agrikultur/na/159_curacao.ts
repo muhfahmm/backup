@@ -1,0 +1,16 @@
+export const curacao_agrikultur = {
+  padi: 78,
+  gandum: 142,
+  jagung: 140,
+  sayur: 100,
+  umbi: 160,
+  kedelai: 54,
+  kelapa_sawit: 0,
+  kopi: 158,
+  teh: 104,
+  kakao: 0,
+  tebu: 48,
+  karet: 0,
+  kapas: 68,
+  tembakau: 108,
+} as const;

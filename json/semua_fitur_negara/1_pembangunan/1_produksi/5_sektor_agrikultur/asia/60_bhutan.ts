@@ -1,0 +1,16 @@
+export const bhutan_agrikultur = {
+  padi: 57,
+  gandum: 228,
+  jagung: 204,
+  sayur: 201,
+  umbi: 99,
+  kedelai: 132,
+  kelapa_sawit: 0,
+  kopi: 66,
+  teh: 174,
+  kakao: 0,
+  tebu: 111,
+  karet: 0,
+  kapas: 30,
+  tembakau: 159,
+} as const;

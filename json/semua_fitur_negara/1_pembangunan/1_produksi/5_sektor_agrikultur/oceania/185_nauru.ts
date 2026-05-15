@@ -1,0 +1,16 @@
+export const nauru_agrikultur = {
+  padi: 102,
+  gandum: 126,
+  jagung: 57,
+  sayur: 138,
+  umbi: 216,
+  kedelai: 153,
+  kelapa_sawit: 0,
+  kopi: 237,
+  teh: 186,
+  kakao: 0,
+  tebu: 234,
+  karet: 0,
+  kapas: 198,
+  tembakau: 120,
+} as const;

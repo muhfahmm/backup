@@ -1,0 +1,16 @@
+export const saint_kitts_dan_nevis_agrikultur = {
+  padi: 240,
+  gandum: 186,
+  jagung: 198,
+  sayur: 162,
+  umbi: 36,
+  kedelai: 108,
+  kelapa_sawit: 0,
+  kopi: 141,
+  teh: 186,
+  kakao: 0,
+  tebu: 138,
+  karet: 0,
+  kapas: 189,
+  tembakau: 189,
+} as const;

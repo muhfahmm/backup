@@ -1,0 +1,16 @@
+export const bulgaria_agrikultur = {
+  padi: 180,
+  gandum: 580,
+  jagung: 770,
+  sayur: 520,
+  umbi: 140,
+  kedelai: 780,
+  kelapa_sawit: 0,
+  kopi: 660,
+  teh: 370,
+  kakao: 0,
+  tebu: 180,
+  karet: 0,
+  kapas: 180,
+  tembakau: 350,
+} as const;

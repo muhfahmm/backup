@@ -1,0 +1,16 @@
+export const guyana_agrikultur = {
+  padi: 104,
+  gandum: 28,
+  jagung: 126,
+  sayur: 126,
+  umbi: 24,
+  kedelai: 70,
+  kelapa_sawit: 142,
+  kopi: 94,
+  teh: 122,
+  kakao: 62,
+  tebu: 128,
+  karet: 146,
+  kapas: 136,
+  tembakau: 28,
+} as const;

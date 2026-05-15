@@ -1,0 +1,16 @@
+export const namibia_agrikultur = {
+  padi: 51,
+  gandum: 21,
+  jagung: 19,
+  sayur: 27,
+  umbi: 10,
+  kedelai: 47,
+  kelapa_sawit: 0,
+  kopi: 52,
+  teh: 46,
+  kakao: 0,
+  tebu: 15,
+  karet: 0,
+  kapas: 18,
+  tembakau: 55,
+} as const;

@@ -1,0 +1,1353 @@
+[
+  {
+    "country": "afganistan",
+    "capital": "Kabul",
+    "lat": 34.52,
+    "lng": 69.18,
+    "iso": "af"
+  },
+  {
+    "country": "afrika selatan",
+    "capital": "Pretoria",
+    "lat": -25.7,
+    "lng": 28.22,
+    "iso": "za"
+  },
+  {
+    "country": "albania",
+    "capital": "Tirana",
+    "lat": 41.32,
+    "lng": 19.82,
+    "iso": "al"
+  },
+  {
+    "country": "aljazair",
+    "capital": "Algiers",
+    "lat": 36.75,
+    "lng": 3.05,
+    "iso": "dz"
+  },
+  {
+    "country": "amerika serikat",
+    "capital": "Washington, D.C.",
+    "lat": 38.89,
+    "lng": -77.05,
+    "iso": "us"
+  },
+  {
+    "country": "andorra",
+    "capital": "Andorra la Vella",
+    "lat": 42.5,
+    "lng": 1.52,
+    "iso": "ad"
+  },
+  {
+    "country": "angola",
+    "capital": "Luanda",
+    "lat": -8.83,
+    "lng": 13.22,
+    "iso": "ao"
+  },
+  {
+    "country": "antigua dan barbuda",
+    "capital": "Saint John's",
+    "lat": 17.12,
+    "lng": -61.85,
+    "iso": "ag"
+  },
+  {
+    "country": "arab saudi",
+    "capital": "Riyadh",
+    "lat": 24.65,
+    "lng": 46.7,
+    "iso": "sa"
+  },
+  {
+    "country": "argentina",
+    "capital": "Buenos Aires",
+    "lat": -34.58,
+    "lng": -58.67,
+    "iso": "ar"
+  },
+  {
+    "country": "armenia",
+    "capital": "Yerevan",
+    "lat": 40.17,
+    "lng": 44.5,
+    "iso": "am"
+  },
+  {
+    "country": "australia",
+    "capital": "Canberra",
+    "lat": -35.27,
+    "lng": 149.13,
+    "iso": "au"
+  },
+  {
+    "country": "austria",
+    "capital": "Vienna",
+    "lat": 48.2,
+    "lng": 16.37,
+    "iso": "at"
+  },
+  {
+    "country": "azerbaijan",
+    "capital": "Baku",
+    "lat": 40.38,
+    "lng": 49.87,
+    "iso": "az"
+  },
+  {
+    "country": "bahama",
+    "capital": "Nassau",
+    "lat": 25.08,
+    "lng": -77.35,
+    "iso": "bs"
+  },
+  {
+    "country": "bahrain",
+    "capital": "Manama",
+    "lat": 26.23,
+    "lng": 50.57,
+    "iso": "bh"
+  },
+  {
+    "country": "bangladesh",
+    "capital": "Dhaka",
+    "lat": 23.72,
+    "lng": 90.4,
+    "iso": "bd"
+  },
+  {
+    "country": "barbados",
+    "capital": "Bridgetown",
+    "lat": 13.1,
+    "lng": -59.62,
+    "iso": "bb"
+  },
+  {
+    "country": "belanda",
+    "capital": "Amsterdam",
+    "lat": 52.35,
+    "lng": 4.92,
+    "iso": "nl"
+  },
+  {
+    "country": "belarus",
+    "capital": "Minsk",
+    "lat": 53.9,
+    "lng": 27.57,
+    "iso": "by"
+  },
+  {
+    "country": "belgia",
+    "capital": "Brussels",
+    "lat": 50.83,
+    "lng": 4.33,
+    "iso": "be"
+  },
+  {
+    "country": "belize",
+    "capital": "Belmopan",
+    "lat": 17.25,
+    "lng": -88.77,
+    "iso": "bz"
+  },
+  {
+    "country": "benin",
+    "capital": "Porto-Novo",
+    "lat": 6.48,
+    "lng": 2.62,
+    "iso": "bj"
+  },
+  {
+    "country": "bermuda",
+    "capital": "Hamilton",
+    "lat": 32.28,
+    "lng": -64.78,
+    "iso": "bm"
+  },
+  {
+    "country": "bhutan",
+    "capital": "Thimphu",
+    "lat": 27.47,
+    "lng": 89.63,
+    "iso": "bt"
+  },
+  {
+    "country": "bolivia",
+    "capital": "Sucre",
+    "lat": -19.02,
+    "lng": -65.26,
+    "iso": "bo"
+  },
+  {
+    "country": "botswana",
+    "capital": "Gaborone",
+    "lat": -24.63,
+    "lng": 25.9,
+    "iso": "bw"
+  },
+  {
+    "country": "brazil",
+    "capital": "Bras\u00edlia",
+    "lat": -15.79,
+    "lng": -47.88,
+    "iso": "br"
+  },
+  {
+    "country": "brunei",
+    "capital": "Bandar Seri Begawan",
+    "lat": 4.88,
+    "lng": 114.93,
+    "iso": "bn"
+  },
+  {
+    "country": "bulgaria",
+    "capital": "Sofia",
+    "lat": 42.68,
+    "lng": 23.32,
+    "iso": "bg"
+  },
+  {
+    "country": "burkina faso",
+    "capital": "Ouagadougou",
+    "lat": 12.37,
+    "lng": -1.52,
+    "iso": "bf"
+  },
+  {
+    "country": "burundi",
+    "capital": "Gitega",
+    "lat": -3.43,
+    "lng": 29.93,
+    "iso": "bi"
+  },
+  {
+    "country": "ceko",
+    "capital": "Prague",
+    "lat": 50.08,
+    "lng": 14.47,
+    "iso": "cz"
+  },
+  {
+    "country": "chad",
+    "capital": "N'Djamena",
+    "lat": 12.1,
+    "lng": 15.03,
+    "iso": "td"
+  },
+  {
+    "country": "chile",
+    "capital": "Santiago",
+    "lat": -33.45,
+    "lng": -70.67,
+    "iso": "cl"
+  },
+  {
+    "country": "china",
+    "capital": "Beijing",
+    "lat": 39.92,
+    "lng": 116.38,
+    "iso": "cn"
+  },
+  {
+    "country": "costa rica",
+    "capital": "San Jos\u00e9",
+    "lat": 9.93,
+    "lng": -84.09,
+    "iso": "cr"
+  },
+  {
+    "country": "curacao",
+    "capital": "Willemstad",
+    "lat": 12.1,
+    "lng": -68.92,
+    "iso": "un"
+  },
+  {
+    "country": "denmark",
+    "capital": "Copenhagen",
+    "lat": 55.67,
+    "lng": 12.58,
+    "iso": "dk"
+  },
+  {
+    "country": "djibouti",
+    "capital": "Djibouti",
+    "lat": 11.58,
+    "lng": 43.15,
+    "iso": "dj"
+  },
+  {
+    "country": "dominika",
+    "capital": "Roseau",
+    "lat": 15.3,
+    "lng": -61.4,
+    "iso": "dm"
+  },
+  {
+    "country": "ekuador",
+    "capital": "Quito",
+    "lat": -0.22,
+    "lng": -78.5,
+    "iso": "ec"
+  },
+  {
+    "country": "el salvador",
+    "capital": "San Salvador",
+    "lat": 13.7,
+    "lng": -89.2,
+    "iso": "sv"
+  },
+  {
+    "country": "eritrea",
+    "capital": "Asmara",
+    "lat": 15.33,
+    "lng": 38.93,
+    "iso": "er"
+  },
+  {
+    "country": "estonia",
+    "capital": "Tallinn",
+    "lat": 59.43,
+    "lng": 24.72,
+    "iso": "ee"
+  },
+  {
+    "country": "eswatini",
+    "capital": "Mbabane",
+    "lat": -26.32,
+    "lng": 31.13,
+    "iso": "sz"
+  },
+  {
+    "country": "ethiopia",
+    "capital": "Addis Ababa",
+    "lat": 9.03,
+    "lng": 38.7,
+    "iso": "et"
+  },
+  {
+    "country": "fiji",
+    "capital": "Suva",
+    "lat": -18.13,
+    "lng": 178.42,
+    "iso": "fj"
+  },
+  {
+    "country": "filipina",
+    "capital": "Manila",
+    "lat": 14.6,
+    "lng": 120.97,
+    "iso": "ph"
+  },
+  {
+    "country": "finlandia",
+    "capital": "Helsinki",
+    "lat": 60.17,
+    "lng": 24.93,
+    "iso": "fi"
+  },
+  {
+    "country": "gabon",
+    "capital": "Libreville",
+    "lat": 0.38,
+    "lng": 9.45,
+    "iso": "ga"
+  },
+  {
+    "country": "gambia",
+    "capital": "Banjul",
+    "lat": 13.45,
+    "lng": -16.57,
+    "iso": "gm"
+  },
+  {
+    "country": "georgia",
+    "capital": "Tbilisi",
+    "lat": 41.68,
+    "lng": 44.83,
+    "iso": "ge"
+  },
+  {
+    "country": "ghana",
+    "capital": "Accra",
+    "lat": 5.55,
+    "lng": -0.22,
+    "iso": "gh"
+  },
+  {
+    "country": "gibraltar",
+    "capital": "Gibraltar",
+    "lat": 36.13,
+    "lng": -5.35,
+    "iso": "un"
+  },
+  {
+    "country": "greenland",
+    "capital": "Nuuk",
+    "lat": 64.18,
+    "lng": -51.75,
+    "iso": "gl"
+  },
+  {
+    "country": "grenada",
+    "capital": "St. George's",
+    "lat": 32.38,
+    "lng": -64.68,
+    "iso": "gd"
+  },
+  {
+    "country": "guam",
+    "capital": "Hag\u00e5t\u00f1a",
+    "lat": 13.48,
+    "lng": 144.75,
+    "iso": "gu"
+  },
+  {
+    "country": "guatemala",
+    "capital": "Guatemala City",
+    "lat": 14.62,
+    "lng": -90.52,
+    "iso": "gt"
+  },
+  {
+    "country": "guinea",
+    "capital": "Conakry",
+    "lat": 9.5,
+    "lng": -13.7,
+    "iso": "gn"
+  },
+  {
+    "country": "guyana",
+    "capital": "Georgetown",
+    "lat": 6.8,
+    "lng": -58.15,
+    "iso": "gy"
+  },
+  {
+    "country": "haiti",
+    "capital": "Port-au-Prince",
+    "lat": 18.53,
+    "lng": -72.33,
+    "iso": "ht"
+  },
+  {
+    "country": "honduras",
+    "capital": "Tegucigalpa",
+    "lat": 14.1,
+    "lng": -87.22,
+    "iso": "hn"
+  },
+  {
+    "country": "hong kong",
+    "capital": "City of Victoria",
+    "lat": 22.267,
+    "lng": 114.188,
+    "iso": "hk"
+  },
+  {
+    "country": "hungaria",
+    "capital": "Budapest",
+    "lat": 47.5,
+    "lng": 19.08,
+    "iso": "hu"
+  },
+  {
+    "country": "india",
+    "capital": "New Delhi",
+    "lat": 28.6,
+    "lng": 77.2,
+    "iso": "in"
+  },
+  {
+    "country": "indonesia",
+    "capital": "Jakarta",
+    "lat": -6.17,
+    "lng": 106.82,
+    "iso": "id"
+  },
+  {
+    "country": "inggris",
+    "capital": "London",
+    "lat": 51.5,
+    "lng": -0.08,
+    "iso": "gb"
+  },
+  {
+    "country": "irak",
+    "capital": "Baghdad",
+    "lat": 33.33,
+    "lng": 44.4,
+    "iso": "iq"
+  },
+  {
+    "country": "iran",
+    "capital": "Tehran",
+    "lat": 35.7,
+    "lng": 51.42,
+    "iso": "ir"
+  },
+  {
+    "country": "irlandia",
+    "capital": "Dublin",
+    "lat": 53.32,
+    "lng": -6.23,
+    "iso": "un"
+  },
+  {
+    "country": "islandia",
+    "capital": "Reykjavik",
+    "lat": 64.15,
+    "lng": -21.95,
+    "iso": "is"
+  },
+  {
+    "country": "israel",
+    "capital": "Jerusalem",
+    "lat": 31.77,
+    "lng": 35.23,
+    "iso": "il"
+  },
+  {
+    "country": "italia",
+    "capital": "Rome",
+    "lat": 41.9,
+    "lng": 12.48,
+    "iso": "it"
+  },
+  {
+    "country": "jamaika",
+    "capital": "Kingston",
+    "lat": 17.99702,
+    "lng": -76.79358,
+    "iso": "jm"
+  },
+  {
+    "country": "jepang",
+    "capital": "Tokyo",
+    "lat": 35.68,
+    "lng": 139.75,
+    "iso": "jp"
+  },
+  {
+    "country": "jerman",
+    "capital": "Berlin",
+    "lat": 52.52,
+    "lng": 13.4,
+    "iso": "de"
+  },
+  {
+    "country": "kamboja",
+    "capital": "Phnom Penh",
+    "lat": 11.55,
+    "lng": 104.92,
+    "iso": "kh"
+  },
+  {
+    "country": "kamerun",
+    "capital": "Yaound\u00e9",
+    "lat": 3.85,
+    "lng": 11.5,
+    "iso": "cm"
+  },
+  {
+    "country": "kanada",
+    "capital": "Ottawa",
+    "lat": 45.42,
+    "lng": -75.7,
+    "iso": "ca"
+  },
+  {
+    "country": "kazakhstan",
+    "capital": "Astana",
+    "lat": 51.16,
+    "lng": 71.45,
+    "iso": "kz"
+  },
+  {
+    "country": "kenya",
+    "capital": "Nairobi",
+    "lat": -1.28,
+    "lng": 36.82,
+    "iso": "ke"
+  },
+  {
+    "country": "kepulauan faroe",
+    "capital": "T\u00f3rshavn",
+    "lat": 62.01,
+    "lng": -6.77,
+    "iso": "fo"
+  },
+  {
+    "country": "kirgizstan",
+    "capital": "Bishkek",
+    "lat": 42.87,
+    "lng": 74.6,
+    "iso": "kg"
+  },
+  {
+    "country": "kiribati",
+    "capital": "South Tarawa",
+    "lat": 1.33,
+    "lng": 172.98,
+    "iso": "ki"
+  },
+  {
+    "country": "kolombia",
+    "capital": "Bogot\u00e1",
+    "lat": 4.71,
+    "lng": -74.07,
+    "iso": "co"
+  },
+  {
+    "country": "komoro",
+    "capital": "Moroni",
+    "lat": -11.7,
+    "lng": 43.23,
+    "iso": "km"
+  },
+  {
+    "country": "kongo",
+    "capital": "Brazzaville",
+    "lat": -4.25,
+    "lng": 15.28,
+    "iso": "un"
+  },
+  {
+    "country": "korea selatan",
+    "capital": "Seoul",
+    "lat": 37.55,
+    "lng": 126.98,
+    "iso": "kr"
+  },
+  {
+    "country": "korea utara",
+    "capital": "Pyongyang",
+    "lat": 39.02,
+    "lng": 125.75,
+    "iso": "kp"
+  },
+  {
+    "country": "kosovo",
+    "capital": "Pristina",
+    "lat": 42.67,
+    "lng": 21.17,
+    "iso": "un"
+  },
+  {
+    "country": "kroasia",
+    "capital": "Zagreb",
+    "lat": 45.8,
+    "lng": 16.0,
+    "iso": "hr"
+  },
+  {
+    "country": "kuba",
+    "capital": "Havana",
+    "lat": 23.12,
+    "lng": -82.35,
+    "iso": "cu"
+  },
+  {
+    "country": "kuwait",
+    "capital": "Kuwait City",
+    "lat": 29.37,
+    "lng": 47.97,
+    "iso": "kw"
+  },
+  {
+    "country": "laos",
+    "capital": "Vientiane",
+    "lat": 17.97,
+    "lng": 102.6,
+    "iso": "la"
+  },
+  {
+    "country": "latvia",
+    "capital": "Riga",
+    "lat": 56.95,
+    "lng": 24.1,
+    "iso": "lv"
+  },
+  {
+    "country": "lebanon",
+    "capital": "Beirut",
+    "lat": 33.87,
+    "lng": 35.5,
+    "iso": "lb"
+  },
+  {
+    "country": "lesotho",
+    "capital": "Maseru",
+    "lat": -29.32,
+    "lng": 27.48,
+    "iso": "ls"
+  },
+  {
+    "country": "liberia",
+    "capital": "Monrovia",
+    "lat": 6.3,
+    "lng": -10.8,
+    "iso": "lr"
+  },
+  {
+    "country": "libya",
+    "capital": "Tripoli",
+    "lat": 32.88,
+    "lng": 13.17,
+    "iso": "ly"
+  },
+  {
+    "country": "liechtenstein",
+    "capital": "Vaduz",
+    "lat": 47.13,
+    "lng": 9.52,
+    "iso": "li"
+  },
+  {
+    "country": "lithuania",
+    "capital": "Vilnius",
+    "lat": 54.68,
+    "lng": 25.32,
+    "iso": "lt"
+  },
+  {
+    "country": "luksemburg",
+    "capital": "Luxembourg",
+    "lat": 49.6,
+    "lng": 6.12,
+    "iso": "lu"
+  },
+  {
+    "country": "madagaskar",
+    "capital": "Antananarivo",
+    "lat": -18.92,
+    "lng": 47.52,
+    "iso": "mg"
+  },
+  {
+    "country": "malawi",
+    "capital": "Lilongwe",
+    "lat": -13.97,
+    "lng": 33.78,
+    "iso": "mw"
+  },
+  {
+    "country": "malaysia",
+    "capital": "Kuala Lumpur",
+    "lat": 3.17,
+    "lng": 101.7,
+    "iso": "my"
+  },
+  {
+    "country": "maldives",
+    "capital": "Mal\u00e9",
+    "lat": 4.17,
+    "lng": 73.51,
+    "iso": "mv"
+  },
+  {
+    "country": "mali",
+    "capital": "Bamako",
+    "lat": 12.65,
+    "lng": -8.0,
+    "iso": "ml"
+  },
+  {
+    "country": "malta",
+    "capital": "Valletta",
+    "lat": 35.88,
+    "lng": 14.5,
+    "iso": "mt"
+  },
+  {
+    "country": "maroko",
+    "capital": "Rabat",
+    "lat": 34.02,
+    "lng": -6.82,
+    "iso": "ma"
+  },
+  {
+    "country": "mauritania",
+    "capital": "Nouakchott",
+    "lat": 18.07,
+    "lng": -15.97,
+    "iso": "mr"
+  },
+  {
+    "country": "mauritius",
+    "capital": "Port Louis",
+    "lat": -20.15,
+    "lng": 57.48,
+    "iso": "mu"
+  },
+  {
+    "country": "meksiko",
+    "capital": "Mexico City",
+    "lat": 19.43,
+    "lng": -99.13,
+    "iso": "mx"
+  },
+  {
+    "country": "mesir",
+    "capital": "Cairo",
+    "lat": 30.05,
+    "lng": 31.25,
+    "iso": "eg"
+  },
+  {
+    "country": "mikronesia",
+    "capital": "Palikir",
+    "lat": 6.92,
+    "lng": 158.15,
+    "iso": "fm"
+  },
+  {
+    "country": "moldova",
+    "capital": "Chi\u0219in\u0103u",
+    "lat": 47.01,
+    "lng": 28.9,
+    "iso": "md"
+  },
+  {
+    "country": "monako",
+    "capital": "Monaco",
+    "lat": 43.73,
+    "lng": 7.42,
+    "iso": "mc"
+  },
+  {
+    "country": "mongolia",
+    "capital": "Ulan Bator",
+    "lat": 47.92,
+    "lng": 106.91,
+    "iso": "mn"
+  },
+  {
+    "country": "montenegro",
+    "capital": "Podgorica",
+    "lat": 42.43,
+    "lng": 19.27,
+    "iso": "me"
+  },
+  {
+    "country": "mozambik",
+    "capital": "Maputo",
+    "lat": -25.95,
+    "lng": 32.58,
+    "iso": "mz"
+  },
+  {
+    "country": "myanmar",
+    "capital": "Naypyidaw",
+    "lat": 19.76,
+    "lng": 96.07,
+    "iso": "mm"
+  },
+  {
+    "country": "namibia",
+    "capital": "Windhoek",
+    "lat": -22.57,
+    "lng": 17.08,
+    "iso": "na"
+  },
+  {
+    "country": "nauru",
+    "capital": "Yaren",
+    "lat": -0.55,
+    "lng": 166.92,
+    "iso": "nr"
+  },
+  {
+    "country": "nepal",
+    "capital": "Kathmandu",
+    "lat": 27.72,
+    "lng": 85.32,
+    "iso": "np"
+  },
+  {
+    "country": "niger",
+    "capital": "Niamey",
+    "lat": 13.52,
+    "lng": 2.12,
+    "iso": "ne"
+  },
+  {
+    "country": "nigeria",
+    "capital": "Abuja",
+    "lat": 9.08,
+    "lng": 7.53,
+    "iso": "ng"
+  },
+  {
+    "country": "nikaragua",
+    "capital": "Managua",
+    "lat": 12.13,
+    "lng": -86.25,
+    "iso": "ni"
+  },
+  {
+    "country": "norwegia",
+    "capital": "Oslo",
+    "lat": 59.92,
+    "lng": 10.75,
+    "iso": "no"
+  },
+  {
+    "country": "oman",
+    "capital": "Muscat",
+    "lat": 23.62,
+    "lng": 58.58,
+    "iso": "om"
+  },
+  {
+    "country": "pakistan",
+    "capital": "Islamabad",
+    "lat": 33.68,
+    "lng": 73.05,
+    "iso": "pk"
+  },
+  {
+    "country": "palau",
+    "capital": "Ngerulmud",
+    "lat": 7.5,
+    "lng": 134.62,
+    "iso": "pw"
+  },
+  {
+    "country": "palestina",
+    "capital": "Ramallah",
+    "lat": 31.9,
+    "lng": 35.2,
+    "iso": "ps"
+  },
+  {
+    "country": "panama",
+    "capital": "Panama City",
+    "lat": 8.97,
+    "lng": -79.53,
+    "iso": "pa"
+  },
+  {
+    "country": "pantai gading",
+    "capital": "Yamoussoukro",
+    "lat": 6.82,
+    "lng": -5.27,
+    "iso": "ci"
+  },
+  {
+    "country": "papua nugini",
+    "capital": "Port Moresby",
+    "lat": -9.45,
+    "lng": 147.18,
+    "iso": "pg"
+  },
+  {
+    "country": "paraguay",
+    "capital": "Asunci\u00f3n",
+    "lat": -25.28,
+    "lng": -57.57,
+    "iso": "py"
+  },
+  {
+    "country": "peru",
+    "capital": "Lima",
+    "lat": -12.05,
+    "lng": -77.05,
+    "iso": "pe"
+  },
+  {
+    "country": "polandia",
+    "capital": "Warsaw",
+    "lat": 52.25,
+    "lng": 21.0,
+    "iso": "pl"
+  },
+  {
+    "country": "portugal",
+    "capital": "Lisbon",
+    "lat": 38.72,
+    "lng": -9.13,
+    "iso": "pt"
+  },
+  {
+    "country": "prancis",
+    "capital": "Paris",
+    "lat": 48.87,
+    "lng": 2.33,
+    "iso": "fr"
+  },
+  {
+    "country": "puerto rico",
+    "capital": "San Juan",
+    "lat": 18.47,
+    "lng": -66.12,
+    "iso": "pr"
+  },
+  {
+    "country": "qatar",
+    "capital": "Doha",
+    "lat": 25.28,
+    "lng": 51.53,
+    "iso": "qa"
+  },
+  {
+    "country": "republik demokratik kongo",
+    "capital": "Kinshasa",
+    "lat": -4.32,
+    "lng": 15.3,
+    "iso": "cd"
+  },
+  {
+    "country": "republik dominika",
+    "capital": "Santo Domingo",
+    "lat": 18.47,
+    "lng": -69.9,
+    "iso": "do"
+  },
+  {
+    "country": "republik rumania",
+    "capital": "Bucharest",
+    "lat": 44.43,
+    "lng": 26.1,
+    "iso": "un"
+  },
+  {
+    "country": "republik serbia",
+    "capital": "Belgrade",
+    "lat": 44.83,
+    "lng": 20.5,
+    "iso": "un"
+  },
+  {
+    "country": "republik sudan",
+    "capital": "Khartoum",
+    "lat": 15.6,
+    "lng": 32.53,
+    "iso": "un"
+  },
+  {
+    "country": "republik tanzania",
+    "capital": "Dodoma",
+    "lat": -6.16,
+    "lng": 35.75,
+    "iso": "un"
+  },
+  {
+    "country": "republik timor leste",
+    "capital": "Dili",
+    "lat": -8.58,
+    "lng": 125.6,
+    "iso": "un"
+  },
+  {
+    "country": "republik uganda",
+    "capital": "Kampala",
+    "lat": 0.32,
+    "lng": 32.55,
+    "iso": "un"
+  },
+  {
+    "country": "republik zambia",
+    "capital": "Lusaka",
+    "lat": -15.42,
+    "lng": 28.28,
+    "iso": "un"
+  },
+  {
+    "country": "republik zimbabwe",
+    "capital": "Harare",
+    "lat": -17.82,
+    "lng": 31.03,
+    "iso": "un"
+  },
+  {
+    "country": "rusia",
+    "capital": "Moscow",
+    "lat": 55.75,
+    "lng": 37.6,
+    "iso": "ru"
+  },
+  {
+    "country": "rwanda",
+    "capital": "Kigali",
+    "lat": -1.95,
+    "lng": 30.05,
+    "iso": "rw"
+  },
+  {
+    "country": "saint lucia",
+    "capital": "Castries",
+    "lat": 14.0,
+    "lng": -61.0,
+    "iso": "lc"
+  },
+  {
+    "country": "samoa",
+    "capital": "Apia",
+    "lat": -13.82,
+    "lng": -171.77,
+    "iso": "ws"
+  },
+  {
+    "country": "samoa amerika",
+    "capital": "Pago Pago",
+    "lat": -14.27,
+    "lng": -170.7,
+    "iso": "as"
+  },
+  {
+    "country": "san marino",
+    "capital": "City of San Marino",
+    "lat": 43.94,
+    "lng": 12.45,
+    "iso": "sm"
+  },
+  {
+    "country": "selandia baru",
+    "capital": "Wellington",
+    "lat": -41.3,
+    "lng": 174.78,
+    "iso": "nz"
+  },
+  {
+    "country": "senegal",
+    "capital": "Dakar",
+    "lat": 14.73,
+    "lng": -17.63,
+    "iso": "sn"
+  },
+  {
+    "country": "seychelles",
+    "capital": "Victoria",
+    "lat": -4.62,
+    "lng": 55.45,
+    "iso": "sc"
+  },
+  {
+    "country": "sierra leone",
+    "capital": "Freetown",
+    "lat": 8.48,
+    "lng": -13.23,
+    "iso": "sl"
+  },
+  {
+    "country": "singapura",
+    "capital": "Singapore",
+    "lat": 1.28,
+    "lng": 103.85,
+    "iso": "sg"
+  },
+  {
+    "country": "siprus",
+    "capital": "Nicosia",
+    "lat": 35.17,
+    "lng": 33.37,
+    "iso": "cy"
+  },
+  {
+    "country": "slovenia",
+    "capital": "Ljubljana",
+    "lat": 46.05,
+    "lng": 14.52,
+    "iso": "si"
+  },
+  {
+    "country": "slowakia",
+    "capital": "Bratislava",
+    "lat": 48.15,
+    "lng": 17.12,
+    "iso": "sk"
+  },
+  {
+    "country": "somalia",
+    "capital": "Mogadishu",
+    "lat": 2.07,
+    "lng": 45.33,
+    "iso": "so"
+  },
+  {
+    "country": "spanyol",
+    "capital": "Madrid",
+    "lat": 40.4,
+    "lng": -3.68,
+    "iso": "es"
+  },
+  {
+    "country": "sri lanka",
+    "capital": "Sri Jayawardenepura Kotte",
+    "lat": 6.89,
+    "lng": 79.9,
+    "iso": "lk"
+  },
+  {
+    "country": "sudan selatan",
+    "capital": "Juba",
+    "lat": 4.85,
+    "lng": 31.62,
+    "iso": "ss"
+  },
+  {
+    "country": "suriah",
+    "capital": "Damascus",
+    "lat": 33.5,
+    "lng": 36.3,
+    "iso": "sy"
+  },
+  {
+    "country": "suriname",
+    "capital": "Paramaribo",
+    "lat": 5.83,
+    "lng": -55.17,
+    "iso": "sr"
+  },
+  {
+    "country": "swedia",
+    "capital": "Stockholm",
+    "lat": 59.33,
+    "lng": 18.05,
+    "iso": "se"
+  },
+  {
+    "country": "taiwan",
+    "capital": "Taipei",
+    "lat": 25.03,
+    "lng": 121.52,
+    "iso": "cn-tw"
+  },
+  {
+    "country": "tajikistan",
+    "capital": "Dushanbe",
+    "lat": 38.55,
+    "lng": 68.77,
+    "iso": "tj"
+  },
+  {
+    "country": "thailand",
+    "capital": "Bangkok",
+    "lat": 13.75,
+    "lng": 100.52,
+    "iso": "th"
+  },
+  {
+    "country": "togo",
+    "capital": "Lom\u00e9",
+    "lat": 6.14,
+    "lng": 1.21,
+    "iso": "tg"
+  },
+  {
+    "country": "tonga",
+    "capital": "Nuku'alofa",
+    "lat": -21.13,
+    "lng": -175.2,
+    "iso": "to"
+  },
+  {
+    "country": "trinidad dan tobago",
+    "capital": "Port of Spain",
+    "lat": 10.65,
+    "lng": -61.52,
+    "iso": "tt"
+  },
+  {
+    "country": "tunisia",
+    "capital": "Tunis",
+    "lat": 36.8,
+    "lng": 10.18,
+    "iso": "tn"
+  },
+  {
+    "country": "turki",
+    "capital": "Ankara",
+    "lat": 39.93,
+    "lng": 32.87,
+    "iso": "tr"
+  },
+  {
+    "country": "turkmenistan",
+    "capital": "Ashgabat",
+    "lat": 37.95,
+    "lng": 58.38,
+    "iso": "tm"
+  },
+  {
+    "country": "tuvalu",
+    "capital": "Funafuti",
+    "lat": -8.52,
+    "lng": 179.22,
+    "iso": "tv"
+  },
+  {
+    "country": "ukraina",
+    "capital": "Kyiv",
+    "lat": 50.43,
+    "lng": 30.52,
+    "iso": "ua"
+  },
+  {
+    "country": "uruguay",
+    "capital": "Montevideo",
+    "lat": -34.85,
+    "lng": -56.17,
+    "iso": "uy"
+  },
+  {
+    "country": "uzbekistan",
+    "capital": "Tashkent",
+    "lat": 41.32,
+    "lng": 69.25,
+    "iso": "uz"
+  },
+  {
+    "country": "vanuatu",
+    "capital": "Port Vila",
+    "lat": -17.73,
+    "lng": 168.32,
+    "iso": "vu"
+  },
+  {
+    "country": "vatikan",
+    "capital": "Vatican City",
+    "lat": 41.9,
+    "lng": 12.45,
+    "iso": "va"
+  },
+  {
+    "country": "venezuela",
+    "capital": "Caracas",
+    "lat": 10.48,
+    "lng": -66.87,
+    "iso": "ve"
+  },
+  {
+    "country": "vietnam",
+    "capital": "Hanoi",
+    "lat": 21.03,
+    "lng": 105.85,
+    "iso": "vn"
+  },
+  {
+    "country": "yaman",
+    "capital": "Sana'a",
+    "lat": 15.37,
+    "lng": 44.19,
+    "iso": "ye"
+  },
+  {
+    "country": "yordania",
+    "capital": "Amman",
+    "lat": 31.95,
+    "lng": 35.93,
+    "iso": "jo"
+  },
+  {
+    "country": "yunani",
+    "capital": "Athens",
+    "lat": 37.98,
+    "lng": 23.73,
+    "iso": "gr"
+  }
+]

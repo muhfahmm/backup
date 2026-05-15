@@ -1,0 +1,16 @@
+export const eswatini_agrikultur = {
+  padi: 58,
+  gandum: 73,
+  jagung: 70,
+  sayur: 14,
+  umbi: 14,
+  kedelai: 32,
+  kelapa_sawit: 0,
+  kopi: 45,
+  teh: 28,
+  kakao: 0,
+  tebu: 26,
+  karet: 0,
+  kapas: 79,
+  tembakau: 12,
+} as const;

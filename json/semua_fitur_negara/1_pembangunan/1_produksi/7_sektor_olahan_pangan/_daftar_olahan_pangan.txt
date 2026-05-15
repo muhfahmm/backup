@@ -1,0 +1,10 @@
+1. air_mineral
+2. gula
+3. roti
+4. pengolahan_daging
+5. mie_instan
+6. minyak_goreng
+7. susu
+8. pakan_ternak
+9. ikan_kaleng
+10. kopi_teh

@@ -1,0 +1,16 @@
+export const afganistan_agrikultur = {
+  padi: 48,
+  gandum: 72,
+  jagung: 160,
+  sayur: 276,
+  umbi: 276,
+  kedelai: 276,
+  kelapa_sawit: 0,
+  kopi: 48,
+  teh: 280,
+  kakao: 0,
+  tebu: 76,
+  karet: 0,
+  kapas: 100,
+  tembakau: 296,
+} as const;

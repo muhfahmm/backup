@@ -1,0 +1,16 @@
+export const ukraina_agrikultur = {
+  padi: 300,
+  gandum: 160,
+  jagung: 320,
+  sayur: 295,
+  umbi: 365,
+  kedelai: 230,
+  kelapa_sawit: 0,
+  kopi: 240,
+  teh: 195,
+  kakao: 0,
+  tebu: 395,
+  karet: 0,
+  kapas: 400,
+  tembakau: 160,
+} as const;

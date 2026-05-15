@@ -1,0 +1,16 @@
+export const madagaskar_agrikultur = {
+  padi: 28,
+  gandum: 22,
+  jagung: 84,
+  sayur: 154,
+  umbi: 138,
+  kedelai: 128,
+  kelapa_sawit: 0,
+  kopi: 132,
+  teh: 96,
+  kakao: 0,
+  tebu: 52,
+  karet: 0,
+  kapas: 74,
+  tembakau: 76,
+} as const;

@@ -1,0 +1,16 @@
+export const ghana_agrikultur = {
+  padi: 77,
+  gandum: 182,
+  jagung: 441,
+  sayur: 350,
+  umbi: 392,
+  kedelai: 168,
+  kelapa_sawit: 560,
+  kopi: 392,
+  teh: 84,
+  kakao: 182,
+  tebu: 301,
+  karet: 329,
+  kapas: 518,
+  tembakau: 301,
+} as const;

@@ -1,0 +1,16 @@
+export const samoa_agrikultur = {
+  padi: 142,
+  gandum: 28,
+  jagung: 32,
+  sayur: 70,
+  umbi: 110,
+  kedelai: 40,
+  kelapa_sawit: 0,
+  kopi: 120,
+  teh: 88,
+  kakao: 0,
+  tebu: 120,
+  karet: 0,
+  kapas: 156,
+  tembakau: 150,
+} as const;

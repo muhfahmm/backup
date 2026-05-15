@@ -1,0 +1,16 @@
+export const estonia_agrikultur = {
+  padi: 180,
+  gandum: 115,
+  jagung: 150,
+  sayur: 140,
+  umbi: 310,
+  kedelai: 260,
+  kelapa_sawit: 0,
+  kopi: 225,
+  teh: 75,
+  kakao: 0,
+  tebu: 295,
+  karet: 0,
+  kapas: 130,
+  tembakau: 305,
+} as const;

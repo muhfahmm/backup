@@ -1,0 +1,16 @@
+export const antigua_dan_barbuda_agrikultur = {
+  padi: 44,
+  gandum: 160,
+  jagung: 66,
+  sayur: 64,
+  umbi: 86,
+  kedelai: 86,
+  kelapa_sawit: 0,
+  kopi: 38,
+  teh: 130,
+  kakao: 0,
+  tebu: 112,
+  karet: 0,
+  kapas: 144,
+  tembakau: 60,
+} as const;

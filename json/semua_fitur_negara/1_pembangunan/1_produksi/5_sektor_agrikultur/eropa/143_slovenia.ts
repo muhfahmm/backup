@@ -1,0 +1,16 @@
+export const slovenia_agrikultur = {
+  padi: 130,
+  gandum: 110,
+  jagung: 120,
+  sayur: 68,
+  umbi: 42,
+  kedelai: 44,
+  kelapa_sawit: 0,
+  kopi: 60,
+  teh: 142,
+  kakao: 0,
+  tebu: 104,
+  karet: 0,
+  kapas: 68,
+  tembakau: 48,
+} as const;

@@ -1,0 +1,16 @@
+export const botswana_agrikultur = {
+  padi: 82,
+  gandum: 136,
+  jagung: 158,
+  sayur: 76,
+  umbi: 72,
+  kedelai: 68,
+  kelapa_sawit: 0,
+  kopi: 32,
+  teh: 88,
+  kakao: 0,
+  tebu: 82,
+  karet: 0,
+  kapas: 42,
+  tembakau: 56,
+} as const;

@@ -1,0 +1,16 @@
+export const bolivia_agrikultur = {
+  padi: 190,
+  gandum: 135,
+  jagung: 290,
+  sayur: 235,
+  umbi: 350,
+  kedelai: 355,
+  kelapa_sawit: 0,
+  kopi: 330,
+  teh: 245,
+  kakao: 0,
+  tebu: 295,
+  karet: 0,
+  kapas: 295,
+  tembakau: 80,
+} as const;

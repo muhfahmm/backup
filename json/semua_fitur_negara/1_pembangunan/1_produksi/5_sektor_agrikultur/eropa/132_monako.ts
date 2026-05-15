@@ -1,0 +1,16 @@
+export const monako_agrikultur = {
+  padi: 38,
+  gandum: 14,
+  jagung: 71,
+  sayur: 42,
+  umbi: 60,
+  kedelai: 31,
+  kelapa_sawit: 0,
+  kopi: 11,
+  teh: 59,
+  kakao: 0,
+  tebu: 10,
+  karet: 0,
+  kapas: 17,
+  tembakau: 57,
+} as const;

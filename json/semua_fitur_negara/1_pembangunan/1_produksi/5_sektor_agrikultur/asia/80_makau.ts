@@ -1,0 +1,16 @@
+export const makau_agrikultur = {
+  padi: 208,
+  gandum: 176,
+  jagung: 128,
+  sayur: 308,
+  umbi: 48,
+  kedelai: 176,
+  kelapa_sawit: 0,
+  kopi: 188,
+  teh: 164,
+  kakao: 0,
+  tebu: 180,
+  karet: 0,
+  kapas: 224,
+  tembakau: 308,
+} as const;

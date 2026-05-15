@@ -1,0 +1,16 @@
+export const republik_timor_leste_agrikultur = {
+  padi: 22,
+  gandum: 11,
+  jagung: 29,
+  sayur: 69,
+  umbi: 34,
+  kedelai: 70,
+  kelapa_sawit: 0,
+  kopi: 55,
+  teh: 58,
+  kakao: 0,
+  tebu: 34,
+  karet: 0,
+  kapas: 47,
+  tembakau: 61,
+} as const;

@@ -1,0 +1,16 @@
+export const gibraltar_agrikultur = {
+  padi: 140,
+  gandum: 152,
+  jagung: 62,
+  sayur: 132,
+  umbi: 134,
+  kedelai: 48,
+  kelapa_sawit: 0,
+  kopi: 78,
+  teh: 74,
+  kakao: 0,
+  tebu: 92,
+  karet: 0,
+  kapas: 66,
+  tembakau: 114,
+} as const;

@@ -1,0 +1,16 @@
+export const republik_rumania_agrikultur = {
+  padi: 576,
+  gandum: 912,
+  jagung: 1512,
+  sayur: 864,
+  umbi: 1536,
+  kedelai: 1704,
+  kelapa_sawit: 0,
+  kopi: 864,
+  teh: 288,
+  kakao: 0,
+  tebu: 552,
+  karet: 0,
+  kapas: 1680,
+  tembakau: 1272,
+} as const;

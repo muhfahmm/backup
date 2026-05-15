@@ -1,0 +1,16 @@
+export const moldova_agrikultur = {
+  padi: 68,
+  gandum: 276,
+  jagung: 56,
+  sayur: 88,
+  umbi: 236,
+  kedelai: 100,
+  kelapa_sawit: 0,
+  kopi: 268,
+  teh: 320,
+  kakao: 0,
+  tebu: 160,
+  karet: 0,
+  kapas: 220,
+  tembakau: 212,
+} as const;

@@ -1,0 +1,16 @@
+export const tanjung_verde_agrikultur = {
+  padi: 87,
+  gandum: 129,
+  jagung: 177,
+  sayur: 240,
+  umbi: 45,
+  kedelai: 240,
+  kelapa_sawit: 0,
+  kopi: 162,
+  teh: 75,
+  kakao: 0,
+  tebu: 150,
+  karet: 0,
+  kapas: 132,
+  tembakau: 144,
+} as const;

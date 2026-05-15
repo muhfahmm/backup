@@ -1,0 +1,16 @@
+export const india_agrikultur = {
+  padi: 27117,
+  gandum: 8646,
+  jagung: 30261,
+  sayur: 30654,
+  umbi: 6288,
+  kedelai: 15720,
+  kelapa_sawit: 0,
+  kopi: 29082,
+  teh: 9432,
+  kakao: 0,
+  tebu: 17292,
+  karet: 0,
+  kapas: 13755,
+  tembakau: 9039,
+} as const;

@@ -1,0 +1,16 @@
+export const togo_agrikultur = {
+  padi: 22,
+  gandum: 64,
+  jagung: 36,
+  sayur: 22,
+  umbi: 114,
+  kedelai: 36,
+  kelapa_sawit: 0,
+  kopi: 118,
+  teh: 28,
+  kakao: 0,
+  tebu: 146,
+  karet: 0,
+  kapas: 72,
+  tembakau: 30,
+} as const;

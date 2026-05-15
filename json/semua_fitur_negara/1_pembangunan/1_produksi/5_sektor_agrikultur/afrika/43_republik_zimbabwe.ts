@@ -1,0 +1,16 @@
+export const republik_zimbabwe_agrikultur = {
+  padi: 134,
+  gandum: 30,
+  jagung: 82,
+  sayur: 30,
+  umbi: 46,
+  kedelai: 66,
+  kelapa_sawit: 0,
+  kopi: 70,
+  teh: 120,
+  kakao: 0,
+  tebu: 26,
+  karet: 0,
+  kapas: 128,
+  tembakau: 68,
+} as const;

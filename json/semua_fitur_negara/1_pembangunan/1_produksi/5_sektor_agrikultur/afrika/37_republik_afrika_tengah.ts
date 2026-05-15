@@ -1,0 +1,16 @@
+export const republik_afrika_tengah_agrikultur = {
+  padi: 75,
+  gandum: 213,
+  jagung: 129,
+  sayur: 69,
+  umbi: 99,
+  kedelai: 93,
+  kelapa_sawit: 0,
+  kopi: 213,
+  teh: 141,
+  kakao: 0,
+  tebu: 219,
+  karet: 0,
+  kapas: 144,
+  tembakau: 108,
+} as const;

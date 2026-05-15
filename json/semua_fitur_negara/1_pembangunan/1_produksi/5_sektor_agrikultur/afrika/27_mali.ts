@@ -1,0 +1,16 @@
+export const mali_agrikultur = {
+  padi: 159,
+  gandum: 213,
+  jagung: 186,
+  sayur: 54,
+  umbi: 198,
+  kedelai: 114,
+  kelapa_sawit: 0,
+  kopi: 72,
+  teh: 102,
+  kakao: 0,
+  tebu: 63,
+  karet: 0,
+  kapas: 87,
+  tembakau: 141,
+} as const;

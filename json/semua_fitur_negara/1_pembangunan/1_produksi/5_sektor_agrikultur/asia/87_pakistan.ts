@@ -1,0 +1,16 @@
+export const pakistan_agrikultur = {
+  padi: 2704,
+  gandum: 2704,
+  jagung: 3380,
+  sayur: 3172,
+  umbi: 2808,
+  kedelai: 2444,
+  kelapa_sawit: 0,
+  kopi: 2496,
+  teh: 780,
+  kakao: 0,
+  tebu: 1924,
+  karet: 0,
+  kapas: 1196,
+  tembakau: 4160,
+} as const;

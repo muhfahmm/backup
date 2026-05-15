@@ -1,0 +1,16 @@
+export const republik_demokratik_kongo_agrikultur = {
+  padi: 105,
+  gandum: 60,
+  jagung: 75,
+  sayur: 84,
+  umbi: 156,
+  kedelai: 87,
+  kelapa_sawit: 0,
+  kopi: 228,
+  teh: 153,
+  kakao: 0,
+  tebu: 123,
+  karet: 0,
+  kapas: 192,
+  tembakau: 150,
+} as const;

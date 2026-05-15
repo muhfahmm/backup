@@ -1,0 +1,16 @@
+export const azerbaijan_agrikultur = {
+  padi: 141,
+  gandum: 228,
+  jagung: 69,
+  sayur: 81,
+  umbi: 105,
+  kedelai: 210,
+  kelapa_sawit: 0,
+  kopi: 216,
+  teh: 66,
+  kakao: 0,
+  tebu: 75,
+  karet: 0,
+  kapas: 39,
+  tembakau: 213,
+} as const;

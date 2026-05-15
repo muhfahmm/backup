@@ -1,0 +1,16 @@
+export const malawi_agrikultur = {
+  padi: 64,
+  gandum: 148,
+  jagung: 148,
+  sayur: 148,
+  umbi: 212,
+  kedelai: 168,
+  kelapa_sawit: 0,
+  kopi: 224,
+  teh: 300,
+  kakao: 0,
+  tebu: 156,
+  karet: 0,
+  kapas: 60,
+  tembakau: 256,
+} as const;

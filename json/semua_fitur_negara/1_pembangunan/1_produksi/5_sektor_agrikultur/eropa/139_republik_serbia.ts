@@ -1,0 +1,16 @@
+export const republik_serbia_agrikultur = {
+  padi: 180,
+  gandum: 160,
+  jagung: 155,
+  sayur: 85,
+  umbi: 400,
+  kedelai: 375,
+  kelapa_sawit: 0,
+  kopi: 335,
+  teh: 305,
+  kakao: 0,
+  tebu: 110,
+  karet: 0,
+  kapas: 275,
+  tembakau: 135,
+} as const;

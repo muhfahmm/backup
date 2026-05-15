@@ -1,0 +1,16 @@
+export const mauritius_agrikultur = {
+  padi: 42,
+  gandum: 77,
+  jagung: 51,
+  sayur: 29,
+  umbi: 51,
+  kedelai: 31,
+  kelapa_sawit: 0,
+  kopi: 63,
+  teh: 34,
+  kakao: 0,
+  tebu: 76,
+  karet: 0,
+  kapas: 32,
+  tembakau: 60,
+} as const;

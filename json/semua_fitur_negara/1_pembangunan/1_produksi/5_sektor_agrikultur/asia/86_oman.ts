@@ -1,0 +1,16 @@
+export const oman_agrikultur = {
+  padi: 715,
+  gandum: 616,
+  jagung: 110,
+  sayur: 286,
+  umbi: 308,
+  kedelai: 627,
+  kelapa_sawit: 0,
+  kopi: 715,
+  teh: 176,
+  kakao: 0,
+  tebu: 594,
+  karet: 0,
+  kapas: 165,
+  tembakau: 704,
+} as const;

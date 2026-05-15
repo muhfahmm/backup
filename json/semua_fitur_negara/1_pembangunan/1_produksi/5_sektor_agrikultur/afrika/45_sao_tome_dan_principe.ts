@@ -1,0 +1,16 @@
+export const sao_tome_dan_principe_agrikultur = {
+  padi: 244,
+  gandum: 172,
+  jagung: 292,
+  sayur: 260,
+  umbi: 128,
+  kedelai: 192,
+  kelapa_sawit: 0,
+  kopi: 152,
+  teh: 312,
+  kakao: 0,
+  tebu: 84,
+  karet: 0,
+  kapas: 84,
+  tembakau: 156,
+} as const;

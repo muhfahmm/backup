@@ -1,0 +1,16 @@
+export const costa_rica_agrikultur = {
+  padi: 171,
+  gandum: 57,
+  jagung: 216,
+  sayur: 36,
+  umbi: 105,
+  kedelai: 81,
+  kelapa_sawit: 0,
+  kopi: 87,
+  teh: 171,
+  kakao: 0,
+  tebu: 195,
+  karet: 0,
+  kapas: 201,
+  tembakau: 237,
+} as const;

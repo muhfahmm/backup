@@ -1,0 +1,16 @@
+export const libya_agrikultur = {
+  padi: 231,
+  gandum: 469,
+  jagung: 448,
+  sayur: 182,
+  umbi: 462,
+  kedelai: 539,
+  kelapa_sawit: 0,
+  kopi: 315,
+  teh: 196,
+  kakao: 0,
+  tebu: 280,
+  karet: 0,
+  kapas: 350,
+  tembakau: 336,
+} as const;

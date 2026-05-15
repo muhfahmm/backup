@@ -1,0 +1,16 @@
+export const sri_lanka_agrikultur = {
+  padi: 380,
+  gandum: 60,
+  jagung: 50,
+  sayur: 360,
+  umbi: 230,
+  kedelai: 395,
+  kelapa_sawit: 0,
+  kopi: 265,
+  teh: 255,
+  kakao: 0,
+  tebu: 70,
+  karet: 0,
+  kapas: 220,
+  tembakau: 230,
+} as const;

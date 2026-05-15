@@ -1,0 +1,16 @@
+export const guatemala_agrikultur = {
+  padi: 162,
+  gandum: 93,
+  jagung: 216,
+  sayur: 102,
+  umbi: 156,
+  kedelai: 183,
+  kelapa_sawit: 0,
+  kopi: 87,
+  teh: 99,
+  kakao: 0,
+  tebu: 144,
+  karet: 0,
+  kapas: 66,
+  tembakau: 162,
+} as const;

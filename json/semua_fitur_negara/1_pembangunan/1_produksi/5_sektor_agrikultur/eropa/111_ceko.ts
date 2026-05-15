@@ -1,0 +1,16 @@
+export const ceko_agrikultur = {
+  padi: 1817,
+  gandum: 529,
+  jagung: 920,
+  sayur: 989,
+  umbi: 667,
+  kedelai: 1104,
+  kelapa_sawit: 0,
+  kopi: 253,
+  teh: 1403,
+  kakao: 0,
+  tebu: 1564,
+  karet: 0,
+  kapas: 1679,
+  tembakau: 621,
+} as const;

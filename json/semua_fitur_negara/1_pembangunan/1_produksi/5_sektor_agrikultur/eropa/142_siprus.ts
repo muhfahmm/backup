@@ -1,0 +1,16 @@
+export const siprus_agrikultur = {
+  padi: 124,
+  gandum: 80,
+  jagung: 44,
+  sayur: 108,
+  umbi: 176,
+  kedelai: 308,
+  kelapa_sawit: 0,
+  kopi: 260,
+  teh: 240,
+  kakao: 0,
+  tebu: 280,
+  karet: 0,
+  kapas: 140,
+  tembakau: 172,
+} as const;

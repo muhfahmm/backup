@@ -1,0 +1,16 @@
+export const brazil_agrikultur = {
+  padi: 6693,
+  gandum: 8439,
+  jagung: 18333,
+  sayur: 20952,
+  umbi: 20661,
+  kedelai: 8439,
+  kelapa_sawit: 17169,
+  kopi: 11931,
+  teh: 3783,
+  kakao: 22407,
+  tebu: 22116,
+  karet: 10185,
+  kapas: 20952,
+  tembakau: 11349,
+} as const;

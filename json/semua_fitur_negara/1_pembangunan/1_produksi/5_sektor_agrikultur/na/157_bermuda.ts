@@ -1,0 +1,16 @@
+export const bermuda_agrikultur = {
+  padi: 108,
+  gandum: 108,
+  jagung: 106,
+  sayur: 84,
+  umbi: 22,
+  kedelai: 142,
+  kelapa_sawit: 0,
+  kopi: 158,
+  teh: 140,
+  kakao: 0,
+  tebu: 102,
+  karet: 0,
+  kapas: 94,
+  tembakau: 140,
+} as const;

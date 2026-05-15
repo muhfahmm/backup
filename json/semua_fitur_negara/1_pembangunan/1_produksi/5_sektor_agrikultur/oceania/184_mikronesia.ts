@@ -1,0 +1,16 @@
+export const mikronesia_agrikultur = {
+  padi: 132,
+  gandum: 96,
+  jagung: 200,
+  sayur: 240,
+  umbi: 304,
+  kedelai: 224,
+  kelapa_sawit: 0,
+  kopi: 268,
+  teh: 192,
+  kakao: 0,
+  tebu: 60,
+  karet: 0,
+  kapas: 216,
+  tembakau: 40,
+} as const;

@@ -1,0 +1,16 @@
+export const spanyol_agrikultur = {
+  padi: 5452,
+  gandum: 3828,
+  jagung: 1856,
+  sayur: 6264,
+  umbi: 7888,
+  kedelai: 6264,
+  kelapa_sawit: 0,
+  kopi: 4640,
+  teh: 1392,
+  kakao: 0,
+  tebu: 4988,
+  karet: 0,
+  kapas: 8932,
+  tembakau: 6032,
+} as const;

@@ -1,0 +1,16 @@
+export const malaysia_agrikultur = {
+  padi: 1800,
+  gandum: 2700,
+  jagung: 1944,
+  sayur: 2808,
+  umbi: 1512,
+  kedelai: 1368,
+  kelapa_sawit: 828,
+  kopi: 900,
+  teh: 1656,
+  kakao: 1116,
+  tebu: 1296,
+  karet: 1476,
+  kapas: 1908,
+  tembakau: 720,
+} as const;

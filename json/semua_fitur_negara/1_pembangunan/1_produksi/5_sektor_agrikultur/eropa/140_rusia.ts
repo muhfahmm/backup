@@ -1,0 +1,16 @@
+export const rusia_agrikultur = {
+  padi: 6426,
+  gandum: 14742,
+  jagung: 10017,
+  sayur: 2079,
+  umbi: 10395,
+  kedelai: 8127,
+  kelapa_sawit: 0,
+  kopi: 10773,
+  teh: 2457,
+  kakao: 0,
+  tebu: 14931,
+  karet: 0,
+  kapas: 13797,
+  tembakau: 7371,
+} as const;

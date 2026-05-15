@@ -1,0 +1,16 @@
+export const austria_agrikultur = {
+  padi: 1258,
+  gandum: 3330,
+  jagung: 1332,
+  sayur: 5772,
+  umbi: 3182,
+  kedelai: 1998,
+  kelapa_sawit: 0,
+  kopi: 5106,
+  teh: 740,
+  kakao: 0,
+  tebu: 1628,
+  karet: 0,
+  kapas: 3034,
+  tembakau: 5772,
+} as const;

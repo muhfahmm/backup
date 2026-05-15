@@ -1,0 +1,16 @@
+export const kanada_agrikultur = {
+  padi: 17664,
+  gandum: 24192,
+  jagung: 8832,
+  sayur: 14592,
+  umbi: 22272,
+  kedelai: 14208,
+  kelapa_sawit: 0,
+  kopi: 30336,
+  teh: 6144,
+  kakao: 0,
+  tebu: 16896,
+  karet: 0,
+  kapas: 21504,
+  tembakau: 10752,
+} as const;

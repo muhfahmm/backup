@@ -1,0 +1,16 @@
+export const kolombia_agrikultur = {
+  padi: 1656,
+  gandum: 1980,
+  jagung: 432,
+  sayur: 1800,
+  umbi: 432,
+  kedelai: 684,
+  kelapa_sawit: 1476,
+  kopi: 612,
+  teh: 2628,
+  kakao: 1692,
+  tebu: 1476,
+  karet: 2736,
+  kapas: 1872,
+  tembakau: 1836,
+} as const;

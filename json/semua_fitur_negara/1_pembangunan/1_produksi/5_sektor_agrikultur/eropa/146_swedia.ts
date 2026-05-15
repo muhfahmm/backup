@@ -1,0 +1,16 @@
+export const swedia_agrikultur = {
+  padi: 5180,
+  gandum: 1554,
+  jagung: 5550,
+  sayur: 5402,
+  umbi: 1480,
+  kedelai: 3034,
+  kelapa_sawit: 0,
+  kopi: 2886,
+  teh: 2812,
+  kakao: 0,
+  tebu: 5402,
+  karet: 0,
+  kapas: 5328,
+  tembakau: 3552,
+} as const;

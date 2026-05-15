@@ -1,0 +1,16 @@
+export const inggris_agrikultur = {
+  padi: 4500,
+  gandum: 12300,
+  jagung: 5700,
+  sayur: 16800,
+  umbi: 6900,
+  kedelai: 10500,
+  kelapa_sawit: 0,
+  kopi: 5700,
+  teh: 11100,
+  kakao: 0,
+  tebu: 10800,
+  karet: 0,
+  kapas: 20700,
+  tembakau: 5100,
+} as const;

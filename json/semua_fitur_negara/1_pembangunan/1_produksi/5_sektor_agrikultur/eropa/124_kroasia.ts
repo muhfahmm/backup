@@ -1,0 +1,16 @@
+export const kroasia_agrikultur = {
+  padi: 120,
+  gandum: 153,
+  jagung: 219,
+  sayur: 93,
+  umbi: 207,
+  kedelai: 237,
+  kelapa_sawit: 0,
+  kopi: 165,
+  teh: 39,
+  kakao: 0,
+  tebu: 108,
+  karet: 0,
+  kapas: 156,
+  tembakau: 177,
+} as const;

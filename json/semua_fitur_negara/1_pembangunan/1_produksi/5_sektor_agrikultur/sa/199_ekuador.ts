@@ -1,0 +1,16 @@
+export const ekuador_agrikultur = {
+  padi: 375,
+  gandum: 465,
+  jagung: 750,
+  sayur: 750,
+  umbi: 300,
+  kedelai: 1095,
+  kelapa_sawit: 0,
+  kopi: 615,
+  teh: 1185,
+  kakao: 0,
+  tebu: 225,
+  karet: 0,
+  kapas: 630,
+  tembakau: 870,
+} as const;

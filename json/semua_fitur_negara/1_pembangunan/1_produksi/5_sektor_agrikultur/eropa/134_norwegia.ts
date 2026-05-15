@@ -1,0 +1,16 @@
+export const norwegia_agrikultur = {
+  padi: 1240,
+  gandum: 360,
+  jagung: 1000,
+  sayur: 1580,
+  umbi: 260,
+  kedelai: 1160,
+  kelapa_sawit: 0,
+  kopi: 1100,
+  teh: 760,
+  kakao: 0,
+  tebu: 1100,
+  karet: 0,
+  kapas: 1300,
+  tembakau: 720,
+} as const;

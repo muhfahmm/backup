@@ -1,0 +1,13 @@
+export { argentina } from "./195_argentina";
+export { bolivia } from "./196_bolivia";
+export { brazil } from "./197_brazil";
+export { chile } from "./198_chile";
+export { ekuador } from "./199_ekuador";
+export { guiana_prancis } from "./200_guiana_prancis";
+export { guyana } from "./201_guyana";
+export { kolombia } from "./202_kolombia";
+export { paraguay } from "./203_paraguay";
+export { peru } from "./204_peru";
+export { suriname } from "./205_suriname";
+export { uruguay } from "./206_uruguay";
+export { venezuela } from "./207_venezuela";

@@ -1,0 +1,16 @@
+export const greenland_agrikultur = {
+  padi: 192,
+  gandum: 156,
+  jagung: 248,
+  sayur: 124,
+  umbi: 288,
+  kedelai: 68,
+  kelapa_sawit: 0,
+  kopi: 56,
+  teh: 160,
+  kakao: 0,
+  tebu: 52,
+  karet: 0,
+  kapas: 112,
+  tembakau: 100,
+} as const;

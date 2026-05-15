@@ -1,0 +1,16 @@
+export const panama_agrikultur = {
+  padi: 80,
+  gandum: 290,
+  jagung: 250,
+  sayur: 160,
+  umbi: 170,
+  kedelai: 315,
+  kelapa_sawit: 0,
+  kopi: 150,
+  teh: 380,
+  kakao: 0,
+  tebu: 180,
+  karet: 0,
+  kapas: 70,
+  tembakau: 350,
+} as const;

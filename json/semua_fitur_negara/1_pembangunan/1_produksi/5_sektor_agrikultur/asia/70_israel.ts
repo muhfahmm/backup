@@ -1,0 +1,16 @@
+export const israel_agrikultur = {
+  padi: 2016,
+  gandum: 2142,
+  jagung: 819,
+  sayur: 2268,
+  umbi: 3528,
+  kedelai: 4032,
+  kelapa_sawit: 0,
+  kopi: 4977,
+  teh: 3276,
+  kakao: 0,
+  tebu: 2268,
+  karet: 0,
+  kapas: 3024,
+  tembakau: 2520,
+} as const;

@@ -1,0 +1,16 @@
+export const peru_agrikultur = {
+  padi: 420,
+  gandum: 91,
+  jagung: 413,
+  sayur: 371,
+  umbi: 539,
+  kedelai: 539,
+  kelapa_sawit: 0,
+  kopi: 112,
+  teh: 406,
+  kakao: 0,
+  tebu: 203,
+  karet: 0,
+  kapas: 434,
+  tembakau: 217,
+} as const;

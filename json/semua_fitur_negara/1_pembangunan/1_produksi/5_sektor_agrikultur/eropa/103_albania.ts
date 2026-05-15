@@ -1,0 +1,16 @@
+export const albania_agrikultur = {
+  padi: 39,
+  gandum: 32,
+  jagung: 64,
+  sayur: 79,
+  umbi: 26,
+  kedelai: 30,
+  kelapa_sawit: 0,
+  kopi: 57,
+  teh: 22,
+  kakao: 0,
+  tebu: 42,
+  karet: 0,
+  kapas: 75,
+  tembakau: 44,
+} as const;

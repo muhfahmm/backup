@@ -1,0 +1,16 @@
+export const kepulauan_faroe_agrikultur = {
+  padi: 43,
+  gandum: 51,
+  jagung: 14,
+  sayur: 36,
+  umbi: 48,
+  kedelai: 30,
+  kelapa_sawit: 0,
+  kopi: 61,
+  teh: 39,
+  kakao: 0,
+  tebu: 60,
+  karet: 0,
+  kapas: 73,
+  tembakau: 53,
+} as const;

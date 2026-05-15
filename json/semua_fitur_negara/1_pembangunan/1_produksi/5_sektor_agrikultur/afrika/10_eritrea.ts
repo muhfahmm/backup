@@ -1,0 +1,16 @@
+export const eritrea_agrikultur = {
+  padi: 59,
+  gandum: 22,
+  jagung: 41,
+  sayur: 25,
+  umbi: 35,
+  kedelai: 38,
+  kelapa_sawit: 0,
+  kopi: 73,
+  teh: 76,
+  kakao: 0,
+  tebu: 74,
+  karet: 0,
+  kapas: 44,
+  tembakau: 53,
+} as const;

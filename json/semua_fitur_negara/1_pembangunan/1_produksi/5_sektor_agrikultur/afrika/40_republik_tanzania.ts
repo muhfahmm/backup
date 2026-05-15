@@ -1,0 +1,16 @@
+export const republik_tanzania_agrikultur = {
+  padi: 216,
+  gandum: 33,
+  jagung: 156,
+  sayur: 141,
+  umbi: 90,
+  kedelai: 54,
+  kelapa_sawit: 0,
+  kopi: 36,
+  teh: 39,
+  kakao: 0,
+  tebu: 48,
+  karet: 0,
+  kapas: 198,
+  tembakau: 81,
+} as const;

@@ -1,0 +1,16 @@
+export const bahama_agrikultur = {
+  padi: 292,
+  gandum: 76,
+  jagung: 172,
+  sayur: 248,
+  umbi: 40,
+  kedelai: 152,
+  kelapa_sawit: 0,
+  kopi: 144,
+  teh: 308,
+  kakao: 0,
+  tebu: 180,
+  karet: 0,
+  kapas: 268,
+  tembakau: 140,
+} as const;

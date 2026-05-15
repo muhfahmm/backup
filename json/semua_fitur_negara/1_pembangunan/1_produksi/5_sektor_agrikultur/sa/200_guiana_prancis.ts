@@ -1,0 +1,16 @@
+export const guiana_prancis_agrikultur = {
+  padi: 51,
+  gandum: 23,
+  jagung: 20,
+  sayur: 57,
+  umbi: 55,
+  kedelai: 22,
+  kelapa_sawit: 0,
+  kopi: 27,
+  teh: 76,
+  kakao: 0,
+  tebu: 73,
+  karet: 0,
+  kapas: 19,
+  tembakau: 32,
+} as const;

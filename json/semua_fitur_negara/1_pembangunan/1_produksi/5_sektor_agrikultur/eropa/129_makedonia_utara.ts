@@ -1,0 +1,16 @@
+export const makedonia_utara_agrikultur = {
+  padi: 99,
+  gandum: 162,
+  jagung: 228,
+  sayur: 126,
+  umbi: 213,
+  kedelai: 216,
+  kelapa_sawit: 0,
+  kopi: 138,
+  teh: 108,
+  kakao: 0,
+  tebu: 186,
+  karet: 0,
+  kapas: 30,
+  tembakau: 201,
+} as const;

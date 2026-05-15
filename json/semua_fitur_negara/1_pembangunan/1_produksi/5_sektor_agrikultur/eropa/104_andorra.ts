@@ -1,0 +1,16 @@
+export const andorra_agrikultur = {
+  padi: 68,
+  gandum: 92,
+  jagung: 110,
+  sayur: 78,
+  umbi: 20,
+  kedelai: 132,
+  kelapa_sawit: 0,
+  kopi: 126,
+  teh: 114,
+  kakao: 0,
+  tebu: 24,
+  karet: 0,
+  kapas: 138,
+  tembakau: 34,
+} as const;

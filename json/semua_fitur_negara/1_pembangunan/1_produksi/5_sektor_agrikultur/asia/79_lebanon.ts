@@ -1,0 +1,16 @@
+export const lebanon_agrikultur = {
+  padi: 32,
+  gandum: 19,
+  jagung: 51,
+  sayur: 54,
+  umbi: 40,
+  kedelai: 22,
+  kelapa_sawit: 0,
+  kopi: 37,
+  teh: 40,
+  kakao: 0,
+  tebu: 52,
+  karet: 0,
+  kapas: 45,
+  tembakau: 25,
+} as const;

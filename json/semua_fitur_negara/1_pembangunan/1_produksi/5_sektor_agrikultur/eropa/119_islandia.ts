@@ -1,0 +1,16 @@
+export const islandia_agrikultur = {
+  padi: 52,
+  gandum: 288,
+  jagung: 236,
+  sayur: 180,
+  umbi: 196,
+  kedelai: 108,
+  kelapa_sawit: 0,
+  kopi: 120,
+  teh: 72,
+  kakao: 0,
+  tebu: 224,
+  karet: 0,
+  kapas: 256,
+  tembakau: 204,
+} as const;

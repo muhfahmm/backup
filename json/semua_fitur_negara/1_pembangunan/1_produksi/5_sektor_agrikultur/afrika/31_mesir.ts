@@ -1,0 +1,16 @@
+export const mesir_agrikultur = {
+  padi: 2303,
+  gandum: 2538,
+  jagung: 2068,
+  sayur: 3384,
+  umbi: 1645,
+  kedelai: 517,
+  kelapa_sawit: 0,
+  kopi: 2538,
+  teh: 470,
+  kakao: 0,
+  tebu: 3431,
+  karet: 0,
+  kapas: 2820,
+  tembakau: 564,
+} as const;

@@ -1,0 +1,16 @@
+export const yordania_agrikultur = {
+  padi: 96,
+  gandum: 90,
+  jagung: 24,
+  sayur: 38,
+  umbi: 104,
+  kedelai: 68,
+  kelapa_sawit: 0,
+  kopi: 146,
+  teh: 52,
+  kakao: 0,
+  tebu: 148,
+  karet: 0,
+  kapas: 20,
+  tembakau: 118,
+} as const;

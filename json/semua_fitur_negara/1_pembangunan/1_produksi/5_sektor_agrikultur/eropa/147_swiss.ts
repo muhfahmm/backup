@@ -1,0 +1,16 @@
+export const swiss_agrikultur = {
+  padi: 1692,
+  gandum: 2209,
+  jagung: 1880,
+  sayur: 1457,
+  umbi: 2491,
+  kedelai: 3149,
+  kelapa_sawit: 0,
+  kopi: 2444,
+  teh: 1739,
+  kakao: 0,
+  tebu: 1786,
+  karet: 0,
+  kapas: 1927,
+  tembakau: 1880,
+} as const;

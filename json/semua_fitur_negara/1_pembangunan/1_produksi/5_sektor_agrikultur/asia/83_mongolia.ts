@@ -1,0 +1,16 @@
+export const mongolia_agrikultur = {
+  padi: 280,
+  gandum: 260,
+  jagung: 256,
+  sayur: 168,
+  umbi: 232,
+  kedelai: 112,
+  kelapa_sawit: 0,
+  kopi: 112,
+  teh: 48,
+  kakao: 0,
+  tebu: 224,
+  karet: 0,
+  kapas: 232,
+  tembakau: 76,
+} as const;

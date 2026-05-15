@@ -1,0 +1,16 @@
+export const kosovo_agrikultur = {
+  padi: 237,
+  gandum: 153,
+  jagung: 117,
+  sayur: 207,
+  umbi: 165,
+  kedelai: 78,
+  kelapa_sawit: 0,
+  kopi: 234,
+  teh: 156,
+  kakao: 0,
+  tebu: 171,
+  karet: 0,
+  kapas: 237,
+  tembakau: 75,
+} as const;

@@ -1,0 +1,16 @@
+export const belgia_agrikultur = {
+  padi: 2706,
+  gandum: 1845,
+  jagung: 2337,
+  sayur: 1230,
+  umbi: 3034,
+  kedelai: 2460,
+  kelapa_sawit: 0,
+  kopi: 1558,
+  teh: 2870,
+  kakao: 0,
+  tebu: 1066,
+  karet: 0,
+  kapas: 2009,
+  tembakau: 2419,
+} as const;

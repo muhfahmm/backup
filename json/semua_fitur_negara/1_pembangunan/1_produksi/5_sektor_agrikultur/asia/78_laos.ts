@@ -1,0 +1,16 @@
+export const laos_agrikultur = {
+  padi: 51,
+  gandum: 207,
+  jagung: 93,
+  sayur: 213,
+  umbi: 99,
+  kedelai: 219,
+  kelapa_sawit: 0,
+  kopi: 153,
+  teh: 141,
+  kakao: 0,
+  tebu: 117,
+  karet: 0,
+  kapas: 156,
+  tembakau: 108,
+} as const;

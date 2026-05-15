@@ -1,0 +1,16 @@
+export const gambia_agrikultur = {
+  padi: 72,
+  gandum: 144,
+  jagung: 108,
+  sayur: 152,
+  umbi: 140,
+  kedelai: 126,
+  kelapa_sawit: 0,
+  kopi: 100,
+  teh: 78,
+  kakao: 0,
+  tebu: 40,
+  karet: 0,
+  kapas: 22,
+  tembakau: 36,
+} as const;

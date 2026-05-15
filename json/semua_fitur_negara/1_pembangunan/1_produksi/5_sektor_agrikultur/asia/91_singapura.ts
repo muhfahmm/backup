@@ -1,0 +1,16 @@
+export const singapura_agrikultur = {
+  padi: 1276,
+  gandum: 1232,
+  jagung: 792,
+  sayur: 1056,
+  umbi: 1672,
+  kedelai: 1056,
+  kelapa_sawit: 0,
+  kopi: 2464,
+  teh: 704,
+  kakao: 0,
+  tebu: 836,
+  karet: 0,
+  kapas: 1980,
+  tembakau: 1628,
+} as const;

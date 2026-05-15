@@ -1,0 +1,16 @@
+export const vietnam_agrikultur = {
+  padi: 4488,
+  gandum: 2040,
+  jagung: 1904,
+  sayur: 3536,
+  umbi: 3808,
+  kedelai: 5372,
+  kelapa_sawit: 3332,
+  kopi: 2856,
+  teh: 4352,
+  kakao: 3128,
+  tebu: 1632,
+  karet: 1904,
+  kapas: 4556,
+  tembakau: 4148,
+} as const;

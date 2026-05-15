@@ -1,0 +1,16 @@
+export const myanmar_agrikultur = {
+  padi: 234,
+  gandum: 168,
+  jagung: 126,
+  sayur: 162,
+  umbi: 162,
+  kedelai: 270,
+  kelapa_sawit: 0,
+  kopi: 246,
+  teh: 126,
+  kakao: 0,
+  tebu: 150,
+  karet: 0,
+  kapas: 402,
+  tembakau: 354,
+} as const;

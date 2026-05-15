@@ -1,0 +1,16 @@
+export const jerman_agrikultur = {
+  padi: 9030,
+  gandum: 17028,
+  jagung: 14448,
+  sayur: 5160,
+  umbi: 10836,
+  kedelai: 18834,
+  kelapa_sawit: 0,
+  kopi: 7482,
+  teh: 10320,
+  kakao: 0,
+  tebu: 18060,
+  karet: 0,
+  kapas: 20382,
+  tembakau: 4902,
+} as const;

@@ -1,0 +1,16 @@
+export const honduras_agrikultur = {
+  padi: 192,
+  gandum: 138,
+  jagung: 36,
+  sayur: 156,
+  umbi: 123,
+  kedelai: 189,
+  kelapa_sawit: 0,
+  kopi: 165,
+  teh: 204,
+  kakao: 0,
+  tebu: 33,
+  karet: 0,
+  kapas: 201,
+  tembakau: 201,
+} as const;

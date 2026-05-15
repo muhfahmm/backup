@@ -1,0 +1,16 @@
+export const kuwait_agrikultur = {
+  padi: 1440,
+  gandum: 1040,
+  jagung: 1100,
+  sayur: 380,
+  umbi: 440,
+  kedelai: 1160,
+  kelapa_sawit: 0,
+  kopi: 920,
+  teh: 260,
+  kakao: 0,
+  tebu: 860,
+  karet: 0,
+  kapas: 1420,
+  tembakau: 1300,
+} as const;

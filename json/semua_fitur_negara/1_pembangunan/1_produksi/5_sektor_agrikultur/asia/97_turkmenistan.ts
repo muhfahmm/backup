@@ -1,0 +1,16 @@
+export const turkmenistan_agrikultur = {
+  padi: 124,
+  gandum: 158,
+  jagung: 76,
+  sayur: 98,
+  umbi: 102,
+  kedelai: 68,
+  kelapa_sawit: 0,
+  kopi: 156,
+  teh: 136,
+  kakao: 0,
+  tebu: 150,
+  karet: 0,
+  kapas: 118,
+  tembakau: 114,
+} as const;

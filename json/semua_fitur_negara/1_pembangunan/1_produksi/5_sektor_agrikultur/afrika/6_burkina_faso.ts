@@ -1,0 +1,16 @@
+export const burkina_faso_agrikultur = {
+  padi: 138,
+  gandum: 88,
+  jagung: 50,
+  sayur: 114,
+  umbi: 78,
+  kedelai: 120,
+  kelapa_sawit: 0,
+  kopi: 148,
+  teh: 54,
+  kakao: 0,
+  tebu: 104,
+  karet: 0,
+  kapas: 96,
+  tembakau: 76,
+} as const;

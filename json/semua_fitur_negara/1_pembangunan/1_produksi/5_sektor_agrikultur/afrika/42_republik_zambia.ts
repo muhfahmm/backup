@@ -1,0 +1,16 @@
+export const republik_zambia_agrikultur = {
+  padi: 128,
+  gandum: 82,
+  jagung: 136,
+  sayur: 64,
+  umbi: 112,
+  kedelai: 152,
+  kelapa_sawit: 0,
+  kopi: 102,
+  teh: 60,
+  kakao: 0,
+  tebu: 70,
+  karet: 0,
+  kapas: 132,
+  tembakau: 52,
+} as const;

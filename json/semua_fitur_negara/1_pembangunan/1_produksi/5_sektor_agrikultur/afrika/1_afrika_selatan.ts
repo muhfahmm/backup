@@ -1,0 +1,16 @@
+export const afrika_selatan_agrikultur = {
+  padi: 1280,
+  gandum: 1480,
+  jagung: 2840,
+  sayur: 2640,
+  umbi: 880,
+  kedelai: 1080,
+  kelapa_sawit: 0,
+  kopi: 1760,
+  teh: 1200,
+  kakao: 0,
+  tebu: 800,
+  karet: 0,
+  kapas: 1400,
+  tembakau: 2240,
+} as const;

@@ -1,0 +1,16 @@
+export const yaman_agrikultur = {
+  padi: 152,
+  gandum: 228,
+  jagung: 248,
+  sayur: 216,
+  umbi: 92,
+  kedelai: 312,
+  kelapa_sawit: 0,
+  kopi: 132,
+  teh: 188,
+  kakao: 0,
+  tebu: 52,
+  karet: 0,
+  kapas: 112,
+  tembakau: 292,
+} as const;

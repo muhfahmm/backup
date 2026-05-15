@@ -1,0 +1,16 @@
+export const turki_agrikultur = {
+  padi: 268,
+  gandum: 92,
+  jagung: 108,
+  sayur: 288,
+  umbi: 84,
+  kedelai: 68,
+  kelapa_sawit: 0,
+  kopi: 80,
+  teh: 84,
+  kakao: 0,
+  tebu: 204,
+  karet: 0,
+  kapas: 296,
+  tembakau: 180,
+} as const;

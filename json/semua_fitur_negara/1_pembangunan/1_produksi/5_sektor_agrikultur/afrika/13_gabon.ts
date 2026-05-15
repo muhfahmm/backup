@@ -1,0 +1,16 @@
+export const gabon_agrikultur = {
+  padi: 67,
+  gandum: 35,
+  jagung: 33,
+  sayur: 32,
+  umbi: 66,
+  kedelai: 58,
+  kelapa_sawit: 0,
+  kopi: 54,
+  teh: 36,
+  kakao: 0,
+  tebu: 31,
+  karet: 0,
+  kapas: 65,
+  tembakau: 42,
+} as const;

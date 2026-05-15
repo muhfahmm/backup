@@ -19,7 +19,8 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@map-engine/*": ["../map-engine-rs/ts/*"]
     }
   },
   "include": [

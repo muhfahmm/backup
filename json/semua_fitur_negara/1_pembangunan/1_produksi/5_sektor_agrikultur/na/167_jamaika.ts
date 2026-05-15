@@ -1,0 +1,16 @@
+export const jamaika_agrikultur = {
+  padi: 48,
+  gandum: 252,
+  jagung: 72,
+  sayur: 64,
+  umbi: 124,
+  kedelai: 252,
+  kelapa_sawit: 0,
+  kopi: 204,
+  teh: 212,
+  kakao: 0,
+  tebu: 40,
+  karet: 0,
+  kapas: 64,
+  tembakau: 108,
+} as const;

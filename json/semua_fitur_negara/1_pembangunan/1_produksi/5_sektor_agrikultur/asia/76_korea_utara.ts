@@ -1,0 +1,16 @@
+export const korea_utara_agrikultur = {
+  padi: 300,
+  gandum: 212,
+  jagung: 312,
+  sayur: 108,
+  umbi: 164,
+  kedelai: 256,
+  kelapa_sawit: 0,
+  kopi: 44,
+  teh: 116,
+  kakao: 0,
+  tebu: 148,
+  karet: 0,
+  kapas: 48,
+  tembakau: 188,
+} as const;

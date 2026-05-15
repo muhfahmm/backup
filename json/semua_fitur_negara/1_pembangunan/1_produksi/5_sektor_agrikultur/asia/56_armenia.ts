@@ -1,0 +1,16 @@
+export const armenia_agrikultur = {
+  padi: 114,
+  gandum: 123,
+  jagung: 69,
+  sayur: 108,
+  umbi: 213,
+  kedelai: 135,
+  kelapa_sawit: 0,
+  kopi: 114,
+  teh: 159,
+  kakao: 0,
+  tebu: 90,
+  karet: 0,
+  kapas: 111,
+  tembakau: 78,
+} as const;

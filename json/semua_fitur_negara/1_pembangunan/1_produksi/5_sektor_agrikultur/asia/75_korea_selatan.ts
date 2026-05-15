@@ -1,0 +1,16 @@
+export const korea_selatan_agrikultur = {
+  padi: 6460,
+  gandum: 3740,
+  jagung: 4760,
+  sayur: 2890,
+  umbi: 6290,
+  kedelai: 5610,
+  kelapa_sawit: 0,
+  kopi: 13260,
+  teh: 6290,
+  kakao: 0,
+  tebu: 12240,
+  karet: 0,
+  kapas: 11050,
+  tembakau: 12920,
+} as const;

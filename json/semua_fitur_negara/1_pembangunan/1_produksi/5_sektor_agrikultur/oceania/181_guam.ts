@@ -1,0 +1,16 @@
+export const guam_agrikultur = {
+  padi: 158,
+  gandum: 76,
+  jagung: 66,
+  sayur: 76,
+  umbi: 24,
+  kedelai: 28,
+  kelapa_sawit: 0,
+  kopi: 104,
+  teh: 96,
+  kakao: 0,
+  tebu: 54,
+  karet: 0,
+  kapas: 90,
+  tembakau: 140,
+} as const;

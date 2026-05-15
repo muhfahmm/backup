@@ -1,0 +1,16 @@
+export const qatar_agrikultur = {
+  padi: 360,
+  gandum: 780,
+  jagung: 450,
+  sayur: 405,
+  umbi: 975,
+  kedelai: 1080,
+  kelapa_sawit: 0,
+  kopi: 435,
+  teh: 480,
+  kakao: 0,
+  tebu: 465,
+  karet: 0,
+  kapas: 240,
+  tembakau: 1155,
+} as const;

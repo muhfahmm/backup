@@ -1,0 +1,16 @@
+export const haiti_agrikultur = {
+  padi: 138,
+  gandum: 210,
+  jagung: 96,
+  sayur: 30,
+  umbi: 156,
+  kedelai: 222,
+  kelapa_sawit: 0,
+  kopi: 126,
+  teh: 216,
+  kakao: 0,
+  tebu: 69,
+  karet: 0,
+  kapas: 99,
+  tembakau: 57,
+} as const;

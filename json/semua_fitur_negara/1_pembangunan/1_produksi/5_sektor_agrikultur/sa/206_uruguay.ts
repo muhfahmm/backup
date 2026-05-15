@@ -1,0 +1,16 @@
+export const uruguay_agrikultur = {
+  padi: 82,
+  gandum: 106,
+  jagung: 158,
+  sayur: 82,
+  umbi: 104,
+  kedelai: 130,
+  kelapa_sawit: 0,
+  kopi: 38,
+  teh: 40,
+  kakao: 0,
+  tebu: 98,
+  karet: 0,
+  kapas: 38,
+  tembakau: 142,
+} as const;

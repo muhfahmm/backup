@@ -1,0 +1,16 @@
+export const liberia_agrikultur = {
+  padi: 195,
+  gandum: 138,
+  jagung: 186,
+  sayur: 207,
+  umbi: 240,
+  kedelai: 33,
+  kelapa_sawit: 0,
+  kopi: 198,
+  teh: 141,
+  kakao: 0,
+  tebu: 57,
+  karet: 0,
+  kapas: 72,
+  tembakau: 30,
+} as const;
