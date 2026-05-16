@@ -8,6 +8,7 @@ use std::cell::RefCell;
 
 #[derive(Deserialize)]
 struct CountryData {
+    iso: String,
     latitude: Option<f64>,
     longitude: Option<f64>,
 }
@@ -30,10 +31,13 @@ pub struct MapEngine {
     data: Option<FeatureCollection>,
     countries: Vec<JsValue>,
     capitals: Vec<JsValue>,
-    selected_country_name: Option<String>,
+    selected_country_iso: Option<String>,
     is_panning: bool,
     last_mouse_x: f64,
     last_mouse_y: f64,
+    target_offset_x: f64,
+    target_offset_y: f64,
+    target_scale: f64,
 }
 
 #[wasm_bindgen]
@@ -49,10 +53,13 @@ impl MapEngine {
             data: None,
             countries: Vec::new(),
             capitals: Vec::new(),
-            selected_country_name: None,
+            selected_country_iso: None,
             is_panning: false,
             last_mouse_x: 0.0,
             last_mouse_y: 0.0,
+            target_offset_x: 0.0,
+            target_offset_y: 0.0,
+            target_scale: 1.0,
         }
     }
 
@@ -78,6 +85,9 @@ impl MapEngine {
         self.offset_x = mouse_x - (mouse_x - self.offset_x) * actual_factor;
         self.offset_y = mouse_y - (mouse_y - self.offset_y) * actual_factor;
         self.scale = new_scale;
+        self.target_scale = new_scale;
+        self.target_offset_x = self.offset_x;
+        self.target_offset_y = self.offset_y;
         self.apply_clamping();
     }
 
@@ -93,12 +103,42 @@ impl MapEngine {
             self.offset_y += y - self.last_mouse_y;
             self.last_mouse_x = x;
             self.last_mouse_y = y;
+            self.target_offset_x = self.offset_x;
+            self.target_offset_y = self.offset_y;
             self.apply_clamping();
         }
     }
 
     pub fn handle_mouse_up(&mut self) {
         self.is_panning = false;
+    }
+
+    pub fn set_selected_country(&mut self, iso: Option<String>) {
+        self.selected_country_iso = iso.clone();
+        
+        if let Some(iso_val) = iso {
+            // Find country coordinates
+            for country_js in &self.countries {
+                if let Ok(country) = serde_wasm_bindgen::from_value::<CountryData>(country_js.clone()) {
+                    if country.iso.to_lowercase() == iso_val.to_lowercase() {
+                        if let (Some(lat), Some(lng)) = (country.latitude, country.longitude) {
+                            let (px, py) = self.project(lng, lat);
+                            
+                            // Set target zoom (zoom in a bit more for small countries if needed, but 4.0 is a good default)
+                            let new_scale = 4.0f64.max(self.scale);
+                            self.target_scale = new_scale;
+                            
+                            // Calculate offset to center the point
+                            self.target_offset_x = (self.width / 2.0) - (px * new_scale);
+                            self.target_offset_y = (self.height / 2.0) - (py * new_scale);
+                            
+                            // Clamping will be applied during interpolation
+                        }
+                        break;
+                    }
+                }
+            }
+        }
     }
 
     pub fn get_menu_options(&self) -> JsValue {
@@ -118,7 +158,18 @@ impl MapEngine {
         }
     }
 
-    pub fn render(&self) {
+    fn update_camera(&mut self) {
+        let lerp_factor = 0.1;
+        self.scale += (self.target_scale - self.scale) * lerp_factor;
+        self.offset_x += (self.target_offset_x - self.offset_x) * lerp_factor;
+        self.offset_y += (self.target_offset_y - self.offset_y) * lerp_factor;
+        
+        self.apply_clamping();
+    }
+
+    pub fn render(&mut self) {
+        self.update_camera();
+        
         if let Some(ref fc) = self.data {
             self.ctx.set_transform(1.0, 0.0, 0.0, 1.0, 0.0, 0.0).unwrap();
             self.ctx.set_fill_style(&JsValue::from_str("#1e3a8a"));
@@ -275,9 +326,9 @@ impl MapEngine {
     }
 
     fn check_selected(&self, properties: &serde_json::Map<String, serde_json::Value>) -> bool {
-        if let Some(ref sel_name) = self.selected_country_name {
-            if let Some(name) = properties.get("NAME").and_then(|v| v.as_str()) {
-                if name.to_lowercase() == sel_name.to_lowercase() { return true; }
+        if let Some(ref sel_iso) = self.selected_country_iso {
+            if let Some(iso) = properties.get("ISO_A2").and_then(|v| v.as_str()) {
+                if iso.to_lowercase() == sel_iso.to_lowercase() { return true; }
             }
         }
         false
@@ -299,6 +350,19 @@ impl MapEngine {
         }
         JsValue::NULL
     }
+}
+
+thread_local! {
+    static ACTIVE_ENGINE: RefCell<Option<Rc<RefCell<MapEngine>>>> = RefCell::new(None);
+}
+
+#[wasm_bindgen]
+pub fn set_selected_country_on_map(iso: String) {
+    ACTIVE_ENGINE.with(|global_engine| {
+        if let Some(engine) = global_engine.borrow().as_ref() {
+            engine.borrow_mut().set_selected_country(Some(iso));
+        }
+    });
 }
 
 #[wasm_bindgen]
@@ -324,6 +388,11 @@ pub fn start_map_engine(
     
     let engine = Rc::new(RefCell::new(MapEngine::new(ctx, width, height)));
     
+    // Store in global thread local for external access
+    ACTIVE_ENGINE.with(|global_engine| {
+        *global_engine.borrow_mut() = Some(engine.clone());
+    });
+
     // Inisialisasi Data Langsung
     {
         let mut engine_mut = engine.borrow_mut();
@@ -376,7 +445,7 @@ pub fn start_map_engine(
     let g = f.clone();
     let engine_render = engine.clone();
     *g.borrow_mut() = Some(Closure::wrap(Box::new(move || {
-        engine_render.borrow().render();
+        engine_render.borrow_mut().render();
         let window = web_sys::window().unwrap();
         window.request_animation_frame(f.borrow().as_ref().unwrap().as_ref().unchecked_ref()).unwrap();
     }) as Box<dyn FnMut()>));

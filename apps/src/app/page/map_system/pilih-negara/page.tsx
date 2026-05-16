@@ -22,29 +22,35 @@ export default function PilihNegaraPage() {
     const [isLoading, setIsLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [activeTab, setActiveTab] = useState('utama');
+    const hasInitRef = useRef(false);
+    const [hasInteracted, setHasInteracted] = useState(false);
+    const [wasmModule, setWasmModule] = useState<any>(null);
 
-    // Initial map engine start
     useEffect(() => {
+        setCountries(COUNTRIES_DATA);
+        
         const initMap = async () => {
+            if (hasInitRef.current) return;
+            hasInitRef.current = true;
+
             try {
-                const wasm = await import('../../../../wasm/map-engine-rs/map_engine_rs');
-                await wasm.start_map_engine(
+                const mod = await import('../../../../wasm/map-engine-rs/map_engine_rs');
+                await mod.default(); // Initialize WASM
+                await mod.start_map_engine(
                     "map-canvas-bg",
                     WORLD_GEOJSON,
                     COUNTRIES_DATA,
                     CAPITALS_DATA
                 );
+                setWasmModule(mod);
             } catch (e) {
                 console.error("Failed to start map engine bg:", e);
+            } finally {
+                // Short delay to ensure map has a chance to render before hiding spinner
+                setTimeout(() => setIsLoading(false), 500);
             }
         };
         initMap();
-    }, []);
-
-    useEffect(() => {
-        // No longer fetching, use imported data
-        setCountries(COUNTRIES_DATA);
-        setIsLoading(false);
     }, []);
 
     const filteredCountries = countries.filter(c => 
@@ -52,21 +58,34 @@ export default function PilihNegaraPage() {
         c.capital.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
+    // Sync selected country to WASM map engine
+    useEffect(() => {
+        if (!hasInteracted || !wasmModule) return;
+
+        const selected = filteredCountries[currentIndex];
+        if (selected) {
+            try {
+                wasmModule.set_selected_country_on_map(selected.iso);
+            } catch (e) {
+                console.error("Failed to sync selection to map:", e);
+            }
+        }
+    }, [currentIndex, hasInteracted, filteredCountries, wasmModule]);
+
+
+
     const nextCountry = () => {
         if (filteredCountries.length === 0) return;
         setCurrentIndex((prev) => (prev + 1) % filteredCountries.length);
+        setHasInteracted(true);
     };
 
     const prevCountry = () => {
         if (filteredCountries.length === 0) return;
         setCurrentIndex((prev) => (prev - 1 + filteredCountries.length) % filteredCountries.length);
+        setHasInteracted(true);
     };
 
-    if (isLoading) return (
-        <div className="min-h-screen bg-[#070b14] flex items-center justify-center">
-            <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
-        </div>
-    );
 
     // Visible items in carousel
     const getVisibleItems = () => {
@@ -90,9 +109,26 @@ export default function PilihNegaraPage() {
 
     return (
         <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">
+            {/* Loading Overlay */}
+            <AnimatePresence>
+                {isLoading && (
+                    <motion.div 
+                        initial={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-50 bg-[#070b14] flex items-center justify-center"
+                    >
+                        <div className="w-12 h-12 border-4 border-emerald-500/20 border-t-emerald-500 rounded-full animate-spin" />
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             {/* Background Map Engine - Full Color */}
             <div className="fixed inset-0 z-0">
-                <canvas id="map-canvas-bg" className="w-full h-full block" />
+                <canvas 
+                    id="map-canvas-bg" 
+                    className="w-full h-full block cursor-pointer" 
+                    onMouseDown={() => setHasInteracted(true)}
+                />
                 <div className="absolute inset-0 bg-black/20 pointer-events-none" />
             </div>
 
@@ -147,22 +183,26 @@ export default function PilihNegaraPage() {
                                     key={`${item.country}-${item.offset}`}
                                     layout
                                     initial={{ opacity: 0, scale: 0.8 }}
+                                    onClick={() => {
+                                        setCurrentIndex((prev) => (prev + item.offset + filteredCountries.length) % filteredCountries.length);
+                                        setHasInteracted(true);
+                                    }}
                                     animate={{ 
-                                        opacity: Math.abs(item.offset) > 2 ? 0 : 1 - Math.abs(item.offset) * 0.2, 
-                                        scale: item.offset === 0 ? 1.05 : 0.9,
-                                        y: item.offset === 0 ? -10 : 0,
+                                        opacity: (item.offset === 0 && hasInteracted) ? 1 : Math.abs(item.offset) > 2 ? 0 : 0.5, 
+                                        scale: (item.offset === 0 && hasInteracted) ? 1.15 : 0.9,
+                                        y: (item.offset === 0 && hasInteracted) ? -15 : 0,
                                         zIndex: 10 - Math.abs(item.offset)
                                     }}
                                     exit={{ opacity: 0, scale: 0.5 }}
                                     transition={{ type: "spring", stiffness: 300, damping: 30 }}
                                     className={`
-                                        relative w-36 h-28 rounded-2xl p-4 flex flex-col items-center justify-center text-center
-                                        ${item.offset === 0 ? 'bg-black/60 border border-white/30' : 'bg-black/40 border border-white/5'}
+                                        relative w-36 h-28 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer
+                                        ${(item.offset === 0 && hasInteracted) ? 'bg-white shadow-[0_0_30px_rgba(255,255,255,0.3)]' : 'bg-black/40 border border-white/5'}
                                         backdrop-blur-xl transition-all duration-300
                                     `}
                                 >
                                     {/* Flag */}
-                                    <div className="w-12 h-8 bg-slate-800 rounded-sm mb-3 overflow-hidden border border-white/10">
+                                    <div className={`w-12 h-8 rounded-sm mb-3 overflow-hidden border ${item.offset === 0 && hasInteracted ? 'border-black/10' : 'border-white/10'}`}>
                                         <img 
                                             src={`https://flagcdn.com/w80/${(item as any).iso}.png`} 
                                             alt={item.country}
@@ -173,8 +213,8 @@ export default function PilihNegaraPage() {
                                         />
                                     </div>
                                     
-                                    <h3 className="text-[9px] font-black text-white leading-tight uppercase mb-0.5">{item.country}</h3>
-                                    <p className="text-[7px] text-slate-500 font-bold uppercase">{item.capital}</p>
+                                    <h3 className={`text-[9px] font-black leading-tight uppercase mb-0.5 ${(item.offset === 0 && hasInteracted) ? 'text-black' : 'text-white/60'}`}>{item.country}</h3>
+                                    <p className={`text-[7px] font-bold uppercase ${(item.offset === 0 && hasInteracted) ? 'text-black/40' : 'text-slate-500'}`}>{item.capital}</p>
                                 </motion.div>
                             ))}
                         </AnimatePresence>

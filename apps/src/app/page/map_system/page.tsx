@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from './map-data';
 
 export default function MapPage() {
@@ -12,12 +12,18 @@ export default function MapPage() {
     date: '01-01-2026'
   });
 
+  const hasInitRef = useRef(false);
+
   // Initial data fetch
   useEffect(() => {
     const initMap = async () => {
+        if (hasInitRef.current) return;
+        hasInitRef.current = true;
+
         try {
-            const wasm = await import('../../../wasm/map-engine-rs/map_engine_rs');
-            wasm.start_map_engine(
+            const wasmModule = await import('../../../wasm/map-engine-rs/map_engine_rs');
+            await wasmModule.default(); // Initialize WASM
+            wasmModule.start_map_engine(
                 "map-canvas",
                 WORLD_GEOJSON,
                 COUNTRIES_DATA,
