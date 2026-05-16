@@ -1,3 +1,28 @@
-﻿// @ts-nocheck
-const members = [
+export const members = [
+  "austria",
+  "belanda",
+  "belgia",
+  "bulgaria",
+  "ceko",
+  "denmark",
+  "estonia",
+  "finlandia",
+  "hungaria",
+  "irlandia",
+  "italia",
+  "jerman",
+  "kroasia",
+  "latvia",
+  "lithuania",
+  "luksemburg",
+  "malta",
+  "polandia",
+  "portugal",
+  "republik rumania",
+  "siprus",
+  "slovenia",
+  "slowakia",
+  "spanyol",
+  "swedia",
+  "yunani"
 ];

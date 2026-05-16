@@ -30,3 +30,4 @@
     relationshipBonus: 0
   };
 };
+

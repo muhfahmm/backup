@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const bosnia_dan_hercegovina_diplomasi = [
+const kedubes_bosnia_dan_hercegovina = [
   { "no": 1, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Amerika Serikat", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Angola", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -15,3 +15,4 @@ const bosnia_dan_hercegovina_diplomasi = [
   { "no": 13, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+

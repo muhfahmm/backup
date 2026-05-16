@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const thailand_diplomasi = [
+const kedubes_thailand = [
   { "no": 1, "mitra": "Afganistan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Angola", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Arab Saudi", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -11,3 +11,4 @@ const thailand_diplomasi = [
   { "no": 9, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+

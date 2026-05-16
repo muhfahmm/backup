@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const slowakia_diplomasi = [
+const kedubes_slowakia = [
   { "no": 1, "mitra": "Afganistan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Aljazair", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -16,3 +16,4 @@ const slowakia_diplomasi = [
   { "no": 14, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 15, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+

@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const saint_kitts_dan_nevis_diplomasi = [
+const kedubes_saint_kitts_dan_nevis = [
   { "no": 1, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Antigua dan Barbuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Arab Saudi", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -14,3 +14,4 @@ const saint_kitts_dan_nevis_diplomasi = [
   { "no": 12, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
