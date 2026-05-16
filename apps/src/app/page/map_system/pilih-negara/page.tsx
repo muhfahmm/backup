@@ -4,7 +4,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     ChevronLeft, ChevronRight, Search, Shield, Globe, Play, ArrowLeft, 
-    User, Building, Factory, Users, Coins, Landmark, Menu 
+    User, Building, Factory, Users, Coins, Landmark, Menu,
+    HelpCircle, MapPin, TrendingUp, Home, Scale
 } from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from '../map-data';
@@ -94,8 +95,15 @@ export default function PilihNegaraPage() {
         if (selected) {
             // Load data directly from TS file via API
             const loadStats = async () => {
-                const relPath = (countryPaths as any)[selected.country];
-                if (!relPath) return;
+                // Case-insensitive lookup for country path
+                const relPath = Object.entries(countryPaths).find(
+                    ([name]) => name.toLowerCase() === selected.country.toLowerCase()
+                )?.[1];
+                
+                if (!relPath) {
+                    console.warn(`No path found for country: ${selected.country}`);
+                    return;
+                }
 
                 try {
                     const res = await fetch(`/api/country-data?path=${relPath}`);
@@ -154,7 +162,7 @@ export default function PilihNegaraPage() {
             
             loadStats();
 
-            if (hasInteracted && wasmModule) {
+            if (wasmModule) {
                 try {
                     wasmModule.set_selected_country_on_map(selected.iso);
                 } catch (e) {
@@ -179,6 +187,35 @@ export default function PilihNegaraPage() {
     };
 
 
+    const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+        if (!wasmModule || !wasmModule.get_country_at_on_map) return;
+        
+        const canvas = e.currentTarget;
+        const rect = canvas.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        
+        const clickedCountry = wasmModule.get_country_at_on_map(x, y);
+        if (clickedCountry && clickedCountry.iso) {
+            const iso = clickedCountry.iso;
+            // Check if it's already in the filtered list
+            const filteredIndex = filteredCountries.findIndex(c => c.iso.toLowerCase() === iso.toLowerCase());
+            
+            if (filteredIndex !== -1) {
+                setCurrentIndex(filteredIndex);
+            } else {
+                // If not in filtered list, clear search and find in full list
+                setSearchQuery('');
+                // We need to wait for state or find directly in countries
+                const fullIndex = countries.findIndex(c => c.iso.toLowerCase() === iso.toLowerCase());
+                if (fullIndex !== -1) {
+                    setCurrentIndex(fullIndex);
+                }
+            }
+            setHasInteracted(true);
+        }
+    };
+
     // Visible items in carousel
     const getVisibleItems = () => {
         if (filteredCountries.length === 0) return [];
@@ -201,49 +238,48 @@ export default function PilihNegaraPage() {
 
     return (
         <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">
-            {/* Top Navbar */}
-            <nav className="fixed top-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-b border-white/5 px-8 py-3 flex items-center justify-between pointer-events-auto">
-                <div className="flex items-center gap-4">
-                    <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
-                        <Shield className="w-5 h-5 text-emerald-500" />
-                    </div>
-                    <div className="flex flex-col">
-                        <span className="text-white font-black text-sm tracking-tighter">PRESIDEN<span className="text-emerald-500">SIMULATOR</span></span>
-                        <span className="text-[8px] text-slate-500 font-bold tracking-[0.3em] uppercase">Selection Phase</span>
-                    </div>
-                </div>
-
-                <div className="hidden lg:flex items-center gap-1">
-                    {navbarItems.map((item) => (
-                        <button
-                            key={item.name}
-                            onClick={() => setSelectedMenu(item.name)}
-                            className={`
-                                group relative px-4 py-2 rounded-xl flex items-center gap-2 transition-all duration-300
-                                ${selectedMenu === item.name ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}
-                            `}
-                        >
-                            <item.icon className={`w-3.5 h-3.5 transition-colors ${selectedMenu === item.name ? 'text-emerald-500' : 'group-hover:text-emerald-400'}`} />
-                            <span className="text-[10px] font-black tracking-widest uppercase">{item.name}</span>
-                            
-                            {selectedMenu === item.name && (
-                                <motion.div 
-                                    layoutId="nav-active"
-                                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-emerald-500 rounded-full"
-                                />
-                            )}
-                        </button>
-                    ))}
-                </div>
-
-                <div className="flex items-center gap-4">
-                    <div className="flex flex-col items-end mr-4">
-                        <span className="text-slate-500 text-[8px] font-bold tracking-widest uppercase">Global Status</span>
-                        <span className="text-emerald-500 text-[10px] font-black tracking-widest">STABLE</span>
-                    </div>
-                    <button className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all">
-                        <Menu className="w-4 h-4 text-white" />
+            {/* Status Bar (Replacement for Nav) */}
+            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-6 py-2 flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-10 overflow-x-auto no-scrollbar">
+                    {/* Help Icon */}
+                    <button className="flex items-center justify-center w-6 h-6 rounded-full border border-[#8b7e66]/30 text-[#8b7e66] hover:bg-[#8b7e66]/10 transition-colors">
+                        <HelpCircle className="w-3.5 h-3.5" />
                     </button>
+
+                    {/* Stats Items */}
+                    <div className="flex items-center gap-10">
+                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || '-'} />
+                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0'} />
+                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={`${countryDetail?.anggaran || 0} EM`} />
+                        <StatusItem icon={<TrendingUp className="w-3.5 h-3.5" />} label="PENDAPATAN/HARI" value={`+${countryDetail?.pendapatan_nasional || 0} EM`} color="text-emerald-700" />
+                        <StatusItem icon={<Globe className="w-3.5 h-3.5" />} label="TOTAL NEGARA" value="207" />
+                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
+                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
+                        
+                        {/* UN Vote Badge */}
+                        <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
+                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
+                            <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-md font-black text-[11px] shadow-sm">
+                                {countryDetail?.un_vote || 0}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Selected Country Badge (Right) */}
+                <div className="flex items-center gap-3 bg-[#dcc9a3]/40 backdrop-blur-sm border border-black/5 px-4 py-1.5 rounded-2xl shadow-inner ml-4">
+                    <img 
+                        src={`https://flagcdn.com/w80/${countries[currentIndex]?.iso?.toLowerCase()}.png`} 
+                        className="w-6 h-4 rounded-sm object-cover border border-black/10 shadow-sm"
+                        alt="flag"
+                        onError={(e) => {
+                            (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
+                        }}
+                    />
+                    <div className="flex flex-col leading-none">
+                        <span className="text-[10px] font-black text-black tracking-tighter uppercase">{countries[currentIndex]?.country}</span>
+                        <span className="text-[8px] font-bold text-black/50 uppercase tracking-widest">{countries[currentIndex]?.capital}</span>
+                    </div>
                 </div>
             </nav>
 
@@ -358,6 +394,7 @@ export default function PilihNegaraPage() {
                     id="map-canvas-bg" 
                     className="w-full h-full block cursor-pointer" 
                     onMouseDown={() => setHasInteracted(true)}
+                    onClick={handleCanvasClick}
                 />
                 <div className="absolute inset-0 bg-black/20 pointer-events-none" />
             </div>
@@ -479,6 +516,20 @@ export default function PilihNegaraPage() {
 }
 
 // Sub-components for Stats Dashboard
+function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: React.ReactNode, label: string, value: string | number, color?: string }) {
+    return (
+        <div className="flex items-center gap-3 min-w-fit">
+            <div className="p-1.5 bg-[#dcc9a3]/40 rounded-lg text-[#8b7e66]">
+                {icon}
+            </div>
+            <div className="flex flex-col">
+                <span className="text-[8px] font-black text-[#8b7e66]/80 tracking-widest uppercase leading-none mb-1">{label}</span>
+                <span className={`text-[11px] font-black tracking-tighter uppercase leading-none ${color}`}>{value}</span>
+            </div>
+        </div>
+    );
+}
+
 function StatItem({ label, value }: { label: string, value: string | number }) {
     return (
         <div className="flex flex-col">

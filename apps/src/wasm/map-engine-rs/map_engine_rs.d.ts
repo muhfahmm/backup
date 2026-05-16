@@ -19,6 +19,8 @@ export class MapEngine {
     set_selected_country(iso?: string | null): void;
 }
 
+export function get_country_at_on_map(mouse_x: number, mouse_y: number): any;
+
 export function set_selected_country_on_map(iso: string): void;
 
 export function start_map_engine(canvas_id: string, world_text: string, countries_json: any, capitals_json: any): void;
@@ -42,6 +44,7 @@ export interface InitOutput {
     readonly mapengine_set_selected_country: (a: number, b: number, c: number) => void;
     readonly set_selected_country_on_map: (a: number, b: number) => void;
     readonly start_map_engine: (a: number, b: number, c: number, d: number, e: any, f: any) => [number, number];
+    readonly get_country_at_on_map: (a: number, b: number) => any;
     readonly wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505: (a: number, b: number, c: any) => void;
     readonly wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505_1: (a: number, b: number, c: any) => void;
     readonly wasm_bindgen__convert__closures_____invoke__h7c7843953cea6124: (a: number, b: number) => void;

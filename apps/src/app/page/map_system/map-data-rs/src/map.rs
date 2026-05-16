@@ -366,6 +366,17 @@ pub fn set_selected_country_on_map(iso: String) {
 }
 
 #[wasm_bindgen]
+pub fn get_country_at_on_map(mouse_x: f64, mouse_y: f64) -> JsValue {
+    ACTIVE_ENGINE.with(|global_engine| {
+        if let Some(engine) = global_engine.borrow().as_ref() {
+            engine.borrow().get_country_at(mouse_x, mouse_y)
+        } else {
+            JsValue::NULL
+        }
+    })
+}
+
+#[wasm_bindgen]
 pub fn start_map_engine(
     canvas_id: String, 
     world_text: String, 
