@@ -267,7 +267,7 @@ export default function PilihNegaraPage() {
     return (
         <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">
             {/* Status Bar (Replacement for Nav) */}
-            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-5 flex items-center justify-between shadow-md h-24">
+            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20">
                 <div className="flex items-center gap-10 overflow-x-auto no-scrollbar">
                     {/* Help Icon */}
                     <button className="flex items-center justify-center w-8 h-8 rounded-full border border-[#8b7e66]/40 text-[#8b7e66] hover:bg-[#8b7e66]/20 transition-colors shadow-sm">
@@ -276,13 +276,12 @@ export default function PilihNegaraPage() {
 
                     {/* Stats Items */}
                     <div className="flex items-center gap-10">
-                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || '-'} />
-                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0'} />
-                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={`${countryDetail?.anggaran || 0} EM`} />
-                        <StatusItem icon={<TrendingUp className="w-3.5 h-3.5" />} label="PENDAPATAN/HARI" value={`+${countryDetail?.pendapatan_nasional || 0} EM`} color="text-emerald-700" />
+                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={hasInteracted ? (countryDetail?.capital || '-') : '-'} />
+                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={hasInteracted ? (countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0') : '0'} />
+                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={hasInteracted ? (`${countryDetail?.anggaran || 0} EM`) : '0 EM'} />
                         <StatusItem icon={<Globe className="w-3.5 h-3.5" />} label="TOTAL NEGARA" value="207" />
-                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
-                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
+                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={hasInteracted ? (countryDetail?.religion || '-') : '-'} />
+                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={hasInteracted ? (countryDetail?.ideology || '-') : '-'} />
                         
                         {/* UN Vote Badge */}
                         <div className="flex items-center gap-4 border-l border-[#c4b49c] pl-8">
@@ -295,15 +294,21 @@ export default function PilihNegaraPage() {
                 </div>
 
                 {/* Selected Country Badge (Right) */}
-                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4">
-                    <img 
-                        src={`https://flagcdn.com/w80/${countries[currentIndex]?.iso?.toLowerCase()}.png`} 
-                        className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
-                        alt="flag"
-                        onError={(e) => {
-                            (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
-                        }}
-                    />
+                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4 min-w-[200px]">
+                    {hasInteracted ? (
+                        <img 
+                            src={`https://flagcdn.com/w80/${countries[currentIndex]?.iso?.toLowerCase()}.png`} 
+                            className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
+                            alt="flag"
+                            onError={(e) => {
+                                (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
+                            }}
+                        />
+                    ) : (
+                        <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center text-xl">
+                            🌐
+                        </div>
+                    )}
                     <div className="flex flex-col leading-tight">
                         <span className="text-[12px] font-black text-black tracking-tight uppercase">
                             {hasInteracted ? countries[currentIndex]?.country : 'Select Country'}
@@ -316,7 +321,7 @@ export default function PilihNegaraPage() {
             </nav>
 
             {/* Stats Dashboard Overlay */}
-            <div className="fixed top-24 left-8 z-30 w-80 pointer-events-none">
+            <div className="fixed top-20 left-8 z-30 w-80 pointer-events-none">
                 <AnimatePresence mode="wait">
                     {countryDetail ? (
                         <motion.div
