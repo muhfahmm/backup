@@ -2,6 +2,3 @@
 const chile_farmasi = {
   farmasi: 11,
 };
-
-
-

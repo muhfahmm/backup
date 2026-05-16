@@ -7,6 +7,3 @@ const bulgaria_listrik = {
   pembangkit_listrik_tenaga_gas: 212,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

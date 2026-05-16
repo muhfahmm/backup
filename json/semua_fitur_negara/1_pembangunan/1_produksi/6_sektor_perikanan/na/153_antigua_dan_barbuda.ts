@@ -4,6 +4,3 @@ const antigua_dan_barbuda_perikanan = {
   mutiara: 66,
   ikan: 32,
 };
-
-
-

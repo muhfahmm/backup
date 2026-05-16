@@ -11,6 +11,3 @@ const guinea_bissau_olahan_pangan = {
   ikan_kaleng: 20,
   kopi_teh: 48,
 };
-
-
-

@@ -5,6 +5,3 @@ const republik_afrika_tengah_peternakan = {
   sapi_potong: 111,
   domba_kambing: 39,
 };
-
-
-

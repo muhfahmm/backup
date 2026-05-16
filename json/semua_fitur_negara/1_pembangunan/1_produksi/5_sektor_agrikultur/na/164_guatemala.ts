@@ -15,6 +15,3 @@ const guatemala_agrikultur = {
   kapas: 66,
   tembakau: 162,
 };
-
-
-

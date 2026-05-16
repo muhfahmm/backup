@@ -9,6 +9,3 @@ const palau_hukum = {
       "indeks_korupsi": 47,
       "indeks_keamanan": 62
   };
-
-
-

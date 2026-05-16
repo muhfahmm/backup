@@ -15,6 +15,3 @@ const brazil_agrikultur = {
   kapas: 20952,
   tembakau: 11349,
 };
-
-
-

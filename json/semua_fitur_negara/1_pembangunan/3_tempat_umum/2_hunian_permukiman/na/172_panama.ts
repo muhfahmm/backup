@@ -5,6 +5,3 @@ const panama_hunian = {
   apartemen: 845,
   mansion: 28193,
 };
-
-
-

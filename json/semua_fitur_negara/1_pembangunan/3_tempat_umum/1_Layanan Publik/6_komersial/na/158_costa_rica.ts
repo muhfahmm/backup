@@ -4,6 +4,3 @@ const costa_rica_komersial = {
   "hotel": 6,
   "pusat_grosir_tekstil": 5
 };
-
-
-

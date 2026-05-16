@@ -4,6 +4,3 @@ const samoa_amerika_intelijen = {
   jaringan_radar: 2,
   operasi_siber: 6,
 };
-
-
-

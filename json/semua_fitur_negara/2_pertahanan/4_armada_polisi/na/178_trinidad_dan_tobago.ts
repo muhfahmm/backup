@@ -16,6 +16,3 @@ const trinidad_dan_tobago_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

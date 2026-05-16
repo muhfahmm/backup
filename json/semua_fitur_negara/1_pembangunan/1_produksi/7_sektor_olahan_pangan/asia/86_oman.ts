@@ -11,6 +11,3 @@ const oman_olahan_pangan = {
   ikan_kaleng: 363,
   kopi_teh: 154,
 };
-
-
-

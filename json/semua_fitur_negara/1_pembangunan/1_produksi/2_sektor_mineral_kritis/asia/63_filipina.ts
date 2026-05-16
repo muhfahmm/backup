@@ -13,6 +13,3 @@ const filipina_ekstraksi = {
   logam_tanah_jarang: 180,
   bijih_besi: 0,
 };
-
-
-

@@ -4,6 +4,3 @@ const mauritania_perikanan = {
   mutiara: 24,
   ikan: 26,
 };
-
-
-

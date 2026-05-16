@@ -5,6 +5,3 @@ const nikaragua_hunian = {
   apartemen: 1309,
   mansion: 43642,
 };
-
-
-

@@ -15,6 +15,3 @@ const uzbekistanAgreements = [
   { "no": 13, "mitra": "Thailand", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Vietnam", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

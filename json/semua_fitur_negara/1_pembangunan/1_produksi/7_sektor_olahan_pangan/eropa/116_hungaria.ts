@@ -11,6 +11,3 @@ const hungaria_olahan_pangan = {
   ikan_kaleng: 80,
   kopi_teh: 80,
 };
-
-
-

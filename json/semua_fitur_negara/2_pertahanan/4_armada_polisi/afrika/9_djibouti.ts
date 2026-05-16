@@ -16,6 +16,3 @@ const djibouti_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

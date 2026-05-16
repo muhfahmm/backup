@@ -9,6 +9,3 @@ const bosnia_dan_hercegovina_olahraga = {
   "esports": 3,
   "gokart": 10
 };
-
-
-

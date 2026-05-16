@@ -5,6 +5,3 @@ const komoro_peternakan = {
   sapi_potong: 112,
   domba_kambing: 168,
 };
-
-
-

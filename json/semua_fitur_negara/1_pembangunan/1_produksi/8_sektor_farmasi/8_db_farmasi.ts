@@ -17,13 +17,7 @@ const farmasiRate = {
   }
 };
 
-export interface SektorFarmasi {
-  farmasi?: number;
 }
 
-export interface PharmacyData {
   farmasi: number;
 }
-
-
-

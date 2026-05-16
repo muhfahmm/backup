@@ -15,6 +15,3 @@ const malawi_agrikultur = {
   kapas: 60,
   tembakau: 256,
 };
-
-
-

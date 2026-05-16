@@ -16,6 +16,3 @@ const qatar_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

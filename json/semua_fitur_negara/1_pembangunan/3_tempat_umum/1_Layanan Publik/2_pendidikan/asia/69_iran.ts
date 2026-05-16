@@ -12,6 +12,3 @@ const iran_pendidikan = {
       "pusat_pengembangan": 6,
       "literasi": 88
     };
-
-
-

@@ -8,6 +8,3 @@ const honduras_manufaktur = {
   kayu: 30,
   pupuk: 30,
 };
-
-
-

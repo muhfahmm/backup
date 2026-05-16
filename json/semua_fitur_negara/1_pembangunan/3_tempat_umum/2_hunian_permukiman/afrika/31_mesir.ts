@@ -5,6 +5,3 @@ const mesir_hunian = {
   apartemen: 19930,
   mansion: 664359,
 };
-
-
-

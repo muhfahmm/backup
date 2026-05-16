@@ -5,6 +5,3 @@ const bhutan_peternakan = {
   sapi_potong: 90,
   domba_kambing: 60,
 };
-
-
-

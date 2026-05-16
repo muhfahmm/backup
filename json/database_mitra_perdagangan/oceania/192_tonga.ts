@@ -11,6 +11,3 @@ const tongaAgreements = [
   { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

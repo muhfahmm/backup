@@ -16,6 +16,3 @@ const antigua_dan_barbuda_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

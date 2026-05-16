@@ -9,6 +9,3 @@ const mauritania_olahraga = {
   "esports": 3,
   "gokart": 14
 };
-
-
-

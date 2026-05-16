@@ -11,6 +11,3 @@ const belize_olahan_pangan = {
   ikan_kaleng: 26,
   kopi_teh: 58,
 };
-
-
-

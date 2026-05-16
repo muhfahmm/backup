@@ -5,6 +5,3 @@ const bosniaDanHercegovinaVehicles = {
   bus: 664,
   truk: 3323,
 };
-
-
-

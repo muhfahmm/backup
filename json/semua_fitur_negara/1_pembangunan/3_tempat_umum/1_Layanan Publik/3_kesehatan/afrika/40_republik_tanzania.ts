@@ -6,6 +6,3 @@ const republik_tanzania_kesehatan = {
       "harapan_hidup": 63,
       "indeks_kesehatan": 68
   };
-
-
-

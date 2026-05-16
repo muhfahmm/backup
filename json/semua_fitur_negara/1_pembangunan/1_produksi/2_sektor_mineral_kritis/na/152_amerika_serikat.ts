@@ -13,6 +13,3 @@ const amerika_serikat_ekstraksi = {
   logam_tanah_jarang: 232,
   bijih_besi: 464,
 };
-
-
-

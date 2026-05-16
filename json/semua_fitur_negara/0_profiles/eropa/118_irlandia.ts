@@ -26,74 +26,9 @@ const irlandia_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
-
-const irlandia = {
-  ...irlandia_profile,
-  "sektor_listrik": irlandia_listrik,
-  "hunian": irlandia_hunian,
-  "infrastruktur": irlandia_infrastruktur,
-  "sektor_ekstraksi": irlandia_ekstraksi,
-  "sektor_manufaktur": irlandia_manufaktur,
-  "sektor_peternakan": irlandia_peternakan,
-  "sektor_agrikultur": irlandia_agrikultur,
-  "sektor_perikanan": irlandia_perikanan,
-  "sektor_olahan_pangan": irlandia_olahan_pangan,
-  "sektor_farmasi": irlandia_farmasi,
-  "sektor_pertahanan": irlandia_pertahanan,
-  "armada_militer": irlandia_armada,
-  "militer_strategis": irlandia_strategis,
-  "armada_kepolisian": irlandia_kepolisian,
-  "pabrik_militer": irlandia_pabrik,
-  "intelijen": irlandia_intelijen,
-    "pendidikan": irlandia_pendidikan,
-  "kesehatan": irlandia_kesehatan,
-  "hukum": irlandia_hukum,
-  "sektor_olahraga": irlandia_olahraga,
-  "sektor_komersial": irlandia_komersial,
-  "sektor_hiburan": irlandia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 2,
-      "kepuasan": 67,
-      "pendapatan": 19
-    },
-    "korporasi": {
-      "tarif": 35,
-      "kepuasan": 52,
-      "pendapatan": 365
-    },
-    "penghasilan": {
-      "tarif": 3,
-      "kepuasan": 61,
-      "pendapatan": 45
-    },
-    "bea_cukai": {
-      "tarif": 37,
-      "kepuasan": 86,
-      "pendapatan": 471
-    },
-    "lingkungan": {
-      "tarif": 39,
-      "kepuasan": 88,
-      "pendapatan": 364
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 26 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 78 },
-    "lainnya": {
-      "tarif": 40,
-      "kepuasan": 93,
-      "pendapatan": 343
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const irlandia_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const irlandia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

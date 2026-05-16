@@ -8,6 +8,3 @@ const swiss_manufaktur = {
   kayu: 564,
   pupuk: 188,
 };
-
-
-

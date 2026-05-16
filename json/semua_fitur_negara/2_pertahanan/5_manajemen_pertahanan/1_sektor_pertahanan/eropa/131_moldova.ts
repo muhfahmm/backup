@@ -9,6 +9,3 @@ const moldova_pertahanan = {
     "program_luar_angkasa": 7,
     "pertahanan_siber": 6
     };
-
-
-

@@ -15,6 +15,3 @@ const guiana_prancisAgreements = [
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Chile", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

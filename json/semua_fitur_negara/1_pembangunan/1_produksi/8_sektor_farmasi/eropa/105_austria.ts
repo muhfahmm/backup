@@ -2,6 +2,3 @@
 const austria_farmasi = {
   farmasi: 31,
 };
-
-
-

@@ -4,6 +4,3 @@ const republik_afrika_tengah_perikanan = {
   mutiara: 108,
   ikan: 108,
 };
-
-
-

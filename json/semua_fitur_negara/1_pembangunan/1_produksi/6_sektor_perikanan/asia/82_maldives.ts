@@ -4,6 +4,3 @@ const maldives_perikanan = {
   mutiara: 24,
   ikan: 18,
 };
-
-
-

@@ -15,6 +15,3 @@ const indonesia_agrikultur = {
   kapas: 5372,
   tembakau: 4424,
 };
-
-
-

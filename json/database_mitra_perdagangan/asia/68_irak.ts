@@ -14,6 +14,3 @@ const irakAgreements = [
   { "no": 12, "mitra": "Indonesia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Vietnam", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -9,6 +9,3 @@ const kamerun_pertahanan = {
     "program_luar_angkasa": 37,
     "pertahanan_siber": 18
     };
-
-
-

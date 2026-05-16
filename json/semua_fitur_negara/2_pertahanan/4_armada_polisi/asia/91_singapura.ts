@@ -16,6 +16,3 @@ const singapura_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

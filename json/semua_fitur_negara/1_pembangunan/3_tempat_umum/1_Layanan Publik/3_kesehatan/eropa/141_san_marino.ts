@@ -6,6 +6,3 @@ const san_marino_kesehatan = {
       "harapan_hidup": 70,
       "indeks_kesehatan": 62
     };
-
-
-

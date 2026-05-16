@@ -8,6 +8,3 @@ const peru_manufaktur = {
   kayu: 28,
   pupuk: 63,
 };
-
-
-

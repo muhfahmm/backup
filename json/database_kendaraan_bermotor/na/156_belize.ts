@@ -5,6 +5,3 @@ const belizeVehicles = {
   bus: 76,
   truk: 383,
 };
-
-
-

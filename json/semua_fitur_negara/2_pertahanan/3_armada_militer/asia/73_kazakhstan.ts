@@ -30,6 +30,3 @@ const kazakhstan_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

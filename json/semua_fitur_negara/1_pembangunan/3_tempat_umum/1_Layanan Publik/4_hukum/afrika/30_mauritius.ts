@@ -9,6 +9,3 @@ const mauritius_hukum = {
       "indeks_korupsi": 48,
       "indeks_keamanan": 47
   };
-
-
-

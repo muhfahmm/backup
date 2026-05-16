@@ -5,6 +5,3 @@ const barbadosVehicles = {
   bus: 57,
   truk: 286,
 };
-
-
-

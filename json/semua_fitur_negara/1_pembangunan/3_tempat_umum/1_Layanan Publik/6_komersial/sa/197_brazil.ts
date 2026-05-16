@@ -4,6 +4,3 @@ const brazil_komersial = {
   "hotel": 280,
   "pusat_grosir_tekstil": 68
 };
-
-
-

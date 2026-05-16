@@ -9,6 +9,3 @@ const sierra_leone_hukum = {
       "indeks_korupsi": 10,
       "indeks_keamanan": 55
   };
-
-
-

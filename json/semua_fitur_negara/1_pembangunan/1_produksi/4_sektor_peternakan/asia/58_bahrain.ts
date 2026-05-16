@@ -5,6 +5,3 @@ const bahrain_peternakan = {
   sapi_potong: 320,
   domba_kambing: 328,
 };
-
-
-

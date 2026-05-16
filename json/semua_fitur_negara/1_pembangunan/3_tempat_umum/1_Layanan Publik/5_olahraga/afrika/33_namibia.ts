@@ -9,6 +9,3 @@ const namibia_olahraga = {
   "esports": 4,
   "gokart": 11
 };
-
-
-

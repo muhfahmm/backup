@@ -15,6 +15,3 @@ const qatarAgreements = [
   { "no": 13, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Indonesia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

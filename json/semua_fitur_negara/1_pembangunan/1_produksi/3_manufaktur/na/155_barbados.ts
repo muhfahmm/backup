@@ -8,6 +8,3 @@ const barbados_manufaktur = {
   kayu: 11,
   pupuk: 4,
 };
-
-
-

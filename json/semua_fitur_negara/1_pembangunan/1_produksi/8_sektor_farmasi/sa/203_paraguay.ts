@@ -2,6 +2,3 @@
 const paraguay_farmasi = {
   farmasi: 26,
 };
-
-
-

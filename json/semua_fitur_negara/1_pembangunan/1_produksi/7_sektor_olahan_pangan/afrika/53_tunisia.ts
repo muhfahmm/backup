@@ -11,6 +11,3 @@ const tunisia_olahan_pangan = {
   ikan_kaleng: 54,
   kopi_teh: 94,
 };
-
-
-

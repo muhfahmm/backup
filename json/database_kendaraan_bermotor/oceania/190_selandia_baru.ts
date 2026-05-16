@@ -5,6 +5,3 @@ const selandiaBaruVehicles = {
   bus: 968,
   truk: 4841,
 };
-
-
-

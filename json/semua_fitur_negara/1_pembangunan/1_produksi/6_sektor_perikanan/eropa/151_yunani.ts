@@ -4,6 +4,3 @@ const yunani_perikanan = {
   mutiara: 400,
   ikan: 400,
 };
-
-
-

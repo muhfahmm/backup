@@ -16,6 +16,3 @@ const afrika_selatan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

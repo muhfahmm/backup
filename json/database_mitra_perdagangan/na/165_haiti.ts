@@ -11,6 +11,3 @@ const haitiAgreements = [
   { "no": 9, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

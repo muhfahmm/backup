@@ -12,6 +12,3 @@ const filipina_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 77
     };
-
-
-

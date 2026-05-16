@@ -4,6 +4,3 @@ const georgia_perikanan = {
   mutiara: 112,
   ikan: 68,
 };
-
-
-

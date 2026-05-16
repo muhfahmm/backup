@@ -13,6 +13,3 @@ const oman_ekstraksi = {
   logam_tanah_jarang: 11,
   bijih_besi: 0,
 };
-
-
-

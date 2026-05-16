@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const selandia_baru_strategis = {
     "waktu_respon": 29,
     "intelijen": 40,
@@ -17,6 +18,3 @@ const selandia_baru_strategis = {
 
    }
   };
-
-
-

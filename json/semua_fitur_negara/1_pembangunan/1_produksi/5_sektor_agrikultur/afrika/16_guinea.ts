@@ -15,6 +15,3 @@ const guinea_agrikultur = {
   kapas: 128,
   tembakau: 36,
 };
-
-
-

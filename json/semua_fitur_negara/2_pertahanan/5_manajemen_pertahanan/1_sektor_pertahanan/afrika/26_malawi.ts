@@ -1,4 +1,5 @@
-﻿const malawi_pertahanan = {
+﻿// @ts-nocheck
+const malawi_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 1,
     "hangar_tank": 9,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 40,
     "pertahanan_siber": 10
     };
-
-

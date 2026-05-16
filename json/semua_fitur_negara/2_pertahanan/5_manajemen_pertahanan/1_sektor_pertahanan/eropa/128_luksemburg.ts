@@ -9,6 +9,3 @@ const luksemburg_pertahanan = {
     "program_luar_angkasa": 40,
     "pertahanan_siber": 5
     };
-
-
-

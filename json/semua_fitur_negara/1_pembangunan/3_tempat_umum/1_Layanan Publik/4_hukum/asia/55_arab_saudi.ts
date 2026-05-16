@@ -9,6 +9,3 @@ const arab_saudi_hukum = {
       "indeks_korupsi": 52,
       "indeks_keamanan": 65
   };
-
-
-

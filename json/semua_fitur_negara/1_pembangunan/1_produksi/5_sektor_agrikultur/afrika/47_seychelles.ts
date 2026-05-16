@@ -15,6 +15,3 @@ const seychelles_agrikultur = {
   kapas: 26,
   tembakau: 36,
 };
-
-
-

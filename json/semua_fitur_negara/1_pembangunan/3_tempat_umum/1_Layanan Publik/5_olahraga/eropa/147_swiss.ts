@@ -9,6 +9,3 @@ const swiss_olahraga = {
   "esports": 11,
   "gokart": 17
 };
-
-
-

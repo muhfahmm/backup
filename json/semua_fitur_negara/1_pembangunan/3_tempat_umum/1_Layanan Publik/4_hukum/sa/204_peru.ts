@@ -9,6 +9,3 @@ const peru_hukum = {
       "indeks_korupsi": 30,
       "indeks_keamanan": 59
   };
-
-
-

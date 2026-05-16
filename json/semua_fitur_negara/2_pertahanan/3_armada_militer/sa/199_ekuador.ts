@@ -30,6 +30,3 @@ const ekuador_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

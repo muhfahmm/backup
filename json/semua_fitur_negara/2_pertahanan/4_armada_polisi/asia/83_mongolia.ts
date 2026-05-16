@@ -16,6 +16,3 @@ const mongolia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

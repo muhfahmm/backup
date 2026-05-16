@@ -13,6 +13,3 @@ const kuwait_ekstraksi = {
   logam_tanah_jarang: 100,
   bijih_besi: 100,
 };
-
-
-

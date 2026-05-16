@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const saint_kitts_dan_nevis_strategis = {
     "waktu_respon": 27,
     "intelijen": 11,
@@ -13,5 +14,3 @@ const saint_kitts_dan_nevis_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

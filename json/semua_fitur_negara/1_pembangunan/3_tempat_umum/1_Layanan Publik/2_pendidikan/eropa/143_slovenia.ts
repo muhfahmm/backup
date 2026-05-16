@@ -12,6 +12,3 @@ const slovenia_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 69
     };
-
-
-

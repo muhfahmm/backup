@@ -5,6 +5,3 @@ const yordania_hunian = {
   apartemen: 2016,
   mansion: 67203,
 };
-
-
-

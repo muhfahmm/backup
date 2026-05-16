@@ -5,6 +5,3 @@ const maliVehicles = {
   bus: 3815,
   truk: 19077,
 };
-
-
-

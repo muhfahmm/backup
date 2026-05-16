@@ -8,6 +8,3 @@ const mesir_manufaktur = {
   kayu: 564,
   pupuk: 94,
 };
-
-
-

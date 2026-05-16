@@ -15,6 +15,3 @@ const gambia_agrikultur = {
   kapas: 22,
   tembakau: 36,
 };
-
-
-

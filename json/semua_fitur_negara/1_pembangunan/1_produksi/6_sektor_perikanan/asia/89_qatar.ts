@@ -4,6 +4,3 @@ const qatar_perikanan = {
   mutiara: 150,
   ikan: 120,
 };
-
-
-

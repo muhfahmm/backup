@@ -9,6 +9,3 @@ const gambia_infrastruktur = {
   bandara: 1,
   helipad: 1,
 };
-
-
-

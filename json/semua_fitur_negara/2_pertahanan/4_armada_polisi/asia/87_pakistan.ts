@@ -16,6 +16,3 @@ const pakistan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

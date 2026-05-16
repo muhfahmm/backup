@@ -15,6 +15,3 @@ const republik_dominika_agrikultur = {
   kapas: 434,
   tembakau: 294,
 };
-
-
-

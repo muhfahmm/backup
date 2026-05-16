@@ -26,74 +26,9 @@ const kolombia_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const kolombia = {
-  ...kolombia_profile,
-  "sektor_listrik": kolombia_listrik,
-  "hunian": kolombia_hunian,
-  "infrastruktur": kolombia_infrastruktur,
-  "sektor_ekstraksi": kolombia_ekstraksi,
-  "sektor_manufaktur": kolombia_manufaktur,
-  "sektor_peternakan": kolombia_peternakan,
-  "sektor_agrikultur": kolombia_agrikultur,
-  "sektor_perikanan": kolombia_perikanan,
-  "sektor_olahan_pangan": kolombia_olahan_pangan,
-  "sektor_farmasi": kolombia_farmasi,
-  "sektor_pertahanan": kolombia_pertahanan,
-  "armada_militer": kolombia_armada,
-  "militer_strategis": kolombia_strategis,
-  "armada_kepolisian": kolombia_kepolisian,
-  "pabrik_militer": kolombia_pabrik,
-  "intelijen": kolombia_intelijen,
-    "pendidikan": kolombia_pendidikan,
-  "kesehatan": kolombia_kesehatan,
-  "hukum": kolombia_hukum,
-  "sektor_olahraga": kolombia_olahraga,
-  "sektor_komersial": kolombia_komersial,
-  "sektor_hiburan": kolombia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 9,
-      "kepuasan": 67,
-      "pendapatan": 34
-    },
-    "korporasi": {
-      "tarif": 14,
-      "kepuasan": 52,
-      "pendapatan": 120
-    },
-    "penghasilan": {
-      "tarif": 18,
-      "kepuasan": 61,
-      "pendapatan": 93
-    },
-    "bea_cukai": {
-      "tarif": 31,
-      "kepuasan": 86,
-      "pendapatan": 136
-    },
-    "lingkungan": {
-      "tarif": 1,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 17 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 50 },
-    "lainnya": {
-      "tarif": 8,
-      "kepuasan": 93,
-      "pendapatan": 60
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kolombia_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const kolombia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

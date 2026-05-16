@@ -15,6 +15,3 @@ const lesotho_agrikultur = {
   kapas: 183,
   tembakau: 147,
 };
-
-
-

@@ -4,6 +4,3 @@ const indonesia_perikanan = {
   mutiara: 948,
   ikan: 1027,
 };
-
-
-

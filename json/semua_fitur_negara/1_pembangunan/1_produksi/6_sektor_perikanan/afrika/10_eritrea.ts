@@ -4,6 +4,3 @@ const eritrea_perikanan = {
   mutiara: 10,
   ikan: 13,
 };
-
-
-

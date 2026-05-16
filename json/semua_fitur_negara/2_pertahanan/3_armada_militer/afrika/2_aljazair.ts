@@ -30,6 +30,3 @@ const aljazair_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

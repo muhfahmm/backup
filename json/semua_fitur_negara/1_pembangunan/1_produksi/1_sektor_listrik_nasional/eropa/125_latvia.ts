@@ -7,6 +7,3 @@ const latvia_listrik = {
   pembangkit_listrik_tenaga_gas: 70,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

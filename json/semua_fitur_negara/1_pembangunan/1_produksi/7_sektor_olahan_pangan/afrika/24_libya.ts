@@ -11,6 +11,3 @@ const libya_olahan_pangan = {
   ikan_kaleng: 210,
   kopi_teh: 315,
 };
-
-
-

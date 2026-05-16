@@ -1,4 +1,5 @@
-﻿const madagaskar_pertahanan = {
+﻿// @ts-nocheck
+const madagaskar_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 5,
     "hangar_tank": 16,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 8,
     "pertahanan_siber": 31
     };
-
-

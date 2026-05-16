@@ -9,6 +9,3 @@ const slowakia_pertahanan = {
     "program_luar_angkasa": 24,
     "pertahanan_siber": 34
     };
-
-
-

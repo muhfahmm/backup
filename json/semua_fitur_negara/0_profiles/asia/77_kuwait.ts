@@ -26,74 +26,9 @@ const kuwait_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
-
-const kuwait = {
-  ...kuwait_profile,
-  "sektor_listrik": kuwait_listrik,
-  "hunian": kuwait_hunian,
-  "infrastruktur": kuwait_infrastruktur,
-  "sektor_ekstraksi": kuwait_ekstraksi,
-  "sektor_manufaktur": kuwait_manufaktur,
-  "sektor_peternakan": kuwait_peternakan,
-  "sektor_agrikultur": kuwait_agrikultur,
-  "sektor_perikanan": kuwait_perikanan,
-  "sektor_olahan_pangan": kuwait_olahan_pangan,
-  "sektor_farmasi": kuwait_farmasi,
-  "sektor_pertahanan": kuwait_pertahanan,
-  "armada_militer": kuwait_armada,
-  "militer_strategis": kuwait_strategis,
-  "armada_kepolisian": kuwait_kepolisian,
-  "pabrik_militer": kuwait_pabrik,
-  "intelijen": kuwait_intelijen,
-    "pendidikan": kuwait_pendidikan,
-  "kesehatan": kuwait_kesehatan,
-  "hukum": kuwait_hukum,
-  "sektor_olahraga": kuwait_olahraga,
-  "sektor_komersial": kuwait_komersial,
-  "sektor_hiburan": kuwait_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 19,
-      "kepuasan": 67,
-      "pendapatan": 52
-    },
-    "korporasi": {
-      "tarif": 23,
-      "kepuasan": 52,
-      "pendapatan": 58
-    },
-    "penghasilan": {
-      "tarif": 21,
-      "kepuasan": 61,
-      "pendapatan": 70
-    },
-    "bea_cukai": {
-      "tarif": 13,
-      "kepuasan": 86,
-      "pendapatan": 55
-    },
-    "lingkungan": {
-      "tarif": 26,
-      "kepuasan": 88,
-      "pendapatan": 44
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 8 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 23 },
-    "lainnya": {
-      "tarif": 6,
-      "kepuasan": 93,
-      "pendapatan": 24
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kuwait_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const kuwait = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -4,6 +4,3 @@ const barbados_perikanan = {
   mutiara: 15,
   ikan: 15,
 };
-
-
-

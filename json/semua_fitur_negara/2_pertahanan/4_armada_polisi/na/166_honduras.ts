@@ -16,6 +16,3 @@ const honduras_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -16,6 +16,3 @@ const belize_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

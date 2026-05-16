@@ -15,6 +15,3 @@ const bolivia_agrikultur = {
   kapas: 295,
   tembakau: 80,
 };
-
-
-

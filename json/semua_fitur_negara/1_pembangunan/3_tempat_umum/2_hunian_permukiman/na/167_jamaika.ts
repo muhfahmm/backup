@@ -5,6 +5,3 @@ const jamaika_hunian = {
   apartemen: 594,
   mansion: 19810,
 };
-
-
-

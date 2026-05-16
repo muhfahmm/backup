@@ -6,6 +6,3 @@ const azerbaijan_kesehatan = {
       "harapan_hidup": 63,
       "indeks_kesehatan": 75
     };
-
-
-

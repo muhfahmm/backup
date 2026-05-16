@@ -9,6 +9,3 @@ const laos_olahraga = {
   "esports": 1,
   "gokart": 8
 };
-
-
-

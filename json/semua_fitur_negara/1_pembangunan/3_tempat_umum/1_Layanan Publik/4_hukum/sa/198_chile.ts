@@ -9,6 +9,3 @@ const chile_hukum = {
       "indeks_korupsi": 56,
       "indeks_keamanan": 65
   };
-
-
-

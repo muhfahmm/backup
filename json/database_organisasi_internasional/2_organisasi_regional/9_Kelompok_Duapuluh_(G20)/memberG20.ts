@@ -1,24 +1,3 @@
 ﻿// @ts-nocheck
 const members = [
-  "afrika selatan",
-  "amerika serikat",
-  "arab saudi",
-  "argentina",
-  "australia",
-  "brazil",
-  "china",
-  "india",
-  "indonesia",
-  "inggris",
-  "italia",
-  "jepang",
-  "jerman",
-  "kanada",
-  "korea selatan",
-  "meksiko",
-  "rusia",
-  "turki"
 ];
-
-
-

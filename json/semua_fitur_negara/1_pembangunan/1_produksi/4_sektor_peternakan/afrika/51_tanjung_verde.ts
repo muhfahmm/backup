@@ -5,6 +5,3 @@ const tanjung_verde_peternakan = {
   sapi_potong: 84,
   domba_kambing: 60,
 };
-
-
-

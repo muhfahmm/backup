@@ -4,6 +4,3 @@ const korea_selatan_intelijen = {
   jaringan_radar: 60,
   operasi_siber: 40,
 };
-
-
-

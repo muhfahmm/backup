@@ -12,6 +12,3 @@ const chile_pendidikan = {
       "pusat_pengembangan": 10,
       "literasi": 89
     };
-
-
-

@@ -15,6 +15,3 @@ const ethiopia_agrikultur = {
   kapas: 684,
   tembakau: 1242,
 };
-
-
-

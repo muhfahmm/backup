@@ -9,6 +9,3 @@ const tanjung_verde_infrastruktur = {
   bandara: 5,
   helipad: 3,
 };
-
-
-

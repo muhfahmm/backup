@@ -4,6 +4,3 @@ const hong_kong_komersial = {
   "hotel": 6,
   "pusat_grosir_tekstil": 1
 };
-
-
-

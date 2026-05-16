@@ -15,6 +15,3 @@ const italia_agrikultur = {
   kapas: 17594,
   tembakau: 10186,
 };
-
-
-

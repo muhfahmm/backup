@@ -5,6 +5,3 @@ const uzbekistan_hunian = {
   apartemen: 6673,
   mansion: 222448,
 };
-
-
-

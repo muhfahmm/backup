@@ -4,6 +4,3 @@ const singapura_komersial = {
   "hotel": 43,
   "pusat_grosir_tekstil": 16
 };
-
-
-

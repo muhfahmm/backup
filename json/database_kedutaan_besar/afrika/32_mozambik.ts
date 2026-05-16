@@ -18,6 +18,3 @@ const mozambik_diplomasi = [
   { "no": 16, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

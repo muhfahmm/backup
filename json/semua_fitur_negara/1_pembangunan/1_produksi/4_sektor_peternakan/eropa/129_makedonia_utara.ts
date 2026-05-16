@@ -5,6 +5,3 @@ const makedonia_utara_peternakan = {
   sapi_potong: 96,
   domba_kambing: 120,
 };
-
-
-

@@ -9,6 +9,3 @@ const swiss_infrastruktur = {
   bandara: 9,
   helipad: 4,
 };
-
-
-

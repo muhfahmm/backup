@@ -6,6 +6,3 @@ const mongolia_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 57
     };
-
-
-

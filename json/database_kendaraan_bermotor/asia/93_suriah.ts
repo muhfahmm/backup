@@ -5,6 +5,3 @@ const suriahVehicles = {
   bus: 3381,
   truk: 16906,
 };
-
-
-

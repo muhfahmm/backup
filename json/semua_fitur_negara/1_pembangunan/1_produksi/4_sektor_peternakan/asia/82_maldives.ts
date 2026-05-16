@@ -5,6 +5,3 @@ const maldives_peternakan = {
   sapi_potong: 56,
   domba_kambing: 32,
 };
-
-
-

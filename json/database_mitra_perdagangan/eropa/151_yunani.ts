@@ -10,6 +10,3 @@ const yunaniAgreements = [
   { "no": 8, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

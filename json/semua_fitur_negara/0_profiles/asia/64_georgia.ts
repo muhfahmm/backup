@@ -26,74 +26,9 @@ const georgia_geopolitik = {
       "kekuatan_keras": 32,
       "prestise_diplomatik": 57
     }
-  };
-
-const georgia = {
-  ...georgia_profile,
-  "sektor_listrik": georgia_listrik,
-  "hunian": georgia_hunian,
-  "infrastruktur": georgia_infrastruktur,
-  "sektor_ekstraksi": georgia_ekstraksi,
-  "sektor_manufaktur": georgia_manufaktur,
-  "sektor_peternakan": georgia_peternakan,
-  "sektor_agrikultur": georgia_agrikultur,
-  "sektor_perikanan": georgia_perikanan,
-  "sektor_olahan_pangan": georgia_olahan_pangan,
-  "sektor_farmasi": georgia_farmasi,
-  "sektor_pertahanan": georgia_pertahanan,
-  "armada_militer": georgia_armada,
-  "militer_strategis": georgia_strategis,
-  "armada_kepolisian": georgia_kepolisian,
-  "pabrik_militer": georgia_pabrik,
-  "intelijen": georgia_intelijen,
-    "pendidikan": georgia_pendidikan,
-  "kesehatan": georgia_kesehatan,
-  "hukum": georgia_hukum,
-  "sektor_olahraga": georgia_olahraga,
-  "sektor_komersial": georgia_komersial,
-  "sektor_hiburan": georgia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 23,
-      "kepuasan": 67,
-      "pendapatan": 10
-    },
-    "korporasi": {
-      "tarif": 15,
-      "kepuasan": 52,
-      "pendapatan": 6
-    },
-    "penghasilan": {
-      "tarif": 22,
-      "kepuasan": 61,
-      "pendapatan": 7
-    },
-    "bea_cukai": {
-      "tarif": 7,
-      "kepuasan": 86,
-      "pendapatan": 3
-    },
-    "lingkungan": {
-      "tarif": 32,
-      "kepuasan": 88,
-      "pendapatan": 17
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 4 },
-    "lainnya": {
-      "tarif": 17,
-      "kepuasan": 93,
-      "pendapatan": 9
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const georgia_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const georgia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

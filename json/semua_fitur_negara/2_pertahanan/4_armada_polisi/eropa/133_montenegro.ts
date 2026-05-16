@@ -16,6 +16,3 @@ const montenegro_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

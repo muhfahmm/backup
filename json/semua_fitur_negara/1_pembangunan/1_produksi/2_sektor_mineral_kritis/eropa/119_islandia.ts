@@ -13,6 +13,3 @@ const islandia_ekstraksi = {
   logam_tanah_jarang: 16,
   bijih_besi: 20,
 };
-
-
-

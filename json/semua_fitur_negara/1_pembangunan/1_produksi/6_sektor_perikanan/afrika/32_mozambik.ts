@@ -4,6 +4,3 @@ const mozambik_perikanan = {
   mutiara: 19,
   ikan: 34,
 };
-
-
-

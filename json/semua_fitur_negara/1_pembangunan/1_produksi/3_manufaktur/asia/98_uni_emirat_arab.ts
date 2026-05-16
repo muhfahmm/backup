@@ -8,6 +8,3 @@ const uni_emirat_arab_manufaktur = {
   kayu: 990,
   pupuk: 396,
 };
-
-
-

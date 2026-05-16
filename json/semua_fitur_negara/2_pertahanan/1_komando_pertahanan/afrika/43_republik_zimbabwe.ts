@@ -14,6 +14,3 @@ const republik_zimbabwe_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

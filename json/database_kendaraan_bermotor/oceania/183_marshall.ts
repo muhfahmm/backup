@@ -5,6 +5,3 @@ const marshallVehicles = {
   bus: 11,
   truk: 58,
 };
-
-
-

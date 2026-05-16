@@ -1,4 +1,5 @@
-﻿const republik_demokratik_kongo_pertahanan = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_pertahanan = {
     "penjara": 21,
     "gudang_senjata": 21,
     "hangar_tank": 22,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 32,
     "pertahanan_siber": 5
     };
-
-

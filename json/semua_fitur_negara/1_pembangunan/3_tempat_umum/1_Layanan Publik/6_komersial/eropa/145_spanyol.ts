@@ -4,6 +4,3 @@ const spanyol_komersial = {
   "hotel": 113,
   "pusat_grosir_tekstil": 71
 };
-
-
-

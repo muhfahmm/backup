@@ -4,6 +4,3 @@ const kazakhstan_komersial = {
   "hotel": 46,
   "pusat_grosir_tekstil": 19
 };
-
-
-

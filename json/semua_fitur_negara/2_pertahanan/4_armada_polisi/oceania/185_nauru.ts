@@ -16,6 +16,3 @@ const nauru_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

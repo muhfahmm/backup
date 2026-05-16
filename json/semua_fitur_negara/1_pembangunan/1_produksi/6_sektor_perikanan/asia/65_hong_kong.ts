@@ -4,6 +4,3 @@ const hong_kong_perikanan = {
   mutiara: 34,
   ikan: 31,
 };
-
-
-

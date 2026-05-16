@@ -5,6 +5,3 @@ const oman_hunian = {
   apartemen: 977,
   mansion: 32599,
 };
-
-
-

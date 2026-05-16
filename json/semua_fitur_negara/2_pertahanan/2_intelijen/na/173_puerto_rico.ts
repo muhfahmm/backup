@@ -4,6 +4,3 @@ const puerto_rico_intelijen = {
   jaringan_radar: 4,
   operasi_siber: 8,
 };
-
-
-

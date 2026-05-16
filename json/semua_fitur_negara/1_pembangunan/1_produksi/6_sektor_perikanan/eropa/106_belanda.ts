@@ -4,6 +4,3 @@ const belanda_perikanan = {
   mutiara: 4995,
   ikan: 810,
 };
-
-
-

@@ -9,6 +9,3 @@ const kamboja_olahraga = {
   "esports": 4,
   "gokart": 9
 };
-
-
-

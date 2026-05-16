@@ -9,6 +9,3 @@ const greenland_infrastruktur = {
   bandara: 1,
   helipad: 4,
 };
-
-
-

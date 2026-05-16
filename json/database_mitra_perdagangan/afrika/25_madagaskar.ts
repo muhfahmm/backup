@@ -13,6 +13,3 @@ const madagaskarAgreements = [
   { "no": 11, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

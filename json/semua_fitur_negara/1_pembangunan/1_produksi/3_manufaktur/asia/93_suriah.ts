@@ -8,6 +8,3 @@ const suriah_manufaktur = {
   kayu: 7,
   pupuk: 9,
 };
-
-
-

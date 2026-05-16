@@ -4,6 +4,3 @@ const vanuatu_perikanan = {
   mutiara: 23,
   ikan: 20,
 };
-
-
-

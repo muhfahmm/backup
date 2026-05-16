@@ -8,6 +8,3 @@ const islandia_manufaktur = {
   kayu: 48,
   pupuk: 32,
 };
-
-
-

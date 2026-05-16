@@ -9,6 +9,3 @@ const portugal_olahraga = {
   "esports": 18,
   "gokart": 46
 };
-
-
-

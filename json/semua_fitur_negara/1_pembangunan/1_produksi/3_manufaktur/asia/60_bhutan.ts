@@ -8,6 +8,3 @@ const bhutan_manufaktur = {
   kayu: 30,
   pupuk: 24,
 };
-
-
-

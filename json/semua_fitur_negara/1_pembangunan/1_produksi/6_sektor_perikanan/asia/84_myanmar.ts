@@ -4,6 +4,3 @@ const myanmar_perikanan = {
   mutiara: 138,
   ikan: 198,
 };
-
-
-

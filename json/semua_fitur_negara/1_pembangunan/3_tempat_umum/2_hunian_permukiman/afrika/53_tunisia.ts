@@ -5,6 +5,3 @@ const tunisia_hunian = {
   apartemen: 2341,
   mansion: 78065,
 };
-
-
-

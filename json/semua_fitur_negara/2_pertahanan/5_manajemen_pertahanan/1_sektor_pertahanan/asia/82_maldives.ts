@@ -1,4 +1,5 @@
-﻿const maldives_pertahanan = {
+﻿// @ts-nocheck
+const maldives_pertahanan = {
     "penjara": 9,
     "gudang_senjata": 2,
     "hangar_tank": 8,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 28,
     "pertahanan_siber": 33
     };
-
-

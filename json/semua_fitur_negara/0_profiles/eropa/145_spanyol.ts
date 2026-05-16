@@ -26,74 +26,9 @@ const spanyol_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const spanyol = {
-  ...spanyol_profile,
-  "sektor_listrik": spanyol_listrik,
-  "hunian": spanyol_hunian,
-  "infrastruktur": spanyol_infrastruktur,
-  "sektor_ekstraksi": spanyol_ekstraksi,
-  "sektor_manufaktur": spanyol_manufaktur,
-  "sektor_peternakan": spanyol_peternakan,
-  "sektor_agrikultur": spanyol_agrikultur,
-  "sektor_perikanan": spanyol_perikanan,
-  "sektor_olahan_pangan": spanyol_olahan_pangan,
-  "sektor_farmasi": spanyol_farmasi,
-  "sektor_pertahanan": spanyol_pertahanan,
-  "armada_militer": spanyol_armada,
-  "militer_strategis": spanyol_strategis,
-  "armada_kepolisian": spanyol_kepolisian,
-  "pabrik_militer": spanyol_pabrik,
-  "intelijen": spanyol_intelijen,
-    "pendidikan": spanyol_pendidikan,
-  "kesehatan": spanyol_kesehatan,
-  "hukum": spanyol_hukum,
-  "sektor_olahraga": spanyol_olahraga,
-  "sektor_komersial": spanyol_komersial,
-  "sektor_hiburan": spanyol_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 30,
-      "kepuasan": 67,
-      "pendapatan": 1365
-    },
-    "korporasi": {
-      "tarif": 11,
-      "kepuasan": 52,
-      "pendapatan": 370
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 1029
-    },
-    "bea_cukai": {
-      "tarif": 26,
-      "kepuasan": 86,
-      "pendapatan": 950
-    },
-    "lingkungan": {
-      "tarif": 19,
-      "kepuasan": 88,
-      "pendapatan": 445
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 77 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 231 },
-    "lainnya": {
-      "tarif": 39,
-      "kepuasan": 93,
-      "pendapatan": 742
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const spanyol_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const spanyol = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

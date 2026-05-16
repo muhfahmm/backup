@@ -5,6 +5,3 @@ const makau_peternakan = {
   sapi_potong: 60,
   domba_kambing: 172,
 };
-
-
-

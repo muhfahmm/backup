@@ -15,6 +15,3 @@ const swedia_agrikultur = {
   kapas: 5328,
   tembakau: 3552,
 };
-
-
-

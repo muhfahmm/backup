@@ -16,6 +16,3 @@ const spanyol_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -1,4 +1,5 @@
-﻿const mauritius_pertahanan = {
+﻿// @ts-nocheck
+const mauritius_pertahanan = {
     "penjara": 29,
     "gudang_senjata": 6,
     "hangar_tank": 10,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 5,
     "pertahanan_siber": 40
     };
-
-

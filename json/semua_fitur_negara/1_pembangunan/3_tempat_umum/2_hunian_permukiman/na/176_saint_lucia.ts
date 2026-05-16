@@ -5,6 +5,3 @@ const saint_lucia_hunian = {
   apartemen: 36,
   mansion: 1227,
 };
-
-
-

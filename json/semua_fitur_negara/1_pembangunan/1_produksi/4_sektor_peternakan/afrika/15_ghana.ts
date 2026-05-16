@@ -5,6 +5,3 @@ const ghana_peternakan = {
   sapi_potong: 238,
   domba_kambing: 133,
 };
-
-
-

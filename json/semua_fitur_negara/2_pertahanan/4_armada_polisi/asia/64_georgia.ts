@@ -16,6 +16,3 @@ const georgia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

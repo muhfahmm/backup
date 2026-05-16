@@ -11,6 +11,3 @@ const burundi_diplomasi = [
   { "no": 9, "mitra": "Australia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Azerbaijan", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

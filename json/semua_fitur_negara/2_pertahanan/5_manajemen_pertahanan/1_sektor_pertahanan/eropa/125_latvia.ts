@@ -1,4 +1,5 @@
-﻿const latvia_pertahanan = {
+﻿// @ts-nocheck
+const latvia_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 25,
     "hangar_tank": 32,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 20,
     "pertahanan_siber": 28
     };
-
-

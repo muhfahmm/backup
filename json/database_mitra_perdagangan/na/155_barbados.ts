@@ -14,6 +14,3 @@ const barbadosAgreements = [
   { "no": 12, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -4,6 +4,3 @@ const inggris_intelijen = {
   jaringan_radar: 39,
   operasi_siber: 58,
 };
-
-
-

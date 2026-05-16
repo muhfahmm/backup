@@ -5,6 +5,3 @@ const eritrea_peternakan = {
   sapi_potong: 23,
   domba_kambing: 47,
 };
-
-
-

@@ -5,6 +5,3 @@ const montenegroVehicles = {
   bus: 126,
   truk: 631,
 };
-
-
-

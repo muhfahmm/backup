@@ -4,6 +4,3 @@ const brazil_perikanan = {
   mutiara: 7275,
   ikan: 5820,
 };
-
-
-

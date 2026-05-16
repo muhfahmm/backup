@@ -13,6 +13,3 @@ const guyanaAgreements = [
   { "no": 11, "mitra": "Peru", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

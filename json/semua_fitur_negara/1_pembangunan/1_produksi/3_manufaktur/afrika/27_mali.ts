@@ -8,6 +8,3 @@ const mali_manufaktur = {
   kayu: 45,
   pupuk: 24,
 };
-
-
-

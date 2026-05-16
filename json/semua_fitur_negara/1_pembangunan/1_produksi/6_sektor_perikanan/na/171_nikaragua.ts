@@ -4,6 +4,3 @@ const nikaragua_perikanan = {
   mutiara: 23,
   ikan: 11,
 };
-
-
-

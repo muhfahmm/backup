@@ -4,6 +4,3 @@ const swedia_perikanan = {
   mutiara: 2590,
   ikan: 1036,
 };
-
-
-

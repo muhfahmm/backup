@@ -11,6 +11,3 @@ const republik_zimbabwe_olahan_pangan = {
   ikan_kaleng: 88,
   kopi_teh: 84,
 };
-
-
-

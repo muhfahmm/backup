@@ -11,6 +11,3 @@ const jepang_olahan_pangan = {
   ikan_kaleng: 9520,
   kopi_teh: 9758,
 };
-
-
-

@@ -15,6 +15,3 @@ const angolaAgreements = [
   { "no": 13, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

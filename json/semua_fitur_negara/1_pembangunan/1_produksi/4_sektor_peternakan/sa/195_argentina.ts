@@ -5,6 +5,3 @@ const argentina_peternakan = {
   sapi_potong: 1344,
   domba_kambing: 1632,
 };
-
-
-

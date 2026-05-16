@@ -9,6 +9,3 @@ const brunei_infrastruktur = {
   bandara: 4,
   helipad: 5,
 };
-
-
-

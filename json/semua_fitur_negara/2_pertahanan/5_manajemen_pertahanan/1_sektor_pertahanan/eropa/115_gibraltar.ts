@@ -9,6 +9,3 @@ const gibraltar_pertahanan = {
     "program_luar_angkasa": 6,
     "pertahanan_siber": 30
     };
-
-
-

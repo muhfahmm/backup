@@ -15,6 +15,3 @@ const gambiaAgreements = [
   { "no": 13, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

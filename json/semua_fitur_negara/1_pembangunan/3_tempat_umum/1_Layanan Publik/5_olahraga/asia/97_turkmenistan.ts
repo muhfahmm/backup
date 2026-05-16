@@ -9,6 +9,3 @@ const turkmenistan_olahraga = {
   "esports": 0,
   "gokart": 11
 };
-
-
-

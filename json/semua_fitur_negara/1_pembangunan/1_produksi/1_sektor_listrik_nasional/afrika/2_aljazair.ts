@@ -7,6 +7,3 @@ const aljazair_listrik = {
   pembangkit_listrik_tenaga_uap: 146,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

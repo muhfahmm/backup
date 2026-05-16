@@ -11,6 +11,3 @@ const sierra_leone_olahan_pangan = {
   ikan_kaleng: 188,
   kopi_teh: 108,
 };
-
-
-

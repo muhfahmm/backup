@@ -8,6 +8,3 @@ const spanyol_manufaktur = {
   kayu: 1276,
   pupuk: 464,
 };
-
-
-

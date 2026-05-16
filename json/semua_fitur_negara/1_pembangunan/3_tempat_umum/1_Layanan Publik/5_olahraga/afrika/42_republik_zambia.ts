@@ -9,6 +9,3 @@ const republik_zambia_olahraga = {
   "esports": 3,
   "gokart": 2
 };
-
-
-

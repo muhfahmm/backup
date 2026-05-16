@@ -15,6 +15,3 @@ const swiss_agrikultur = {
   kapas: 1927,
   tembakau: 1880,
 };
-
-
-

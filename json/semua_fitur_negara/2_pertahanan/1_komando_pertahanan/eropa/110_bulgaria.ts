@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bulgaria_strategis = {
     "waktu_respon": 35,
     "intelijen": 35,
@@ -13,5 +14,3 @@ const bulgaria_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

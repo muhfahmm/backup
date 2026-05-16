@@ -4,6 +4,3 @@ const latvia_perikanan = {
   mutiara: 156,
   ikan: 88,
 };
-
-
-

@@ -16,6 +16,3 @@ const meksiko_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

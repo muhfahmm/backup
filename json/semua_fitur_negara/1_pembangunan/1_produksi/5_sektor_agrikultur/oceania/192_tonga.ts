@@ -15,6 +15,3 @@ const tonga_agrikultur = {
   kapas: 75,
   tembakau: 40,
 };
-
-
-

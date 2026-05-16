@@ -5,6 +5,3 @@ const ghana_hunian = {
   apartemen: 6027,
   mansion: 200927,
 };
-
-
-

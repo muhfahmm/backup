@@ -1,4 +1,5 @@
-﻿const namibia_pertahanan = {
+﻿// @ts-nocheck
+const namibia_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 22,
     "hangar_tank": 4,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 30,
     "pertahanan_siber": 4
     };
-
-

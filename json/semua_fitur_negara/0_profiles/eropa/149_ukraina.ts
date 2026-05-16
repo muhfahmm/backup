@@ -26,74 +26,9 @@ const ukraina_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
-
-const ukraina = {
-  ...ukraina_profile,
-  "sektor_listrik": ukraina_listrik,
-  "hunian": ukraina_hunian,
-  "infrastruktur": ukraina_infrastruktur,
-  "sektor_ekstraksi": ukraina_ekstraksi,
-  "sektor_manufaktur": ukraina_manufaktur,
-  "sektor_peternakan": ukraina_peternakan,
-  "sektor_agrikultur": ukraina_agrikultur,
-  "sektor_perikanan": ukraina_perikanan,
-  "sektor_olahan_pangan": ukraina_olahan_pangan,
-  "sektor_farmasi": ukraina_farmasi,
-  "sektor_pertahanan": ukraina_pertahanan,
-  "armada_militer": ukraina_armada,
-  "militer_strategis": ukraina_strategis,
-  "armada_kepolisian": ukraina_kepolisian,
-  "pabrik_militer": ukraina_pabrik,
-  "intelijen": ukraina_intelijen,
-    "pendidikan": ukraina_pendidikan,
-  "kesehatan": ukraina_kesehatan,
-  "hukum": ukraina_hukum,
-  "sektor_olahraga": ukraina_olahraga,
-  "sektor_komersial": ukraina_komersial,
-  "sektor_hiburan": ukraina_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 2,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 13,
-      "kepuasan": 52,
-      "pendapatan": 20
-    },
-    "penghasilan": {
-      "tarif": 19,
-      "kepuasan": 61,
-      "pendapatan": 34
-    },
-    "bea_cukai": {
-      "tarif": 30,
-      "kepuasan": 86,
-      "pendapatan": 85
-    },
-    "lingkungan": {
-      "tarif": 2,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 8 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 24 },
-    "lainnya": {
-      "tarif": 2,
-      "kepuasan": 93,
-      "pendapatan": 5
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const ukraina_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const ukraina = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

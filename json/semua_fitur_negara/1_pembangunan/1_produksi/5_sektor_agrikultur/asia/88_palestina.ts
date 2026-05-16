@@ -15,6 +15,3 @@ const palestina_agrikultur = {
   kapas: 90,
   tembakau: 74,
 };
-
-
-

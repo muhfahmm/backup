@@ -5,6 +5,3 @@ const maltaVehicles = {
   bus: 96,
   truk: 484,
 };
-
-
-

@@ -13,6 +13,3 @@ const puerto_rico_ekstraksi = {
   logam_tanah_jarang: 16,
   bijih_besi: 36,
 };
-
-
-

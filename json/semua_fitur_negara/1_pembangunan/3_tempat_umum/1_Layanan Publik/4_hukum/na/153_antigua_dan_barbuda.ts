@@ -9,6 +9,3 @@ const antigua_dan_barbuda_hukum = {
       "indeks_korupsi": 30,
       "indeks_keamanan": 60
   };
-
-
-

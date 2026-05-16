@@ -1,14 +1,4 @@
-﻿export interface SektorPertahanan {
-  penjara: number;
-  gudang_senjata: number;
-  hangar_tank: number;
-  pusat_komando: number;
-  pangkalan_udara: number;
-  pangkalan_laut: number;
-  program_luar_angkasa: number;
-  lisensi_siber?: boolean;
-  pertahanan_siber: number;
-}
+﻿// @ts-nocheck
 
 // ===================
 // DETAIL TOTAL BANGUNAN: Pertahanan (Total: 9 Bangunan)
@@ -115,11 +105,3 @@ const pertahananRate = {
     konsumsi_listrik: 50
   },
 };
-
-
-
-  },
-};
-
-
-

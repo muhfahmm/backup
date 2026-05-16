@@ -9,6 +9,3 @@ const haiti_pertahanan = {
     "program_luar_angkasa": 3,
     "pertahanan_siber": 8
     };
-
-
-

@@ -13,6 +13,3 @@ const bosnia_dan_hercegovina_ekstraksi = {
   logam_tanah_jarang: 16,
   bijih_besi: 36,
 };
-
-
-

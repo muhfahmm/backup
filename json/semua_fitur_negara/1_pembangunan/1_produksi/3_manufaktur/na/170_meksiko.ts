@@ -8,6 +8,3 @@ const meksiko_manufaktur = {
   kayu: 605,
   pupuk: 605,
 };
-
-
-

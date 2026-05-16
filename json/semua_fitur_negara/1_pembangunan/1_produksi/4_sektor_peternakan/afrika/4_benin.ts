@@ -5,6 +5,3 @@ const benin_peternakan = {
   sapi_potong: 64,
   domba_kambing: 68,
 };
-
-
-

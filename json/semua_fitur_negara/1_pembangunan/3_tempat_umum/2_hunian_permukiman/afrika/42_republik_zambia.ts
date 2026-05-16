@@ -5,6 +5,3 @@ const republik_zambia_hunian = {
   apartemen: 3513,
   mansion: 117124,
 };
-
-
-

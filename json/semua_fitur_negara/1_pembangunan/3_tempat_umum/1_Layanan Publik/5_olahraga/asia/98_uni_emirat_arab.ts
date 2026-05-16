@@ -9,6 +9,3 @@ const uni_emirat_arab_olahraga = {
   "esports": 11,
   "gokart": 45
 };
-
-
-

@@ -4,6 +4,3 @@ const eritrea_komersial = {
   "hotel": 8,
   "pusat_grosir_tekstil": 5
 };
-
-
-

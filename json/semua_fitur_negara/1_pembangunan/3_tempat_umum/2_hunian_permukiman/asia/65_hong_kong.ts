@@ -5,6 +5,3 @@ const hong_kong_hunian = {
   apartemen: 1508,
   mansion: 50294,
 };
-
-
-

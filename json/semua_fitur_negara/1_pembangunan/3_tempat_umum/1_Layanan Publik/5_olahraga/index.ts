@@ -1,19 +1,13 @@
 ﻿// @ts-nocheck
-export interface OlahragaData {
   kolam_renang: number;
   sirkuit_balap: number;
   stadion: number;
   stadion_internasional: number;
-  gym?: number;
-  golf?: number;
-  esports?: number;
-  gokart?: number;
 }
 
 // ===================
 // DETAIL TOTAL BANGUNAN: Olahraga & Rekreasi (Total: 7 Bangunan)
 // ===================
-const olahragaRate: Record<string, any> = {
   "16_kolam_renang": {
     key: "16_kolam_renang",
     dataKey: "kolam_renang",
@@ -106,6 +100,3 @@ const olahragaRate: Record<string, any> = {
     efek: "Meningkatkan kas negara"
   },
 };
-
-
-

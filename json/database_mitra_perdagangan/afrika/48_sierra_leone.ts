@@ -14,6 +14,3 @@ const sierra_leoneAgreements = [
   { "no": 12, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

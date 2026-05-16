@@ -9,6 +9,3 @@ const libya_infrastruktur = {
   bandara: 5,
   helipad: 3,
 };
-
-
-

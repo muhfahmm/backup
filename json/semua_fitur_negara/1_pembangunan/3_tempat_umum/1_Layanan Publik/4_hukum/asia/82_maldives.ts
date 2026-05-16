@@ -9,6 +9,3 @@ const maldives_hukum = {
       "indeks_korupsi": 12,
       "indeks_keamanan": 46
   };
-
-
-

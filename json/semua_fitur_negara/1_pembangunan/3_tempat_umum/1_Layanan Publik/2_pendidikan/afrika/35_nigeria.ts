@@ -12,6 +12,3 @@ const nigeria_pendidikan = {
       "pusat_pengembangan": 5,
       "literasi": 82
   };
-
-
-

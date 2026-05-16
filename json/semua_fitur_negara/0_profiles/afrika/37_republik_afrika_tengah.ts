@@ -26,74 +26,9 @@ const republik_afrika_tengah_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
   }
-  };
-
-const republik_afrika_tengah = {
-  ...republik_afrika_tengah_profile,
-  "sektor_listrik": republik_afrika_tengah_listrik,
-  "hunian": republik_afrika_tengah_hunian,
-  "infrastruktur": republik_afrika_tengah_infrastruktur,
-  "sektor_ekstraksi": republik_afrika_tengah_ekstraksi,
-  "sektor_manufaktur": republik_afrika_tengah_manufaktur,
-  "sektor_peternakan": republik_afrika_tengah_peternakan,
-  "sektor_agrikultur": republik_afrika_tengah_agrikultur,
-  "sektor_perikanan": republik_afrika_tengah_perikanan,
-  "sektor_olahan_pangan": republik_afrika_tengah_olahan_pangan,
-  "sektor_farmasi": republik_afrika_tengah_farmasi,
-  "sektor_pertahanan": republik_afrika_tengah_pertahanan,
-  "armada_militer": republik_afrika_tengah_armada,
-  "militer_strategis": republik_afrika_tengah_strategis,
-  "armada_kepolisian": republik_afrika_tengah_kepolisian,
-  "pabrik_militer": republik_afrika_tengah_pabrik,
-  "intelijen": republik_afrika_tengah_intelijen,
-    "pendidikan": republik_afrika_tengah_pendidikan,
-  "kesehatan": republik_afrika_tengah_kesehatan,
-  "hukum": republik_afrika_tengah_hukum,
-  "sektor_olahraga": republik_afrika_tengah_olahraga,
-  "sektor_komersial": republik_afrika_tengah_komersial,
-  "sektor_hiburan": republik_afrika_tengah_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 30,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 24,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 4,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 30,
-      "kepuasan": 86,
-      "pendapatan": 1
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 25,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_afrika_tengah_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const republik_afrika_tengah = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

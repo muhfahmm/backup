@@ -9,6 +9,3 @@ const hungaria_hukum = {
       "indeks_korupsi": 20,
       "indeks_keamanan": 71
   };
-
-
-

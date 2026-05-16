@@ -11,6 +11,3 @@ const mauritania_olahan_pangan = {
   ikan_kaleng: 32,
   kopi_teh: 42,
 };
-
-
-

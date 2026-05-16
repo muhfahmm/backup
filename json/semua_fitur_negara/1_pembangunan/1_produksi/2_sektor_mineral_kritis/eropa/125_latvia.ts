@@ -13,6 +13,3 @@ const latvia_ekstraksi = {
   logam_tanah_jarang: 28,
   bijih_besi: 32,
 };
-
-
-

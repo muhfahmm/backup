@@ -5,6 +5,3 @@ const guinea_bissau_hunian = {
   apartemen: 379,
   mansion: 12651,
 };
-
-
-

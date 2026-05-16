@@ -30,6 +30,3 @@ const burundi_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

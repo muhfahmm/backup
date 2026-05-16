@@ -11,6 +11,3 @@ const afganistanAgreements = [
   { "no": 9, "mitra": "Indonesia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

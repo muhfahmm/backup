@@ -8,6 +8,3 @@ const afrika_selatan_manufaktur = {
   kayu: 560,
   pupuk: 400,
 };
-
-
-

@@ -9,6 +9,3 @@ const brazil_hukum = {
       "indeks_korupsi": 57,
       "indeks_keamanan": 74
   };
-
-
-

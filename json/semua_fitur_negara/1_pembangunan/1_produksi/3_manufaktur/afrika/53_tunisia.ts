@@ -8,6 +8,3 @@ const tunisia_manufaktur = {
   kayu: 18,
   pupuk: 4,
 };
-
-
-

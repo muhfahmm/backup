@@ -5,6 +5,3 @@ const tahitiVehicles = {
   bus: 55,
   truk: 277,
 };
-
-
-

@@ -26,74 +26,9 @@ const bolivia_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
-
-const bolivia = {
-  ...bolivia_profile,
-  "sektor_listrik": bolivia_listrik,
-  "hunian": bolivia_hunian,
-  "infrastruktur": bolivia_infrastruktur,
-  "sektor_ekstraksi": bolivia_ekstraksi,
-  "sektor_manufaktur": bolivia_manufaktur,
-  "sektor_peternakan": bolivia_peternakan,
-  "sektor_agrikultur": bolivia_agrikultur,
-  "sektor_perikanan": bolivia_perikanan,
-  "sektor_olahan_pangan": bolivia_olahan_pangan,
-  "sektor_farmasi": bolivia_farmasi,
-  "sektor_pertahanan": bolivia_pertahanan,
-  "armada_militer": bolivia_armada,
-  "militer_strategis": bolivia_strategis,
-  "armada_kepolisian": bolivia_kepolisian,
-  "pabrik_militer": bolivia_pabrik,
-  "intelijen": bolivia_intelijen,
-    "pendidikan": bolivia_pendidikan,
-  "kesehatan": bolivia_kesehatan,
-  "hukum": bolivia_hukum,
-  "sektor_olahraga": bolivia_olahraga,
-  "sektor_komersial": bolivia_komersial,
-  "sektor_hiburan": bolivia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 27,
-      "kepuasan": 67,
-      "pendapatan": 21
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 9
-    },
-    "penghasilan": {
-      "tarif": 22,
-      "kepuasan": 61,
-      "pendapatan": 25
-    },
-    "bea_cukai": {
-      "tarif": 40,
-      "kepuasan": 86,
-      "pendapatan": 32
-    },
-    "lingkungan": {
-      "tarif": 8,
-      "kepuasan": 88,
-      "pendapatan": 7
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 7 },
-    "lainnya": {
-      "tarif": 26,
-      "kepuasan": 93,
-      "pendapatan": 24
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const bolivia_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const bolivia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

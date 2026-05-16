@@ -5,6 +5,3 @@ const guinea_bissau_peternakan = {
   sapi_potong: 52,
   domba_kambing: 84,
 };
-
-
-

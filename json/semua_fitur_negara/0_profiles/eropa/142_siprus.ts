@@ -26,74 +26,9 @@ const siprus_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const siprus = {
-  ...siprus_profile,
-  "sektor_listrik": siprus_listrik,
-  "hunian": siprus_hunian,
-  "infrastruktur": siprus_infrastruktur,
-  "sektor_ekstraksi": siprus_ekstraksi,
-  "sektor_manufaktur": siprus_manufaktur,
-  "sektor_peternakan": siprus_peternakan,
-  "sektor_agrikultur": siprus_agrikultur,
-  "sektor_perikanan": siprus_perikanan,
-  "sektor_olahan_pangan": siprus_olahan_pangan,
-  "sektor_farmasi": siprus_farmasi,
-  "sektor_pertahanan": siprus_pertahanan,
-  "armada_militer": siprus_armada,
-  "militer_strategis": siprus_strategis,
-  "armada_kepolisian": siprus_kepolisian,
-  "pabrik_militer": siprus_pabrik,
-  "intelijen": siprus_intelijen,
-    "pendidikan": siprus_pendidikan,
-  "kesehatan": siprus_kesehatan,
-  "hukum": siprus_hukum,
-  "sektor_olahraga": siprus_olahraga,
-  "sektor_komersial": siprus_komersial,
-  "sektor_hiburan": siprus_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 28,
-      "kepuasan": 67,
-      "pendapatan": 21
-    },
-    "korporasi": {
-      "tarif": 39,
-      "kepuasan": 52,
-      "pendapatan": 29
-    },
-    "penghasilan": {
-      "tarif": 15,
-      "kepuasan": 61,
-      "pendapatan": 7
-    },
-    "bea_cukai": {
-      "tarif": 34,
-      "kepuasan": 86,
-      "pendapatan": 11
-    },
-    "lingkungan": {
-      "tarif": 8,
-      "kepuasan": 88,
-      "pendapatan": 3
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 5 },
-    "lainnya": {
-      "tarif": 2,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const siprus_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const siprus = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

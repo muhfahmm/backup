@@ -21,6 +21,3 @@ const komoro_diplomasi = [
   { "no": 19, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

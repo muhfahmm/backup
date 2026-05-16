@@ -9,6 +9,3 @@ const mozambik_infrastruktur = {
   bandara: 2,
   helipad: 2,
 };
-
-
-

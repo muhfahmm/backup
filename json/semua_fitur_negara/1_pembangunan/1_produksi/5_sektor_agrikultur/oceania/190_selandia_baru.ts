@@ -15,6 +15,3 @@ const selandia_baru_agrikultur = {
   kapas: 1218,
   tembakau: 588,
 };
-
-
-

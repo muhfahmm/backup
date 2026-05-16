@@ -15,6 +15,3 @@ const guinea_bissau_agrikultur = {
   kapas: 112,
   tembakau: 78,
 };
-
-
-

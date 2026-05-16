@@ -2,6 +2,3 @@
 const irak_farmasi = {
   farmasi: 40,
 };
-
-
-

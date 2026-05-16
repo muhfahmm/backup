@@ -13,6 +13,3 @@ const turki_ekstraksi = {
   logam_tanah_jarang: 24,
   bijih_besi: 8,
 };
-
-
-

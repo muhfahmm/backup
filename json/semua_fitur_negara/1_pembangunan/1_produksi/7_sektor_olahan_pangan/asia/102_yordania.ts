@@ -11,6 +11,3 @@ const yordania_olahan_pangan = {
   ikan_kaleng: 46,
   kopi_teh: 76,
 };
-
-
-

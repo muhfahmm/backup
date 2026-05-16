@@ -12,6 +12,3 @@ const amerika_serikat_pendidikan = {
       "pusat_pengembangan": 432,
       "literasi": 98
     };
-
-
-

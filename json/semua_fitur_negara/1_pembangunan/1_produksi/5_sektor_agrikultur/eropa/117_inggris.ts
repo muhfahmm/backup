@@ -15,6 +15,3 @@ const inggris_agrikultur = {
   kapas: 20700,
   tembakau: 5100,
 };
-
-
-

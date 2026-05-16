@@ -9,6 +9,3 @@ const korea_selatan_pertahanan = {
     "program_luar_angkasa": 13,
     "pertahanan_siber": 26
     };
-
-
-

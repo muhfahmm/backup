@@ -4,6 +4,3 @@ const saint_kitts_dan_nevis_intelijen = {
   jaringan_radar: 2,
   operasi_siber: 8,
 };
-
-
-

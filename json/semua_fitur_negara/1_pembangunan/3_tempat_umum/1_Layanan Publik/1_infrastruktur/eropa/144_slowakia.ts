@@ -9,6 +9,3 @@ const slowakia_infrastruktur = {
   bandara: 5,
   helipad: 5,
 };
-
-
-

@@ -14,6 +14,3 @@ const andorraAgreements = [
   { "no": 12, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

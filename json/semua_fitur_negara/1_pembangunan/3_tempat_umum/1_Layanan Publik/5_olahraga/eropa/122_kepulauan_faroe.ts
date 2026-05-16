@@ -9,6 +9,3 @@ const kepulauan_faroe_olahraga = {
   "esports": 1,
   "gokart": 9
 };
-
-
-

@@ -5,6 +5,3 @@ const belarus_peternakan = {
   sapi_potong: 245,
   domba_kambing: 110,
 };
-
-
-

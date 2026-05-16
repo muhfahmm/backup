@@ -8,6 +8,3 @@ const gabon_manufaktur = {
   kayu: 15,
   pupuk: 9,
 };
-
-
-

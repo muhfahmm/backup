@@ -11,6 +11,3 @@ const maroko_olahan_pangan = {
   ikan_kaleng: 504,
   kopi_teh: 768,
 };
-
-
-

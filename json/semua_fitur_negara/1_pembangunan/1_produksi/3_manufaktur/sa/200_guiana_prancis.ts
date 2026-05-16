@@ -8,6 +8,3 @@ const guiana_prancis_manufaktur = {
   kayu: 11,
   pupuk: 7,
 };
-
-
-

@@ -6,6 +6,3 @@ const thailand_kesehatan = {
       "harapan_hidup": 65,
       "indeks_kesehatan": 78
     };
-
-
-

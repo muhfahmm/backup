@@ -14,6 +14,3 @@ const uzbekistan_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

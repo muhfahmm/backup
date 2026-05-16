@@ -4,6 +4,3 @@ const afrika_selatan_intelijen = {
   jaringan_radar: 20,
   operasi_siber: 15,
 };
-
-
-

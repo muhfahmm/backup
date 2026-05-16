@@ -9,6 +9,3 @@ const australia_hukum = {
       "indeks_korupsi": 69,
       "indeks_keamanan": 67
   };
-
-
-

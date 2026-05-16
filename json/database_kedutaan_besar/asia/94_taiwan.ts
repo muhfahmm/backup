@@ -20,6 +20,3 @@ const taiwan_diplomasi = [
   { "no": 18, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

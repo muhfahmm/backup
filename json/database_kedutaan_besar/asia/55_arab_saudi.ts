@@ -17,6 +17,3 @@ const arab_saudi_diplomasi = [
   { "no": 15, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 16, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

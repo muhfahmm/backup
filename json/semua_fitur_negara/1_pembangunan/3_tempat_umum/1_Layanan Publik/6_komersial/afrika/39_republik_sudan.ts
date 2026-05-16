@@ -4,6 +4,3 @@ const republik_sudan_komersial = {
   "hotel": 10,
   "pusat_grosir_tekstil": 0
 };
-
-
-

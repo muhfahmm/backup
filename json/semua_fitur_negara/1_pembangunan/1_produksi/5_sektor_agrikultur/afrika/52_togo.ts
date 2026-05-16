@@ -15,6 +15,3 @@ const togo_agrikultur = {
   kapas: 72,
   tembakau: 30,
 };
-
-
-

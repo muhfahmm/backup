@@ -4,6 +4,3 @@ const bangladesh_komersial = {
   "hotel": 68,
   "pusat_grosir_tekstil": 11
 };
-
-
-

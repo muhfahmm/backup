@@ -5,6 +5,3 @@ const puerto_rico_hunian = {
   apartemen: 647,
   mansion: 21567,
 };
-
-
-

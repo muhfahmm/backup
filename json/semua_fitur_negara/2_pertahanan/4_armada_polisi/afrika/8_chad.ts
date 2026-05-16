@@ -16,6 +16,3 @@ const chad_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

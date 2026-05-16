@@ -26,74 +26,9 @@ const suriah_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
-
-const suriah = {
-  ...suriah_profile,
-  "sektor_listrik": suriah_listrik,
-  "hunian": suriah_hunian,
-  "infrastruktur": suriah_infrastruktur,
-  "sektor_ekstraksi": suriah_ekstraksi,
-  "sektor_manufaktur": suriah_manufaktur,
-  "sektor_peternakan": suriah_peternakan,
-  "sektor_agrikultur": suriah_agrikultur,
-  "sektor_perikanan": suriah_perikanan,
-  "sektor_olahan_pangan": suriah_olahan_pangan,
-  "sektor_farmasi": suriah_farmasi,
-  "sektor_pertahanan": suriah_pertahanan,
-  "armada_militer": suriah_armada,
-  "militer_strategis": suriah_strategis,
-  "armada_kepolisian": suriah_kepolisian,
-  "pabrik_militer": suriah_pabrik,
-  "intelijen": suriah_intelijen,
-    "pendidikan": suriah_pendidikan,
-  "kesehatan": suriah_kesehatan,
-  "hukum": suriah_hukum,
-  "sektor_olahraga": suriah_olahraga,
-  "sektor_komersial": suriah_komersial,
-  "sektor_hiburan": suriah_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 22,
-      "kepuasan": 67,
-      "pendapatan": 6
-    },
-    "korporasi": {
-      "tarif": 5,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 6
-    },
-    "bea_cukai": {
-      "tarif": 5,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 10,
-      "kepuasan": 88,
-      "pendapatan": 3
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 17,
-      "kepuasan": 93,
-      "pendapatan": 5
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const suriah_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const suriah = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

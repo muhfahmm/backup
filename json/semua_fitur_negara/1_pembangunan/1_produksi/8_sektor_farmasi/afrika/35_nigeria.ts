@@ -2,6 +2,3 @@
 const nigeria_farmasi = {
   farmasi: 28,
 };
-
-
-

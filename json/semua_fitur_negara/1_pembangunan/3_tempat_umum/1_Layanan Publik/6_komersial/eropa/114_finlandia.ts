@@ -4,6 +4,3 @@ const finlandia_komersial = {
   "hotel": 28,
   "pusat_grosir_tekstil": 13
 };
-
-
-

@@ -5,6 +5,3 @@ const ukraina_hunian = {
   apartemen: 9036,
   mansion: 301201,
 };
-
-
-

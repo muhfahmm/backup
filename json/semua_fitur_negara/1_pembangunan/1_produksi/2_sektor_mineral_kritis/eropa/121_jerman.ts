@@ -13,6 +13,3 @@ const jerman_ekstraksi = {
   logam_tanah_jarang: 2580,
   bijih_besi: 2580,
 };
-
-
-

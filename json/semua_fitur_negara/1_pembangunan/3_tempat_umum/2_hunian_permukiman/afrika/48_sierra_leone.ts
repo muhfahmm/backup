@@ -5,6 +5,3 @@ const sierra_leone_hunian = {
   apartemen: 1549,
   mansion: 51638,
 };
-
-
-

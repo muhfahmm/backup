@@ -26,74 +26,9 @@ const mesir_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
   }
-  };
-
-const mesir = {
-  ...mesir_profile,
-  "sektor_listrik": mesir_listrik,
-  "hunian": mesir_hunian,
-  "infrastruktur": mesir_infrastruktur,
-  "sektor_ekstraksi": mesir_ekstraksi,
-  "sektor_manufaktur": mesir_manufaktur,
-  "sektor_peternakan": mesir_peternakan,
-  "sektor_agrikultur": mesir_agrikultur,
-  "sektor_perikanan": mesir_perikanan,
-  "sektor_olahan_pangan": mesir_olahan_pangan,
-  "sektor_farmasi": mesir_farmasi,
-  "sektor_pertahanan": mesir_pertahanan,
-  "armada_militer": mesir_armada,
-  "militer_strategis": mesir_strategis,
-  "armada_kepolisian": mesir_kepolisian,
-  "pabrik_militer": mesir_pabrik,
-  "intelijen": mesir_intelijen,
-    "pendidikan": mesir_pendidikan,
-  "kesehatan": mesir_kesehatan,
-  "hukum": mesir_hukum,
-  "sektor_olahraga": mesir_olahraga,
-  "sektor_komersial": mesir_komersial,
-  "sektor_hiburan": mesir_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 37,
-      "kepuasan": 67,
-      "pendapatan": 352
-    },
-    "korporasi": {
-      "tarif": 18,
-      "kepuasan": 52,
-      "pendapatan": 169
-    },
-    "penghasilan": {
-      "tarif": 10,
-      "kepuasan": 61,
-      "pendapatan": 62
-    },
-    "bea_cukai": {
-      "tarif": 31,
-      "kepuasan": 86,
-      "pendapatan": 209
-    },
-    "lingkungan": {
-      "tarif": 20,
-      "kepuasan": 88,
-      "pendapatan": 160
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 20 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 58 },
-    "lainnya": {
-      "tarif": 24,
-      "kepuasan": 93,
-      "pendapatan": 137
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const mesir_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const mesir = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

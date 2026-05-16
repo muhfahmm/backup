@@ -30,6 +30,3 @@ const eritrea_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

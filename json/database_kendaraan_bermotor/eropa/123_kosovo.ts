@@ -5,6 +5,3 @@ const kosovoVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

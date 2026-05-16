@@ -6,6 +6,3 @@ const ceko_kesehatan = {
       "harapan_hidup": 75,
       "indeks_kesehatan": 65
     };
-
-
-

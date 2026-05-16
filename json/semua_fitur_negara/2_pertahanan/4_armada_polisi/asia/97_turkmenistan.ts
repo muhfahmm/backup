@@ -16,6 +16,3 @@ const turkmenistan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -9,6 +9,3 @@ const tahiti_infrastruktur = {
   bandara: 3,
   helipad: 3,
 };
-
-
-

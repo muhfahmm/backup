@@ -4,6 +4,3 @@ const guiana_prancis_perikanan = {
   mutiara: 32,
   ikan: 38,
 };
-
-
-

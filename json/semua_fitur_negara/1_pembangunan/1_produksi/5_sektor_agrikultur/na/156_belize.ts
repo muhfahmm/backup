@@ -15,6 +15,3 @@ const belize_agrikultur = {
   kapas: 86,
   tembakau: 76,
 };
-
-
-

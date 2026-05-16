@@ -8,6 +8,3 @@ const suriname_manufaktur = {
   kayu: 18,
   pupuk: 4,
 };
-
-
-

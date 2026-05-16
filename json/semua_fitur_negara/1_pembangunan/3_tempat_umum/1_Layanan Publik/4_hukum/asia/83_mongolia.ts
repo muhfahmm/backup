@@ -9,6 +9,3 @@ const mongolia_hukum = {
       "indeks_korupsi": 42,
       "indeks_keamanan": 59
   };
-
-
-

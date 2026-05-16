@@ -5,6 +5,3 @@ const palauVehicles = {
   bus: 3,
   truk: 17,
 };
-
-
-

@@ -9,6 +9,3 @@ const pakistan_infrastruktur = {
   bandara: 6,
   helipad: 7,
 };
-
-
-

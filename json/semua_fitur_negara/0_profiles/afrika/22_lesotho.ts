@@ -26,74 +26,9 @@ const lesotho_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
-
-const lesotho = {
-  ...lesotho_profile,
-  "sektor_listrik": lesotho_listrik,
-  "hunian": lesotho_hunian,
-  "infrastruktur": lesotho_infrastruktur,
-  "sektor_ekstraksi": lesotho_ekstraksi,
-  "sektor_manufaktur": lesotho_manufaktur,
-  "sektor_peternakan": lesotho_peternakan,
-  "sektor_agrikultur": lesotho_agrikultur,
-  "sektor_perikanan": lesotho_perikanan,
-  "sektor_olahan_pangan": lesotho_olahan_pangan,
-  "sektor_farmasi": lesotho_farmasi,
-  "sektor_pertahanan": lesotho_pertahanan,
-  "armada_militer": lesotho_armada,
-  "militer_strategis": lesotho_strategis,
-  "armada_kepolisian": lesotho_kepolisian,
-  "pabrik_militer": lesotho_pabrik,
-  "intelijen": lesotho_intelijen,
-    "pendidikan": lesotho_pendidikan,
-  "kesehatan": lesotho_kesehatan,
-  "hukum": lesotho_hukum,
-  "sektor_olahraga": lesotho_olahraga,
-  "sektor_komersial": lesotho_komersial,
-  "sektor_hiburan": lesotho_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 16,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 40,
-      "kepuasan": 61,
-      "pendapatan": 2
-    },
-    "bea_cukai": {
-      "tarif": 17,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 2
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 22,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const lesotho_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const lesotho = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

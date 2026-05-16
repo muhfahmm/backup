@@ -5,6 +5,3 @@ const malawi_peternakan = {
   sapi_potong: 92,
   domba_kambing: 120,
 };
-
-
-

@@ -14,6 +14,3 @@ const kuwait_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

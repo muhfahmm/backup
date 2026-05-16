@@ -4,6 +4,3 @@ const palestina_perikanan = {
   mutiara: 32,
   ikan: 28,
 };
-
-
-

@@ -2,6 +2,3 @@
 const gabon_farmasi = {
   farmasi: 9,
 };
-
-
-

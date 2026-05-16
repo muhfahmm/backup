@@ -16,6 +16,3 @@ const mesir_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

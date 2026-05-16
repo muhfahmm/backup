@@ -11,6 +11,3 @@ const guyana_olahan_pangan = {
   ikan_kaleng: 82,
   kopi_teh: 88,
 };
-
-
-

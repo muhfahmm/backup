@@ -9,6 +9,3 @@ const guatemala_olahraga = {
   "esports": 3,
   "gokart": 7
 };
-
-
-

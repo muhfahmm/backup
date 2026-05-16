@@ -26,74 +26,9 @@ const israel_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
     }
-  };
-
-const israel = {
-  ...israel_profile,
-  "sektor_listrik": israel_listrik,
-  "hunian": israel_hunian,
-  "infrastruktur": israel_infrastruktur,
-  "sektor_ekstraksi": israel_ekstraksi,
-  "sektor_manufaktur": israel_manufaktur,
-  "sektor_peternakan": israel_peternakan,
-  "sektor_agrikultur": israel_agrikultur,
-  "sektor_perikanan": israel_perikanan,
-  "sektor_olahan_pangan": israel_olahan_pangan,
-  "sektor_farmasi": israel_farmasi,
-  "sektor_pertahanan": israel_pertahanan,
-  "armada_militer": israel_armada,
-  "militer_strategis": israel_strategis,
-  "armada_kepolisian": israel_kepolisian,
-  "pabrik_militer": israel_pabrik,
-  "intelijen": israel_intelijen,
-    "pendidikan": israel_pendidikan,
-  "kesehatan": israel_kesehatan,
-  "hukum": israel_hukum,
-  "sektor_olahraga": israel_olahraga,
-  "sektor_komersial": israel_komersial,
-  "sektor_hiburan": israel_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 6,
-      "kepuasan": 67,
-      "pendapatan": 40
-    },
-    "korporasi": {
-      "tarif": 14,
-      "kepuasan": 52,
-      "pendapatan": 160
-    },
-    "penghasilan": {
-      "tarif": 17,
-      "kepuasan": 61,
-      "pendapatan": 97
-    },
-    "bea_cukai": {
-      "tarif": 4,
-      "kepuasan": 86,
-      "pendapatan": 58
-    },
-    "lingkungan": {
-      "tarif": 17,
-      "kepuasan": 88,
-      "pendapatan": 139
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 26 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 76 },
-    "lainnya": {
-      "tarif": 37,
-      "kepuasan": 93,
-      "pendapatan": 383
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const israel_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const israel = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

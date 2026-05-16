@@ -13,6 +13,3 @@ const nigeria_ekstraksi = {
   logam_tanah_jarang: 392,
   bijih_besi: 0,
 };
-
-
-

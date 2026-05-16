@@ -16,6 +16,3 @@ const portugal_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

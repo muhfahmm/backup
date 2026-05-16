@@ -30,6 +30,3 @@ const belize_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

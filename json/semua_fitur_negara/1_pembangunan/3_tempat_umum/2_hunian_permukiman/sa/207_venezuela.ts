@@ -5,6 +5,3 @@ const venezuela_hunian = {
   apartemen: 5846,
   mansion: 194873,
 };
-
-
-

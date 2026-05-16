@@ -15,6 +15,3 @@ const islandia_agrikultur = {
   kapas: 256,
   tembakau: 204,
 };
-
-
-

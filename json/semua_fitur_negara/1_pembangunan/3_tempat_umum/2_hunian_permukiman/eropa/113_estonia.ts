@@ -5,6 +5,3 @@ const estonia_hunian = {
   apartemen: 267,
   mansion: 8923,
 };
-
-
-

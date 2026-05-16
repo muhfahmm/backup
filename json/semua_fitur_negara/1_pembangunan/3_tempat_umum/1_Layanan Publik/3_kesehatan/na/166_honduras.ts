@@ -6,6 +6,3 @@ const honduras_kesehatan = {
       "harapan_hidup": 69,
       "indeks_kesehatan": 57
     };
-
-
-

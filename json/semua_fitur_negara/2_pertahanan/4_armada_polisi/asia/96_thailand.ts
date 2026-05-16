@@ -16,6 +16,3 @@ const thailand_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

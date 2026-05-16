@@ -9,6 +9,3 @@ const finlandia_infrastruktur = {
   bandara: 5,
   helipad: 5,
 };
-
-
-

@@ -4,6 +4,3 @@ const jerman_perikanan = {
   mutiara: 3870,
   ikan: 8256,
 };
-
-
-

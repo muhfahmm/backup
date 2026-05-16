@@ -1,5 +1,4 @@
 ﻿// @ts-nocheck
-export interface SektorArmadaKepolisian {
   armada_polisi: {
     markas_besar_polri: number;
     akademi_kepolisian: number;
@@ -20,7 +19,6 @@ export interface SektorArmadaKepolisian {
 // ===================
 // DETAIL TOTAL BANGUNAN: Kepolisian Negara (Total: 13 Jenis)
 // ===================
-const armadaPolisiRate: Record<string, any> = {
   // --- PUSAT KOMANDO & PENDIDIKAN ---
   "1_pusat_komando": {
     key: "1_pusat_komando",
@@ -185,6 +183,3 @@ const armadaPolisiRate: Record<string, any> = {
     satuan: "Unit"
   },
 };
-
-
-

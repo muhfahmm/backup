@@ -15,6 +15,3 @@ const madagaskar_agrikultur = {
   kapas: 74,
   tembakau: 76,
 };
-
-
-

@@ -15,6 +15,3 @@ const ceko_agrikultur = {
   kapas: 1679,
   tembakau: 621,
 };
-
-
-

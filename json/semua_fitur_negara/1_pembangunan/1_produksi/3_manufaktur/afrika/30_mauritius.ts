@@ -8,6 +8,3 @@ const mauritius_manufaktur = {
   kayu: 12,
   pupuk: 4,
 };
-
-
-

@@ -15,6 +15,3 @@ const saint_lucia_agrikultur = {
   kapas: 48,
   tembakau: 17,
 };
-
-
-

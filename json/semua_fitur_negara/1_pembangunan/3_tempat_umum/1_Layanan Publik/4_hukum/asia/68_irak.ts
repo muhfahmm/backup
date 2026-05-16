@@ -9,6 +9,3 @@ const irak_hukum = {
       "indeks_korupsi": 34,
       "indeks_keamanan": 67
   };
-
-
-

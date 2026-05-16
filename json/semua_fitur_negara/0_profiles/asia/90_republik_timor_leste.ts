@@ -26,74 +26,9 @@ const republik_timor_leste_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const republik_timor_leste = {
-  ...republik_timor_leste_profile,
-  "sektor_listrik": republik_timor_leste_listrik,
-  "hunian": republik_timor_leste_hunian,
-  "infrastruktur": republik_timor_leste_infrastruktur,
-  "sektor_ekstraksi": republik_timor_leste_ekstraksi,
-  "sektor_manufaktur": republik_timor_leste_manufaktur,
-  "sektor_peternakan": republik_timor_leste_peternakan,
-  "sektor_agrikultur": republik_timor_leste_agrikultur,
-  "sektor_perikanan": republik_timor_leste_perikanan,
-  "sektor_olahan_pangan": republik_timor_leste_olahan_pangan,
-  "sektor_farmasi": republik_timor_leste_farmasi,
-  "sektor_pertahanan": republik_timor_leste_pertahanan,
-  "armada_militer": republik_timor_leste_armada,
-  "militer_strategis": republik_timor_leste_strategis,
-  "armada_kepolisian": republik_timor_leste_kepolisian,
-  "pabrik_militer": republik_timor_leste_pabrik,
-  "intelijen": republik_timor_leste_intelijen,
-    "pendidikan": republik_timor_leste_pendidikan,
-  "kesehatan": republik_timor_leste_kesehatan,
-  "hukum": republik_timor_leste_hukum,
-  "sektor_olahraga": republik_timor_leste_olahraga,
-  "sektor_komersial": republik_timor_leste_komersial,
-  "sektor_hiburan": republik_timor_leste_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 21,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 3,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 30,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 16,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 16,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 27,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_timor_leste_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const republik_timor_leste = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

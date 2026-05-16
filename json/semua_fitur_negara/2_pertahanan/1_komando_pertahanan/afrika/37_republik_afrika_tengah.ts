@@ -14,6 +14,3 @@ const republik_afrika_tengah_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

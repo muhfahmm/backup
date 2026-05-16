@@ -13,6 +13,3 @@ const australia_ekstraksi = {
   logam_tanah_jarang: 1020,
   bijih_besi: 408,
 };
-
-
-

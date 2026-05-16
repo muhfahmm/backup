@@ -194,6 +194,3 @@ const india_relations = [
   { id: 192, name: "yordania", relation: 50 },
   { id: 193, name: "yunani", relation: 50 }
 ];
-
-
-

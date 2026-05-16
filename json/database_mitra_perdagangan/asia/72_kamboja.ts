@@ -15,6 +15,3 @@ const kambojaAgreements = [
   { "no": 13, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

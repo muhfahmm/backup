@@ -11,6 +11,3 @@ const guinea_olahan_pangan = {
   ikan_kaleng: 100,
   kopi_teh: 96,
 };
-
-
-

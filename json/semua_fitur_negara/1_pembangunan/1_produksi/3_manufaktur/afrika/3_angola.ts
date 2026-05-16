@@ -8,6 +8,3 @@ const angola_manufaktur = {
   kayu: 72,
   pupuk: 16,
 };
-
-
-

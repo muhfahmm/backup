@@ -5,6 +5,3 @@ const guatemalaVehicles = {
   bus: 3449,
   truk: 17247,
 };
-
-
-

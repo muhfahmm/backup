@@ -4,6 +4,3 @@ const brazil_intelijen = {
   jaringan_radar: 43,
   operasi_siber: 79,
 };
-
-
-

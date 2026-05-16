@@ -5,6 +5,3 @@ const ethiopia_hunian = {
   apartemen: 22117,
   mansion: 737265,
 };
-
-
-

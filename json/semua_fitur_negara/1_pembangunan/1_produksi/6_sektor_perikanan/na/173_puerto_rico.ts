@@ -4,6 +4,3 @@ const puerto_rico_perikanan = {
   mutiara: 80,
   ikan: 96,
 };
-
-
-

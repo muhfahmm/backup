@@ -8,6 +8,3 @@ const ekuador_manufaktur = {
   kayu: 165,
   pupuk: 120,
 };
-
-
-

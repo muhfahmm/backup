@@ -9,6 +9,3 @@ const brunei_hukum = {
       "indeks_korupsi": 13,
       "indeks_keamanan": 47
   };
-
-
-

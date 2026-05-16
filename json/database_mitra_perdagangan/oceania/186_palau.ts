@@ -10,6 +10,3 @@ const palauAgreements = [
   { "no": 8, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

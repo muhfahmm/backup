@@ -5,6 +5,3 @@ const omanVehicles = {
   bus: 965,
   truk: 4829,
 };
-
-
-

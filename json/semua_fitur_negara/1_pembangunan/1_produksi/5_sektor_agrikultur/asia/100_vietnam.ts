@@ -15,6 +15,3 @@ const vietnam_agrikultur = {
   kapas: 4556,
   tembakau: 4148,
 };
-
-
-

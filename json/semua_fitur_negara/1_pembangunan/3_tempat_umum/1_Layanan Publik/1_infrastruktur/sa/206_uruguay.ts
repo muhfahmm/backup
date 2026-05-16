@@ -9,6 +9,3 @@ const uruguay_infrastruktur = {
   bandara: 3,
   helipad: 4,
 };
-
-
-

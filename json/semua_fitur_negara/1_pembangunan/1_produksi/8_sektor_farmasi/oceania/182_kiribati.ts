@@ -2,6 +2,3 @@
 const kiribati_farmasi = {
   farmasi: 2,
 };
-
-
-

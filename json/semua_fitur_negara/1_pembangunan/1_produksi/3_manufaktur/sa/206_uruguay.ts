@@ -8,6 +8,3 @@ const uruguay_manufaktur = {
   kayu: 18,
   pupuk: 12,
 };
-
-
-

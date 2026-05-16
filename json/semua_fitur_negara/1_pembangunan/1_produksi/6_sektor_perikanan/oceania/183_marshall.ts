@@ -4,6 +4,3 @@ const marshall_perikanan = {
   mutiara: 100,
   ikan: 148,
 };
-
-
-

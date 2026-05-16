@@ -11,6 +11,3 @@ const india_olahan_pangan = {
   ikan_kaleng: 7074,
   kopi_teh: 11790,
 };
-
-
-

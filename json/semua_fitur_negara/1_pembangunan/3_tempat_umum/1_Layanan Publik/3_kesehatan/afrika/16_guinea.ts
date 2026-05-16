@@ -6,6 +6,3 @@ const guinea_kesehatan = {
       "harapan_hidup": 55,
       "indeks_kesehatan": 51
   };
-
-
-

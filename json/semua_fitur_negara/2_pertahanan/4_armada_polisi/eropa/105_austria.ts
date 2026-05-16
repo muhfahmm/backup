@@ -16,6 +16,3 @@ const austria_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

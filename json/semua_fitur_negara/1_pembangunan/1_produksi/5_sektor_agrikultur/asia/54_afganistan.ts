@@ -15,6 +15,3 @@ const afganistan_agrikultur = {
   kapas: 100,
   tembakau: 296,
 };
-
-
-

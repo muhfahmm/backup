@@ -9,6 +9,3 @@ const paraguay_hukum = {
       "indeks_korupsi": 34,
       "indeks_keamanan": 49
   };
-
-
-

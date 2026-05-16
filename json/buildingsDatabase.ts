@@ -21,55 +21,35 @@ const buildingsData = {
   }
 };
 
-export { buildingsData };
 
 // Flatten all buildings for easy lookup
-const allBuildings: BuildingInfo[] = [];
 
 // Interface matching JSON structure
-export interface BuildingInfo {
   key: string;
   name: string;
   biaya: number;
   waktu: number;
   sector: string;
-  mainCategory?: string;
-  subCategory?: string;
 }
 
 // Helper function to lookup building by name
-export function findBuildingByName(name: string): BuildingInfo | undefined {
-  return allBuildings.find(b => b.name === name);
 }
 
 // Helper function to lookup building by key
-export function findBuildingByKey(key: string): BuildingInfo | undefined {
-  return allBuildings.find(b => b.key === key);
 }
 
 // Helper function to format currency like Go server
-export function formatCurrency(amount: number): string {
-  if (amount >= 1_000_000_000) {
-    return `${(amount / 1_000_000_000).toFixed(2)} Miliar`;
   } else if (amount >= 1_000_000) {
-    return `${(amount / 1_000_000).toFixed(2)} Juta`;
   } else if (amount >= 1_000) {
-    return `${(amount / 1_000).toFixed(2)} Ribu`;
   }
-  return amount.toString();
 }
 
 // Helper function to get sector description
-export function getSectorDescription(sector: string): string {
-  const descriptions: Record<string, string> = {
     // Produksi
-    "Listrik Nasional": "sektor energi nasional",
-    "Mineral Kritis": "sektor pertambangan strategis",
     "Manufaktur": "industri manufaktur",
     "Peternakan": "sektor peternakan",
     "Agrikultur": "sektor pertanian",
     "Perikanan": "sektor perikanan",
-    "Olahan Pangan": "industri pengolahan pangan",
     "Farmasi": "industri farmasi",
     
     // Tempat Umum
@@ -83,27 +63,13 @@ export function getSectorDescription(sector: string): string {
     
     // Pertahanan
     "Intelijen": "sistem intelijen nasional",
-    "Produksi Militer": "industri pertahanan",
-    "Komando Polisi": "keamanan internal",
-    "Pendidikan Polisi": "keamanan internal",
-    "Polisi Wilayah": "keamanan internal",
-    "Armada Polisi": "keamanan internal",
     "Surveillance": "keamanan internal",
-    "Manajemen Pertahanan": "sistem pertahanan nasional",
     
     // Armada Militer
-    "Armada Darat": "kekuatan darat",
-    "Armada Laut": "kekuatan maritim",
-    "Armada Udara": "kekuatan udara",
   };
   
-  return descriptions[sector] || "pembangunan nasional";
 }
 
 // NOTE: Building database is currently empty.
 // To re-enable, restore buildings.json to src/app/server/go/ folder
-// and update this file to 
-
-
-
-
+// and update this file to

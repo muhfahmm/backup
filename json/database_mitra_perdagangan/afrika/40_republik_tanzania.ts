@@ -12,6 +12,3 @@ const republik_tanzaniaAgreements = [
   { "no": 10, "mitra": "Ethiopia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

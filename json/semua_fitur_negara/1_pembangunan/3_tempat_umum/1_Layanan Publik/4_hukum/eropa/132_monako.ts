@@ -9,6 +9,3 @@ const monako_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 59
   };
-
-
-

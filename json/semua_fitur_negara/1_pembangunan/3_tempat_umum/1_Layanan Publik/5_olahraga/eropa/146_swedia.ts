@@ -9,6 +9,3 @@ const swedia_olahraga = {
   "esports": 8,
   "gokart": 22
 };
-
-
-

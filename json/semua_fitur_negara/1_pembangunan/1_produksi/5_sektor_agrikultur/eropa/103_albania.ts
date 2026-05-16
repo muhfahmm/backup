@@ -15,6 +15,3 @@ const albania_agrikultur = {
   kapas: 75,
   tembakau: 44,
 };
-
-
-

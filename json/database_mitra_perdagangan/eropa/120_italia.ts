@@ -13,6 +13,3 @@ const italiaAgreements = [
   { "no": 11, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

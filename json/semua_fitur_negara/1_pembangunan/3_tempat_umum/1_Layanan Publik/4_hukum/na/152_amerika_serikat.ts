@@ -9,6 +9,3 @@ const amerika_serikat_hukum = {
       "indeks_korupsi": 95,
       "indeks_keamanan": 92
   };
-
-
-

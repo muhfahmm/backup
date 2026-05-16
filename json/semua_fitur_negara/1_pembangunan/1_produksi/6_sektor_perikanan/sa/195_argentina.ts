@@ -4,6 +4,3 @@ const argentina_perikanan = {
   mutiara: 912,
   ikan: 576,
 };
-
-
-

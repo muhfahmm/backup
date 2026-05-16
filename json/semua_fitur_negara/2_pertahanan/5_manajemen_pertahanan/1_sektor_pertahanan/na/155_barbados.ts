@@ -9,6 +9,3 @@ const barbados_pertahanan = {
     "program_luar_angkasa": 12,
     "pertahanan_siber": 28
     };
-
-
-

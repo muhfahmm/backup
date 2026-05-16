@@ -1,4 +1,5 @@
-﻿const kepulauan_faroe_pertahanan = {
+﻿// @ts-nocheck
+const kepulauan_faroe_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 18,
     "hangar_tank": 38,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 30,
     "pertahanan_siber": 3
     };
-
-

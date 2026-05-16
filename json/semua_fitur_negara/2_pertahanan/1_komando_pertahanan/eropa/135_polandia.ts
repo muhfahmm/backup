@@ -14,6 +14,3 @@ const polandia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

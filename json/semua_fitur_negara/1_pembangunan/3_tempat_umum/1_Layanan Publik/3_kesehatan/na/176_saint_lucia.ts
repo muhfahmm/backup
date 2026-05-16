@@ -6,6 +6,3 @@ const saint_lucia_kesehatan = {
       "harapan_hidup": 58,
       "indeks_kesehatan": 74
     };
-
-
-

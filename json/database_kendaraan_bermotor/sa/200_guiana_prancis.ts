@@ -5,6 +5,3 @@ const guianaPrancisVehicles = {
   bus: 58,
   truk: 290,
 };
-
-
-

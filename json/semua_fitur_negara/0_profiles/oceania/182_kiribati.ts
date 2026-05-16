@@ -26,74 +26,9 @@ const kiribati_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
-
-const kiribati = {
-  ...kiribati_profile,
-  "sektor_listrik": kiribati_listrik,
-  "hunian": kiribati_hunian,
-  "infrastruktur": kiribati_infrastruktur,
-  "sektor_ekstraksi": kiribati_ekstraksi,
-  "sektor_manufaktur": kiribati_manufaktur,
-  "sektor_peternakan": kiribati_peternakan,
-  "sektor_agrikultur": kiribati_agrikultur,
-  "sektor_perikanan": kiribati_perikanan,
-  "sektor_olahan_pangan": kiribati_olahan_pangan,
-  "sektor_farmasi": kiribati_farmasi,
-  "sektor_pertahanan": kiribati_pertahanan,
-  "armada_militer": kiribati_armada,
-  "militer_strategis": kiribati_strategis,
-  "armada_kepolisian": kiribati_kepolisian,
-  "pabrik_militer": kiribati_pabrik,
-  "intelijen": kiribati_intelijen,
-    "pendidikan": kiribati_pendidikan,
-  "kesehatan": kiribati_kesehatan,
-  "hukum": kiribati_hukum,
-  "sektor_olahraga": kiribati_olahraga,
-  "sektor_komersial": kiribati_komersial,
-  "sektor_hiburan": kiribati_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 11,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 33,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 25,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 36,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 9,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kiribati_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const kiribati = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

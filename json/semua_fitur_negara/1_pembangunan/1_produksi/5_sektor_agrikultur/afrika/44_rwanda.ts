@@ -15,6 +15,3 @@ const rwanda_agrikultur = {
   kapas: 10,
   tembakau: 19,
 };
-
-
-

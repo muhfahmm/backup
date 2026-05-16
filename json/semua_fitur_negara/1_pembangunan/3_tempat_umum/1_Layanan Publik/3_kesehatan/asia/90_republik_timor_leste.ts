@@ -6,6 +6,3 @@ const republik_timor_leste_kesehatan = {
       "harapan_hidup": 59,
       "indeks_kesehatan": 54
     };
-
-
-

@@ -30,6 +30,3 @@ const guinea_bissau_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

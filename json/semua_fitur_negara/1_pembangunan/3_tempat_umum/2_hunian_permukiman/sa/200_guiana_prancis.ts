@@ -5,6 +5,3 @@ const guiana_prancis_hunian = {
   apartemen: 58,
   mansion: 1962,
 };
-
-
-

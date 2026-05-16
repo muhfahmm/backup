@@ -2,6 +2,3 @@
 const guyana_farmasi = {
   farmasi: 13,
 };
-
-
-

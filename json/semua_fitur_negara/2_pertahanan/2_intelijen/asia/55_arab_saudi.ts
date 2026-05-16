@@ -4,6 +4,3 @@ const arab_saudi_intelijen = {
   jaringan_radar: 50,
   operasi_siber: 51,
 };
-
-
-

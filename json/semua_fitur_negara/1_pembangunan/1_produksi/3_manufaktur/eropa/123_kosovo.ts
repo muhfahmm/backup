@@ -8,6 +8,3 @@ const kosovo_manufaktur = {
   kayu: 33,
   pupuk: 12,
 };
-
-
-

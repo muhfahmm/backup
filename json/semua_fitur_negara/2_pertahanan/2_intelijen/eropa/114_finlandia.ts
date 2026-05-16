@@ -4,6 +4,3 @@ const finlandia_intelijen = {
   jaringan_radar: 19,
   operasi_siber: 23,
 };
-
-
-

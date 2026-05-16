@@ -8,6 +8,3 @@ const argentina_manufaktur = {
   kayu: 624,
   pupuk: 144,
 };
-
-
-

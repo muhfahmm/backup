@@ -53,19 +53,10 @@ const peternakanRate = {
   },
 };
 
-export interface SektorPeternakan {
-  ayam_unggas?: number;
-  sapi_perah?: number;
-  sapi_potong?: number;
-  domba_kambing?: number;
 }
 
-export interface LivestockData {
   ayam_unggas: number;
   sapi_perah: number;
   sapi_potong: number;
   domba_kambing: number;
 }
-
-
-

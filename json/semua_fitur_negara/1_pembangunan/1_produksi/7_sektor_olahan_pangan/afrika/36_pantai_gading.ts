@@ -11,6 +11,3 @@ const pantai_gading_olahan_pangan = {
   ikan_kaleng: 105,
   kopi_teh: 105,
 };
-
-
-

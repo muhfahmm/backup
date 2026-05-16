@@ -2,6 +2,3 @@
 const montenegro_farmasi = {
   farmasi: 12,
 };
-
-
-

@@ -11,6 +11,3 @@ const ekuador_olahan_pangan = {
   ikan_kaleng: 510,
   kopi_teh: 510,
 };
-
-
-

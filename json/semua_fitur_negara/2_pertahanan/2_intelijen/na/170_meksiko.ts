@@ -4,6 +4,3 @@ const meksiko_intelijen = {
   jaringan_radar: 35,
   operasi_siber: 68,
 };
-
-
-

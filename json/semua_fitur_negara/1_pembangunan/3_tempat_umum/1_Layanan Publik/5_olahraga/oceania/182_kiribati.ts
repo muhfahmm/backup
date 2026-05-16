@@ -9,6 +9,3 @@ const kiribati_olahraga = {
   "esports": 0,
   "gokart": 13
 };
-
-
-

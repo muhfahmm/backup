@@ -20,6 +20,3 @@ const austria_diplomasi = [
   { "no": 18, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

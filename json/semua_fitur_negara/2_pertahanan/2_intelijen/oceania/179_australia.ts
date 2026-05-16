@@ -4,6 +4,3 @@ const australia_intelijen = {
   jaringan_radar: 58,
   operasi_siber: 77,
 };
-
-
-

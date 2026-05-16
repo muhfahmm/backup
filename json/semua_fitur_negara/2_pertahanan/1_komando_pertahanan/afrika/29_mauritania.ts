@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const mauritania_strategis = {
     "waktu_respon": 26,
     "intelijen": 5,
@@ -13,5 +14,3 @@ const mauritania_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

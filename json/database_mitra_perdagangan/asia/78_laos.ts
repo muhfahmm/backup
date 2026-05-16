@@ -10,6 +10,3 @@ const laosAgreements = [
   { "no": 8, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

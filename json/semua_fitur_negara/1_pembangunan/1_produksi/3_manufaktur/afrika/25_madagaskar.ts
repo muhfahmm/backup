@@ -8,6 +8,3 @@ const madagaskar_manufaktur = {
   kayu: 28,
   pupuk: 16,
 };
-
-
-

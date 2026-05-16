@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const denmark_strategis = {
     "waktu_respon": 22,
     "intelijen": 24,
@@ -13,5 +14,3 @@ const denmark_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

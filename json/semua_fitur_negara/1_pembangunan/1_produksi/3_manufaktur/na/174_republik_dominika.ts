@@ -8,6 +8,3 @@ const republik_dominika_manufaktur = {
   kayu: 70,
   pupuk: 84,
 };
-
-
-

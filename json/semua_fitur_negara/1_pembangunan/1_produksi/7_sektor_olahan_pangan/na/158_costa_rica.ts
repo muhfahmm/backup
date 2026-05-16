@@ -11,6 +11,3 @@ const costa_rica_olahan_pangan = {
   ikan_kaleng: 102,
   kopi_teh: 51,
 };
-
-
-

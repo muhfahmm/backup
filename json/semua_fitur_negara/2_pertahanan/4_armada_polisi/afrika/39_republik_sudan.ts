@@ -16,6 +16,3 @@ const republik_sudan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

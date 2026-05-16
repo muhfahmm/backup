@@ -14,6 +14,3 @@ const swiss_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

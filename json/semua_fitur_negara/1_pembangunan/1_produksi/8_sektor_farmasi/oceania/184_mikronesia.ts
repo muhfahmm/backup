@@ -2,6 +2,3 @@
 const mikronesia_farmasi = {
   farmasi: 22,
 };
-
-
-

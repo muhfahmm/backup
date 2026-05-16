@@ -8,6 +8,3 @@ const bosnia_dan_hercegovina_manufaktur = {
   kayu: 28,
   pupuk: 16,
 };
-
-
-

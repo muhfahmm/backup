@@ -26,74 +26,9 @@ const kongo_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
   }
-  };
-
-const kongo = {
-  ...kongo_profile,
-  "sektor_listrik": kongo_listrik,
-  "hunian": kongo_hunian,
-  "infrastruktur": kongo_infrastruktur,
-  "sektor_ekstraksi": kongo_ekstraksi,
-  "sektor_manufaktur": kongo_manufaktur,
-  "sektor_peternakan": kongo_peternakan,
-  "sektor_agrikultur": kongo_agrikultur,
-  "sektor_perikanan": kongo_perikanan,
-  "sektor_olahan_pangan": kongo_olahan_pangan,
-  "sektor_farmasi": kongo_farmasi,
-  "sektor_pertahanan": kongo_pertahanan,
-  "armada_militer": kongo_armada,
-  "militer_strategis": kongo_strategis,
-  "armada_kepolisian": kongo_kepolisian,
-  "pabrik_militer": kongo_pabrik,
-  "intelijen": kongo_intelijen,
-    "pendidikan": kongo_pendidikan,
-  "kesehatan": kongo_kesehatan,
-  "hukum": kongo_hukum,
-  "sektor_olahraga": kongo_olahraga,
-  "sektor_komersial": kongo_komersial,
-  "sektor_hiburan": kongo_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 6,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 7,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 39,
-      "kepuasan": 61,
-      "pendapatan": 12
-    },
-    "bea_cukai": {
-      "tarif": 26,
-      "kepuasan": 86,
-      "pendapatan": 5
-    },
-    "lingkungan": {
-      "tarif": 34,
-      "kepuasan": 88,
-      "pendapatan": 11
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 10,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kongo_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const kongo = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

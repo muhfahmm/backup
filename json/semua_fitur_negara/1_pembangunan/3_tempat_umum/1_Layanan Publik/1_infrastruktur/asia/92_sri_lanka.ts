@@ -9,6 +9,3 @@ const sri_lanka_infrastruktur = {
   bandara: 1,
   helipad: 2,
 };
-
-
-

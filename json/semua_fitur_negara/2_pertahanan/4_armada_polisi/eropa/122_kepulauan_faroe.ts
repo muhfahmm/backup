@@ -16,6 +16,3 @@ const kepulauan_faroe_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

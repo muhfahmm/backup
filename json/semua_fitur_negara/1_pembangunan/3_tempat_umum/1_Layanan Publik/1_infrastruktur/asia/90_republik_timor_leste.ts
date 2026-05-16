@@ -9,6 +9,3 @@ const republik_timor_leste_infrastruktur = {
   bandara: 1,
   helipad: 4,
 };
-
-
-

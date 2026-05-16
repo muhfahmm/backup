@@ -8,6 +8,3 @@ const jamaika_manufaktur = {
   kayu: 56,
   pupuk: 32,
 };
-
-
-

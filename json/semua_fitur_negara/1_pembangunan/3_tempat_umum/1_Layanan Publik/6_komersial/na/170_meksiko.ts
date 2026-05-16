@@ -4,6 +4,3 @@ const meksiko_komersial = {
   "hotel": 128,
   "pusat_grosir_tekstil": 26
 };
-
-
-

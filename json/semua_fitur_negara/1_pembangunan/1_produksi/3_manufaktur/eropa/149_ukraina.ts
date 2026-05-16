@@ -8,6 +8,3 @@ const ukraina_manufaktur = {
   kayu: 75,
   pupuk: 30,
 };
-
-
-

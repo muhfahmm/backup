@@ -5,6 +5,3 @@ const lesotho_hunian = {
   apartemen: 426,
   mansion: 14229,
 };
-
-
-

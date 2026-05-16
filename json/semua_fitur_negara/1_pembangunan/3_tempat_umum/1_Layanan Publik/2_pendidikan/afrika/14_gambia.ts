@@ -12,6 +12,3 @@ const gambia_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 82
   };
-
-
-

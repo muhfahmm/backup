@@ -26,74 +26,9 @@ const nikaragua_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
-
-const nikaragua = {
-  ...nikaragua_profile,
-  "sektor_listrik": nikaragua_listrik,
-  "hunian": nikaragua_hunian,
-  "infrastruktur": nikaragua_infrastruktur,
-  "sektor_ekstraksi": nikaragua_ekstraksi,
-  "sektor_manufaktur": nikaragua_manufaktur,
-  "sektor_peternakan": nikaragua_peternakan,
-  "sektor_agrikultur": nikaragua_agrikultur,
-  "sektor_perikanan": nikaragua_perikanan,
-  "sektor_olahan_pangan": nikaragua_olahan_pangan,
-  "sektor_farmasi": nikaragua_farmasi,
-  "sektor_pertahanan": nikaragua_pertahanan,
-  "armada_militer": nikaragua_armada,
-  "militer_strategis": nikaragua_strategis,
-  "armada_kepolisian": nikaragua_kepolisian,
-  "pabrik_militer": nikaragua_pabrik,
-  "intelijen": nikaragua_intelijen,
-    "pendidikan": nikaragua_pendidikan,
-  "kesehatan": nikaragua_kesehatan,
-  "hukum": nikaragua_hukum,
-  "sektor_olahraga": nikaragua_olahraga,
-  "sektor_komersial": nikaragua_komersial,
-  "sektor_hiburan": nikaragua_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 16,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 20,
-      "kepuasan": 52,
-      "pendapatan": 3
-    },
-    "penghasilan": {
-      "tarif": 31,
-      "kepuasan": 61,
-      "pendapatan": 14
-    },
-    "bea_cukai": {
-      "tarif": 29,
-      "kepuasan": 86,
-      "pendapatan": 6
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 11,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const nikaragua_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const nikaragua = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

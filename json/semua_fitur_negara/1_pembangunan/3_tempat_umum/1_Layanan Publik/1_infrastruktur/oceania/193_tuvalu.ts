@@ -9,6 +9,3 @@ const tuvalu_infrastruktur = {
   bandara: 4,
   helipad: 3,
 };
-
-
-

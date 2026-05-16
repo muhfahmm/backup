@@ -11,6 +11,3 @@ const argentinaAgreements = [
   { "no": 9, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

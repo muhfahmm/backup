@@ -8,6 +8,3 @@ const sri_lanka_manufaktur = {
   kayu: 50,
   pupuk: 35,
 };
-
-
-

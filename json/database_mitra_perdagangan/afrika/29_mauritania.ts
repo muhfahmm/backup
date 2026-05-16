@@ -12,6 +12,3 @@ const mauritaniaAgreements = [
   { "no": 10, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

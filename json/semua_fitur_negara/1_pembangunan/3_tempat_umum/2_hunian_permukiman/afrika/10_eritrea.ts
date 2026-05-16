@@ -5,6 +5,3 @@ const eritrea_hunian = {
   apartemen: 1258,
   mansion: 41944,
 };
-
-
-

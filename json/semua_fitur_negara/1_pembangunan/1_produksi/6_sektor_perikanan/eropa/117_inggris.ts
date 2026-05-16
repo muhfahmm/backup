@@ -4,6 +4,3 @@ const inggris_perikanan = {
   mutiara: 5100,
   ikan: 12000,
 };
-
-
-

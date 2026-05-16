@@ -13,6 +13,3 @@ const uzbekistan_ekstraksi = {
   logam_tanah_jarang: 35,
   bijih_besi: 21,
 };
-
-
-

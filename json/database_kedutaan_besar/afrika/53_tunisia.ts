@@ -11,6 +11,3 @@ const tunisia_diplomasi = [
   { "no": 9, "mitra": "Benin", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

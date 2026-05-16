@@ -8,6 +8,3 @@ const estonia_manufaktur = {
   kayu: 35,
   pupuk: 10,
 };
-
-
-

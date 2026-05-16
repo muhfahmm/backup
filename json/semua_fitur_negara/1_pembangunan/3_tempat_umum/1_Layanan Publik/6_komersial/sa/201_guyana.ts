@@ -4,6 +4,3 @@ const guyana_komersial = {
   "hotel": 12,
   "pusat_grosir_tekstil": 1
 };
-
-
-

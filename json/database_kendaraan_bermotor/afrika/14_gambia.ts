@@ -5,6 +5,3 @@ const gambiaVehicles = {
   bus: 456,
   truk: 2280,
 };
-
-
-

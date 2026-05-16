@@ -8,6 +8,3 @@ const somalia_manufaktur = {
   kayu: 36,
   pupuk: 18,
 };
-
-
-

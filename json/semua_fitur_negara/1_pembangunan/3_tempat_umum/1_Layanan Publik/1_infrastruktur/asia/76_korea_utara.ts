@@ -9,6 +9,3 @@ const korea_utara_infrastruktur = {
   bandara: 3,
   helipad: 1,
 };
-
-
-

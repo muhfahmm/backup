@@ -12,6 +12,3 @@ const selandia_baru_pendidikan = {
       "pusat_pengembangan": 7,
       "literasi": 78
     };
-
-
-

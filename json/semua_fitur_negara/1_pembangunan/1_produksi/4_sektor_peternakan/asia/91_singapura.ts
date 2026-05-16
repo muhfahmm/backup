@@ -5,6 +5,3 @@ const singapura_peternakan = {
   sapi_potong: 1804,
   domba_kambing: 616,
 };
-
-
-

@@ -9,6 +9,3 @@ const amerika_serikat_infrastruktur = {
   bandara: 228,
   helipad: 267,
 };
-
-
-

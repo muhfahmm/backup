@@ -9,6 +9,3 @@ const ghana_hukum = {
       "indeks_korupsi": 24,
       "indeks_keamanan": 50
   };
-
-
-

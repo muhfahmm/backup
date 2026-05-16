@@ -9,6 +9,3 @@ const filipina_infrastruktur = {
   bandara: 9,
   helipad: 6,
 };
-
-
-

@@ -6,6 +6,3 @@ const finlandia_kesehatan = {
       "harapan_hidup": 73,
       "indeks_kesehatan": 81
     };
-
-
-

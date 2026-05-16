@@ -6,6 +6,3 @@ const tahiti_kesehatan = {
       "harapan_hidup": 60,
       "indeks_kesehatan": 50
     };
-
-
-

@@ -11,6 +11,3 @@ const italia_olahan_pangan = {
   ikan_kaleng: 21298,
   kopi_teh: 9260,
 };
-
-
-

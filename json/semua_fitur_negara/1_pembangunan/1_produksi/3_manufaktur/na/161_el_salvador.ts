@@ -8,6 +8,3 @@ const el_salvador_manufaktur = {
   kayu: 50,
   pupuk: 15,
 };
-
-
-

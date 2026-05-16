@@ -14,6 +14,3 @@ const inggris_strategis = {
       "misil_nuklir": 225
     }
   };
-
-
-

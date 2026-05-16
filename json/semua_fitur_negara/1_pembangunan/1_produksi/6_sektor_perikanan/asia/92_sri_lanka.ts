@@ -4,6 +4,3 @@ const sri_lanka_perikanan = {
   mutiara: 40,
   ikan: 115,
 };
-
-
-

@@ -5,6 +5,3 @@ const jerman_peternakan = {
   sapi_potong: 9030,
   domba_kambing: 3354,
 };
-
-
-

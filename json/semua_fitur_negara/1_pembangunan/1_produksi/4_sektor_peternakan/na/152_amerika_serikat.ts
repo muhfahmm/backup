@@ -5,6 +5,3 @@ const amerika_serikat_peternakan = {
   sapi_potong: 1392,
   domba_kambing: 2668,
 };
-
-
-

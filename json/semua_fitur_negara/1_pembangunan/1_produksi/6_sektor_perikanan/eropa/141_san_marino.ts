@@ -4,6 +4,3 @@ const san_marino_perikanan = {
   mutiara: 0,
   ikan: 0,
 };
-
-
-

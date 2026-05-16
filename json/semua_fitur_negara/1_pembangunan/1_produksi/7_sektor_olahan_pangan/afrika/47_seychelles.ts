@@ -11,6 +11,3 @@ const seychelles_olahan_pangan = {
   ikan_kaleng: 70,
   kopi_teh: 62,
 };
-
-
-

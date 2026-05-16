@@ -5,6 +5,3 @@ const gambia_hunian = {
   apartemen: 461,
   mansion: 15390,
 };
-
-
-

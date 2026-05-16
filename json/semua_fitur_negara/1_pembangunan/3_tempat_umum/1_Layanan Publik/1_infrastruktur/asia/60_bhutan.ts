@@ -9,6 +9,3 @@ const bhutan_infrastruktur = {
   bandara: 2,
   helipad: 3,
 };
-
-
-

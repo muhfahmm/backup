@@ -5,6 +5,3 @@ const lesothoVehicles = {
   bus: 421,
   truk: 2108,
 };
-
-
-

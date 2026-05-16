@@ -5,6 +5,3 @@ const haiti_hunian = {
   apartemen: 2252,
   mansion: 75081,
 };
-
-
-

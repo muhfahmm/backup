@@ -12,6 +12,3 @@ const israel_pendidikan = {
       "pusat_pengembangan": 6,
       "literasi": 87
     };
-
-
-

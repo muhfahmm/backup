@@ -9,6 +9,3 @@ const lesotho_hukum = {
       "indeks_korupsi": 30,
       "indeks_keamanan": 59
   };
-
-
-

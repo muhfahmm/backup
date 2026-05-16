@@ -11,6 +11,3 @@ const swedia_olahan_pangan = {
   ikan_kaleng: 3552,
   kopi_teh: 2738,
 };
-
-
-

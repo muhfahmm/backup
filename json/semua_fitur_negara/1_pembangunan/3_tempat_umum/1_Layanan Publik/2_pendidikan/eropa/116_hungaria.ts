@@ -12,6 +12,3 @@ const hungaria_pendidikan = {
       "pusat_pengembangan": 3,
       "literasi": 89
     };
-
-
-

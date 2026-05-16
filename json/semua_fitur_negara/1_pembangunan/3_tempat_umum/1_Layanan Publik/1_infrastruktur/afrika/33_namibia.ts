@@ -9,6 +9,3 @@ const namibia_infrastruktur = {
   bandara: 4,
   helipad: 2,
 };
-
-
-

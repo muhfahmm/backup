@@ -16,6 +16,3 @@ const gibraltarAgreements = [
   { "no": 14, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
   { "no": 15, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

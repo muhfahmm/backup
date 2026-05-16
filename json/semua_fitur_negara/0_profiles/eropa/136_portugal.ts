@@ -26,74 +26,9 @@ const portugal_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
-
-const portugal = {
-  ...portugal_profile,
-  "sektor_listrik": portugal_listrik,
-  "hunian": portugal_hunian,
-  "infrastruktur": portugal_infrastruktur,
-  "sektor_ekstraksi": portugal_ekstraksi,
-  "sektor_manufaktur": portugal_manufaktur,
-  "sektor_peternakan": portugal_peternakan,
-  "sektor_agrikultur": portugal_agrikultur,
-  "sektor_perikanan": portugal_perikanan,
-  "sektor_olahan_pangan": portugal_olahan_pangan,
-  "sektor_farmasi": portugal_farmasi,
-  "sektor_pertahanan": portugal_pertahanan,
-  "armada_militer": portugal_armada,
-  "militer_strategis": portugal_strategis,
-  "armada_kepolisian": portugal_kepolisian,
-  "pabrik_militer": portugal_pabrik,
-  "intelijen": portugal_intelijen,
-    "pendidikan": portugal_pendidikan,
-  "kesehatan": portugal_kesehatan,
-  "hukum": portugal_hukum,
-  "sektor_olahraga": portugal_olahraga,
-  "sektor_komersial": portugal_komersial,
-  "sektor_hiburan": portugal_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 16,
-      "kepuasan": 67,
-      "pendapatan": 114
-    },
-    "korporasi": {
-      "tarif": 40,
-      "kepuasan": 52,
-      "pendapatan": 204
-    },
-    "penghasilan": {
-      "tarif": 16,
-      "kepuasan": 61,
-      "pendapatan": 52
-    },
-    "bea_cukai": {
-      "tarif": 7,
-      "kepuasan": 86,
-      "pendapatan": 32
-    },
-    "lingkungan": {
-      "tarif": 18,
-      "kepuasan": 88,
-      "pendapatan": 99
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 14 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 41 },
-    "lainnya": {
-      "tarif": 28,
-      "kepuasan": 93,
-      "pendapatan": 194
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const portugal_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const portugal = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

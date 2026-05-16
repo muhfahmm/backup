@@ -16,6 +16,3 @@ const suriah_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -5,6 +5,3 @@ const jamaikaVehicles = {
   bus: 586,
   truk: 2934,
 };
-
-
-

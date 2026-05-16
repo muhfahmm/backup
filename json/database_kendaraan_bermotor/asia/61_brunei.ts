@@ -5,6 +5,3 @@ const bruneiVehicles = {
   bus: 85,
   truk: 428,
 };
-
-
-

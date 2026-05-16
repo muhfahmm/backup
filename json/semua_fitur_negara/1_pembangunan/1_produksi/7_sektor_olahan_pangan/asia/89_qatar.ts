@@ -11,6 +11,3 @@ const qatar_olahan_pangan = {
   ikan_kaleng: 195,
   kopi_teh: 675,
 };
-
-
-

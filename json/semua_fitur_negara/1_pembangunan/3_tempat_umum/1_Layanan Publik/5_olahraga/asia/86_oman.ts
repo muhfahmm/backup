@@ -9,6 +9,3 @@ const oman_olahraga = {
   "esports": 2,
   "gokart": 14
 };
-
-
-

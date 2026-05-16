@@ -30,6 +30,3 @@ const islandia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

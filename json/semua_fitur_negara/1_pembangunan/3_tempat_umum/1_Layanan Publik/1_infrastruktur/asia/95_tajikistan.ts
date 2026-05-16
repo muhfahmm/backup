@@ -9,6 +9,3 @@ const tajikistan_infrastruktur = {
   bandara: 5,
   helipad: 5,
 };
-
-
-

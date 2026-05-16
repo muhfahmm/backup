@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bermuda_strategis = {
     "waktu_respon": 5,
     "intelijen": 39,
@@ -13,5 +14,3 @@ const bermuda_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

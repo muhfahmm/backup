@@ -2,6 +2,3 @@
 const filipina_farmasi = {
   farmasi: 1,
 };
-
-
-

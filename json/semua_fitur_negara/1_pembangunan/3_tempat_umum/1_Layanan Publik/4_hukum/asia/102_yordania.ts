@@ -9,6 +9,3 @@ const yordania_hukum = {
       "indeks_korupsi": 34,
       "indeks_keamanan": 43
   };
-
-
-

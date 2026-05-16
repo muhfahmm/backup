@@ -26,74 +26,9 @@ const monako_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
     }
-  };
-
-const monako = {
-  ...monako_profile,
-  "sektor_listrik": monako_listrik,
-  "hunian": monako_hunian,
-  "infrastruktur": monako_infrastruktur,
-  "sektor_ekstraksi": monako_ekstraksi,
-  "sektor_manufaktur": monako_manufaktur,
-  "sektor_peternakan": monako_peternakan,
-  "sektor_agrikultur": monako_agrikultur,
-  "sektor_perikanan": monako_perikanan,
-  "sektor_olahan_pangan": monako_olahan_pangan,
-  "sektor_farmasi": monako_farmasi,
-  "sektor_pertahanan": monako_pertahanan,
-  "armada_militer": monako_armada,
-  "militer_strategis": monako_strategis,
-  "armada_kepolisian": monako_kepolisian,
-  "pabrik_militer": monako_pabrik,
-  "intelijen": monako_intelijen,
-    "pendidikan": monako_pendidikan,
-  "kesehatan": monako_kesehatan,
-  "hukum": monako_hukum,
-  "sektor_olahraga": monako_olahraga,
-  "sektor_komersial": monako_komersial,
-  "sektor_hiburan": monako_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 40,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 6
-    },
-    "bea_cukai": {
-      "tarif": 29,
-      "kepuasan": 86,
-      "pendapatan": 3
-    },
-    "lingkungan": {
-      "tarif": 28,
-      "kepuasan": 88,
-      "pendapatan": 3
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 7,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const monako_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const monako = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

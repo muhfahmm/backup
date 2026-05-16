@@ -16,6 +16,3 @@ const maroko_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

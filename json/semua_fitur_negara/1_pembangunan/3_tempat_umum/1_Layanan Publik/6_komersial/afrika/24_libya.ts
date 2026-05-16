@@ -4,6 +4,3 @@ const libya_komersial = {
   "hotel": 13,
   "pusat_grosir_tekstil": 3
 };
-
-
-

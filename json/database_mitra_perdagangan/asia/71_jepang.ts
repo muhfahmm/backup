@@ -14,6 +14,3 @@ const jepangAgreements = [
   { "no": 12, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Thailand", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -5,6 +5,3 @@ const kepulauan_faroe_peternakan = {
   sapi_potong: 21,
   domba_kambing: 18,
 };
-
-
-

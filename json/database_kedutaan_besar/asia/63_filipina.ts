@@ -16,6 +16,3 @@ const filipina_diplomasi = [
   { "no": 14, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 15, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

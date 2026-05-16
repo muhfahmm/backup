@@ -9,6 +9,3 @@ const singapura_olahraga = {
   "esports": 7,
   "gokart": 29
 };
-
-
-

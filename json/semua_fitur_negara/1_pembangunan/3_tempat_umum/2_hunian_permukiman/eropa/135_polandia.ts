@@ -5,6 +5,3 @@ const polandia_hunian = {
   apartemen: 7689,
   mansion: 256329,
 };
-
-
-

@@ -9,6 +9,3 @@ const togo_hukum = {
       "indeks_korupsi": 28,
       "indeks_keamanan": 58
   };
-
-
-

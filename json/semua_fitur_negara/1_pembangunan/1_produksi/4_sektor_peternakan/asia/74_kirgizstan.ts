@@ -5,6 +5,3 @@ const kirgizstan_peternakan = {
   sapi_potong: 111,
   domba_kambing: 144,
 };
-
-
-

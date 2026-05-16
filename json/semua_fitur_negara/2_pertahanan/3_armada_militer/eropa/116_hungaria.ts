@@ -30,6 +30,3 @@ const hungaria_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

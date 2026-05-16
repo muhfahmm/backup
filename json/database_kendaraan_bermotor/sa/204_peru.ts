@@ -5,6 +5,3 @@ const peruVehicles = {
   bus: 6397,
   truk: 31989,
 };
-
-
-

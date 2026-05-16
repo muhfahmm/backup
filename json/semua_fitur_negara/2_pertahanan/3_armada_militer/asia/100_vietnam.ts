@@ -30,6 +30,3 @@ const vietnam_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

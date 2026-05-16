@@ -26,74 +26,9 @@ const benin_geopolitik = {
       "kekuatan_keras": 31,
       "prestise_diplomatik": 57
   }
-  };
-
-const benin = {
-  ...benin_profile,
-  "sektor_listrik": benin_listrik,
-  "hunian": benin_hunian,
-  "infrastruktur": benin_infrastruktur,
-  "sektor_ekstraksi": benin_ekstraksi,
-  "sektor_manufaktur": benin_manufaktur,
-  "sektor_peternakan": benin_peternakan,
-  "sektor_agrikultur": benin_agrikultur,
-  "sektor_perikanan": benin_perikanan,
-  "sektor_olahan_pangan": benin_olahan_pangan,
-  "sektor_farmasi": benin_farmasi,
-  "sektor_pertahanan": benin_pertahanan,
-  "armada_militer": benin_armada,
-  "militer_strategis": benin_strategis,
-  "armada_kepolisian": benin_kepolisian,
-  "pabrik_militer": benin_pabrik,
-  "intelijen": benin_intelijen,
-    "pendidikan": benin_pendidikan,
-  "kesehatan": benin_kesehatan,
-  "hukum": benin_hukum,
-  "sektor_olahraga": benin_olahraga,
-  "sektor_komersial": benin_komersial,
-  "sektor_hiburan": benin_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 18,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 18,
-      "kepuasan": 52,
-      "pendapatan": 7
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 11
-    },
-    "bea_cukai": {
-      "tarif": 24,
-      "kepuasan": 86,
-      "pendapatan": 8
-    },
-    "lingkungan": {
-      "tarif": 22,
-      "kepuasan": 88,
-      "pendapatan": 5
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 29,
-      "kepuasan": 93,
-      "pendapatan": 12
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const benin_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const benin = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

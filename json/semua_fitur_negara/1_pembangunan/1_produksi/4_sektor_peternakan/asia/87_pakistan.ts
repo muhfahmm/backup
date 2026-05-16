@@ -5,6 +5,3 @@ const pakistan_peternakan = {
   sapi_potong: 1820,
   domba_kambing: 1716,
 };
-
-
-

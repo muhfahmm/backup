@@ -5,6 +5,3 @@ const iran_peternakan = {
   sapi_potong: 644,
   domba_kambing: 1334,
 };
-
-
-

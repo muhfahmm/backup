@@ -30,6 +30,3 @@ const el_salvador_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

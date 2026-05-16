@@ -11,6 +11,3 @@ const afrika_selatan_olahan_pangan = {
   ikan_kaleng: 480,
   kopi_teh: 1960,
 };
-
-
-

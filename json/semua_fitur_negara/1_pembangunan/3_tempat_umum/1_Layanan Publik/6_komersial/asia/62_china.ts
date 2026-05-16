@@ -4,6 +4,3 @@ const china_komersial = {
   "hotel": 910,
   "pusat_grosir_tekstil": 547
 };
-
-
-

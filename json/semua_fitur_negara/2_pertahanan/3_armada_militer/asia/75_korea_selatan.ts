@@ -30,6 +30,3 @@ const korea_selatan_armada = {
         "pesawat_angkut": 40
       }
 };
-
-
-

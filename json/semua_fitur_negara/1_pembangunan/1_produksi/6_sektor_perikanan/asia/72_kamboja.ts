@@ -4,6 +4,3 @@ const kamboja_perikanan = {
   mutiara: 96,
   ikan: 87,
 };
-
-
-

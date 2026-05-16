@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const yunani_strategis = {
     "waktu_respon": 8,
     "intelijen": 33,
@@ -13,5 +14,3 @@ const yunani_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

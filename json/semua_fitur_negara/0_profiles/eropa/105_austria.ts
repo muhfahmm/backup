@@ -26,74 +26,9 @@ const austria_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
-
-const austria = {
-  ...austria_profile,
-  "sektor_listrik": austria_listrik,
-  "hunian": austria_hunian,
-  "infrastruktur": austria_infrastruktur,
-  "sektor_ekstraksi": austria_ekstraksi,
-  "sektor_manufaktur": austria_manufaktur,
-  "sektor_peternakan": austria_peternakan,
-  "sektor_agrikultur": austria_agrikultur,
-  "sektor_perikanan": austria_perikanan,
-  "sektor_olahan_pangan": austria_olahan_pangan,
-  "sektor_farmasi": austria_farmasi,
-  "sektor_pertahanan": austria_pertahanan,
-  "armada_militer": austria_armada,
-  "militer_strategis": austria_strategis,
-  "armada_kepolisian": austria_kepolisian,
-  "pabrik_militer": austria_pabrik,
-  "intelijen": austria_intelijen,
-    "pendidikan": austria_pendidikan,
-  "kesehatan": austria_kesehatan,
-  "hukum": austria_hukum,
-  "sektor_olahraga": austria_olahraga,
-  "sektor_komersial": austria_komersial,
-  "sektor_hiburan": austria_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 12,
-      "kepuasan": 67,
-      "pendapatan": 170
-    },
-    "korporasi": {
-      "tarif": 38,
-      "kepuasan": 52,
-      "pendapatan": 532
-    },
-    "penghasilan": {
-      "tarif": 31,
-      "kepuasan": 61,
-      "pendapatan": 408
-    },
-    "bea_cukai": {
-      "tarif": 10,
-      "kepuasan": 86,
-      "pendapatan": 117
-    },
-    "lingkungan": {
-      "tarif": 8,
-      "kepuasan": 88,
-      "pendapatan": 64
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 25 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 75 },
-    "lainnya": {
-      "tarif": 30,
-      "kepuasan": 93,
-      "pendapatan": 219
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const austria_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const austria = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -4,6 +4,3 @@ const trinidad_dan_tobago_intelijen = {
   jaringan_radar: 2,
   operasi_siber: 8,
 };
-
-
-

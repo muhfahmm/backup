@@ -5,6 +5,3 @@ const swedia_peternakan = {
   sapi_potong: 1924,
   domba_kambing: 3108,
 };
-
-
-

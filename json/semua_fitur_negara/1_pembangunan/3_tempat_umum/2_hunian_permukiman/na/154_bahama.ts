@@ -5,6 +5,3 @@ const bahama_hunian = {
   apartemen: 78,
   mansion: 2603,
 };
-
-
-

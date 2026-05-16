@@ -15,6 +15,3 @@ const yordania_agrikultur = {
   kapas: 20,
   tembakau: 118,
 };
-
-
-

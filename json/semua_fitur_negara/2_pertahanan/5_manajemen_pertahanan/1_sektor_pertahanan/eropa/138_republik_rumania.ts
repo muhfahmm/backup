@@ -9,6 +9,3 @@ const republik_rumania_pertahanan = {
     "program_luar_angkasa": 33,
     "pertahanan_siber": 23
     };
-
-
-

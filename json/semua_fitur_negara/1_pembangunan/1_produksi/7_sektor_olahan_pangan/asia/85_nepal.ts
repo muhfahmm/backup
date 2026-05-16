@@ -11,6 +11,3 @@ const nepal_olahan_pangan = {
   ikan_kaleng: 96,
   kopi_teh: 176,
 };
-
-
-

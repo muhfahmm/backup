@@ -16,6 +16,3 @@ const tanjung_verdeAgreements = [
   { "no": 14, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" },
   { "no": 15, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

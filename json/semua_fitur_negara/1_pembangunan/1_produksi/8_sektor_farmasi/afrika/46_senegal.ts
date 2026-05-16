@@ -2,6 +2,3 @@
 const senegal_farmasi = {
   farmasi: 20,
 };
-
-
-

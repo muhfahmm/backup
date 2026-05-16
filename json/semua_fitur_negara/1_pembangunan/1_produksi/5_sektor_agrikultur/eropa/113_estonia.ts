@@ -15,6 +15,3 @@ const estonia_agrikultur = {
   kapas: 130,
   tembakau: 305,
 };
-
-
-

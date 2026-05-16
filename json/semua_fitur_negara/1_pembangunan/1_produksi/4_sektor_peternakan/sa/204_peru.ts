@@ -5,6 +5,3 @@ const peru_peternakan = {
   sapi_potong: 70,
   domba_kambing: 252,
 };
-
-
-

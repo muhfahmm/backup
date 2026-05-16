@@ -16,6 +16,3 @@ const turki_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -11,6 +11,3 @@ const korea_selatan_olahan_pangan = {
   ikan_kaleng: 8330,
   kopi_teh: 2380,
 };
-
-
-

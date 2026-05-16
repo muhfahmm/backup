@@ -1,19 +1,9 @@
 ﻿// @ts-nocheck
-export interface HukumData {
-  pusat_bantuan_hukum?: number;
-  pengadilan?: number;
-  kejaksaan?: number;
-  pos_polisi?: number;
-  armada_mobil_polisi?: number;
-  akademi_polisi?: number;
-  indeks_korupsi?: number;
-  indeks_keamanan?: number;
 }
 
 // ===================
 // DETAIL TOTAL BANGUNAN: Hukum & Keamanan (Total: 2 Bangunan)
 // ===================
-const hukumRate: Record<string, any> = {
   "14_kejaksaan_court": {
     key: "14_kejaksaan_court",
     dataKey: "kejaksaan_court",
@@ -41,6 +31,3 @@ const hukumRate: Record<string, any> = {
     efek: "Mengurangi kriminalitas 0.3%"
   },
 };
-
-
-

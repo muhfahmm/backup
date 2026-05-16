@@ -30,6 +30,3 @@ const kosovo_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

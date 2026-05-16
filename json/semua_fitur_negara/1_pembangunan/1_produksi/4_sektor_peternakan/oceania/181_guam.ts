@@ -5,6 +5,3 @@ const guam_peternakan = {
   sapi_potong: 78,
   domba_kambing: 84,
 };
-
-
-

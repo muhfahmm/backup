@@ -5,6 +5,3 @@ const paraguayVehicles = {
   bus: 1391,
   truk: 6956,
 };
-
-
-

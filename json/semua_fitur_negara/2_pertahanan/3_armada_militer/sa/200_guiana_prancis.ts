@@ -30,6 +30,3 @@ const guiana_prancis_armada = {
         "pesawat_angkut": 100
       }
 };
-
-
-

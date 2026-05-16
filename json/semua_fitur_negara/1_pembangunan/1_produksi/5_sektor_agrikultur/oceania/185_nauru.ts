@@ -15,6 +15,3 @@ const nauru_agrikultur = {
   kapas: 198,
   tembakau: 120,
 };
-
-
-

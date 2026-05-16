@@ -13,6 +13,3 @@ const denmark_ekstraksi = {
   logam_tanah_jarang: 308,
   bijih_besi: 440,
 };
-
-
-

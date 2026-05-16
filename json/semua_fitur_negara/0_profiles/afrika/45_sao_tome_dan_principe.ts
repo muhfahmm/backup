@@ -26,74 +26,9 @@ const sao_tome_dan_principe_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
   }
-  };
-
-const sao_tome_dan_principe = {
-  ...sao_tome_dan_principe_profile,
-  "sektor_listrik": sao_tome_dan_principe_listrik,
-  "hunian": sao_tome_dan_principe_hunian,
-  "infrastruktur": sao_tome_dan_principe_infrastruktur,
-  "sektor_ekstraksi": sao_tome_dan_principe_ekstraksi,
-  "sektor_manufaktur": sao_tome_dan_principe_manufaktur,
-  "sektor_peternakan": sao_tome_dan_principe_peternakan,
-  "sektor_agrikultur": sao_tome_dan_principe_agrikultur,
-  "sektor_perikanan": sao_tome_dan_principe_perikanan,
-  "sektor_olahan_pangan": sao_tome_dan_principe_olahan_pangan,
-  "sektor_farmasi": sao_tome_dan_principe_farmasi,
-  "sektor_pertahanan": sao_tome_dan_principe_pertahanan,
-  "armada_militer": sao_tome_dan_principe_armada,
-  "militer_strategis": sao_tome_dan_principe_strategis,
-  "armada_kepolisian": sao_tome_dan_principe_kepolisian,
-  "pabrik_militer": sao_tome_dan_principe_pabrik,
-  "intelijen": sao_tome_dan_principe_intelijen,
-    "pendidikan": sao_tome_dan_principe_pendidikan,
-  "kesehatan": sao_tome_dan_principe_kesehatan,
-  "hukum": sao_tome_dan_principe_hukum,
-  "sektor_olahraga": sao_tome_dan_principe_olahraga,
-  "sektor_komersial": sao_tome_dan_principe_komersial,
-  "sektor_hiburan": sao_tome_dan_principe_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 8,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 35,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 32,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 6,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 10,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const sao_tome_dan_principe_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const sao_tome_dan_principe = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

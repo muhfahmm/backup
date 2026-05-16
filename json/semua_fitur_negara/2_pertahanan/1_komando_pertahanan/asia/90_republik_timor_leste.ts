@@ -14,6 +14,3 @@ const republik_timor_leste_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

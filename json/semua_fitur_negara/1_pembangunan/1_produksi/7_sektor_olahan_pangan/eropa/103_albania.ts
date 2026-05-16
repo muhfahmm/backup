@@ -11,6 +11,3 @@ const albania_olahan_pangan = {
   ikan_kaleng: 25,
   kopi_teh: 31,
 };
-
-
-

@@ -5,6 +5,3 @@ const mauritius_hunian = {
   apartemen: 256,
   mansion: 8540,
 };
-
-
-

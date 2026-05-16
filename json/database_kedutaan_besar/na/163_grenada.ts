@@ -21,6 +21,3 @@ const grenada_diplomasi = [
   { "no": 19, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

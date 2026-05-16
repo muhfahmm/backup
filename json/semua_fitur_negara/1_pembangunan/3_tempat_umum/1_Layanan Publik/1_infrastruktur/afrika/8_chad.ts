@@ -9,6 +9,3 @@ const chad_infrastruktur = {
   bandara: 2,
   helipad: 4,
 };
-
-
-

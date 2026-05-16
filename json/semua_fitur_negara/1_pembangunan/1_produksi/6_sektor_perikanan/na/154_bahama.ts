@@ -4,6 +4,3 @@ const bahama_perikanan = {
   mutiara: 32,
   ikan: 148,
 };
-
-
-

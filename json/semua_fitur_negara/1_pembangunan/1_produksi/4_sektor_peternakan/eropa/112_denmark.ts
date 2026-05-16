@@ -5,6 +5,3 @@ const denmark_peternakan = {
   sapi_potong: 2200,
   domba_kambing: 704,
 };
-
-
-

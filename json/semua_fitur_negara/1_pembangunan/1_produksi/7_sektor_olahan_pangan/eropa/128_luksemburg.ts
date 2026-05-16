@@ -11,6 +11,3 @@ const luksemburg_olahan_pangan = {
   ikan_kaleng: 36,
   kopi_teh: 90,
 };
-
-
-

@@ -4,6 +4,3 @@ const peru_perikanan = {
   mutiara: 203,
   ikan: 266,
 };
-
-
-

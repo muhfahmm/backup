@@ -12,6 +12,3 @@ const sao_tome_dan_principe_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 84
   };
-
-
-

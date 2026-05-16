@@ -4,6 +4,3 @@ const nigeria_komersial = {
   "hotel": 30,
   "pusat_grosir_tekstil": 12
 };
-
-
-

@@ -5,6 +5,3 @@ const ekuador_hunian = {
   apartemen: 3459,
   mansion: 115319,
 };
-
-
-

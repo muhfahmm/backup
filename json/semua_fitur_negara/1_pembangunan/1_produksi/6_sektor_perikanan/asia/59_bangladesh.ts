@@ -4,6 +4,3 @@ const bangladesh_perikanan = {
   mutiara: 700,
   ikan: 840,
 };
-
-
-

@@ -5,6 +5,3 @@ const amerikaSerikatVehicles = {
   bus: 65337,
   truk: 326687,
 };
-
-
-

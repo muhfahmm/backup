@@ -15,6 +15,3 @@ const kenya_agrikultur = {
   kapas: 469,
   tembakau: 371,
 };
-
-
-

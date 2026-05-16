@@ -6,6 +6,3 @@ const marshall_kesehatan = {
       "harapan_hidup": 61,
       "indeks_kesehatan": 53
     };
-
-
-

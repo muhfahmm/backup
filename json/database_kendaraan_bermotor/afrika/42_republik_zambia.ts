@@ -5,6 +5,3 @@ const republikZambiaVehicles = {
   bus: 3470,
   truk: 17351,
 };
-
-
-

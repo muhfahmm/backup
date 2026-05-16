@@ -4,6 +4,3 @@ const kirgizstan_intelijen = {
   jaringan_radar: 4,
   operasi_siber: 8,
 };
-
-
-

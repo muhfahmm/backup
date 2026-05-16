@@ -11,6 +11,3 @@ const yamanAgreements = [
   { "no": 9, "mitra": "Vietnam", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

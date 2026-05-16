@@ -5,6 +5,3 @@ const malaysia_peternakan = {
   sapi_potong: 1044,
   domba_kambing: 576,
 };
-
-
-

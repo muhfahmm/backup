@@ -5,6 +5,3 @@ const mali_hunian = {
   apartemen: 3863,
   mansion: 128774,
 };
-
-
-

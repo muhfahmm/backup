@@ -16,6 +16,3 @@ const eritrea_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

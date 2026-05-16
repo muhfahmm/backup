@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const costa_rica_strategis = {
     "waktu_respon": 10,
     "intelijen": 18,
@@ -13,5 +14,3 @@ const costa_rica_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

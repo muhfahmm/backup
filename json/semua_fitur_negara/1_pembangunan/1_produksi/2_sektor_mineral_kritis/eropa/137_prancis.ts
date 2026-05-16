@@ -13,6 +13,3 @@ const prancis_ekstraksi = {
   logam_tanah_jarang: 2620,
   bijih_besi: 2096,
 };
-
-
-

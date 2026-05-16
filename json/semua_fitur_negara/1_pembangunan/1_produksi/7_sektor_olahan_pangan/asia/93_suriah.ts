@@ -11,6 +11,3 @@ const suriah_olahan_pangan = {
   ikan_kaleng: 37,
   kopi_teh: 38,
 };
-
-
-

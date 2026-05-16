@@ -5,6 +5,3 @@ const bulgaria_peternakan = {
   sapi_potong: 450,
   domba_kambing: 340,
 };
-
-
-

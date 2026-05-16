@@ -4,6 +4,3 @@ const austria_komersial = {
   "hotel": 20,
   "pusat_grosir_tekstil": 8
 };
-
-
-

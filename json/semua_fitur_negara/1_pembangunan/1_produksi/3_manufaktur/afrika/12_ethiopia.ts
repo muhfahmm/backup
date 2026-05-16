@@ -8,6 +8,3 @@ const ethiopia_manufaktur = {
   kayu: 252,
   pupuk: 162,
 };
-
-
-

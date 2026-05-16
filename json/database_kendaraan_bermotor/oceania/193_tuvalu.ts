@@ -5,6 +5,3 @@ const tuvaluVehicles = {
   bus: 2,
   truk: 11,
 };
-
-
-

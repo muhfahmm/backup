@@ -15,6 +15,3 @@ const mozambik_agrikultur = {
   kapas: 38,
   tembakau: 11,
 };
-
-
-

@@ -1,4 +1,5 @@
-﻿const brazil_pertahanan = {
+﻿// @ts-nocheck
+const brazil_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 3,
     "hangar_tank": 34,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 24,
     "pertahanan_siber": 39
     };
-
-

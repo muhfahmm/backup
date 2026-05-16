@@ -5,6 +5,3 @@ const nauru_hunian = {
   apartemen: 2,
   mansion: 85,
 };
-
-
-

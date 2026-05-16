@@ -15,6 +15,3 @@ const tanjung_verde_agrikultur = {
   kapas: 132,
   tembakau: 144,
 };
-
-
-

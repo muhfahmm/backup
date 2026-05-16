@@ -4,6 +4,3 @@ const turki_intelijen = {
   jaringan_radar: 4,
   operasi_siber: 7,
 };
-
-
-

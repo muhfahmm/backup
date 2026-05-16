@@ -13,6 +13,3 @@ const burkina_faso_ekstraksi = {
   logam_tanah_jarang: 14,
   bijih_besi: 2,
 };
-
-
-

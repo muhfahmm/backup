@@ -9,6 +9,3 @@ const chile_olahraga = {
   "esports": 15,
   "gokart": 35
 };
-
-
-

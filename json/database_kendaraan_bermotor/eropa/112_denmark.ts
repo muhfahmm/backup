@@ -5,6 +5,3 @@ const denmarkVehicles = {
   bus: 1158,
   truk: 5793,
 };
-
-
-

@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const aljazair_strategis = {
     "waktu_respon": 15,
     "intelijen": 1,
@@ -13,5 +14,3 @@ const aljazair_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

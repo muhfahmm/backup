@@ -13,6 +13,3 @@ const italia_diplomasi = [
   { "no": 11, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

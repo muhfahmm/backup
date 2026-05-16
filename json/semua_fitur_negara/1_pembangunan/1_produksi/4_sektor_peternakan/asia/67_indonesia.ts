@@ -5,6 +5,3 @@ const indonesia_peternakan = {
   sapi_potong: 1422,
   domba_kambing: 2607,
 };
-
-
-

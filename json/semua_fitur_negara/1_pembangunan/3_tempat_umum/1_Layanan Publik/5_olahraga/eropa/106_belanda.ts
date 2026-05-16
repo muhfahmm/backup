@@ -9,6 +9,3 @@ const belanda_olahraga = {
   "esports": 47,
   "gokart": 139
 };
-
-
-

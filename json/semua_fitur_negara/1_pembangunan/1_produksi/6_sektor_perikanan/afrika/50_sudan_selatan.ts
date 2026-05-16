@@ -4,6 +4,3 @@ const sudan_selatan_perikanan = {
   mutiara: 72,
   ikan: 76,
 };
-
-
-

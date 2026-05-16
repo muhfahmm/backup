@@ -5,6 +5,3 @@ const madagaskar_hunian = {
   apartemen: 5318,
   mansion: 177270,
 };
-
-
-

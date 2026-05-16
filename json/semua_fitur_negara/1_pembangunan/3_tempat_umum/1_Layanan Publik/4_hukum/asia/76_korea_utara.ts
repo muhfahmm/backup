@@ -9,6 +9,3 @@ const korea_utara_hukum = {
       "indeks_korupsi": 32,
       "indeks_keamanan": 52
   };
-
-
-

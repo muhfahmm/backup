@@ -5,6 +5,3 @@ const selandia_baru_peternakan = {
   sapi_potong: 462,
   domba_kambing: 420,
 };
-
-
-

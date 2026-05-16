@@ -15,6 +15,3 @@ const trinidad_dan_tobago_agrikultur = {
   kapas: 76,
   tembakau: 92,
 };
-
-
-

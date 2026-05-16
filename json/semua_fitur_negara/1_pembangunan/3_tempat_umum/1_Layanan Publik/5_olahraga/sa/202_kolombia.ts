@@ -9,6 +9,3 @@ const kolombia_olahraga = {
   "esports": 7,
   "gokart": 46
 };
-
-
-

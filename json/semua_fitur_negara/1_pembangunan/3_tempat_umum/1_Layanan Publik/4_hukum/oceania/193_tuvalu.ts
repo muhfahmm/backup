@@ -9,6 +9,3 @@ const tuvalu_hukum = {
       "indeks_korupsi": 42,
       "indeks_keamanan": 49
   };
-
-
-

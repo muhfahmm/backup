@@ -8,6 +8,3 @@ const armenia_manufaktur = {
   kayu: 15,
   pupuk: 6,
 };
-
-
-

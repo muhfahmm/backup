@@ -13,6 +13,3 @@ const saint_luciaAgreements = [
   { "no": 11, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

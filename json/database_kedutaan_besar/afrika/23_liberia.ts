@@ -13,6 +13,3 @@ const liberia_diplomasi = [
   { "no": 11, "mitra": "Barbados", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

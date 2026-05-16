@@ -16,6 +16,3 @@ const taiwan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

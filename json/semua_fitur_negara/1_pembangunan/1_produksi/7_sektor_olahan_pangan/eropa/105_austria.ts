@@ -11,6 +11,3 @@ const austria_olahan_pangan = {
   ikan_kaleng: 1702,
   kopi_teh: 3626,
 };
-
-
-

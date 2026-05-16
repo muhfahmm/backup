@@ -5,6 +5,3 @@ const tuvalu_hunian = {
   apartemen: 2,
   mansion: 77,
 };
-
-
-

@@ -9,6 +9,3 @@ const israel_olahraga = {
   "esports": 20,
   "gokart": 49
 };
-
-
-

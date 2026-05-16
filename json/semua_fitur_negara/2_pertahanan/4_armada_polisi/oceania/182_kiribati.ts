@@ -16,6 +16,3 @@ const kiribati_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -16,6 +16,3 @@ const myanmar_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

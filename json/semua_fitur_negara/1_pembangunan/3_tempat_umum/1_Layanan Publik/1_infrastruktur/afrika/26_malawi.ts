@@ -9,6 +9,3 @@ const malawi_infrastruktur = {
   bandara: 2,
   helipad: 1,
 };
-
-
-

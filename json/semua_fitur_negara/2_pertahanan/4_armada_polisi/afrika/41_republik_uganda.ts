@@ -16,6 +16,3 @@ const republik_uganda_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

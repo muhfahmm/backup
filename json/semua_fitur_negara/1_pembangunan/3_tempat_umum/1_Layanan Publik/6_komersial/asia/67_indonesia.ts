@@ -4,6 +4,3 @@ const indonesia_komersial = {
   "hotel": 146,
   "pusat_grosir_tekstil": 52
 };
-
-
-

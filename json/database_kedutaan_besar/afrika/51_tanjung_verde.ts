@@ -13,6 +13,3 @@ const tanjung_verde_diplomasi = [
   { "no": 11, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

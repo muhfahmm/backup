@@ -18,6 +18,3 @@ const palestina_diplomasi = [
   { "no": 16, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

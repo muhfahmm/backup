@@ -20,6 +20,3 @@ const belanda_diplomasi = [
   { "no": 18, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

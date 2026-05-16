@@ -9,6 +9,3 @@ const sao_tome_dan_principe_hukum = {
       "indeks_korupsi": 50,
       "indeks_keamanan": 68
   };
-
-
-

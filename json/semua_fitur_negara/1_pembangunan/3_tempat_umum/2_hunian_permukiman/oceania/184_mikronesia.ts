@@ -5,6 +5,3 @@ const mikronesia_hunian = {
   apartemen: 22,
   mansion: 760,
 };
-
-
-

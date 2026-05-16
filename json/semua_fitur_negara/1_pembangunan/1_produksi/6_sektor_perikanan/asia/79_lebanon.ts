@@ -4,6 +4,3 @@ const lebanon_perikanan = {
   mutiara: 20,
   ikan: 6,
 };
-
-
-

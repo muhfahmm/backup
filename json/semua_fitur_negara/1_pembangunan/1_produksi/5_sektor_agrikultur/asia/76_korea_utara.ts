@@ -15,6 +15,3 @@ const korea_utara_agrikultur = {
   kapas: 48,
   tembakau: 188,
 };
-
-
-

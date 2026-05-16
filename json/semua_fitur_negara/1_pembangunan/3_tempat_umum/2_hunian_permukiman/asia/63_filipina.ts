@@ -5,6 +5,3 @@ const filipina_hunian = {
   apartemen: 21597,
   mansion: 719900,
 };
-
-
-

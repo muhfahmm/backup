@@ -5,6 +5,3 @@ const saint_kitts_dan_nevis_peternakan = {
   sapi_potong: 114,
   domba_kambing: 72,
 };
-
-
-

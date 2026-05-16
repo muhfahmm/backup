@@ -9,6 +9,3 @@ const albania_infrastruktur = {
   bandara: 3,
   helipad: 1,
 };
-
-
-

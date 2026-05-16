@@ -9,6 +9,3 @@ const belize_pertahanan = {
     "program_luar_angkasa": 30,
     "pertahanan_siber": 17
     };
-
-
-

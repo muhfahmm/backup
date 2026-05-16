@@ -15,6 +15,3 @@ const mesir_agrikultur = {
   kapas: 2820,
   tembakau: 564,
 };
-
-
-

@@ -14,6 +14,3 @@ const georgia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

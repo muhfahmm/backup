@@ -2,6 +2,3 @@
 const liberia_farmasi = {
   farmasi: 25,
 };
-
-
-

@@ -9,6 +9,3 @@ const malaysia_hukum = {
       "indeks_korupsi": 53,
       "indeks_keamanan": 60
   };
-
-
-

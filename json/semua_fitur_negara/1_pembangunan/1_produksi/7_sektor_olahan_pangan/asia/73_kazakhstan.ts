@@ -11,6 +11,3 @@ const kazakhstan_olahan_pangan = {
   ikan_kaleng: 221,
   kopi_teh: 442,
 };
-
-
-

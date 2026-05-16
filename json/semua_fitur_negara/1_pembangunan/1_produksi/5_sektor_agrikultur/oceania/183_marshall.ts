@@ -15,6 +15,3 @@ const marshall_agrikultur = {
   kapas: 128,
   tembakau: 128,
 };
-
-
-

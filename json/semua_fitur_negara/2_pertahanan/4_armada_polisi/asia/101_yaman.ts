@@ -16,6 +16,3 @@ const yaman_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

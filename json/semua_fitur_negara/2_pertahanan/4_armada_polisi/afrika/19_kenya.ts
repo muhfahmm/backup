@@ -16,6 +16,3 @@ const kenya_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

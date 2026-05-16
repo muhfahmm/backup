@@ -15,6 +15,3 @@ const makedonia_utara_agrikultur = {
   kapas: 30,
   tembakau: 201,
 };
-
-
-

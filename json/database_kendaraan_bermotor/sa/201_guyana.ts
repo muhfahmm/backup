@@ -5,6 +5,3 @@ const guyanaVehicles = {
   bus: 155,
   truk: 779,
 };
-
-
-

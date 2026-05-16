@@ -9,6 +9,3 @@ const kuba_olahraga = {
   "esports": 3,
   "gokart": 5
 };
-
-
-

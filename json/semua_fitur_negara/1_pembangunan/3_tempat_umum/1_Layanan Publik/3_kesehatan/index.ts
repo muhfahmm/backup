@@ -1,16 +1,9 @@
 ﻿// @ts-nocheck
-export interface KesehatanData {
-  rumah_sakit_besar?: number;
-  rumah_sakit_kecil?: number;
-  pusat_diagnostik?: number;
-  harapan_hidup?: number;
-  indeks_kesehatan?: number;
 }
 
 // ===================
 // DETAIL TOTAL BANGUNAN: Kesehatan (Total: 3 Bangunan)
 // ===================
-const kesehatanRate: Record<string, any> = {
   "11_rumah_sakit_besar": {
     key: "11_rumah_sakit_besar",
     dataKey: "rumah_sakit_besar",
@@ -51,6 +44,3 @@ const kesehatanRate: Record<string, any> = {
     efek: "Mengurangi jumlah kematian akibat pandemi dan epidemi sebesar 0.01%"
   },
 };
-
-
-

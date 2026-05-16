@@ -5,6 +5,3 @@ const bahrainVehicles = {
   bus: 313,
   truk: 1569,
 };
-
-
-

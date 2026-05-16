@@ -6,6 +6,3 @@ const nepal_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 74
     };
-
-
-

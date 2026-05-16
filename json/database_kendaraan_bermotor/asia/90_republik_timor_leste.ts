@@ -5,6 +5,3 @@ const republikTimorLesteVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

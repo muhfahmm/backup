@@ -9,6 +9,3 @@ const seychelles_hukum = {
       "indeks_korupsi": 20,
       "indeks_keamanan": 58
   };
-
-
-

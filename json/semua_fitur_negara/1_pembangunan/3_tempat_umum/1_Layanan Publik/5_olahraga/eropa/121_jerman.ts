@@ -9,6 +9,3 @@ const jerman_olahraga = {
   "esports": 50,
   "gokart": 98
 };
-
-
-

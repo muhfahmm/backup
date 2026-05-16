@@ -5,6 +5,3 @@ const eswatiniVehicles = {
   bus: 227,
   truk: 1136,
 };
-
-
-

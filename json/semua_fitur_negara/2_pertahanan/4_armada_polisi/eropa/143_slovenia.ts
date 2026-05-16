@@ -16,6 +16,3 @@ const slovenia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -15,6 +15,3 @@ const samoa_agrikultur = {
   kapas: 156,
   tembakau: 150,
 };
-
-
-

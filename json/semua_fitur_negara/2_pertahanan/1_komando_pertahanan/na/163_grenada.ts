@@ -14,6 +14,3 @@ const grenada_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

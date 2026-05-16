@@ -12,6 +12,3 @@ const mesir_pendidikan = {
       "pusat_pengembangan": 8,
       "literasi": 87
   };
-
-
-

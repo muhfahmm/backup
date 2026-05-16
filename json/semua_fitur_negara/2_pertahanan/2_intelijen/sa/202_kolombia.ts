@@ -4,6 +4,3 @@ const kolombia_intelijen = {
   jaringan_radar: 17,
   operasi_siber: 21,
 };
-
-
-

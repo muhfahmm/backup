@@ -30,6 +30,3 @@ const guam_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -4,6 +4,3 @@ const moldova_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 0
 };
-
-
-

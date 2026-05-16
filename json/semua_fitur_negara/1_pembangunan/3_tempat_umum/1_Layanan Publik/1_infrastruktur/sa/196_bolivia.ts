@@ -9,6 +9,3 @@ const bolivia_infrastruktur = {
   bandara: 4,
   helipad: 1,
 };
-
-
-

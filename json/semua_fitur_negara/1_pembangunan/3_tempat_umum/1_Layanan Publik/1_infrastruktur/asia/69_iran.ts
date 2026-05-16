@@ -9,6 +9,3 @@ const iran_infrastruktur = {
   bandara: 3,
   helipad: 5,
 };
-
-
-

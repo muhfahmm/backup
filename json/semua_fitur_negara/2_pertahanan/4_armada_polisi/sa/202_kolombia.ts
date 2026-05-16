@@ -16,6 +16,3 @@ const kolombia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

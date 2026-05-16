@@ -12,6 +12,3 @@ const chinaAgreements = [
   { "no": 10, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

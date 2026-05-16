@@ -5,6 +5,3 @@ const aljazair_peternakan = {
   sapi_potong: 506,
   domba_kambing: 407,
 };
-
-
-

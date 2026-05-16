@@ -13,6 +13,3 @@ const grenadaAgreements = [
   { "no": 11, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

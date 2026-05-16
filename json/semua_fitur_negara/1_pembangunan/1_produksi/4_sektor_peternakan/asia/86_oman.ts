@@ -5,6 +5,3 @@ const oman_peternakan = {
   sapi_potong: 297,
   domba_kambing: 495,
 };
-
-
-

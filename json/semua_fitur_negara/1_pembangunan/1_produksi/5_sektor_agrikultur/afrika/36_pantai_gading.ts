@@ -15,6 +15,3 @@ const pantai_gading_agrikultur = {
   kapas: 330,
   tembakau: 280,
 };
-
-
-

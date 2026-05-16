@@ -13,6 +13,3 @@ const kazakhstan_ekstraksi = {
   logam_tanah_jarang: 117,
   bijih_besi: 130,
 };
-
-
-

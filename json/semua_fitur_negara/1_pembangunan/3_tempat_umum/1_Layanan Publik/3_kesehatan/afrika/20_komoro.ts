@@ -6,6 +6,3 @@ const komoro_kesehatan = {
       "harapan_hidup": 58,
       "indeks_kesehatan": 73
   };
-
-
-

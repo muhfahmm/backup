@@ -11,6 +11,3 @@ const botswana_olahan_pangan = {
   ikan_kaleng: 84,
   kopi_teh: 100,
 };
-
-
-

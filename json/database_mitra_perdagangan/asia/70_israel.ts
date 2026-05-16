@@ -13,6 +13,3 @@ const israelAgreements = [
   { "no": 11, "mitra": "Vietnam", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

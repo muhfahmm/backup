@@ -26,74 +26,9 @@ const samoa_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  };
-
-const samoa = {
-  ...samoa_profile,
-  "sektor_listrik": samoa_listrik,
-  "hunian": samoa_hunian,
-  "infrastruktur": samoa_infrastruktur,
-  "sektor_ekstraksi": samoa_ekstraksi,
-  "sektor_manufaktur": samoa_manufaktur,
-  "sektor_peternakan": samoa_peternakan,
-  "sektor_agrikultur": samoa_agrikultur,
-  "sektor_perikanan": samoa_perikanan,
-  "sektor_olahan_pangan": samoa_olahan_pangan,
-  "sektor_farmasi": samoa_farmasi,
-  "sektor_pertahanan": samoa_pertahanan,
-  "armada_militer": samoa_armada,
-  "militer_strategis": samoa_strategis,
-  "armada_kepolisian": samoa_kepolisian,
-  "pabrik_militer": samoa_pabrik,
-  "intelijen": samoa_intelijen,
-    "pendidikan": samoa_pendidikan,
-  "kesehatan": samoa_kesehatan,
-  "hukum": samoa_hukum,
-  "sektor_olahraga": samoa_olahraga,
-  "sektor_komersial": samoa_komersial,
-  "sektor_hiburan": samoa_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 3,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 29,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 1,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 27,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 24,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 19,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const samoa_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const samoa = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

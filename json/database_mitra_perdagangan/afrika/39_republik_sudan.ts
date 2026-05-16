@@ -12,6 +12,3 @@ const republik_sudanAgreements = [
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

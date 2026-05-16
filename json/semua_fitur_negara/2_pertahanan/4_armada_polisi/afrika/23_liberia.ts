@@ -16,6 +16,3 @@ const liberia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

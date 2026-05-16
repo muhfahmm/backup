@@ -13,6 +13,3 @@ const aljazair_ekstraksi = {
   logam_tanah_jarang: 55,
   bijih_besi: 0,
 };
-
-
-

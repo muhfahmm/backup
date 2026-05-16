@@ -11,6 +11,3 @@ const omanAgreements = [
   { "no": 9, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

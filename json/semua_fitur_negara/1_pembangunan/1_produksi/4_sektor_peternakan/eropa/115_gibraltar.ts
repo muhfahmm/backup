@@ -5,6 +5,3 @@ const gibraltar_peternakan = {
   sapi_potong: 72,
   domba_kambing: 48,
 };
-
-
-

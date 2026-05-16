@@ -5,6 +5,3 @@ const chinaVehicles = {
   bus: 278546,
   truk: 1392730,
 };
-
-
-

@@ -4,6 +4,3 @@ const dominika_perikanan = {
   mutiara: 68,
   ikan: 92,
 };
-
-
-

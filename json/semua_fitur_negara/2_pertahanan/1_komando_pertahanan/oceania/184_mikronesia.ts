@@ -14,6 +14,3 @@ const mikronesia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

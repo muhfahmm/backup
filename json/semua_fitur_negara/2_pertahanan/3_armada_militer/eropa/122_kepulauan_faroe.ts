@@ -30,6 +30,3 @@ const kepulauan_faroe_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

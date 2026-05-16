@@ -5,6 +5,3 @@ const inggris_peternakan = {
   sapi_potong: 5700,
   domba_kambing: 10200,
 };
-
-
-

@@ -15,6 +15,3 @@ const vatikan_agrikultur = {
   kapas: 224,
   tembakau: 268,
 };
-
-
-

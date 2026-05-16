@@ -15,6 +15,3 @@ const barbados_agrikultur = {
   kapas: 14,
   tembakau: 71,
 };
-
-
-

@@ -9,6 +9,3 @@ const bermuda_hukum = {
       "indeks_korupsi": 15,
       "indeks_keamanan": 69
   };
-
-
-

@@ -8,6 +8,3 @@ const austria_manufaktur = {
   kayu: 1110,
   pupuk: 518,
 };
-
-
-

@@ -14,6 +14,3 @@ const guinea_bissau_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

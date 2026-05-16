@@ -30,6 +30,3 @@ const republik_dominika_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

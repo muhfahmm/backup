@@ -9,6 +9,3 @@ const tunisia_pertahanan = {
     "program_luar_angkasa": 1,
     "pertahanan_siber": 26
     };
-
-
-

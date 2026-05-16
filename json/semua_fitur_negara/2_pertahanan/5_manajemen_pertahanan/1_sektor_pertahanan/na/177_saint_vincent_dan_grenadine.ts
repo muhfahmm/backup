@@ -9,6 +9,3 @@ const saint_vincent_dan_grenadine_pertahanan = {
     "program_luar_angkasa": 14,
     "pertahanan_siber": 14
     };
-
-
-

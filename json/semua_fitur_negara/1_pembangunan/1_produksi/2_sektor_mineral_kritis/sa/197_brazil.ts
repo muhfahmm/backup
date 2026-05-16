@@ -13,6 +13,3 @@ const brazil_ekstraksi = {
   logam_tanah_jarang: 1164,
   bijih_besi: 1455,
 };
-
-
-

@@ -16,6 +16,3 @@ const republik_timor_leste_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

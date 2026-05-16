@@ -13,6 +13,3 @@ const guatemalaAgreements = [
   { "no": 11, "mitra": "Kanada", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

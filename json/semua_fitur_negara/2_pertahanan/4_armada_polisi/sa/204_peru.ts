@@ -16,6 +16,3 @@ const peru_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

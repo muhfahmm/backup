@@ -15,6 +15,3 @@ const republik_sudan_agrikultur = {
   kapas: 69,
   tembakau: 201,
 };
-
-
-

@@ -4,6 +4,3 @@ const palau_perikanan = {
   mutiara: 40,
   ikan: 80,
 };
-
-
-

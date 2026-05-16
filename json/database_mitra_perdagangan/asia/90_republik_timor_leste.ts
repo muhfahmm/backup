@@ -12,6 +12,3 @@ const republik_timor_lesteAgreements = [
   { "no": 10, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

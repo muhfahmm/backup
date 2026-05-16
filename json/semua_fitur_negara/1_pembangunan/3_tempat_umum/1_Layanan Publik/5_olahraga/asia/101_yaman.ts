@@ -9,6 +9,3 @@ const yaman_olahraga = {
   "esports": 3,
   "gokart": 6
 };
-
-
-

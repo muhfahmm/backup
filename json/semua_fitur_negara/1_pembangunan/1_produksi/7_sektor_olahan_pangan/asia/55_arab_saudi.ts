@@ -11,6 +11,3 @@ const arab_saudi_olahan_pangan = {
   ikan_kaleng: 6384,
   kopi_teh: 3325,
 };
-
-
-

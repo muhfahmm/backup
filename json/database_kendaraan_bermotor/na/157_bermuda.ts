@@ -5,6 +5,3 @@ const bermudaVehicles = {
   bus: 12,
   truk: 63,
 };
-
-
-

@@ -8,6 +8,3 @@ const dominika_manufaktur = {
   kayu: 44,
   pupuk: 36,
 };
-
-
-

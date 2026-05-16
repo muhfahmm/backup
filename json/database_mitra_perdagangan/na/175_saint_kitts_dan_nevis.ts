@@ -14,6 +14,3 @@ const saint_kitts_dan_nevisAgreements = [
   { "no": 12, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

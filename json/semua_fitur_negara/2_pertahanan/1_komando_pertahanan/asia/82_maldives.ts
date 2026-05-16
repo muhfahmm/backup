@@ -14,6 +14,3 @@ const maldives_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

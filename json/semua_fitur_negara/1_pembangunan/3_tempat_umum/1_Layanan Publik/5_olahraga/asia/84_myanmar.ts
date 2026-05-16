@@ -9,6 +9,3 @@ const myanmar_olahraga = {
   "esports": 1,
   "gokart": 9
 };
-
-
-

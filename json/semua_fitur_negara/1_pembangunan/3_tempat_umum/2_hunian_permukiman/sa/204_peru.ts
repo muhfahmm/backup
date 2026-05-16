@@ -5,6 +5,3 @@ const peru_hunian = {
   apartemen: 6477,
   mansion: 215927,
 };
-
-
-

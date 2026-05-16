@@ -5,6 +5,3 @@ const iran_hunian = {
   apartemen: 16564,
   mansion: 552151,
 };
-
-
-

@@ -5,6 +5,3 @@ const bhutanVehicles = {
   bus: 150,
   truk: 754,
 };
-
-
-

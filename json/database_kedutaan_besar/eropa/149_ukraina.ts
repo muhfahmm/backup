@@ -12,6 +12,3 @@ const ukraina_diplomasi = [
   { "no": 10, "mitra": "Belgia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

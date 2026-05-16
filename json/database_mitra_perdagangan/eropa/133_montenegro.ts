@@ -15,6 +15,3 @@ const montenegroAgreements = [
   { "no": 13, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

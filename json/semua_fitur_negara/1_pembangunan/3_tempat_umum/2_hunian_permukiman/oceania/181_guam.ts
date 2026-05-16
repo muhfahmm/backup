@@ -5,6 +5,3 @@ const guam_hunian = {
   apartemen: 33,
   mansion: 1118,
 };
-
-
-

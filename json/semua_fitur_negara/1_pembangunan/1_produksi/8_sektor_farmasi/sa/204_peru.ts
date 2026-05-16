@@ -2,6 +2,3 @@
 const peru_farmasi = {
   farmasi: 21,
 };
-
-
-

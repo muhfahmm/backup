@@ -26,74 +26,9 @@ const ethiopia_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
   }
-  };
-
-const ethiopia = {
-  ...ethiopia_profile,
-  "sektor_listrik": ethiopia_listrik,
-  "hunian": ethiopia_hunian,
-  "infrastruktur": ethiopia_infrastruktur,
-  "sektor_ekstraksi": ethiopia_ekstraksi,
-  "sektor_manufaktur": ethiopia_manufaktur,
-  "sektor_peternakan": ethiopia_peternakan,
-  "sektor_agrikultur": ethiopia_agrikultur,
-  "sektor_perikanan": ethiopia_perikanan,
-  "sektor_olahan_pangan": ethiopia_olahan_pangan,
-  "sektor_farmasi": ethiopia_farmasi,
-  "sektor_pertahanan": ethiopia_pertahanan,
-  "armada_militer": ethiopia_armada,
-  "militer_strategis": ethiopia_strategis,
-  "armada_kepolisian": ethiopia_kepolisian,
-  "pabrik_militer": ethiopia_pabrik,
-  "intelijen": ethiopia_intelijen,
-    "pendidikan": ethiopia_pendidikan,
-  "kesehatan": ethiopia_kesehatan,
-  "hukum": ethiopia_hukum,
-  "sektor_olahraga": ethiopia_olahraga,
-  "sektor_komersial": ethiopia_komersial,
-  "sektor_hiburan": ethiopia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 17,
-      "kepuasan": 67,
-      "pendapatan": 59
-    },
-    "korporasi": {
-      "tarif": 25,
-      "kepuasan": 52,
-      "pendapatan": 82
-    },
-    "penghasilan": {
-      "tarif": 30,
-      "kepuasan": 61,
-      "pendapatan": 63
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 81
-    },
-    "lingkungan": {
-      "tarif": 30,
-      "kepuasan": 88,
-      "pendapatan": 50
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 8 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 23 },
-    "lainnya": {
-      "tarif": 11,
-      "kepuasan": 93,
-      "pendapatan": 18
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const ethiopia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const ethiopia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

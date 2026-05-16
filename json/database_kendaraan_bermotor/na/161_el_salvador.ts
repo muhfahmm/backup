@@ -5,6 +5,3 @@ const elSalvadorVehicles = {
   bus: 1284,
   truk: 6420,
 };
-
-
-

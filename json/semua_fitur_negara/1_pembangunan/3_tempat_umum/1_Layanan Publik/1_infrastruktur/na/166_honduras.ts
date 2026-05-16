@@ -9,6 +9,3 @@ const honduras_infrastruktur = {
   bandara: 3,
   helipad: 1,
 };
-
-
-

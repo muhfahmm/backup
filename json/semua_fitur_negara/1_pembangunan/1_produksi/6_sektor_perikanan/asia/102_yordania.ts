@@ -4,6 +4,3 @@ const yordania_perikanan = {
   mutiara: 12,
   ikan: 78,
 };
-
-
-

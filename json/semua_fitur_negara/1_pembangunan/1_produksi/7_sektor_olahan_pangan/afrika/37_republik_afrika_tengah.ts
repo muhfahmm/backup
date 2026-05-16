@@ -11,6 +11,3 @@ const republik_afrika_tengah_olahan_pangan = {
   ikan_kaleng: 141,
   kopi_teh: 69,
 };
-
-
-

@@ -5,6 +5,3 @@ const bolivia_hunian = {
   apartemen: 2299,
   mansion: 76633,
 };
-
-
-

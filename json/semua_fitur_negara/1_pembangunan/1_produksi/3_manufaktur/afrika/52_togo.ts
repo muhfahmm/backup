@@ -8,6 +8,3 @@ const togo_manufaktur = {
   kayu: 10,
   pupuk: 18,
 };
-
-
-

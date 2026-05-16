@@ -12,6 +12,3 @@ const mauritiusAgreements = [
   { "no": 10, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

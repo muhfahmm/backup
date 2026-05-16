@@ -13,6 +13,3 @@ const venezuela_ekstraksi = {
   logam_tanah_jarang: 80,
   bijih_besi: 16,
 };
-
-
-

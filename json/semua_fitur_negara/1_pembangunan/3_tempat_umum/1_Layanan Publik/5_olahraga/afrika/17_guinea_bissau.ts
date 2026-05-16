@@ -9,6 +9,3 @@ const guinea_bissau_olahraga = {
   "esports": 3,
   "gokart": 6
 };
-
-
-

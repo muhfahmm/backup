@@ -4,6 +4,3 @@ const botswana_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 4
 };
-
-
-

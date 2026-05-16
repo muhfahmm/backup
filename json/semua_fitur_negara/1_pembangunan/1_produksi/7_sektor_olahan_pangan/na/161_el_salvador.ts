@@ -11,6 +11,3 @@ const el_salvador_olahan_pangan = {
   ikan_kaleng: 100,
   kopi_teh: 205,
 };
-
-
-

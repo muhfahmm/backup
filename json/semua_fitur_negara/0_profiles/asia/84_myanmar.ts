@@ -26,74 +26,9 @@ const myanmar_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const myanmar = {
-  ...myanmar_profile,
-  "sektor_listrik": myanmar_listrik,
-  "hunian": myanmar_hunian,
-  "infrastruktur": myanmar_infrastruktur,
-  "sektor_ekstraksi": myanmar_ekstraksi,
-  "sektor_manufaktur": myanmar_manufaktur,
-  "sektor_peternakan": myanmar_peternakan,
-  "sektor_agrikultur": myanmar_agrikultur,
-  "sektor_perikanan": myanmar_perikanan,
-  "sektor_olahan_pangan": myanmar_olahan_pangan,
-  "sektor_farmasi": myanmar_farmasi,
-  "sektor_pertahanan": myanmar_pertahanan,
-  "armada_militer": myanmar_armada,
-  "militer_strategis": myanmar_strategis,
-  "armada_kepolisian": myanmar_kepolisian,
-  "pabrik_militer": myanmar_pabrik,
-  "intelijen": myanmar_intelijen,
-    "pendidikan": myanmar_pendidikan,
-  "kesehatan": myanmar_kesehatan,
-  "hukum": myanmar_hukum,
-  "sektor_olahraga": myanmar_olahraga,
-  "sektor_komersial": myanmar_komersial,
-  "sektor_hiburan": myanmar_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 9,
-      "kepuasan": 67,
-      "pendapatan": 12
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 43
-    },
-    "penghasilan": {
-      "tarif": 11,
-      "kepuasan": 61,
-      "pendapatan": 19
-    },
-    "bea_cukai": {
-      "tarif": 29,
-      "kepuasan": 86,
-      "pendapatan": 45
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 24
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 9 },
-    "lainnya": {
-      "tarif": 12,
-      "kepuasan": 93,
-      "pendapatan": 17
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const myanmar_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const myanmar = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

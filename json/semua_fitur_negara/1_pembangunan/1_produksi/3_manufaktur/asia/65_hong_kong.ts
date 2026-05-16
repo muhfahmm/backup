@@ -8,6 +8,3 @@ const hong_kong_manufaktur = {
   kayu: 4,
   pupuk: 10,
 };
-
-
-

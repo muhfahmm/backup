@@ -4,6 +4,3 @@ const yunani_komersial = {
   "hotel": 25,
   "pusat_grosir_tekstil": 17
 };
-
-
-

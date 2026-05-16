@@ -4,6 +4,3 @@ const oman_komersial = {
   "hotel": 2,
   "pusat_grosir_tekstil": 4
 };
-
-
-

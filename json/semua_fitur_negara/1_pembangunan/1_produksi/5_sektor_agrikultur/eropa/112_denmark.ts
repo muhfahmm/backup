@@ -15,6 +15,3 @@ const denmark_agrikultur = {
   kapas: 1452,
   tembakau: 2772,
 };
-
-
-

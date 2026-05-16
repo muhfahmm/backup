@@ -5,6 +5,3 @@ const bahamaVehicles = {
   bus: 77,
   truk: 385,
 };
-
-
-

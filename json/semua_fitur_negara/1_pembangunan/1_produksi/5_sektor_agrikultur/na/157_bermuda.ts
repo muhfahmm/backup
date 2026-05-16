@@ -15,6 +15,3 @@ const bermuda_agrikultur = {
   kapas: 94,
   tembakau: 140,
 };
-
-
-

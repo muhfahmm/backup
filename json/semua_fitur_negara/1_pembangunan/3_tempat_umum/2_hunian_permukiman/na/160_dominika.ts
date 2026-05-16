@@ -5,6 +5,3 @@ const dominika_hunian = {
   apartemen: 14,
   mansion: 483,
 };
-
-
-

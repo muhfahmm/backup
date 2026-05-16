@@ -12,6 +12,3 @@ const antigua_dan_barbudaAgreements = [
   { "no": 10, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -5,6 +5,3 @@ const saoTomeDanPrincipeVehicles = {
   bus: 42,
   truk: 211,
 };
-
-
-

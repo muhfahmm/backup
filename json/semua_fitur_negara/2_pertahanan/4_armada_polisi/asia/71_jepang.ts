@@ -16,6 +16,3 @@ const jepang_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

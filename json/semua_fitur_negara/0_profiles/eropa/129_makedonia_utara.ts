@@ -26,74 +26,9 @@ const makedonia_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const makedonia_utara = {
-  ...makedonia_utara_profile,
-  "sektor_listrik": makedonia_utara_listrik,
-  "hunian": makedonia_utara_hunian,
-  "infrastruktur": makedonia_utara_infrastruktur,
-  "sektor_ekstraksi": makedonia_utara_ekstraksi,
-  "sektor_manufaktur": makedonia_utara_manufaktur,
-  "sektor_peternakan": makedonia_utara_peternakan,
-  "sektor_agrikultur": makedonia_utara_agrikultur,
-  "sektor_perikanan": makedonia_utara_perikanan,
-  "sektor_olahan_pangan": makedonia_utara_olahan_pangan,
-  "sektor_farmasi": makedonia_utara_farmasi,
-  "sektor_pertahanan": makedonia_utara_pertahanan,
-  "armada_militer": makedonia_utara_armada,
-  "militer_strategis": makedonia_utara_strategis,
-  "armada_kepolisian": makedonia_utara_kepolisian,
-  "pabrik_militer": makedonia_utara_pabrik,
-  "intelijen": makedonia_utara_intelijen,
-    "pendidikan": makedonia_utara_pendidikan,
-  "kesehatan": makedonia_utara_kesehatan,
-  "hukum": makedonia_utara_hukum,
-  "sektor_olahraga": makedonia_utara_olahraga,
-  "sektor_komersial": makedonia_utara_komersial,
-  "sektor_hiburan": makedonia_utara_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 16,
-      "kepuasan": 67,
-      "pendapatan": 6
-    },
-    "korporasi": {
-      "tarif": 35,
-      "kepuasan": 52,
-      "pendapatan": 5
-    },
-    "penghasilan": {
-      "tarif": 3,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 33,
-      "kepuasan": 86,
-      "pendapatan": 13
-    },
-    "lingkungan": {
-      "tarif": 15,
-      "kepuasan": 88,
-      "pendapatan": 4
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 12,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const makedonia_utara_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const makedonia_utara = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -9,6 +9,3 @@ const chile_infrastruktur = {
   bandara: 5,
   helipad: 8,
 };
-
-
-

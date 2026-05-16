@@ -9,6 +9,3 @@ const eswatini_olahraga = {
   "esports": 2,
   "gokart": 15
 };
-
-
-

@@ -5,6 +5,3 @@ const somalia_peternakan = {
   sapi_potong: 81,
   domba_kambing: 69,
 };
-
-
-

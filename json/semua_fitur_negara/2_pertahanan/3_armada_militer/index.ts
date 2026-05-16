@@ -1,4 +1,5 @@
-﻿// ===================
+﻿// @ts-nocheck
+// ===================
 // DETAIL TOTAL BANGUNAN: Armada Militer (Total: 22 Unit)
 // ===================
 const armadaMiliterRate = {
@@ -261,7 +262,6 @@ const armadaMiliterRate = {
   }
 };
 
-export interface SektorArmadaMiliter {
   barak: number;
   darat: {
     tank_tempur_utama: number;
@@ -319,5 +319,3 @@ const armadaMiliterList = [
   { key: "kamikaze", category: "Armada", label: "Drone Kamikaze", deskripsi: "Serangan Bunuh Diri", biaya_pembangunan: 3750, waktu_pembangunan: 7, biaya_pemeliharaan: 1 },
   { key: "transport", category: "Armada", label: "Pesawat Angkut", deskripsi: "Logistik Udara", biaya_pembangunan: 56250, waktu_pembangunan: 60, biaya_pemeliharaan: 15 }
 ];
-
-

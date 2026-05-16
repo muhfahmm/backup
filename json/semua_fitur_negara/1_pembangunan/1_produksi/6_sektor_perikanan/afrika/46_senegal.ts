@@ -4,6 +4,3 @@ const senegal_perikanan = {
   mutiara: 32,
   ikan: 25,
 };
-
-
-

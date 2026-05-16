@@ -13,6 +13,3 @@ const indonesia_ekstraksi = {
   logam_tanah_jarang: 158,
   bijih_besi: 632,
 };
-
-
-

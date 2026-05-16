@@ -14,6 +14,3 @@ const china_strategis = {
       "misil_nuklir": 600
     }
   };
-
-
-

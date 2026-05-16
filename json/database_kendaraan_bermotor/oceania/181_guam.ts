@@ -5,6 +5,3 @@ const guamVehicles = {
   bus: 33,
   truk: 165,
 };
-
-
-

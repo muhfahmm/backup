@@ -6,6 +6,3 @@ const tonga_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 54
     };
-
-
-

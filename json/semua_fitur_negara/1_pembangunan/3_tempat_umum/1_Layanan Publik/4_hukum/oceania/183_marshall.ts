@@ -9,6 +9,3 @@ const marshall_hukum = {
       "indeks_korupsi": 49,
       "indeks_keamanan": 56
   };
-
-
-

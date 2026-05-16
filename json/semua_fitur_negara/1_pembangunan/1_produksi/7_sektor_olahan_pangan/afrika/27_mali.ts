@@ -11,6 +11,3 @@ const mali_olahan_pangan = {
   ikan_kaleng: 60,
   kopi_teh: 39,
 };
-
-
-

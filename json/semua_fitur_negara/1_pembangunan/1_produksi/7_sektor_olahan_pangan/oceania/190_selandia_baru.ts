@@ -11,6 +11,3 @@ const selandia_baru_olahan_pangan = {
   ikan_kaleng: 252,
   kopi_teh: 378,
 };
-
-
-

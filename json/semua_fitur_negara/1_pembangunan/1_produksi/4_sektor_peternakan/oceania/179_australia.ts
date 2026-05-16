@@ -5,6 +5,3 @@ const australia_peternakan = {
   sapi_potong: 2652,
   domba_kambing: 1734,
 };
-
-
-

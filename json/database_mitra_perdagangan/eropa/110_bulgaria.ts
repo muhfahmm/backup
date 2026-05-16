@@ -15,6 +15,3 @@ const bulgariaAgreements = [
   { "no": 13, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

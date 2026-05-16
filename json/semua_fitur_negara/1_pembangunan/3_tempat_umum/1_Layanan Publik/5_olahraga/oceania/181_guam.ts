@@ -9,6 +9,3 @@ const guam_olahraga = {
   "esports": 0,
   "gokart": 2
 };
-
-
-

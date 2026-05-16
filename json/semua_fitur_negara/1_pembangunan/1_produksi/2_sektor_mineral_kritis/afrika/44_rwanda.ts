@@ -13,6 +13,3 @@ const rwanda_ekstraksi = {
   logam_tanah_jarang: 5,
   bijih_besi: 9,
 };
-
-
-

@@ -9,6 +9,3 @@ const tanjung_verde_hukum = {
       "indeks_korupsi": 13,
       "indeks_keamanan": 51
   };
-
-
-

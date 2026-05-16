@@ -8,6 +8,3 @@ const georgia_manufaktur = {
   kayu: 16,
   pupuk: 8,
 };
-
-
-

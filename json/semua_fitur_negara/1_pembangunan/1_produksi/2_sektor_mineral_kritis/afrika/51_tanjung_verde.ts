@@ -13,6 +13,3 @@ const tanjung_verde_ekstraksi = {
   logam_tanah_jarang: 12,
   bijih_besi: 15,
 };
-
-
-

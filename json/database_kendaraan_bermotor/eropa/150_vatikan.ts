@@ -5,6 +5,3 @@ const vatikanVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

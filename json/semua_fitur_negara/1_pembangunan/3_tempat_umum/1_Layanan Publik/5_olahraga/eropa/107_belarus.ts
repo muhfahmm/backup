@@ -9,6 +9,3 @@ const belarus_olahraga = {
   "esports": 1,
   "gokart": 8
 };
-
-
-

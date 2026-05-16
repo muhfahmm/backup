@@ -16,6 +16,3 @@ const lesotho_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

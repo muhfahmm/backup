@@ -5,6 +5,3 @@ const tonga_hunian = {
   apartemen: 20,
   mansion: 696,
 };
-
-
-

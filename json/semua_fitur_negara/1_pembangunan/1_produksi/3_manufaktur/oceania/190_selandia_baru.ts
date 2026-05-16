@@ -8,6 +8,3 @@ const selandia_baru_manufaktur = {
   kayu: 189,
   pupuk: 84,
 };
-
-
-

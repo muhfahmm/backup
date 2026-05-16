@@ -12,6 +12,3 @@ const libya_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 73
   };
-
-
-

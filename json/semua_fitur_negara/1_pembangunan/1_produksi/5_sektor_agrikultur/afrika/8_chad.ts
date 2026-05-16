@@ -15,6 +15,3 @@ const chad_agrikultur = {
   kapas: 183,
   tembakau: 198,
 };
-
-
-

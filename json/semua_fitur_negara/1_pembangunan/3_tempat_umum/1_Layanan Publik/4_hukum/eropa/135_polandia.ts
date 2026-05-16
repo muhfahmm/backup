@@ -9,6 +9,3 @@ const polandia_hukum = {
       "indeks_korupsi": 59,
       "indeks_keamanan": 51
   };
-
-
-

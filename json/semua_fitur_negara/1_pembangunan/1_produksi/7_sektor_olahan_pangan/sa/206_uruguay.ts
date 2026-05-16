@@ -11,6 +11,3 @@ const uruguay_olahan_pangan = {
   ikan_kaleng: 86,
   kopi_teh: 22,
 };
-
-
-

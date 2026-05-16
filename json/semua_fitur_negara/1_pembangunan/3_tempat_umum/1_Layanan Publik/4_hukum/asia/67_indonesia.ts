@@ -9,6 +9,3 @@ const indonesia_hukum = {
       "indeks_korupsi": 70,
       "indeks_keamanan": 79
     };
-
-
-

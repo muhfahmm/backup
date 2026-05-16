@@ -6,6 +6,3 @@ const slovenia_kesehatan = {
       "harapan_hidup": 59,
       "indeks_kesehatan": 59
     };
-
-
-

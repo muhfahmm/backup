@@ -14,6 +14,3 @@ const indiaAgreements = [
   { "no": 12, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

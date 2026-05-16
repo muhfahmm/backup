@@ -14,6 +14,3 @@ const republik_rumaniaAgreements = [
   { "no": 12, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

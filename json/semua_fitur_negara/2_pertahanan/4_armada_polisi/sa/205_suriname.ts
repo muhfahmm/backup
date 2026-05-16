@@ -16,6 +16,3 @@ const suriname_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

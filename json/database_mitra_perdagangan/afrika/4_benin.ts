@@ -11,6 +11,3 @@ const beninAgreements = [
   { "no": 9, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

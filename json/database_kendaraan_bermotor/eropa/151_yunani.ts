@@ -5,6 +5,3 @@ const yunaniVehicles = {
   bus: 2146,
   truk: 10731,
 };
-
-
-

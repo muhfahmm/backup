@@ -5,6 +5,3 @@ const senegalVehicles = {
   bus: 3170,
   truk: 15854,
 };
-
-
-

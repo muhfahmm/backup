@@ -8,6 +8,3 @@ const kepulauan_faroe_manufaktur = {
   kayu: 4,
   pupuk: 9,
 };
-
-
-

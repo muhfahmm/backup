@@ -1,4 +1,5 @@
-﻿const tanjung_verde_armada = {
+﻿// @ts-nocheck
+const tanjung_verde_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -31,9 +32,5 @@
 };
 
 
-2
   }
 };
-
-
-

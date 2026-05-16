@@ -8,6 +8,3 @@ const seychelles_manufaktur = {
   kayu: 16,
   pupuk: 8,
 };
-
-
-

@@ -4,6 +4,3 @@ const republik_zambia_komersial = {
   "hotel": 3,
   "pusat_grosir_tekstil": 2
 };
-
-
-

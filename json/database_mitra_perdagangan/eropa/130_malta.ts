@@ -14,6 +14,3 @@ const maltaAgreements = [
   { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

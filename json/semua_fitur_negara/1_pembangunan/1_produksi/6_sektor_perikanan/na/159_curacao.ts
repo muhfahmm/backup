@@ -4,6 +4,3 @@ const curacao_perikanan = {
   mutiara: 46,
   ikan: 60,
 };
-
-
-

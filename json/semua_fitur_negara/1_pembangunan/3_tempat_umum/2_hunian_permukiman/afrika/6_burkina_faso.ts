@@ -5,6 +5,3 @@ const burkina_faso_hunian = {
   apartemen: 3999,
   mansion: 133322,
 };
-
-
-

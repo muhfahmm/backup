@@ -12,6 +12,3 @@ const oman_diplomasi = [
   { "no": 10, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

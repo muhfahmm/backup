@@ -4,6 +4,3 @@ const kepulauan_faroe_intelijen = {
   jaringan_radar: 4,
   operasi_siber: 4,
 };
-
-
-

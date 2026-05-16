@@ -6,6 +6,3 @@ const bahama_kesehatan = {
       "harapan_hidup": 61,
       "indeks_kesehatan": 69
     };
-
-
-

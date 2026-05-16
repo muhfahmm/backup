@@ -12,6 +12,3 @@ const moldovaAgreements = [
   { "no": 10, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

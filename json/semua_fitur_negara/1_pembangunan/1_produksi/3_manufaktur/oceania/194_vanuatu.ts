@@ -8,6 +8,3 @@ const vanuatu_manufaktur = {
   kayu: 8,
   pupuk: 8,
 };
-
-
-

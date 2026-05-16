@@ -9,6 +9,3 @@ const djibouti_infrastruktur = {
   bandara: 5,
   helipad: 4,
 };
-
-
-

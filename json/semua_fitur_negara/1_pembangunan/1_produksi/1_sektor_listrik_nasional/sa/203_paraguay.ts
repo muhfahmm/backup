@@ -7,6 +7,3 @@ const paraguay_listrik = {
   pembangkit_listrik_tenaga_gas: 100,
   pembangkit_listrik_tenaga_angin: 0,
 };
-
-
-

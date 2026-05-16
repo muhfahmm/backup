@@ -9,6 +9,3 @@ const yunani_hukum = {
       "indeks_korupsi": 53,
       "indeks_keamanan": 75
   };
-
-
-

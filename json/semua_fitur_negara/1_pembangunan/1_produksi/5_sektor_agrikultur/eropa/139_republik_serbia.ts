@@ -15,6 +15,3 @@ const republik_serbia_agrikultur = {
   kapas: 275,
   tembakau: 135,
 };
-
-
-

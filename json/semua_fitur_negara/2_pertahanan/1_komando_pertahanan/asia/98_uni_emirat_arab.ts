@@ -14,6 +14,3 @@ const uni_emirat_arab_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

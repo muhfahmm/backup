@@ -9,6 +9,3 @@ const mongolia_olahraga = {
   "esports": 5,
   "gokart": 11
 };
-
-
-

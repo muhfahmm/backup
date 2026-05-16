@@ -5,6 +5,3 @@ const senegal_hunian = {
   apartemen: 3210,
   mansion: 107016,
 };
-
-
-

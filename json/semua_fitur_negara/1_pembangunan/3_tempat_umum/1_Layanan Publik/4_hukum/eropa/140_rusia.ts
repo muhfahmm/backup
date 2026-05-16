@@ -9,6 +9,3 @@ const rusia_hukum = {
       "indeks_korupsi": 50,
       "indeks_keamanan": 73
   };
-
-
-

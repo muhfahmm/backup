@@ -6,6 +6,3 @@ const saint_vincent_dan_grenadine_kesehatan = {
       "harapan_hidup": 69,
       "indeks_kesehatan": 75
     };
-
-
-

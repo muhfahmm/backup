@@ -5,6 +5,3 @@ const sanMarinoVehicles = {
   bus: 6,
   truk: 33,
 };
-
-
-

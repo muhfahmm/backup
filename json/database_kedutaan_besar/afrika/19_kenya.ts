@@ -17,6 +17,3 @@ const kenya_diplomasi = [
   { "no": 15, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 16, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

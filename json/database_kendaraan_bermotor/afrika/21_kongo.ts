@@ -5,6 +5,3 @@ const kongoVehicles = {
   bus: 1048,
   truk: 5244,
 };
-
-
-

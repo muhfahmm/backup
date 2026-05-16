@@ -5,6 +5,3 @@ const gambia_peternakan = {
   sapi_potong: 24,
   domba_kambing: 38,
 };
-
-
-

@@ -20,6 +20,3 @@ const singapura_diplomasi = [
   { "no": 18, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

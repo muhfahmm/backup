@@ -9,6 +9,3 @@ const dominika_olahraga = {
   "esports": 1,
   "gokart": 2
 };
-
-
-

@@ -9,6 +9,3 @@ const armenia_hukum = {
       "indeks_korupsi": 17,
       "indeks_keamanan": 41
   };
-
-
-

@@ -16,6 +16,3 @@ const swedia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

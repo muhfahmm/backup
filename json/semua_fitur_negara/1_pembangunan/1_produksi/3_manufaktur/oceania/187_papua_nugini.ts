@@ -8,6 +8,3 @@ const papua_nugini_manufaktur = {
   kayu: 18,
   pupuk: 9,
 };
-
-
-

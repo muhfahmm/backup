@@ -26,74 +26,9 @@ const republik_demokratik_kongo_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
   }
-  };
-
-const republik_demokratik_kongo = {
-  ...republik_demokratik_kongo_profile,
-  "sektor_listrik": republik_demokratik_kongo_listrik,
-  "hunian": republik_demokratik_kongo_hunian,
-  "infrastruktur": republik_demokratik_kongo_infrastruktur,
-  "sektor_ekstraksi": republik_demokratik_kongo_ekstraksi,
-  "sektor_manufaktur": republik_demokratik_kongo_manufaktur,
-  "sektor_peternakan": republik_demokratik_kongo_peternakan,
-  "sektor_agrikultur": republik_demokratik_kongo_agrikultur,
-  "sektor_perikanan": republik_demokratik_kongo_perikanan,
-  "sektor_olahan_pangan": republik_demokratik_kongo_olahan_pangan,
-  "sektor_farmasi": republik_demokratik_kongo_farmasi,
-  "sektor_pertahanan": republik_demokratik_kongo_pertahanan,
-  "armada_militer": republik_demokratik_kongo_armada,
-  "militer_strategis": republik_demokratik_kongo_strategis,
-  "armada_kepolisian": republik_demokratik_kongo_kepolisian,
-  "pabrik_militer": republik_demokratik_kongo_pabrik,
-  "intelijen": republik_demokratik_kongo_intelijen,
-    "pendidikan": republik_demokratik_kongo_pendidikan,
-  "kesehatan": republik_demokratik_kongo_kesehatan,
-  "hukum": republik_demokratik_kongo_hukum,
-  "sektor_olahraga": republik_demokratik_kongo_olahraga,
-  "sektor_komersial": republik_demokratik_kongo_komersial,
-  "sektor_hiburan": republik_demokratik_kongo_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 29,
-      "kepuasan": 67,
-      "pendapatan": 50
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 49
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 23
-    },
-    "bea_cukai": {
-      "tarif": 32,
-      "kepuasan": 86,
-      "pendapatan": 54
-    },
-    "lingkungan": {
-      "tarif": 4,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 4 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 10 },
-    "lainnya": {
-      "tarif": 9,
-      "kepuasan": 93,
-      "pendapatan": 9
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_demokratik_kongo_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const republik_demokratik_kongo = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

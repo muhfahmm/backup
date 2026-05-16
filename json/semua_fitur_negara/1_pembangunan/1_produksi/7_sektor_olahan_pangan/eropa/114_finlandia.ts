@@ -11,6 +11,3 @@ const finlandia_olahan_pangan = {
   ikan_kaleng: 108,
   kopi_teh: 198,
 };
-
-
-

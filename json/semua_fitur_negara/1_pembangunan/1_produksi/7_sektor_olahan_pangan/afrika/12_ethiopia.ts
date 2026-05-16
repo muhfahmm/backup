@@ -11,6 +11,3 @@ const ethiopia_olahan_pangan = {
   ikan_kaleng: 486,
   kopi_teh: 576,
 };
-
-
-

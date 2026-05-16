@@ -9,6 +9,3 @@ const ghana_pertahanan = {
     "program_luar_angkasa": 33,
     "pertahanan_siber": 18
     };
-
-
-

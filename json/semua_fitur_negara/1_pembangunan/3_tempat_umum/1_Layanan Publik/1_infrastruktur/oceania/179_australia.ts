@@ -9,6 +9,3 @@ const australia_infrastruktur = {
   bandara: 32,
   helipad: 16,
 };
-
-
-

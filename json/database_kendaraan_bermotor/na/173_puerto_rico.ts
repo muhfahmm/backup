@@ -5,6 +5,3 @@ const puertoRicoVehicles = {
   bus: 639,
   truk: 3195,
 };
-
-
-

@@ -11,6 +11,3 @@ const somalia_olahan_pangan = {
   ikan_kaleng: 105,
   kopi_teh: 87,
 };
-
-
-

@@ -9,6 +9,3 @@ const greenland_olahraga = {
   "esports": 3,
   "gokart": 8
 };
-
-
-

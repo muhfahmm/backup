@@ -9,6 +9,3 @@ const luksemburg_hukum = {
       "indeks_korupsi": 14,
       "indeks_keamanan": 46
   };
-
-
-

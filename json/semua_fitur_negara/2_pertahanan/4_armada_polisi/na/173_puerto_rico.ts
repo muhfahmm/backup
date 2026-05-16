@@ -16,6 +16,3 @@ const puerto_rico_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

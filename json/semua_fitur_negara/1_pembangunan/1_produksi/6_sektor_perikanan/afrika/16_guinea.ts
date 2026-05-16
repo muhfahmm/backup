@@ -4,6 +4,3 @@ const guinea_perikanan = {
   mutiara: 34,
   ikan: 20,
 };
-
-
-

@@ -5,6 +5,3 @@ const saint_kitts_dan_nevis_hunian = {
   apartemen: 10,
   mansion: 353,
 };
-
-
-

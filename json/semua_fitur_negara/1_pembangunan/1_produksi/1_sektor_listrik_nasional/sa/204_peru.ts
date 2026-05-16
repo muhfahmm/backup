@@ -7,6 +7,3 @@ const peru_listrik = {
   pembangkit_listrik_tenaga_gas: 149,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

@@ -9,6 +9,3 @@ const eswatini_infrastruktur = {
   bandara: 5,
   helipad: 1,
 };
-
-
-

@@ -11,6 +11,3 @@ const inggris_olahan_pangan = {
   ikan_kaleng: 6600,
   kopi_teh: 13200,
 };
-
-
-

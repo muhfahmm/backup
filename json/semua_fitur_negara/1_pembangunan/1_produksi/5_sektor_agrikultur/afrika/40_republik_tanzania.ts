@@ -15,6 +15,3 @@ const republik_tanzania_agrikultur = {
   kapas: 198,
   tembakau: 81,
 };
-
-
-

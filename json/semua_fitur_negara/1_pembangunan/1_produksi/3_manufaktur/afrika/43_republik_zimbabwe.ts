@@ -8,6 +8,3 @@ const republik_zimbabwe_manufaktur = {
   kayu: 26,
   pupuk: 12,
 };
-
-
-

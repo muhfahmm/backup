@@ -12,6 +12,3 @@ const irlandiaAgreements = [
   { "no": 10, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

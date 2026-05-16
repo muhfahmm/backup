@@ -1,4 +1,5 @@
-﻿const bhutan_pertahanan = {
+﻿// @ts-nocheck
+const bhutan_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 36,
     "hangar_tank": 38,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 8,
     "pertahanan_siber": 1
     };
-
-

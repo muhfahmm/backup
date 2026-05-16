@@ -8,6 +8,3 @@ const israel_manufaktur = {
   kayu: 315,
   pupuk: 441,
 };
-
-
-

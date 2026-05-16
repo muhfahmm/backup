@@ -5,6 +5,3 @@ const china_hunian = {
   apartemen: 282027,
   mansion: 9400927,
 };
-
-
-

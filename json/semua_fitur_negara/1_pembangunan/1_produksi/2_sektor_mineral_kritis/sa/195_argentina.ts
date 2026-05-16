@@ -13,6 +13,3 @@ const argentina_ekstraksi = {
   logam_tanah_jarang: 144,
   bijih_besi: 48,
 };
-
-
-

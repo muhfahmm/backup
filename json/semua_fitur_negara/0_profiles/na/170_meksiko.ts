@@ -26,74 +26,9 @@ const meksiko_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
-
-const meksiko = {
-  ...meksiko_profile,
-  "sektor_listrik": meksiko_listrik,
-  "hunian": meksiko_hunian,
-  "infrastruktur": meksiko_infrastruktur,
-  "sektor_ekstraksi": meksiko_ekstraksi,
-  "sektor_manufaktur": meksiko_manufaktur,
-  "sektor_peternakan": meksiko_peternakan,
-  "sektor_agrikultur": meksiko_agrikultur,
-  "sektor_perikanan": meksiko_perikanan,
-  "sektor_olahan_pangan": meksiko_olahan_pangan,
-  "sektor_farmasi": meksiko_farmasi,
-  "sektor_pertahanan": meksiko_pertahanan,
-  "armada_militer": meksiko_armada,
-  "militer_strategis": meksiko_strategis,
-  "armada_kepolisian": meksiko_kepolisian,
-  "pabrik_militer": meksiko_pabrik,
-  "intelijen": meksiko_intelijen,
-    "pendidikan": meksiko_pendidikan,
-  "kesehatan": meksiko_kesehatan,
-  "hukum": meksiko_hukum,
-  "sektor_olahraga": meksiko_olahraga,
-  "sektor_komersial": meksiko_komersial,
-  "sektor_hiburan": meksiko_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 17,
-      "kepuasan": 67,
-      "pendapatan": 630
-    },
-    "korporasi": {
-      "tarif": 37,
-      "kepuasan": 52,
-      "pendapatan": 1548
-    },
-    "penghasilan": {
-      "tarif": 30,
-      "kepuasan": 61,
-      "pendapatan": 1054
-    },
-    "bea_cukai": {
-      "tarif": 7,
-      "kepuasan": 86,
-      "pendapatan": 309
-    },
-    "lingkungan": {
-      "tarif": 9,
-      "kepuasan": 88,
-      "pendapatan": 264
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 88 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 262 },
-    "lainnya": {
-      "tarif": 10,
-      "kepuasan": 93,
-      "pendapatan": 497
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const meksiko_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const meksiko = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

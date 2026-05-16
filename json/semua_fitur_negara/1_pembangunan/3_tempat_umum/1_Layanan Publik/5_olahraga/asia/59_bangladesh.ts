@@ -9,6 +9,3 @@ const bangladesh_olahraga = {
   "esports": 16,
   "gokart": 17
 };
-
-
-

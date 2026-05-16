@@ -7,6 +7,3 @@ const singapura_listrik = {
   pembangkit_listrik_tenaga_gas: 1040,
   pembangkit_listrik_tenaga_angin: 3,
 };
-
-
-

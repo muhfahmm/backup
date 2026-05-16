@@ -30,6 +30,3 @@ const hong_kong_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

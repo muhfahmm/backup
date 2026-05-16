@@ -9,6 +9,3 @@ const kolombia_infrastruktur = {
   bandara: 6,
   helipad: 9,
 };
-
-
-

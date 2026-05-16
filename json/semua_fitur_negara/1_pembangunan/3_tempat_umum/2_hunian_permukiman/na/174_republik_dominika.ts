@@ -5,6 +5,3 @@ const republik_dominika_hunian = {
   apartemen: 2152,
   mansion: 71733,
 };
-
-
-

@@ -9,6 +9,3 @@ const suriah_hukum = {
       "indeks_korupsi": 11,
       "indeks_keamanan": 53
   };
-
-
-

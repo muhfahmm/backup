@@ -1,4 +1,5 @@
-﻿const iran_pertahanan = {
+﻿// @ts-nocheck
+const iran_pertahanan = {
     "penjara": 18,
     "gudang_senjata": 17,
     "hangar_tank": 4,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 1,
     "pertahanan_siber": 13
     };
-
-

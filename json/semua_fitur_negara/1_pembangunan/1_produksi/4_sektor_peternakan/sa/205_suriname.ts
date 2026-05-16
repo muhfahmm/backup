@@ -5,6 +5,3 @@ const suriname_peternakan = {
   sapi_potong: 58,
   domba_kambing: 50,
 };
-
-
-

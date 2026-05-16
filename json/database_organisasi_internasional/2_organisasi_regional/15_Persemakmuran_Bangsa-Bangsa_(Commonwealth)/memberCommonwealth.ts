@@ -1,38 +1,3 @@
 ﻿// @ts-nocheck
 const members = [
-  "afrika selatan",
-  "australia",
-  "bahama",
-  "bangladesh",
-  "barbados",
-  "belize",
-  "botswana",
-  "fiji",
-  "ghana",
-  "guyana",
-  "india",
-  "inggris",
-  "jamaika",
-  "kamerun",
-  "kanada",
-  "kenya",
-  "malaysia",
-  "malta",
-  "mauritius",
-  "mozambik",
-  "namibia",
-  "nigeria",
-  "pakistan",
-  "papua nugini",
-  "rwanda",
-  "samoa",
-  "selandia baru",
-  "singapura",
-  "sri lanka",
-  "tonga",
-  "trinidad dan tobago",
-  "vanuatu"
 ];
-
-
-

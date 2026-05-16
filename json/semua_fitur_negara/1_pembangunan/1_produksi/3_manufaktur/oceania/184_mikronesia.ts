@@ -8,6 +8,3 @@ const mikronesia_manufaktur = {
   kayu: 52,
   pupuk: 40,
 };
-
-
-

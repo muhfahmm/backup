@@ -8,6 +8,3 @@ const rusia_manufaktur = {
   kayu: 1890,
   pupuk: 1323,
 };
-
-
-

@@ -4,6 +4,3 @@ const mikronesia_perikanan = {
   mutiara: 152,
   ikan: 148,
 };
-
-
-

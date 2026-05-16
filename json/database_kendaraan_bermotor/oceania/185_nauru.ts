@@ -5,6 +5,3 @@ const nauruVehicles = {
   bus: 2,
   truk: 12,
 };
-
-
-

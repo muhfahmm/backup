@@ -14,6 +14,3 @@ const tuvalu_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

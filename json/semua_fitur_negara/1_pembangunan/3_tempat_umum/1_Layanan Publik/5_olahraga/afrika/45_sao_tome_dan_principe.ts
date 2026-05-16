@@ -9,6 +9,3 @@ const sao_tome_dan_principe_olahraga = {
   "esports": 5,
   "gokart": 2
 };
-
-
-

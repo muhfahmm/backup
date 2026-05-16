@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const dominika_strategis = {
     "waktu_respon": 2,
     "intelijen": 16,
@@ -13,5 +14,3 @@ const dominika_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

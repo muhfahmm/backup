@@ -30,6 +30,3 @@ const libya_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

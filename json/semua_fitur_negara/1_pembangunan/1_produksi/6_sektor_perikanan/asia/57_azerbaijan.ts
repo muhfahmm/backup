@@ -4,6 +4,3 @@ const azerbaijan_perikanan = {
   mutiara: 36,
   ikan: 42,
 };
-
-
-

@@ -2,6 +2,3 @@
 const tajikistan_farmasi = {
   farmasi: 6,
 };
-
-
-

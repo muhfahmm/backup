@@ -4,6 +4,3 @@ const gambia_perikanan = {
   mutiara: 14,
   ikan: 36,
 };
-
-
-

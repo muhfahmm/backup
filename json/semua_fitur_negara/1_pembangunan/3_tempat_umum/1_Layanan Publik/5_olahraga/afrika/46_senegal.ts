@@ -9,6 +9,3 @@ const senegal_olahraga = {
   "esports": 4,
   "gokart": 10
 };
-
-
-

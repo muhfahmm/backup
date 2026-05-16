@@ -5,6 +5,3 @@ const brunei_hunian = {
   apartemen: 86,
   mansion: 2895,
 };
-
-
-

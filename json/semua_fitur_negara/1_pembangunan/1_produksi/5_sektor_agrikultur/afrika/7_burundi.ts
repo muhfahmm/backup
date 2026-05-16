@@ -15,6 +15,3 @@ const burundi_agrikultur = {
   kapas: 116,
   tembakau: 46,
 };
-
-
-

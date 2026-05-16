@@ -9,6 +9,3 @@ const republik_sudan_hukum = {
       "indeks_korupsi": 28,
       "indeks_keamanan": 54
   };
-
-
-

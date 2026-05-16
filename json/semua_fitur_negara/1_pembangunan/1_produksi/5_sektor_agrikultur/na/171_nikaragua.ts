@@ -15,6 +15,3 @@ const nikaragua_agrikultur = {
   kapas: 32,
   tembakau: 19,
 };
-
-
-

@@ -10,6 +10,3 @@ const lebanonAgreements = [
   { "no": 8, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

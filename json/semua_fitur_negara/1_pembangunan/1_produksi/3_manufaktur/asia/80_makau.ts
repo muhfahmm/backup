@@ -8,6 +8,3 @@ const makau_manufaktur = {
   kayu: 60,
   pupuk: 8,
 };
-
-
-

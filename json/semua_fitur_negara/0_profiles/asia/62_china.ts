@@ -26,74 +26,9 @@ const china_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
-
-const china = {
-  ...china_profile,
-  "sektor_listrik": china_listrik,
-  "hunian": china_hunian,
-  "infrastruktur": china_infrastruktur,
-  "sektor_ekstraksi": china_ekstraksi,
-  "sektor_manufaktur": china_manufaktur,
-  "sektor_peternakan": china_peternakan,
-  "sektor_agrikultur": china_agrikultur,
-  "sektor_perikanan": china_perikanan,
-  "sektor_olahan_pangan": china_olahan_pangan,
-  "sektor_farmasi": china_farmasi,
-  "sektor_pertahanan": china_pertahanan,
-  "armada_militer": china_armada,
-  "militer_strategis": china_strategis,
-  "armada_kepolisian": china_kepolisian,
-  "pabrik_militer": china_pabrik,
-  "intelijen": china_intelijen,
-    "pendidikan": china_pendidikan,
-  "kesehatan": china_kesehatan,
-  "hukum": china_hukum,
-  "sektor_olahraga": china_olahraga,
-  "sektor_komersial": china_komersial,
-  "sektor_hiburan": china_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 24,
-      "kepuasan": 67,
-      "pendapatan": 7003
-    },
-    "korporasi": {
-      "tarif": 1,
-      "kepuasan": 52,
-      "pendapatan": 367
-    },
-    "penghasilan": {
-      "tarif": 6,
-      "kepuasan": 61,
-      "pendapatan": 2324
-    },
-    "bea_cukai": {
-      "tarif": 35,
-      "kepuasan": 86,
-      "pendapatan": 14341
-    },
-    "lingkungan": {
-      "tarif": 23,
-      "kepuasan": 88,
-      "pendapatan": 5242
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 901 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2703 },
-    "lainnya": {
-      "tarif": 12,
-      "kepuasan": 93,
-      "pendapatan": 5219
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const china_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const china = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

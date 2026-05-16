@@ -9,6 +9,3 @@ const nikaragua_olahraga = {
   "esports": 3,
   "gokart": 2
 };
-
-
-

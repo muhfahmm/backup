@@ -4,6 +4,3 @@ const saint_lucia_perikanan = {
   mutiara: 9,
   ikan: 24,
 };
-
-
-

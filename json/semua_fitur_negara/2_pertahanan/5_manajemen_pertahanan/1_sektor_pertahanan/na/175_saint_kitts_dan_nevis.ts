@@ -9,6 +9,3 @@ const saint_kitts_dan_nevis_pertahanan = {
     "program_luar_angkasa": 14,
     "pertahanan_siber": 19
     };
-
-
-

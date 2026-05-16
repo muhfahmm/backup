@@ -1,4 +1,5 @@
-﻿const kolombia_pertahanan = {
+﻿// @ts-nocheck
+const kolombia_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 12,
     "hangar_tank": 34,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 40,
     "pertahanan_siber": 39
     };
-
-

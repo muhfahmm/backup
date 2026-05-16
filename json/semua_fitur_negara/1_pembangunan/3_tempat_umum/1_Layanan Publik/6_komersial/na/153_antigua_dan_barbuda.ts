@@ -4,6 +4,3 @@ const antigua_dan_barbuda_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 0
 };
-
-
-

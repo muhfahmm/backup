@@ -6,6 +6,3 @@ const lesotho_kesehatan = {
       "harapan_hidup": 62,
       "indeks_kesehatan": 51
   };
-
-
-

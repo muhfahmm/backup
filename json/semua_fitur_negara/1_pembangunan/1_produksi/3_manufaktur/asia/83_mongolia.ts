@@ -8,6 +8,3 @@ const mongolia_manufaktur = {
   kayu: 36,
   pupuk: 8,
 };
-
-
-

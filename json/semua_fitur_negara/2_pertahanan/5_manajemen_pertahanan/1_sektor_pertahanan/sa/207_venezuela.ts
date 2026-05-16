@@ -9,6 +9,3 @@ const venezuela_pertahanan = {
     "program_luar_angkasa": 32,
     "pertahanan_siber": 11
     };
-
-
-

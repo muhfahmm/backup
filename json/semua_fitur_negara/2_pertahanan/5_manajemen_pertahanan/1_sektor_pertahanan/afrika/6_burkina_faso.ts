@@ -9,6 +9,3 @@ const burkina_faso_pertahanan = {
     "program_luar_angkasa": 18,
     "pertahanan_siber": 21
     };
-
-
-

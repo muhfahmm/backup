@@ -5,6 +5,3 @@ const afganistan_hunian = {
   apartemen: 7527,
   mansion: 250913,
 };
-
-
-

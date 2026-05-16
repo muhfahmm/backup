@@ -9,6 +9,3 @@ const somalia_hukum = {
       "indeks_korupsi": 33,
       "indeks_keamanan": 62
   };
-
-
-

@@ -9,6 +9,3 @@ const spanyol_pertahanan = {
     "program_luar_angkasa": 4,
     "pertahanan_siber": 35
     };
-
-
-

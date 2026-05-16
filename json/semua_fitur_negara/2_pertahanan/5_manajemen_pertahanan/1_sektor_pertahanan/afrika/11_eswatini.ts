@@ -9,6 +9,3 @@ const eswatini_pertahanan = {
     "program_luar_angkasa": 16,
     "pertahanan_siber": 6
     };
-
-
-

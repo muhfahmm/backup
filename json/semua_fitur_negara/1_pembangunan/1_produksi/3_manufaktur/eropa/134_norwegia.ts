@@ -8,6 +8,3 @@ const norwegia_manufaktur = {
   kayu: 140,
   pupuk: 160,
 };
-
-
-

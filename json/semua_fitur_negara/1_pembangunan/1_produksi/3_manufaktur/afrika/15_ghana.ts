@@ -8,6 +8,3 @@ const ghana_manufaktur = {
   kayu: 105,
   pupuk: 35,
 };
-
-
-

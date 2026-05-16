@@ -5,6 +5,3 @@ const barbados_hunian = {
   apartemen: 58,
   mansion: 1934,
 };
-
-
-

@@ -15,6 +15,3 @@ const costa_rica_agrikultur = {
   kapas: 201,
   tembakau: 237,
 };
-
-
-

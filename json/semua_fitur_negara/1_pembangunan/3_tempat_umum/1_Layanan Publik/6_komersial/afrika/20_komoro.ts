@@ -4,6 +4,3 @@ const komoro_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 0
 };
-
-
-

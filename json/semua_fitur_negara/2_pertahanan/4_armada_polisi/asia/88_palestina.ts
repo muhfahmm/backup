@@ -16,6 +16,3 @@ const palestina_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

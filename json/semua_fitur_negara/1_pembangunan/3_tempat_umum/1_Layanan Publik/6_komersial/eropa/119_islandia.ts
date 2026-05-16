@@ -4,6 +4,3 @@ const islandia_komersial = {
   "hotel": 11,
   "pusat_grosir_tekstil": 2
 };
-
-
-

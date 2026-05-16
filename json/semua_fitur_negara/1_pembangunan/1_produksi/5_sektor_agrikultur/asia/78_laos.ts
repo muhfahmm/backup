@@ -15,6 +15,3 @@ const laos_agrikultur = {
   kapas: 156,
   tembakau: 108,
 };
-
-
-

@@ -5,6 +5,3 @@ const honduras_peternakan = {
   sapi_potong: 87,
   domba_kambing: 108,
 };
-
-
-

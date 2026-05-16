@@ -5,6 +5,3 @@ const guineaBissauVehicles = {
   bus: 374,
   truk: 1874,
 };
-
-
-

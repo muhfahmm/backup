@@ -16,6 +16,3 @@ const hong_kong_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

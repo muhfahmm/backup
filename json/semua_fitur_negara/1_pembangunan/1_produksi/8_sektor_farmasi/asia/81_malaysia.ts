@@ -2,6 +2,3 @@
 const malaysia_farmasi = {
   farmasi: 18,
 };
-
-
-

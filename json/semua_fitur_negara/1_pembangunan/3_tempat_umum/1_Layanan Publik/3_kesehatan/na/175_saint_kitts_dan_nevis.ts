@@ -6,6 +6,3 @@ const saint_kitts_dan_nevis_kesehatan = {
       "harapan_hidup": 69,
       "indeks_kesehatan": 62
     };
-
-
-

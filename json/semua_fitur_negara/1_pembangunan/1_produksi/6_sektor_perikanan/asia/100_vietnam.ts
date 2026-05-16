@@ -4,6 +4,3 @@ const vietnam_perikanan = {
   mutiara: 2312,
   ikan: 816,
 };
-
-
-

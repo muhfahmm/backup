@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bahrain_strategis = {
     "waktu_respon": 36,
     "intelijen": 37,
@@ -13,5 +14,3 @@ const bahrain_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

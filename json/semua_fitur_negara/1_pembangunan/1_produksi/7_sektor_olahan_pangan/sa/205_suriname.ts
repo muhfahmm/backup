@@ -11,6 +11,3 @@ const suriname_olahan_pangan = {
   ikan_kaleng: 56,
   kopi_teh: 74,
 };
-
-
-

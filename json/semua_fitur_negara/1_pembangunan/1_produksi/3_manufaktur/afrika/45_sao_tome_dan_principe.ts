@@ -8,6 +8,3 @@ const sao_tome_dan_principe_manufaktur = {
   kayu: 40,
   pupuk: 28,
 };
-
-
-

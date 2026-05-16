@@ -9,6 +9,3 @@ const selandia_baru_olahraga = {
   "esports": 13,
   "gokart": 35
 };
-
-
-

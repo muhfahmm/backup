@@ -5,6 +5,3 @@ const slowakia_hunian = {
   apartemen: 1102,
   mansion: 36765,
 };
-
-
-

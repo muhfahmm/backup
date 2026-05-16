@@ -7,6 +7,3 @@ const papua_nugini_listrik = {
   pembangkit_listrik_tenaga_gas: 20,
   pembangkit_listrik_tenaga_angin: 3,
 };
-
-
-

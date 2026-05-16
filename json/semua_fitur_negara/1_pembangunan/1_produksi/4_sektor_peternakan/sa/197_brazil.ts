@@ -5,6 +5,3 @@ const brazil_peternakan = {
   sapi_potong: 6402,
   domba_kambing: 11931,
 };
-
-
-

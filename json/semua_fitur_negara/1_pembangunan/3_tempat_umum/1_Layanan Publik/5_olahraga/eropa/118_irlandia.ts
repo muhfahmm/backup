@@ -9,6 +9,3 @@ const irlandia_olahraga = {
   "esports": 10,
   "gokart": 31
 };
-
-
-

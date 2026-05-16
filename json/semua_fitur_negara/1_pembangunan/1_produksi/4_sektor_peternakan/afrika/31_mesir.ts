@@ -5,6 +5,3 @@ const mesir_peternakan = {
   sapi_potong: 2303,
   domba_kambing: 2350,
 };
-
-
-

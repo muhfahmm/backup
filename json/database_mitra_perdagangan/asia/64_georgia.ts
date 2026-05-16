@@ -11,6 +11,3 @@ const georgiaAgreements = [
   { "no": 9, "mitra": "Indonesia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Thailand", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

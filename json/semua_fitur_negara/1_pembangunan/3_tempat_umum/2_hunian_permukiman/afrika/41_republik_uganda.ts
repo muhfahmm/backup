@@ -5,6 +5,3 @@ const republik_uganda_hunian = {
   apartemen: 8651,
   mansion: 288381,
 };
-
-
-

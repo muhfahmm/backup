@@ -8,6 +8,3 @@ const venezuela_manufaktur = {
   kayu: 72,
   pupuk: 56,
 };
-
-
-

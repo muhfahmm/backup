@@ -2,6 +2,3 @@
 const curacao_farmasi = {
   farmasi: 31,
 };
-
-
-

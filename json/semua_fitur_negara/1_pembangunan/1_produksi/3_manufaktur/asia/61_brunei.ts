@@ -8,6 +8,3 @@ const brunei_manufaktur = {
   kayu: 36,
   pupuk: 21,
 };
-
-
-

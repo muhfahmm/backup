@@ -5,6 +5,3 @@ const costaRicaVehicles = {
   bus: 999,
   truk: 4999,
 };
-
-
-

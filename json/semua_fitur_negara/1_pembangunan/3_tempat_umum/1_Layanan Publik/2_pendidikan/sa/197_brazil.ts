@@ -12,6 +12,3 @@ const brazil_pendidikan = {
       "pusat_pengembangan": 18,
       "literasi": 87
     };
-
-
-

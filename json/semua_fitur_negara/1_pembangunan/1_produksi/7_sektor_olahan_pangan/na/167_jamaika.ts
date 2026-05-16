@@ -11,6 +11,3 @@ const jamaika_olahan_pangan = {
   ikan_kaleng: 48,
   kopi_teh: 196,
 };
-
-
-

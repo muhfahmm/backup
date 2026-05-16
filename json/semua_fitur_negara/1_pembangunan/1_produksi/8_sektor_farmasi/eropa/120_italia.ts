@@ -2,6 +2,3 @@
 const italia_farmasi = {
   farmasi: 35,
 };
-
-
-

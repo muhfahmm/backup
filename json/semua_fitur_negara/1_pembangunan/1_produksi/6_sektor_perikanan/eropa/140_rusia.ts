@@ -4,6 +4,3 @@ const rusia_perikanan = {
   mutiara: 5103,
   ikan: 4914,
 };
-
-
-

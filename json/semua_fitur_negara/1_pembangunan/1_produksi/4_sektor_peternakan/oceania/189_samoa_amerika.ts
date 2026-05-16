@@ -5,6 +5,3 @@ const samoa_amerika_peternakan = {
   sapi_potong: 22,
   domba_kambing: 46,
 };
-
-
-

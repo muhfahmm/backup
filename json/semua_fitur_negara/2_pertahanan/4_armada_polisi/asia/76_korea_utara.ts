@@ -16,6 +16,3 @@ const korea_utara_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

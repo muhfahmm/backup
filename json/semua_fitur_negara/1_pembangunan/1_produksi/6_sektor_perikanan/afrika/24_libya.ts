@@ -4,6 +4,3 @@ const libya_perikanan = {
   mutiara: 182,
   ikan: 203,
 };
-
-
-

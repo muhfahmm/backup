@@ -15,6 +15,3 @@ const hong_kong_agrikultur = {
   kapas: 11,
   tembakau: 76,
 };
-
-
-

@@ -14,6 +14,3 @@ const israel_strategis = {
       "misil_nuklir": 90
     }
   };
-
-
-

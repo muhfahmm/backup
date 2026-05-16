@@ -15,6 +15,3 @@ const siprus_agrikultur = {
   kapas: 140,
   tembakau: 172,
 };
-
-
-

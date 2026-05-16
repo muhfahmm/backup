@@ -8,6 +8,3 @@ const komoro_manufaktur = {
   kayu: 44,
   pupuk: 24,
 };
-
-
-

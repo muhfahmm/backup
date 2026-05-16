@@ -14,6 +14,3 @@ const jepang_diplomasi = [
   { "no": 12, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

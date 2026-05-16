@@ -4,6 +4,3 @@ const guam_perikanan = {
   mutiara: 74,
   ikan: 14,
 };
-
-
-

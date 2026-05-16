@@ -12,6 +12,3 @@ const curacaoAgreements = [
   { "no": 10, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

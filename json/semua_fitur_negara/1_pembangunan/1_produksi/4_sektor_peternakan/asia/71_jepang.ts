@@ -5,6 +5,3 @@ const jepang_peternakan = {
   sapi_potong: 4998,
   domba_kambing: 7378,
 };
-
-
-

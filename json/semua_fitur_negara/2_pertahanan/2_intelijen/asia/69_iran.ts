@@ -4,6 +4,3 @@ const iran_intelijen = {
   jaringan_radar: 19,
   operasi_siber: 15,
 };
-
-
-

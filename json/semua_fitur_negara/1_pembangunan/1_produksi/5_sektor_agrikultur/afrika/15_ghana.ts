@@ -15,6 +15,3 @@ const ghana_agrikultur = {
   kapas: 518,
   tembakau: 301,
 };
-
-
-

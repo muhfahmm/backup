@@ -4,6 +4,3 @@ const benin_komersial = {
   "hotel": 11,
   "pusat_grosir_tekstil": 3
 };
-
-
-

@@ -13,6 +13,3 @@ const italia_ekstraksi = {
   logam_tanah_jarang: 1389,
   bijih_besi: 3241,
 };
-
-
-

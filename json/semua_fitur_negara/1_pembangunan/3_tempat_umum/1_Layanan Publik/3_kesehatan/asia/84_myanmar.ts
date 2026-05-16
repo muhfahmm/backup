@@ -6,6 +6,3 @@ const myanmar_kesehatan = {
       "harapan_hidup": 57,
       "indeks_kesehatan": 50
     };
-
-
-

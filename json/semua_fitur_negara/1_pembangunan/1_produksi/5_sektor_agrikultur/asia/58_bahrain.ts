@@ -15,6 +15,3 @@ const bahrain_agrikultur = {
   kapas: 632,
   tembakau: 136,
 };
-
-
-

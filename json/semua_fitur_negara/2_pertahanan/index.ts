@@ -1,14 +1,5 @@
 ﻿// @ts-nocheck
-export * from "./1_komando_pertahanan";
-export * from "./2_intelijen";
-export * from "./3_armada_militer";
-export * from "./4_armada_polisi";
-export * from "./5_manajemen_pertahanan";
 
-export type { SektorMiliterStrategis } from "./1_komando_pertahanan";
-export type { SektorArmadaMiliter } from "./3_armada_militer";
-export type { SektorArmadaKepolisian } from "./4_armada_polisi";
-export type { SektorPertahanan } from "./5_manajemen_pertahanan";
 
 const produksiMiliter = [
   // 1. Strategis & Intelijen (Intelijen)
@@ -27,6 +18,3 @@ const produksiMiliter = [
   { key: "cctv_network", category: "Polisi", label: "Network CCTV", deskripsi: "Surveillance", biaya_pembangunan: 7, waktu_pembangunan: 30 },
   { key: "forensik", category: "Polisi", label: "Pusat Forensik", deskripsi: "Identifikasi", biaya_pembangunan: 22, waktu_pembangunan: 90 }
 ];
-
-
-

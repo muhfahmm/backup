@@ -8,6 +8,3 @@ const finlandia_manufaktur = {
   kayu: 63,
   pupuk: 72,
 };
-
-
-

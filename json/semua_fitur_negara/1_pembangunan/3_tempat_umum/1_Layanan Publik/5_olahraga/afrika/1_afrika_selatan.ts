@@ -9,6 +9,3 @@ const afrika_selatan_olahraga = {
   "esports": 13,
   "gokart": 11
 };
-
-
-

@@ -15,6 +15,3 @@ const ekuador_agrikultur = {
   kapas: 630,
   tembakau: 870,
 };
-
-
-

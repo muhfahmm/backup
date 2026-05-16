@@ -26,74 +26,9 @@ const azerbaijan_geopolitik = {
       "kekuatan_keras": 40,
       "prestise_diplomatik": 57
     }
-  };
-
-const azerbaijan = {
-  ...azerbaijan_profile,
-  "sektor_listrik": azerbaijan_listrik,
-  "hunian": azerbaijan_hunian,
-  "infrastruktur": azerbaijan_infrastruktur,
-  "sektor_ekstraksi": azerbaijan_ekstraksi,
-  "sektor_manufaktur": azerbaijan_manufaktur,
-  "sektor_peternakan": azerbaijan_peternakan,
-  "sektor_agrikultur": azerbaijan_agrikultur,
-  "sektor_perikanan": azerbaijan_perikanan,
-  "sektor_olahan_pangan": azerbaijan_olahan_pangan,
-  "sektor_farmasi": azerbaijan_farmasi,
-  "sektor_pertahanan": azerbaijan_pertahanan,
-  "armada_militer": azerbaijan_armada,
-  "militer_strategis": azerbaijan_strategis,
-  "armada_kepolisian": azerbaijan_kepolisian,
-  "pabrik_militer": azerbaijan_pabrik,
-  "intelijen": azerbaijan_intelijen,
-    "pendidikan": azerbaijan_pendidikan,
-  "kesehatan": azerbaijan_kesehatan,
-  "hukum": azerbaijan_hukum,
-  "sektor_olahraga": azerbaijan_olahraga,
-  "sektor_komersial": azerbaijan_komersial,
-  "sektor_hiburan": azerbaijan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 34,
-      "kepuasan": 67,
-      "pendapatan": 44
-    },
-    "korporasi": {
-      "tarif": 2,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 28
-    },
-    "bea_cukai": {
-      "tarif": 7,
-      "kepuasan": 86,
-      "pendapatan": 10
-    },
-    "lingkungan": {
-      "tarif": 11,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 9 },
-    "lainnya": {
-      "tarif": 19,
-      "kepuasan": 93,
-      "pendapatan": 19
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const azerbaijan_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const azerbaijan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

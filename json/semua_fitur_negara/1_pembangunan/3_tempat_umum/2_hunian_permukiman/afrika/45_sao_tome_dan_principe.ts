@@ -5,6 +5,3 @@ const sao_tome_dan_principe_hunian = {
   apartemen: 42,
   mansion: 1424,
 };
-
-
-

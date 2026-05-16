@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const republik_serbia_strategis = {
     "waktu_respon": 28,
     "intelijen": 33,
@@ -13,5 +14,3 @@ const republik_serbia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

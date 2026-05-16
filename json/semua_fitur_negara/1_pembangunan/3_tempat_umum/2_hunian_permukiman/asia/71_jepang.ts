@@ -5,6 +5,3 @@ const jepang_hunian = {
   apartemen: 25622,
   mansion: 854071,
 };
-
-
-

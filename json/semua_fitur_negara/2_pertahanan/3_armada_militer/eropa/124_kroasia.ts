@@ -30,6 +30,3 @@ const kroasia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

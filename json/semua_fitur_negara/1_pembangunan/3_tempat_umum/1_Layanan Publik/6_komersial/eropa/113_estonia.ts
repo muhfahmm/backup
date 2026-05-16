@@ -4,6 +4,3 @@ const estonia_komersial = {
   "hotel": 11,
   "pusat_grosir_tekstil": 4
 };
-
-
-

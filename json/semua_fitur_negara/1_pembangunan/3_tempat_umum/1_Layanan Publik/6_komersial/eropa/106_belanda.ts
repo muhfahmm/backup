@@ -4,6 +4,3 @@ const belanda_komersial = {
   "hotel": 188,
   "pusat_grosir_tekstil": 58
 };
-
-
-

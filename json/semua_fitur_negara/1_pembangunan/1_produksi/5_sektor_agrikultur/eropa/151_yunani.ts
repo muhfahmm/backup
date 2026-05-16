@@ -15,6 +15,3 @@ const yunani_agrikultur = {
   kapas: 640,
   tembakau: 170,
 };
-
-
-

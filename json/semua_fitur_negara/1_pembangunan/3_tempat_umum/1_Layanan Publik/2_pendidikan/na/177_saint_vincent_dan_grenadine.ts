@@ -12,6 +12,3 @@ const saint_vincent_dan_grenadine_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 65
     };
-
-
-

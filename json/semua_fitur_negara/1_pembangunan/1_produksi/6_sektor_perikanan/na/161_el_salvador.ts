@@ -4,6 +4,3 @@ const el_salvador_perikanan = {
   mutiara: 110,
   ikan: 140,
 };
-
-
-

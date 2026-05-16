@@ -13,6 +13,3 @@ const islandiaAgreements = [
   { "no": 11, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

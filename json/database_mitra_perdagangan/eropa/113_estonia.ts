@@ -14,6 +14,3 @@ const estoniaAgreements = [
   { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

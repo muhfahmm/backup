@@ -15,6 +15,3 @@ const uruguay_agrikultur = {
   kapas: 38,
   tembakau: 142,
 };
-
-
-

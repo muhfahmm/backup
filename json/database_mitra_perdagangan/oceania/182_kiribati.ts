@@ -13,6 +13,3 @@ const kiribatiAgreements = [
   { "no": 11, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

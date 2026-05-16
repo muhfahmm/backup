@@ -6,6 +6,3 @@ const burkina_faso_kesehatan = {
       "harapan_hidup": 60,
       "indeks_kesehatan": 57
   };
-
-
-

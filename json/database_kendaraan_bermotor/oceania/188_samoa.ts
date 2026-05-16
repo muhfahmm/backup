@@ -5,6 +5,3 @@ const samoaVehicles = {
   bus: 39,
   truk: 196,
 };
-
-
-

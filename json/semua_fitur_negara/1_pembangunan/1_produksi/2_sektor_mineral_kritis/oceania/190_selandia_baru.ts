@@ -13,6 +13,3 @@ const selandia_baru_ekstraksi = {
   logam_tanah_jarang: 63,
   bijih_besi: 0,
 };
-
-
-

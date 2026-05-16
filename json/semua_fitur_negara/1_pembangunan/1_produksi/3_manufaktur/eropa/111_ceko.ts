@@ -8,6 +8,3 @@ const ceko_manufaktur = {
   kayu: 92,
   pupuk: 46,
 };
-
-
-

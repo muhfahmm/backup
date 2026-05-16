@@ -13,6 +13,3 @@ const eswatini_diplomasi = [
   { "no": 11, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

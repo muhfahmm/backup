@@ -8,6 +8,3 @@ const turkmenistan_manufaktur = {
   kayu: 20,
   pupuk: 16,
 };
-
-
-

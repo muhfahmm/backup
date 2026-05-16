@@ -12,6 +12,3 @@ const malaysia_pendidikan = {
       "pusat_pengembangan": 10,
       "literasi": 86
     };
-
-
-

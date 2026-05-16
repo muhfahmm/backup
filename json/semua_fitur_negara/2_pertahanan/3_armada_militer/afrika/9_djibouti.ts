@@ -30,6 +30,3 @@ const djibouti_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

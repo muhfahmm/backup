@@ -11,6 +11,3 @@ const malaysia_olahan_pangan = {
   ikan_kaleng: 1296,
   kopi_teh: 828,
 };
-
-
-

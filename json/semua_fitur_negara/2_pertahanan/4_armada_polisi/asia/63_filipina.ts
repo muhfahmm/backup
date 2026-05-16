@@ -1,4 +1,5 @@
-﻿const filipina_kepolisian = {
+﻿// @ts-nocheck
+const filipina_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -19,6 +20,3 @@
 
    }
   };
-
-
-

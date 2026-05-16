@@ -4,6 +4,3 @@ const albania_komersial = {
   "hotel": 14,
   "pusat_grosir_tekstil": 2
 };
-
-
-

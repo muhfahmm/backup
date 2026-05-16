@@ -13,6 +13,3 @@ const ukrainaAgreements = [
   { "no": 11, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

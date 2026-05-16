@@ -9,6 +9,3 @@ const kanada_hukum = {
       "indeks_korupsi": 76,
       "indeks_keamanan": 68
   };
-
-
-

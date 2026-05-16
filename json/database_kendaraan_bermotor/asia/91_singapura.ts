@@ -5,6 +5,3 @@ const singapuraVehicles = {
   bus: 1127,
   truk: 5638,
 };
-
-
-

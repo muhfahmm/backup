@@ -5,6 +5,3 @@ const kamboja_hunian = {
   apartemen: 3290,
   mansion: 109686,
 };
-
-
-

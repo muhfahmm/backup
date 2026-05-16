@@ -14,6 +14,3 @@ const burkina_faso_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -13,6 +13,3 @@ const pantai_gading_ekstraksi = {
   logam_tanah_jarang: 50,
   bijih_besi: 0,
 };
-
-
-

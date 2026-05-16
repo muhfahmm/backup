@@ -26,74 +26,9 @@ const turki_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
-
-const turki = {
-  ...turki_profile,
-  "sektor_listrik": turki_listrik,
-  "hunian": turki_hunian,
-  "infrastruktur": turki_infrastruktur,
-  "sektor_ekstraksi": turki_ekstraksi,
-  "sektor_manufaktur": turki_manufaktur,
-  "sektor_peternakan": turki_peternakan,
-  "sektor_agrikultur": turki_agrikultur,
-  "sektor_perikanan": turki_perikanan,
-  "sektor_olahan_pangan": turki_olahan_pangan,
-  "sektor_farmasi": turki_farmasi,
-  "sektor_pertahanan": turki_pertahanan,
-  "armada_militer": turki_armada,
-  "militer_strategis": turki_strategis,
-  "armada_kepolisian": turki_kepolisian,
-  "pabrik_militer": turki_pabrik,
-  "intelijen": turki_intelijen,
-    "pendidikan": turki_pendidikan,
-  "kesehatan": turki_kesehatan,
-  "hukum": turki_hukum,
-  "sektor_olahraga": turki_olahraga,
-  "sektor_komersial": turki_komersial,
-  "sektor_hiburan": turki_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 22,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 26,
-      "kepuasan": 52,
-      "pendapatan": 3
-    },
-    "penghasilan": {
-      "tarif": 33,
-      "kepuasan": 61,
-      "pendapatan": 8
-    },
-    "bea_cukai": {
-      "tarif": 29,
-      "kepuasan": 86,
-      "pendapatan": 4
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 38,
-      "kepuasan": 93,
-      "pendapatan": 9
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const turki_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const turki = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -6,6 +6,3 @@ const korea_selatan_kesehatan = {
       "harapan_hidup": 78,
       "indeks_kesehatan": 82
     };
-
-
-

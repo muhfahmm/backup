@@ -9,6 +9,3 @@ const kamerun_olahraga = {
   "esports": 1,
   "gokart": 3
 };
-
-
-

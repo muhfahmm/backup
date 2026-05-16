@@ -9,6 +9,3 @@ const korea_selatan_hukum = {
       "indeks_korupsi": 51,
       "indeks_keamanan": 67
   };
-
-
-

@@ -5,6 +5,3 @@ const grenada_hunian = {
   apartemen: 22,
   mansion: 752,
 };
-
-
-

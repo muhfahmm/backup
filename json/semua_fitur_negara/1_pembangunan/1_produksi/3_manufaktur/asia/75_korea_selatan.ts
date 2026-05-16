@@ -8,6 +8,3 @@ const korea_selatan_manufaktur = {
   kayu: 2210,
   pupuk: 850,
 };
-
-
-

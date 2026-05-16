@@ -4,6 +4,3 @@ const angola_perikanan = {
   mutiara: 40,
   ikan: 120,
 };
-
-
-

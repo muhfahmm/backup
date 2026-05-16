@@ -5,6 +5,3 @@ const malaysiaVehicles = {
   bus: 6305,
   truk: 31528,
 };
-
-
-

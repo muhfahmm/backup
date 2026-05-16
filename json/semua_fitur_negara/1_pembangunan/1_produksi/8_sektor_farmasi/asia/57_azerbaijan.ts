@@ -2,6 +2,3 @@
 const azerbaijan_farmasi = {
   farmasi: 24,
 };
-
-
-

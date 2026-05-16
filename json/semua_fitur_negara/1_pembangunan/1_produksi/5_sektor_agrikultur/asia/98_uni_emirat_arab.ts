@@ -15,6 +15,3 @@ const uni_emirat_arab_agrikultur = {
   kapas: 4950,
   tembakau: 1320,
 };
-
-
-

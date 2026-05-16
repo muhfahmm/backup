@@ -5,6 +5,3 @@ const republik_uganda_peternakan = {
   sapi_potong: 78,
   domba_kambing: 81,
 };
-
-
-

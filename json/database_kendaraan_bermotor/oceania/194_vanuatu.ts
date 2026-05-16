@@ -5,6 +5,3 @@ const vanuatuVehicles = {
   bus: 58,
   truk: 292,
 };
-
-
-

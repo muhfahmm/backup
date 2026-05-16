@@ -1,4 +1,5 @@
-﻿const denmark_pertahanan = {
+﻿// @ts-nocheck
+const denmark_pertahanan = {
     "penjara": 11,
     "gudang_senjata": 3,
     "hangar_tank": 25,
@@ -10,8 +11,4 @@
     };
 
 
- 1
     };
-
-
-

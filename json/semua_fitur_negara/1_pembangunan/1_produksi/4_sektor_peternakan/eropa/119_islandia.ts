@@ -5,6 +5,3 @@ const islandia_peternakan = {
   sapi_potong: 76,
   domba_kambing: 180,
 };
-
-
-

@@ -9,6 +9,3 @@ const republik_timor_leste_pertahanan = {
     "program_luar_angkasa": 28,
     "pertahanan_siber": 32
     };
-
-
-

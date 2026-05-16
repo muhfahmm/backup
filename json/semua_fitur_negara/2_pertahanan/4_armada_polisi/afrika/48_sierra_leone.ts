@@ -16,6 +16,3 @@ const sierra_leone_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

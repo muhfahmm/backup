@@ -12,6 +12,3 @@ const prancis_pendidikan = {
       "pusat_pengembangan": 38,
       "literasi": 91
     };
-
-
-

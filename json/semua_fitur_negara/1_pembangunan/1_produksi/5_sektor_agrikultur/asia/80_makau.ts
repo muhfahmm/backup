@@ -15,6 +15,3 @@ const makau_agrikultur = {
   kapas: 224,
   tembakau: 308,
 };
-
-
-

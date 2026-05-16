@@ -11,6 +11,3 @@ const uruguay_diplomasi = [
   { "no": 9, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

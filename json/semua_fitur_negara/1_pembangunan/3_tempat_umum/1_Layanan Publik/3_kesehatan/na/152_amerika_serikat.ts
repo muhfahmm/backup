@@ -6,6 +6,3 @@ const amerika_serikat_kesehatan = {
       "harapan_hidup": 81,
       "indeks_kesehatan": 95
     };
-
-
-

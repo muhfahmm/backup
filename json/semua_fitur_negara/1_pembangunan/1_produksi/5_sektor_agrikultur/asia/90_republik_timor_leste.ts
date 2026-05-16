@@ -15,6 +15,3 @@ const republik_timor_leste_agrikultur = {
   kapas: 47,
   tembakau: 61,
 };
-
-
-

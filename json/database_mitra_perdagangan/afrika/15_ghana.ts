@@ -14,6 +14,3 @@ const ghanaAgreements = [
   { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

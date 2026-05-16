@@ -4,6 +4,3 @@ const lebanon_komersial = {
   "hotel": 11,
   "pusat_grosir_tekstil": 1
 };
-
-
-

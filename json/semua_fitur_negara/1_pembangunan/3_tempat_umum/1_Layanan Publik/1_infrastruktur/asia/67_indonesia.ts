@@ -9,6 +9,3 @@ const indonesia_infrastruktur = {
   bandara: 24,
   helipad: 17,
 };
-
-
-

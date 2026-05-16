@@ -5,6 +5,3 @@ const paraguay_peternakan = {
   sapi_potong: 225,
   domba_kambing: 80,
 };
-
-
-

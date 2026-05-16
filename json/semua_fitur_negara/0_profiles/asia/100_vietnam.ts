@@ -26,74 +26,9 @@ const vietnam_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
-
-const vietnam = {
-  ...vietnam_profile,
-  "sektor_listrik": vietnam_listrik,
-  "hunian": vietnam_hunian,
-  "infrastruktur": vietnam_infrastruktur,
-  "sektor_ekstraksi": vietnam_ekstraksi,
-  "sektor_manufaktur": vietnam_manufaktur,
-  "sektor_peternakan": vietnam_peternakan,
-  "sektor_agrikultur": vietnam_agrikultur,
-  "sektor_perikanan": vietnam_perikanan,
-  "sektor_olahan_pangan": vietnam_olahan_pangan,
-  "sektor_farmasi": vietnam_farmasi,
-  "sektor_pertahanan": vietnam_pertahanan,
-  "armada_militer": vietnam_armada,
-  "militer_strategis": vietnam_strategis,
-  "armada_kepolisian": vietnam_kepolisian,
-  "pabrik_militer": vietnam_pabrik,
-  "intelijen": vietnam_intelijen,
-    "pendidikan": vietnam_pendidikan,
-  "kesehatan": vietnam_kesehatan,
-  "hukum": vietnam_hukum,
-  "sektor_olahraga": vietnam_olahraga,
-  "sektor_komersial": vietnam_komersial,
-  "sektor_hiburan": vietnam_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 13,
-      "kepuasan": 67,
-      "pendapatan": 95
-    },
-    "korporasi": {
-      "tarif": 20,
-      "kepuasan": 52,
-      "pendapatan": 133
-    },
-    "penghasilan": {
-      "tarif": 24,
-      "kepuasan": 61,
-      "pendapatan": 185
-    },
-    "bea_cukai": {
-      "tarif": 40,
-      "kepuasan": 86,
-      "pendapatan": 233
-    },
-    "lingkungan": {
-      "tarif": 6,
-      "kepuasan": 88,
-      "pendapatan": 70
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 21 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 63 },
-    "lainnya": {
-      "tarif": 1,
-      "kepuasan": 93,
-      "pendapatan": 9
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const vietnam_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const vietnam = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

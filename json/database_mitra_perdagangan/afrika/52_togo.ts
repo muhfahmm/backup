@@ -11,6 +11,3 @@ const togoAgreements = [
   { "no": 9, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

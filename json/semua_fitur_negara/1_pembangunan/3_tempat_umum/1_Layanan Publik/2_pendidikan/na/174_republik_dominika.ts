@@ -12,6 +12,3 @@ const republik_dominika_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 77
     };
-
-
-

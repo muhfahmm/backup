@@ -14,6 +14,3 @@ const san_marino_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

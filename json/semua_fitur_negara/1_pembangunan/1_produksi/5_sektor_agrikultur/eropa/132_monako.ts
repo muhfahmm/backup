@@ -15,6 +15,3 @@ const monako_agrikultur = {
   kapas: 17,
   tembakau: 57,
 };
-
-
-

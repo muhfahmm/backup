@@ -5,6 +5,3 @@ const pantai_gading_hunian = {
   apartemen: 5076,
   mansion: 169217,
 };
-
-
-

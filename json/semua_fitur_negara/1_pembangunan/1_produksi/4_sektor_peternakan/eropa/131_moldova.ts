@@ -5,6 +5,3 @@ const moldova_peternakan = {
   sapi_potong: 168,
   domba_kambing: 160,
 };
-
-
-

@@ -9,6 +9,3 @@ const montenegro_pertahanan = {
     "program_luar_angkasa": 38,
     "pertahanan_siber": 12
     };
-
-
-

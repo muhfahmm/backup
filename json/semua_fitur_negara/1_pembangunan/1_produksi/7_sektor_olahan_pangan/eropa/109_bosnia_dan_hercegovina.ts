@@ -11,6 +11,3 @@ const bosnia_dan_hercegovina_olahan_pangan = {
   ikan_kaleng: 184,
   kopi_teh: 56,
 };
-
-
-

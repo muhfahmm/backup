@@ -9,6 +9,3 @@ const ekuador_olahraga = {
   "esports": 0,
   "gokart": 14
 };
-
-
-

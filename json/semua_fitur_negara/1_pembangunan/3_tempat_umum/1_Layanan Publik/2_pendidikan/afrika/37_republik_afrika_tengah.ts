@@ -12,6 +12,3 @@ const republik_afrika_tengah_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 66
   };
-
-
-

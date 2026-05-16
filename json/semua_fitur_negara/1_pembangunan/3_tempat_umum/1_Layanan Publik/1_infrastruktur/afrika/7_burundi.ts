@@ -9,6 +9,3 @@ const burundi_infrastruktur = {
   bandara: 3,
   helipad: 1,
 };
-
-
-

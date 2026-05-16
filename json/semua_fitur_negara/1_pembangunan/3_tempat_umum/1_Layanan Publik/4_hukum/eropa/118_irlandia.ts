@@ -9,6 +9,3 @@ const irlandia_hukum = {
       "indeks_korupsi": 54,
       "indeks_keamanan": 54
   };
-
-
-

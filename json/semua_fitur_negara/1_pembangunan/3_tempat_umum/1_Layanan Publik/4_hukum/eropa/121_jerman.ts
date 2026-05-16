@@ -9,6 +9,3 @@ const jerman_hukum = {
       "indeks_korupsi": 76,
       "indeks_keamanan": 75
   };
-
-
-

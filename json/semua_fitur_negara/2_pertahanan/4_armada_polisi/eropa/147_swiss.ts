@@ -16,6 +16,3 @@ const swiss_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

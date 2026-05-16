@@ -11,6 +11,3 @@ const republik_serbia_olahan_pangan = {
   ikan_kaleng: 105,
   kopi_teh: 200,
 };
-
-
-

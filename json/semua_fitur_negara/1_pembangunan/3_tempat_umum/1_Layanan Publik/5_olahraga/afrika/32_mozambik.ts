@@ -9,6 +9,3 @@ const mozambik_olahraga = {
   "esports": 0,
   "gokart": 12
 };
-
-
-

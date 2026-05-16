@@ -4,6 +4,3 @@ const swedia_komersial = {
   "hotel": 31,
   "pusat_grosir_tekstil": 19
 };
-
-
-

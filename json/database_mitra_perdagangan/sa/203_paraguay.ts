@@ -12,6 +12,3 @@ const paraguayAgreements = [
   { "no": 10, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

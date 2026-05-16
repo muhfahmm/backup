@@ -1,10 +1,3 @@
 ﻿// @ts-nocheck
 const members = [
-  "amerika serikat",
-  "australia",
-  "india",
-  "jepang"
 ];
-
-
-

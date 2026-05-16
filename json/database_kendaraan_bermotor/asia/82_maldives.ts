@@ -5,6 +5,3 @@ const maldivesVehicles = {
   bus: 103,
   truk: 515,
 };
-
-
-

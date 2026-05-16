@@ -16,6 +16,3 @@ const gibraltar_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

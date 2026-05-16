@@ -9,6 +9,3 @@ const georgia_hukum = {
       "indeks_korupsi": 19,
       "indeks_keamanan": 53
   };
-
-
-

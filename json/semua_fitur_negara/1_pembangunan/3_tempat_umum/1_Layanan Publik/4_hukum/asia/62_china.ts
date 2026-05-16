@@ -9,6 +9,3 @@ const china_hukum = {
       "indeks_korupsi": 73,
       "indeks_keamanan": 96
   };
-
-
-

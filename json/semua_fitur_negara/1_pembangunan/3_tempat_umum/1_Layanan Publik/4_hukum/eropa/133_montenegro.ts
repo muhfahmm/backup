@@ -9,6 +9,3 @@ const montenegro_hukum = {
       "indeks_korupsi": 47,
       "indeks_keamanan": 43
   };
-
-
-

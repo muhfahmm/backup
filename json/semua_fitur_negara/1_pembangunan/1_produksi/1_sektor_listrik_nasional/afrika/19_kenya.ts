@@ -7,6 +7,3 @@ const kenya_listrik = {
   pembangkit_listrik_tenaga_uap: 99,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

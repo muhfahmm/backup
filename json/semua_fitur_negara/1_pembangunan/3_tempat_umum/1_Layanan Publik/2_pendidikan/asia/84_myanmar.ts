@@ -12,6 +12,3 @@ const myanmar_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 72
     };
-
-
-

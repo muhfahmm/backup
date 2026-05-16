@@ -14,6 +14,3 @@ const portugalAgreements = [
   { "no": 12, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -11,6 +11,3 @@ const myanmar_olahan_pangan = {
   ikan_kaleng: 90,
   kopi_teh: 96,
 };
-
-
-

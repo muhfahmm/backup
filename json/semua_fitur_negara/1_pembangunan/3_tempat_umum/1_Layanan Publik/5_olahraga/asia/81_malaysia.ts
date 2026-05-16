@@ -9,6 +9,3 @@ const malaysia_olahraga = {
   "esports": 12,
   "gokart": 43
 };
-
-
-

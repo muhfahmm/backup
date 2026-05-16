@@ -15,6 +15,3 @@ const kolombia_agrikultur = {
   kapas: 1872,
   tembakau: 1836,
 };
-
-
-

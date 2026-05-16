@@ -5,6 +5,3 @@ const pantaiGadingVehicles = {
   bus: 5013,
   truk: 25069,
 };
-
-
-

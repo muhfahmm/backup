@@ -4,6 +4,3 @@ const kuba_perikanan = {
   mutiara: 304,
   ikan: 475,
 };
-
-
-

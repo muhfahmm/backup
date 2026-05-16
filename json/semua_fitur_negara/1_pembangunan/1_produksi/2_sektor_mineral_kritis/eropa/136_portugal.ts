@@ -13,6 +13,3 @@ const portugal_ekstraksi = {
   logam_tanah_jarang: 34,
   bijih_besi: 51,
 };
-
-
-

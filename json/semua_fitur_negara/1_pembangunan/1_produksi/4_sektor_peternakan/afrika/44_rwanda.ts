@@ -5,6 +5,3 @@ const rwanda_peternakan = {
   sapi_potong: 13,
   domba_kambing: 40,
 };
-
-
-

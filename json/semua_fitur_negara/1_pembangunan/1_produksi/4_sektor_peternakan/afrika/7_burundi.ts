@@ -5,6 +5,3 @@ const burundi_peternakan = {
   sapi_potong: 82,
   domba_kambing: 60,
 };
-
-
-

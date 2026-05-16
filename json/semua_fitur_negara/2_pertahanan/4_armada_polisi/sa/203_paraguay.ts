@@ -16,6 +16,3 @@ const paraguay_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

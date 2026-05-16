@@ -9,6 +9,3 @@ const saint_lucia_olahraga = {
   "esports": 4,
   "gokart": 2
 };
-
-
-

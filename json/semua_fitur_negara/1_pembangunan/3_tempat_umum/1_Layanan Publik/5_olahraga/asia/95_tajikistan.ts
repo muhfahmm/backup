@@ -9,6 +9,3 @@ const tajikistan_olahraga = {
   "esports": 4,
   "gokart": 13
 };
-
-
-

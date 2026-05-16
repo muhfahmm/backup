@@ -5,6 +5,3 @@ const palestina_hunian = {
   apartemen: 925,
   mansion: 30841,
 };
-
-
-

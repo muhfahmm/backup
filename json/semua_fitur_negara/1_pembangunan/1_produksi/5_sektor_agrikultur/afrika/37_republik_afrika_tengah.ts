@@ -15,6 +15,3 @@ const republik_afrika_tengah_agrikultur = {
   kapas: 144,
   tembakau: 108,
 };
-
-
-

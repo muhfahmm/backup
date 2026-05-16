@@ -16,6 +16,3 @@ const samoa_amerika_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

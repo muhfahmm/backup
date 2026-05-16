@@ -5,6 +5,3 @@ const turkmenistan_hunian = {
   apartemen: 1184,
   mansion: 39493,
 };
-
-
-

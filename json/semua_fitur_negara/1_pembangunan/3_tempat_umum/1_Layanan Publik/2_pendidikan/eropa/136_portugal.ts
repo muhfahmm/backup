@@ -12,6 +12,3 @@ const portugal_pendidikan = {
       "pusat_pengembangan": 8,
       "literasi": 76
     };
-
-
-

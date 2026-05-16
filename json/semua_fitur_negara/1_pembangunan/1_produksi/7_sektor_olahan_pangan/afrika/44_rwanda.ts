@@ -11,6 +11,3 @@ const rwanda_olahan_pangan = {
   ikan_kaleng: 14,
   kopi_teh: 19,
 };
-
-
-

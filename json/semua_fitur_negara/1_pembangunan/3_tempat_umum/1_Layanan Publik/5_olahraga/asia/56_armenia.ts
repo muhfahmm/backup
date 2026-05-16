@@ -9,6 +9,3 @@ const armenia_olahraga = {
   "esports": 0,
   "gokart": 15
 };
-
-
-

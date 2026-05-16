@@ -4,6 +4,3 @@ const thailand_komersial = {
   "hotel": 52,
   "pusat_grosir_tekstil": 16
 };
-
-
-

@@ -5,6 +5,3 @@ const maroko_hunian = {
   apartemen: 7295,
   mansion: 243196,
 };
-
-
-

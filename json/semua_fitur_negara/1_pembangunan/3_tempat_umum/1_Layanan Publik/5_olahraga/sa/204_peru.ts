@@ -9,6 +9,3 @@ const peru_olahraga = {
   "esports": 16,
   "gokart": 46
 };
-
-
-

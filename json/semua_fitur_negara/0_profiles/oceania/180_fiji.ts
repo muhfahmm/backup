@@ -26,74 +26,9 @@ const fiji_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
-
-const fiji = {
-  ...fiji_profile,
-  "sektor_listrik": fiji_listrik,
-  "hunian": fiji_hunian,
-  "infrastruktur": fiji_infrastruktur,
-  "sektor_ekstraksi": fiji_ekstraksi,
-  "sektor_manufaktur": fiji_manufaktur,
-  "sektor_peternakan": fiji_peternakan,
-  "sektor_agrikultur": fiji_agrikultur,
-  "sektor_perikanan": fiji_perikanan,
-  "sektor_olahan_pangan": fiji_olahan_pangan,
-  "sektor_farmasi": fiji_farmasi,
-  "sektor_pertahanan": fiji_pertahanan,
-  "armada_militer": fiji_armada,
-  "militer_strategis": fiji_strategis,
-  "armada_kepolisian": fiji_kepolisian,
-  "pabrik_militer": fiji_pabrik,
-  "intelijen": fiji_intelijen,
-    "pendidikan": fiji_pendidikan,
-  "kesehatan": fiji_kesehatan,
-  "hukum": fiji_hukum,
-  "sektor_olahraga": fiji_olahraga,
-  "sektor_komersial": fiji_komersial,
-  "sektor_hiburan": fiji_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 31,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 4,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 20,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 1,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 4,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 1,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const fiji_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const fiji = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

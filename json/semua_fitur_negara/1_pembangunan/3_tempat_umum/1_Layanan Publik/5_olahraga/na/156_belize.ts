@@ -9,6 +9,3 @@ const belize_olahraga = {
   "esports": 1,
   "gokart": 14
 };
-
-
-

@@ -15,6 +15,3 @@ const nauru_diplomasi = [
   { "no": 13, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

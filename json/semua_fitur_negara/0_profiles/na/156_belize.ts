@@ -26,74 +26,9 @@ const belize_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
-
-const belize = {
-  ...belize_profile,
-  "sektor_listrik": belize_listrik,
-  "hunian": belize_hunian,
-  "infrastruktur": belize_infrastruktur,
-  "sektor_ekstraksi": belize_ekstraksi,
-  "sektor_manufaktur": belize_manufaktur,
-  "sektor_peternakan": belize_peternakan,
-  "sektor_agrikultur": belize_agrikultur,
-  "sektor_perikanan": belize_perikanan,
-  "sektor_olahan_pangan": belize_olahan_pangan,
-  "sektor_farmasi": belize_farmasi,
-  "sektor_pertahanan": belize_pertahanan,
-  "armada_militer": belize_armada,
-  "militer_strategis": belize_strategis,
-  "armada_kepolisian": belize_kepolisian,
-  "pabrik_militer": belize_pabrik,
-  "intelijen": belize_intelijen,
-    "pendidikan": belize_pendidikan,
-  "kesehatan": belize_kesehatan,
-  "hukum": belize_hukum,
-  "sektor_olahraga": belize_olahraga,
-  "sektor_komersial": belize_komersial,
-  "sektor_hiburan": belize_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 26,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 11,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 27,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 3,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 28,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 24,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const belize_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const belize = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

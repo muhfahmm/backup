@@ -9,6 +9,3 @@ const grenada_infrastruktur = {
   bandara: 1,
   helipad: 5,
 };
-
-
-

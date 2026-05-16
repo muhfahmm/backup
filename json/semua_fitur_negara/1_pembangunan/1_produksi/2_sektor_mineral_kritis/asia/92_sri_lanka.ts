@@ -13,6 +13,3 @@ const sri_lanka_ekstraksi = {
   logam_tanah_jarang: 20,
   bijih_besi: 15,
 };
-
-
-

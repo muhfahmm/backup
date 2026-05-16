@@ -5,6 +5,3 @@ const panama_peternakan = {
   sapi_potong: 225,
   domba_kambing: 155,
 };
-
-
-

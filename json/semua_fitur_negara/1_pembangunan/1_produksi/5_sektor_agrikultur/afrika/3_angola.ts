@@ -15,6 +15,3 @@ const angola_agrikultur = {
   kapas: 112,
   tembakau: 88,
 };
-
-
-

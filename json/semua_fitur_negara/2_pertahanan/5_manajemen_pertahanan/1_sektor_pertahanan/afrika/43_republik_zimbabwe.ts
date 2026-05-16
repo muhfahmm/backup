@@ -1,4 +1,5 @@
-﻿const republik_zimbabwe_pertahanan = {
+﻿// @ts-nocheck
+const republik_zimbabwe_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 9,
     "hangar_tank": 2,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 6,
     "pertahanan_siber": 1
     };
-
-

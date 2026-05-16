@@ -30,6 +30,3 @@ const bahama_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

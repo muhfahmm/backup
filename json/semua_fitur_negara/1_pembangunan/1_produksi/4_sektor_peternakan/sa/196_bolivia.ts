@@ -5,6 +5,3 @@ const bolivia_peternakan = {
   sapi_potong: 80,
   domba_kambing: 190,
 };
-
-
-

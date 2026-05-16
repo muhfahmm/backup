@@ -8,6 +8,3 @@ const malaysia_manufaktur = {
   kayu: 288,
   pupuk: 288,
 };
-
-
-

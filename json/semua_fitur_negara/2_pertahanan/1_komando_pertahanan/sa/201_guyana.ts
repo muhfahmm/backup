@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const guyana_strategis = {
     "waktu_respon": 6,
     "intelijen": 14,
@@ -13,5 +14,3 @@ const guyana_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

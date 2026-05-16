@@ -15,6 +15,3 @@ const kongo_agrikultur = {
   kapas: 140,
   tembakau: 196,
 };
-
-
-

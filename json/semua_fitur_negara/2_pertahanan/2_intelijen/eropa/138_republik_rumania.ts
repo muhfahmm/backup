@@ -4,6 +4,3 @@ const republik_rumania_intelijen = {
   jaringan_radar: 11,
   operasi_siber: 18,
 };
-
-
-

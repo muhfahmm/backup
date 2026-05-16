@@ -9,6 +9,3 @@ const belanda_pertahanan = {
     "program_luar_angkasa": 19,
     "pertahanan_siber": 16
     };
-
-
-

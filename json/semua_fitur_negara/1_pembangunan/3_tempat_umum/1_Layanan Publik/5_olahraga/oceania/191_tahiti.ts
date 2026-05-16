@@ -9,6 +9,3 @@ const tahiti_olahraga = {
   "esports": 0,
   "gokart": 2
 };
-
-
-

@@ -30,6 +30,3 @@ const siprus_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

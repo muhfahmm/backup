@@ -16,6 +16,3 @@ const bahrain_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

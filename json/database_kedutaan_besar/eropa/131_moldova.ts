@@ -11,6 +11,3 @@ const moldova_diplomasi = [
   { "no": 9, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

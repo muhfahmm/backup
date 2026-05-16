@@ -4,6 +4,3 @@ const oman_perikanan = {
   mutiara: 231,
   ikan: 297,
 };
-
-
-

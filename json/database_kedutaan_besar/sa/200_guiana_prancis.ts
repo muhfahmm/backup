@@ -16,6 +16,3 @@ const guiana_prancis_diplomasi = [
   { "no": 14, "mitra": "Belize", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 15, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

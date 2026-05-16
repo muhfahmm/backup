@@ -4,6 +4,3 @@ const jepang_komersial = {
   "hotel": 173,
   "pusat_grosir_tekstil": 38
 };
-
-
-

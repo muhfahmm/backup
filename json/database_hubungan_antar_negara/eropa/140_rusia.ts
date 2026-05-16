@@ -207,6 +207,3 @@ const rusia_relations = [
   { id: 205, name: "yordania", relation: 50 },
   { id: 206, name: "yunani", relation: 50 }
 ];
-
-
-

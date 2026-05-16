@@ -15,6 +15,3 @@ const andorra_agrikultur = {
   kapas: 138,
   tembakau: 34,
 };
-
-
-

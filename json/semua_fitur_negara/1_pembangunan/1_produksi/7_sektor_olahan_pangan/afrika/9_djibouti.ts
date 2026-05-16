@@ -11,6 +11,3 @@ const djibouti_olahan_pangan = {
   ikan_kaleng: 44,
   kopi_teh: 43,
 };
-
-
-

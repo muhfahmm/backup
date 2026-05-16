@@ -5,6 +5,3 @@ const greenland_hunian = {
   apartemen: 11,
   mansion: 378,
 };
-
-
-

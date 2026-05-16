@@ -5,6 +5,3 @@ const koreaUtaraVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

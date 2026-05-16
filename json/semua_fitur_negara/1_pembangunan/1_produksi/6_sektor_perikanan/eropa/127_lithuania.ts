@@ -4,6 +4,3 @@ const lithuania_perikanan = {
   mutiara: 125,
   ikan: 195,
 };
-
-
-

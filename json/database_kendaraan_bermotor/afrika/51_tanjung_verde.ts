@@ -5,6 +5,3 @@ const tanjungVerdeVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

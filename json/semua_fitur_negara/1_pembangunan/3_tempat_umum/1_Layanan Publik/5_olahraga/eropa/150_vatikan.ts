@@ -9,6 +9,3 @@ const vatikan_olahraga = {
   "esports": 4,
   "gokart": 4
 };
-
-
-

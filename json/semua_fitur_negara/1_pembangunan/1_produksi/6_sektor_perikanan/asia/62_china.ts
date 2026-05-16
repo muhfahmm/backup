@@ -4,6 +4,3 @@ const china_perikanan = {
   mutiara: 4048,
   ikan: 7590,
 };
-
-
-

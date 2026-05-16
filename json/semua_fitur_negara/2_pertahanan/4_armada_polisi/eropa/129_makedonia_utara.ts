@@ -16,6 +16,3 @@ const makedonia_utara_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

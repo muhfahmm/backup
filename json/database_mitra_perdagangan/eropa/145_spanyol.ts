@@ -15,6 +15,3 @@ const spanyolAgreements = [
   { "no": 13, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

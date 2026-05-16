@@ -15,6 +15,3 @@ const liberia_agrikultur = {
   kapas: 72,
   tembakau: 30,
 };
-
-
-

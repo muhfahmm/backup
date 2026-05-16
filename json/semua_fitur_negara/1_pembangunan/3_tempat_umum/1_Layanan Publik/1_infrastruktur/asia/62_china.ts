@@ -9,6 +9,3 @@ const china_infrastruktur = {
   bandara: 256,
   helipad: 500,
 };
-
-
-

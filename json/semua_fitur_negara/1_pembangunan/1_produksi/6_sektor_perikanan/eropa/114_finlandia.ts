@@ -4,6 +4,3 @@ const finlandia_perikanan = {
   mutiara: 153,
   ikan: 333,
 };
-
-
-

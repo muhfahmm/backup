@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const gibraltar_strategis = {
     "waktu_respon": 7,
     "intelijen": 39,
@@ -13,5 +14,3 @@ const gibraltar_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

@@ -16,6 +16,3 @@ const azerbaijan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

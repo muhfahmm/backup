@@ -14,6 +14,3 @@ const vietnam_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

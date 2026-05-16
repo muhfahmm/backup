@@ -5,6 +5,3 @@ const mauritiusVehicles = {
   bus: 253,
   truk: 1265,
 };
-
-
-

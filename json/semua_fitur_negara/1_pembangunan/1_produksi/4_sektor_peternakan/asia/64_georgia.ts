@@ -5,6 +5,3 @@ const georgia_peternakan = {
   sapi_potong: 168,
   domba_kambing: 52,
 };
-
-
-

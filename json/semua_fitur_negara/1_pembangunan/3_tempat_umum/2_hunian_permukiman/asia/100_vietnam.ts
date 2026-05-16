@@ -5,6 +5,3 @@ const vietnam_hunian = {
   apartemen: 19346,
   mansion: 644897,
 };
-
-
-

@@ -9,6 +9,3 @@ const andorra_hukum = {
       "indeks_korupsi": 13,
       "indeks_keamanan": 70
   };
-
-
-

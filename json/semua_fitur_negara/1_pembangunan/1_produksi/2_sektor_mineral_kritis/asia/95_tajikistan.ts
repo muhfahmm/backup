@@ -13,6 +13,3 @@ const tajikistan_ekstraksi = {
   logam_tanah_jarang: 36,
   bijih_besi: 4,
 };
-
-
-

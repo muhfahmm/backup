@@ -11,6 +11,3 @@ const eritrea_olahan_pangan = {
   ikan_kaleng: 16,
   kopi_teh: 46,
 };
-
-
-

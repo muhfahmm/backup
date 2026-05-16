@@ -4,6 +4,3 @@ const selandia_baru_perikanan = {
   mutiara: 525,
   ikan: 504,
 };
-
-
-

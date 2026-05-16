@@ -5,6 +5,3 @@ const irlandia_hunian = {
   apartemen: 985,
   mansion: 32854,
 };
-
-
-

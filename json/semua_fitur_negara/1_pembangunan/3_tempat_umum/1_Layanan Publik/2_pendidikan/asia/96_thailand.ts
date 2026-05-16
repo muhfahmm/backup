@@ -12,6 +12,3 @@ const thailand_pendidikan = {
       "pusat_pengembangan": 7,
       "literasi": 79
     };
-
-
-

@@ -9,6 +9,3 @@ const republik_zambia_infrastruktur = {
   bandara: 5,
   helipad: 4,
 };
-
-
-

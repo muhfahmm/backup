@@ -20,6 +20,3 @@ const malaysia_diplomasi = [
   { "no": 18, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

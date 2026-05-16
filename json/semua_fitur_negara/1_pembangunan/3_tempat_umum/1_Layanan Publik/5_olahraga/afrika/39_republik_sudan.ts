@@ -9,6 +9,3 @@ const republik_sudan_olahraga = {
   "esports": 0,
   "gokart": 2
 };
-
-
-

@@ -5,6 +5,3 @@ const gibraltarVehicles = {
   bus: 6,
   truk: 33,
 };
-
-
-

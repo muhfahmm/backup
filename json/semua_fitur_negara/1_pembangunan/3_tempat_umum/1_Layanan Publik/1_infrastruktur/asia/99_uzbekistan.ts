@@ -9,6 +9,3 @@ const uzbekistan_infrastruktur = {
   bandara: 1,
   helipad: 3,
 };
-
-
-

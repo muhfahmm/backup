@@ -13,6 +13,3 @@ const burundiAgreements = [
   { "no": 11, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

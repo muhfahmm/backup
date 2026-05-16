@@ -9,6 +9,3 @@ const kanada_infrastruktur = {
   bandara: 11,
   helipad: 30,
 };
-
-
-

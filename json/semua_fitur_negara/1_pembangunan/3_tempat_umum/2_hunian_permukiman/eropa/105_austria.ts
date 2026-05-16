@@ -5,6 +5,3 @@ const austria_hunian = {
   apartemen: 1790,
   mansion: 59673,
 };
-
-
-

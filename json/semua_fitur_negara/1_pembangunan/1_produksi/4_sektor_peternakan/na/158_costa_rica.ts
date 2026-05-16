@@ -5,6 +5,3 @@ const costa_rica_peternakan = {
   sapi_potong: 30,
   domba_kambing: 39,
 };
-
-
-

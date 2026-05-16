@@ -15,6 +15,3 @@ const jerman_agrikultur = {
   kapas: 20382,
   tembakau: 4902,
 };
-
-
-

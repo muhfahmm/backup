@@ -12,6 +12,3 @@ const kepulauan_faroe_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 72
     };
-
-
-

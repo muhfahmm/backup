@@ -9,6 +9,3 @@ const honduras_hukum = {
       "indeks_korupsi": 12,
       "indeks_keamanan": 41
   };
-
-
-

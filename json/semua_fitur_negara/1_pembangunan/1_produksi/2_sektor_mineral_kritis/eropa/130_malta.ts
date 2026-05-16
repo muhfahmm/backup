@@ -13,6 +13,3 @@ const malta_ekstraksi = {
   logam_tanah_jarang: 18,
   bijih_besi: 20,
 };
-
-
-

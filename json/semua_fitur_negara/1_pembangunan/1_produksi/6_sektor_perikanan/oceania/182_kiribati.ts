@@ -4,6 +4,3 @@ const kiribati_perikanan = {
   mutiara: 56,
   ikan: 14,
 };
-
-
-

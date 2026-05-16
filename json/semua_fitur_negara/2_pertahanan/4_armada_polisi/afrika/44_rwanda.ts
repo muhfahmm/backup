@@ -16,6 +16,3 @@ const rwanda_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

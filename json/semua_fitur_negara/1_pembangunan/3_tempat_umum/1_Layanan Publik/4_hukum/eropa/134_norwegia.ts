@@ -9,6 +9,3 @@ const norwegia_hukum = {
       "indeks_korupsi": 22,
       "indeks_keamanan": 75
   };
-
-
-

@@ -26,74 +26,9 @@ const costa_rica_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  };
-
-const costa_rica = {
-  ...costa_rica_profile,
-  "sektor_listrik": costa_rica_listrik,
-  "hunian": costa_rica_hunian,
-  "infrastruktur": costa_rica_infrastruktur,
-  "sektor_ekstraksi": costa_rica_ekstraksi,
-  "sektor_manufaktur": costa_rica_manufaktur,
-  "sektor_peternakan": costa_rica_peternakan,
-  "sektor_agrikultur": costa_rica_agrikultur,
-  "sektor_perikanan": costa_rica_perikanan,
-  "sektor_olahan_pangan": costa_rica_olahan_pangan,
-  "sektor_farmasi": costa_rica_farmasi,
-  "sektor_pertahanan": costa_rica_pertahanan,
-  "armada_militer": costa_rica_armada,
-  "militer_strategis": costa_rica_strategis,
-  "armada_kepolisian": costa_rica_kepolisian,
-  "pabrik_militer": costa_rica_pabrik,
-  "intelijen": costa_rica_intelijen,
-    "pendidikan": costa_rica_pendidikan,
-  "kesehatan": costa_rica_kesehatan,
-  "hukum": costa_rica_hukum,
-  "sektor_olahraga": costa_rica_olahraga,
-  "sektor_komersial": costa_rica_komersial,
-  "sektor_hiburan": costa_rica_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 40,
-      "kepuasan": 67,
-      "pendapatan": 69
-    },
-    "korporasi": {
-      "tarif": 34,
-      "kepuasan": 52,
-      "pendapatan": 41
-    },
-    "penghasilan": {
-      "tarif": 15,
-      "kepuasan": 61,
-      "pendapatan": 13
-    },
-    "bea_cukai": {
-      "tarif": 31,
-      "kepuasan": 86,
-      "pendapatan": 44
-    },
-    "lingkungan": {
-      "tarif": 17,
-      "kepuasan": 88,
-      "pendapatan": 34
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 4 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 11 },
-    "lainnya": {
-      "tarif": 38,
-      "kepuasan": 93,
-      "pendapatan": 75
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const costa_rica_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const costa_rica = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

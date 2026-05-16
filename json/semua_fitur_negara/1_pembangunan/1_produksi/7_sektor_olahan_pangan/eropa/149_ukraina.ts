@@ -11,6 +11,3 @@ const ukraina_olahan_pangan = {
   ikan_kaleng: 75,
   kopi_teh: 200,
 };
-
-
-

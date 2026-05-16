@@ -16,6 +16,3 @@ const sri_lanka_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

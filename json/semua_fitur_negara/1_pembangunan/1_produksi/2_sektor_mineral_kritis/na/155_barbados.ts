@@ -13,6 +13,3 @@ const barbados_ekstraksi = {
   logam_tanah_jarang: 3,
   bijih_besi: 1,
 };
-
-
-

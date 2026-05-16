@@ -14,6 +14,3 @@ const komoroAgreements = [
   { "no": 12, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

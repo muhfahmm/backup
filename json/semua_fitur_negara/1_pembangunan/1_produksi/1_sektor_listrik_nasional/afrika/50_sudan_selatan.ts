@@ -7,6 +7,3 @@ const sudan_selatan_listrik = {
   pembangkit_listrik_tenaga_uap: 51,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

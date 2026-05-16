@@ -5,6 +5,3 @@ const republik_afrika_tengah_hunian = {
   apartemen: 944,
   mansion: 31498,
 };
-
-
-

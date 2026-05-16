@@ -5,6 +5,3 @@ const maldives_hunian = {
   apartemen: 104,
   mansion: 3480,
 };
-
-
-

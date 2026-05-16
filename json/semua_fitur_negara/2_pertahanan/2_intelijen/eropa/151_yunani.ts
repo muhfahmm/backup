@@ -4,6 +4,3 @@ const yunani_intelijen = {
   jaringan_radar: 10,
   operasi_siber: 16,
 };
-
-
-

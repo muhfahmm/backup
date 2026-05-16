@@ -5,6 +5,3 @@ const niger_peternakan = {
   sapi_potong: 34,
   domba_kambing: 46,
 };
-
-
-

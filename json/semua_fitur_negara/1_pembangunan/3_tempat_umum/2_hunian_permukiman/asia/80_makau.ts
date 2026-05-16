@@ -5,6 +5,3 @@ const makau_hunian = {
   apartemen: 2025,
   mansion: 67500,
 };
-
-
-

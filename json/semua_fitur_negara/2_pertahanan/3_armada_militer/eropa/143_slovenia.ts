@@ -30,6 +30,3 @@ const slovenia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

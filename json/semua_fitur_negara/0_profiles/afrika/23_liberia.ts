@@ -26,74 +26,9 @@ const liberia_geopolitik = {
       "kekuatan_keras": 8,
       "prestise_diplomatik": 57
   }
-  };
-
-const liberia = {
-  ...liberia_profile,
-  "sektor_listrik": liberia_listrik,
-  "hunian": liberia_hunian,
-  "infrastruktur": liberia_infrastruktur,
-  "sektor_ekstraksi": liberia_ekstraksi,
-  "sektor_manufaktur": liberia_manufaktur,
-  "sektor_peternakan": liberia_peternakan,
-  "sektor_agrikultur": liberia_agrikultur,
-  "sektor_perikanan": liberia_perikanan,
-  "sektor_olahan_pangan": liberia_olahan_pangan,
-  "sektor_farmasi": liberia_farmasi,
-  "sektor_pertahanan": liberia_pertahanan,
-  "armada_militer": liberia_armada,
-  "militer_strategis": liberia_strategis,
-  "armada_kepolisian": liberia_kepolisian,
-  "pabrik_militer": liberia_pabrik,
-  "intelijen": liberia_intelijen,
-    "pendidikan": liberia_pendidikan,
-  "kesehatan": liberia_kesehatan,
-  "hukum": liberia_hukum,
-  "sektor_olahraga": liberia_olahraga,
-  "sektor_komersial": liberia_komersial,
-  "sektor_hiburan": liberia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 37,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 24,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 39,
-      "kepuasan": 61,
-      "pendapatan": 2
-    },
-    "bea_cukai": {
-      "tarif": 17,
-      "kepuasan": 86,
-      "pendapatan": 1
-    },
-    "lingkungan": {
-      "tarif": 2,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 39,
-      "kepuasan": 93,
-      "pendapatan": 4
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const liberia_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const liberia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

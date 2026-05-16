@@ -12,6 +12,3 @@ const republik_serbia_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 66
     };
-
-
-

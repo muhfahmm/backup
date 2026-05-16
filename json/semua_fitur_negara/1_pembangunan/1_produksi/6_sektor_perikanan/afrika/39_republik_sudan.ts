@@ -4,6 +4,3 @@ const republik_sudan_perikanan = {
   mutiara: 69,
   ikan: 21,
 };
-
-
-

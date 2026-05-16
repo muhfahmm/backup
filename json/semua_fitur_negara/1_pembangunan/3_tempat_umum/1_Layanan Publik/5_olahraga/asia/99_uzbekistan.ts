@@ -9,6 +9,3 @@ const uzbekistan_olahraga = {
   "esports": 3,
   "gokart": 9
 };
-
-
-

@@ -13,6 +13,3 @@ const republik_afrika_tengah_diplomasi = [
   { "no": 11, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

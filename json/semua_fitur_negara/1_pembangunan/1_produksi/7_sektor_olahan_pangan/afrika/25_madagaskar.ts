@@ -11,6 +11,3 @@ const madagaskar_olahan_pangan = {
   ikan_kaleng: 64,
   kopi_teh: 46,
 };
-
-
-

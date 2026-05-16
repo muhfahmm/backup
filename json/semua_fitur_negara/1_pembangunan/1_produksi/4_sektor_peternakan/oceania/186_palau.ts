@@ -5,6 +5,3 @@ const palau_peternakan = {
   sapi_potong: 94,
   domba_kambing: 92,
 };
-
-
-

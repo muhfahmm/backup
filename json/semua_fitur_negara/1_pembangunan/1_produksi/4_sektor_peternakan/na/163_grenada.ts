@@ -5,6 +5,3 @@ const grenada_peternakan = {
   sapi_potong: 37,
   domba_kambing: 35,
 };
-
-
-

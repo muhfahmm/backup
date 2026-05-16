@@ -4,6 +4,3 @@ const mesir_perikanan = {
   mutiara: 658,
   ikan: 282,
 };
-
-
-

@@ -4,6 +4,3 @@ const saint_kitts_dan_nevis_perikanan = {
   mutiara: 90,
   ikan: 21,
 };
-
-
-

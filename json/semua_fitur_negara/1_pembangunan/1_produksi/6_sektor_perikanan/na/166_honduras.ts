@@ -4,6 +4,3 @@ const honduras_perikanan = {
   mutiara: 24,
   ikan: 81,
 };
-
-
-

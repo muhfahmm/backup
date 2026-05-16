@@ -14,6 +14,3 @@ const nikaraguaAgreements = [
   { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Kanada", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

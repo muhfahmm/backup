@@ -9,6 +9,3 @@ const arab_saudi_infrastruktur = {
   bandara: 14,
   helipad: 23,
 };
-
-
-

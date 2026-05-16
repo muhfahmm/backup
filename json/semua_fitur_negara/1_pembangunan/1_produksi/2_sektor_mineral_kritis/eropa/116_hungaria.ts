@@ -13,6 +13,3 @@ const hungaria_ekstraksi = {
   logam_tanah_jarang: 40,
   bijih_besi: 48,
 };
-
-
-

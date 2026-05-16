@@ -8,6 +8,3 @@ const maroko_manufaktur = {
   kayu: 312,
   pupuk: 168,
 };
-
-
-

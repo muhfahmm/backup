@@ -8,6 +8,3 @@ const makedonia_utara_manufaktur = {
   kayu: 21,
   pupuk: 12,
 };
-
-
-

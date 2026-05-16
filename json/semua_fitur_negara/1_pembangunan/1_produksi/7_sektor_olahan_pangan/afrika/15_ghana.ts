@@ -11,6 +11,3 @@ const ghana_olahan_pangan = {
   ikan_kaleng: 343,
   kopi_teh: 175,
 };
-
-
-

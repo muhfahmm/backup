@@ -11,6 +11,3 @@ const norwegia_olahan_pangan = {
   ikan_kaleng: 780,
   kopi_teh: 920,
 };
-
-
-

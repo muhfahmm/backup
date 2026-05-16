@@ -5,6 +5,3 @@ const amerika_serikat_hunian = {
   apartemen: 66154,
   mansion: 2205140,
 };
-
-
-

@@ -11,6 +11,3 @@ const kamboja_olahan_pangan = {
   ikan_kaleng: 93,
   kopi_teh: 108,
 };
-
-
-

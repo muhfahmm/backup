@@ -9,6 +9,3 @@ const makedonia_utara_hukum = {
       "indeks_korupsi": 46,
       "indeks_keamanan": 44
   };
-
-
-

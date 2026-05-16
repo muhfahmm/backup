@@ -9,6 +9,3 @@ const uni_emirat_arab_infrastruktur = {
   bandara: 9,
   helipad: 8,
 };
-
-
-

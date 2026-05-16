@@ -8,6 +8,3 @@ const yordania_manufaktur = {
   kayu: 16,
   pupuk: 18,
 };
-
-
-

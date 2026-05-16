@@ -2,6 +2,3 @@
 const maldives_farmasi = {
   farmasi: 22,
 };
-
-
-

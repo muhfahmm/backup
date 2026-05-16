@@ -1,28 +1,3 @@
 ﻿// @ts-nocheck
 const members = [
-  "aljazair",
-  "arab saudi",
-  "bahrain",
-  "djibouti",
-  "irak",
-  "komoro",
-  "kuwait",
-  "lebanon",
-  "libya",
-  "maroko",
-  "mauritania",
-  "mesir",
-  "oman",
-  "palestina",
-  "qatar",
-  "republik sudan",
-  "somalia",
-  "suriah",
-  "tunisia",
-  "uni emirat arab",
-  "yaman",
-  "yordania"
 ];
-
-
-

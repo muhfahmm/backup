@@ -9,6 +9,3 @@ const denmark_olahraga = {
   "esports": 13,
   "gokart": 39
 };
-
-
-

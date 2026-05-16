@@ -14,6 +14,3 @@ const monako_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

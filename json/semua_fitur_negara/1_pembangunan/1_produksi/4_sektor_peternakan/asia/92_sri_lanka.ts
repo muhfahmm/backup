@@ -5,6 +5,3 @@ const sri_lanka_peternakan = {
   sapi_potong: 180,
   domba_kambing: 180,
 };
-
-
-

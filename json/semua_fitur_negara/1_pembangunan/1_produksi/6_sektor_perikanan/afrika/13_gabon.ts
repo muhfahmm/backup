@@ -4,6 +4,3 @@ const gabon_perikanan = {
   mutiara: 27,
   ikan: 30,
 };
-
-
-

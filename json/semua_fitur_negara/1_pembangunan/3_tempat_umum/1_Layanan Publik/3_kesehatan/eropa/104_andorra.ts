@@ -6,6 +6,3 @@ const andorra_kesehatan = {
       "harapan_hidup": 61,
       "indeks_kesehatan": 68
     };
-
-
-

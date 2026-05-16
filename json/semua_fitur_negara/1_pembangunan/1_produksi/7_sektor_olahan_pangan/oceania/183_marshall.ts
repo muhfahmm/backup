@@ -11,6 +11,3 @@ const marshall_olahan_pangan = {
   ikan_kaleng: 160,
   kopi_teh: 188,
 };
-
-
-

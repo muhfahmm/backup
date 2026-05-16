@@ -5,6 +5,3 @@ const chad_peternakan = {
   sapi_potong: 114,
   domba_kambing: 90,
 };
-
-
-

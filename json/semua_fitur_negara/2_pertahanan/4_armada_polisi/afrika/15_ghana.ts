@@ -16,6 +16,3 @@ const ghana_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

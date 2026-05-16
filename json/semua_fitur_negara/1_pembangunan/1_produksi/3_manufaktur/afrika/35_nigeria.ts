@@ -8,6 +8,3 @@ const nigeria_manufaktur = {
   kayu: 392,
   pupuk: 168,
 };
-
-
-

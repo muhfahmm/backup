@@ -15,6 +15,3 @@ const bangladesh_agrikultur = {
   kapas: 1050,
   tembakau: 3780,
 };
-
-
-

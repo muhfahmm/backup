@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const ukraina_strategis = {
     "waktu_respon": 33,
     "intelijen": 37,
@@ -13,5 +14,3 @@ const ukraina_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

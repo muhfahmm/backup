@@ -26,74 +26,9 @@ const bangladesh_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const bangladesh = {
-  ...bangladesh_profile,
-  "sektor_listrik": bangladesh_listrik,
-  "hunian": bangladesh_hunian,
-  "infrastruktur": bangladesh_infrastruktur,
-  "sektor_ekstraksi": bangladesh_ekstraksi,
-  "sektor_manufaktur": bangladesh_manufaktur,
-  "sektor_peternakan": bangladesh_peternakan,
-  "sektor_agrikultur": bangladesh_agrikultur,
-  "sektor_perikanan": bangladesh_perikanan,
-  "sektor_olahan_pangan": bangladesh_olahan_pangan,
-  "sektor_farmasi": bangladesh_farmasi,
-  "sektor_pertahanan": bangladesh_pertahanan,
-  "armada_militer": bangladesh_armada,
-  "militer_strategis": bangladesh_strategis,
-  "armada_kepolisian": bangladesh_kepolisian,
-  "pabrik_militer": bangladesh_pabrik,
-  "intelijen": bangladesh_intelijen,
-    "pendidikan": bangladesh_pendidikan,
-  "kesehatan": bangladesh_kesehatan,
-  "hukum": bangladesh_hukum,
-  "sektor_olahraga": bangladesh_olahraga,
-  "sektor_komersial": bangladesh_komersial,
-  "sektor_hiburan": bangladesh_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 7,
-      "kepuasan": 67,
-      "pendapatan": 58
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 156
-    },
-    "penghasilan": {
-      "tarif": 11,
-      "kepuasan": 61,
-      "pendapatan": 55
-    },
-    "bea_cukai": {
-      "tarif": 5,
-      "kepuasan": 86,
-      "pendapatan": 39
-    },
-    "lingkungan": {
-      "tarif": 21,
-      "kepuasan": 88,
-      "pendapatan": 248
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 23 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 68 },
-    "lainnya": {
-      "tarif": 9,
-      "kepuasan": 93,
-      "pendapatan": 96
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const bangladesh_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const bangladesh = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

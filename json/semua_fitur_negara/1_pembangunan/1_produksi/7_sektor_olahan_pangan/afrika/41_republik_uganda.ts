@@ -11,6 +11,3 @@ const republik_uganda_olahan_pangan = {
   ikan_kaleng: 117,
   kopi_teh: 63,
 };
-
-
-

@@ -15,6 +15,3 @@ const gabon_agrikultur = {
   kapas: 65,
   tembakau: 42,
 };
-
-
-

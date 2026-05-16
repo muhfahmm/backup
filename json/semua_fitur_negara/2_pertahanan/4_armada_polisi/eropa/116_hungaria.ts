@@ -16,6 +16,3 @@ const hungaria_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

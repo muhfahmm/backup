@@ -2,6 +2,3 @@
 const siprus_farmasi = {
   farmasi: 5,
 };
-
-
-

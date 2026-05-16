@@ -15,6 +15,3 @@ const monakoAgreements = [
   { "no": 13, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

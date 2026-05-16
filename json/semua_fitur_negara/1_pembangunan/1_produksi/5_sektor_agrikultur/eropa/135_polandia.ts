@@ -15,6 +15,3 @@ const polandia_agrikultur = {
   kapas: 848,
   tembakau: 4028,
 };
-
-
-

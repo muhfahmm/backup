@@ -13,6 +13,3 @@ const arab_saudi_ekstraksi = {
   logam_tanah_jarang: 1197,
   bijih_besi: 0,
 };
-
-
-

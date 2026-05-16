@@ -8,6 +8,3 @@ const taiwan_manufaktur = {
   kayu: 120,
   pupuk: 120,
 };
-
-
-

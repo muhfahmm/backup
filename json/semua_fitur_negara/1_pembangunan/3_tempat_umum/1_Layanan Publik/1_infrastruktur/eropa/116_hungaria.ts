@@ -9,6 +9,3 @@ const hungaria_infrastruktur = {
   bandara: 7,
   helipad: 6,
 };
-
-
-

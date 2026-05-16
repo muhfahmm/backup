@@ -9,6 +9,3 @@ const albania_hukum = {
       "indeks_korupsi": 29,
       "indeks_keamanan": 64
   };
-
-
-

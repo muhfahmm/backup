@@ -4,6 +4,3 @@ const ghana_perikanan = {
   mutiara: 196,
   ikan: 70,
 };
-
-
-

@@ -9,6 +9,3 @@ const saint_kitts_dan_nevis_olahraga = {
   "esports": 0,
   "gokart": 9
 };
-
-
-

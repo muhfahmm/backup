@@ -5,6 +5,3 @@ const suriah_hunian = {
   apartemen: 3423,
   mansion: 114117,
 };
-
-
-

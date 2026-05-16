@@ -26,74 +26,9 @@ const greenland_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
-
-const greenland = {
-  ...greenland_profile,
-  "sektor_listrik": greenland_listrik,
-  "hunian": greenland_hunian,
-  "infrastruktur": greenland_infrastruktur,
-  "sektor_ekstraksi": greenland_ekstraksi,
-  "sektor_manufaktur": greenland_manufaktur,
-  "sektor_peternakan": greenland_peternakan,
-  "sektor_agrikultur": greenland_agrikultur,
-  "sektor_perikanan": greenland_perikanan,
-  "sektor_olahan_pangan": greenland_olahan_pangan,
-  "sektor_farmasi": greenland_farmasi,
-  "sektor_pertahanan": greenland_pertahanan,
-  "armada_militer": greenland_armada,
-  "militer_strategis": greenland_strategis,
-  "armada_kepolisian": greenland_kepolisian,
-  "pabrik_militer": greenland_pabrik,
-  "intelijen": greenland_intelijen,
-    "pendidikan": greenland_pendidikan,
-  "kesehatan": greenland_kesehatan,
-  "hukum": greenland_hukum,
-  "sektor_olahraga": greenland_olahraga,
-  "sektor_komersial": greenland_komersial,
-  "sektor_hiburan": greenland_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 36,
-      "kepuasan": 67,
-      "pendapatan": 8
-    },
-    "korporasi": {
-      "tarif": 37,
-      "kepuasan": 52,
-      "pendapatan": 8
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 5
-    },
-    "bea_cukai": {
-      "tarif": 1,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 23,
-      "kepuasan": 88,
-      "pendapatan": 3
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 35,
-      "kepuasan": 93,
-      "pendapatan": 5
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const greenland_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const greenland = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

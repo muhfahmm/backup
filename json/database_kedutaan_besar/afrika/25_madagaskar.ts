@@ -14,6 +14,3 @@ const madagaskar_diplomasi = [
   { "no": 12, "mitra": "Belize", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

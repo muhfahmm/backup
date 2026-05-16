@@ -5,6 +5,3 @@ const hungaria_peternakan = {
   sapi_potong: 176,
   domba_kambing: 248,
 };
-
-
-

@@ -30,6 +30,3 @@ const gambia_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

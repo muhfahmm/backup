@@ -8,6 +8,3 @@ const libya_manufaktur = {
   kayu: 35,
   pupuk: 35,
 };
-
-
-

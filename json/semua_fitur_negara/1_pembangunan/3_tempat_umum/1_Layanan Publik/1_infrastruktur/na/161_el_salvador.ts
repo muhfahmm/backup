@@ -9,6 +9,3 @@ const el_salvador_infrastruktur = {
   bandara: 1,
   helipad: 2,
 };
-
-
-

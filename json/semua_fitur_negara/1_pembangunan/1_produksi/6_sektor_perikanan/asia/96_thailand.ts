@@ -4,6 +4,3 @@ const thailand_perikanan = {
   mutiara: 738,
   ikan: 1435,
 };
-
-
-

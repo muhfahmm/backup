@@ -9,6 +9,3 @@ const libya_olahraga = {
   "esports": 2,
   "gokart": 15
 };
-
-
-

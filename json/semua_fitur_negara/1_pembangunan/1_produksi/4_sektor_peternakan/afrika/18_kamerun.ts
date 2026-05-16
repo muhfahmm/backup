@@ -5,6 +5,3 @@ const kamerun_peternakan = {
   sapi_potong: 216,
   domba_kambing: 304,
 };
-
-
-

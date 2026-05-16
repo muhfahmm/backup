@@ -7,6 +7,3 @@ const arab_saudi_listrik = {
   pembangkit_listrik_tenaga_gas: 59,
   pembangkit_listrik_tenaga_angin: 0,
 };
-
-
-

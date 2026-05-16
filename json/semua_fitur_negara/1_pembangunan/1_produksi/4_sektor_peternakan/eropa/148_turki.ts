@@ -5,6 +5,3 @@ const turki_peternakan = {
   sapi_potong: 196,
   domba_kambing: 76,
 };
-
-
-

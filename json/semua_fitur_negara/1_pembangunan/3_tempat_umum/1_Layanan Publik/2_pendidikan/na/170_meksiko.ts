@@ -12,6 +12,3 @@ const meksiko_pendidikan = {
       "pusat_pengembangan": 28,
       "literasi": 91
     };
-
-
-

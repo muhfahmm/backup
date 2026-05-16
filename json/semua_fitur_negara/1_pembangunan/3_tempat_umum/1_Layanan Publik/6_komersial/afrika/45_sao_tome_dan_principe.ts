@@ -4,6 +4,3 @@ const sao_tome_dan_principe_komersial = {
   "hotel": 7,
   "pusat_grosir_tekstil": 2
 };
-
-
-

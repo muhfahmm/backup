@@ -9,6 +9,3 @@ const republik_uganda_infrastruktur = {
   bandara: 4,
   helipad: 5,
 };
-
-
-

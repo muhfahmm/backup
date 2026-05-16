@@ -16,6 +16,3 @@ const somalia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

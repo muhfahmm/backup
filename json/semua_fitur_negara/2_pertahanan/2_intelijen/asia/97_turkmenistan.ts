@@ -1,7 +1,6 @@
-﻿const turkmenistan_intelijen = {
+﻿// @ts-nocheck
+const turkmenistan_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 2,
   operasi_siber: 8,
 };
-
-

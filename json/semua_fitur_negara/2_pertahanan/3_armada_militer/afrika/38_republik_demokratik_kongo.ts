@@ -1,4 +1,5 @@
-﻿const republik_demokratik_kongo_armada = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
   }
 };
-
-

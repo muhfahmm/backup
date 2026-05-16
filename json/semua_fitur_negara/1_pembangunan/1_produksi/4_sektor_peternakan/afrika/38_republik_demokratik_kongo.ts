@@ -5,6 +5,3 @@ const republik_demokratik_kongo_peternakan = {
   sapi_potong: 78,
   domba_kambing: 54,
 };
-
-
-

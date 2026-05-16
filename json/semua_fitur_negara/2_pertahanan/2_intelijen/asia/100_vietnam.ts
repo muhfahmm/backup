@@ -4,6 +4,3 @@ const vietnam_intelijen = {
   jaringan_radar: 10,
   operasi_siber: 22,
 };
-
-
-

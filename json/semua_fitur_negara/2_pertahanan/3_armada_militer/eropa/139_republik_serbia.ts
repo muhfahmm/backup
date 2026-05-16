@@ -30,6 +30,3 @@ const republik_serbia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

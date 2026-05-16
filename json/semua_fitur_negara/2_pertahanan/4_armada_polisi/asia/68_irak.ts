@@ -16,6 +16,3 @@ const irak_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

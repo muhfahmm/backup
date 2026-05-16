@@ -5,6 +5,3 @@ const makedoniaUtaraVehicles = {
   bus: 416,
   truk: 2084,
 };
-
-
-

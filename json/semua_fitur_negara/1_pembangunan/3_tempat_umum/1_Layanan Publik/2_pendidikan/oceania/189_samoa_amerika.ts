@@ -12,6 +12,3 @@ const samoa_amerika_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 64
     };
-
-
-

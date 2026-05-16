@@ -4,6 +4,3 @@ const korea_utara_perikanan = {
   mutiara: 80,
   ikan: 28,
 };
-
-
-

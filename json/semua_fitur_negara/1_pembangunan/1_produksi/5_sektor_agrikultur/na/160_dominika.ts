@@ -15,6 +15,3 @@ const dominika_agrikultur = {
   kapas: 152,
   tembakau: 120,
 };
-
-
-

@@ -12,6 +12,3 @@ const suriahAgreements = [
   { "no": 10, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -26,74 +26,9 @@ const korea_selatan_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
-
-const korea_selatan = {
-  ...korea_selatan_profile,
-  "sektor_listrik": korea_selatan_listrik,
-  "hunian": korea_selatan_hunian,
-  "infrastruktur": korea_selatan_infrastruktur,
-  "sektor_ekstraksi": korea_selatan_ekstraksi,
-  "sektor_manufaktur": korea_selatan_manufaktur,
-  "sektor_peternakan": korea_selatan_peternakan,
-  "sektor_agrikultur": korea_selatan_agrikultur,
-  "sektor_perikanan": korea_selatan_perikanan,
-  "sektor_olahan_pangan": korea_selatan_olahan_pangan,
-  "sektor_farmasi": korea_selatan_farmasi,
-  "sektor_pertahanan": korea_selatan_pertahanan,
-  "armada_militer": korea_selatan_armada,
-  "militer_strategis": korea_selatan_strategis,
-  "armada_kepolisian": korea_selatan_kepolisian,
-  "pabrik_militer": korea_selatan_pabrik,
-  "intelijen": korea_selatan_intelijen,
-    "pendidikan": korea_selatan_pendidikan,
-  "kesehatan": korea_selatan_kesehatan,
-  "hukum": korea_selatan_hukum,
-  "sektor_olahraga": korea_selatan_olahraga,
-  "sektor_komersial": korea_selatan_komersial,
-  "sektor_hiburan": korea_selatan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 24,
-      "kepuasan": 67,
-      "pendapatan": 1153
-    },
-    "korporasi": {
-      "tarif": 1,
-      "kepuasan": 52,
-      "pendapatan": 50
-    },
-    "penghasilan": {
-      "tarif": 1,
-      "kepuasan": 61,
-      "pendapatan": 17
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 1632
-    },
-    "lingkungan": {
-      "tarif": 26,
-      "kepuasan": 88,
-      "pendapatan": 1078
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 86 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 257 },
-    "lainnya": {
-      "tarif": 20,
-      "kepuasan": 93,
-      "pendapatan": 375
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const korea_selatan_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const korea_selatan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

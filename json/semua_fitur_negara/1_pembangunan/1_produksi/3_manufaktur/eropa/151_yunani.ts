@@ -8,6 +8,3 @@ const yunani_manufaktur = {
   kayu: 50,
   pupuk: 20,
 };
-
-
-

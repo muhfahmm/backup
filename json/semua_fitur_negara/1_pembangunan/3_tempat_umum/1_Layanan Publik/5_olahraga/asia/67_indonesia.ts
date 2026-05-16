@@ -9,6 +9,3 @@ const indonesia_olahraga = {
   "esports": 41,
   "gokart": 145
 };
-
-
-

@@ -21,6 +21,3 @@ const republik_zambia_diplomasi = [
   { "no": 19, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

@@ -12,6 +12,3 @@ const kubaAgreements = [
   { "no": 10, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

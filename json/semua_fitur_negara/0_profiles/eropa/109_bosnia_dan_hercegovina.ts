@@ -26,74 +26,9 @@ const bosnia_dan_hercegovina_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const bosnia_dan_hercegovina = {
-  ...bosnia_dan_hercegovina_profile,
-  "sektor_listrik": bosnia_dan_hercegovina_listrik,
-  "hunian": bosnia_dan_hercegovina_hunian,
-  "infrastruktur": bosnia_dan_hercegovina_infrastruktur,
-  "sektor_ekstraksi": bosnia_dan_hercegovina_ekstraksi,
-  "sektor_manufaktur": bosnia_dan_hercegovina_manufaktur,
-  "sektor_peternakan": bosnia_dan_hercegovina_peternakan,
-  "sektor_agrikultur": bosnia_dan_hercegovina_agrikultur,
-  "sektor_perikanan": bosnia_dan_hercegovina_perikanan,
-  "sektor_olahan_pangan": bosnia_dan_hercegovina_olahan_pangan,
-  "sektor_farmasi": bosnia_dan_hercegovina_farmasi,
-  "sektor_pertahanan": bosnia_dan_hercegovina_pertahanan,
-  "armada_militer": bosnia_dan_hercegovina_armada,
-  "militer_strategis": bosnia_dan_hercegovina_strategis,
-  "armada_kepolisian": bosnia_dan_hercegovina_kepolisian,
-  "pabrik_militer": bosnia_dan_hercegovina_pabrik,
-  "intelijen": bosnia_dan_hercegovina_intelijen,
-    "pendidikan": bosnia_dan_hercegovina_pendidikan,
-  "kesehatan": bosnia_dan_hercegovina_kesehatan,
-  "hukum": bosnia_dan_hercegovina_hukum,
-  "sektor_olahraga": bosnia_dan_hercegovina_olahraga,
-  "sektor_komersial": bosnia_dan_hercegovina_komersial,
-  "sektor_hiburan": bosnia_dan_hercegovina_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 28,
-      "kepuasan": 67,
-      "pendapatan": 18
-    },
-    "korporasi": {
-      "tarif": 8,
-      "kepuasan": 52,
-      "pendapatan": 5
-    },
-    "penghasilan": {
-      "tarif": 27,
-      "kepuasan": 61,
-      "pendapatan": 17
-    },
-    "bea_cukai": {
-      "tarif": 32,
-      "kepuasan": 86,
-      "pendapatan": 12
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 7
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 4 },
-    "lainnya": {
-      "tarif": 17,
-      "kepuasan": 93,
-      "pendapatan": 6
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const bosnia_dan_hercegovina_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const bosnia_dan_hercegovina = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

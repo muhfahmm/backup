@@ -9,6 +9,3 @@ const israel_hukum = {
       "indeks_korupsi": 58,
       "indeks_keamanan": 59
   };
-
-
-

@@ -26,74 +26,9 @@ const australia_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
-
-const australia = {
-  ...australia_profile,
-  "sektor_listrik": australia_listrik,
-  "hunian": australia_hunian,
-  "infrastruktur": australia_infrastruktur,
-  "sektor_ekstraksi": australia_ekstraksi,
-  "sektor_manufaktur": australia_manufaktur,
-  "sektor_peternakan": australia_peternakan,
-  "sektor_agrikultur": australia_agrikultur,
-  "sektor_perikanan": australia_perikanan,
-  "sektor_olahan_pangan": australia_olahan_pangan,
-  "sektor_farmasi": australia_farmasi,
-  "sektor_pertahanan": australia_pertahanan,
-  "armada_militer": australia_armada,
-  "militer_strategis": australia_strategis,
-  "armada_kepolisian": australia_kepolisian,
-  "pabrik_militer": australia_pabrik,
-  "intelijen": australia_intelijen,
-    "pendidikan": australia_pendidikan,
-  "kesehatan": australia_kesehatan,
-  "hukum": australia_hukum,
-  "sektor_olahraga": australia_olahraga,
-  "sektor_komersial": australia_komersial,
-  "sektor_hiburan": australia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 17,
-      "kepuasan": 67,
-      "pendapatan": 392
-    },
-    "korporasi": {
-      "tarif": 11,
-      "kepuasan": 52,
-      "pendapatan": 213
-    },
-    "penghasilan": {
-      "tarif": 10,
-      "kepuasan": 61,
-      "pendapatan": 209
-    },
-    "bea_cukai": {
-      "tarif": 13,
-      "kepuasan": 86,
-      "pendapatan": 509
-    },
-    "lingkungan": {
-      "tarif": 33,
-      "kepuasan": 88,
-      "pendapatan": 635
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 84 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 251 },
-    "lainnya": {
-      "tarif": 19,
-      "kepuasan": 93,
-      "pendapatan": 764
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const australia_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const australia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

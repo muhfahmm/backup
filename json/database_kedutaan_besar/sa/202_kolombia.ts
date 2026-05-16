@@ -12,6 +12,3 @@ const kolombia_diplomasi = [
   { "no": 10, "mitra": "Belarus", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

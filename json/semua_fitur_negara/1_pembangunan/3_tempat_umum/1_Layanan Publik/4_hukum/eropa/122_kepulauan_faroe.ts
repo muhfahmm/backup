@@ -9,6 +9,3 @@ const kepulauan_faroe_hukum = {
       "indeks_korupsi": 39,
       "indeks_keamanan": 67
   };
-
-
-

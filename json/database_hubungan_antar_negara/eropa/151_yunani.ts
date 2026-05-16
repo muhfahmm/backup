@@ -207,6 +207,3 @@ const yunani_relations = [
   { id: 205, name: "yaman", relation: 50 },
   { id: 206, name: "yordania", relation: 50 }
 ];
-
-
-

@@ -30,6 +30,3 @@ const india_armada = {
         "pesawat_angkut": 250
       }
 };
-
-
-

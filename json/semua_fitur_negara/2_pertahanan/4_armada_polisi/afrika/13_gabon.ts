@@ -16,6 +16,3 @@ const gabon_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

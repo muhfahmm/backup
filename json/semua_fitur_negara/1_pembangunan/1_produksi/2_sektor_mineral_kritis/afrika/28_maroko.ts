@@ -13,6 +13,3 @@ const maroko_ekstraksi = {
   logam_tanah_jarang: 240,
   bijih_besi: 120,
 };
-
-
-

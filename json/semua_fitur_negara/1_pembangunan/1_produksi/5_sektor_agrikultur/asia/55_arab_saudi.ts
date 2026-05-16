@@ -15,6 +15,3 @@ const arab_saudi_agrikultur = {
   kapas: 6916,
   tembakau: 6118,
 };
-
-
-

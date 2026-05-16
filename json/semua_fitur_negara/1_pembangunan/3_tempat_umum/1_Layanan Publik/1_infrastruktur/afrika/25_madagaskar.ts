@@ -9,6 +9,3 @@ const madagaskar_infrastruktur = {
   bandara: 2,
   helipad: 5,
 };
-
-
-

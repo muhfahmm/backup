@@ -7,6 +7,3 @@ const ghana_listrik = {
   pembangkit_listrik_tenaga_uap: 119,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

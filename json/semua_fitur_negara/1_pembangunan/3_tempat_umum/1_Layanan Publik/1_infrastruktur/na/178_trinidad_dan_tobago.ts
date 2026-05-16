@@ -9,6 +9,3 @@ const trinidad_dan_tobago_infrastruktur = {
   bandara: 1,
   helipad: 5,
 };
-
-
-

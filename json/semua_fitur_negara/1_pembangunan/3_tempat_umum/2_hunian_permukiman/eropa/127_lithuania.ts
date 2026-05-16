@@ -5,6 +5,3 @@ const lithuania_hunian = {
   apartemen: 567,
   mansion: 18910,
 };
-
-
-

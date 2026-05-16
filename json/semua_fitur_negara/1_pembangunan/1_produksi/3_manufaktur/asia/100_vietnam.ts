@@ -8,6 +8,3 @@ const vietnam_manufaktur = {
   kayu: 476,
   pupuk: 476,
 };
-
-
-

@@ -15,6 +15,3 @@ const libya_agrikultur = {
   kapas: 350,
   tembakau: 336,
 };
-
-
-

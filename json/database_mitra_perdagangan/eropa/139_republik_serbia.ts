@@ -15,6 +15,3 @@ const republik_serbiaAgreements = [
   { "no": 13, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

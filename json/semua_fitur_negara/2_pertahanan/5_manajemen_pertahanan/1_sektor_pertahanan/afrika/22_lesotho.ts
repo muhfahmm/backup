@@ -9,6 +9,3 @@ const lesotho_pertahanan = {
     "program_luar_angkasa": 13,
     "pertahanan_siber": 8
     };
-
-
-

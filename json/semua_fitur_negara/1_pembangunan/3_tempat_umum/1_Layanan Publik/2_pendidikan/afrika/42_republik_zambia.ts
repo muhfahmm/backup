@@ -12,6 +12,3 @@ const republik_zambia_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 71
   };
-
-
-

@@ -9,6 +9,3 @@ const ceko_olahraga = {
   "esports": 7,
   "gokart": 29
 };
-
-
-

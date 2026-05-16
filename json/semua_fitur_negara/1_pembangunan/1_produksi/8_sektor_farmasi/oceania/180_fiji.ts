@@ -2,6 +2,3 @@
 const fiji_farmasi = {
   farmasi: 29,
 };
-
-
-

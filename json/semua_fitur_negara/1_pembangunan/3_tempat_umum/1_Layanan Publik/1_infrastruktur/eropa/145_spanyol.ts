@@ -9,6 +9,3 @@ const spanyol_infrastruktur = {
   bandara: 10,
   helipad: 39,
 };
-
-
-

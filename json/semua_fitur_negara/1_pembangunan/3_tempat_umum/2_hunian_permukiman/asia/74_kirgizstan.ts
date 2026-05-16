@@ -5,6 +5,3 @@ const kirgizstan_hunian = {
   apartemen: 1280,
   mansion: 42678,
 };
-
-
-

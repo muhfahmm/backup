@@ -9,6 +9,3 @@ const costa_rica_olahraga = {
   "esports": 0,
   "gokart": 10
 };
-
-
-

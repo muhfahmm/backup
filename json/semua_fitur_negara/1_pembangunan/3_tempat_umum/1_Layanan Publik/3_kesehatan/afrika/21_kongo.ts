@@ -6,6 +6,3 @@ const kongo_kesehatan = {
       "harapan_hidup": 66,
       "indeks_kesehatan": 70
   };
-
-
-

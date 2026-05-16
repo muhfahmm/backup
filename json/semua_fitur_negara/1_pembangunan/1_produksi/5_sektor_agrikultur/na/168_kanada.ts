@@ -15,6 +15,3 @@ const kanada_agrikultur = {
   kapas: 21504,
   tembakau: 10752,
 };
-
-
-

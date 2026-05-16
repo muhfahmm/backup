@@ -16,6 +16,3 @@ const vietnam_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

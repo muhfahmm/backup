@@ -9,6 +9,3 @@ const republik_zimbabwe_infrastruktur = {
   bandara: 1,
   helipad: 2,
 };
-
-
-

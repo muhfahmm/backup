@@ -30,6 +30,3 @@ const rusia_armada = {
         "pesawat_angkut": 400
       }
 };
-
-
-

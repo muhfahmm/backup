@@ -8,6 +8,3 @@ const irak_manufaktur = {
   kayu: 60,
   pupuk: 48,
 };
-
-
-

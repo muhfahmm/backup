@@ -5,6 +5,3 @@ const somalia_hunian = {
   apartemen: 3039,
   mansion: 101305,
 };
-
-
-

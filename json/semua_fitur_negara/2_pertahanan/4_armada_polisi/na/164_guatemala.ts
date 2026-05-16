@@ -16,6 +16,3 @@ const guatemala_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

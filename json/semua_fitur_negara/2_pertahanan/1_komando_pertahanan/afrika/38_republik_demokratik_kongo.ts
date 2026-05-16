@@ -14,6 +14,3 @@ const republik_demokratik_kongo_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

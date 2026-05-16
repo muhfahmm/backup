@@ -11,6 +11,3 @@ const argentina_olahan_pangan = {
   ikan_kaleng: 2160,
   kopi_teh: 576,
 };
-
-
-

@@ -26,74 +26,9 @@ const suriname_geopolitik = {
       "kekuatan_keras": 4,
       "prestise_diplomatik": 57
     }
-  };
-
-const suriname = {
-  ...suriname_profile,
-  "sektor_listrik": suriname_listrik,
-  "hunian": suriname_hunian,
-  "infrastruktur": suriname_infrastruktur,
-  "sektor_ekstraksi": suriname_ekstraksi,
-  "sektor_manufaktur": suriname_manufaktur,
-  "sektor_peternakan": suriname_peternakan,
-  "sektor_agrikultur": suriname_agrikultur,
-  "sektor_perikanan": suriname_perikanan,
-  "sektor_olahan_pangan": suriname_olahan_pangan,
-  "sektor_farmasi": suriname_farmasi,
-  "sektor_pertahanan": suriname_pertahanan,
-  "armada_militer": suriname_armada,
-  "militer_strategis": suriname_strategis,
-  "armada_kepolisian": suriname_kepolisian,
-  "pabrik_militer": suriname_pabrik,
-  "intelijen": suriname_intelijen,
-    "pendidikan": suriname_pendidikan,
-  "kesehatan": suriname_kesehatan,
-  "hukum": suriname_hukum,
-  "sektor_olahraga": suriname_olahraga,
-  "sektor_komersial": suriname_komersial,
-  "sektor_hiburan": suriname_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 33,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 40,
-      "kepuasan": 52,
-      "pendapatan": 3
-    },
-    "penghasilan": {
-      "tarif": 3,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 10,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 22,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const suriname_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const suriname = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

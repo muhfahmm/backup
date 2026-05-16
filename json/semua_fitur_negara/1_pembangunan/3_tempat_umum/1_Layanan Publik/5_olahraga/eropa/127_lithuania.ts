@@ -9,6 +9,3 @@ const lithuania_olahraga = {
   "esports": 5,
   "gokart": 5
 };
-
-
-

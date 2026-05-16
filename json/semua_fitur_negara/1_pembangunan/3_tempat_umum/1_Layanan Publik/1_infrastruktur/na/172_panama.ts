@@ -9,6 +9,3 @@ const panama_infrastruktur = {
   bandara: 3,
   helipad: 5,
 };
-
-
-

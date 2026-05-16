@@ -9,6 +9,3 @@ const kuba_hukum = {
       "indeks_korupsi": 38,
       "indeks_keamanan": 69
   };
-
-
-

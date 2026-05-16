@@ -8,6 +8,3 @@ const saint_lucia_manufaktur = {
   kayu: 15,
   pupuk: 8,
 };
-
-
-

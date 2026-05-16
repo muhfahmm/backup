@@ -9,6 +9,3 @@ const burkina_faso_hukum = {
       "indeks_korupsi": 49,
       "indeks_keamanan": 48
   };
-
-
-

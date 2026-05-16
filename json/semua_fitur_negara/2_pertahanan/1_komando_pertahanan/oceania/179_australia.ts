@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const australia_strategis = {
     "waktu_respon": 21,
     "intelijen": 20,
@@ -13,5 +14,3 @@ const australia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

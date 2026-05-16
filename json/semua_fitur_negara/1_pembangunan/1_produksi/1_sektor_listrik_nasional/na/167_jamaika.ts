@@ -7,6 +7,3 @@ const jamaika_listrik = {
   pembangkit_listrik_tenaga_gas: 73,
   pembangkit_listrik_tenaga_angin: 5,
 };
-
-
-

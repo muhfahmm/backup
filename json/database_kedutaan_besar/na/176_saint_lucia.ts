@@ -20,6 +20,3 @@ const saint_lucia_diplomasi = [
   { "no": 18, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

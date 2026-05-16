@@ -5,6 +5,3 @@ const mozambik_hunian = {
   apartemen: 5972,
   mansion: 199097,
 };
-
-
-

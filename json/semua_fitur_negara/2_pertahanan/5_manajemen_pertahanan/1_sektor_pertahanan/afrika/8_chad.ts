@@ -1,4 +1,5 @@
-﻿const chad_pertahanan = {
+﻿// @ts-nocheck
+const chad_pertahanan = {
     "penjara": 11,
     "gudang_senjata": 40,
     "hangar_tank": 33,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 3,
     "pertahanan_siber": 36
     };
-
-

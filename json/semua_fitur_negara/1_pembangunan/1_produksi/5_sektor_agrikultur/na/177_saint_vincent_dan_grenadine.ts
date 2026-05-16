@@ -15,6 +15,3 @@ const saint_vincent_dan_grenadine_agrikultur = {
   kapas: 31,
   tembakau: 50,
 };
-
-
-

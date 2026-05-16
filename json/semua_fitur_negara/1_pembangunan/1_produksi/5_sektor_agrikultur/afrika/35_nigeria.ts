@@ -15,6 +15,3 @@ const nigeria_agrikultur = {
   kapas: 1064,
   tembakau: 2464,
 };
-
-
-

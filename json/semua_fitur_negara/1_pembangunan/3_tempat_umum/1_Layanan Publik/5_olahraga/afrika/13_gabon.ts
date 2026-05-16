@@ -9,6 +9,3 @@ const gabon_olahraga = {
   "esports": 3,
   "gokart": 15
 };
-
-
-

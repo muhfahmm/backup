@@ -15,6 +15,3 @@ const vanuatu_agrikultur = {
   kapas: 66,
   tembakau: 29,
 };
-
-
-

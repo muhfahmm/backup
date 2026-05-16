@@ -15,6 +15,3 @@ const irak_agrikultur = {
   kapas: 72,
   tembakau: 72,
 };
-
-
-

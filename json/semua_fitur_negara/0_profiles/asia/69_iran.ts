@@ -26,74 +26,9 @@ const iran_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  };
-
-const iran = {
-  ...iran_profile,
-  "sektor_listrik": iran_listrik,
-  "hunian": iran_hunian,
-  "infrastruktur": iran_infrastruktur,
-  "sektor_ekstraksi": iran_ekstraksi,
-  "sektor_manufaktur": iran_manufaktur,
-  "sektor_peternakan": iran_peternakan,
-  "sektor_agrikultur": iran_agrikultur,
-  "sektor_perikanan": iran_perikanan,
-  "sektor_olahan_pangan": iran_olahan_pangan,
-  "sektor_farmasi": iran_farmasi,
-  "sektor_pertahanan": iran_pertahanan,
-  "armada_militer": iran_armada,
-  "militer_strategis": iran_strategis,
-  "armada_kepolisian": iran_kepolisian,
-  "pabrik_militer": iran_pabrik,
-  "intelijen": iran_intelijen,
-    "pendidikan": iran_pendidikan,
-  "kesehatan": iran_kesehatan,
-  "hukum": iran_hukum,
-  "sektor_olahraga": iran_olahraga,
-  "sektor_komersial": iran_komersial,
-  "sektor_hiburan": iran_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 30,
-      "kepuasan": 67,
-      "pendapatan": 267
-    },
-    "korporasi": {
-      "tarif": 40,
-      "kepuasan": 52,
-      "pendapatan": 395
-    },
-    "penghasilan": {
-      "tarif": 7,
-      "kepuasan": 61,
-      "pendapatan": 60
-    },
-    "bea_cukai": {
-      "tarif": 11,
-      "kepuasan": 86,
-      "pendapatan": 74
-    },
-    "lingkungan": {
-      "tarif": 13,
-      "kepuasan": 88,
-      "pendapatan": 137
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 18 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 54 },
-    "lainnya": {
-      "tarif": 18,
-      "kepuasan": 93,
-      "pendapatan": 131
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const iran_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const iran = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

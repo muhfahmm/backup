@@ -5,6 +5,3 @@ const suriah_peternakan = {
   sapi_potong: 27,
   domba_kambing: 29,
 };
-
-
-

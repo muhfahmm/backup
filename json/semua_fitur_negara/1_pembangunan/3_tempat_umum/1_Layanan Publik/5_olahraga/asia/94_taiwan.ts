@@ -9,6 +9,3 @@ const taiwan_olahraga = {
   "esports": 10,
   "gokart": 49
 };
-
-
-

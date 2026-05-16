@@ -5,6 +5,3 @@ const bulgaria_hunian = {
   apartemen: 1422,
   mansion: 47418,
 };
-
-
-

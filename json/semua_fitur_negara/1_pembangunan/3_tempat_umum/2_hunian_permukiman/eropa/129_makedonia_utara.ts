@@ -5,6 +5,3 @@ const makedonia_utara_hunian = {
   apartemen: 422,
   mansion: 14069,
 };
-
-
-

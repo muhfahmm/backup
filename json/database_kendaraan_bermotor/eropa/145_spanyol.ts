@@ -5,6 +5,3 @@ const spanyolVehicles = {
   bus: 9359,
   truk: 46796,
 };
-
-
-

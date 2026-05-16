@@ -9,6 +9,3 @@ const angola_hukum = {
       "indeks_korupsi": 26,
       "indeks_keamanan": 40
   };
-
-
-

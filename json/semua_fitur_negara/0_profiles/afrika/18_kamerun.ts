@@ -26,74 +26,9 @@ const kamerun_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
   }
-  };
-
-const kamerun = {
-  ...kamerun_profile,
-  "sektor_listrik": kamerun_listrik,
-  "hunian": kamerun_hunian,
-  "infrastruktur": kamerun_infrastruktur,
-  "sektor_ekstraksi": kamerun_ekstraksi,
-  "sektor_manufaktur": kamerun_manufaktur,
-  "sektor_peternakan": kamerun_peternakan,
-  "sektor_agrikultur": kamerun_agrikultur,
-  "sektor_perikanan": kamerun_perikanan,
-  "sektor_olahan_pangan": kamerun_olahan_pangan,
-  "sektor_farmasi": kamerun_farmasi,
-  "sektor_pertahanan": kamerun_pertahanan,
-  "armada_militer": kamerun_armada,
-  "militer_strategis": kamerun_strategis,
-  "armada_kepolisian": kamerun_kepolisian,
-  "pabrik_militer": kamerun_pabrik,
-  "intelijen": kamerun_intelijen,
-    "pendidikan": kamerun_pendidikan,
-  "kesehatan": kamerun_kesehatan,
-  "hukum": kamerun_hukum,
-  "sektor_olahraga": kamerun_olahraga,
-  "sektor_komersial": kamerun_komersial,
-  "sektor_hiburan": kamerun_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 7,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 8,
-      "kepuasan": 52,
-      "pendapatan": 9
-    },
-    "penghasilan": {
-      "tarif": 11,
-      "kepuasan": 61,
-      "pendapatan": 8
-    },
-    "bea_cukai": {
-      "tarif": 33,
-      "kepuasan": 86,
-      "pendapatan": 29
-    },
-    "lingkungan": {
-      "tarif": 27,
-      "kepuasan": 88,
-      "pendapatan": 30
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 7 },
-    "lainnya": {
-      "tarif": 3,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kamerun_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const kamerun = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

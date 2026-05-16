@@ -15,6 +15,3 @@ const belanda_agrikultur = {
   kapas: 2295,
   tembakau: 8640,
 };
-
-
-

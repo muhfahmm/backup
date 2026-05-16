@@ -5,6 +5,3 @@ const chile_peternakan = {
   sapi_potong: 2646,
   domba_kambing: 918,
 };
-
-
-

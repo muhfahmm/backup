@@ -18,6 +18,3 @@ const brazil_diplomasi = [
   { "no": 16, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

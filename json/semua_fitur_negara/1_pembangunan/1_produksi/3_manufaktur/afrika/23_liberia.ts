@@ -8,6 +8,3 @@ const liberia_manufaktur = {
   kayu: 36,
   pupuk: 15,
 };
-
-
-

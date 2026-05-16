@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const kepulauan_faroe_strategis = {
     "waktu_respon": 31,
     "intelijen": 18,
@@ -13,5 +14,3 @@ const kepulauan_faroe_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

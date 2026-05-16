@@ -12,6 +12,3 @@ const lithuaniaAgreements = [
   { "no": 10, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

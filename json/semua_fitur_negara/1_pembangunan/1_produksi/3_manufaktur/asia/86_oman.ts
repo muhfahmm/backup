@@ -8,6 +8,3 @@ const oman_manufaktur = {
   kayu: 165,
   pupuk: 66,
 };
-
-
-

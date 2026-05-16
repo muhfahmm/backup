@@ -15,6 +15,3 @@ const grenada_agrikultur = {
   kapas: 80,
   tembakau: 75,
 };
-
-
-

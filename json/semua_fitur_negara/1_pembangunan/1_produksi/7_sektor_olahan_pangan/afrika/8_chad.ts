@@ -11,6 +11,3 @@ const chad_olahan_pangan = {
   ikan_kaleng: 42,
   kopi_teh: 60,
 };
-
-
-

@@ -4,6 +4,3 @@ const republik_uganda_perikanan = {
   mutiara: 51,
   ikan: 21,
 };
-
-
-

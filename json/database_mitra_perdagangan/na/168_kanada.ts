@@ -13,6 +13,3 @@ const kanadaAgreements = [
   { "no": 11, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

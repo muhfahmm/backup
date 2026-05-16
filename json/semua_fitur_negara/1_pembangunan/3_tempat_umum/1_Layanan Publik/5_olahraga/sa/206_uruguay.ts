@@ -9,6 +9,3 @@ const uruguay_olahraga = {
   "esports": 0,
   "gokart": 9
 };
-
-
-

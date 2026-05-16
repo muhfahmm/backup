@@ -5,6 +5,3 @@ const komoroVehicles = {
   bus: 166,
   truk: 832,
 };
-
-
-

@@ -8,6 +8,3 @@ const republik_afrika_tengah_manufaktur = {
   kayu: 24,
   pupuk: 27,
 };
-
-
-

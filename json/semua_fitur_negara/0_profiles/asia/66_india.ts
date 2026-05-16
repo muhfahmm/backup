@@ -26,74 +26,9 @@ const india_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
-
-const india = {
-  ...india_profile,
-  "sektor_listrik": india_listrik,
-  "hunian": india_hunian,
-  "infrastruktur": india_infrastruktur,
-  "sektor_ekstraksi": india_ekstraksi,
-  "sektor_manufaktur": india_manufaktur,
-  "sektor_peternakan": india_peternakan,
-  "sektor_agrikultur": india_agrikultur,
-  "sektor_perikanan": india_perikanan,
-  "sektor_olahan_pangan": india_olahan_pangan,
-  "sektor_farmasi": india_farmasi,
-  "sektor_pertahanan": india_pertahanan,
-  "armada_militer": india_armada,
-  "militer_strategis": india_strategis,
-  "armada_kepolisian": india_kepolisian,
-  "pabrik_militer": india_pabrik,
-  "intelijen": india_intelijen,
-    "pendidikan": india_pendidikan,
-  "kesehatan": india_kesehatan,
-  "hukum": india_hukum,
-  "sektor_olahraga": india_olahraga,
-  "sektor_komersial": india_komersial,
-  "sektor_hiburan": india_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 20,
-      "kepuasan": 67,
-      "pendapatan": 1262
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 1658
-    },
-    "penghasilan": {
-      "tarif": 36,
-      "kepuasan": 61,
-      "pendapatan": 2793
-    },
-    "bea_cukai": {
-      "tarif": 27,
-      "kepuasan": 86,
-      "pendapatan": 1109
-    },
-    "lingkungan": {
-      "tarif": 4,
-      "kepuasan": 88,
-      "pendapatan": 332
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 192 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 575 },
-    "lainnya": {
-      "tarif": 20,
-      "kepuasan": 93,
-      "pendapatan": 2111
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const india_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const india = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

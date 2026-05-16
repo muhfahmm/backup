@@ -9,6 +9,3 @@ const republik_zambia_hukum = {
       "indeks_korupsi": 21,
       "indeks_keamanan": 64
   };
-
-
-

@@ -4,6 +4,3 @@ const republik_tanzania_perikanan = {
   mutiara: 57,
   ikan: 114,
 };
-
-
-

@@ -9,6 +9,3 @@ const samoa_amerika_hukum = {
       "indeks_korupsi": 34,
       "indeks_keamanan": 45
   };
-
-
-

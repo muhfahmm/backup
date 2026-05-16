@@ -15,6 +15,3 @@ const kuba_agrikultur = {
   kapas: 1254,
   tembakau: 494,
 };
-
-
-

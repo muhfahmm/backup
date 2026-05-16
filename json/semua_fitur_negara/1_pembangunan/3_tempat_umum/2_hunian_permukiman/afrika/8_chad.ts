@@ -5,6 +5,3 @@ const chad_hunian = {
   apartemen: 3134,
   mansion: 104474,
 };
-
-
-

@@ -15,6 +15,3 @@ const oman_agrikultur = {
   kapas: 165,
   tembakau: 704,
 };
-
-
-

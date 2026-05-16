@@ -15,6 +15,3 @@ const uzbekistan_agrikultur = {
   kapas: 413,
   tembakau: 497,
 };
-
-
-

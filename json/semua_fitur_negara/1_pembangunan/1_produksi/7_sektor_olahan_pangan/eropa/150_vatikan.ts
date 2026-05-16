@@ -11,6 +11,3 @@ const vatikan_olahan_pangan = {
   ikan_kaleng: 72,
   kopi_teh: 156,
 };
-
-
-

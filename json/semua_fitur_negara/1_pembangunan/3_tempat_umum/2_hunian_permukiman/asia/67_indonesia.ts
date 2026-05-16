@@ -5,6 +5,3 @@ const indonesia_hunian = {
   apartemen: 54201,
   mansion: 1806728,
 };
-
-
-

@@ -30,6 +30,3 @@ const monako_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

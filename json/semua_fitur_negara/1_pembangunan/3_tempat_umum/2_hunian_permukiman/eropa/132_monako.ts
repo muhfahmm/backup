@@ -5,6 +5,3 @@ const monako_hunian = {
   apartemen: 7,
   mansion: 261,
 };
-
-
-

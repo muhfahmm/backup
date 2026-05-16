@@ -4,6 +4,3 @@ const fiji_perikanan = {
   mutiara: 24,
   ikan: 26,
 };
-
-
-

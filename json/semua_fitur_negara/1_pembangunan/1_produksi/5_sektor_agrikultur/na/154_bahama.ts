@@ -15,6 +15,3 @@ const bahama_agrikultur = {
   kapas: 268,
   tembakau: 140,
 };
-
-
-

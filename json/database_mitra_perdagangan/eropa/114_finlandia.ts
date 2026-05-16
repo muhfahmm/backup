@@ -15,6 +15,3 @@ const finlandiaAgreements = [
   { "no": 13, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

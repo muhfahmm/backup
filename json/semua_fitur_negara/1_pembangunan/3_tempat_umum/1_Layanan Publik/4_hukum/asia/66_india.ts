@@ -9,6 +9,3 @@ const india_hukum = {
       "indeks_korupsi": 70,
       "indeks_keamanan": 65
   };
-
-
-

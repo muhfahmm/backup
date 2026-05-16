@@ -5,6 +5,3 @@ const liberia_peternakan = {
   sapi_potong: 39,
   domba_kambing: 54,
 };
-
-
-

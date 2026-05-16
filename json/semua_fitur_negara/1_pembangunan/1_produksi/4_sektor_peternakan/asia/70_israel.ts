@@ -5,6 +5,3 @@ const israel_peternakan = {
   sapi_potong: 2898,
   domba_kambing: 2709,
 };
-
-
-

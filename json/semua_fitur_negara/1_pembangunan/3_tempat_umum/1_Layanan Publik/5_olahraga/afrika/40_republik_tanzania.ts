@@ -9,6 +9,3 @@ const republik_tanzania_olahraga = {
   "esports": 1,
   "gokart": 4
 };
-
-
-

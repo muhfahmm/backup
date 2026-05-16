@@ -5,6 +5,3 @@ const slowakia_peternakan = {
   sapi_potong: 195,
   domba_kambing: 455,
 };
-
-
-

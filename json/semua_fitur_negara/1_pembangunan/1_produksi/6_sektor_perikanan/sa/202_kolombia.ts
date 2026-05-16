@@ -4,6 +4,3 @@ const kolombia_perikanan = {
   mutiara: 684,
   ikan: 288,
 };
-
-
-

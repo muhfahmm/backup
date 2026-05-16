@@ -5,6 +5,3 @@ const arab_saudi_hunian = {
   apartemen: 6824,
   mansion: 227474,
 };
-
-
-

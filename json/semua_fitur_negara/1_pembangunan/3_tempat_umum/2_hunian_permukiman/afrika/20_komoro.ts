@@ -5,6 +5,3 @@ const komoro_hunian = {
   apartemen: 168,
   mansion: 5618,
 };
-
-
-

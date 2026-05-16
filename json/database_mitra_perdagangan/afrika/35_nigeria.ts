@@ -11,6 +11,3 @@ const nigeriaAgreements = [
   { "no": 9, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

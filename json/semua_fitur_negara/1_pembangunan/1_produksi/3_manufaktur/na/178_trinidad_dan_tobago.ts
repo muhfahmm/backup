@@ -8,6 +8,3 @@ const trinidad_dan_tobago_manufaktur = {
   kayu: 28,
   pupuk: 6,
 };
-
-
-

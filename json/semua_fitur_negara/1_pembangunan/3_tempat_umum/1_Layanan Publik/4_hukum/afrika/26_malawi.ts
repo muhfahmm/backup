@@ -9,6 +9,3 @@ const malawi_hukum = {
       "indeks_korupsi": 50,
       "indeks_keamanan": 70
   };
-
-
-

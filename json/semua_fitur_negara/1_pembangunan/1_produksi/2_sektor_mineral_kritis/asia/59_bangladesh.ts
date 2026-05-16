@@ -13,6 +13,3 @@ const bangladesh_ekstraksi = {
   logam_tanah_jarang: 70,
   bijih_besi: 700,
 };
-
-
-

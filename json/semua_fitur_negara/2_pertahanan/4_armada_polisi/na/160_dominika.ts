@@ -16,6 +16,3 @@ const dominika_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

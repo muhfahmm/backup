@@ -5,6 +5,3 @@ const norwegia_peternakan = {
   sapi_potong: 700,
   domba_kambing: 340,
 };
-
-
-

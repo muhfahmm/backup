@@ -26,74 +26,9 @@ const gambia_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
   }
-  };
-
-const gambia = {
-  ...gambia_profile,
-  "sektor_listrik": gambia_listrik,
-  "hunian": gambia_hunian,
-  "infrastruktur": gambia_infrastruktur,
-  "sektor_ekstraksi": gambia_ekstraksi,
-  "sektor_manufaktur": gambia_manufaktur,
-  "sektor_peternakan": gambia_peternakan,
-  "sektor_agrikultur": gambia_agrikultur,
-  "sektor_perikanan": gambia_perikanan,
-  "sektor_olahan_pangan": gambia_olahan_pangan,
-  "sektor_farmasi": gambia_farmasi,
-  "sektor_pertahanan": gambia_pertahanan,
-  "armada_militer": gambia_armada,
-  "militer_strategis": gambia_strategis,
-  "armada_kepolisian": gambia_kepolisian,
-  "pabrik_militer": gambia_pabrik,
-  "intelijen": gambia_intelijen,
-    "pendidikan": gambia_pendidikan,
-  "kesehatan": gambia_kesehatan,
-  "hukum": gambia_hukum,
-  "sektor_olahraga": gambia_olahraga,
-  "sektor_komersial": gambia_komersial,
-  "sektor_hiburan": gambia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 36,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 28,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 34,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 30,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 1,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 14,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const gambia_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const gambia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

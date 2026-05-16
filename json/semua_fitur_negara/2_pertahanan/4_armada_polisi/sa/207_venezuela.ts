@@ -16,6 +16,3 @@ const venezuela_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

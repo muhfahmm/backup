@@ -11,6 +11,3 @@ const marokoAgreements = [
   { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

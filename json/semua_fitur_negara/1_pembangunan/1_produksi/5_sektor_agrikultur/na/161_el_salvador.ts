@@ -15,6 +15,3 @@ const el_salvador_agrikultur = {
   kapas: 110,
   tembakau: 315,
 };
-
-
-

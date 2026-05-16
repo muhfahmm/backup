@@ -4,6 +4,3 @@ const spanyol_perikanan = {
   mutiara: 3828,
   ikan: 1740,
 };
-
-
-

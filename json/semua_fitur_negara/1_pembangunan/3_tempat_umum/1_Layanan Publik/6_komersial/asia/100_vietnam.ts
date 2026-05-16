@@ -4,6 +4,3 @@ const vietnam_komersial = {
   "hotel": 71,
   "pusat_grosir_tekstil": 10
 };
-
-
-

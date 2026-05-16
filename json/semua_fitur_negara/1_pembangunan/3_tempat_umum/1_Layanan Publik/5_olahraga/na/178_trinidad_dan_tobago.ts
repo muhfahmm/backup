@@ -9,6 +9,3 @@ const trinidad_dan_tobago_olahraga = {
   "esports": 3,
   "gokart": 10
 };
-
-
-

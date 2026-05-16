@@ -5,6 +5,3 @@ const angola_hunian = {
   apartemen: 6238,
   mansion: 207965,
 };
-
-
-

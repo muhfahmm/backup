@@ -9,6 +9,3 @@ const angola_infrastruktur = {
   bandara: 4,
   helipad: 5,
 };
-
-
-

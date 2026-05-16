@@ -30,6 +30,3 @@ const turki_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

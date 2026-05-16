@@ -8,6 +8,3 @@ const republik_sudan_manufaktur = {
   kayu: 30,
   pupuk: 30,
 };
-
-
-

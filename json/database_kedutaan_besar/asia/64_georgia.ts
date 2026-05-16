@@ -12,6 +12,3 @@ const georgia_diplomasi = [
   { "no": 10, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

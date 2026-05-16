@@ -12,6 +12,3 @@ const saint_kitts_dan_nevis_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 68
     };
-
-
-

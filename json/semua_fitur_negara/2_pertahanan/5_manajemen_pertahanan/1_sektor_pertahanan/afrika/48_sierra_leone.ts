@@ -9,6 +9,3 @@ const sierra_leone_pertahanan = {
     "program_luar_angkasa": 38,
     "pertahanan_siber": 14
     };
-
-
-

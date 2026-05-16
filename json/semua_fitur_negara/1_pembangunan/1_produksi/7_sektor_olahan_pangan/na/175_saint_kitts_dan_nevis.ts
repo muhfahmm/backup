@@ -11,6 +11,3 @@ const saint_kitts_dan_nevis_olahan_pangan = {
   ikan_kaleng: 105,
   kopi_teh: 72,
 };
-
-
-

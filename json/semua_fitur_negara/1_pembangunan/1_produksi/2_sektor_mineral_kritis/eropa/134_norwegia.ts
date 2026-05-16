@@ -13,6 +13,3 @@ const norwegia_ekstraksi = {
   logam_tanah_jarang: 140,
   bijih_besi: 40,
 };
-
-
-

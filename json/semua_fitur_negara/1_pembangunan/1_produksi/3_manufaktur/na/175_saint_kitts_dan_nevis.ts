@@ -8,6 +8,3 @@ const saint_kitts_dan_nevis_manufaktur = {
   kayu: 42,
   pupuk: 15,
 };
-
-
-

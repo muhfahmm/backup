@@ -2,6 +2,3 @@
 const laos_pabrik = {
     "pabrik_amunisi": 2,
   };
-
-
-

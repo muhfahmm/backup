@@ -14,6 +14,3 @@ const republik_dominika_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

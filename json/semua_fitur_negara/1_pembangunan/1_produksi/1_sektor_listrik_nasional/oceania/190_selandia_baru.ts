@@ -7,6 +7,3 @@ const selandia_baru_listrik = {
   pembangkit_listrik_tenaga_gas: 469,
   pembangkit_listrik_tenaga_angin: 3,
 };
-
-
-

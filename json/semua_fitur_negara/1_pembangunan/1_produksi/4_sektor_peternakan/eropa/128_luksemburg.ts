@@ -5,6 +5,3 @@ const luksemburg_peternakan = {
   sapi_potong: 36,
   domba_kambing: 150,
 };
-
-
-

@@ -4,6 +4,3 @@ const bermuda_perikanan = {
   mutiara: 68,
   ikan: 28,
 };
-
-
-

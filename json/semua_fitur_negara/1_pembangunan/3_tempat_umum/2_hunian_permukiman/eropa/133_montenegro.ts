@@ -5,6 +5,3 @@ const montenegro_hunian = {
   apartemen: 127,
   mansion: 4260,
 };
-
-
-

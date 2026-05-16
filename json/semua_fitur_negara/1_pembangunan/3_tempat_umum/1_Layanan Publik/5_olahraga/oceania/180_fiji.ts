@@ -9,6 +9,3 @@ const fiji_olahraga = {
   "esports": 4,
   "gokart": 3
 };
-
-
-

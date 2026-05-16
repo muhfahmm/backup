@@ -30,6 +30,3 @@ const republik_zimbabwe_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

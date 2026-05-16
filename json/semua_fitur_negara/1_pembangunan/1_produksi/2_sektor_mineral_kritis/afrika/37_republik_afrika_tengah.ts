@@ -13,6 +13,3 @@ const republik_afrika_tengah_ekstraksi = {
   logam_tanah_jarang: 3,
   bijih_besi: 24,
 };
-
-
-

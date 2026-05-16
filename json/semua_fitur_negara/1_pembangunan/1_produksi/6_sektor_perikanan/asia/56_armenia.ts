@@ -4,6 +4,3 @@ const armenia_perikanan = {
   mutiara: 60,
   ikan: 72,
 };
-
-
-

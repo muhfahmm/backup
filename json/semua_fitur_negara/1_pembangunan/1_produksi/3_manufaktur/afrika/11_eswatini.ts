@@ -8,6 +8,3 @@ const eswatini_manufaktur = {
   kayu: 5,
   pupuk: 3,
 };
-
-
-

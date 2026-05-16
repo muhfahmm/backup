@@ -5,6 +5,3 @@ const liechtensteinVehicles = {
   bus: 7,
   truk: 37,
 };
-
-
-

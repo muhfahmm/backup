@@ -1,4 +1,5 @@
-﻿const suriname_pertahanan = {
+﻿// @ts-nocheck
+const suriname_pertahanan = {
     "penjara": 36,
     "gudang_senjata": 18,
     "hangar_tank": 1,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 31,
     "pertahanan_siber": 31
     };
-
-

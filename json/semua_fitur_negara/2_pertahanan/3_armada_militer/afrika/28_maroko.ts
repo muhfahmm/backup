@@ -30,6 +30,3 @@ const maroko_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

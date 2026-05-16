@@ -26,74 +26,9 @@ const mauritius_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
   }
-  };
-
-const mauritius = {
-  ...mauritius_profile,
-  "sektor_listrik": mauritius_listrik,
-  "hunian": mauritius_hunian,
-  "infrastruktur": mauritius_infrastruktur,
-  "sektor_ekstraksi": mauritius_ekstraksi,
-  "sektor_manufaktur": mauritius_manufaktur,
-  "sektor_peternakan": mauritius_peternakan,
-  "sektor_agrikultur": mauritius_agrikultur,
-  "sektor_perikanan": mauritius_perikanan,
-  "sektor_olahan_pangan": mauritius_olahan_pangan,
-  "sektor_farmasi": mauritius_farmasi,
-  "sektor_pertahanan": mauritius_pertahanan,
-  "armada_militer": mauritius_armada,
-  "militer_strategis": mauritius_strategis,
-  "armada_kepolisian": mauritius_kepolisian,
-  "pabrik_militer": mauritius_pabrik,
-  "intelijen": mauritius_intelijen,
-    "pendidikan": mauritius_pendidikan,
-  "kesehatan": mauritius_kesehatan,
-  "hukum": mauritius_hukum,
-  "sektor_olahraga": mauritius_olahraga,
-  "sektor_komersial": mauritius_komersial,
-  "sektor_hiburan": mauritius_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 22,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 8,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 22,
-      "kepuasan": 61,
-      "pendapatan": 3
-    },
-    "bea_cukai": {
-      "tarif": 14,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 10
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 22,
-      "kepuasan": 93,
-      "pendapatan": 7
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const mauritius_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const mauritius = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

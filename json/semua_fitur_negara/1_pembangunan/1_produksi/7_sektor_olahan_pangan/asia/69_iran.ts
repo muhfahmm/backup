@@ -11,6 +11,3 @@ const iran_olahan_pangan = {
   ikan_kaleng: 2208,
   kopi_teh: 552,
 };
-
-
-

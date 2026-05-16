@@ -9,6 +9,3 @@ const tonga_olahraga = {
   "esports": 5,
   "gokart": 5
 };
-
-
-

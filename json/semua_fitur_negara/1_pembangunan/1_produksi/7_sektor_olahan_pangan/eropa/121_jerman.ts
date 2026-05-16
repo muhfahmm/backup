@@ -11,6 +11,3 @@ const jerman_olahan_pangan = {
   ikan_kaleng: 11094,
   kopi_teh: 3354,
 };
-
-
-

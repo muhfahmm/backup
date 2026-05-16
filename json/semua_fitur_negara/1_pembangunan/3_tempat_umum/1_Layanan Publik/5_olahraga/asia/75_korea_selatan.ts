@@ -9,6 +9,3 @@ const korea_selatan_olahraga = {
   "esports": 23,
   "gokart": 88
 };
-
-
-

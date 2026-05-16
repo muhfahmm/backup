@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const amerika_serikat_strategis = {
     "waktu_respon": 16,
     "intelijen": 6,
@@ -13,5 +14,3 @@ const amerika_serikat_strategis = {
       "misil_nuklir": 5044
     }
   };
-
-

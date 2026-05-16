@@ -9,6 +9,3 @@ const montenegro_infrastruktur = {
   bandara: 1,
   helipad: 5,
 };
-
-
-

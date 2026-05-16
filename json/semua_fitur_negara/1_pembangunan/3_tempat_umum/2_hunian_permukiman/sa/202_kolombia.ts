@@ -5,6 +5,3 @@ const kolombia_hunian = {
   apartemen: 10053,
   mansion: 335128,
 };
-
-
-

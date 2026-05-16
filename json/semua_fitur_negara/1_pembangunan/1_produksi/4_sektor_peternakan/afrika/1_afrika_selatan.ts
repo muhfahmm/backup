@@ -5,6 +5,3 @@ const afrika_selatan_peternakan = {
   sapi_potong: 1040,
   domba_kambing: 1400,
 };
-
-
-

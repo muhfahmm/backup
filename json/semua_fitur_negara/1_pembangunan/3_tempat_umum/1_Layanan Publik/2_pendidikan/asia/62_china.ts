@@ -12,6 +12,3 @@ const china_pendidikan = {
       "pusat_pengembangan": 249,
       "literasi": 97
     };
-
-
-

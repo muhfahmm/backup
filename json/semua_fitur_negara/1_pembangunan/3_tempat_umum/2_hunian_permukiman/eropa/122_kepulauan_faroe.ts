@@ -5,6 +5,3 @@ const kepulauan_faroe_hunian = {
   apartemen: 9,
   mansion: 327,
 };
-
-
-

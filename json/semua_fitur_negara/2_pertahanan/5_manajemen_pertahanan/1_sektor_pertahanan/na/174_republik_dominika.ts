@@ -9,6 +9,3 @@ const republik_dominika_pertahanan = {
     "program_luar_angkasa": 14,
     "pertahanan_siber": 7
     };
-
-
-

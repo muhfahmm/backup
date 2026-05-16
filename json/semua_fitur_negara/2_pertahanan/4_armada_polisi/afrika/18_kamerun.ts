@@ -16,6 +16,3 @@ const kamerun_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

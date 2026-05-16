@@ -9,6 +9,3 @@ const republik_timor_leste_olahraga = {
   "esports": 1,
   "gokart": 9
 };
-
-
-

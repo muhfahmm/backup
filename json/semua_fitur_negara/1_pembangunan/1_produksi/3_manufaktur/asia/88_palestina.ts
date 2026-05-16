@@ -8,6 +8,3 @@ const palestina_manufaktur = {
   kayu: 30,
   pupuk: 14,
 };
-
-
-

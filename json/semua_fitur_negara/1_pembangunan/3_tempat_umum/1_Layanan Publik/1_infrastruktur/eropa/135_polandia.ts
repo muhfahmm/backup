@@ -9,6 +9,3 @@ const polandia_infrastruktur = {
   bandara: 6,
   helipad: 8,
 };
-
-
-

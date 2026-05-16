@@ -15,6 +15,3 @@ const taiwan_agrikultur = {
   kapas: 1200,
   tembakau: 456,
 };
-
-
-

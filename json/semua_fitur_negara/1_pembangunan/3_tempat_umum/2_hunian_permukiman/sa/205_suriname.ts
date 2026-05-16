@@ -5,6 +5,3 @@ const suriname_hunian = {
   apartemen: 116,
   mansion: 3887,
 };
-
-
-

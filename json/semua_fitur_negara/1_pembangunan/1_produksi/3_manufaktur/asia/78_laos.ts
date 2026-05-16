@@ -8,6 +8,3 @@ const laos_manufaktur = {
   kayu: 39,
   pupuk: 6,
 };
-
-
-

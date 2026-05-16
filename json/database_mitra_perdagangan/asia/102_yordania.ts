@@ -13,6 +13,3 @@ const yordaniaAgreements = [
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

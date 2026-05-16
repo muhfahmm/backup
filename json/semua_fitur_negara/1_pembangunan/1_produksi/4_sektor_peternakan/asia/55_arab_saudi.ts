@@ -5,6 +5,3 @@ const arab_saudi_peternakan = {
   sapi_potong: 6251,
   domba_kambing: 1862,
 };
-
-
-

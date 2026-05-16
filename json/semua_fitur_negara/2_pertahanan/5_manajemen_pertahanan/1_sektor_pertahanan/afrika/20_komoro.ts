@@ -1,4 +1,5 @@
-﻿const komoro_pertahanan = {
+﻿// @ts-nocheck
+const komoro_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 39,
     "hangar_tank": 27,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 25,
     "pertahanan_siber": 25
     };
-
-

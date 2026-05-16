@@ -5,6 +5,3 @@ const nauru_peternakan = {
   sapi_potong: 75,
   domba_kambing: 123,
 };
-
-
-

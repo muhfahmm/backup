@@ -6,6 +6,3 @@ const sierra_leone_kesehatan = {
       "harapan_hidup": 57,
       "indeks_kesehatan": 51
   };
-
-
-

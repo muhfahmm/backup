@@ -9,6 +9,3 @@ const israel_infrastruktur = {
   bandara: 10,
   helipad: 5,
 };
-
-
-

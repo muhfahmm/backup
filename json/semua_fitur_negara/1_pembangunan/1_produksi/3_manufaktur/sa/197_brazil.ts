@@ -8,6 +8,3 @@ const brazil_manufaktur = {
   kayu: 4074,
   pupuk: 873,
 };
-
-
-

@@ -6,6 +6,3 @@ const bangladesh_kesehatan = {
       "harapan_hidup": 71,
       "indeks_kesehatan": 78
     };
-
-
-

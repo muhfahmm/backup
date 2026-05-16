@@ -5,6 +5,3 @@ const malta_peternakan = {
   sapi_potong: 42,
   domba_kambing: 32,
 };
-
-
-

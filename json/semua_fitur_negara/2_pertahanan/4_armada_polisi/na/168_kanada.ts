@@ -16,6 +16,3 @@ const kanada_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

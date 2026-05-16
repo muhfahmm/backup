@@ -13,6 +13,3 @@ const ekuador_ekstraksi = {
   logam_tanah_jarang: 135,
   bijih_besi: 90,
 };
-
-
-

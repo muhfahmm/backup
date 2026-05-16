@@ -26,74 +26,9 @@ const tahiti_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const tahiti = {
-  ...tahiti_profile,
-  "sektor_listrik": tahiti_listrik,
-  "hunian": tahiti_hunian,
-  "infrastruktur": tahiti_infrastruktur,
-  "sektor_ekstraksi": tahiti_ekstraksi,
-  "sektor_manufaktur": tahiti_manufaktur,
-  "sektor_peternakan": tahiti_peternakan,
-  "sektor_agrikultur": tahiti_agrikultur,
-  "sektor_perikanan": tahiti_perikanan,
-  "sektor_olahan_pangan": tahiti_olahan_pangan,
-  "sektor_farmasi": tahiti_farmasi,
-  "sektor_pertahanan": tahiti_pertahanan,
-  "armada_militer": tahiti_armada,
-  "militer_strategis": tahiti_strategis,
-  "armada_kepolisian": tahiti_kepolisian,
-  "pabrik_militer": tahiti_pabrik,
-  "intelijen": tahiti_intelijen,
-    "pendidikan": tahiti_pendidikan,
-  "kesehatan": tahiti_kesehatan,
-  "hukum": tahiti_hukum,
-  "sektor_olahraga": tahiti_olahraga,
-  "sektor_komersial": tahiti_komersial,
-  "sektor_hiburan": tahiti_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 38,
-      "kepuasan": 67,
-      "pendapatan": 7
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 8
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 4
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 4
-    },
-    "lingkungan": {
-      "tarif": 22,
-      "kepuasan": 88,
-      "pendapatan": 2
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 2,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const tahiti_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const tahiti = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

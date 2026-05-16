@@ -2,6 +2,3 @@
 const mauritius_farmasi = {
   farmasi: 33,
 };
-
-
-

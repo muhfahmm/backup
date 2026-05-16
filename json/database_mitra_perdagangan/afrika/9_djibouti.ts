@@ -11,6 +11,3 @@ const djiboutiAgreements = [
   { "no": 9, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

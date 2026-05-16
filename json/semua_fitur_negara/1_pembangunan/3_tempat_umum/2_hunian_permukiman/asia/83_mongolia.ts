@@ -5,6 +5,3 @@ const mongolia_hunian = {
   apartemen: 641,
   mansion: 21398,
 };
-
-
-

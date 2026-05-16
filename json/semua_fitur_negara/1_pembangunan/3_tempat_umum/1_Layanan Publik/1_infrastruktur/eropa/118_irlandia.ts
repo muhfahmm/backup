@@ -9,6 +9,3 @@ const irlandia_infrastruktur = {
   bandara: 3,
   helipad: 10,
 };
-
-
-

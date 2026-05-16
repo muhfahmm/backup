@@ -11,6 +11,3 @@ const yunani_olahan_pangan = {
   ikan_kaleng: 110,
   kopi_teh: 340,
 };
-
-
-

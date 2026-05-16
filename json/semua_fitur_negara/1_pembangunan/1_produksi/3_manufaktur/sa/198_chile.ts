@@ -8,6 +8,3 @@ const chile_manufaktur = {
   kayu: 540,
   pupuk: 540,
 };
-
-
-

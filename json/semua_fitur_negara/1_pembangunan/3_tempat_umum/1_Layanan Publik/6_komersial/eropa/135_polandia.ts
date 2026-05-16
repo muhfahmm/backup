@@ -4,6 +4,3 @@ const polandia_komersial = {
   "hotel": 60,
   "pusat_grosir_tekstil": 9
 };
-
-
-

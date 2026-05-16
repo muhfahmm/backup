@@ -6,6 +6,3 @@ const guinea_bissau_kesehatan = {
       "harapan_hidup": 56,
       "indeks_kesehatan": 58
   };
-
-
-

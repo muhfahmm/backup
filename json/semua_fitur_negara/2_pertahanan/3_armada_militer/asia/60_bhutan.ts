@@ -30,6 +30,3 @@ const bhutan_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -2,6 +2,3 @@
 const malta_farmasi = {
   farmasi: 7,
 };
-
-
-

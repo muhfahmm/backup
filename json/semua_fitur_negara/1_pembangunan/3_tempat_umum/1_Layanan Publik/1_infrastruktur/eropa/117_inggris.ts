@@ -9,6 +9,3 @@ const inggris_infrastruktur = {
   bandara: 32,
   helipad: 26,
 };
-
-
-

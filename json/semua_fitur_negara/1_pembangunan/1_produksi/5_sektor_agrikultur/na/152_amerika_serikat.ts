@@ -15,6 +15,3 @@ const amerika_serikat_agrikultur = {
   kapas: 4640,
   tembakau: 5684,
 };
-
-
-

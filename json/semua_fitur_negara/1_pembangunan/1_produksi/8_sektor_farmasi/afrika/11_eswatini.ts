@@ -2,6 +2,3 @@
 const eswatini_farmasi = {
   farmasi: 35,
 };
-
-
-

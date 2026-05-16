@@ -11,6 +11,3 @@ const afganistan_olahan_pangan = {
   ikan_kaleng: 200,
   kopi_teh: 52,
 };
-
-
-

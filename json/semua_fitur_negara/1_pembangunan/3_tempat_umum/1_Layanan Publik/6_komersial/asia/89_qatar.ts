@@ -4,6 +4,3 @@ const qatar_komersial = {
   "hotel": 65,
   "pusat_grosir_tekstil": 12
 };
-
-
-

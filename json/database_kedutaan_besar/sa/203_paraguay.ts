@@ -12,6 +12,3 @@ const paraguay_diplomasi = [
   { "no": 10, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

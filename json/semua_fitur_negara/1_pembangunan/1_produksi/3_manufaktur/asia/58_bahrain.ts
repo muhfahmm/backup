@@ -8,6 +8,3 @@ const bahrain_manufaktur = {
   kayu: 64,
   pupuk: 64,
 };
-
-
-

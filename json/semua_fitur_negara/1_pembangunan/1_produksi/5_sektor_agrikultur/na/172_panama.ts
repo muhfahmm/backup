@@ -15,6 +15,3 @@ const panama_agrikultur = {
   kapas: 70,
   tembakau: 350,
 };
-
-
-

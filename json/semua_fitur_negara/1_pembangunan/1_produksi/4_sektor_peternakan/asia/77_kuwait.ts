@@ -5,6 +5,3 @@ const kuwait_peternakan = {
   sapi_potong: 320,
   domba_kambing: 820,
 };
-
-
-

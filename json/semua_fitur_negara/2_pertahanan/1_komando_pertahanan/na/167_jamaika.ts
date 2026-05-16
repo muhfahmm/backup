@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const jamaika_strategis = {
     "waktu_respon": 32,
     "intelijen": 39,
@@ -13,5 +14,3 @@ const jamaika_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

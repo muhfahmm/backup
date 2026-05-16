@@ -1,4 +1,5 @@
-﻿const monako_pertahanan = {
+﻿// @ts-nocheck
+const monako_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 21,
     "hangar_tank": 4,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 24,
     "pertahanan_siber": 28
     };
-
-

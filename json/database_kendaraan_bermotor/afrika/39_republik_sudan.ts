@@ -5,6 +5,3 @@ const republikSudanVehicles = {
   bus: 8360,
   truk: 41801,
 };
-
-
-

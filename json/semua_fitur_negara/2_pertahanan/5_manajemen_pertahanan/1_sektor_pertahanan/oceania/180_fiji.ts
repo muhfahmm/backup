@@ -9,6 +9,3 @@ const fiji_pertahanan = {
     "program_luar_angkasa": 8,
     "pertahanan_siber": 21
     };
-
-
-

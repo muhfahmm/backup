@@ -9,6 +9,3 @@ const afrika_selatan_infrastruktur = {
   bandara: 8,
   helipad: 2,
 };
-
-
-

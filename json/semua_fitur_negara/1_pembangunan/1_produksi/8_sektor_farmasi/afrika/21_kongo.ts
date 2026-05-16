@@ -2,6 +2,3 @@
 const kongo_farmasi = {
   farmasi: 23,
 };
-
-
-

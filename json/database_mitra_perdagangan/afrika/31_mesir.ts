@@ -13,6 +13,3 @@ const mesirAgreements = [
   { "no": 11, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

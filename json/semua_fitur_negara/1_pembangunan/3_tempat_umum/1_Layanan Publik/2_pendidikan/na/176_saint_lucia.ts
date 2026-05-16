@@ -12,6 +12,3 @@ const saint_lucia_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 64
     };
-
-
-

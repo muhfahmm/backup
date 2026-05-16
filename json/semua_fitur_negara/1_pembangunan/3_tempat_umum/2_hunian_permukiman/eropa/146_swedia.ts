@@ -5,6 +5,3 @@ const swedia_hunian = {
   apartemen: 2060,
   mansion: 68682,
 };
-
-
-

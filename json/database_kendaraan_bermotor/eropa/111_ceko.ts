@@ -5,6 +5,3 @@ const cekoVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

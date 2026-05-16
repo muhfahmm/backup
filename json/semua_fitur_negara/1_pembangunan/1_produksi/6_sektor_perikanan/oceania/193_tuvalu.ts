@@ -4,6 +4,3 @@ const tuvalu_perikanan = {
   mutiara: 66,
   ikan: 114,
 };
-
-
-

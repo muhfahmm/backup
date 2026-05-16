@@ -16,6 +16,3 @@ const bolivia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -5,6 +5,3 @@ const meksiko_peternakan = {
   sapi_potong: 3146,
   domba_kambing: 4598,
 };
-
-
-

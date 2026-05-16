@@ -5,6 +5,3 @@ const yunani_hunian = {
   apartemen: 2173,
   mansion: 72439,
 };
-
-
-

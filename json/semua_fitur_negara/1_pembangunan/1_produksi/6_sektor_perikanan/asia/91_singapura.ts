@@ -4,6 +4,3 @@ const singapura_perikanan = {
   mutiara: 572,
   ikan: 1012,
 };
-
-
-

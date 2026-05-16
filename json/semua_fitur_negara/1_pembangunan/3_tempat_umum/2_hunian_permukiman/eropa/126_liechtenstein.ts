@@ -5,6 +5,3 @@ const liechtenstein_hunian = {
   apartemen: 7,
   mansion: 255,
 };
-
-
-

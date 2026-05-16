@@ -30,6 +30,3 @@ const makau_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

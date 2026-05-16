@@ -12,6 +12,3 @@ const polandia_pendidikan = {
       "pusat_pengembangan": 3,
       "literasi": 79
     };
-
-
-

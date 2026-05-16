@@ -2,6 +2,3 @@
 const kirgizstan_farmasi = {
   farmasi: 34,
 };
-
-
-

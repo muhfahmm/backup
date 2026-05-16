@@ -6,6 +6,3 @@ const norwegia_kesehatan = {
       "harapan_hidup": 75,
       "indeks_kesehatan": 76
     };
-
-
-

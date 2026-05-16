@@ -12,6 +12,3 @@ const spanyol_pendidikan = {
       "pusat_pengembangan": 44,
       "literasi": 86
     };
-
-
-

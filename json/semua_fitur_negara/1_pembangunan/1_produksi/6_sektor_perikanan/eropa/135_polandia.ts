@@ -4,6 +4,3 @@ const polandia_perikanan = {
   mutiara: 1219,
   ikan: 848,
 };
-
-
-

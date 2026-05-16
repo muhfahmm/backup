@@ -8,6 +8,3 @@ const tanjung_verde_manufaktur = {
   kayu: 24,
   pupuk: 30,
 };
-
-
-

@@ -18,6 +18,3 @@ const azerbaijan_diplomasi = [
   { "no": 16, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

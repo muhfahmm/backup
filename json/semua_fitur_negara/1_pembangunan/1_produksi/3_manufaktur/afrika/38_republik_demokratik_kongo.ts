@@ -8,6 +8,3 @@ const republik_demokratik_kongo_manufaktur = {
   kayu: 36,
   pupuk: 18,
 };
-
-
-

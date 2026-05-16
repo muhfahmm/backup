@@ -9,6 +9,3 @@ const republik_serbia_olahraga = {
   "esports": 3,
   "gokart": 2
 };
-
-
-

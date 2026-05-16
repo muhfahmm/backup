@@ -9,6 +9,3 @@ const puerto_rico_olahraga = {
   "esports": 0,
   "gokart": 2
 };
-
-
-

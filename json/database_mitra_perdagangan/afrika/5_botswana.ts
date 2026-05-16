@@ -14,6 +14,3 @@ const botswanaAgreements = [
   { "no": 12, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

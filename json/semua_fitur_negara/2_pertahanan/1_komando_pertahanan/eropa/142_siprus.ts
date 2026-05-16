@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const siprus_strategis = {
     "waktu_respon": 2,
     "intelijen": 25,
@@ -13,5 +14,3 @@ const siprus_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

@@ -30,6 +30,3 @@ const nikaragua_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

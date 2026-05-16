@@ -9,6 +9,3 @@ const saint_lucia_hukum = {
       "indeks_korupsi": 42,
       "indeks_keamanan": 42
   };
-
-
-

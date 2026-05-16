@@ -4,6 +4,3 @@ const maroko_perikanan = {
   mutiara: 960,
   ikan: 696,
 };
-
-
-

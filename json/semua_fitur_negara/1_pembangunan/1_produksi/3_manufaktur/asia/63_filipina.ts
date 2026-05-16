@@ -8,6 +8,3 @@ const filipina_manufaktur = {
   kayu: 140,
   pupuk: 100,
 };
-
-
-

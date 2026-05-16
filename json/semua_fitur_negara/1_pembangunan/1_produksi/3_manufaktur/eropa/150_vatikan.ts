@@ -8,6 +8,3 @@ const vatikan_manufaktur = {
   kayu: 48,
   pupuk: 36,
 };
-
-
-

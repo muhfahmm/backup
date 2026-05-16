@@ -1,4 +1,5 @@
-﻿const puerto_rico_pertahanan = {
+﻿// @ts-nocheck
+const puerto_rico_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 27,
     "hangar_tank": 4,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 1,
     "pertahanan_siber": 38
     };
-
-

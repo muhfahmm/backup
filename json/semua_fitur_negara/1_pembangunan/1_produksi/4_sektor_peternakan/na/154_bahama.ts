@@ -5,6 +5,3 @@ const bahama_peternakan = {
   sapi_potong: 192,
   domba_kambing: 192,
 };
-
-
-

@@ -9,6 +9,3 @@ const mesir_infrastruktur = {
   bandara: 10,
   helipad: 10,
 };
-
-
-

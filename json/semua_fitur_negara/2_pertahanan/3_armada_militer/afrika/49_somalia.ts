@@ -30,6 +30,3 @@ const somalia_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

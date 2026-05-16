@@ -30,6 +30,3 @@ const trinidad_dan_tobago_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

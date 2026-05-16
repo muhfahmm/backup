@@ -11,6 +11,3 @@ const mongolia_olahan_pangan = {
   ikan_kaleng: 76,
   kopi_teh: 140,
 };
-
-
-

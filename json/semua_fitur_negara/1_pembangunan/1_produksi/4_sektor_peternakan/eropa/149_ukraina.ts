@@ -5,6 +5,3 @@ const ukraina_peternakan = {
   sapi_potong: 110,
   domba_kambing: 155,
 };
-
-
-

@@ -8,6 +8,3 @@ const bermuda_manufaktur = {
   kayu: 10,
   pupuk: 10,
 };
-
-
-

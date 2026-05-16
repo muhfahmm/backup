@@ -26,74 +26,9 @@ const malawi_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
   }
-  };
-
-const malawi = {
-  ...malawi_profile,
-  "sektor_listrik": malawi_listrik,
-  "hunian": malawi_hunian,
-  "infrastruktur": malawi_infrastruktur,
-  "sektor_ekstraksi": malawi_ekstraksi,
-  "sektor_manufaktur": malawi_manufaktur,
-  "sektor_peternakan": malawi_peternakan,
-  "sektor_agrikultur": malawi_agrikultur,
-  "sektor_perikanan": malawi_perikanan,
-  "sektor_olahan_pangan": malawi_olahan_pangan,
-  "sektor_farmasi": malawi_farmasi,
-  "sektor_pertahanan": malawi_pertahanan,
-  "armada_militer": malawi_armada,
-  "militer_strategis": malawi_strategis,
-  "armada_kepolisian": malawi_kepolisian,
-  "pabrik_militer": malawi_pabrik,
-  "intelijen": malawi_intelijen,
-    "pendidikan": malawi_pendidikan,
-  "kesehatan": malawi_kesehatan,
-  "hukum": malawi_hukum,
-  "sektor_olahraga": malawi_olahraga,
-  "sektor_komersial": malawi_komersial,
-  "sektor_hiburan": malawi_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 6,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 28,
-      "kepuasan": 52,
-      "pendapatan": 7
-    },
-    "penghasilan": {
-      "tarif": 16,
-      "kepuasan": 61,
-      "pendapatan": 2
-    },
-    "bea_cukai": {
-      "tarif": 37,
-      "kepuasan": 86,
-      "pendapatan": 7
-    },
-    "lingkungan": {
-      "tarif": 29,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 30,
-      "kepuasan": 93,
-      "pendapatan": 10
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const malawi_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const malawi = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

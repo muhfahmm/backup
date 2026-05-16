@@ -15,6 +15,3 @@ const haiti_agrikultur = {
   kapas: 99,
   tembakau: 57,
 };
-
-
-

@@ -4,6 +4,3 @@ const malaysia_perikanan = {
   mutiara: 900,
   ikan: 360,
 };
-
-
-

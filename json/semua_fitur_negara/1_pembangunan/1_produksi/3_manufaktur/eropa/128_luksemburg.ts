@@ -8,6 +8,3 @@ const luksemburg_manufaktur = {
   kayu: 24,
   pupuk: 12,
 };
-
-
-

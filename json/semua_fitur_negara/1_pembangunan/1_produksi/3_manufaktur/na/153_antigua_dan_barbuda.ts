@@ -8,6 +8,3 @@ const antigua_dan_barbuda_manufaktur = {
   kayu: 12,
   pupuk: 16,
 };
-
-
-

@@ -9,6 +9,3 @@ const gambia_olahraga = {
   "esports": 5,
   "gokart": 15
 };
-
-
-

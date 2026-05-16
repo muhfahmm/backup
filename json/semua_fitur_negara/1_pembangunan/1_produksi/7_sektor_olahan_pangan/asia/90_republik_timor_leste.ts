@@ -11,6 +11,3 @@ const republik_timor_leste_olahan_pangan = {
   ikan_kaleng: 18,
   kopi_teh: 21,
 };
-
-
-

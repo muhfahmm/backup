@@ -16,6 +16,3 @@ const kuba_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

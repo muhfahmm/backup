@@ -5,6 +5,3 @@ const kamerun_hunian = {
   apartemen: 5106,
   mansion: 170209,
 };
-
-
-

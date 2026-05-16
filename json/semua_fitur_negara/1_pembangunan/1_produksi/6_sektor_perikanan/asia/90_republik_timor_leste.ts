@@ -4,6 +4,3 @@ const republik_timor_leste_perikanan = {
   mutiara: 23,
   ikan: 40,
 };
-
-
-

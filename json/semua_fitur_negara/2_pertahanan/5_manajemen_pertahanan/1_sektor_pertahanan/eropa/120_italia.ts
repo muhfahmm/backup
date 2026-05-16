@@ -9,6 +9,3 @@ const italia_pertahanan = {
     "program_luar_angkasa": 10,
     "pertahanan_siber": 9
     };
-
-
-

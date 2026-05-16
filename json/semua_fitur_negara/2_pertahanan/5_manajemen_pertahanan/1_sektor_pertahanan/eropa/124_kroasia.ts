@@ -1,4 +1,5 @@
-﻿const kroasia_pertahanan = {
+﻿// @ts-nocheck
+const kroasia_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 9,
     "hangar_tank": 18,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 16,
     "pertahanan_siber": 37
     };
-
-

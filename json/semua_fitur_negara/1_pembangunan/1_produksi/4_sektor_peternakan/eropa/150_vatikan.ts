@@ -5,6 +5,3 @@ const vatikan_peternakan = {
   sapi_potong: 172,
   domba_kambing: 92,
 };
-
-
-

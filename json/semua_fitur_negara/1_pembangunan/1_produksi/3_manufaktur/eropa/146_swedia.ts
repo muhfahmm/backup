@@ -8,6 +8,3 @@ const swedia_manufaktur = {
   kayu: 296,
   pupuk: 666,
 };
-
-
-

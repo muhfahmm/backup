@@ -5,6 +5,3 @@ const prancis_peternakan = {
   sapi_potong: 9956,
   domba_kambing: 5764,
 };
-
-
-

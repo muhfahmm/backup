@@ -9,6 +9,3 @@ const bangladesh_infrastruktur = {
   bandara: 7,
   helipad: 8,
 };
-
-
-

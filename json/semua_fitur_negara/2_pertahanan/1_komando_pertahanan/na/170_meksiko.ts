@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const meksiko_strategis = {
     "waktu_respon": 27,
     "intelijen": 21,
@@ -13,5 +14,3 @@ const meksiko_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

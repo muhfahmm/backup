@@ -9,6 +9,3 @@ const denmark_infrastruktur = {
   bandara: 7,
   helipad: 6,
 };
-
-
-

@@ -4,6 +4,3 @@ const thailand_intelijen = {
   jaringan_radar: 23,
   operasi_siber: 24,
 };
-
-
-

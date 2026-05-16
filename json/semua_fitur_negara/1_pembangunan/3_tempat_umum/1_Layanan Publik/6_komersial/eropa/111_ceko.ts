@@ -4,6 +4,3 @@ const ceko_komersial = {
   "hotel": 23,
   "pusat_grosir_tekstil": 17
 };
-
-
-

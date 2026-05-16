@@ -9,6 +9,3 @@ const trinidad_dan_tobago_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 44
   };
-
-
-

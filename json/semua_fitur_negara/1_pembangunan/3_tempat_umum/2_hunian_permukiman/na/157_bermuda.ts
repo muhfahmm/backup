@@ -5,6 +5,3 @@ const bermuda_hunian = {
   apartemen: 12,
   mansion: 431,
 };
-
-
-

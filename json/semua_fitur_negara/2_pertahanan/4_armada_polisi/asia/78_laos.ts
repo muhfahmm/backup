@@ -16,6 +16,3 @@ const laos_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

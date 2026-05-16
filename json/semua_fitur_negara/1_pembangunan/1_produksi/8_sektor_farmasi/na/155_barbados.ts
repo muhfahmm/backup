@@ -2,6 +2,3 @@
 const barbados_farmasi = {
   farmasi: 33,
 };
-
-
-

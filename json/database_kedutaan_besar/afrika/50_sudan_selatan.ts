@@ -11,6 +11,3 @@ const sudan_selatan_diplomasi = [
   { "no": 9, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

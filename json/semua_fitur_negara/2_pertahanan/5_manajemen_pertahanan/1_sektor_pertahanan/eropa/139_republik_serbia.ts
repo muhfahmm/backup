@@ -9,6 +9,3 @@ const republik_serbia_pertahanan = {
     "program_luar_angkasa": 9,
     "pertahanan_siber": 2
     };
-
-
-

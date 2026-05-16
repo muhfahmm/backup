@@ -9,6 +9,3 @@ const papua_nugini_olahraga = {
   "esports": 5,
   "gokart": 2
 };
-
-
-

@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const lebanon_strategis = {
     "waktu_respon": 16,
     "intelijen": 1,
@@ -13,5 +14,3 @@ const lebanon_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

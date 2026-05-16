@@ -9,6 +9,3 @@ const rusia_olahraga = {
   "esports": 37,
   "gokart": 150
 };
-
-
-

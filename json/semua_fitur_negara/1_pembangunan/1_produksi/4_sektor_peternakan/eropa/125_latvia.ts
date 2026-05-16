@@ -5,6 +5,3 @@ const latvia_peternakan = {
   sapi_potong: 156,
   domba_kambing: 136,
 };
-
-
-

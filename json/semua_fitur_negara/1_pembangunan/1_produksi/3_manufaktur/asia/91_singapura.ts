@@ -8,6 +8,3 @@ const singapura_manufaktur = {
   kayu: 572,
   pupuk: 220,
 };
-
-
-

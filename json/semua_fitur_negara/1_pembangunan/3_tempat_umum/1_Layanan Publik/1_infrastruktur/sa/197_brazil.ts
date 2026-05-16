@@ -9,6 +9,3 @@ const brazil_infrastruktur = {
   bandara: 19,
   helipad: 22,
 };
-
-
-

@@ -6,6 +6,3 @@ const india_kesehatan = {
       "harapan_hidup": 77,
       "indeks_kesehatan": 81
     };
-
-
-

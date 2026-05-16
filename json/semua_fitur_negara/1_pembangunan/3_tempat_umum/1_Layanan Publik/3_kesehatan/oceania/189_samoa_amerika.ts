@@ -6,6 +6,3 @@ const samoa_amerika_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 74
     };
-
-
-

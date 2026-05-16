@@ -4,6 +4,3 @@ const jerman_komersial = {
   "hotel": 233,
   "pusat_grosir_tekstil": 58
 };
-
-
-

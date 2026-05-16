@@ -11,6 +11,3 @@ const greenland_olahan_pangan = {
   ikan_kaleng: 196,
   kopi_teh: 52,
 };
-
-
-

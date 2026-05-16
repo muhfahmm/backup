@@ -11,6 +11,3 @@ const islandia_diplomasi = [
   { "no": 9, "mitra": "Belize", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

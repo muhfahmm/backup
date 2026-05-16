@@ -9,6 +9,3 @@ const irak_infrastruktur = {
   bandara: 5,
   helipad: 2,
 };
-
-
-

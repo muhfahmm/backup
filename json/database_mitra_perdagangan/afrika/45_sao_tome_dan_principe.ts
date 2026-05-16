@@ -12,6 +12,3 @@ const sao_tome_dan_principeAgreements = [
   { "no": 10, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

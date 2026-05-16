@@ -15,6 +15,3 @@ const kamboja_agrikultur = {
   kapas: 99,
   tembakau: 228,
 };
-
-
-

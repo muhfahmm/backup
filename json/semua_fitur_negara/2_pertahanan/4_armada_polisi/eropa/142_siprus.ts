@@ -16,6 +16,3 @@ const siprus_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

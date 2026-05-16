@@ -9,6 +9,3 @@ const guinea_pertahanan = {
     "program_luar_angkasa": 39,
     "pertahanan_siber": 29
     };
-
-
-

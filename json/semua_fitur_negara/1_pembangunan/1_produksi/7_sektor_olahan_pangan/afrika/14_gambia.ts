@@ -11,6 +11,3 @@ const gambia_olahan_pangan = {
   ikan_kaleng: 36,
   kopi_teh: 76,
 };
-
-
-

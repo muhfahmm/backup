@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const belanda_strategis = {
     "waktu_respon": 7,
     "intelijen": 22,
@@ -13,5 +14,3 @@ const belanda_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

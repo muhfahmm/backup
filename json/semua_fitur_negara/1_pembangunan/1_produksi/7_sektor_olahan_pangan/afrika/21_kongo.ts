@@ -11,6 +11,3 @@ const kongo_olahan_pangan = {
   ikan_kaleng: 116,
   kopi_teh: 188,
 };
-
-
-

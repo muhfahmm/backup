@@ -4,6 +4,3 @@ const norwegia_perikanan = {
   mutiara: 360,
   ikan: 320,
 };
-
-
-

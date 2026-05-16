@@ -26,74 +26,9 @@ const yunani_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
-
-const yunani = {
-  ...yunani_profile,
-  "sektor_listrik": yunani_listrik,
-  "hunian": yunani_hunian,
-  "infrastruktur": yunani_infrastruktur,
-  "sektor_ekstraksi": yunani_ekstraksi,
-  "sektor_manufaktur": yunani_manufaktur,
-  "sektor_peternakan": yunani_peternakan,
-  "sektor_agrikultur": yunani_agrikultur,
-  "sektor_perikanan": yunani_perikanan,
-  "sektor_olahan_pangan": yunani_olahan_pangan,
-  "sektor_farmasi": yunani_farmasi,
-  "sektor_pertahanan": yunani_pertahanan,
-  "armada_militer": yunani_armada,
-  "militer_strategis": yunani_strategis,
-  "armada_kepolisian": yunani_kepolisian,
-  "pabrik_militer": yunani_pabrik,
-  "intelijen": yunani_intelijen,
-    "pendidikan": yunani_pendidikan,
-  "kesehatan": yunani_kesehatan,
-  "hukum": yunani_hukum,
-  "sektor_olahraga": yunani_olahraga,
-  "sektor_komersial": yunani_komersial,
-  "sektor_hiburan": yunani_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 34,
-      "kepuasan": 67,
-      "pendapatan": 90
-    },
-    "korporasi": {
-      "tarif": 15,
-      "kepuasan": 52,
-      "pendapatan": 85
-    },
-    "penghasilan": {
-      "tarif": 15,
-      "kepuasan": 61,
-      "pendapatan": 48
-    },
-    "bea_cukai": {
-      "tarif": 40,
-      "kepuasan": 86,
-      "pendapatan": 202
-    },
-    "lingkungan": {
-      "tarif": 36,
-      "kepuasan": 88,
-      "pendapatan": 125
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 12 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 34 },
-    "lainnya": {
-      "tarif": 38,
-      "kepuasan": 93,
-      "pendapatan": 127
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const yunani_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const yunani = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

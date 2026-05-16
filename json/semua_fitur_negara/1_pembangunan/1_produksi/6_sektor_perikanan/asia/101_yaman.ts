@@ -4,6 +4,3 @@ const yaman_perikanan = {
   mutiara: 40,
   ikan: 20,
 };
-
-
-

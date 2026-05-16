@@ -7,6 +7,3 @@ const sierra_leone_listrik = {
   pembangkit_listrik_tenaga_uap: 53,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

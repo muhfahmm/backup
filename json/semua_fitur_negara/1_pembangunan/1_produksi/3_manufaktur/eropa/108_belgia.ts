@@ -8,6 +8,3 @@ const belgia_manufaktur = {
   kayu: 533,
   pupuk: 123,
 };
-
-
-

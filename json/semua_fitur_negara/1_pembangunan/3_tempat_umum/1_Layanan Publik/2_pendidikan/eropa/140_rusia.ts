@@ -12,6 +12,3 @@ const rusia_pendidikan = {
       "pusat_pengembangan": 33,
       "literasi": 95
     };
-
-
-

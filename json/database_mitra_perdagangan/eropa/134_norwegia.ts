@@ -15,6 +15,3 @@ const norwegiaAgreements = [
   { "no": 13, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

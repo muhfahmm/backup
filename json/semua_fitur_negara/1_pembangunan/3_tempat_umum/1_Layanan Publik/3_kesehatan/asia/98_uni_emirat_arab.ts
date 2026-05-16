@@ -6,6 +6,3 @@ const uni_emirat_arab_kesehatan = {
       "harapan_hidup": 70,
       "indeks_kesehatan": 74
     };
-
-
-

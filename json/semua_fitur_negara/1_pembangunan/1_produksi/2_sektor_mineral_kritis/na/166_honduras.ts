@@ -13,6 +13,3 @@ const honduras_ekstraksi = {
   logam_tanah_jarang: 15,
   bijih_besi: 24,
 };
-
-
-

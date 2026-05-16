@@ -5,6 +5,3 @@ const republik_rumania_hunian = {
   apartemen: 3941,
   mansion: 131396,
 };
-
-
-

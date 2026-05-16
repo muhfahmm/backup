@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const finlandia_strategis = {
     "waktu_respon": 40,
     "intelijen": 4,
@@ -13,5 +14,3 @@ const finlandia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

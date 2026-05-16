@@ -8,6 +8,3 @@ const tahiti_manufaktur = {
   kayu: 13,
   pupuk: 9,
 };
-
-
-

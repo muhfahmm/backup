@@ -4,6 +4,3 @@ const amerika_serikat_komersial = {
   "hotel": 1986,
   "pusat_grosir_tekstil": 523
 };
-
-
-

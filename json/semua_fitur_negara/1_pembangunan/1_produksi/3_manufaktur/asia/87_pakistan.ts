@@ -8,6 +8,3 @@ const pakistan_manufaktur = {
   kayu: 572,
   pupuk: 468,
 };
-
-
-

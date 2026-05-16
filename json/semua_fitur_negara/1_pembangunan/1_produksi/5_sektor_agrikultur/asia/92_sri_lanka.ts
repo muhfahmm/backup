@@ -15,6 +15,3 @@ const sri_lanka_agrikultur = {
   kapas: 220,
   tembakau: 230,
 };
-
-
-

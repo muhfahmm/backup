@@ -9,6 +9,3 @@ const republik_tanzania_hukum = {
       "indeks_korupsi": 14,
       "indeks_keamanan": 63
   };
-
-
-

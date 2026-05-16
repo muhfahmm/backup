@@ -14,6 +14,3 @@ const qatar_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

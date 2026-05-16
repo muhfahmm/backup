@@ -5,6 +5,3 @@ const togo_hunian = {
   apartemen: 1597,
   mansion: 53251,
 };
-
-
-

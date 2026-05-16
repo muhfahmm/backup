@@ -11,6 +11,3 @@ const kuba_olahan_pangan = {
   ikan_kaleng: 722,
   kopi_teh: 399,
 };
-
-
-

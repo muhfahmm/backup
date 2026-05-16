@@ -15,6 +15,3 @@ const puerto_rico_agrikultur = {
   kapas: 248,
   tembakau: 116,
 };
-
-
-

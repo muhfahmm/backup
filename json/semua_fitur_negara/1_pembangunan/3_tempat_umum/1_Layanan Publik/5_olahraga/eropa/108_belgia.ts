@@ -9,6 +9,3 @@ const belgia_olahraga = {
   "esports": 6,
   "gokart": 37
 };
-
-
-

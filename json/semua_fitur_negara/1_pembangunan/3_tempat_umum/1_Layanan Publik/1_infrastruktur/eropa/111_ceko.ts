@@ -9,6 +9,3 @@ const ceko_infrastruktur = {
   bandara: 6,
   helipad: 6,
 };
-
-
-

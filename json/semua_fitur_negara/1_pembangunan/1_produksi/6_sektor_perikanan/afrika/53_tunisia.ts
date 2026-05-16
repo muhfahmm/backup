@@ -4,6 +4,3 @@ const tunisia_perikanan = {
   mutiara: 76,
   ikan: 34,
 };
-
-
-

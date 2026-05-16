@@ -6,6 +6,3 @@ const nauru_kesehatan = {
       "harapan_hidup": 67,
       "indeks_kesehatan": 75
     };
-
-
-

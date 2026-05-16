@@ -9,6 +9,3 @@ const qatar_olahraga = {
   "esports": 11,
   "gokart": 15
 };
-
-
-

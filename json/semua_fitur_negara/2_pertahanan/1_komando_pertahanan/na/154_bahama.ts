@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bahama_strategis = {
     "waktu_respon": 10,
     "intelijen": 34,
@@ -13,5 +14,3 @@ const bahama_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

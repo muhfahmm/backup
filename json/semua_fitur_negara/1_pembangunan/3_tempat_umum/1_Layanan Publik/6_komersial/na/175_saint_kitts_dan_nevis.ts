@@ -4,6 +4,3 @@ const saint_kitts_dan_nevis_komersial = {
   "hotel": 3,
   "pusat_grosir_tekstil": 4
 };
-
-
-

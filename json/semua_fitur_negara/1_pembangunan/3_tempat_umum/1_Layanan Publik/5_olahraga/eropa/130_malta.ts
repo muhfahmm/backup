@@ -9,6 +9,3 @@ const malta_olahraga = {
   "esports": 1,
   "gokart": 11
 };
-
-
-

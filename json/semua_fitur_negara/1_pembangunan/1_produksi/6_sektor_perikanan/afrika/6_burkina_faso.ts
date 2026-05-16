@@ -4,6 +4,3 @@ const burkina_faso_perikanan = {
   mutiara: 0,
   ikan: 0,
 };
-
-
-

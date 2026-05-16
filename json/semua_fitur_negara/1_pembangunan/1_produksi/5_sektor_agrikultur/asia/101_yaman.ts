@@ -15,6 +15,3 @@ const yaman_agrikultur = {
   kapas: 112,
   tembakau: 292,
 };
-
-
-

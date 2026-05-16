@@ -30,6 +30,3 @@ const indonesia_armada = {
       "pesawat_angkut": 54
     }
 };
-
-
-

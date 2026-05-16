@@ -9,6 +9,3 @@ const india_infrastruktur = {
   bandara: 18,
   helipad: 32,
 };
-
-
-

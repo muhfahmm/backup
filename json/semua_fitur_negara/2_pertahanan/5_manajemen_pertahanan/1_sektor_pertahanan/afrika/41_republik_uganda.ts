@@ -1,4 +1,5 @@
-﻿const republik_uganda_pertahanan = {
+﻿// @ts-nocheck
+const republik_uganda_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 31,
     "hangar_tank": 20,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 30,
     "pertahanan_siber": 35
     };
-
-

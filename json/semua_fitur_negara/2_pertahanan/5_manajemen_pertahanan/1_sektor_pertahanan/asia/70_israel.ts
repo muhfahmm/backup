@@ -9,6 +9,3 @@ const israel_pertahanan = {
     "program_luar_angkasa": 17,
     "pertahanan_siber": 18
     };
-
-
-

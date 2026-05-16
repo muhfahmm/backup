@@ -5,6 +5,3 @@ const mali_peternakan = {
   sapi_potong: 126,
   domba_kambing: 138,
 };
-
-
-

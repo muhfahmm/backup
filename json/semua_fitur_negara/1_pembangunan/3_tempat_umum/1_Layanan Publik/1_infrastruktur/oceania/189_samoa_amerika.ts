@@ -9,6 +9,3 @@ const samoa_amerika_infrastruktur = {
   bandara: 2,
   helipad: 3,
 };
-
-
-

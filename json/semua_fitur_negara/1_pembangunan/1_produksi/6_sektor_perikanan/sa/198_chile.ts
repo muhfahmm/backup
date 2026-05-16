@@ -4,6 +4,3 @@ const chile_perikanan = {
   mutiara: 1134,
   ikan: 324,
 };
-
-
-

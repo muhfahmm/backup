@@ -8,6 +8,3 @@ const lebanon_manufaktur = {
   kayu: 15,
   pupuk: 10,
 };
-
-
-

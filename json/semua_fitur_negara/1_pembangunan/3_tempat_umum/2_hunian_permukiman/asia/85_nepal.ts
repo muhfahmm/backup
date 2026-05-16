@@ -5,6 +5,3 @@ const nepal_hunian = {
   apartemen: 5687,
   mansion: 189593,
 };
-
-
-

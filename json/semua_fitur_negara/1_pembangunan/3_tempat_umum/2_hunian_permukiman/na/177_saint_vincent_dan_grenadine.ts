@@ -5,6 +5,3 @@ const saint_vincent_dan_grenadine_hunian = {
   apartemen: 22,
   mansion: 743,
 };
-
-
-

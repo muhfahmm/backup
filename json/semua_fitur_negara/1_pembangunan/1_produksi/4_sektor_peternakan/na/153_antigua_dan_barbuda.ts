@@ -5,6 +5,3 @@ const antigua_dan_barbuda_peternakan = {
   sapi_potong: 62,
   domba_kambing: 64,
 };
-
-
-

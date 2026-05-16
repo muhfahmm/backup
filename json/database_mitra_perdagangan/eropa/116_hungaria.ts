@@ -11,6 +11,3 @@ const hungariaAgreements = [
   { "no": 9, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

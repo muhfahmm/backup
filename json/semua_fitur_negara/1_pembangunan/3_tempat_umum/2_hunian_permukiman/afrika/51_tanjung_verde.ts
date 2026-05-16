@@ -5,6 +5,3 @@ const tanjung_verde_hunian = {
   apartemen: 2025,
   mansion: 67500,
 };
-
-
-

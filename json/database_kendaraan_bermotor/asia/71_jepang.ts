@@ -5,6 +5,3 @@ const jepangVehicles = {
   bus: 25305,
   truk: 126529,
 };
-
-
-

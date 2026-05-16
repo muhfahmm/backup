@@ -5,6 +5,3 @@ const portugalVehicles = {
   bus: 2056,
   truk: 10283,
 };
-
-
-

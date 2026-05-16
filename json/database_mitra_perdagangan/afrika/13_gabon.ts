@@ -15,6 +15,3 @@ const gabonAgreements = [
   { "no": 13, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

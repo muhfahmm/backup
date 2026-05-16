@@ -12,6 +12,3 @@ const kosovoAgreements = [
   { "no": 10, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

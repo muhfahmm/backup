@@ -5,6 +5,3 @@ const israelVehicles = {
   bus: 1776,
   truk: 8882,
 };
-
-
-

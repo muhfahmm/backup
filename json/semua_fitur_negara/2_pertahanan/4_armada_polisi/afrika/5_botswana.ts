@@ -16,6 +16,3 @@ const botswana_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

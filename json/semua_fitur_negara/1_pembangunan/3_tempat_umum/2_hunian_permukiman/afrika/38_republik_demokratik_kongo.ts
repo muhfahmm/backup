@@ -5,6 +5,3 @@ const republik_demokratik_kongo_hunian = {
   apartemen: 1061,
   mansion: 35399,
 };
-
-
-

@@ -4,6 +4,3 @@ const trinidad_dan_tobago_komersial = {
   "hotel": 14,
   "pusat_grosir_tekstil": 3
 };
-
-
-

@@ -15,6 +15,3 @@ const ukraina_agrikultur = {
   kapas: 400,
   tembakau: 160,
 };
-
-
-

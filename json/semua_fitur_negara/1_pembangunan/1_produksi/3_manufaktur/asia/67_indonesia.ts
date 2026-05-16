@@ -8,6 +8,3 @@ const indonesia_manufaktur = {
   kayu: 395,
   pupuk: 711,
 };
-
-
-

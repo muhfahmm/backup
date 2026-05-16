@@ -2,6 +2,3 @@
 const libya_farmasi = {
   farmasi: 7,
 };
-
-
-

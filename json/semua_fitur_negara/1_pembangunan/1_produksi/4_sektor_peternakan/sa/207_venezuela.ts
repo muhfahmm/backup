@@ -5,6 +5,3 @@ const venezuela_peternakan = {
   sapi_potong: 384,
   domba_kambing: 304,
 };
-
-
-

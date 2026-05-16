@@ -12,6 +12,3 @@ const liberiaAgreements = [
   { "no": 10, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

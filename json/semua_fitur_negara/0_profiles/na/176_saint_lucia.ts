@@ -26,74 +26,9 @@ const saint_lucia_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
-
-const saint_lucia = {
-  ...saint_lucia_profile,
-  "sektor_listrik": saint_lucia_listrik,
-  "hunian": saint_lucia_hunian,
-  "infrastruktur": saint_lucia_infrastruktur,
-  "sektor_ekstraksi": saint_lucia_ekstraksi,
-  "sektor_manufaktur": saint_lucia_manufaktur,
-  "sektor_peternakan": saint_lucia_peternakan,
-  "sektor_agrikultur": saint_lucia_agrikultur,
-  "sektor_perikanan": saint_lucia_perikanan,
-  "sektor_olahan_pangan": saint_lucia_olahan_pangan,
-  "sektor_farmasi": saint_lucia_farmasi,
-  "sektor_pertahanan": saint_lucia_pertahanan,
-  "armada_militer": saint_lucia_armada,
-  "militer_strategis": saint_lucia_strategis,
-  "armada_kepolisian": saint_lucia_kepolisian,
-  "pabrik_militer": saint_lucia_pabrik,
-  "intelijen": saint_lucia_intelijen,
-    "pendidikan": saint_lucia_pendidikan,
-  "kesehatan": saint_lucia_kesehatan,
-  "hukum": saint_lucia_hukum,
-  "sektor_olahraga": saint_lucia_olahraga,
-  "sektor_komersial": saint_lucia_komersial,
-  "sektor_hiburan": saint_lucia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 12,
-      "kepuasan": 67,
-      "pendapatan": 2
-    },
-    "korporasi": {
-      "tarif": 6,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 29,
-      "kepuasan": 61,
-      "pendapatan": 7
-    },
-    "bea_cukai": {
-      "tarif": 11,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 5,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 16,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const saint_lucia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const saint_lucia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

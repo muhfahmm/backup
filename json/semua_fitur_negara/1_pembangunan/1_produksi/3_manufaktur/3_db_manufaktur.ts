@@ -89,17 +89,8 @@ const manufakturRate = {
   },
 };
 
-export interface SektorManufaktur {
-  semikonduktor?: number;
-  mobil?: number;
-  sepeda_motor?: number;
-  smelter?: number;
-  semen_beton?: number;
-  kayu?: number;
-  pupuk?: number;
 }
 
-export interface ManufacturingData {
   semikonduktor: number;
   mobil: number;
   sepeda_motor: number;
@@ -108,6 +99,3 @@ export interface ManufacturingData {
   kayu: number;
   pupuk: number;
 }
-
-
-

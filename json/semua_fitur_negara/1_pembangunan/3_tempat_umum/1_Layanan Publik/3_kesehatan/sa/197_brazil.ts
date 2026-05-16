@@ -6,6 +6,3 @@ const brazil_kesehatan = {
       "harapan_hidup": 73,
       "indeks_kesehatan": 86
     };
-
-
-

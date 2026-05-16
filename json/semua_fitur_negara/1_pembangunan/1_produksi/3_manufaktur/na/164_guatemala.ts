@@ -8,6 +8,3 @@ const guatemala_manufaktur = {
   kayu: 45,
   pupuk: 12,
 };
-
-
-

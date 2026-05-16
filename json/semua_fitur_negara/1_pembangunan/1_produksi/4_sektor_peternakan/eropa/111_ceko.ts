@@ -5,6 +5,3 @@ const ceko_peternakan = {
   sapi_potong: 989,
   domba_kambing: 391,
 };
-
-
-

@@ -15,6 +15,3 @@ const korea_utaraAgreements = [
   { "no": 13, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

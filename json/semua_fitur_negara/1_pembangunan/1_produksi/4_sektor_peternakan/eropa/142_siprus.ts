@@ -5,6 +5,3 @@ const siprus_peternakan = {
   sapi_potong: 164,
   domba_kambing: 116,
 };
-
-
-

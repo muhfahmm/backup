@@ -2,6 +2,3 @@
 const georgia_pabrik = {
     "pabrik_amunisi": 2,
   };
-
-
-

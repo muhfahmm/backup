@@ -4,6 +4,3 @@ const australia_perikanan = {
   mutiara: 2346,
   ikan: 2754,
 };
-
-
-

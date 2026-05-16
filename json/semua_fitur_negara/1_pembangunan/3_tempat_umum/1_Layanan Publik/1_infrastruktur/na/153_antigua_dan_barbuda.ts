@@ -9,6 +9,3 @@ const antigua_dan_barbuda_infrastruktur = {
   bandara: 3,
   helipad: 3,
 };
-
-
-

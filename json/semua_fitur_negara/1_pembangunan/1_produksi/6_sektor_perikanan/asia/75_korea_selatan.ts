@@ -4,6 +4,3 @@ const korea_selatan_perikanan = {
   mutiara: 3230,
   ikan: 850,
 };
-
-
-

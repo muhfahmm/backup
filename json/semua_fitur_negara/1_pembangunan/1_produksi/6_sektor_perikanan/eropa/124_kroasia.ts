@@ -4,6 +4,3 @@ const kroasia_perikanan = {
   mutiara: 15,
   ikan: 39,
 };
-
-
-

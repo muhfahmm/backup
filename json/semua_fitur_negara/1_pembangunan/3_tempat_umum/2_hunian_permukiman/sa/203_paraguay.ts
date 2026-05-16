@@ -5,6 +5,3 @@ const paraguay_hunian = {
   apartemen: 1408,
   mansion: 46953,
 };
-
-
-

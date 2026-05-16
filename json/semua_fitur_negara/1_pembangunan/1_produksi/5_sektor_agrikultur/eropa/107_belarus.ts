@@ -15,6 +15,3 @@ const belarus_agrikultur = {
   kapas: 345,
   tembakau: 390,
 };
-
-
-

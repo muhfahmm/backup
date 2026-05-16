@@ -9,6 +9,3 @@ const finlandia_hukum = {
       "indeks_korupsi": 37,
       "indeks_keamanan": 55
   };
-
-
-

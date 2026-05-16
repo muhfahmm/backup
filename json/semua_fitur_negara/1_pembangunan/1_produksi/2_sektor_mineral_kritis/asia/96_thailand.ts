@@ -13,6 +13,3 @@ const thailand_ekstraksi = {
   logam_tanah_jarang: 410,
   bijih_besi: 369,
 };
-
-
-

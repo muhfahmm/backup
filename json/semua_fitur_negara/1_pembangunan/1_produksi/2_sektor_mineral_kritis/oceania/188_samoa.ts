@@ -13,6 +13,3 @@ const samoa_ekstraksi = {
   logam_tanah_jarang: 10,
   bijih_besi: 18,
 };
-
-
-

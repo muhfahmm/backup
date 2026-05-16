@@ -15,6 +15,3 @@ const jamaika_agrikultur = {
   kapas: 64,
   tembakau: 108,
 };
-
-
-

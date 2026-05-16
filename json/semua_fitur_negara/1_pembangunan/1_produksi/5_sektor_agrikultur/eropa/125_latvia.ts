@@ -15,6 +15,3 @@ const latvia_agrikultur = {
   kapas: 56,
   tembakau: 156,
 };
-
-
-

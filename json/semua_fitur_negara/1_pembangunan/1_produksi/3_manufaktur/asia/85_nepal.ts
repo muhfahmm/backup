@@ -8,6 +8,3 @@ const nepal_manufaktur = {
   kayu: 48,
   pupuk: 24,
 };
-
-
-

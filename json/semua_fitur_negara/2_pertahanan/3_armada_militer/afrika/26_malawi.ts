@@ -30,6 +30,3 @@ const malawi_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

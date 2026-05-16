@@ -5,6 +5,3 @@ const meksiko_hunian = {
   apartemen: 25553,
   mansion: 851787,
 };
-
-
-

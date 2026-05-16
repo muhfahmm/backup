@@ -16,6 +16,3 @@ const china_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

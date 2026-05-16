@@ -26,74 +26,9 @@ const republik_sudan_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
   }
-  };
-
-const republik_sudan = {
-  ...republik_sudan_profile,
-  "sektor_listrik": republik_sudan_listrik,
-  "hunian": republik_sudan_hunian,
-  "infrastruktur": republik_sudan_infrastruktur,
-  "sektor_ekstraksi": republik_sudan_ekstraksi,
-  "sektor_manufaktur": republik_sudan_manufaktur,
-  "sektor_peternakan": republik_sudan_peternakan,
-  "sektor_agrikultur": republik_sudan_agrikultur,
-  "sektor_perikanan": republik_sudan_perikanan,
-  "sektor_olahan_pangan": republik_sudan_olahan_pangan,
-  "sektor_farmasi": republik_sudan_farmasi,
-  "sektor_pertahanan": republik_sudan_pertahanan,
-  "armada_militer": republik_sudan_armada,
-  "militer_strategis": republik_sudan_strategis,
-  "armada_kepolisian": republik_sudan_kepolisian,
-  "pabrik_militer": republik_sudan_pabrik,
-  "intelijen": republik_sudan_intelijen,
-    "pendidikan": republik_sudan_pendidikan,
-  "kesehatan": republik_sudan_kesehatan,
-  "hukum": republik_sudan_hukum,
-  "sektor_olahraga": republik_sudan_olahraga,
-  "sektor_komersial": republik_sudan_komersial,
-  "sektor_hiburan": republik_sudan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 21,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 13,
-      "kepuasan": 52,
-      "pendapatan": 5
-    },
-    "penghasilan": {
-      "tarif": 5,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 22
-    },
-    "lingkungan": {
-      "tarif": 2,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 4 },
-    "lainnya": {
-      "tarif": 29,
-      "kepuasan": 93,
-      "pendapatan": 8
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_sudan_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const republik_sudan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -15,6 +15,3 @@ const myanmar_agrikultur = {
   kapas: 402,
   tembakau: 354,
 };
-
-
-

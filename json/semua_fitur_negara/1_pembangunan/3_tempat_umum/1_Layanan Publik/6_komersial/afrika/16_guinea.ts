@@ -4,6 +4,3 @@ const guinea_komersial = {
   "hotel": 13,
   "pusat_grosir_tekstil": 5
 };
-
-
-

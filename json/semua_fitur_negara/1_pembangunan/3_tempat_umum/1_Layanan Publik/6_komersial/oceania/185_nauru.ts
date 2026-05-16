@@ -4,6 +4,3 @@ const nauru_komersial = {
   "hotel": 10,
   "pusat_grosir_tekstil": 5
 };
-
-
-

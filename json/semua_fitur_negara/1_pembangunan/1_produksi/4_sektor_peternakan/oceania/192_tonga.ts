@@ -5,6 +5,3 @@ const tonga_peternakan = {
   sapi_potong: 28,
   domba_kambing: 45,
 };
-
-
-

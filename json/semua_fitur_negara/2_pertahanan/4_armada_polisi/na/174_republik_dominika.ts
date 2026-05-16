@@ -16,6 +16,3 @@ const republik_dominika_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -11,6 +11,3 @@ const azerbaijan_olahan_pangan = {
   ikan_kaleng: 132,
   kopi_teh: 54,
 };
-
-
-

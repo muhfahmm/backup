@@ -14,6 +14,3 @@ const republik_zambia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

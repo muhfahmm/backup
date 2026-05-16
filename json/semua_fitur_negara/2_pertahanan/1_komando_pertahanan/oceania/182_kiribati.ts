@@ -14,6 +14,3 @@ const kiribati_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

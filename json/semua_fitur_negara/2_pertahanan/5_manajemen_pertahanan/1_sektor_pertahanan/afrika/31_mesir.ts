@@ -9,6 +9,3 @@ const mesir_pertahanan = {
     "program_luar_angkasa": 2,
     "pertahanan_siber": 17
     };
-
-
-

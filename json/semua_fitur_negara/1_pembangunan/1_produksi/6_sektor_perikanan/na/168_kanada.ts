@@ -4,6 +4,3 @@ const kanada_perikanan = {
   mutiara: 12288,
   ikan: 4992,
 };
-
-
-

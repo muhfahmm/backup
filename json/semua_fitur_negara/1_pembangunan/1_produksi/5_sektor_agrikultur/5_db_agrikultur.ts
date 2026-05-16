@@ -174,24 +174,8 @@ const agrikulturRate = {
   },
 };
 
-export interface SektorAgrikultur {
-  padi?: number;
-  gandum?: number;
-  jagung?: number;
-  sayur?: number;
-  umbi?: number;
-  kedelai?: number;
-  kelapa_sawit?: number;
-  teh?: number;
-  kopi?: number;
-  kakao?: number;
-  tebu?: number;
-  karet?: number;
-  kapas?: number;
-  tembakau?: number;
 }
 
-export interface AgricultureData {
   padi: number;
   gandum: number;
   jagung: number;
@@ -207,6 +191,3 @@ export interface AgricultureData {
   kapas: number;
   tembakau: number;
 }
-
-
-

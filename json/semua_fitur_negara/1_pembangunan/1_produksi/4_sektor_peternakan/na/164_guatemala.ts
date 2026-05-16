@@ -5,6 +5,3 @@ const guatemala_peternakan = {
   sapi_potong: 120,
   domba_kambing: 60,
 };
-
-
-

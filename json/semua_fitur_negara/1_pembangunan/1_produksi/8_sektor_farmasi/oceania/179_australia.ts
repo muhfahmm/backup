@@ -2,6 +2,3 @@
 const australia_farmasi = {
   farmasi: 3,
 };
-
-
-

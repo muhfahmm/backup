@@ -13,6 +13,3 @@ const kolombia_ekstraksi = {
   logam_tanah_jarang: 144,
   bijih_besi: 72,
 };
-
-
-

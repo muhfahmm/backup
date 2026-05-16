@@ -26,74 +26,9 @@ const laos_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
     }
-  };
-
-const laos = {
-  ...laos_profile,
-  "sektor_listrik": laos_listrik,
-  "hunian": laos_hunian,
-  "infrastruktur": laos_infrastruktur,
-  "sektor_ekstraksi": laos_ekstraksi,
-  "sektor_manufaktur": laos_manufaktur,
-  "sektor_peternakan": laos_peternakan,
-  "sektor_agrikultur": laos_agrikultur,
-  "sektor_perikanan": laos_perikanan,
-  "sektor_olahan_pangan": laos_olahan_pangan,
-  "sektor_farmasi": laos_farmasi,
-  "sektor_pertahanan": laos_pertahanan,
-  "armada_militer": laos_armada,
-  "militer_strategis": laos_strategis,
-  "armada_kepolisian": laos_kepolisian,
-  "pabrik_militer": laos_pabrik,
-  "intelijen": laos_intelijen,
-    "pendidikan": laos_pendidikan,
-  "kesehatan": laos_kesehatan,
-  "hukum": laos_hukum,
-  "sektor_olahraga": laos_olahraga,
-  "sektor_komersial": laos_komersial,
-  "sektor_hiburan": laos_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 32,
-      "kepuasan": 67,
-      "pendapatan": 12
-    },
-    "korporasi": {
-      "tarif": 37,
-      "kepuasan": 52,
-      "pendapatan": 8
-    },
-    "penghasilan": {
-      "tarif": 31,
-      "kepuasan": 61,
-      "pendapatan": 5
-    },
-    "bea_cukai": {
-      "tarif": 13,
-      "kepuasan": 86,
-      "pendapatan": 3
-    },
-    "lingkungan": {
-      "tarif": 26,
-      "kepuasan": 88,
-      "pendapatan": 10
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 8,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const laos_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const laos = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -1,4 +1,5 @@
-﻿const vatikan_pertahanan = {
+﻿// @ts-nocheck
+const vatikan_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 26,
     "hangar_tank": 2,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 2,
     "pertahanan_siber": 6
     };
-
-

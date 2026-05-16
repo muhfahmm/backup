@@ -8,6 +8,3 @@ const belarus_manufaktur = {
   kayu: 75,
   pupuk: 45,
 };
-
-
-

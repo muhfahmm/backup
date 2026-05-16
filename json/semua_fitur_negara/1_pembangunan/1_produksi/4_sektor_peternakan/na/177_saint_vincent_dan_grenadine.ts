@@ -5,6 +5,3 @@ const saint_vincent_dan_grenadine_peternakan = {
   sapi_potong: 11,
   domba_kambing: 36,
 };
-
-
-

@@ -4,6 +4,3 @@ const chile_komersial = {
   "hotel": 37,
   "pusat_grosir_tekstil": 17
 };
-
-
-

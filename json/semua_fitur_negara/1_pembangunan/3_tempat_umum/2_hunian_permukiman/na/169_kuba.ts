@@ -5,6 +5,3 @@ const kuba_hunian = {
   apartemen: 2295,
   mansion: 76532,
 };
-
-
-

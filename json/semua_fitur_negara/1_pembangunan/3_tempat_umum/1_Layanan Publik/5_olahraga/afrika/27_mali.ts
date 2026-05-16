@@ -9,6 +9,3 @@ const mali_olahraga = {
   "esports": 1,
   "gokart": 2
 };
-
-
-

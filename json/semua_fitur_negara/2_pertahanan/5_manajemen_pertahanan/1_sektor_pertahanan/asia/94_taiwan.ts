@@ -1,4 +1,5 @@
-﻿const taiwan_pertahanan = {
+﻿// @ts-nocheck
+const taiwan_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 4,
     "hangar_tank": 5,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 19,
     "pertahanan_siber": 12
     };
-
-

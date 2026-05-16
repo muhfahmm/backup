@@ -5,6 +5,3 @@ const tahiti_hunian = {
   apartemen: 56,
   mansion: 1874,
 };
-
-
-

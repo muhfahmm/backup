@@ -6,6 +6,3 @@ const grenada_kesehatan = {
       "harapan_hidup": 65,
       "indeks_kesehatan": 56
     };
-
-
-

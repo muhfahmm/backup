@@ -5,6 +5,3 @@ const brunei_peternakan = {
   sapi_potong: 105,
   domba_kambing: 102,
 };
-
-
-

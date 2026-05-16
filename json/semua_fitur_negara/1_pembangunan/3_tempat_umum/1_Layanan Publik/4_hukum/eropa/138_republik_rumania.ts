@@ -9,6 +9,3 @@ const republik_rumania_hukum = {
       "indeks_korupsi": 54,
       "indeks_keamanan": 64
   };
-
-
-

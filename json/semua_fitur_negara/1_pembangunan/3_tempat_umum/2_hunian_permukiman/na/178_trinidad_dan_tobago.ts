@@ -5,6 +5,3 @@ const trinidad_dan_tobago_hunian = {
   apartemen: 281,
   mansion: 9381,
 };
-
-
-

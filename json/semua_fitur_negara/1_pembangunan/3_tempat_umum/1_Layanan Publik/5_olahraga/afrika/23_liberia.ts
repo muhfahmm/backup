@@ -9,6 +9,3 @@ const liberia_olahraga = {
   "esports": 3,
   "gokart": 2
 };
-
-
-

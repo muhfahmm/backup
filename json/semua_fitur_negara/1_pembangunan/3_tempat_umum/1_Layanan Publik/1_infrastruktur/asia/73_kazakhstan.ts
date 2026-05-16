@@ -9,6 +9,3 @@ const kazakhstan_infrastruktur = {
   bandara: 8,
   helipad: 5,
 };
-
-
-

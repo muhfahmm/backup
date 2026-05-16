@@ -30,6 +30,3 @@ const saint_kitts_dan_nevis_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

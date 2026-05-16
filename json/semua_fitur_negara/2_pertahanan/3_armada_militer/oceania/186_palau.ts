@@ -30,6 +30,3 @@ const palau_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

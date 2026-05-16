@@ -11,6 +11,3 @@ const meksiko_olahan_pangan = {
   ikan_kaleng: 5082,
   kopi_teh: 4477,
 };
-
-
-

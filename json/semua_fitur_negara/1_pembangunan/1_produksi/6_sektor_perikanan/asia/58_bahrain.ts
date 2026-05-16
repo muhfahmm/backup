@@ -4,6 +4,3 @@ const bahrain_perikanan = {
   mutiara: 40,
   ikan: 160,
 };
-
-
-

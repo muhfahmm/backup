@@ -6,6 +6,3 @@ const kepulauan_faroe_kesehatan = {
       "harapan_hidup": 61,
       "indeks_kesehatan": 67
     };
-
-
-

@@ -5,6 +5,3 @@ const el_salvador_hunian = {
   apartemen: 1300,
   mansion: 43340,
 };
-
-
-

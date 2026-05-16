@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const guam_strategis = {
     "waktu_respon": 36,
     "intelijen": 26,
@@ -13,5 +14,3 @@ const guam_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

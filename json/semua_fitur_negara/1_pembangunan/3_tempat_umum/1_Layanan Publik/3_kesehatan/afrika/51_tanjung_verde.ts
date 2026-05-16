@@ -6,6 +6,3 @@ const tanjung_verde_kesehatan = {
       "harapan_hidup": 64,
       "indeks_kesehatan": 69
   };
-
-
-

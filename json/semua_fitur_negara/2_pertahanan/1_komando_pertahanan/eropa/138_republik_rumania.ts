@@ -14,6 +14,3 @@ const republik_rumania_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

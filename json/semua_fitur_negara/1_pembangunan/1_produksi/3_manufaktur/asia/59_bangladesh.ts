@@ -8,6 +8,3 @@ const bangladesh_manufaktur = {
   kayu: 490,
   pupuk: 560,
 };
-
-
-

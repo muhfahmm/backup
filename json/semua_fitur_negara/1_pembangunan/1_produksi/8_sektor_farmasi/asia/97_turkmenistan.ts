@@ -2,6 +2,3 @@
 const turkmenistan_farmasi = {
   farmasi: 25,
 };
-
-
-

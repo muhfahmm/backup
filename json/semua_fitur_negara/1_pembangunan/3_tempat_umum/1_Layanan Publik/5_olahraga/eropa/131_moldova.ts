@@ -9,6 +9,3 @@ const moldova_olahraga = {
   "esports": 0,
   "gokart": 10
 };
-
-
-

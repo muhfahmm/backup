@@ -9,6 +9,3 @@ const guinea_bissau_hukum = {
       "indeks_korupsi": 10,
       "indeks_keamanan": 64
   };
-
-
-

@@ -15,6 +15,3 @@ const suriname_agrikultur = {
   kapas: 42,
   tembakau: 46,
 };
-
-
-

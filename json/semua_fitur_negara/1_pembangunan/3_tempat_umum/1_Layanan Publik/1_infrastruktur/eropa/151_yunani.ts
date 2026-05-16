@@ -9,6 +9,3 @@ const yunani_infrastruktur = {
   bandara: 4,
   helipad: 5,
 };
-
-
-

@@ -16,6 +16,3 @@ const fiji_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

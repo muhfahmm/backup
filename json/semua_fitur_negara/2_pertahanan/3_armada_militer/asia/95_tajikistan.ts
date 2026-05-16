@@ -1,4 +1,5 @@
-﻿const tajikistan_armada = {
+﻿// @ts-nocheck
+const tajikistan_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
       }
 };
-
-

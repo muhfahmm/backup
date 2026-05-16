@@ -5,6 +5,3 @@ const saintVincentDanGrenadineVehicles = {
   bus: 22,
   truk: 110,
 };
-
-
-

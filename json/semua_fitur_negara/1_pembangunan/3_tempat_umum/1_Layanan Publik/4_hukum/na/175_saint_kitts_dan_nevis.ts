@@ -9,6 +9,3 @@ const saint_kitts_dan_nevis_hukum = {
       "indeks_korupsi": 38,
       "indeks_keamanan": 59
   };
-
-
-

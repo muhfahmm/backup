@@ -15,6 +15,3 @@ const sudan_selatan_agrikultur = {
   kapas: 196,
   tembakau: 280,
 };
-
-
-

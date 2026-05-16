@@ -15,6 +15,3 @@ const sierra_leone_agrikultur = {
   kapas: 208,
   tembakau: 204,
 };
-
-
-

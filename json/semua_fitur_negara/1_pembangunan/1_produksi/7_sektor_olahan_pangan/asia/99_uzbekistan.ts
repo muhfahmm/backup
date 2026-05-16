@@ -11,6 +11,3 @@ const uzbekistan_olahan_pangan = {
   ikan_kaleng: 140,
   kopi_teh: 91,
 };
-
-
-

@@ -11,6 +11,3 @@ const makedonia_utara_olahan_pangan = {
   ikan_kaleng: 147,
   kopi_teh: 132,
 };
-
-
-

@@ -4,6 +4,3 @@ const kongo_komersial = {
   "hotel": 11,
   "pusat_grosir_tekstil": 0
 };
-
-
-

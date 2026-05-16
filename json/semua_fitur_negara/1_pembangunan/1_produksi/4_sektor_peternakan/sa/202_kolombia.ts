@@ -5,6 +5,3 @@ const kolombia_peternakan = {
   sapi_potong: 1656,
   domba_kambing: 1332,
 };
-
-
-

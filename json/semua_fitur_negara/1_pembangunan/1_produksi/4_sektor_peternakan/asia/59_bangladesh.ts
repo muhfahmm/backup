@@ -5,6 +5,3 @@ const bangladesh_peternakan = {
   sapi_potong: 1960,
   domba_kambing: 1820,
 };
-
-
-

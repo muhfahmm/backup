@@ -2,6 +2,3 @@
 const finlandia_farmasi = {
   farmasi: 39,
 };
-
-
-

@@ -15,6 +15,3 @@ const burkina_faso_agrikultur = {
   kapas: 96,
   tembakau: 76,
 };
-
-
-

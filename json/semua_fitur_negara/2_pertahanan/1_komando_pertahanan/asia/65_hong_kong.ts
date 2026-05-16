@@ -14,6 +14,3 @@ const hong_kong_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -4,6 +4,3 @@ const arab_saudi_perikanan = {
   mutiara: 1995,
   ikan: 3591,
 };
-
-
-

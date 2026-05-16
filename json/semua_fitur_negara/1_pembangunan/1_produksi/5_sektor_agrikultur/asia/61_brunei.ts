@@ -15,6 +15,3 @@ const brunei_agrikultur = {
   kapas: 207,
   tembakau: 63,
 };
-
-
-

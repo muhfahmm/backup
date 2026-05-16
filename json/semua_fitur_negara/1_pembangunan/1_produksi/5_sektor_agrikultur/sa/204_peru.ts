@@ -15,6 +15,3 @@ const peru_agrikultur = {
   kapas: 434,
   tembakau: 217,
 };
-
-
-

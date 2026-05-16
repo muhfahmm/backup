@@ -9,6 +9,3 @@ const togo_infrastruktur = {
   bandara: 3,
   helipad: 4,
 };
-
-
-

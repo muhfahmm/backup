@@ -15,6 +15,3 @@ const eswatini_agrikultur = {
   kapas: 79,
   tembakau: 12,
 };
-
-
-

@@ -2,6 +2,3 @@
 const costa_rica_farmasi = {
   farmasi: 32,
 };
-
-
-

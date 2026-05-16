@@ -4,6 +4,3 @@ const ghana_komersial = {
   "hotel": 5,
   "pusat_grosir_tekstil": 4
 };
-
-
-

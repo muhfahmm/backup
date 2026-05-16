@@ -9,6 +9,3 @@ const kepulauan_faroe_infrastruktur = {
   bandara: 5,
   helipad: 5,
 };
-
-
-

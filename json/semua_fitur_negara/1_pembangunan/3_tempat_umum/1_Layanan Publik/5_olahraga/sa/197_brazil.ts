@@ -9,6 +9,3 @@ const brazil_olahraga = {
   "esports": 20,
   "gokart": 84
 };
-
-
-

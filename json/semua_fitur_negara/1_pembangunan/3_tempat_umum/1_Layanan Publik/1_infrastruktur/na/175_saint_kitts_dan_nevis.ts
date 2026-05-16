@@ -9,6 +9,3 @@ const saint_kitts_dan_nevis_infrastruktur = {
   bandara: 5,
   helipad: 1,
 };
-
-
-

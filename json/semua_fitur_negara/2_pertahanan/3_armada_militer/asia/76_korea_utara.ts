@@ -30,6 +30,3 @@ const korea_utara_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

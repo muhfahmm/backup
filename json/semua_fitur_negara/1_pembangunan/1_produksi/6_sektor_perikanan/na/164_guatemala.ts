@@ -4,6 +4,3 @@ const guatemala_perikanan = {
   mutiara: 78,
   ikan: 84,
 };
-
-
-

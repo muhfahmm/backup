@@ -12,6 +12,3 @@ const senegalAgreements = [
   { "no": 10, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

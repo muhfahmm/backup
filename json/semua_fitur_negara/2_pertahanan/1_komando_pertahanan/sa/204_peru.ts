@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const peru_strategis = {
     "waktu_respon": 30,
     "intelijen": 17,
@@ -13,5 +14,3 @@ const peru_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

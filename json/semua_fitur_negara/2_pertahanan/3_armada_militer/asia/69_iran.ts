@@ -30,6 +30,3 @@ const iran_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

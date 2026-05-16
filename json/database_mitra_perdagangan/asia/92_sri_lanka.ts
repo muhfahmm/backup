@@ -12,6 +12,3 @@ const sri_lankaAgreements = [
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Vietnam", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

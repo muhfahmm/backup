@@ -13,6 +13,3 @@ const gibraltar_ekstraksi = {
   logam_tanah_jarang: 4,
   bijih_besi: 0,
 };
-
-
-

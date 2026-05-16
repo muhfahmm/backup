@@ -5,6 +5,3 @@ const niger_hunian = {
   apartemen: 4544,
   mansion: 151489,
 };
-
-
-

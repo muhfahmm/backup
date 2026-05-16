@@ -5,6 +5,3 @@ const greenlandVehicles = {
   bus: 11,
   truk: 56,
 };
-
-
-

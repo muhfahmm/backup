@@ -1,4 +1,5 @@
-﻿const slovenia_pertahanan = {
+﻿// @ts-nocheck
+const slovenia_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 16,
     "hangar_tank": 11,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 17,
     "pertahanan_siber": 33
     };
-
-

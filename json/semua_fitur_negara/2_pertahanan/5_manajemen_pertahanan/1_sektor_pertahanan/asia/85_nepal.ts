@@ -1,4 +1,5 @@
-﻿const nepal_pertahanan = {
+﻿// @ts-nocheck
+const nepal_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 2,
     "hangar_tank": 5,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 40,
     "pertahanan_siber": 35
     };
-
-

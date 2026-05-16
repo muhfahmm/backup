@@ -9,6 +9,3 @@ const swedia_pertahanan = {
     "program_luar_angkasa": 14,
     "pertahanan_siber": 30
     };
-
-
-

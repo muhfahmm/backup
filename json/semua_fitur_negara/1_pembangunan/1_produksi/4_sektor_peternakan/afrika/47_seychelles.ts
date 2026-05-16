@@ -5,6 +5,3 @@ const seychelles_peternakan = {
   sapi_potong: 80,
   domba_kambing: 54,
 };
-
-
-

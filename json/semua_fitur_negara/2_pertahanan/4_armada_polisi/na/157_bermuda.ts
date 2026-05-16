@@ -16,6 +16,3 @@ const bermuda_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

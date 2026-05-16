@@ -9,6 +9,3 @@ const republik_demokratik_kongo_infrastruktur = {
   bandara: 2,
   helipad: 4,
 };
-
-
-

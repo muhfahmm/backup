@@ -16,6 +16,3 @@ const costa_rica_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

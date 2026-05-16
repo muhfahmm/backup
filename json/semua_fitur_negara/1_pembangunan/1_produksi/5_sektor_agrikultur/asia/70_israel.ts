@@ -15,6 +15,3 @@ const israel_agrikultur = {
   kapas: 3024,
   tembakau: 2520,
 };
-
-
-

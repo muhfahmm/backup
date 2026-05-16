@@ -26,74 +26,9 @@ const venezuela_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
-
-const venezuela = {
-  ...venezuela_profile,
-  "sektor_listrik": venezuela_listrik,
-  "hunian": venezuela_hunian,
-  "infrastruktur": venezuela_infrastruktur,
-  "sektor_ekstraksi": venezuela_ekstraksi,
-  "sektor_manufaktur": venezuela_manufaktur,
-  "sektor_peternakan": venezuela_peternakan,
-  "sektor_agrikultur": venezuela_agrikultur,
-  "sektor_perikanan": venezuela_perikanan,
-  "sektor_olahan_pangan": venezuela_olahan_pangan,
-  "sektor_farmasi": venezuela_farmasi,
-  "sektor_pertahanan": venezuela_pertahanan,
-  "armada_militer": venezuela_armada,
-  "militer_strategis": venezuela_strategis,
-  "armada_kepolisian": venezuela_kepolisian,
-  "pabrik_militer": venezuela_pabrik,
-  "intelijen": venezuela_intelijen,
-    "pendidikan": venezuela_pendidikan,
-  "kesehatan": venezuela_kesehatan,
-  "hukum": venezuela_hukum,
-  "sektor_olahraga": venezuela_olahraga,
-  "sektor_komersial": venezuela_komersial,
-  "sektor_hiburan": venezuela_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 37,
-      "kepuasan": 67,
-      "pendapatan": 75
-    },
-    "korporasi": {
-      "tarif": 8,
-      "kepuasan": 52,
-      "pendapatan": 19
-    },
-    "penghasilan": {
-      "tarif": 4,
-      "kepuasan": 61,
-      "pendapatan": 10
-    },
-    "bea_cukai": {
-      "tarif": 40,
-      "kepuasan": 86,
-      "pendapatan": 85
-    },
-    "lingkungan": {
-      "tarif": 28,
-      "kepuasan": 88,
-      "pendapatan": 41
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 5 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 14 },
-    "lainnya": {
-      "tarif": 4,
-      "kepuasan": 93,
-      "pendapatan": 7
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const venezuela_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const venezuela = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

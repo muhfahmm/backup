@@ -2,6 +2,3 @@
 const ukraina_farmasi = {
   farmasi: 32,
 };
-
-
-

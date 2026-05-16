@@ -5,6 +5,3 @@ const marshall_hunian = {
   apartemen: 11,
   mansion: 394,
 };
-
-
-

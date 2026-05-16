@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const guatemala_strategis = {
     "waktu_respon": 5,
     "intelijen": 11,
@@ -13,5 +14,3 @@ const guatemala_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

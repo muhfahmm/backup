@@ -26,74 +26,9 @@ const jamaika_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const jamaika = {
-  ...jamaika_profile,
-  "sektor_listrik": jamaika_listrik,
-  "hunian": jamaika_hunian,
-  "infrastruktur": jamaika_infrastruktur,
-  "sektor_ekstraksi": jamaika_ekstraksi,
-  "sektor_manufaktur": jamaika_manufaktur,
-  "sektor_peternakan": jamaika_peternakan,
-  "sektor_agrikultur": jamaika_agrikultur,
-  "sektor_perikanan": jamaika_perikanan,
-  "sektor_olahan_pangan": jamaika_olahan_pangan,
-  "sektor_farmasi": jamaika_farmasi,
-  "sektor_pertahanan": jamaika_pertahanan,
-  "armada_militer": jamaika_armada,
-  "militer_strategis": jamaika_strategis,
-  "armada_kepolisian": jamaika_kepolisian,
-  "pabrik_militer": jamaika_pabrik,
-  "intelijen": jamaika_intelijen,
-    "pendidikan": jamaika_pendidikan,
-  "kesehatan": jamaika_kesehatan,
-  "hukum": jamaika_hukum,
-  "sektor_olahraga": jamaika_olahraga,
-  "sektor_komersial": jamaika_komersial,
-  "sektor_hiburan": jamaika_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 34,
-      "kepuasan": 67,
-      "pendapatan": 15
-    },
-    "korporasi": {
-      "tarif": 23,
-      "kepuasan": 52,
-      "pendapatan": 6
-    },
-    "penghasilan": {
-      "tarif": 31,
-      "kepuasan": 61,
-      "pendapatan": 6
-    },
-    "bea_cukai": {
-      "tarif": 36,
-      "kepuasan": 86,
-      "pendapatan": 10
-    },
-    "lingkungan": {
-      "tarif": 8,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 9,
-      "kepuasan": 93,
-      "pendapatan": 2
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const jamaika_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const jamaika = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

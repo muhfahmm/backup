@@ -16,6 +16,3 @@ const tunisia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

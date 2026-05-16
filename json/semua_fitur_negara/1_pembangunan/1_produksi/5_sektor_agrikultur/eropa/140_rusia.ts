@@ -15,6 +15,3 @@ const rusia_agrikultur = {
   kapas: 13797,
   tembakau: 7371,
 };
-
-
-

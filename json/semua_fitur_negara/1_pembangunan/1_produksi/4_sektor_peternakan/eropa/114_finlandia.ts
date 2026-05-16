@@ -5,6 +5,3 @@ const finlandia_peternakan = {
   sapi_potong: 423,
   domba_kambing: 297,
 };
-
-
-

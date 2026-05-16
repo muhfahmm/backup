@@ -16,6 +16,3 @@ const andorra_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

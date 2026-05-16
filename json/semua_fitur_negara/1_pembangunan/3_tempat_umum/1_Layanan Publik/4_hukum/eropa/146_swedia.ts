@@ -9,6 +9,3 @@ const swedia_hukum = {
       "indeks_korupsi": 54,
       "indeks_keamanan": 73
   };
-
-
-

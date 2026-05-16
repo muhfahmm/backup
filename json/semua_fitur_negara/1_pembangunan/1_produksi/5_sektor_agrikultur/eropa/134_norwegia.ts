@@ -15,6 +15,3 @@ const norwegia_agrikultur = {
   kapas: 1300,
   tembakau: 720,
 };
-
-
-

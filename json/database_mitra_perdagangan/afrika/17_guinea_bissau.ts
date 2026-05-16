@@ -14,6 +14,3 @@ const guinea_bissauAgreements = [
   { "no": 12, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

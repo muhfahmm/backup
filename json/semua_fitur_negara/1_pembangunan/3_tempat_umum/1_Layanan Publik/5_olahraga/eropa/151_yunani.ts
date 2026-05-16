@@ -9,6 +9,3 @@ const yunani_olahraga = {
   "esports": 7,
   "gokart": 40
 };
-
-
-

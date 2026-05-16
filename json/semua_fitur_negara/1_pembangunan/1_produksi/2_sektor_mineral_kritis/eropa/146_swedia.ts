@@ -13,6 +13,3 @@ const swedia_ekstraksi = {
   logam_tanah_jarang: 296,
   bijih_besi: 222,
 };
-
-
-

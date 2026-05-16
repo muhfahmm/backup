@@ -5,6 +5,3 @@ const mauritaniaVehicles = {
   bus: 880,
   truk: 4403,
 };
-
-
-

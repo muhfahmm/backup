@@ -4,6 +4,3 @@ const brunei_perikanan = {
   mutiara: 105,
   ikan: 54,
 };
-
-
-

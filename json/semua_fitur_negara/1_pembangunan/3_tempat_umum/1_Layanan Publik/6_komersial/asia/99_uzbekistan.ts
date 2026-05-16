@@ -4,6 +4,3 @@ const uzbekistan_komersial = {
   "hotel": 10,
   "pusat_grosir_tekstil": 3
 };
-
-
-

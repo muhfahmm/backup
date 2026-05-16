@@ -11,6 +11,3 @@ const nigeria_olahan_pangan = {
   ikan_kaleng: 2688,
   kopi_teh: 1904,
 };
-
-
-

@@ -4,6 +4,3 @@ const kanada_komersial = {
   "hotel": 163,
   "pusat_grosir_tekstil": 61
 };
-
-
-

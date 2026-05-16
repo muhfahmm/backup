@@ -8,6 +8,3 @@ const afganistan_manufaktur = {
   kayu: 36,
   pupuk: 16,
 };
-
-
-

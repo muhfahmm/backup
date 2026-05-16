@@ -13,6 +13,3 @@ const pantai_gadingAgreements = [
   { "no": 11, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

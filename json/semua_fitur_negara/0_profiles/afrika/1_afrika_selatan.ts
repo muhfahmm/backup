@@ -1,6 +1,4 @@
-﻿
-
-// @ts-nocheck
+﻿// @ts-nocheck
 const afrika_selatan_profile = {
   "name_en": "South Africa",
   "capital": "Pretoria",
@@ -27,73 +25,22 @@ const afrika_selatan_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
   }
-  };
+};
 
-const afrika_selatan = {
-  ...afrika_selatan_profile,
-  "sektor_listrik": afrika_selatan_listrik,
-  "infrastruktur": afrika_selatan_infrastruktur,
-  "sektor_ekstraksi": afrika_selatan_ekstraksi,
-  "sektor_manufaktur": afrika_selatan_manufaktur,
-  "sektor_peternakan": afrika_selatan_peternakan,
-  "sektor_agrikultur": afrika_selatan_agrikultur,
-  "sektor_perikanan": afrika_selatan_perikanan,
-  "sektor_olahan_pangan": afrika_selatan_olahan_pangan,
-  "sektor_farmasi": afrika_selatan_farmasi,
-  "sektor_pertahanan": afrika_selatan_pertahanan,
-  "armada_militer": afrika_selatan_armada,
-  "militer_strategis": afrika_selatan_strategis,
-  "armada_kepolisian": afrika_selatan_kepolisian,
-  "pabrik_militer": afrika_selatan_pabrik,
-  "intelijen": afrika_selatan_intelijen,
-    "pendidikan": afrika_selatan_pendidikan,
-  "kesehatan": afrika_selatan_kesehatan,
-  "hukum": afrika_selatan_hukum,
-  "sektor_olahraga": afrika_selatan_olahraga,
-  "sektor_komersial": afrika_selatan_komersial,
-  "sektor_hiburan": afrika_selatan_hiburan,
-  "hunian": afrika_selatan_hunian,
-  // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 1,
-      "kepuasan": 67,
-      "pendapatan": 9
-    },
-    "korporasi": {
-      "tarif": 18,
-      "kepuasan": 52,
-      "pendapatan": 157
-    },
-    "penghasilan": {
-      "tarif": 39,
-      "kepuasan": 61,
-      "pendapatan": 367
-    },
-    "bea_cukai": {
-      "tarif": 6,
-      "kepuasan": 86,
-      "pendapatan": 64
-    },
-    "lingkungan": {
-      "tarif": 12,
-      "kepuasan": 88,
-      "pendapatan": 83
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 20 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 60 },
-    "lainnya": {
-      "tarif": 13,
-      "kepuasan": 93,
-      "pendapatan": 134
+const afrika_selatan_pajak = {
+    "pajak": {
+      "ppn": { "tarif": 1, "kepuasan": 67, "pendapatan": 9 },
+      "korporasi": { "tarif": 18, "kepuasan": 52, "pendapatan": 157 },
+      "penghasilan": { "tarif": 39, "kepuasan": 61, "pendapatan": 367 },
+      "bea_cukai": { "tarif": 6, "kepuasan": 86, "pendapatan": 64 },
+      "lingkungan": { "tarif": 12, "kepuasan": 88, "pendapatan": 83 },
+      "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 20 },
+      "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 60 },
+      "lainnya": { "tarif": 13, "kepuasan": 93, "pendapatan": 134 }
     }
-  },
-  
-  // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
-  // =============================================================
+};
+
+const afrika_selatan_harga = {
   "harga": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
@@ -106,14 +53,10 @@ const afrika_selatan = {
     "harga_air": 5.2,
     "harga_obat": 221.06,
     "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": afrika_selatan_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
+  }
+};
+
+const afrika_selatan_menteri = {
   "kementerian": {
     "kesehatan": 13,
     "pendidikan": 24,
@@ -122,6 +65,4 @@ const afrika_selatan = {
     "lingkungan": 60
   }
 };
-
-
 

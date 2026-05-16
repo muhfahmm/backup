@@ -14,6 +14,3 @@ const afrika_selatanAgreements = [
   { "no": 12, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

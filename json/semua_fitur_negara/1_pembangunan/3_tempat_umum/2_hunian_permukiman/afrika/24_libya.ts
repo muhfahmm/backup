@@ -5,6 +5,3 @@ const libya_hunian = {
   apartemen: 1352,
   mansion: 45080,
 };
-
-
-

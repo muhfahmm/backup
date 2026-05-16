@@ -13,6 +13,3 @@ const korea_utara_diplomasi = [
   { "no": 11, "mitra": "Belize", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

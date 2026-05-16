@@ -5,6 +5,3 @@ const sudan_selatan_hunian = {
   apartemen: 2222,
   mansion: 74087,
 };
-
-
-

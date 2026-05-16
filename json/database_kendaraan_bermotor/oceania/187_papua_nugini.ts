@@ -5,6 +5,3 @@ const papuaNuginiVehicles = {
   bus: 1721,
   truk: 8606,
 };
-
-
-

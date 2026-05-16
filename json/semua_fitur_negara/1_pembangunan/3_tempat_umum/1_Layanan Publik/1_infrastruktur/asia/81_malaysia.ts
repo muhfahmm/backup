@@ -9,6 +9,3 @@ const malaysia_infrastruktur = {
   bandara: 9,
   helipad: 3,
 };
-
-
-

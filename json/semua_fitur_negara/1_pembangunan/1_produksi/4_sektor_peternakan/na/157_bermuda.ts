@@ -5,6 +5,3 @@ const bermuda_peternakan = {
   sapi_potong: 92,
   domba_kambing: 70,
 };
-
-
-

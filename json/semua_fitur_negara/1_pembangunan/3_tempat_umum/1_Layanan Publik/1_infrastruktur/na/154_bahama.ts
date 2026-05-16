@@ -9,6 +9,3 @@ const bahama_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

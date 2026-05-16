@@ -5,6 +5,3 @@ const korea_utara_peternakan = {
   sapi_potong: 180,
   domba_kambing: 188,
 };
-
-
-

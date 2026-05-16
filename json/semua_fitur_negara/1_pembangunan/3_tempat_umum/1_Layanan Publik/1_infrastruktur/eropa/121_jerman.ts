@@ -9,6 +9,3 @@ const jerman_infrastruktur = {
   bandara: 38,
   helipad: 31,
 };
-
-
-

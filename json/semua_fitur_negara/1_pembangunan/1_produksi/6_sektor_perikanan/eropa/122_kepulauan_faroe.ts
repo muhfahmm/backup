@@ -4,6 +4,3 @@ const kepulauan_faroe_perikanan = {
   mutiara: 16,
   ikan: 31,
 };
-
-
-

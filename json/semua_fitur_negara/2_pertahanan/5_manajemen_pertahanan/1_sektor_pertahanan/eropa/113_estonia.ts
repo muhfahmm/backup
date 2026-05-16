@@ -9,6 +9,3 @@ const estonia_pertahanan = {
     "program_luar_angkasa": 27,
     "pertahanan_siber": 7
     };
-
-
-

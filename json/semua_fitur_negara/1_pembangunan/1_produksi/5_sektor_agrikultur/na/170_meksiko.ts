@@ -15,6 +15,3 @@ const meksiko_agrikultur = {
   kapas: 1694,
   tembakau: 2662,
 };
-
-
-

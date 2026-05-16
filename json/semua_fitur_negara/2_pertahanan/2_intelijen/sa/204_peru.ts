@@ -4,6 +4,3 @@ const peru_intelijen = {
   jaringan_radar: 18,
   operasi_siber: 20,
 };
-
-
-

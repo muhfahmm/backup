@@ -4,6 +4,3 @@ const belgia_perikanan = {
   mutiara: 369,
   ikan: 779,
 };
-
-
-

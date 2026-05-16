@@ -16,6 +16,3 @@ const sudan_selatan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

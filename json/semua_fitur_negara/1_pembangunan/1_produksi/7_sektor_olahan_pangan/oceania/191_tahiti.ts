@@ -11,6 +11,3 @@ const tahiti_olahan_pangan = {
   ikan_kaleng: 12,
   kopi_teh: 40,
 };
-
-
-

@@ -15,6 +15,3 @@ const irlandia_agrikultur = {
   kapas: 2009,
   tembakau: 2842,
 };
-
-
-

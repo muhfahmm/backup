@@ -16,6 +16,3 @@ const tanjung_verde_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

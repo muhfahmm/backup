@@ -16,6 +16,3 @@ const greenland_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

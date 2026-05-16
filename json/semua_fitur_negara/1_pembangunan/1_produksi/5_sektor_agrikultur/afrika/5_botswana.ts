@@ -15,6 +15,3 @@ const botswana_agrikultur = {
   kapas: 42,
   tembakau: 56,
 };
-
-
-

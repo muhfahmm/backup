@@ -8,6 +8,3 @@ const arab_saudi_manufaktur = {
   kayu: 1064,
   pupuk: 931,
 };
-
-
-

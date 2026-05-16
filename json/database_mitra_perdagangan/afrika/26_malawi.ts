@@ -11,6 +11,3 @@ const malawiAgreements = [
   { "no": 9, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

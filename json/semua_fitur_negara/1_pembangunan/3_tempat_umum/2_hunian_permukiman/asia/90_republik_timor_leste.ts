@@ -5,6 +5,3 @@ const republik_timor_leste_hunian = {
   apartemen: 2025,
   mansion: 67500,
 };
-
-
-

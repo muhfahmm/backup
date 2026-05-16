@@ -2,6 +2,3 @@
 const china_farmasi = {
   farmasi: 27,
 };
-
-
-

@@ -30,6 +30,3 @@ const jerman_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -5,6 +5,3 @@ const luksemburg_hunian = {
   apartemen: 123,
   mansion: 4103,
 };
-
-
-

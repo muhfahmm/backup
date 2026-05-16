@@ -26,74 +26,9 @@ const tunisia_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
   }
-  };
-
-const tunisia = {
-  ...tunisia_profile,
-  "sektor_listrik": tunisia_listrik,
-  "hunian": tunisia_hunian,
-  "infrastruktur": tunisia_infrastruktur,
-  "sektor_ekstraksi": tunisia_ekstraksi,
-  "sektor_manufaktur": tunisia_manufaktur,
-  "sektor_peternakan": tunisia_peternakan,
-  "sektor_agrikultur": tunisia_agrikultur,
-  "sektor_perikanan": tunisia_perikanan,
-  "sektor_olahan_pangan": tunisia_olahan_pangan,
-  "sektor_farmasi": tunisia_farmasi,
-  "sektor_pertahanan": tunisia_pertahanan,
-  "armada_militer": tunisia_armada,
-  "militer_strategis": tunisia_strategis,
-  "armada_kepolisian": tunisia_kepolisian,
-  "pabrik_militer": tunisia_pabrik,
-  "intelijen": tunisia_intelijen,
-    "pendidikan": tunisia_pendidikan,
-  "kesehatan": tunisia_kesehatan,
-  "hukum": tunisia_hukum,
-  "sektor_olahraga": tunisia_olahraga,
-  "sektor_komersial": tunisia_komersial,
-  "sektor_hiburan": tunisia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 24,
-      "kepuasan": 67,
-      "pendapatan": 24
-    },
-    "korporasi": {
-      "tarif": 3,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 2,
-      "kepuasan": 61,
-      "pendapatan": 2
-    },
-    "bea_cukai": {
-      "tarif": 15,
-      "kepuasan": 86,
-      "pendapatan": 11
-    },
-    "lingkungan": {
-      "tarif": 8,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 7 },
-    "lainnya": {
-      "tarif": 10,
-      "kepuasan": 93,
-      "pendapatan": 4
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const tunisia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const tunisia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

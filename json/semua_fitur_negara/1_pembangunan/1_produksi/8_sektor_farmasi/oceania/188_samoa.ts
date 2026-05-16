@@ -2,6 +2,3 @@
 const samoa_farmasi = {
   farmasi: 21,
 };
-
-
-

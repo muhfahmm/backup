@@ -5,6 +5,3 @@ const kiribati_peternakan = {
   sapi_potong: 32,
   domba_kambing: 20,
 };
-
-
-

@@ -9,6 +9,3 @@ const venezuela_hukum = {
       "indeks_korupsi": 43,
       "indeks_keamanan": 53
   };
-
-
-

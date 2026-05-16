@@ -14,6 +14,3 @@ const suriname_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

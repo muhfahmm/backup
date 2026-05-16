@@ -5,6 +5,3 @@ const guyana_peternakan = {
   sapi_potong: 46,
   domba_kambing: 84,
 };
-
-
-

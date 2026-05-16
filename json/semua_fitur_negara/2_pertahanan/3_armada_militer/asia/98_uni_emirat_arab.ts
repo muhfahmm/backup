@@ -30,6 +30,3 @@ const uni_emirat_arab_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

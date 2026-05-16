@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const makau_strategis = {
     "waktu_respon": 22,
     "intelijen": 37,
@@ -13,5 +14,3 @@ const makau_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

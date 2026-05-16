@@ -6,6 +6,3 @@ const maldives_kesehatan = {
       "harapan_hidup": 65,
       "indeks_kesehatan": 64
     };
-
-
-

@@ -9,6 +9,3 @@ const dominika_hukum = {
       "indeks_korupsi": 31,
       "indeks_keamanan": 67
   };
-
-
-

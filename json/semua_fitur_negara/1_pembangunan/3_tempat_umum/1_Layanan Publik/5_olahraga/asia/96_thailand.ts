@@ -9,6 +9,3 @@ const thailand_olahraga = {
   "esports": 11,
   "gokart": 26
 };
-
-
-

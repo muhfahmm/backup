@@ -13,6 +13,3 @@ const republik_timor_leste_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 8,
 };
-
-
-

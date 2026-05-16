@@ -26,74 +26,9 @@ const mozambik_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
-
-const mozambik = {
-  ...mozambik_profile,
-  "sektor_listrik": mozambik_listrik,
-  "hunian": mozambik_hunian,
-  "infrastruktur": mozambik_infrastruktur,
-  "sektor_ekstraksi": mozambik_ekstraksi,
-  "sektor_manufaktur": mozambik_manufaktur,
-  "sektor_peternakan": mozambik_peternakan,
-  "sektor_agrikultur": mozambik_agrikultur,
-  "sektor_perikanan": mozambik_perikanan,
-  "sektor_olahan_pangan": mozambik_olahan_pangan,
-  "sektor_farmasi": mozambik_farmasi,
-  "sektor_pertahanan": mozambik_pertahanan,
-  "armada_militer": mozambik_armada,
-  "militer_strategis": mozambik_strategis,
-  "armada_kepolisian": mozambik_kepolisian,
-  "pabrik_militer": mozambik_pabrik,
-  "intelijen": mozambik_intelijen,
-    "pendidikan": mozambik_pendidikan,
-  "kesehatan": mozambik_kesehatan,
-  "hukum": mozambik_hukum,
-  "sektor_olahraga": mozambik_olahraga,
-  "sektor_komersial": mozambik_komersial,
-  "sektor_hiburan": mozambik_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 35,
-      "kepuasan": 67,
-      "pendapatan": 10
-    },
-    "korporasi": {
-      "tarif": 19,
-      "kepuasan": 52,
-      "pendapatan": 9
-    },
-    "penghasilan": {
-      "tarif": 4,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 8,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 7
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 6,
-      "kepuasan": 93,
-      "pendapatan": 2
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const mozambik_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const mozambik = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

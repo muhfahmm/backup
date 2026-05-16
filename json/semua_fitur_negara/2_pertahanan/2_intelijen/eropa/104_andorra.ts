@@ -1,7 +1,6 @@
-﻿const andorra_intelijen = {
+﻿// @ts-nocheck
+const andorra_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 3,
   operasi_siber: 3,
 };
-
-

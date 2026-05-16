@@ -12,6 +12,3 @@ const nauruAgreements = [
   { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Selandia Baru", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

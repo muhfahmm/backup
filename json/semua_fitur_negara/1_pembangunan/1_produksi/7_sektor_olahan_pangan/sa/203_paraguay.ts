@@ -11,6 +11,3 @@ const paraguay_olahan_pangan = {
   ikan_kaleng: 245,
   kopi_teh: 205,
 };
-
-
-

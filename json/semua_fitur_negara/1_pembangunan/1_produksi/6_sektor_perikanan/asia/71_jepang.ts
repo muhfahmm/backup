@@ -4,6 +4,3 @@ const jepang_perikanan = {
   mutiara: 5950,
   ikan: 4998,
 };
-
-
-

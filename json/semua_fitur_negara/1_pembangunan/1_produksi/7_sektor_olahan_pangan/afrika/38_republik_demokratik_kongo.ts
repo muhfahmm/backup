@@ -11,6 +11,3 @@ const republik_demokratik_kongo_olahan_pangan = {
   ikan_kaleng: 129,
   kopi_teh: 72,
 };
-
-
-

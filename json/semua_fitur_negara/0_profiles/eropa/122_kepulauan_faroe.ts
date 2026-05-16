@@ -26,74 +26,9 @@ const kepulauan_faroe_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
-
-const kepulauan_faroe = {
-  ...kepulauan_faroe_profile,
-  "sektor_listrik": kepulauan_faroe_listrik,
-  "hunian": kepulauan_faroe_hunian,
-  "infrastruktur": kepulauan_faroe_infrastruktur,
-  "sektor_ekstraksi": kepulauan_faroe_ekstraksi,
-  "sektor_manufaktur": kepulauan_faroe_manufaktur,
-  "sektor_peternakan": kepulauan_faroe_peternakan,
-  "sektor_agrikultur": kepulauan_faroe_agrikultur,
-  "sektor_perikanan": kepulauan_faroe_perikanan,
-  "sektor_olahan_pangan": kepulauan_faroe_olahan_pangan,
-  "sektor_farmasi": kepulauan_faroe_farmasi,
-  "sektor_pertahanan": kepulauan_faroe_pertahanan,
-  "armada_militer": kepulauan_faroe_armada,
-  "militer_strategis": kepulauan_faroe_strategis,
-  "armada_kepolisian": kepulauan_faroe_kepolisian,
-  "pabrik_militer": kepulauan_faroe_pabrik,
-  "intelijen": kepulauan_faroe_intelijen,
-    "pendidikan": kepulauan_faroe_pendidikan,
-  "kesehatan": kepulauan_faroe_kesehatan,
-  "hukum": kepulauan_faroe_hukum,
-  "sektor_olahraga": kepulauan_faroe_olahraga,
-  "sektor_komersial": kepulauan_faroe_komersial,
-  "sektor_hiburan": kepulauan_faroe_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 35,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 7,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 29,
-      "kepuasan": 61,
-      "pendapatan": 8
-    },
-    "bea_cukai": {
-      "tarif": 30,
-      "kepuasan": 86,
-      "pendapatan": 6
-    },
-    "lingkungan": {
-      "tarif": 34,
-      "kepuasan": 88,
-      "pendapatan": 4
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 1,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kepulauan_faroe_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const kepulauan_faroe = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

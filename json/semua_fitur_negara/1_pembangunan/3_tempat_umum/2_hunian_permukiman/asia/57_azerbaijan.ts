@@ -5,6 +5,3 @@ const azerbaijan_hunian = {
   apartemen: 2012,
   mansion: 67093,
 };
-
-
-

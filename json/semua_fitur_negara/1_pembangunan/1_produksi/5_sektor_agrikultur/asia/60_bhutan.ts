@@ -15,6 +15,3 @@ const bhutan_agrikultur = {
   kapas: 30,
   tembakau: 159,
 };
-
-
-

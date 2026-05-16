@@ -12,6 +12,3 @@ const suriname_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 80
     };
-
-
-

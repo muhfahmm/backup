@@ -14,6 +14,3 @@ const bermudaAgreements = [
   { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -4,6 +4,3 @@ const costa_rica_perikanan = {
   mutiara: 45,
   ikan: 27,
 };
-
-
-

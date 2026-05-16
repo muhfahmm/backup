@@ -16,6 +16,3 @@ const curacao_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

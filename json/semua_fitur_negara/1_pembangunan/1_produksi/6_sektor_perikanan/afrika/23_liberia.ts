@@ -4,6 +4,3 @@ const liberia_perikanan = {
   mutiara: 81,
   ikan: 111,
 };
-
-
-

@@ -4,6 +4,3 @@ const belgia_intelijen = {
   jaringan_radar: 24,
   operasi_siber: 30,
 };
-
-
-

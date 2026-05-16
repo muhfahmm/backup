@@ -4,6 +4,3 @@ const iran_komersial = {
   "hotel": 39,
   "pusat_grosir_tekstil": 15
 };
-
-
-

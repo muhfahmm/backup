@@ -4,6 +4,3 @@ const belize_perikanan = {
   mutiara: 56,
   ikan: 80,
 };
-
-
-

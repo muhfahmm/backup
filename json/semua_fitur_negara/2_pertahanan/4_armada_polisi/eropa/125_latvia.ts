@@ -16,6 +16,3 @@ const latvia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -9,6 +9,3 @@ const curacao_infrastruktur = {
   bandara: 5,
   helipad: 5,
 };
-
-
-

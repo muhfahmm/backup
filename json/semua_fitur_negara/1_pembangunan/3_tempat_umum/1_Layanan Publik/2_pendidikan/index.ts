@@ -1,22 +1,9 @@
 ﻿// @ts-nocheck
-export interface PendidikanData {
-  prasekolah?: number;
-  dasar?: number;
-  menengah?: number;
-  lanjutan?: number;
-  universitas?: number;
-  lembaga_pendidikan?: number;
-  laboratorium?: number;
-  observatorium?: number;
-  pusat_penelitian?: number;
-  pusat_pengembangan?: number;
-  literasi?: number;
 }
 
 // ===================
 // DETAIL TOTAL BANGUNAN: Pendidikan (Total: 10 Bangunan)
 // ===================
-const pendidikanRate: Record<string, any> = {
   "1_prasekolah": {
     key: "1_prasekolah",
     dataKey: "prasekolah",
@@ -148,6 +135,3 @@ const pendidikanRate: Record<string, any> = {
     efek: "Mempercepat waktu penelitian sebesar 0.21%"
   },
 };
-
-
-

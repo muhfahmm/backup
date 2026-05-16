@@ -5,6 +5,3 @@ const samoa_amerika_hunian = {
   apartemen: 11,
   mansion: 374,
 };
-
-
-

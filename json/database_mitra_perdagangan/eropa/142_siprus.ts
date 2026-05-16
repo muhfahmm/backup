@@ -11,6 +11,3 @@ const siprusAgreements = [
   { "no": 9, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -4,6 +4,3 @@ const luksemburg_komersial = {
   "hotel": 2,
   "pusat_grosir_tekstil": 5
 };
-
-
-

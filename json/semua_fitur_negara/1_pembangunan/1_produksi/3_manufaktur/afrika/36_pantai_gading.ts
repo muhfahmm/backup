@@ -8,6 +8,3 @@ const pantai_gading_manufaktur = {
   kayu: 60,
   pupuk: 35,
 };
-
-
-

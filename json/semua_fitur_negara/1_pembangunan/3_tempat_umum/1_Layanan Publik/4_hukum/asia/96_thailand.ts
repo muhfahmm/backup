@@ -9,6 +9,3 @@ const thailand_hukum = {
       "indeks_korupsi": 39,
       "indeks_keamanan": 75
   };
-
-
-

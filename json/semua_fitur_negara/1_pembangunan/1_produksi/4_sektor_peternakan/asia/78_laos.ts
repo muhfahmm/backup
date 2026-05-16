@@ -5,6 +5,3 @@ const laos_peternakan = {
   sapi_potong: 30,
   domba_kambing: 102,
 };
-
-
-

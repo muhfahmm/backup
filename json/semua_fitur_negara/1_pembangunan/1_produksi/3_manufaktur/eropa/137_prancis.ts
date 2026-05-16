@@ -8,6 +8,3 @@ const prancis_manufaktur = {
   kayu: 1310,
   pupuk: 2096,
 };
-
-
-

@@ -9,6 +9,3 @@ const eritrea_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 57
   };
-
-
-

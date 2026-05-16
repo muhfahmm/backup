@@ -12,6 +12,3 @@ const vietnam_pendidikan = {
       "pusat_pengembangan": 7,
       "literasi": 76
     };
-
-
-

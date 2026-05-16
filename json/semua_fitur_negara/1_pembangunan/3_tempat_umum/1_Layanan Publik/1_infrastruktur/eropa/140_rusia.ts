@@ -9,6 +9,3 @@ const rusia_infrastruktur = {
   bandara: 33,
   helipad: 38,
 };
-
-
-

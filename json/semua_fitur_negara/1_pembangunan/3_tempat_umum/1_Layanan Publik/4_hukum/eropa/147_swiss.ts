@@ -9,6 +9,3 @@ const swiss_hukum = {
       "indeks_korupsi": 47,
       "indeks_keamanan": 59
   };
-
-
-

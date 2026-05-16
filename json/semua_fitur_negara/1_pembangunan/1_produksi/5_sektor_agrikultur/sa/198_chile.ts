@@ -15,6 +15,3 @@ const chile_agrikultur = {
   kapas: 972,
   tembakau: 1836,
 };
-
-
-

@@ -2,6 +2,3 @@
 const ethiopia_farmasi = {
   farmasi: 6,
 };
-
-
-

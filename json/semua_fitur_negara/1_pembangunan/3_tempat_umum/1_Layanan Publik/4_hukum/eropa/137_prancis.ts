@@ -9,6 +9,3 @@ const prancis_hukum = {
       "indeks_korupsi": 62,
       "indeks_keamanan": 77
   };
-
-
-

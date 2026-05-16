@@ -9,6 +9,3 @@ const siprus_hukum = {
       "indeks_korupsi": 42,
       "indeks_keamanan": 54
   };
-
-
-

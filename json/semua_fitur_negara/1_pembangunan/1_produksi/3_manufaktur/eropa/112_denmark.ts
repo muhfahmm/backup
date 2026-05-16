@@ -8,6 +8,3 @@ const denmark_manufaktur = {
   kayu: 308,
   pupuk: 308,
 };
-
-
-

@@ -4,6 +4,3 @@ const bolivia_perikanan = {
   mutiara: 0,
   ikan: 0,
 };
-
-
-

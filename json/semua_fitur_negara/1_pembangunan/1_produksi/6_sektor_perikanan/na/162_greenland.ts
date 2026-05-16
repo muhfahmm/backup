@@ -4,6 +4,3 @@ const greenland_perikanan = {
   mutiara: 64,
   ikan: 96,
 };
-
-
-

@@ -14,6 +14,3 @@ const sierra_leone_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

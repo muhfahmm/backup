@@ -9,6 +9,3 @@ const guam_pertahanan = {
     "program_luar_angkasa": 31,
     "pertahanan_siber": 12
     };
-
-
-

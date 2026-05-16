@@ -9,6 +9,3 @@ const lithuania_hukum = {
       "indeks_korupsi": 49,
       "indeks_keamanan": 61
   };
-
-
-

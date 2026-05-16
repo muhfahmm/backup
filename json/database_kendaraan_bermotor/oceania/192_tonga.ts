@@ -5,6 +5,3 @@ const tongaVehicles = {
   bus: 20,
   truk: 103,
 };
-
-
-

@@ -26,74 +26,9 @@ const jepang_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
-
-const jepang = {
-  ...jepang_profile,
-  "sektor_listrik": jepang_listrik,
-  "hunian": jepang_hunian,
-  "infrastruktur": jepang_infrastruktur,
-  "sektor_ekstraksi": jepang_ekstraksi,
-  "sektor_manufaktur": jepang_manufaktur,
-  "sektor_peternakan": jepang_peternakan,
-  "sektor_agrikultur": jepang_agrikultur,
-  "sektor_perikanan": jepang_perikanan,
-  "sektor_olahan_pangan": jepang_olahan_pangan,
-  "sektor_farmasi": jepang_farmasi,
-  "sektor_pertahanan": jepang_pertahanan,
-  "armada_militer": jepang_armada,
-  "militer_strategis": jepang_strategis,
-  "armada_kepolisian": jepang_kepolisian,
-  "pabrik_militer": jepang_pabrik,
-  "intelijen": jepang_intelijen,
-    "pendidikan": jepang_pendidikan,
-  "kesehatan": jepang_kesehatan,
-  "hukum": jepang_hukum,
-  "sektor_olahraga": jepang_olahraga,
-  "sektor_komersial": jepang_komersial,
-  "sektor_hiburan": jepang_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 3,
-      "kepuasan": 67,
-      "pendapatan": 209
-    },
-    "korporasi": {
-      "tarif": 6,
-      "kepuasan": 52,
-      "pendapatan": 245
-    },
-    "penghasilan": {
-      "tarif": 23,
-      "kepuasan": 61,
-      "pendapatan": 1899
-    },
-    "bea_cukai": {
-      "tarif": 12,
-      "kepuasan": 86,
-      "pendapatan": 568
-    },
-    "lingkungan": {
-      "tarif": 5,
-      "kepuasan": 88,
-      "pendapatan": 433
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 200 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 600 },
-    "lainnya": {
-      "tarif": 16,
-      "kepuasan": 93,
-      "pendapatan": 1182
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const jepang_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const jepang = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

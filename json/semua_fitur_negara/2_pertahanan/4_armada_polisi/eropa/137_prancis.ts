@@ -16,6 +16,3 @@ const prancis_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

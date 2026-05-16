@@ -15,6 +15,3 @@ const maldives_agrikultur = {
   kapas: 92,
   tembakau: 66,
 };
-
-
-

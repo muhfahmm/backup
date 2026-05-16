@@ -11,6 +11,3 @@ const kenya_olahan_pangan = {
   ikan_kaleng: 315,
   kopi_teh: 315,
 };
-
-
-

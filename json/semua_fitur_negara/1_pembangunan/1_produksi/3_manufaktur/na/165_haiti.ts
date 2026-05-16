@@ -8,6 +8,3 @@ const haiti_manufaktur = {
   kayu: 36,
   pupuk: 12,
 };
-
-
-

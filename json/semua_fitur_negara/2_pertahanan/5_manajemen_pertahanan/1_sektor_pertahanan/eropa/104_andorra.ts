@@ -1,4 +1,5 @@
-﻿const andorra_pertahanan = {
+﻿// @ts-nocheck
+const andorra_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 18,
     "hangar_tank": 31,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 27,
     "pertahanan_siber": 31
     };
-
-

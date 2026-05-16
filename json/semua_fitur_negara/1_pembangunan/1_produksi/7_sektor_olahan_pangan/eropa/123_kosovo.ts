@@ -11,6 +11,3 @@ const kosovo_olahan_pangan = {
   ikan_kaleng: 111,
   kopi_teh: 93,
 };
-
-
-

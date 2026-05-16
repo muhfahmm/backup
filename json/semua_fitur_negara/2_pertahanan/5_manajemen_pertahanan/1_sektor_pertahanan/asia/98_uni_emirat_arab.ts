@@ -9,6 +9,3 @@ const uni_emirat_arab_pertahanan = {
     "program_luar_angkasa": 21,
     "pertahanan_siber": 24
     };
-
-
-

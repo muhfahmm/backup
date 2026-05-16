@@ -5,6 +5,3 @@ const yaman_hunian = {
   apartemen: 5770,
   mansion: 192366,
 };
-
-
-

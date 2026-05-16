@@ -6,6 +6,3 @@ const australia_kesehatan = {
       "harapan_hidup": 72,
       "indeks_kesehatan": 78
     };
-
-
-

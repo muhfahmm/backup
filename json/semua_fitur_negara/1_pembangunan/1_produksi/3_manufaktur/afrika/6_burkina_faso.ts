@@ -8,6 +8,3 @@ const burkina_faso_manufaktur = {
   kayu: 30,
   pupuk: 10,
 };
-
-
-

@@ -4,6 +4,3 @@ const namibia_perikanan = {
   mutiara: 31,
   ikan: 11,
 };
-
-
-

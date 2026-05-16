@@ -7,6 +7,3 @@ const marshall_listrik = {
   pembangkit_listrik_tenaga_gas: 63,
   pembangkit_listrik_tenaga_angin: 3,
 };
-
-
-

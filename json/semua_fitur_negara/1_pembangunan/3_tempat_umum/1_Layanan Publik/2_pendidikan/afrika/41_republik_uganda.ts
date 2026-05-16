@@ -12,6 +12,3 @@ const republik_uganda_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 82
   };
-
-
-

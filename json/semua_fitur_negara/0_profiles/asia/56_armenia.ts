@@ -26,74 +26,9 @@ const armenia_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
     }
-  };
-
-const armenia = {
-  ...armenia_profile,
-  "sektor_listrik": armenia_listrik,
-  "hunian": armenia_hunian,
-  "infrastruktur": armenia_infrastruktur,
-  "sektor_ekstraksi": armenia_ekstraksi,
-  "sektor_manufaktur": armenia_manufaktur,
-  "sektor_peternakan": armenia_peternakan,
-  "sektor_agrikultur": armenia_agrikultur,
-  "sektor_perikanan": armenia_perikanan,
-  "sektor_olahan_pangan": armenia_olahan_pangan,
-  "sektor_farmasi": armenia_farmasi,
-  "sektor_pertahanan": armenia_pertahanan,
-  "armada_militer": armenia_armada,
-  "militer_strategis": armenia_strategis,
-  "armada_kepolisian": armenia_kepolisian,
-  "pabrik_militer": armenia_pabrik,
-  "intelijen": armenia_intelijen,
-    "pendidikan": armenia_pendidikan,
-  "kesehatan": armenia_kesehatan,
-  "hukum": armenia_hukum,
-  "sektor_olahraga": armenia_olahraga,
-  "sektor_komersial": armenia_komersial,
-  "sektor_hiburan": armenia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 4,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 9,
-      "kepuasan": 52,
-      "pendapatan": 5
-    },
-    "penghasilan": {
-      "tarif": 40,
-      "kepuasan": 61,
-      "pendapatan": 24
-    },
-    "bea_cukai": {
-      "tarif": 14,
-      "kepuasan": 86,
-      "pendapatan": 6
-    },
-    "lingkungan": {
-      "tarif": 24,
-      "kepuasan": 88,
-      "pendapatan": 15
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 4 },
-    "lainnya": {
-      "tarif": 14,
-      "kepuasan": 93,
-      "pendapatan": 7
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const armenia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const armenia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

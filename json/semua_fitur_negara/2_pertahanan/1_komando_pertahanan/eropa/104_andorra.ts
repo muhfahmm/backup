@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const andorra_strategis = {
     "waktu_respon": 6,
     "intelijen": 31,
@@ -13,5 +14,3 @@ const andorra_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

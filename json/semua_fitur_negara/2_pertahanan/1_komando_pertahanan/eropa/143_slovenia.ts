@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const slovenia_strategis = {
     "waktu_respon": 17,
     "intelijen": 9,
@@ -13,5 +14,3 @@ const slovenia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

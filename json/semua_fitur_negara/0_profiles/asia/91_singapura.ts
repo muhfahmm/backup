@@ -26,74 +26,9 @@ const singapura_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
-
-const singapura = {
-  ...singapura_profile,
-  "sektor_listrik": singapura_listrik,
-  "hunian": singapura_hunian,
-  "infrastruktur": singapura_infrastruktur,
-  "sektor_ekstraksi": singapura_ekstraksi,
-  "sektor_manufaktur": singapura_manufaktur,
-  "sektor_peternakan": singapura_peternakan,
-  "sektor_agrikultur": singapura_agrikultur,
-  "sektor_perikanan": singapura_perikanan,
-  "sektor_olahan_pangan": singapura_olahan_pangan,
-  "sektor_farmasi": singapura_farmasi,
-  "sektor_pertahanan": singapura_pertahanan,
-  "armada_militer": singapura_armada,
-  "militer_strategis": singapura_strategis,
-  "armada_kepolisian": singapura_kepolisian,
-  "pabrik_militer": singapura_pabrik,
-  "intelijen": singapura_intelijen,
-    "pendidikan": singapura_pendidikan,
-  "kesehatan": singapura_kesehatan,
-  "hukum": singapura_hukum,
-  "sektor_olahraga": singapura_olahraga,
-  "sektor_komersial": singapura_komersial,
-  "sektor_hiburan": singapura_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 10,
-      "kepuasan": 67,
-      "pendapatan": 80
-    },
-    "korporasi": {
-      "tarif": 36,
-      "kepuasan": 52,
-      "pendapatan": 478
-    },
-    "penghasilan": {
-      "tarif": 10,
-      "kepuasan": 61,
-      "pendapatan": 132
-    },
-    "bea_cukai": {
-      "tarif": 16,
-      "kepuasan": 86,
-      "pendapatan": 231
-    },
-    "lingkungan": {
-      "tarif": 39,
-      "kepuasan": 88,
-      "pendapatan": 379
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 25 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 73 },
-    "lainnya": {
-      "tarif": 11,
-      "kepuasan": 93,
-      "pendapatan": 147
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const singapura_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const singapura = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -9,6 +9,3 @@ const montenegro_olahraga = {
   "esports": 2,
   "gokart": 10
 };
-
-
-

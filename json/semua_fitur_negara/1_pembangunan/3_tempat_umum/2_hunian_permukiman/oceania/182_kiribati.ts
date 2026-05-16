@@ -5,6 +5,3 @@ const kiribati_hunian = {
   apartemen: 23,
   mansion: 781,
 };
-
-
-

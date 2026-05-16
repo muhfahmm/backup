@@ -8,6 +8,3 @@ const grenada_manufaktur = {
   kayu: 13,
   pupuk: 3,
 };
-
-
-

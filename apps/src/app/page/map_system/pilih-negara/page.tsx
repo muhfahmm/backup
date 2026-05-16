@@ -117,36 +117,35 @@ export default function PilihNegaraPage() {
                         }
                         return null;
                     };
-
-                    const profileMatch = text.match(/_profile\s*=\s*(\{[\s\S]*?\})(?:\s*as\s+const)?\s*(?:;|\n)/);
-                    let profile: any = null;
-                    if (profileMatch) {
+                    // Universal Object Parser: Find all 'const name = { ... }' patterns and merge them
+                    const objectMatches = text.matchAll(/const\s+\w+\s*=\s*(\{[\s\S]*?\})\s*;?/g);
+                    let mergedData: any = {};
+                    
+                    for (const match of objectMatches) {
                         try {
-                            // Clean up TS text to make it JSON-parsable
-                            let jsonStr = profileMatch[1]
+                            let jsonStr = match[1]
                                 .replace(/,(\s*[\]}])/g, '$1') // trailing commas
                                 .replace(/'/g, '"')           // single to double quotes
                                 .replace(/(\w+):/g, '"$1":');  // unquoted keys
-                            profile = JSON.parse(jsonStr);
+                            const parsed = JSON.parse(jsonStr);
+                            mergedData = { ...mergedData, ...parsed };
                         } catch (e) {}
                     }
 
-                    const pajak = extractObject('pajak', text);
-                    const harga = extractObject('harga', text);
-                    
-                    // Merge into a usable detail object
-                    if (profile) {
+                    if (Object.keys(mergedData).length > 0) {
                         setCountryDetail({
-                            ...profile,
-                            ppn: pajak?.ppn?.tarif,
-                            corporate: pajak?.korporasi?.tarif,
-                            income_tax: pajak?.penghasilan?.tarif,
-                            price_rice: harga?.harga_beras,
-                            price_fuel: harga?.harga_bbm,
-                            // Fallbacks for geopolitik (as it's often a reference)
-                            un_vote: text.match(/"un_vote":\s*(\d+)/)?.[1],
-                            reputation: text.match(/"reputasi_diplomatik":\s*"(.*?)"/)?.[1]
+                            ...mergedData,
+                            // Map nested properties to UI keys
+                            ppn: mergedData.pajak?.ppn?.tarif,
+                            corporate: mergedData.pajak?.korporasi?.tarif,
+                            income_tax: mergedData.pajak?.penghasilan?.tarif,
+                            price_rice: mergedData.harga?.harga_beras,
+                            price_fuel: mergedData.harga?.harga_bbm,
+                            un_vote: mergedData.geopolitik?.un_vote,
+                            reputation: mergedData.geopolitik?.reputasi_diplomatik
                         });
+                    } else {
+                        setCountryDetail(null);
                     }
                 } catch (e) {
                     console.error("Failed to load country data directly:", e);

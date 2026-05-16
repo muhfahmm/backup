@@ -15,6 +15,3 @@ const papua_nugini_agrikultur = {
   kapas: 108,
   tembakau: 186,
 };
-
-
-

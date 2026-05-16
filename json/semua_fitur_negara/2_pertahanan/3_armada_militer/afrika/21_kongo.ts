@@ -30,6 +30,3 @@ const kongo_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

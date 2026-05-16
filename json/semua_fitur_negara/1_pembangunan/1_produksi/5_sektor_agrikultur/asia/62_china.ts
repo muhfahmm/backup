@@ -15,6 +15,3 @@ const china_agrikultur = {
   kapas: 5819,
   tembakau: 5060,
 };
-
-
-

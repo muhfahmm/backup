@@ -16,6 +16,3 @@ const jerman_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

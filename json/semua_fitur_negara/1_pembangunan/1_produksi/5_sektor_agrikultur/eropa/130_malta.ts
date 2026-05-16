@@ -15,6 +15,3 @@ const malta_agrikultur = {
   kapas: 132,
   tembakau: 124,
 };
-
-
-

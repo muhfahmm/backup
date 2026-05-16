@@ -9,6 +9,3 @@ const india_olahraga = {
   "esports": 63,
   "gokart": 167
 };
-
-
-

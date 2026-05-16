@@ -5,6 +5,3 @@ const republik_tanzania_hunian = {
   apartemen: 11404,
   mansion: 380148,
 };
-
-
-

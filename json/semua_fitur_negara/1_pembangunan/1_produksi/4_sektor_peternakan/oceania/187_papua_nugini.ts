@@ -5,6 +5,3 @@ const papua_nugini_peternakan = {
   sapi_potong: 48,
   domba_kambing: 51,
 };
-
-
-

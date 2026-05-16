@@ -14,6 +14,3 @@ const nauru_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -13,6 +13,3 @@ const irak_ekstraksi = {
   logam_tanah_jarang: 42,
   bijih_besi: 24,
 };
-
-
-

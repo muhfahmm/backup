@@ -5,6 +5,3 @@ const spanyol_peternakan = {
   sapi_potong: 4408,
   domba_kambing: 3248,
 };
-
-
-

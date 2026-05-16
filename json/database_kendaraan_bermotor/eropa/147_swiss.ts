@@ -5,6 +5,3 @@ const swissVehicles = {
   bus: 1702,
   truk: 8513,
 };
-
-
-

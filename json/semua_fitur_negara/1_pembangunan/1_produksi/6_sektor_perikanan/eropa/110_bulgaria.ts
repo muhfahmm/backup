@@ -4,6 +4,3 @@ const bulgaria_perikanan = {
   mutiara: 220,
   ikan: 140,
 };
-
-
-

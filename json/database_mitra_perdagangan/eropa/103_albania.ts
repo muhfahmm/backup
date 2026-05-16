@@ -11,6 +11,3 @@ const albaniaAgreements = [
   { "no": 9, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -4,6 +4,3 @@ const tanjung_verde_perikanan = {
   mutiara: 66,
   ikan: 84,
 };
-
-
-

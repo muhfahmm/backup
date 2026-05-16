@@ -15,6 +15,3 @@ const namibia_agrikultur = {
   kapas: 18,
   tembakau: 55,
 };
-
-
-

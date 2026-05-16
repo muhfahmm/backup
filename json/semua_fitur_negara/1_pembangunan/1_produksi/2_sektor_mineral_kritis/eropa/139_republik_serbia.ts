@@ -13,6 +13,3 @@ const republik_serbia_ekstraksi = {
   logam_tanah_jarang: 25,
   bijih_besi: 5,
 };
-
-
-

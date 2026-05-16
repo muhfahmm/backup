@@ -4,6 +4,3 @@ const italia_intelijen = {
   jaringan_radar: 57,
   operasi_siber: 63,
 };
-
-
-

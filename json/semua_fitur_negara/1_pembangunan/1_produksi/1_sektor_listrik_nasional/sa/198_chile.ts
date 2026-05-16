@@ -7,6 +7,3 @@ const chile_listrik = {
   pembangkit_listrik_tenaga_gas: 15,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

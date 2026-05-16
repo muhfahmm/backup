@@ -5,6 +5,3 @@ const eswatini_hunian = {
   apartemen: 230,
   mansion: 7669,
 };
-
-
-

@@ -5,6 +5,3 @@ const slovenia_hunian = {
   apartemen: 419,
   mansion: 13998,
 };
-
-
-

@@ -14,6 +14,3 @@ const gambia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

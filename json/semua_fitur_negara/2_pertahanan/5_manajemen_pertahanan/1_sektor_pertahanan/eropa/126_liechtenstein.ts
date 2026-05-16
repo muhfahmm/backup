@@ -9,6 +9,3 @@ const liechtenstein_pertahanan = {
     "program_luar_angkasa": 22,
     "pertahanan_siber": 16
     };
-
-
-

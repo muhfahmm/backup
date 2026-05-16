@@ -8,6 +8,3 @@ const inggris_manufaktur = {
   kayu: 3900,
   pupuk: 1500,
 };
-
-
-

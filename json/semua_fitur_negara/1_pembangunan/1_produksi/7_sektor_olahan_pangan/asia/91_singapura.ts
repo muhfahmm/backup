@@ -11,6 +11,3 @@ const singapura_olahan_pangan = {
   ikan_kaleng: 748,
   kopi_teh: 660,
 };
-
-
-

@@ -5,6 +5,3 @@ const nepal_peternakan = {
   sapi_potong: 144,
   domba_kambing: 104,
 };
-
-
-

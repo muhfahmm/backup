@@ -26,74 +26,9 @@ const guam_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
-
-const guam = {
-  ...guam_profile,
-  "sektor_listrik": guam_listrik,
-  "hunian": guam_hunian,
-  "infrastruktur": guam_infrastruktur,
-  "sektor_ekstraksi": guam_ekstraksi,
-  "sektor_manufaktur": guam_manufaktur,
-  "sektor_peternakan": guam_peternakan,
-  "sektor_agrikultur": guam_agrikultur,
-  "sektor_perikanan": guam_perikanan,
-  "sektor_olahan_pangan": guam_olahan_pangan,
-  "sektor_farmasi": guam_farmasi,
-  "sektor_pertahanan": guam_pertahanan,
-  "armada_militer": guam_armada,
-  "militer_strategis": guam_strategis,
-  "armada_kepolisian": guam_kepolisian,
-  "pabrik_militer": guam_pabrik,
-  "intelijen": guam_intelijen,
-    "pendidikan": guam_pendidikan,
-  "kesehatan": guam_kesehatan,
-  "hukum": guam_hukum,
-  "sektor_olahraga": guam_olahraga,
-  "sektor_komersial": guam_komersial,
-  "sektor_hiburan": guam_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 14,
-      "kepuasan": 67,
-      "pendapatan": 3
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 3
-    },
-    "bea_cukai": {
-      "tarif": 36,
-      "kepuasan": 86,
-      "pendapatan": 8
-    },
-    "lingkungan": {
-      "tarif": 12,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 1,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const guam_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const guam = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

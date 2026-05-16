@@ -5,6 +5,3 @@ const india_hunian = {
   apartemen: 273905,
   mansion: 9130166,
 };
-
-
-

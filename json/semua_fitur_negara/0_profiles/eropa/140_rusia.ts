@@ -26,74 +26,9 @@ const rusia_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
-
-const rusia = {
-  ...rusia_profile,
-  "sektor_listrik": rusia_listrik,
-  "hunian": rusia_hunian,
-  "infrastruktur": rusia_infrastruktur,
-  "sektor_ekstraksi": rusia_ekstraksi,
-  "sektor_manufaktur": rusia_manufaktur,
-  "sektor_peternakan": rusia_peternakan,
-  "sektor_agrikultur": rusia_agrikultur,
-  "sektor_perikanan": rusia_perikanan,
-  "sektor_olahan_pangan": rusia_olahan_pangan,
-  "sektor_farmasi": rusia_farmasi,
-  "sektor_pertahanan": rusia_pertahanan,
-  "armada_militer": rusia_armada,
-  "militer_strategis": rusia_strategis,
-  "armada_kepolisian": rusia_kepolisian,
-  "pabrik_militer": rusia_pabrik,
-  "intelijen": rusia_intelijen,
-    "pendidikan": rusia_pendidikan,
-  "kesehatan": rusia_kesehatan,
-  "hukum": rusia_hukum,
-  "sektor_olahraga": rusia_olahraga,
-  "sektor_komersial": rusia_komersial,
-  "sektor_hiburan": rusia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 40,
-      "kepuasan": 67,
-      "pendapatan": 1161
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 241
-    },
-    "penghasilan": {
-      "tarif": 24,
-      "kepuasan": 61,
-      "pendapatan": 1042
-    },
-    "bea_cukai": {
-      "tarif": 25,
-      "kepuasan": 86,
-      "pendapatan": 983
-    },
-    "lingkungan": {
-      "tarif": 33,
-      "kepuasan": 88,
-      "pendapatan": 1412
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 99 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 295 },
-    "lainnya": {
-      "tarif": 26,
-      "kepuasan": 93,
-      "pendapatan": 1274
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const rusia_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const rusia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

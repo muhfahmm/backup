@@ -15,6 +15,3 @@ const montenegro_agrikultur = {
   kapas: 58,
   tembakau: 48,
 };
-
-
-

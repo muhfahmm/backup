@@ -2,6 +2,3 @@
 const mali_farmasi = {
   farmasi: 32,
 };
-
-
-

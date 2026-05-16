@@ -8,6 +8,3 @@ const puerto_rico_manufaktur = {
   kayu: 24,
   pupuk: 36,
 };
-
-
-

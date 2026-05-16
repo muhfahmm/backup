@@ -9,6 +9,3 @@ const belgia_infrastruktur = {
   bandara: 3,
   helipad: 7,
 };
-
-
-

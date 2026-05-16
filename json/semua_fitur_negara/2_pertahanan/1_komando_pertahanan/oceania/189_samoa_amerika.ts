@@ -14,6 +14,3 @@ const samoa_amerika_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

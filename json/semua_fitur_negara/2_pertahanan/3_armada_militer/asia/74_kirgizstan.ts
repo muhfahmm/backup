@@ -30,6 +30,3 @@ const kirgizstan_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

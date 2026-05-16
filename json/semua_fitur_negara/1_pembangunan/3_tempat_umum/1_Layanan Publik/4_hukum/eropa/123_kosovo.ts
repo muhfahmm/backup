@@ -9,6 +9,3 @@ const kosovo_hukum = {
       "indeks_korupsi": 19,
       "indeks_keamanan": 64
   };
-
-
-

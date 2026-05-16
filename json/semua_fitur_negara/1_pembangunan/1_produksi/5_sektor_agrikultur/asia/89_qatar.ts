@@ -15,6 +15,3 @@ const qatar_agrikultur = {
   kapas: 240,
   tembakau: 1155,
 };
-
-
-

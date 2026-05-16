@@ -9,6 +9,3 @@ const kroasia_olahraga = {
   "esports": 4,
   "gokart": 5
 };
-
-
-

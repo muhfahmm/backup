@@ -12,6 +12,3 @@ const arab_saudi_pendidikan = {
       "pusat_pengembangan": 37,
       "literasi": 87
     };
-
-
-

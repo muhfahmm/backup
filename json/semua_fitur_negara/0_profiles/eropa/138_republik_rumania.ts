@@ -26,74 +26,9 @@ const republik_rumania_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
-
-const republik_rumania = {
-  ...republik_rumania_profile,
-  "sektor_listrik": republik_rumania_listrik,
-  "hunian": republik_rumania_hunian,
-  "infrastruktur": republik_rumania_infrastruktur,
-  "sektor_ekstraksi": republik_rumania_ekstraksi,
-  "sektor_manufaktur": republik_rumania_manufaktur,
-  "sektor_peternakan": republik_rumania_peternakan,
-  "sektor_agrikultur": republik_rumania_agrikultur,
-  "sektor_perikanan": republik_rumania_perikanan,
-  "sektor_olahan_pangan": republik_rumania_olahan_pangan,
-  "sektor_farmasi": republik_rumania_farmasi,
-  "sektor_pertahanan": republik_rumania_pertahanan,
-  "armada_militer": republik_rumania_armada,
-  "militer_strategis": republik_rumania_strategis,
-  "armada_kepolisian": republik_rumania_kepolisian,
-  "pabrik_militer": republik_rumania_pabrik,
-  "intelijen": republik_rumania_intelijen,
-    "pendidikan": republik_rumania_pendidikan,
-  "kesehatan": republik_rumania_kesehatan,
-  "hukum": republik_rumania_hukum,
-  "sektor_olahraga": republik_rumania_olahraga,
-  "sektor_komersial": republik_rumania_komersial,
-  "sektor_hiburan": republik_rumania_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 13,
-      "kepuasan": 67,
-      "pendapatan": 132
-    },
-    "korporasi": {
-      "tarif": 21,
-      "kepuasan": 52,
-      "pendapatan": 177
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 137
-    },
-    "bea_cukai": {
-      "tarif": 15,
-      "kepuasan": 86,
-      "pendapatan": 137
-    },
-    "lingkungan": {
-      "tarif": 9,
-      "kepuasan": 88,
-      "pendapatan": 85
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 18 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 52 },
-    "lainnya": {
-      "tarif": 31,
-      "kepuasan": 93,
-      "pendapatan": 305
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_rumania_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const republik_rumania = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

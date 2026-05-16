@@ -9,6 +9,3 @@ const finlandia_olahraga = {
   "esports": 17,
   "gokart": 37
 };
-
-
-

@@ -5,6 +5,3 @@ const luksemburgVehicles = {
   bus: 121,
   truk: 607,
 };
-
-
-

@@ -11,6 +11,3 @@ const samoa_amerika_olahan_pangan = {
   ikan_kaleng: 66,
   kopi_teh: 90,
 };
-
-
-

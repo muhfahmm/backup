@@ -4,6 +4,3 @@ const bosnia_dan_hercegovina_perikanan = {
   mutiara: 84,
   ikan: 52,
 };
-
-
-

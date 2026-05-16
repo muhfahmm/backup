@@ -8,6 +8,3 @@ const korea_utara_manufaktur = {
   kayu: 36,
   pupuk: 20,
 };
-
-
-

@@ -7,6 +7,3 @@ const komoro_listrik = {
   pembangkit_listrik_tenaga_uap: 50,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

@@ -10,6 +10,3 @@ const seychellesAgreements = [
   { "no": 8, "mitra": "Ethiopia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

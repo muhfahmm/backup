@@ -8,6 +8,3 @@ const nikaragua_manufaktur = {
   kayu: 6,
   pupuk: 5,
 };
-
-
-

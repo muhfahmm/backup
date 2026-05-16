@@ -8,6 +8,3 @@ const maldives_manufaktur = {
   kayu: 30,
   pupuk: 14,
 };
-
-
-

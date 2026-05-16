@@ -4,6 +4,3 @@ const tahiti_perikanan = {
   mutiara: 12,
   ikan: 27,
 };
-
-
-

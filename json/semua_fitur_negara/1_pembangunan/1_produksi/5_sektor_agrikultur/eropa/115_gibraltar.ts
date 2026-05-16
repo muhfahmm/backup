@@ -15,6 +15,3 @@ const gibraltar_agrikultur = {
   kapas: 66,
   tembakau: 114,
 };
-
-
-

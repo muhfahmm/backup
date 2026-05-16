@@ -9,6 +9,3 @@ const guyana_olahraga = {
   "esports": 5,
   "gokart": 5
 };
-
-
-

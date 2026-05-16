@@ -12,6 +12,3 @@ const bhutanAgreements = [
   { "no": 10, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

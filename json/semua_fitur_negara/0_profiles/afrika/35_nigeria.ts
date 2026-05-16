@@ -26,74 +26,9 @@ const nigeria_geopolitik = {
       "kekuatan_keras": 1,
       "prestise_diplomatik": 57
   }
-  };
-
-const nigeria = {
-  ...nigeria_profile,
-  "sektor_listrik": nigeria_listrik,
-  "hunian": nigeria_hunian,
-  "infrastruktur": nigeria_infrastruktur,
-  "sektor_ekstraksi": nigeria_ekstraksi,
-  "sektor_manufaktur": nigeria_manufaktur,
-  "sektor_peternakan": nigeria_peternakan,
-  "sektor_agrikultur": nigeria_agrikultur,
-  "sektor_perikanan": nigeria_perikanan,
-  "sektor_olahan_pangan": nigeria_olahan_pangan,
-  "sektor_farmasi": nigeria_farmasi,
-  "sektor_pertahanan": nigeria_pertahanan,
-  "armada_militer": nigeria_armada,
-  "militer_strategis": nigeria_strategis,
-  "armada_kepolisian": nigeria_kepolisian,
-  "pabrik_militer": nigeria_pabrik,
-  "intelijen": nigeria_intelijen,
-    "pendidikan": nigeria_pendidikan,
-  "kesehatan": nigeria_kesehatan,
-  "hukum": nigeria_hukum,
-  "sektor_olahraga": nigeria_olahraga,
-  "sektor_komersial": nigeria_komersial,
-  "sektor_hiburan": nigeria_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 10,
-      "kepuasan": 67,
-      "pendapatan": 99
-    },
-    "korporasi": {
-      "tarif": 40,
-      "kepuasan": 52,
-      "pendapatan": 255
-    },
-    "penghasilan": {
-      "tarif": 30,
-      "kepuasan": 61,
-      "pendapatan": 323
-    },
-    "bea_cukai": {
-      "tarif": 17,
-      "kepuasan": 86,
-      "pendapatan": 131
-    },
-    "lingkungan": {
-      "tarif": 10,
-      "kepuasan": 88,
-      "pendapatan": 58
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 24 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 70 },
-    "lainnya": {
-      "tarif": 21,
-      "kepuasan": 93,
-      "pendapatan": 236
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const nigeria_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const nigeria = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

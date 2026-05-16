@@ -4,6 +4,3 @@ const ekuador_perikanan = {
   mutiara: 480,
   ikan: 300,
 };
-
-
-

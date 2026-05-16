@@ -9,6 +9,3 @@ const thailand_infrastruktur = {
   bandara: 10,
   helipad: 7,
 };
-
-
-

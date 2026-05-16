@@ -15,6 +15,3 @@ const belgia_agrikultur = {
   kapas: 2009,
   tembakau: 2419,
 };
-
-
-

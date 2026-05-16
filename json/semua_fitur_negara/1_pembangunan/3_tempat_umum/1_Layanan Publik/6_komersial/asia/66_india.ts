@@ -4,6 +4,3 @@ const india_komersial = {
   "hotel": 179,
   "pusat_grosir_tekstil": 57
 };
-
-
-

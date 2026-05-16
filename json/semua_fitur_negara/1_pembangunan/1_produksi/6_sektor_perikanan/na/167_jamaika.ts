@@ -4,6 +4,3 @@ const jamaika_perikanan = {
   mutiara: 148,
   ikan: 148,
 };
-
-
-

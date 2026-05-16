@@ -2,6 +2,3 @@
 const burundi_farmasi = {
   farmasi: 38,
 };
-
-
-

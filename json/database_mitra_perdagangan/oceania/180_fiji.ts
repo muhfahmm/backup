@@ -10,6 +10,3 @@ const fijiAgreements = [
   { "no": 8, "mitra": "Australia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

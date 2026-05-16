@@ -9,6 +9,3 @@ const republik_demokratik_kongo_hukum = {
       "indeks_korupsi": 16,
       "indeks_keamanan": 46
   };
-
-
-

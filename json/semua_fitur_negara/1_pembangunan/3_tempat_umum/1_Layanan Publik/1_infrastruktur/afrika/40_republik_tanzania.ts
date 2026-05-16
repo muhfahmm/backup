@@ -9,6 +9,3 @@ const republik_tanzania_infrastruktur = {
   bandara: 5,
   helipad: 2,
 };
-
-
-

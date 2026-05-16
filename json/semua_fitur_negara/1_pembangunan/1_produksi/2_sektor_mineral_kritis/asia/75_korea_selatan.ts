@@ -13,6 +13,3 @@ const korea_selatan_ekstraksi = {
   logam_tanah_jarang: 1700,
   bijih_besi: 1700,
 };
-
-
-

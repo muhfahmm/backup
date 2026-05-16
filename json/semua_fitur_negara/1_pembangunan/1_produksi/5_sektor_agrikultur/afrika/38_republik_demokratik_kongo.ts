@@ -15,6 +15,3 @@ const republik_demokratik_kongo_agrikultur = {
   kapas: 192,
   tembakau: 150,
 };
-
-
-

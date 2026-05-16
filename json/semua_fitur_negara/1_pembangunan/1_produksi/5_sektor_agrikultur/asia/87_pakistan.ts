@@ -15,6 +15,3 @@ const pakistan_agrikultur = {
   kapas: 1196,
   tembakau: 4160,
 };
-
-
-

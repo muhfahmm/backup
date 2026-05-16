@@ -6,6 +6,3 @@ const kanada_kesehatan = {
       "harapan_hidup": 78,
       "indeks_kesehatan": 85
     };
-
-
-

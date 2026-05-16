@@ -5,6 +5,3 @@ const antiguaDanBarbudaVehicles = {
   bus: 19,
   truk: 96,
 };
-
-
-

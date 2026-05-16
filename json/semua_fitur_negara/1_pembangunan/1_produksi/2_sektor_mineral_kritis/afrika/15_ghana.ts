@@ -13,6 +13,3 @@ const ghana_ekstraksi = {
   logam_tanah_jarang: 21,
   bijih_besi: 56,
 };
-
-
-

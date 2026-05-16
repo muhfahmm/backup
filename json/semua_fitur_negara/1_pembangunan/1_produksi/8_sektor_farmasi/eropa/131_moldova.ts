@@ -2,6 +2,3 @@
 const moldova_farmasi = {
   farmasi: 40,
 };
-
-
-

@@ -16,6 +16,3 @@ const guam_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

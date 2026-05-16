@@ -8,6 +8,3 @@ const kanada_manufaktur = {
   kayu: 1536,
   pupuk: 2688,
 };
-
-
-

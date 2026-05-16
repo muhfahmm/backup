@@ -26,74 +26,9 @@ const swiss_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
-
-const swiss = {
-  ...swiss_profile,
-  "sektor_listrik": swiss_listrik,
-  "hunian": swiss_hunian,
-  "infrastruktur": swiss_infrastruktur,
-  "sektor_ekstraksi": swiss_ekstraksi,
-  "sektor_manufaktur": swiss_manufaktur,
-  "sektor_peternakan": swiss_peternakan,
-  "sektor_agrikultur": swiss_agrikultur,
-  "sektor_perikanan": swiss_perikanan,
-  "sektor_olahan_pangan": swiss_olahan_pangan,
-  "sektor_farmasi": swiss_farmasi,
-  "sektor_pertahanan": swiss_pertahanan,
-  "armada_militer": swiss_armada,
-  "militer_strategis": swiss_strategis,
-  "armada_kepolisian": swiss_kepolisian,
-  "pabrik_militer": swiss_pabrik,
-  "intelijen": swiss_intelijen,
-    "pendidikan": swiss_pendidikan,
-  "kesehatan": swiss_kesehatan,
-  "hukum": swiss_hukum,
-  "sektor_olahraga": swiss_olahraga,
-  "sektor_komersial": swiss_komersial,
-  "sektor_hiburan": swiss_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 36,
-      "kepuasan": 67,
-      "pendapatan": 540
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 672
-    },
-    "penghasilan": {
-      "tarif": 39,
-      "kepuasan": 61,
-      "pendapatan": 446
-    },
-    "bea_cukai": {
-      "tarif": 10,
-      "kepuasan": 86,
-      "pendapatan": 90
-    },
-    "lingkungan": {
-      "tarif": 32,
-      "kepuasan": 88,
-      "pendapatan": 786
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 45 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 133 },
-    "lainnya": {
-      "tarif": 34,
-      "kepuasan": 93,
-      "pendapatan": 502
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const swiss_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const swiss = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

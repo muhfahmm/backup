@@ -4,6 +4,3 @@ const ukraina_perikanan = {
   mutiara: 55,
   ikan: 100,
 };
-
-
-

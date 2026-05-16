@@ -11,6 +11,3 @@ const bangladesh_olahan_pangan = {
   ikan_kaleng: 2660,
   kopi_teh: 770,
 };
-
-
-

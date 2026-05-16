@@ -9,6 +9,3 @@ const nauru_olahraga = {
   "esports": 0,
   "gokart": 5
 };
-
-
-

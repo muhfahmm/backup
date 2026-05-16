@@ -9,6 +9,3 @@ const sao_tome_dan_principe_infrastruktur = {
   bandara: 3,
   helipad: 5,
 };
-
-
-

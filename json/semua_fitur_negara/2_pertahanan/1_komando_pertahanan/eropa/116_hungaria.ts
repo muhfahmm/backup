@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const hungaria_strategis = {
     "waktu_respon": 27,
     "intelijen": 20,
@@ -13,5 +14,3 @@ const hungaria_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

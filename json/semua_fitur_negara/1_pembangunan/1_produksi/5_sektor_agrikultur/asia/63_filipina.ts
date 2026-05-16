@@ -15,6 +15,3 @@ const filipina_agrikultur = {
   kapas: 1540,
   tembakau: 780,
 };
-
-
-

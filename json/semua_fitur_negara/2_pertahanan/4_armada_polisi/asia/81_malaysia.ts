@@ -16,6 +16,3 @@ const malaysia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

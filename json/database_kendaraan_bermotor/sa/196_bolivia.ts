@@ -5,6 +5,3 @@ const boliviaVehicles = {
   bus: 2270,
   truk: 11353,
 };
-
-
-

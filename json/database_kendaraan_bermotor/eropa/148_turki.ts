@@ -5,6 +5,3 @@ const turkiVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

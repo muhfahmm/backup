@@ -9,6 +9,3 @@ const polandia_olahraga = {
   "esports": 14,
   "gokart": 39
 };
-
-
-

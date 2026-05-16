@@ -9,6 +9,3 @@ const mikronesia_infrastruktur = {
   bandara: 4,
   helipad: 2,
 };
-
-
-

@@ -2,6 +2,3 @@
 const belize_farmasi = {
   farmasi: 28,
 };
-
-
-

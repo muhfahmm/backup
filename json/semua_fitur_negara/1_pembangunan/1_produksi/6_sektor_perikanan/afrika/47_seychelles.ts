@@ -4,6 +4,3 @@ const seychelles_perikanan = {
   mutiara: 42,
   ikan: 58,
 };
-
-
-

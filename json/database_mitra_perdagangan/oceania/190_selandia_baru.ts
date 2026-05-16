@@ -12,6 +12,3 @@ const selandia_baruAgreements = [
   { "no": 10, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

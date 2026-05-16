@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const maroko_strategis = {
     "waktu_respon": 39,
     "intelijen": 38,
@@ -13,5 +14,3 @@ const maroko_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

@@ -4,6 +4,3 @@ const republik_timor_leste_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 5
 };
-
-
-

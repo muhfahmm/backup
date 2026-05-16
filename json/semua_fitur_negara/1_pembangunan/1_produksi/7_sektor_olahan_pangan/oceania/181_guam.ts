@@ -11,6 +11,3 @@ const guam_olahan_pangan = {
   ikan_kaleng: 30,
   kopi_teh: 84,
 };
-
-
-

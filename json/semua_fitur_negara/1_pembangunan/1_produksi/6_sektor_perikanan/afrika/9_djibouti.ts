@@ -4,6 +4,3 @@ const djibouti_perikanan = {
   mutiara: 11,
   ikan: 30,
 };
-
-
-

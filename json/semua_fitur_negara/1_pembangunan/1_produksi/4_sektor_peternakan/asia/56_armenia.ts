@@ -5,6 +5,3 @@ const armenia_peternakan = {
   sapi_potong: 105,
   domba_kambing: 48,
 };
-
-
-

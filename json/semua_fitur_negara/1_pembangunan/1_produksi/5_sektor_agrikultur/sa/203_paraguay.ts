@@ -15,6 +15,3 @@ const paraguay_agrikultur = {
   kapas: 360,
   tembakau: 85,
 };
-
-
-

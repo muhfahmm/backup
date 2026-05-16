@@ -15,6 +15,3 @@ const nepal_agrikultur = {
   kapas: 244,
   tembakau: 116,
 };
-
-
-

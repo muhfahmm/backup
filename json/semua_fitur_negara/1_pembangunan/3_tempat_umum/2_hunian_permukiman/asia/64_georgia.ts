@@ -5,6 +5,3 @@ const georgia_hunian = {
   apartemen: 754,
   mansion: 25154,
 };
-
-
-

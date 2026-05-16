@@ -5,6 +5,3 @@ const swiss_hunian = {
   apartemen: 1723,
   mansion: 57464,
 };
-
-
-

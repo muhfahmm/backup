@@ -15,6 +15,3 @@ const fiji_agrikultur = {
   kapas: 154,
   tembakau: 40,
 };
-
-
-

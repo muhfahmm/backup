@@ -5,6 +5,3 @@ const panamaVehicles = {
   bus: 835,
   truk: 4176,
 };
-
-
-

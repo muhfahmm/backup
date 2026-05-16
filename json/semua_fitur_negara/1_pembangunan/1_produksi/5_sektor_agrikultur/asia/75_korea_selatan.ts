@@ -15,6 +15,3 @@ const korea_selatan_agrikultur = {
   kapas: 11050,
   tembakau: 12920,
 };
-
-
-

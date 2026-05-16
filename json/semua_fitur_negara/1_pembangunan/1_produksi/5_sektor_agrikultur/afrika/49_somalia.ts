@@ -15,6 +15,3 @@ const somalia_agrikultur = {
   kapas: 105,
   tembakau: 117,
 };
-
-
-

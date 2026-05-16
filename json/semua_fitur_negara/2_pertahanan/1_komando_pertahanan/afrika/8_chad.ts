@@ -14,6 +14,3 @@ const chad_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

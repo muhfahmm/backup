@@ -8,6 +8,3 @@ const rwanda_manufaktur = {
   kayu: 10,
   pupuk: 5,
 };
-
-
-

@@ -4,6 +4,3 @@ const republik_dominika_perikanan = {
   mutiara: 434,
   ikan: 280,
 };
-
-
-

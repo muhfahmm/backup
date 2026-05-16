@@ -14,6 +14,3 @@ const haiti_diplomasi = [
   { "no": 12, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

@@ -8,6 +8,3 @@ const republik_timor_leste_manufaktur = {
   kayu: 7,
   pupuk: 6,
 };
-
-
-

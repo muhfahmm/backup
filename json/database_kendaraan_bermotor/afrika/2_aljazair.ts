@@ -5,6 +5,3 @@ const aljazairVehicles = {
   bus: 8445,
   truk: 42228,
 };
-
-
-

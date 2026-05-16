@@ -16,6 +16,3 @@ const burkina_faso_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

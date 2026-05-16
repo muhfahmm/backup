@@ -9,6 +9,3 @@ const afganistan_infrastruktur = {
   bandara: 4,
   helipad: 3,
 };
-
-
-

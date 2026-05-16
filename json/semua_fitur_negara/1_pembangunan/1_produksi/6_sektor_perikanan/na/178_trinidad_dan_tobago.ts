@@ -4,6 +4,3 @@ const trinidad_dan_tobago_perikanan = {
   mutiara: 16,
   ikan: 42,
 };
-
-
-

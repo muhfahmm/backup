@@ -9,6 +9,3 @@ const yordania_pertahanan = {
     "program_luar_angkasa": 3,
     "pertahanan_siber": 24
     };
-
-
-

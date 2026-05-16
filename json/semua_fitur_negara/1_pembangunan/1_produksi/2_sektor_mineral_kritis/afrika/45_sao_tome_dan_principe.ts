@@ -13,6 +13,3 @@ const sao_tome_dan_principe_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 32,
 };
-
-
-

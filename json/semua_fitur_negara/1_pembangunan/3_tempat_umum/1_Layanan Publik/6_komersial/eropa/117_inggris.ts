@@ -4,6 +4,3 @@ const inggris_komersial = {
   "hotel": 245,
   "pusat_grosir_tekstil": 30
 };
-
-
-

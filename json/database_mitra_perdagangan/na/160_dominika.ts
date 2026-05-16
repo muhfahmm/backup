@@ -14,6 +14,3 @@ const dominikaAgreements = [
   { "no": 12, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

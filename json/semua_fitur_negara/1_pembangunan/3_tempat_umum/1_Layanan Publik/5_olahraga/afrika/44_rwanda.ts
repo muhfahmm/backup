@@ -9,6 +9,3 @@ const rwanda_olahraga = {
   "esports": 2,
   "gokart": 5
 };
-
-
-

@@ -5,6 +5,3 @@ const islandia_hunian = {
   apartemen: 71,
   mansion: 2380,
 };
-
-
-

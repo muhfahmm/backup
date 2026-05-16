@@ -9,6 +9,3 @@ const taiwan_hukum = {
       "indeks_korupsi": 51,
       "indeks_keamanan": 50
   };
-
-
-

@@ -15,6 +15,3 @@ const lebanon_agrikultur = {
   kapas: 45,
   tembakau: 25,
 };
-
-
-

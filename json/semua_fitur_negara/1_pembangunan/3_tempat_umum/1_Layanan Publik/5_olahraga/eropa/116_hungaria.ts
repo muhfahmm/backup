@@ -9,6 +9,3 @@ const hungaria_olahraga = {
   "esports": 15,
   "gokart": 23
 };
-
-
-

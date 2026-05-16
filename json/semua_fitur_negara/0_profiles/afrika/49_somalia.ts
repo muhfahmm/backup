@@ -26,74 +26,9 @@ const somalia_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
   }
-  };
-
-const somalia = {
-  ...somalia_profile,
-  "sektor_listrik": somalia_listrik,
-  "hunian": somalia_hunian,
-  "infrastruktur": somalia_infrastruktur,
-  "sektor_ekstraksi": somalia_ekstraksi,
-  "sektor_manufaktur": somalia_manufaktur,
-  "sektor_peternakan": somalia_peternakan,
-  "sektor_agrikultur": somalia_agrikultur,
-  "sektor_perikanan": somalia_perikanan,
-  "sektor_olahan_pangan": somalia_olahan_pangan,
-  "sektor_farmasi": somalia_farmasi,
-  "sektor_pertahanan": somalia_pertahanan,
-  "armada_militer": somalia_armada,
-  "militer_strategis": somalia_strategis,
-  "armada_kepolisian": somalia_kepolisian,
-  "pabrik_militer": somalia_pabrik,
-  "intelijen": somalia_intelijen,
-    "pendidikan": somalia_pendidikan,
-  "kesehatan": somalia_kesehatan,
-  "hukum": somalia_hukum,
-  "sektor_olahraga": somalia_olahraga,
-  "sektor_komersial": somalia_komersial,
-  "sektor_hiburan": somalia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 12,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 12,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 39,
-      "kepuasan": 61,
-      "pendapatan": 5
-    },
-    "bea_cukai": {
-      "tarif": 11,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 6,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 40,
-      "kepuasan": 93,
-      "pendapatan": 5
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const somalia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const somalia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

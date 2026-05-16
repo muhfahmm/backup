@@ -9,6 +9,3 @@ const sri_lanka_hukum = {
       "indeks_korupsi": 23,
       "indeks_keamanan": 70
   };
-
-
-

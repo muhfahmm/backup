@@ -14,6 +14,3 @@ const el_salvador_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

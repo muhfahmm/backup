@@ -9,6 +9,3 @@ const republik_zimbabwe_hukum = {
       "indeks_korupsi": 30,
       "indeks_keamanan": 43
   };
-
-
-

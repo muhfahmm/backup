@@ -9,6 +9,3 @@ const makedonia_utara_infrastruktur = {
   bandara: 1,
   helipad: 1,
 };
-
-
-

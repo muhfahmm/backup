@@ -11,6 +11,3 @@ const nikaragua_olahan_pangan = {
   ikan_kaleng: 26,
   kopi_teh: 25,
 };
-
-
-

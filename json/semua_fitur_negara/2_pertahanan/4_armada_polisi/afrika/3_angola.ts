@@ -16,6 +16,3 @@ const angola_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

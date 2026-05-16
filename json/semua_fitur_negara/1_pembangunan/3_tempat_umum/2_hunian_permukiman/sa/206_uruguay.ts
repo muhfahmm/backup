@@ -5,6 +5,3 @@ const uruguay_hunian = {
   apartemen: 698,
   mansion: 23282,
 };
-
-
-

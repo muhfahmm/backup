@@ -4,6 +4,3 @@ const prancis_perikanan = {
   mutiara: 2882,
   ikan: 6288,
 };
-
-
-

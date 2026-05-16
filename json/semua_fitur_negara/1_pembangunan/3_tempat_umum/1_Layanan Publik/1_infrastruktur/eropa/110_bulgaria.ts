@@ -9,6 +9,3 @@ const bulgaria_infrastruktur = {
   bandara: 3,
   helipad: 5,
 };
-
-
-

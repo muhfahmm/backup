@@ -26,74 +26,9 @@ const guinea_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
   }
-  };
-
-const guinea = {
-  ...guinea_profile,
-  "sektor_listrik": guinea_listrik,
-  "hunian": guinea_hunian,
-  "infrastruktur": guinea_infrastruktur,
-  "sektor_ekstraksi": guinea_ekstraksi,
-  "sektor_manufaktur": guinea_manufaktur,
-  "sektor_peternakan": guinea_peternakan,
-  "sektor_agrikultur": guinea_agrikultur,
-  "sektor_perikanan": guinea_perikanan,
-  "sektor_olahan_pangan": guinea_olahan_pangan,
-  "sektor_farmasi": guinea_farmasi,
-  "sektor_pertahanan": guinea_pertahanan,
-  "armada_militer": guinea_armada,
-  "militer_strategis": guinea_strategis,
-  "armada_kepolisian": guinea_kepolisian,
-  "pabrik_militer": guinea_pabrik,
-  "intelijen": guinea_intelijen,
-    "pendidikan": guinea_pendidikan,
-  "kesehatan": guinea_kesehatan,
-  "hukum": guinea_hukum,
-  "sektor_olahraga": guinea_olahraga,
-  "sektor_komersial": guinea_komersial,
-  "sektor_hiburan": guinea_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 33,
-      "kepuasan": 67,
-      "pendapatan": 15
-    },
-    "korporasi": {
-      "tarif": 35,
-      "kepuasan": 52,
-      "pendapatan": 8
-    },
-    "penghasilan": {
-      "tarif": 3,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 20,
-      "kepuasan": 86,
-      "pendapatan": 9
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 5
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 21,
-      "kepuasan": 93,
-      "pendapatan": 8
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const guinea_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const guinea = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

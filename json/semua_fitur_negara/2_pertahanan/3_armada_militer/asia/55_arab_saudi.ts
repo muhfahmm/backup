@@ -30,6 +30,3 @@ const arab_saudi_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

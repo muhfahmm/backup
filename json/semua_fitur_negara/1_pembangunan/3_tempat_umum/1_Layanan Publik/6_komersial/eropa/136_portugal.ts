@@ -4,6 +4,3 @@ const portugal_komersial = {
   "hotel": 53,
   "pusat_grosir_tekstil": 8
 };
-
-
-

@@ -2,6 +2,3 @@
 const jamaika_farmasi = {
   farmasi: 32,
 };
-
-
-

@@ -9,6 +9,3 @@ const republik_rumania_olahraga = {
   "esports": 9,
   "gokart": 17
 };
-
-
-

@@ -2,6 +2,3 @@
 const guatemala_farmasi = {
   farmasi: 6,
 };
-
-
-

@@ -9,6 +9,3 @@ const myanmar_hukum = {
       "indeks_korupsi": 41,
       "indeks_keamanan": 68
   };
-
-
-

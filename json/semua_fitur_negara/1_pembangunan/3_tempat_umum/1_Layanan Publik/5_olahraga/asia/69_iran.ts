@@ -9,6 +9,3 @@ const iran_olahraga = {
   "esports": 7,
   "gokart": 49
 };
-
-
-

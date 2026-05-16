@@ -9,6 +9,3 @@ const meksiko_olahraga = {
   "esports": 61,
   "gokart": 134
 };
-
-
-

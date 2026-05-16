@@ -11,6 +11,3 @@ const tajikistan_olahan_pangan = {
   ikan_kaleng: 40,
   kopi_teh: 80,
 };
-
-
-

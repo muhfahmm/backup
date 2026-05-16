@@ -18,6 +18,3 @@ const republik_sudan_diplomasi = [
   { "no": 16, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

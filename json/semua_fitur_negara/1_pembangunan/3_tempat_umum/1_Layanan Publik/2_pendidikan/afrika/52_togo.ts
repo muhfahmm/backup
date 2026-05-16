@@ -12,6 +12,3 @@ const togo_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 62
   };
-
-
-

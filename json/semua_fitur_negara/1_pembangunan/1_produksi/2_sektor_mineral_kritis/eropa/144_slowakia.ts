@@ -13,6 +13,3 @@ const slowakia_ekstraksi = {
   logam_tanah_jarang: 104,
   bijih_besi: 130,
 };
-
-
-

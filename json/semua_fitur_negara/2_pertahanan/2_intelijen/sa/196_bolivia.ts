@@ -4,6 +4,3 @@ const bolivia_intelijen = {
   jaringan_radar: 2,
   operasi_siber: 5,
 };
-
-
-

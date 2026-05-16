@@ -15,6 +15,3 @@ const mali_agrikultur = {
   kapas: 87,
   tembakau: 141,
 };
-
-
-

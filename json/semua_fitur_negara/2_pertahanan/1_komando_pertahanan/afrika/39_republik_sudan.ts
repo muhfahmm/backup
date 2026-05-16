@@ -14,6 +14,3 @@ const republik_sudan_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

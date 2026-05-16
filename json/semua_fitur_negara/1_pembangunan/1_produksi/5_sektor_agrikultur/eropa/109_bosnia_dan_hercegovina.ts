@@ -15,6 +15,3 @@ const bosnia_dan_hercegovina_agrikultur = {
   kapas: 304,
   tembakau: 44,
 };
-
-
-

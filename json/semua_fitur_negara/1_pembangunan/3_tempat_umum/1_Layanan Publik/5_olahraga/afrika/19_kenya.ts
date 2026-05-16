@@ -9,6 +9,3 @@ const kenya_olahraga = {
   "esports": 3,
   "gokart": 13
 };
-
-
-

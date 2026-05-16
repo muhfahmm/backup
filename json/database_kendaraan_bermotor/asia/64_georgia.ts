@@ -5,6 +5,3 @@ const georgiaVehicles = {
   bus: 745,
   truk: 3726,
 };
-
-
-

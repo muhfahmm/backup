@@ -9,6 +9,3 @@ const guatemala_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

@@ -4,6 +4,3 @@ const kongo_perikanan = {
   mutiara: 24,
   ikan: 28,
 };
-
-
-

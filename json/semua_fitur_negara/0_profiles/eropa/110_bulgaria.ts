@@ -26,74 +26,9 @@ const bulgaria_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
     }
-  };
-
-const bulgaria = {
-  ...bulgaria_profile,
-  "sektor_listrik": bulgaria_listrik,
-  "hunian": bulgaria_hunian,
-  "infrastruktur": bulgaria_infrastruktur,
-  "sektor_ekstraksi": bulgaria_ekstraksi,
-  "sektor_manufaktur": bulgaria_manufaktur,
-  "sektor_peternakan": bulgaria_peternakan,
-  "sektor_agrikultur": bulgaria_agrikultur,
-  "sektor_perikanan": bulgaria_perikanan,
-  "sektor_olahan_pangan": bulgaria_olahan_pangan,
-  "sektor_farmasi": bulgaria_farmasi,
-  "sektor_pertahanan": bulgaria_pertahanan,
-  "armada_militer": bulgaria_armada,
-  "militer_strategis": bulgaria_strategis,
-  "armada_kepolisian": bulgaria_kepolisian,
-  "pabrik_militer": bulgaria_pabrik,
-  "intelijen": bulgaria_intelijen,
-    "pendidikan": bulgaria_pendidikan,
-  "kesehatan": bulgaria_kesehatan,
-  "hukum": bulgaria_hukum,
-  "sektor_olahraga": bulgaria_olahraga,
-  "sektor_komersial": bulgaria_komersial,
-  "sektor_hiburan": bulgaria_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 4,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 77
-    },
-    "penghasilan": {
-      "tarif": 35,
-      "kepuasan": 61,
-      "pendapatan": 99
-    },
-    "bea_cukai": {
-      "tarif": 23,
-      "kepuasan": 86,
-      "pendapatan": 47
-    },
-    "lingkungan": {
-      "tarif": 38,
-      "kepuasan": 88,
-      "pendapatan": 67
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 6 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 16 },
-    "lainnya": {
-      "tarif": 26,
-      "kepuasan": 93,
-      "pendapatan": 53
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const bulgaria_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const bulgaria = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

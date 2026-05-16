@@ -7,6 +7,3 @@ const india_listrik = {
   pembangkit_listrik_tenaga_gas: 3,
   pembangkit_listrik_tenaga_angin: 2,
 };
-
-
-

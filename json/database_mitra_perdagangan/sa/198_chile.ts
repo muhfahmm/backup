@@ -15,6 +15,3 @@ const chileAgreements = [
   { "no": 13, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Argentina", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -9,6 +9,3 @@ const estonia_olahraga = {
   "esports": 5,
   "gokart": 12
 };
-
-
-

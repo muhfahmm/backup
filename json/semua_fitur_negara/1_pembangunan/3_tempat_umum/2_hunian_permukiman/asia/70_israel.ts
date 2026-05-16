@@ -5,6 +5,3 @@ const israel_hunian = {
   apartemen: 1798,
   mansion: 59958,
 };
-
-
-

@@ -9,6 +9,3 @@ const malawi_olahraga = {
   "esports": 3,
   "gokart": 2
 };
-
-
-

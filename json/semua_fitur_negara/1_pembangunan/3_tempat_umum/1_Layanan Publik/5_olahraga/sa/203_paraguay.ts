@@ -9,6 +9,3 @@ const paraguay_olahraga = {
   "esports": 3,
   "gokart": 3
 };
-
-
-

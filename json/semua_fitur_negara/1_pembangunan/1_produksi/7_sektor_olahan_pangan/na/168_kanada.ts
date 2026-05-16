@@ -11,6 +11,3 @@ const kanada_olahan_pangan = {
   ikan_kaleng: 9600,
   kopi_teh: 4992,
 };
-
-
-

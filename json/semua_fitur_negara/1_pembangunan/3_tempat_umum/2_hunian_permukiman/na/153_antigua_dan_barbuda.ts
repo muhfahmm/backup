@@ -5,6 +5,3 @@ const antigua_dan_barbuda_hunian = {
   apartemen: 19,
   mansion: 649,
 };
-
-
-

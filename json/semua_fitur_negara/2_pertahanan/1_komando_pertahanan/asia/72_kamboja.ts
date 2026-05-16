@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const kamboja_strategis = {
     "waktu_respon": 29,
     "intelijen": 4,
@@ -13,5 +14,3 @@ const kamboja_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

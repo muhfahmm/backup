@@ -5,6 +5,3 @@ const guyana_hunian = {
   apartemen: 157,
   mansion: 5258,
 };
-
-
-

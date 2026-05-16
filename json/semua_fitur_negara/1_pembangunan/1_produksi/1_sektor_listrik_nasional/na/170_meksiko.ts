@@ -7,6 +7,3 @@ const meksiko_listrik = {
   pembangkit_listrik_tenaga_gas: 3494,
   pembangkit_listrik_tenaga_angin: 5,
 };
-
-
-

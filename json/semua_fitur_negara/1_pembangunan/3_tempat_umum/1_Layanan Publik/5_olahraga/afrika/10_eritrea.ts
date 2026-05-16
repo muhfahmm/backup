@@ -9,6 +9,3 @@ const eritrea_olahraga = {
   "esports": 2,
   "gokart": 3
 };
-
-
-

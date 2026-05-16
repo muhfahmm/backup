@@ -12,6 +12,3 @@ const swedia_pendidikan = {
       "pusat_pengembangan": 4,
       "literasi": 87
     };
-
-
-

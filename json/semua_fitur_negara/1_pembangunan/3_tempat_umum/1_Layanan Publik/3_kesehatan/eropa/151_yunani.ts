@@ -6,6 +6,3 @@ const yunani_kesehatan = {
       "harapan_hidup": 66,
       "indeks_kesehatan": 78
     };
-
-
-

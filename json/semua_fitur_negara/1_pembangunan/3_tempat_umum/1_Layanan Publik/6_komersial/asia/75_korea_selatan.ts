@@ -4,6 +4,3 @@ const korea_selatan_komersial = {
   "hotel": 112,
   "pusat_grosir_tekstil": 74
 };
-
-
-

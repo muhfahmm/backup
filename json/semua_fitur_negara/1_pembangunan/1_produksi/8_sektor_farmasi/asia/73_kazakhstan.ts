@@ -2,6 +2,3 @@
 const kazakhstan_farmasi = {
   farmasi: 16,
 };
-
-
-

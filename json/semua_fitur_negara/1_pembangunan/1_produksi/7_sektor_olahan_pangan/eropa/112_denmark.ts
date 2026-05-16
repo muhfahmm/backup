@@ -11,6 +11,3 @@ const denmark_olahan_pangan = {
   ikan_kaleng: 1980,
   kopi_teh: 1804,
 };
-
-
-

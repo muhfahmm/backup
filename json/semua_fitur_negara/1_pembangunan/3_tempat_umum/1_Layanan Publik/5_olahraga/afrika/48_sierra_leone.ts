@@ -9,6 +9,3 @@ const sierra_leone_olahraga = {
   "esports": 5,
   "gokart": 5
 };
-
-
-

@@ -15,6 +15,3 @@ const turkmenistan_agrikultur = {
   kapas: 118,
   tembakau: 114,
 };
-
-
-

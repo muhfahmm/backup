@@ -8,6 +8,3 @@ const guinea_bissau_manufaktur = {
   kayu: 22,
   pupuk: 4,
 };
-
-
-

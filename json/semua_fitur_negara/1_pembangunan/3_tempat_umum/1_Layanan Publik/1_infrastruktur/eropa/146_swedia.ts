@@ -9,6 +9,3 @@ const swedia_infrastruktur = {
   bandara: 3,
   helipad: 4,
 };
-
-
-

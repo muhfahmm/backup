@@ -26,74 +26,9 @@ const el_salvador_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
-
-const el_salvador = {
-  ...el_salvador_profile,
-  "sektor_listrik": el_salvador_listrik,
-  "hunian": el_salvador_hunian,
-  "infrastruktur": el_salvador_infrastruktur,
-  "sektor_ekstraksi": el_salvador_ekstraksi,
-  "sektor_manufaktur": el_salvador_manufaktur,
-  "sektor_peternakan": el_salvador_peternakan,
-  "sektor_agrikultur": el_salvador_agrikultur,
-  "sektor_perikanan": el_salvador_perikanan,
-  "sektor_olahan_pangan": el_salvador_olahan_pangan,
-  "sektor_farmasi": el_salvador_farmasi,
-  "sektor_pertahanan": el_salvador_pertahanan,
-  "armada_militer": el_salvador_armada,
-  "militer_strategis": el_salvador_strategis,
-  "armada_kepolisian": el_salvador_kepolisian,
-  "pabrik_militer": el_salvador_pabrik,
-  "intelijen": el_salvador_intelijen,
-    "pendidikan": el_salvador_pendidikan,
-  "kesehatan": el_salvador_kesehatan,
-  "hukum": el_salvador_hukum,
-  "sektor_olahraga": el_salvador_olahraga,
-  "sektor_komersial": el_salvador_komersial,
-  "sektor_hiburan": el_salvador_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 11,
-      "kepuasan": 67,
-      "pendapatan": 9
-    },
-    "korporasi": {
-      "tarif": 19,
-      "kepuasan": 52,
-      "pendapatan": 15
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 26
-    },
-    "bea_cukai": {
-      "tarif": 39,
-      "kepuasan": 86,
-      "pendapatan": 20
-    },
-    "lingkungan": {
-      "tarif": 5,
-      "kepuasan": 88,
-      "pendapatan": 2
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 5 },
-    "lainnya": {
-      "tarif": 1,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const el_salvador_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const el_salvador = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

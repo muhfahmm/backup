@@ -4,6 +4,3 @@ const saint_vincent_dan_grenadine_perikanan = {
   mutiara: 16,
   ikan: 9,
 };
-
-
-

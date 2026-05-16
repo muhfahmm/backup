@@ -14,6 +14,3 @@ const pakistanAgreements = [
   { "no": 12, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -13,6 +13,3 @@ const china_ekstraksi = {
   logam_tanah_jarang: 2024,
   bijih_besi: 0,
 };
-
-
-

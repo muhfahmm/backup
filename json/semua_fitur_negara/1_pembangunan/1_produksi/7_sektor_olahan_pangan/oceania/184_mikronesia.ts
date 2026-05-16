@@ -11,6 +11,3 @@ const mikronesia_olahan_pangan = {
   ikan_kaleng: 136,
   kopi_teh: 124,
 };
-
-
-

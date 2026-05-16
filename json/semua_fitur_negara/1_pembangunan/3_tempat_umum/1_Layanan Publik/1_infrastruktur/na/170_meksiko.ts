@@ -9,6 +9,3 @@ const meksiko_infrastruktur = {
   bandara: 15,
   helipad: 22,
 };
-
-
-

@@ -11,6 +11,3 @@ const trinidad_dan_tobago_olahan_pangan = {
   ikan_kaleng: 78,
   kopi_teh: 80,
 };
-
-
-

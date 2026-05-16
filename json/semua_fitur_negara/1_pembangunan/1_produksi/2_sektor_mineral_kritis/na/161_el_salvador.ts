@@ -13,6 +13,3 @@ const el_salvador_ekstraksi = {
   logam_tanah_jarang: 45,
   bijih_besi: 30,
 };
-
-
-

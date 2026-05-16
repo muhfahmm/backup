@@ -4,6 +4,3 @@ const komoro_perikanan = {
   mutiara: 36,
   ikan: 112,
 };
-
-
-

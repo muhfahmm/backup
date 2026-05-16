@@ -6,6 +6,3 @@ const hong_kong_kesehatan = {
       "harapan_hidup": 65,
       "indeks_kesehatan": 58
     };
-
-
-

@@ -12,6 +12,3 @@ const botswana_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 63
   };
-
-
-

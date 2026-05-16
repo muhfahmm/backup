@@ -26,74 +26,9 @@ const swedia_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const swedia = {
-  ...swedia_profile,
-  "sektor_listrik": swedia_listrik,
-  "hunian": swedia_hunian,
-  "infrastruktur": swedia_infrastruktur,
-  "sektor_ekstraksi": swedia_ekstraksi,
-  "sektor_manufaktur": swedia_manufaktur,
-  "sektor_peternakan": swedia_peternakan,
-  "sektor_agrikultur": swedia_agrikultur,
-  "sektor_perikanan": swedia_perikanan,
-  "sektor_olahan_pangan": swedia_olahan_pangan,
-  "sektor_farmasi": swedia_farmasi,
-  "sektor_pertahanan": swedia_pertahanan,
-  "armada_militer": swedia_armada,
-  "militer_strategis": swedia_strategis,
-  "armada_kepolisian": swedia_kepolisian,
-  "pabrik_militer": swedia_pabrik,
-  "intelijen": swedia_intelijen,
-    "pendidikan": swedia_pendidikan,
-  "kesehatan": swedia_kesehatan,
-  "hukum": swedia_hukum,
-  "sektor_olahraga": swedia_olahraga,
-  "sektor_komersial": swedia_komersial,
-  "sektor_hiburan": swedia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 8,
-      "kepuasan": 67,
-      "pendapatan": 76
-    },
-    "korporasi": {
-      "tarif": 38,
-      "kepuasan": 52,
-      "pendapatan": 631
-    },
-    "penghasilan": {
-      "tarif": 1,
-      "kepuasan": 61,
-      "pendapatan": 10
-    },
-    "bea_cukai": {
-      "tarif": 27,
-      "kepuasan": 86,
-      "pendapatan": 301
-    },
-    "lingkungan": {
-      "tarif": 39,
-      "kepuasan": 88,
-      "pendapatan": 543
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 30 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 88 },
-    "lainnya": {
-      "tarif": 24,
-      "kepuasan": 93,
-      "pendapatan": 414
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const swedia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const swedia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

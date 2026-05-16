@@ -6,6 +6,3 @@ const tunisia_kesehatan = {
       "harapan_hidup": 62,
       "indeks_kesehatan": 53
   };
-
-
-

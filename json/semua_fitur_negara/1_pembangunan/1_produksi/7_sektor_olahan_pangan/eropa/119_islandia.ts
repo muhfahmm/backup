@@ -11,6 +11,3 @@ const islandia_olahan_pangan = {
   ikan_kaleng: 124,
   kopi_teh: 60,
 };
-
-
-

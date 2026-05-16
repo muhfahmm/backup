@@ -4,6 +4,3 @@ const uni_emirat_arab_intelijen = {
   jaringan_radar: 18,
   operasi_siber: 19,
 };
-
-
-

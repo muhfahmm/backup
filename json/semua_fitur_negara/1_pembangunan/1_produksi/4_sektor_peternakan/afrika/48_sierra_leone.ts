@@ -5,6 +5,3 @@ const sierra_leone_peternakan = {
   sapi_potong: 60,
   domba_kambing: 140,
 };
-
-
-

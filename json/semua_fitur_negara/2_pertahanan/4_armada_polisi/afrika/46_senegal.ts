@@ -16,6 +16,3 @@ const senegal_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

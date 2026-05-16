@@ -5,6 +5,3 @@ const islandiaVehicles = {
   bus: 70,
   truk: 352,
 };
-
-
-

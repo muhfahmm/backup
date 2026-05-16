@@ -5,6 +5,3 @@ const afrikaSelatanVehicles = {
   bus: 11555,
   truk: 57779,
 };
-
-
-

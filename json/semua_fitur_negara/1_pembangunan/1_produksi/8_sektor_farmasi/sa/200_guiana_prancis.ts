@@ -2,6 +2,3 @@
 const guiana_prancis_farmasi = {
   farmasi: 13,
 };
-
-
-

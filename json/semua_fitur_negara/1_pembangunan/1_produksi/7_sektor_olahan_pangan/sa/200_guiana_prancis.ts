@@ -11,6 +11,3 @@ const guiana_prancis_olahan_pangan = {
   ikan_kaleng: 33,
   kopi_teh: 37,
 };
-
-
-

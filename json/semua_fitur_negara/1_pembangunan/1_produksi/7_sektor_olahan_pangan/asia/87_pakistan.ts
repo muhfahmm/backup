@@ -11,6 +11,3 @@ const pakistan_olahan_pangan = {
   ikan_kaleng: 1664,
   kopi_teh: 1768,
 };
-
-
-

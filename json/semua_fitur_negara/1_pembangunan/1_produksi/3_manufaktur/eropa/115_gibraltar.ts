@@ -8,6 +8,3 @@ const gibraltar_manufaktur = {
   kayu: 30,
   pupuk: 20,
 };
-
-
-

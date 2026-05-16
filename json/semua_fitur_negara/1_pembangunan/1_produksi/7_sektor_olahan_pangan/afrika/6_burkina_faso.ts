@@ -11,6 +11,3 @@ const burkina_faso_olahan_pangan = {
   ikan_kaleng: 74,
   kopi_teh: 34,
 };
-
-
-

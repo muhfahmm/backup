@@ -15,6 +15,3 @@ const republik_demokratik_kongo_diplomasi = [
   { "no": 13, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

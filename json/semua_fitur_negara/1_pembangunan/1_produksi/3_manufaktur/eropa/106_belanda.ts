@@ -8,6 +8,3 @@ const belanda_manufaktur = {
   kayu: 675,
   pupuk: 1080,
 };
-
-
-

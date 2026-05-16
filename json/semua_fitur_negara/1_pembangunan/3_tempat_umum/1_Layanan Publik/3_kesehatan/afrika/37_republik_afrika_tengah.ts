@@ -6,6 +6,3 @@ const republik_afrika_tengah_kesehatan = {
       "harapan_hidup": 57,
       "indeks_kesehatan": 66
   };
-
-
-

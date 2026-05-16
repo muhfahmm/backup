@@ -14,6 +14,3 @@ const puerto_rico_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

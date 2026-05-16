@@ -13,6 +13,3 @@ const ethiopia_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 0,
 };
-
-
-

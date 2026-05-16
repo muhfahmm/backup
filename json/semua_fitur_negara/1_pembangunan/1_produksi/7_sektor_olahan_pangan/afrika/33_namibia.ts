@@ -11,6 +11,3 @@ const namibia_olahan_pangan = {
   ikan_kaleng: 38,
   kopi_teh: 24,
 };
-
-
-

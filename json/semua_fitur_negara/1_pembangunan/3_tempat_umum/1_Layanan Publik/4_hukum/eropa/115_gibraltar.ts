@@ -9,6 +9,3 @@ const gibraltar_hukum = {
       "indeks_korupsi": 25,
       "indeks_keamanan": 54
   };
-
-
-

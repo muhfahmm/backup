@@ -4,6 +4,3 @@ const afrika_selatan_perikanan = {
   mutiara: 840,
   ikan: 720,
 };
-
-
-

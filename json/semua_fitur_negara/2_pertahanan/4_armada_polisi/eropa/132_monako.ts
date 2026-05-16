@@ -16,6 +16,3 @@ const monako_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

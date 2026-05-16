@@ -1,37 +1,3 @@
 ﻿// @ts-nocheck
 const members = [
-  "albania",
-  "amerika serikat",
-  "belanda",
-  "belgia",
-  "bulgaria",
-  "ceko",
-  "denmark",
-  "estonia",
-  "finlandia",
-  "hungaria",
-  "inggris",
-  "islandia",
-  "italia",
-  "jerman",
-  "kanada",
-  "kroasia",
-  "latvia",
-  "lithuania",
-  "luksemburg",
-  "makedonia utara",
-  "montenegro",
-  "norwegia",
-  "polandia",
-  "portugal",
-  "republik rumania",
-  "slovenia",
-  "slowakia",
-  "spanyol",
-  "swedia",
-  "turki",
-  "yunani"
 ];
-
-
-

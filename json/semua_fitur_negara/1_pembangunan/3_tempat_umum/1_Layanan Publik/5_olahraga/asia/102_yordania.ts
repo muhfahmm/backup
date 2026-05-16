@@ -9,6 +9,3 @@ const yordania_olahraga = {
   "esports": 4,
   "gokart": 10
 };
-
-
-

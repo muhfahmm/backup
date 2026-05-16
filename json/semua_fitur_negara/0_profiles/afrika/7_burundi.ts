@@ -26,74 +26,9 @@ const burundi_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
-
-const burundi = {
-  ...burundi_profile,
-  "sektor_listrik": burundi_listrik,
-  "hunian": burundi_hunian,
-  "infrastruktur": burundi_infrastruktur,
-  "sektor_ekstraksi": burundi_ekstraksi,
-  "sektor_manufaktur": burundi_manufaktur,
-  "sektor_peternakan": burundi_peternakan,
-  "sektor_agrikultur": burundi_agrikultur,
-  "sektor_perikanan": burundi_perikanan,
-  "sektor_olahan_pangan": burundi_olahan_pangan,
-  "sektor_farmasi": burundi_farmasi,
-  "sektor_pertahanan": burundi_pertahanan,
-  "armada_militer": burundi_armada,
-  "militer_strategis": burundi_strategis,
-  "armada_kepolisian": burundi_kepolisian,
-  "pabrik_militer": burundi_pabrik,
-  "intelijen": burundi_intelijen,
-    "pendidikan": burundi_pendidikan,
-  "kesehatan": burundi_kesehatan,
-  "hukum": burundi_hukum,
-  "sektor_olahraga": burundi_olahraga,
-  "sektor_komersial": burundi_komersial,
-  "sektor_hiburan": burundi_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 5,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 6,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 1,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 27,
-      "kepuasan": 86,
-      "pendapatan": 1
-    },
-    "lingkungan": {
-      "tarif": 28,
-      "kepuasan": 88,
-      "pendapatan": 2
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 36,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const burundi_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const burundi = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

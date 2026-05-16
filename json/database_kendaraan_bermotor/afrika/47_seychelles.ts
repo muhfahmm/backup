@@ -5,6 +5,3 @@ const seychellesVehicles = {
   bus: 19,
   truk: 96,
 };
-
-
-

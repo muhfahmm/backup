@@ -12,6 +12,3 @@ const belanda_pendidikan = {
       "pusat_pengembangan": 27,
       "literasi": 85
     };
-
-
-

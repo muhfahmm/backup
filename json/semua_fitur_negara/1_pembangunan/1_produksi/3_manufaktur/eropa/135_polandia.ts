@@ -8,6 +8,3 @@ const polandia_manufaktur = {
   kayu: 212,
   pupuk: 106,
 };
-
-
-

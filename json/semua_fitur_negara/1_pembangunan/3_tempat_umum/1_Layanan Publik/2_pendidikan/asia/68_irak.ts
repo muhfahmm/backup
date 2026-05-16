@@ -12,6 +12,3 @@ const irak_pendidikan = {
       "pusat_pengembangan": 9,
       "literasi": 76
     };
-
-
-

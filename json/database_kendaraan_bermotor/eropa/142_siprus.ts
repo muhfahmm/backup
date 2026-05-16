@@ -5,6 +5,3 @@ const siprusVehicles = {
   bus: 237,
   truk: 1189,
 };
-
-
-

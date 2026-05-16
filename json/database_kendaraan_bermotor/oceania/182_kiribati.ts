@@ -5,6 +5,3 @@ const kiribatiVehicles = {
   bus: 23,
   truk: 115,
 };
-
-
-

@@ -11,6 +11,3 @@ const republik_dominika_olahan_pangan = {
   ikan_kaleng: 602,
   kopi_teh: 630,
 };
-
-
-

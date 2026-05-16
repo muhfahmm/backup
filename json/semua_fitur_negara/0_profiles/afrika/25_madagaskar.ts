@@ -26,74 +26,9 @@ const madagaskar_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
   }
-  };
-
-const madagaskar = {
-  ...madagaskar_profile,
-  "sektor_listrik": madagaskar_listrik,
-  "hunian": madagaskar_hunian,
-  "infrastruktur": madagaskar_infrastruktur,
-  "sektor_ekstraksi": madagaskar_ekstraksi,
-  "sektor_manufaktur": madagaskar_manufaktur,
-  "sektor_peternakan": madagaskar_peternakan,
-  "sektor_agrikultur": madagaskar_agrikultur,
-  "sektor_perikanan": madagaskar_perikanan,
-  "sektor_olahan_pangan": madagaskar_olahan_pangan,
-  "sektor_farmasi": madagaskar_farmasi,
-  "sektor_pertahanan": madagaskar_pertahanan,
-  "armada_militer": madagaskar_armada,
-  "militer_strategis": madagaskar_strategis,
-  "armada_kepolisian": madagaskar_kepolisian,
-  "pabrik_militer": madagaskar_pabrik,
-  "intelijen": madagaskar_intelijen,
-    "pendidikan": madagaskar_pendidikan,
-  "kesehatan": madagaskar_kesehatan,
-  "hukum": madagaskar_hukum,
-  "sektor_olahraga": madagaskar_olahraga,
-  "sektor_komersial": madagaskar_komersial,
-  "sektor_hiburan": madagaskar_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 15,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 30,
-      "kepuasan": 52,
-      "pendapatan": 7
-    },
-    "penghasilan": {
-      "tarif": 6,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 6,
-      "kepuasan": 86,
-      "pendapatan": 1
-    },
-    "lingkungan": {
-      "tarif": 2,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 14,
-      "kepuasan": 93,
-      "pendapatan": 4
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const madagaskar_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const madagaskar = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

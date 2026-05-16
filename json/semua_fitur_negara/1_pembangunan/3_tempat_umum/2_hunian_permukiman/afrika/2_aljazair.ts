@@ -5,6 +5,3 @@ const aljazair_hunian = {
   apartemen: 8551,
   mansion: 285041,
 };
-
-
-

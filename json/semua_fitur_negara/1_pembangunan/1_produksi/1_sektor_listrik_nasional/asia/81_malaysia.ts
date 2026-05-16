@@ -7,6 +7,3 @@ const malaysia_listrik = {
   pembangkit_listrik_tenaga_gas: 877,
   pembangkit_listrik_tenaga_angin: 3,
 };
-
-
-

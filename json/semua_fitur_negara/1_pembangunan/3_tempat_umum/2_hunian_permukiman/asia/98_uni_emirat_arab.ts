@@ -5,6 +5,3 @@ const uni_emirat_arab_hunian = {
   apartemen: 1950,
   mansion: 65008,
 };
-
-
-

@@ -5,6 +5,3 @@ const portugal_peternakan = {
   sapi_potong: 510,
   domba_kambing: 204,
 };
-
-
-

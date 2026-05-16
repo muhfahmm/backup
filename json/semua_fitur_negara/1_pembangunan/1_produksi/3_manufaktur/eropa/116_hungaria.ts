@@ -8,6 +8,3 @@ const hungaria_manufaktur = {
   kayu: 96,
   pupuk: 80,
 };
-
-
-

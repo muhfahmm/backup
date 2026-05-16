@@ -16,6 +16,3 @@ const oman_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

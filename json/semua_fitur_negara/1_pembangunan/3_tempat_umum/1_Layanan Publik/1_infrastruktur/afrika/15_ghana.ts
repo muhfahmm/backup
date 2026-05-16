@@ -9,6 +9,3 @@ const ghana_infrastruktur = {
   bandara: 5,
   helipad: 2,
 };
-
-
-

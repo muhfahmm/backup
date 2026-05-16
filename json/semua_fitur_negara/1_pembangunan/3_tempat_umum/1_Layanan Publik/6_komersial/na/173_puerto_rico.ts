@@ -4,6 +4,3 @@ const puerto_rico_komersial = {
   "hotel": 4,
   "pusat_grosir_tekstil": 2
 };
-
-
-

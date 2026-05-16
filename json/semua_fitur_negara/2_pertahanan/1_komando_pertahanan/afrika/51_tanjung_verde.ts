@@ -14,6 +14,3 @@ const tanjung_verde_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

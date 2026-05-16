@@ -5,6 +5,3 @@ const libya_peternakan = {
   sapi_potong: 175,
   domba_kambing: 147,
 };
-
-
-

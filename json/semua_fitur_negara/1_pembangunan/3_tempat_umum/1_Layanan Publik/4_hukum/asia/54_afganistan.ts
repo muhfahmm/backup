@@ -9,6 +9,3 @@ const afganistan_hukum = {
       "indeks_korupsi": 20,
       "indeks_keamanan": 46
   };
-
-
-

@@ -10,6 +10,3 @@ const uruguayAgreements = [
   { "no": 8, "mitra": "Peru", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

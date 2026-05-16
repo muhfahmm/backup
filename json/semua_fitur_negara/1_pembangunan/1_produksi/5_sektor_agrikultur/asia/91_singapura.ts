@@ -15,6 +15,3 @@ const singapura_agrikultur = {
   kapas: 1980,
   tembakau: 1628,
 };
-
-
-

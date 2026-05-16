@@ -11,6 +11,3 @@ const guineaAgreements = [
   { "no": 9, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

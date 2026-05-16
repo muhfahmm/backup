@@ -12,6 +12,3 @@ const bahamaAgreements = [
   { "no": 10, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

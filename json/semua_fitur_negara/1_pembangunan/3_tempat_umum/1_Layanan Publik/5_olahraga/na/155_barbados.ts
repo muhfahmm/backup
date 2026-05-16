@@ -9,6 +9,3 @@ const barbados_olahraga = {
   "esports": 1,
   "gokart": 13
 };
-
-
-

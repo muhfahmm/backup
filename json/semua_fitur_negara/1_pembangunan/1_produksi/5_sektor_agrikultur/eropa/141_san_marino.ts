@@ -15,6 +15,3 @@ const san_marino_agrikultur = {
   kapas: 156,
   tembakau: 192,
 };
-
-
-

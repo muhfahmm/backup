@@ -9,6 +9,3 @@ const amerika_serikat_olahraga = {
   "esports": 517,
   "gokart": 1137
 };
-
-
-

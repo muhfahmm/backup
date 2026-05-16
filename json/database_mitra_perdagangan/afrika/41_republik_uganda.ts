@@ -12,6 +12,3 @@ const republik_ugandaAgreements = [
   { "no": 10, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

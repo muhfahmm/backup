@@ -9,6 +9,3 @@ const vietnam_olahraga = {
   "esports": 9,
   "gokart": 36
 };
-
-
-

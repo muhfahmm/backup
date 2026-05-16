@@ -14,6 +14,3 @@ const kroasiaAgreements = [
   { "no": 12, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

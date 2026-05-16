@@ -9,6 +9,3 @@ const sudan_selatan_olahraga = {
   "esports": 0,
   "gokart": 13
 };
-
-
-

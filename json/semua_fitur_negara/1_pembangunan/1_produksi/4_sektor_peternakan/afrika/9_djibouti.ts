@@ -5,6 +5,3 @@ const djibouti_peternakan = {
   sapi_potong: 29,
   domba_kambing: 17,
 };
-
-
-

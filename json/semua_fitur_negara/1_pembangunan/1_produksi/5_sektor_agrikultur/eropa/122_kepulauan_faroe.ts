@@ -15,6 +15,3 @@ const kepulauan_faroe_agrikultur = {
   kapas: 73,
   tembakau: 53,
 };
-
-
-

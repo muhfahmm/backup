@@ -5,6 +5,3 @@ const ekuadorVehicles = {
   bus: 3416,
   truk: 17084,
 };
-
-
-

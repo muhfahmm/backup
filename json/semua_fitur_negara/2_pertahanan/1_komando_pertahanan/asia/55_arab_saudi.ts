@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const arab_saudi_strategis = {
     "waktu_respon": 31,
     "intelijen": 15,
@@ -13,5 +14,3 @@ const arab_saudi_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

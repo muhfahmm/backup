@@ -8,6 +8,3 @@ const bahama_manufaktur = {
   kayu: 44,
   pupuk: 32,
 };
-
-
-

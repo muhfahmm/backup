@@ -26,74 +26,9 @@ const guatemala_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
-
-const guatemala = {
-  ...guatemala_profile,
-  "sektor_listrik": guatemala_listrik,
-  "hunian": guatemala_hunian,
-  "infrastruktur": guatemala_infrastruktur,
-  "sektor_ekstraksi": guatemala_ekstraksi,
-  "sektor_manufaktur": guatemala_manufaktur,
-  "sektor_peternakan": guatemala_peternakan,
-  "sektor_agrikultur": guatemala_agrikultur,
-  "sektor_perikanan": guatemala_perikanan,
-  "sektor_olahan_pangan": guatemala_olahan_pangan,
-  "sektor_farmasi": guatemala_farmasi,
-  "sektor_pertahanan": guatemala_pertahanan,
-  "armada_militer": guatemala_armada,
-  "militer_strategis": guatemala_strategis,
-  "armada_kepolisian": guatemala_kepolisian,
-  "pabrik_militer": guatemala_pabrik,
-  "intelijen": guatemala_intelijen,
-    "pendidikan": guatemala_pendidikan,
-  "kesehatan": guatemala_kesehatan,
-  "hukum": guatemala_hukum,
-  "sektor_olahraga": guatemala_olahraga,
-  "sektor_komersial": guatemala_komersial,
-  "sektor_hiburan": guatemala_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 21,
-      "kepuasan": 67,
-      "pendapatan": 31
-    },
-    "korporasi": {
-      "tarif": 27,
-      "kepuasan": 52,
-      "pendapatan": 61
-    },
-    "penghasilan": {
-      "tarif": 3,
-      "kepuasan": 61,
-      "pendapatan": 8
-    },
-    "bea_cukai": {
-      "tarif": 18,
-      "kepuasan": 86,
-      "pendapatan": 26
-    },
-    "lingkungan": {
-      "tarif": 22,
-      "kepuasan": 88,
-      "pendapatan": 39
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 5 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 14 },
-    "lainnya": {
-      "tarif": 26,
-      "kepuasan": 93,
-      "pendapatan": 61
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const guatemala_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const guatemala = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

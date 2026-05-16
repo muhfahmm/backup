@@ -11,6 +11,3 @@ const brazil_olahan_pangan = {
   ikan_kaleng: 8730,
   kopi_teh: 8148,
 };
-
-
-

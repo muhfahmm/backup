@@ -9,6 +9,3 @@ const monako_olahraga = {
   "esports": 2,
   "gokart": 8
 };
-
-
-

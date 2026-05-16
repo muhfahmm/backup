@@ -15,6 +15,3 @@ const curacao_agrikultur = {
   kapas: 68,
   tembakau: 108,
 };
-
-
-

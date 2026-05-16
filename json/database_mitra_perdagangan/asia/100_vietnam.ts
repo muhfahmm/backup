@@ -13,6 +13,3 @@ const vietnamAgreements = [
   { "no": 11, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

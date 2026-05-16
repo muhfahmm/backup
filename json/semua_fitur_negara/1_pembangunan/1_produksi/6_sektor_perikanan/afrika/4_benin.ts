@@ -4,6 +4,3 @@ const benin_perikanan = {
   mutiara: 32,
   ikan: 68,
 };
-
-
-

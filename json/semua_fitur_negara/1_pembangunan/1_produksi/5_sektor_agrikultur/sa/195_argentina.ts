@@ -15,6 +15,3 @@ const argentina_agrikultur = {
   kapas: 3504,
   tembakau: 1104,
 };
-
-
-

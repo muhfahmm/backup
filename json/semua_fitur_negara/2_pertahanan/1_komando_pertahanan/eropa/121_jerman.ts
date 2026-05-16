@@ -14,6 +14,3 @@ const jerman_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

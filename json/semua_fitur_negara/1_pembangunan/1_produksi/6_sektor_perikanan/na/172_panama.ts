@@ -4,6 +4,3 @@ const panama_perikanan = {
   mutiara: 130,
   ikan: 150,
 };
-
-
-

@@ -15,6 +15,3 @@ const kazakhstan_agrikultur = {
   kapas: 689,
   tembakau: 728,
 };
-
-
-

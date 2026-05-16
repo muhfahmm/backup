@@ -5,6 +5,3 @@ const malaysia_hunian = {
   apartemen: 6384,
   mansion: 212817,
 };
-
-
-

@@ -5,6 +5,3 @@ const polandia_peternakan = {
   sapi_potong: 1219,
   domba_kambing: 1537,
 };
-
-
-

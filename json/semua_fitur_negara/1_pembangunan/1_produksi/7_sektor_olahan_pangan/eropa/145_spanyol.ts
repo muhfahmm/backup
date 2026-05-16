@@ -11,6 +11,3 @@ const spanyol_olahan_pangan = {
   ikan_kaleng: 4408,
   kopi_teh: 2668,
 };
-
-
-

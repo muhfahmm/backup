@@ -5,6 +5,3 @@ const puerto_rico_peternakan = {
   sapi_potong: 84,
   domba_kambing: 140,
 };
-
-
-

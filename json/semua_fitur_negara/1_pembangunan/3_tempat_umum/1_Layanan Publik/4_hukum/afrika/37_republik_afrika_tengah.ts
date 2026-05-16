@@ -9,6 +9,3 @@ const republik_afrika_tengah_hukum = {
       "indeks_korupsi": 20,
       "indeks_keamanan": 63
   };
-
-
-

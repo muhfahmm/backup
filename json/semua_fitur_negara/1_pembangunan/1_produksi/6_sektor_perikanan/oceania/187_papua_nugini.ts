@@ -4,6 +4,3 @@ const papua_nugini_perikanan = {
   mutiara: 36,
   ikan: 78,
 };
-
-
-

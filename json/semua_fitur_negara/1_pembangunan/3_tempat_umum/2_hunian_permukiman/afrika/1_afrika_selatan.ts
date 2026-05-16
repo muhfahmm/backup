@@ -5,6 +5,3 @@ const afrika_selatan_hunian = {
   apartemen: 11700,
   mansion: 390012,
 };
-
-
-

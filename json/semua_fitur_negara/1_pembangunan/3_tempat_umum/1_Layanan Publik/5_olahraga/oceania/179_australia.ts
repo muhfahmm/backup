@@ -9,6 +9,3 @@ const australia_olahraga = {
   "esports": 44,
   "gokart": 61
 };
-
-
-

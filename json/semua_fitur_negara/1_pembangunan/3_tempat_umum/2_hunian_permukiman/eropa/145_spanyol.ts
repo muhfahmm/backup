@@ -5,6 +5,3 @@ const spanyol_hunian = {
   apartemen: 9476,
   mansion: 315876,
 };
-
-
-

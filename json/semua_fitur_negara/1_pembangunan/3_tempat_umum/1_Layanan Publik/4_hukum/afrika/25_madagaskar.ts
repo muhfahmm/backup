@@ -9,6 +9,3 @@ const madagaskar_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 49
   };
-
-
-

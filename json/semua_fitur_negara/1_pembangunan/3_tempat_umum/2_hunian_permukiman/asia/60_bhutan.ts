@@ -5,6 +5,3 @@ const bhutan_hunian = {
   apartemen: 152,
   mansion: 5092,
 };
-
-
-

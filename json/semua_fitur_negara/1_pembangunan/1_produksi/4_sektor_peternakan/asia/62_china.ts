@@ -5,6 +5,3 @@ const china_peternakan = {
   sapi_potong: 3795,
   domba_kambing: 11891,
 };
-
-
-

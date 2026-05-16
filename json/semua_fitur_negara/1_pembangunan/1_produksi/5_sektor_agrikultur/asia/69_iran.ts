@@ -15,6 +15,3 @@ const iran_agrikultur = {
   kapas: 1104,
   tembakau: 3634,
 };
-
-
-

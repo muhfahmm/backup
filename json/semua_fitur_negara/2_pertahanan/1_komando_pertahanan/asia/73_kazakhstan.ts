@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const kazakhstan_strategis = {
     "waktu_respon": 5,
     "intelijen": 30,
@@ -13,5 +14,3 @@ const kazakhstan_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

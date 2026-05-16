@@ -4,6 +4,3 @@ const meksiko_perikanan = {
   mutiara: 1452,
   ikan: 3388,
 };
-
-
-

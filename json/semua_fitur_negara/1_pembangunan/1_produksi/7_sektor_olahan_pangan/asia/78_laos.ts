@@ -11,6 +11,3 @@ const laos_olahan_pangan = {
   ikan_kaleng: 87,
   kopi_teh: 144,
 };
-
-
-

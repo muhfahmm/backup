@@ -14,6 +14,3 @@ const trinidad_dan_tobago_diplomasi = [
   { "no": 12, "mitra": "Benin", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

@@ -6,6 +6,3 @@ const china_kesehatan = {
       "harapan_hidup": 82,
       "indeks_kesehatan": 92
     };
-
-
-

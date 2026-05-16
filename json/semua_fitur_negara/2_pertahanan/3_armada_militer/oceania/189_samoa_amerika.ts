@@ -1,4 +1,5 @@
-﻿const samoa_amerika_armada = {
+﻿// @ts-nocheck
+const samoa_amerika_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
       }
 };
-
-

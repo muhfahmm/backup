@@ -11,6 +11,3 @@ const portugal_olahan_pangan = {
   ikan_kaleng: 782,
   kopi_teh: 782,
 };
-
-
-

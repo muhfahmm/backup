@@ -5,6 +5,3 @@ const kroasia_hunian = {
   apartemen: 827,
   mansion: 27592,
 };
-
-
-

@@ -4,6 +4,3 @@ const liechtenstein_perikanan = {
   mutiara: 48,
   ikan: 156,
 };
-
-
-

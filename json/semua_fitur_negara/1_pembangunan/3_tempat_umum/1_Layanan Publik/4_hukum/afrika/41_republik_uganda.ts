@@ -9,6 +9,3 @@ const republik_uganda_hukum = {
       "indeks_korupsi": 22,
       "indeks_keamanan": 53
   };
-
-
-

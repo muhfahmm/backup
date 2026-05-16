@@ -5,6 +5,3 @@ const djiboutiVehicles = {
   bus: 191,
   truk: 958,
 };
-
-
-

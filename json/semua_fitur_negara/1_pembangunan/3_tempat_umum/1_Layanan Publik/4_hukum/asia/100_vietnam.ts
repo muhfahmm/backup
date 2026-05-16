@@ -9,6 +9,3 @@ const vietnam_hukum = {
       "indeks_korupsi": 37,
       "indeks_keamanan": 55
   };
-
-
-

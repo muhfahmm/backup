@@ -9,6 +9,3 @@ const seychelles_olahraga = {
   "esports": 1,
   "gokart": 14
 };
-
-
-

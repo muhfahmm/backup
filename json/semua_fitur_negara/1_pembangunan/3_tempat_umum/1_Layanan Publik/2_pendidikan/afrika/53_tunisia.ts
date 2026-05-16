@@ -12,6 +12,3 @@ const tunisia_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 84
   };
-
-
-

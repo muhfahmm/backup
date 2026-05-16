@@ -9,6 +9,3 @@ const qatar_infrastruktur = {
   bandara: 10,
   helipad: 3,
 };
-
-
-

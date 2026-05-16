@@ -9,6 +9,3 @@ const republik_dominika_olahraga = {
   "esports": 2,
   "gokart": 8
 };
-
-
-

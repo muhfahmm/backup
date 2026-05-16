@@ -30,6 +30,3 @@ const san_marino_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -13,6 +13,3 @@ const antigua_dan_barbuda_ekstraksi = {
   logam_tanah_jarang: 12,
   bijih_besi: 18,
 };
-
-
-

@@ -16,6 +16,3 @@ const tajikistan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

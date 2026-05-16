@@ -12,6 +12,3 @@ const chadAgreements = [
   { "no": 10, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

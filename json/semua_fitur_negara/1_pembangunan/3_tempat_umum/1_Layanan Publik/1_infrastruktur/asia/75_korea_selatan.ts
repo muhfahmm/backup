@@ -9,6 +9,3 @@ const korea_selatan_infrastruktur = {
   bandara: 20,
   helipad: 19,
 };
-
-
-

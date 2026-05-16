@@ -17,6 +17,3 @@ const nigeria_diplomasi = [
   { "no": 15, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 16, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

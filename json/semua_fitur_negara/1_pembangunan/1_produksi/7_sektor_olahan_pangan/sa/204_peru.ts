@@ -11,6 +11,3 @@ const peru_olahan_pangan = {
   ikan_kaleng: 147,
   kopi_teh: 343,
 };
-
-
-

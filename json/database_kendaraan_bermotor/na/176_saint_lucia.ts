@@ -5,6 +5,3 @@ const saintLuciaVehicles = {
   bus: 36,
   truk: 181,
 };
-
-
-

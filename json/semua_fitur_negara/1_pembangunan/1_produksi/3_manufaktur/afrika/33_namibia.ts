@@ -8,6 +8,3 @@ const namibia_manufaktur = {
   kayu: 14,
   pupuk: 9,
 };
-
-
-

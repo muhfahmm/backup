@@ -7,6 +7,3 @@ const kroasia_listrik = {
   pembangkit_listrik_tenaga_gas: 54,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

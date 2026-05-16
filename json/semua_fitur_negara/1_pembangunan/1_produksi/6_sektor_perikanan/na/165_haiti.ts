@@ -4,6 +4,3 @@ const haiti_perikanan = {
   mutiara: 48,
   ikan: 21,
 };
-
-
-

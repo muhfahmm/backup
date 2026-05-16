@@ -5,6 +5,3 @@ const liberia_hunian = {
   apartemen: 975,
   mansion: 32528,
 };
-
-
-

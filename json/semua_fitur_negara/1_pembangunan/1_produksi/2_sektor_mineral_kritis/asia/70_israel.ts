@@ -13,6 +13,3 @@ const israel_ekstraksi = {
   logam_tanah_jarang: 252,
   bijih_besi: 315,
 };
-
-
-

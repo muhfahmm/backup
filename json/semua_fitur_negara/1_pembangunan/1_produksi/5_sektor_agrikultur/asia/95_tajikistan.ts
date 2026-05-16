@@ -15,6 +15,3 @@ const tajikistan_agrikultur = {
   kapas: 52,
   tembakau: 172,
 };
-
-
-

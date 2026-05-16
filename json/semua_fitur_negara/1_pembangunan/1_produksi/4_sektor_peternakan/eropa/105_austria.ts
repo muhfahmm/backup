@@ -5,6 +5,3 @@ const austria_peternakan = {
   sapi_potong: 1480,
   domba_kambing: 2072,
 };
-
-
-

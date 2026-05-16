@@ -9,6 +9,3 @@ const uzbekistan_pertahanan = {
     "program_luar_angkasa": 23,
     "pertahanan_siber": 12
     };
-
-
-

@@ -8,6 +8,3 @@ const saint_vincent_dan_grenadine_manufaktur = {
   kayu: 12,
   pupuk: 8,
 };
-
-
-

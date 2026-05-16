@@ -4,6 +4,3 @@ const selandia_baru_intelijen = {
   jaringan_radar: 16,
   operasi_siber: 18,
 };
-
-
-

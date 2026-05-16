@@ -7,6 +7,3 @@ const libya_listrik = {
   pembangkit_listrik_tenaga_uap: 95,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

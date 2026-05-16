@@ -9,6 +9,3 @@ const djibouti_pertahanan = {
     "program_luar_angkasa": 26,
     "pertahanan_siber": 29
     };
-
-
-

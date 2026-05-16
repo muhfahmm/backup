@@ -15,6 +15,3 @@ const azerbaijan_agrikultur = {
   kapas: 39,
   tembakau: 213,
 };
-
-
-

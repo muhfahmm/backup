@@ -6,6 +6,3 @@ const antigua_dan_barbuda_kesehatan = {
       "harapan_hidup": 59,
       "indeks_kesehatan": 55
     };
-
-
-

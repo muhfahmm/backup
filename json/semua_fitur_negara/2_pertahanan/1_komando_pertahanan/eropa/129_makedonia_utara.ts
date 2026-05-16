@@ -14,6 +14,3 @@ const makedonia_utara_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -4,6 +4,3 @@ const irlandia_intelijen = {
   jaringan_radar: 13,
   operasi_siber: 21,
 };
-
-
-

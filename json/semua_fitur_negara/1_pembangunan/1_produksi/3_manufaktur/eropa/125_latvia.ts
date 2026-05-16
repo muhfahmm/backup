@@ -8,6 +8,3 @@ const latvia_manufaktur = {
   kayu: 20,
   pupuk: 8,
 };
-
-
-

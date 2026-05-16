@@ -8,6 +8,3 @@ const bulgaria_manufaktur = {
   kayu: 80,
   pupuk: 90,
 };
-
-
-

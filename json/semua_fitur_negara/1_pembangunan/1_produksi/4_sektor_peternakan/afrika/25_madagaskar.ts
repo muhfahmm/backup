@@ -5,6 +5,3 @@ const madagaskar_peternakan = {
   sapi_potong: 68,
   domba_kambing: 86,
 };
-
-
-

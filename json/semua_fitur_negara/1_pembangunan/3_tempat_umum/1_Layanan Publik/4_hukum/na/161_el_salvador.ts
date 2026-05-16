@@ -9,6 +9,3 @@ const el_salvador_hukum = {
       "indeks_korupsi": 37,
       "indeks_keamanan": 53
   };
-
-
-

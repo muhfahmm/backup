@@ -5,6 +5,3 @@ const kazakhstan_peternakan = {
   sapi_potong: 442,
   domba_kambing: 169,
 };
-
-
-

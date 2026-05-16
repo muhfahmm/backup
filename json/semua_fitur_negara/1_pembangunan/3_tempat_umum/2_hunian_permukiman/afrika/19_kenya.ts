@@ -5,6 +5,3 @@ const kenya_hunian = {
   apartemen: 10407,
   mansion: 346902,
 };
-
-
-

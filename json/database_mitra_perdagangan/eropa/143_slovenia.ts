@@ -13,6 +13,3 @@ const sloveniaAgreements = [
   { "no": 11, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

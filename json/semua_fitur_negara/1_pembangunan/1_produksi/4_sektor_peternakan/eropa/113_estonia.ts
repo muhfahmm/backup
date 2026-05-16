@@ -5,6 +5,3 @@ const estonia_peternakan = {
   sapi_potong: 90,
   domba_kambing: 55,
 };
-
-
-

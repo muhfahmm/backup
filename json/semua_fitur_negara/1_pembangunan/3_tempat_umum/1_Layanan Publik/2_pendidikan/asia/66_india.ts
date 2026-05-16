@@ -12,6 +12,3 @@ const india_pendidikan = {
       "pusat_pengembangan": 34,
       "literasi": 92
     };
-
-
-

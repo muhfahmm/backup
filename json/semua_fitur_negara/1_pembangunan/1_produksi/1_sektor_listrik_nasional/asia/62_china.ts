@@ -7,6 +7,3 @@ const china_listrik = {
   pembangkit_listrik_tenaga_gas: 5,
   pembangkit_listrik_tenaga_angin: 10,
 };
-
-
-

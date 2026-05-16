@@ -4,6 +4,3 @@ const kepulauan_faroe_komersial = {
   "hotel": 15,
   "pusat_grosir_tekstil": 2
 };
-
-
-

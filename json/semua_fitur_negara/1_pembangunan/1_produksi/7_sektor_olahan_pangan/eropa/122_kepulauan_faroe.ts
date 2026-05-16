@@ -11,6 +11,3 @@ const kepulauan_faroe_olahan_pangan = {
   ikan_kaleng: 18,
   kopi_teh: 38,
 };
-
-
-

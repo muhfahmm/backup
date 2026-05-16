@@ -8,6 +8,3 @@ const kenya_manufaktur = {
   kayu: 49,
   pupuk: 63,
 };
-
-
-

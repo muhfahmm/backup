@@ -30,6 +30,3 @@ const venezuela_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

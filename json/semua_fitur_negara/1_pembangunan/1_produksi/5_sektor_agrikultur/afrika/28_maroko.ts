@@ -15,6 +15,3 @@ const maroko_agrikultur = {
   kapas: 1200,
   tembakau: 1320,
 };
-
-
-

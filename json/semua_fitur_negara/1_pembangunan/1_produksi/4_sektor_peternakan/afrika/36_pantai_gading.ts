@@ -5,6 +5,3 @@ const pantai_gading_peternakan = {
   sapi_potong: 50,
   domba_kambing: 245,
 };
-
-
-

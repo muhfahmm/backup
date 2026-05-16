@@ -11,6 +11,3 @@ const dominika_olahan_pangan = {
   ikan_kaleng: 168,
   kopi_teh: 196,
 };
-
-
-

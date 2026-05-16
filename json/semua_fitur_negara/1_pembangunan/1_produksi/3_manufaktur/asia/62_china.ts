@@ -8,6 +8,3 @@ const china_manufaktur = {
   kayu: 3289,
   pupuk: 2530,
 };
-
-
-

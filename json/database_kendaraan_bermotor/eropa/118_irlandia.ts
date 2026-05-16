@@ -5,6 +5,3 @@ const irlandiaVehicles = {
   bus: 973,
   truk: 4867,
 };
-
-
-

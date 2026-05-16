@@ -9,6 +9,3 @@ const tunisia_infrastruktur = {
   bandara: 4,
   helipad: 1,
 };
-
-
-

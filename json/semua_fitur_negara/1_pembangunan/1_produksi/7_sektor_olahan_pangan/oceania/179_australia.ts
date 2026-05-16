@@ -11,6 +11,3 @@ const australia_olahan_pangan = {
   ikan_kaleng: 2244,
   kopi_teh: 1224,
 };
-
-
-

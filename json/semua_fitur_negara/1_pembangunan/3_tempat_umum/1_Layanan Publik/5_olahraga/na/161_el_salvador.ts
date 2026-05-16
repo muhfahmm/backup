@@ -9,6 +9,3 @@ const el_salvador_olahraga = {
   "esports": 4,
   "gokart": 14
 };
-
-
-

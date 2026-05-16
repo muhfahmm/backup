@@ -7,6 +7,3 @@ const swedia_listrik = {
   pembangkit_listrik_tenaga_gas: 1829,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

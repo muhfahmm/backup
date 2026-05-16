@@ -14,6 +14,3 @@ const vatikanAgreements = [
   { "no": 12, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

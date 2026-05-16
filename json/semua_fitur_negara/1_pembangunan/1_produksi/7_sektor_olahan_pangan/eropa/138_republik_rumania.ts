@@ -11,6 +11,3 @@ const republik_rumania_olahan_pangan = {
   ikan_kaleng: 840,
   kopi_teh: 1176,
 };
-
-
-

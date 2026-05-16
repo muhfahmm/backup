@@ -16,6 +16,3 @@ const burundi_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

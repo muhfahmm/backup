@@ -5,6 +5,3 @@ const ethiopia_peternakan = {
   sapi_potong: 360,
   domba_kambing: 774,
 };
-
-
-

@@ -13,6 +13,3 @@ const denmark_diplomasi = [
   { "no": 11, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

@@ -5,6 +5,3 @@ const belarus_hunian = {
   apartemen: 1920,
   mansion: 64013,
 };
-
-
-

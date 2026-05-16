@@ -14,6 +14,3 @@ const kenyaAgreements = [
   { "no": 12, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -13,6 +13,3 @@ const ethiopiaAgreements = [
   { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

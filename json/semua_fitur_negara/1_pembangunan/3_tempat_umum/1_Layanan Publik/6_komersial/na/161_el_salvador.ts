@@ -4,6 +4,3 @@ const el_salvador_komersial = {
   "hotel": 10,
   "pusat_grosir_tekstil": 5
 };
-
-
-

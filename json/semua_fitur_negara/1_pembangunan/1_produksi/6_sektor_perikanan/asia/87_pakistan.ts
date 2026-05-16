@@ -4,6 +4,3 @@ const pakistan_perikanan = {
   mutiara: 1768,
   ikan: 572,
 };
-
-
-

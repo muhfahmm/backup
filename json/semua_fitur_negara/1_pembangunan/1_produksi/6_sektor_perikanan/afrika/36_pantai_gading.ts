@@ -4,6 +4,3 @@ const pantai_gading_perikanan = {
   mutiara: 45,
   ikan: 185,
 };
-
-
-

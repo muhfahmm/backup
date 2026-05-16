@@ -8,6 +8,3 @@ const slowakia_manufaktur = {
   kayu: 130,
   pupuk: 39,
 };
-
-
-

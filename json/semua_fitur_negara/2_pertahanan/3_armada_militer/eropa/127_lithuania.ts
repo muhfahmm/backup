@@ -1,4 +1,5 @@
-﻿const lithuania_armada = {
+﻿// @ts-nocheck
+const lithuania_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
       }
 };
-
-

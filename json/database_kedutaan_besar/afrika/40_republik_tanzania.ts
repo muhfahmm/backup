@@ -16,6 +16,3 @@ const republik_tanzania_diplomasi = [
   { "no": 14, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 15, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

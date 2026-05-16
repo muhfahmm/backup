@@ -14,6 +14,3 @@ const libyaAgreements = [
   { "no": 12, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

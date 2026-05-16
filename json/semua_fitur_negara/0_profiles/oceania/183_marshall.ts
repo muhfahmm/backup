@@ -26,74 +26,9 @@ const marshall_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const marshall = {
-  ...marshall_profile,
-  "sektor_listrik": marshall_listrik,
-  "hunian": marshall_hunian,
-  "infrastruktur": marshall_infrastruktur,
-  "sektor_ekstraksi": marshall_ekstraksi,
-  "sektor_manufaktur": marshall_manufaktur,
-  "sektor_peternakan": marshall_peternakan,
-  "sektor_agrikultur": marshall_agrikultur,
-  "sektor_perikanan": marshall_perikanan,
-  "sektor_olahan_pangan": marshall_olahan_pangan,
-  "sektor_farmasi": marshall_farmasi,
-  "sektor_pertahanan": marshall_pertahanan,
-  "armada_militer": marshall_armada,
-  "militer_strategis": marshall_strategis,
-  "armada_kepolisian": marshall_kepolisian,
-  "pabrik_militer": marshall_pabrik,
-  "intelijen": marshall_intelijen,
-    "pendidikan": marshall_pendidikan,
-  "kesehatan": marshall_kesehatan,
-  "hukum": marshall_hukum,
-  "sektor_olahraga": marshall_olahraga,
-  "sektor_komersial": marshall_komersial,
-  "sektor_hiburan": marshall_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 27,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 24,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 34,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 5,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 3,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 30,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const marshall_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const marshall = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

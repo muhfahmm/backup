@@ -15,6 +15,3 @@ const hong_kong_diplomasi = [
   { "no": 13, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

@@ -11,6 +11,3 @@ const filipina_olahan_pangan = {
   ikan_kaleng: 980,
   kopi_teh: 320,
 };
-
-
-

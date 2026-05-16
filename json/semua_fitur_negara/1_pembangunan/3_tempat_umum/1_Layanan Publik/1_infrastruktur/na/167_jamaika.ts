@@ -9,6 +9,3 @@ const jamaika_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

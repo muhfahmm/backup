@@ -7,6 +7,3 @@ const guinea_bissau_listrik = {
   pembangkit_listrik_tenaga_uap: 40,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

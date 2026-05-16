@@ -5,6 +5,3 @@ const taiwanVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

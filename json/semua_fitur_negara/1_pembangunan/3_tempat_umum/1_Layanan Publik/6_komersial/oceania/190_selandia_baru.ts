@@ -4,6 +4,3 @@ const selandia_baru_komersial = {
   "hotel": 24,
   "pusat_grosir_tekstil": 16
 };
-
-
-

@@ -12,6 +12,3 @@ const turkiAgreements = [
   { "no": 10, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

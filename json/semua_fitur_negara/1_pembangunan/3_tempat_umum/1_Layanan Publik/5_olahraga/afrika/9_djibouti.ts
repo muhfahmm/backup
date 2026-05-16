@@ -9,6 +9,3 @@ const djibouti_olahraga = {
   "esports": 5,
   "gokart": 4
 };
-
-
-

@@ -9,6 +9,3 @@ const andorra_olahraga = {
   "esports": 1,
   "gokart": 7
 };
-
-
-

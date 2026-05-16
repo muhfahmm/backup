@@ -14,6 +14,3 @@ const pantai_gading_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -6,6 +6,3 @@ const angola_kesehatan = {
       "harapan_hidup": 60,
       "indeks_kesehatan": 75
   };
-
-
-

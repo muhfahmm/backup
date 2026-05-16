@@ -5,6 +5,3 @@ const myanmar_peternakan = {
   sapi_potong: 108,
   domba_kambing: 156,
 };
-
-
-

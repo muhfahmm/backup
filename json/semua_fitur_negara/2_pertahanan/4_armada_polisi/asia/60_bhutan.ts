@@ -16,6 +16,3 @@ const bhutan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

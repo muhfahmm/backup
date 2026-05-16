@@ -30,6 +30,3 @@ const amerika_serikat_armada = {
         "pesawat_angkut": 900
       }
 };
-
-
-

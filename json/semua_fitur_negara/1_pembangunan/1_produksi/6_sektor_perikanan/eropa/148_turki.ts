@@ -4,6 +4,3 @@ const turki_perikanan = {
   mutiara: 152,
   ikan: 52,
 };
-
-
-

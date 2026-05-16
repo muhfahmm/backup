@@ -5,6 +5,3 @@ const dominikaVehicles = {
   bus: 14,
   truk: 71,
 };
-
-
-

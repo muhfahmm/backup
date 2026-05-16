@@ -1,15 +1,9 @@
 ﻿// @ts-nocheck
-export interface DefenseCommandData {
   pusat_komando_strategis: number;
   bunker_komando: number;
   pusat_komando_wilayah: number;
 }
 
-export interface SektorMiliterStrategis {
-  waktu_respon?: number;
-  intelijen?: number;
-  status_nuklir?: boolean;
-  operasi_strategis?: {
     misi_serangan: number;
     agen_mata_mata: number;
     misi_sabotase: number;
@@ -17,7 +11,6 @@ export interface SektorMiliterStrategis {
     program_nuklir: number;
     misil_nuklir: number;
   };
-  intel_radar?: {
     sistem_satelit: number;
     jaringan_radar: number;
     operasi_siber: number;
@@ -80,6 +73,3 @@ const komandoPertahananRate = {
     groupId: "nuklir"
   }
 };
-
-
-

@@ -14,6 +14,3 @@ const belizeAgreements = [
   { "no": 12, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

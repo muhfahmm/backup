@@ -9,6 +9,3 @@ const tunisia_hukum = {
       "indeks_korupsi": 39,
       "indeks_keamanan": 58
   };
-
-
-

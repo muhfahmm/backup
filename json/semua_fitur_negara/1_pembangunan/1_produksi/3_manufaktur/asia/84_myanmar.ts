@@ -8,6 +8,3 @@ const myanmar_manufaktur = {
   kayu: 90,
   pupuk: 60,
 };
-
-
-

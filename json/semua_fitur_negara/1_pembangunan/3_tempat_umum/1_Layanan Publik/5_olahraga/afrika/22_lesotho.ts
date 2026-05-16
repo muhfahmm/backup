@@ -9,6 +9,3 @@ const lesotho_olahraga = {
   "esports": 4,
   "gokart": 15
 };
-
-
-

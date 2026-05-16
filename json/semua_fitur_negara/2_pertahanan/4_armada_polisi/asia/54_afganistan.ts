@@ -16,6 +16,3 @@ const afganistan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

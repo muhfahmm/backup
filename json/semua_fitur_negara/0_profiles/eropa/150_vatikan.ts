@@ -26,74 +26,9 @@ const vatikan_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
     }
-  };
-
-const vatikan = {
-  ...vatikan_profile,
-  "sektor_listrik": vatikan_listrik,
-  "hunian": vatikan_hunian,
-  "infrastruktur": vatikan_infrastruktur,
-  "sektor_ekstraksi": vatikan_ekstraksi,
-  "sektor_manufaktur": vatikan_manufaktur,
-  "sektor_peternakan": vatikan_peternakan,
-  "sektor_agrikultur": vatikan_agrikultur,
-  "sektor_perikanan": vatikan_perikanan,
-  "sektor_olahan_pangan": vatikan_olahan_pangan,
-  "sektor_farmasi": vatikan_farmasi,
-  "sektor_pertahanan": vatikan_pertahanan,
-  "armada_militer": vatikan_armada,
-  "militer_strategis": vatikan_strategis,
-  "armada_kepolisian": vatikan_kepolisian,
-  "pabrik_militer": vatikan_pabrik,
-  "intelijen": vatikan_intelijen,
-    "pendidikan": vatikan_pendidikan,
-  "kesehatan": vatikan_kesehatan,
-  "hukum": vatikan_hukum,
-  "sektor_olahraga": vatikan_olahraga,
-  "sektor_komersial": vatikan_komersial,
-  "sektor_hiburan": vatikan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 15,
-      "kepuasan": 67,
-      "pendapatan": 2
-    },
-    "korporasi": {
-      "tarif": 1,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 24,
-      "kepuasan": 61,
-      "pendapatan": 6
-    },
-    "bea_cukai": {
-      "tarif": 37,
-      "kepuasan": 86,
-      "pendapatan": 4
-    },
-    "lingkungan": {
-      "tarif": 26,
-      "kepuasan": 88,
-      "pendapatan": 4
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 4,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const vatikan_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const vatikan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -9,6 +9,3 @@ const samoa_pertahanan = {
     "program_luar_angkasa": 37,
     "pertahanan_siber": 14
     };
-
-
-

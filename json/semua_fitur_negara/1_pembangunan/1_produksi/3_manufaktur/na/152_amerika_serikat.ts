@@ -8,6 +8,3 @@ const amerika_serikat_manufaktur = {
   kayu: 812,
   pupuk: 348,
 };
-
-
-

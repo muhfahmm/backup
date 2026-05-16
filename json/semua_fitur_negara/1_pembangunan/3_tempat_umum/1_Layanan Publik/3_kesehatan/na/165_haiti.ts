@@ -6,6 +6,3 @@ const haiti_kesehatan = {
       "harapan_hidup": 58,
       "indeks_kesehatan": 70
     };
-
-
-

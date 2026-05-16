@@ -15,6 +15,3 @@ const tunisia_agrikultur = {
   kapas: 82,
   tembakau: 134,
 };
-
-
-

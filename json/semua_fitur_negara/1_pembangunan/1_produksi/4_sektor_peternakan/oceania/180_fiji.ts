@@ -5,6 +5,3 @@ const fiji_peternakan = {
   sapi_potong: 50,
   domba_kambing: 86,
 };
-
-
-

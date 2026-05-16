@@ -9,6 +9,3 @@ const aljazair_olahraga = {
   "esports": 13,
   "gokart": 41
 };
-
-
-

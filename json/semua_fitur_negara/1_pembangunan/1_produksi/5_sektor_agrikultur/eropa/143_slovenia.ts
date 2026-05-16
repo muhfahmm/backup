@@ -15,6 +15,3 @@ const slovenia_agrikultur = {
   kapas: 68,
   tembakau: 48,
 };
-
-
-

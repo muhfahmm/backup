@@ -26,74 +26,9 @@ const brazil_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
-
-const brazil = {
-  ...brazil_profile,
-  "sektor_listrik": brazil_listrik,
-  "hunian": brazil_hunian,
-  "infrastruktur": brazil_infrastruktur,
-  "sektor_ekstraksi": brazil_ekstraksi,
-  "sektor_manufaktur": brazil_manufaktur,
-  "sektor_peternakan": brazil_peternakan,
-  "sektor_agrikultur": brazil_agrikultur,
-  "sektor_perikanan": brazil_perikanan,
-  "sektor_olahan_pangan": brazil_olahan_pangan,
-  "sektor_farmasi": brazil_farmasi,
-  "sektor_pertahanan": brazil_pertahanan,
-  "armada_militer": brazil_armada,
-  "militer_strategis": brazil_strategis,
-  "armada_kepolisian": brazil_kepolisian,
-  "pabrik_militer": brazil_pabrik,
-  "intelijen": brazil_intelijen,
-    "pendidikan": brazil_pendidikan,
-  "kesehatan": brazil_kesehatan,
-  "hukum": brazil_hukum,
-  "sektor_olahraga": brazil_olahraga,
-  "sektor_komersial": brazil_komersial,
-  "sektor_hiburan": brazil_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 12,
-      "kepuasan": 67,
-      "pendapatan": 594
-    },
-    "korporasi": {
-      "tarif": 4,
-      "kepuasan": 52,
-      "pendapatan": 159
-    },
-    "penghasilan": {
-      "tarif": 4,
-      "kepuasan": 61,
-      "pendapatan": 213
-    },
-    "bea_cukai": {
-      "tarif": 20,
-      "kepuasan": 86,
-      "pendapatan": 1246
-    },
-    "lingkungan": {
-      "tarif": 24,
-      "kepuasan": 88,
-      "pendapatan": 1341
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 114 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 340 },
-    "lainnya": {
-      "tarif": 3,
-      "kepuasan": 93,
-      "pendapatan": 95
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const brazil_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const brazil = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

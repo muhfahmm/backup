@@ -1,8 +1,4 @@
 ﻿// @ts-nocheck
-export interface HunianData {
-  rumah_subsidi?: number;
-  apartemen?: number;
-  mansion?: number;
 }
 
 const hunianRate = {
@@ -34,13 +30,3 @@ const hunianRate = {
     deskripsi: "Hunian Eksklusif Kelas Atas"
   }
 };
-
-export * from "./afrika";
-export * from "./asia";
-export * from "./eropa";
-export * from "./na";
-export * from "./sa";
-export * from "./oceania";
-
-
-

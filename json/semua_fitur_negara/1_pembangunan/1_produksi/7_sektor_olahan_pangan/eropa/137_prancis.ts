@@ -11,6 +11,3 @@ const prancis_olahan_pangan = {
   ikan_kaleng: 11004,
   kopi_teh: 5764,
 };
-
-
-

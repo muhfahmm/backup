@@ -4,6 +4,3 @@ const denmark_perikanan = {
   mutiara: 1012,
   ikan: 440,
 };
-
-
-

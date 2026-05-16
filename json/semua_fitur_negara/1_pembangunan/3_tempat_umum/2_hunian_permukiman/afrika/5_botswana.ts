@@ -5,6 +5,3 @@ const botswana_hunian = {
   apartemen: 456,
   mansion: 15215,
 };
-
-
-

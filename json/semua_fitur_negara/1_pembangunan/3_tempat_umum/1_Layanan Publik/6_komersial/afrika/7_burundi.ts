@@ -4,6 +4,3 @@ const burundi_komersial = {
   "hotel": 12,
   "pusat_grosir_tekstil": 0
 };
-
-
-

@@ -5,6 +5,3 @@ const selandia_baru_hunian = {
   apartemen: 980,
   mansion: 32676,
 };
-
-
-

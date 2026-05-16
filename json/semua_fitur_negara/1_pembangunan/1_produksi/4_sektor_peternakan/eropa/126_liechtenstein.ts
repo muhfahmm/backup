@@ -5,6 +5,3 @@ const liechtenstein_peternakan = {
   sapi_potong: 88,
   domba_kambing: 136,
 };
-
-
-

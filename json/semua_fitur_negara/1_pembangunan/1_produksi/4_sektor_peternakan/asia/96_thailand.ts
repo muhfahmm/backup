@@ -5,6 +5,3 @@ const thailand_peternakan = {
   sapi_potong: 1845,
   domba_kambing: 1476,
 };
-
-
-

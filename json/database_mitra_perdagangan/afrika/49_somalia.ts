@@ -14,6 +14,3 @@ const somaliaAgreements = [
   { "no": 12, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

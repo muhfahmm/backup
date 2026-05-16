@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const rusia_strategis = {
     "waktu_respon": 6,
     "intelijen": 15,
@@ -13,5 +14,3 @@ const rusia_strategis = {
       "misil_nuklir": 5580
     }
   };
-
-

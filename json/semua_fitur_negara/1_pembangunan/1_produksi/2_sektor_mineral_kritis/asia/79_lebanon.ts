@@ -13,6 +13,3 @@ const lebanon_ekstraksi = {
   logam_tanah_jarang: 9,
   bijih_besi: 4,
 };
-
-
-

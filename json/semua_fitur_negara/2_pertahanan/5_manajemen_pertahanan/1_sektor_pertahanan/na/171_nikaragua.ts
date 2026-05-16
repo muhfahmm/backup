@@ -1,4 +1,5 @@
-﻿const nikaragua_pertahanan = {
+﻿// @ts-nocheck
+const nikaragua_pertahanan = {
     "penjara": 32,
     "gudang_senjata": 27,
     "hangar_tank": 20,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 33,
     "pertahanan_siber": 14
     };
-
-

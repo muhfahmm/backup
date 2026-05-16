@@ -4,6 +4,3 @@ const swedia_intelijen = {
   jaringan_radar: 16,
   operasi_siber: 23,
 };
-
-
-

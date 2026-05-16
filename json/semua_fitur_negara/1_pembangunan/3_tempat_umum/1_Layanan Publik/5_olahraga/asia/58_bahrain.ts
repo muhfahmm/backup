@@ -9,6 +9,3 @@ const bahrain_olahraga = {
   "esports": 3,
   "gokart": 11
 };
-
-
-

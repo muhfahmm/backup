@@ -9,6 +9,3 @@ const suriah_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

@@ -14,6 +14,3 @@ const sao_tome_dan_principe_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

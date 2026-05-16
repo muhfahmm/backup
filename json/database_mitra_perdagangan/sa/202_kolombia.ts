@@ -13,6 +13,3 @@ const kolombiaAgreements = [
   { "no": 11, "mitra": "Peru", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

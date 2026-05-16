@@ -5,6 +5,3 @@ const republik_timor_leste_peternakan = {
   sapi_potong: 45,
   domba_kambing: 34,
 };
-
-
-

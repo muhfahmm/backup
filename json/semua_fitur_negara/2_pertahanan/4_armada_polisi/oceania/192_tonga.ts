@@ -16,6 +16,3 @@ const tonga_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -5,6 +5,3 @@ const fijiVehicles = {
   bus: 176,
   truk: 883,
 };
-
-
-

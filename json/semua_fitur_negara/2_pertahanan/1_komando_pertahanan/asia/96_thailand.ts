@@ -14,6 +14,3 @@ const thailand_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

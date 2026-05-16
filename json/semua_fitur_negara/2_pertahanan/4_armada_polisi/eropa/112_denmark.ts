@@ -16,6 +16,3 @@ const denmark_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

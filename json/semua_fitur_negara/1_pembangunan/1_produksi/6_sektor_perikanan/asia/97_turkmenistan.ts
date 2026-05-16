@@ -4,6 +4,3 @@ const turkmenistan_perikanan = {
   mutiara: 34,
   ikan: 40,
 };
-
-
-

@@ -10,6 +10,3 @@ const swediaAgreements = [
   { "no": 8, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

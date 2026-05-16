@@ -15,6 +15,3 @@ const kuwait_agrikultur = {
   kapas: 1420,
   tembakau: 1300,
 };
-
-
-

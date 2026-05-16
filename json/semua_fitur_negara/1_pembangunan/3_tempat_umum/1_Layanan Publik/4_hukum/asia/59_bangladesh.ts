@@ -9,6 +9,3 @@ const bangladesh_hukum = {
       "indeks_korupsi": 36,
       "indeks_keamanan": 70
   };
-
-
-

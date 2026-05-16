@@ -8,6 +8,3 @@ const gambia_manufaktur = {
   kayu: 8,
   pupuk: 4,
 };
-
-
-

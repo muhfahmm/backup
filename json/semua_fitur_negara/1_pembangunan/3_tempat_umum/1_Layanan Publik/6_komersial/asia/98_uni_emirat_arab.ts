@@ -4,6 +4,3 @@ const uni_emirat_arab_komersial = {
   "hotel": 29,
   "pusat_grosir_tekstil": 6
 };
-
-
-

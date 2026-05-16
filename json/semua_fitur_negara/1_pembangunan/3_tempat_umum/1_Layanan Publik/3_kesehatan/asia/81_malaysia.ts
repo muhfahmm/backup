@@ -6,6 +6,3 @@ const malaysia_kesehatan = {
       "harapan_hidup": 74,
       "indeks_kesehatan": 70
     };
-
-
-

@@ -9,6 +9,3 @@ const tuvalu_pertahanan = {
     "program_luar_angkasa": 5,
     "pertahanan_siber": 31
     };
-
-
-

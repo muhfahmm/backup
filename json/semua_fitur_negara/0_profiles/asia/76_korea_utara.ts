@@ -26,74 +26,9 @@ const korea_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const korea_utara = {
-  ...korea_utara_profile,
-  "sektor_listrik": korea_utara_listrik,
-  "hunian": korea_utara_hunian,
-  "infrastruktur": korea_utara_infrastruktur,
-  "sektor_ekstraksi": korea_utara_ekstraksi,
-  "sektor_manufaktur": korea_utara_manufaktur,
-  "sektor_peternakan": korea_utara_peternakan,
-  "sektor_agrikultur": korea_utara_agrikultur,
-  "sektor_perikanan": korea_utara_perikanan,
-  "sektor_olahan_pangan": korea_utara_olahan_pangan,
-  "sektor_farmasi": korea_utara_farmasi,
-  "sektor_pertahanan": korea_utara_pertahanan,
-  "armada_militer": korea_utara_armada,
-  "militer_strategis": korea_utara_strategis,
-  "armada_kepolisian": korea_utara_kepolisian,
-  "pabrik_militer": korea_utara_pabrik,
-  "intelijen": korea_utara_intelijen,
-    "pendidikan": korea_utara_pendidikan,
-  "kesehatan": korea_utara_kesehatan,
-  "hukum": korea_utara_hukum,
-  "sektor_olahraga": korea_utara_olahraga,
-  "sektor_komersial": korea_utara_komersial,
-  "sektor_hiburan": korea_utara_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 25,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 27,
-      "kepuasan": 52,
-      "pendapatan": 9
-    },
-    "penghasilan": {
-      "tarif": 36,
-      "kepuasan": 61,
-      "pendapatan": 8
-    },
-    "bea_cukai": {
-      "tarif": 11,
-      "kepuasan": 86,
-      "pendapatan": 4
-    },
-    "lingkungan": {
-      "tarif": 30,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 16,
-      "kepuasan": 93,
-      "pendapatan": 6
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const korea_utara_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const korea_utara = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

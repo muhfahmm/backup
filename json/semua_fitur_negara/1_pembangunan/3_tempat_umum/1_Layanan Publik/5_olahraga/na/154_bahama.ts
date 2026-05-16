@@ -9,6 +9,3 @@ const bahama_olahraga = {
   "esports": 3,
   "gokart": 10
 };
-
-
-

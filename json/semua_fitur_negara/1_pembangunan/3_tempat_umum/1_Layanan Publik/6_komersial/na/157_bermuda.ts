@@ -4,6 +4,3 @@ const bermuda_komersial = {
   "hotel": 5,
   "pusat_grosir_tekstil": 3
 };
-
-
-

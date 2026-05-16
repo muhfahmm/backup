@@ -4,6 +4,3 @@ const kamerun_perikanan = {
   mutiara: 144,
   ikan: 240,
 };
-
-
-

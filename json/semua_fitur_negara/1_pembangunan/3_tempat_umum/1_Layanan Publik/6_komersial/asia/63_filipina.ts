@@ -4,6 +4,3 @@ const filipina_komersial = {
   "hotel": 79,
   "pusat_grosir_tekstil": 16
 };
-
-
-

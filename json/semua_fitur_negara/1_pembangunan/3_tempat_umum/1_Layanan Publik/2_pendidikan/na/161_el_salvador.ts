@@ -12,6 +12,3 @@ const el_salvador_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 76
     };
-
-
-

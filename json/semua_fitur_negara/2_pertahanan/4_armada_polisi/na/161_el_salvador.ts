@@ -16,6 +16,3 @@ const el_salvador_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

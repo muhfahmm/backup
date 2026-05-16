@@ -9,6 +9,3 @@ const armenia_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

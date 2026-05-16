@@ -8,6 +8,3 @@ const lesotho_manufaktur = {
   kayu: 27,
   pupuk: 12,
 };
-
-
-

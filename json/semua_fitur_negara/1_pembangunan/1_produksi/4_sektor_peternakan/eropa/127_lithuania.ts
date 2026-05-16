@@ -5,6 +5,3 @@ const lithuania_peternakan = {
   sapi_potong: 160,
   domba_kambing: 195,
 };
-
-
-

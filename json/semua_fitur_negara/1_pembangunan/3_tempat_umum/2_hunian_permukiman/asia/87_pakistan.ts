@@ -5,6 +5,3 @@ const pakistan_hunian = {
   apartemen: 42973,
   mansion: 1432451,
 };
-
-
-

@@ -9,6 +9,3 @@ const portugal_hukum = {
       "indeks_korupsi": 53,
       "indeks_keamanan": 62
   };
-
-
-

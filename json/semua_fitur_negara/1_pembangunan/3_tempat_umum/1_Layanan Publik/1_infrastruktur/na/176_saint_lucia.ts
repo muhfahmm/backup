@@ -9,6 +9,3 @@ const saint_lucia_infrastruktur = {
   bandara: 3,
   helipad: 3,
 };
-
-
-

@@ -15,6 +15,3 @@ const india_agrikultur = {
   kapas: 13755,
   tembakau: 9039,
 };
-
-
-

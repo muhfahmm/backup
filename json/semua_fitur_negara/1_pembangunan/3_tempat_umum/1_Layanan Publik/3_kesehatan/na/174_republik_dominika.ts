@@ -6,6 +6,3 @@ const republik_dominika_kesehatan = {
       "harapan_hidup": 62,
       "indeks_kesehatan": 56
     };
-
-
-

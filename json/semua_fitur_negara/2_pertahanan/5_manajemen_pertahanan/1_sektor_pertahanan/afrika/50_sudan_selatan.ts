@@ -9,6 +9,3 @@ const sudan_selatan_pertahanan = {
     "program_luar_angkasa": 34,
     "pertahanan_siber": 11
     };
-
-
-

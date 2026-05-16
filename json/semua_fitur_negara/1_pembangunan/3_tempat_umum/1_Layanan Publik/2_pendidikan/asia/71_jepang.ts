@@ -12,6 +12,3 @@ const jepang_pendidikan = {
       "pusat_pengembangan": 35,
       "literasi": 94
     };
-
-
-

@@ -4,6 +4,3 @@ const qatar_intelijen = {
   jaringan_radar: 12,
   operasi_siber: 19,
 };
-
-
-

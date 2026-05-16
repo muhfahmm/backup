@@ -9,6 +9,3 @@ const suriah_pertahanan = {
     "program_luar_angkasa": 20,
     "pertahanan_siber": 9
     };
-
-
-

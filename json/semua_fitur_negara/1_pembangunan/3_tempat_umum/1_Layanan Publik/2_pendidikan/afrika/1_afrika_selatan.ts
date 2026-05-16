@@ -12,6 +12,3 @@ const afrika_selatan_pendidikan = {
       "pusat_pengembangan": 9,
       "literasi": 78
   };
-
-
-

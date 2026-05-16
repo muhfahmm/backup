@@ -5,6 +5,3 @@ const papua_nugini_hunian = {
   apartemen: 1742,
   mansion: 58092,
 };
-
-
-

@@ -9,6 +9,3 @@ const antigua_dan_barbuda_olahraga = {
   "esports": 1,
   "gokart": 2
 };
-
-
-

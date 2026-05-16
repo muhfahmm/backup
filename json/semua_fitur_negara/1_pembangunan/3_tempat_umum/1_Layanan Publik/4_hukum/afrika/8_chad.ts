@@ -9,6 +9,3 @@ const chad_hukum = {
       "indeks_korupsi": 21,
       "indeks_keamanan": 46
   };
-
-
-

@@ -5,6 +5,3 @@ const curacaoVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

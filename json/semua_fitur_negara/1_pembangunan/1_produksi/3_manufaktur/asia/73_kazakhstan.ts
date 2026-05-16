@@ -8,6 +8,3 @@ const kazakhstan_manufaktur = {
   kayu: 156,
   pupuk: 39,
 };
-
-
-

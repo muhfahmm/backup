@@ -16,6 +16,3 @@ const palau_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

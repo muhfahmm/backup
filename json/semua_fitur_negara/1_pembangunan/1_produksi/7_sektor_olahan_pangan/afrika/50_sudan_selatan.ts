@@ -11,6 +11,3 @@ const sudan_selatan_olahan_pangan = {
   ikan_kaleng: 144,
   kopi_teh: 192,
 };
-
-
-

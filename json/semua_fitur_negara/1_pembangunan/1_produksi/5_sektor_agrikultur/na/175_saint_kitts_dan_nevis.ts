@@ -15,6 +15,3 @@ const saint_kitts_dan_nevis_agrikultur = {
   kapas: 189,
   tembakau: 189,
 };
-
-
-

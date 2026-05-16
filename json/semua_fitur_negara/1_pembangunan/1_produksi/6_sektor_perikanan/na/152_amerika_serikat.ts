@@ -4,6 +4,3 @@ const amerika_serikat_perikanan = {
   mutiara: 4640,
   ikan: 1044,
 };
-
-
-

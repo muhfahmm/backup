@@ -30,6 +30,3 @@ const saint_vincent_dan_grenadine_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

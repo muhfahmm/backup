@@ -5,6 +5,3 @@ const andorraVehicles = {
   bus: 15,
   truk: 77,
 };
-
-
-

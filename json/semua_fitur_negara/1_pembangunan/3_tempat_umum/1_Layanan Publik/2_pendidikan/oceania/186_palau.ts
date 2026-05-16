@@ -12,6 +12,3 @@ const palau_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 85
     };
-
-
-

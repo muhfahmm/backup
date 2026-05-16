@@ -15,6 +15,3 @@ const san_marinoAgreements = [
   { "no": 13, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

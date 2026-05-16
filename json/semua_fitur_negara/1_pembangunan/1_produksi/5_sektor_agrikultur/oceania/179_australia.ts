@@ -15,6 +15,3 @@ const australia_agrikultur = {
   kapas: 3978,
   tembakau: 4794,
 };
-
-
-

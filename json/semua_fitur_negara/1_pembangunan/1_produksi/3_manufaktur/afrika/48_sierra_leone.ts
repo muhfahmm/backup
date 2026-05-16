@@ -8,6 +8,3 @@ const sierra_leone_manufaktur = {
   kayu: 28,
   pupuk: 36,
 };
-
-
-

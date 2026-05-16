@@ -5,6 +5,3 @@ const namibiaVehicles = {
   bus: 489,
   truk: 2448,
 };
-
-
-

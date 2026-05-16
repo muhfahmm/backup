@@ -16,6 +16,3 @@ const seychelles_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

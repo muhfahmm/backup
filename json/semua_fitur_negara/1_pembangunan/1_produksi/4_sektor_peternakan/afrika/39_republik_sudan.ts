@@ -5,6 +5,3 @@ const republik_sudan_peternakan = {
   sapi_potong: 54,
   domba_kambing: 63,
 };
-
-
-

@@ -8,6 +8,3 @@ const siprus_manufaktur = {
   kayu: 56,
   pupuk: 36,
 };
-
-
-

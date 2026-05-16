@@ -15,6 +15,3 @@ const hungaria_agrikultur = {
   kapas: 296,
   tembakau: 328,
 };
-
-
-

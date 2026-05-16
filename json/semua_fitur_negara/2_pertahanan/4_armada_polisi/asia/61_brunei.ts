@@ -16,6 +16,3 @@ const brunei_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

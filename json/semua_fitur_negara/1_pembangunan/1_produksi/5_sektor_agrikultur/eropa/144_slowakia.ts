@@ -15,6 +15,3 @@ const slowakia_agrikultur = {
   kapas: 780,
   tembakau: 247,
 };
-
-
-

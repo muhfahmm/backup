@@ -8,6 +8,3 @@ const guam_manufaktur = {
   kayu: 30,
   pupuk: 4,
 };
-
-
-

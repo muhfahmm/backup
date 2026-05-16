@@ -30,6 +30,3 @@ const jepang_armada = {
         "pesawat_angkut": 60
       }
 };
-
-
-

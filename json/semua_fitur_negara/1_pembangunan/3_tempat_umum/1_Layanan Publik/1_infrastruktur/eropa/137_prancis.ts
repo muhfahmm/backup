@@ -9,6 +9,3 @@ const prancis_infrastruktur = {
   bandara: 22,
   helipad: 14,
 };
-
-
-

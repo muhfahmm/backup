@@ -16,6 +16,3 @@ const irlandia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

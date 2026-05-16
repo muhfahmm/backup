@@ -30,6 +30,3 @@ const kamboja_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -16,6 +16,3 @@ const amerika_serikat_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

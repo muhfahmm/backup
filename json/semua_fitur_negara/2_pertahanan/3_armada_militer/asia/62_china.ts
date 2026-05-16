@@ -30,6 +30,3 @@ const china_armada = {
         "pesawat_angkut": 300
       }
 };
-
-
-

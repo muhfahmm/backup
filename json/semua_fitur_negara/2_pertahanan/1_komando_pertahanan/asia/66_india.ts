@@ -14,6 +14,3 @@ const india_strategis = {
       "misil_nuklir": 180
     }
   };
-
-
-

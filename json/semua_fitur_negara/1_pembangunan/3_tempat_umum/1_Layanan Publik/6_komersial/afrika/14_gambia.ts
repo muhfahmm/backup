@@ -4,6 +4,3 @@ const gambia_komersial = {
   "hotel": 7,
   "pusat_grosir_tekstil": 3
 };
-
-
-

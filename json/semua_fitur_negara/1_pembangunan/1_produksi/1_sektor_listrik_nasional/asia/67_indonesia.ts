@@ -7,6 +7,3 @@ const indonesia_listrik = {
   pembangkit_listrik_tenaga_gas: 18,
   pembangkit_listrik_tenaga_angin: 1,
 };
-
-
-

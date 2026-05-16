@@ -5,6 +5,3 @@ const belize_hunian = {
   apartemen: 77,
   mansion: 2585,
 };
-
-
-

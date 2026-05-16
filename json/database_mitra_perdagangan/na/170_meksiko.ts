@@ -13,6 +13,3 @@ const meksikoAgreements = [
   { "no": 11, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

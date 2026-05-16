@@ -5,6 +5,3 @@ const qatar_hunian = {
   apartemen: 563,
   mansion: 18776,
 };
-
-
-

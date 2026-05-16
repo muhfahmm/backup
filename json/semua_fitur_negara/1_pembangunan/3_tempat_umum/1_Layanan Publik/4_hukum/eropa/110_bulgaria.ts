@@ -9,6 +9,3 @@ const bulgaria_hukum = {
       "indeks_korupsi": 40,
       "indeks_keamanan": 61
   };
-
-
-

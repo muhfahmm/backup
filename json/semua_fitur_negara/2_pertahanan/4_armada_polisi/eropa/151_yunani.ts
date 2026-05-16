@@ -16,6 +16,3 @@ const yunani_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

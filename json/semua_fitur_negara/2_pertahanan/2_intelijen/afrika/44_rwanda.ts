@@ -4,6 +4,3 @@ const rwanda_intelijen = {
   jaringan_radar: 5,
   operasi_siber: 3,
 };
-
-
-

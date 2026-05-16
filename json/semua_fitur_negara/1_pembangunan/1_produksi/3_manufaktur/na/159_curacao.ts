@@ -8,6 +8,3 @@ const curacao_manufaktur = {
   kayu: 12,
   pupuk: 16,
 };
-
-
-

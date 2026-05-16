@@ -5,6 +5,3 @@ const grenadaVehicles = {
   bus: 22,
   truk: 111,
 };
-
-
-

@@ -16,6 +16,3 @@ const tahiti_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

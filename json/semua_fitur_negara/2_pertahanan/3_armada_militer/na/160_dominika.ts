@@ -30,6 +30,3 @@ const dominika_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

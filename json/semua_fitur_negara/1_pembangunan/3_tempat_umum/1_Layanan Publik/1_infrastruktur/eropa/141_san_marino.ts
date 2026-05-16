@@ -9,6 +9,3 @@ const san_marino_infrastruktur = {
   bandara: 4,
   helipad: 4,
 };
-
-
-

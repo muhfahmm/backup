@@ -12,6 +12,3 @@ const ceko_pendidikan = {
       "pusat_pengembangan": 4,
       "literasi": 89
     };
-
-
-

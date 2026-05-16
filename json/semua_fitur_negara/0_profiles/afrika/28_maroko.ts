@@ -26,74 +26,9 @@ const maroko_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
-
-const maroko = {
-  ...maroko_profile,
-  "sektor_listrik": maroko_listrik,
-  "hunian": maroko_hunian,
-  "infrastruktur": maroko_infrastruktur,
-  "sektor_ekstraksi": maroko_ekstraksi,
-  "sektor_manufaktur": maroko_manufaktur,
-  "sektor_peternakan": maroko_peternakan,
-  "sektor_agrikultur": maroko_agrikultur,
-  "sektor_perikanan": maroko_perikanan,
-  "sektor_olahan_pangan": maroko_olahan_pangan,
-  "sektor_farmasi": maroko_farmasi,
-  "sektor_pertahanan": maroko_pertahanan,
-  "armada_militer": maroko_armada,
-  "militer_strategis": maroko_strategis,
-  "armada_kepolisian": maroko_kepolisian,
-  "pabrik_militer": maroko_pabrik,
-  "intelijen": maroko_intelijen,
-    "pendidikan": maroko_pendidikan,
-  "kesehatan": maroko_kesehatan,
-  "hukum": maroko_hukum,
-  "sektor_olahraga": maroko_olahraga,
-  "sektor_komersial": maroko_komersial,
-  "sektor_hiburan": maroko_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 24,
-      "kepuasan": 67,
-      "pendapatan": 67
-    },
-    "korporasi": {
-      "tarif": 37,
-      "kepuasan": 52,
-      "pendapatan": 102
-    },
-    "penghasilan": {
-      "tarif": 37,
-      "kepuasan": 61,
-      "pendapatan": 127
-    },
-    "bea_cukai": {
-      "tarif": 35,
-      "kepuasan": 86,
-      "pendapatan": 73
-    },
-    "lingkungan": {
-      "tarif": 19,
-      "kepuasan": 88,
-      "pendapatan": 51
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 7 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 20 },
-    "lainnya": {
-      "tarif": 5,
-      "kepuasan": 93,
-      "pendapatan": 10
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const maroko_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const maroko = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

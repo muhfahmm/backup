@@ -9,6 +9,3 @@ const azerbaijan_hukum = {
       "indeks_korupsi": 27,
       "indeks_keamanan": 56
   };
-
-
-

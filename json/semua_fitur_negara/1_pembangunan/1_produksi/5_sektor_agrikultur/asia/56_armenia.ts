@@ -15,6 +15,3 @@ const armenia_agrikultur = {
   kapas: 111,
   tembakau: 78,
 };
-
-
-

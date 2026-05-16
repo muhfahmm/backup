@@ -12,6 +12,3 @@ const hondurasAgreements = [
   { "no": 10, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

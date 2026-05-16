@@ -2,6 +2,3 @@
 const somalia_farmasi = {
   farmasi: 36,
 };
-
-
-

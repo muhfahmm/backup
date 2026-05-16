@@ -13,6 +13,3 @@ const belgia_ekstraksi = {
   logam_tanah_jarang: 123,
   bijih_besi: 82,
 };
-
-
-

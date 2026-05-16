@@ -7,6 +7,3 @@ const angola_listrik = {
   pembangkit_listrik_tenaga_uap: 105,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

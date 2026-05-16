@@ -5,6 +5,3 @@ const andorra_hunian = {
   apartemen: 15,
   mansion: 519,
 };
-
-
-

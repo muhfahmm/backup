@@ -12,6 +12,3 @@ const indonesia_pendidikan = {
       "pusat_pengembangan": 43,
       "literasi": 86
     };
-
-
-

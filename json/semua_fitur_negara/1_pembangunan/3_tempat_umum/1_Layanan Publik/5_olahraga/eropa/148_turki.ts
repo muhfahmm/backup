@@ -9,6 +9,3 @@ const turki_olahraga = {
   "esports": 1,
   "gokart": 10
 };
-
-
-

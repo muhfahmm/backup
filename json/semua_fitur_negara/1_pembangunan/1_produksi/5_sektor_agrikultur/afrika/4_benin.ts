@@ -15,6 +15,3 @@ const benin_agrikultur = {
   kapas: 50,
   tembakau: 98,
 };
-
-
-

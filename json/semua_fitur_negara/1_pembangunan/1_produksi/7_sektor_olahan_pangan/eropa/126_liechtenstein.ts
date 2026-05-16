@@ -11,6 +11,3 @@ const liechtenstein_olahan_pangan = {
   ikan_kaleng: 176,
   kopi_teh: 60,
 };
-
-
-

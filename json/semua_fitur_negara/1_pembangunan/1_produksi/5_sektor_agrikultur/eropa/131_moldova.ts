@@ -15,6 +15,3 @@ const moldova_agrikultur = {
   kapas: 220,
   tembakau: 212,
 };
-
-
-

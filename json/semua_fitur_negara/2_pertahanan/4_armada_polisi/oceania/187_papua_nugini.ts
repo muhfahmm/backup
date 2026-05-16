@@ -16,6 +16,3 @@ const papua_nugini_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -13,6 +13,3 @@ const kamerun_ekstraksi = {
   logam_tanah_jarang: 56,
   bijih_besi: 0,
 };
-
-
-

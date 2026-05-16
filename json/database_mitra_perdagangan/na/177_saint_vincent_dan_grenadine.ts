@@ -14,6 +14,3 @@ const saint_vincent_dan_grenadineAgreements = [
   { "no": 12, "mitra": "Kanada", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

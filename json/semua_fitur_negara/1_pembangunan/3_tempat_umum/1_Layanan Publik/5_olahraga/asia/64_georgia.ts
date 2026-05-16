@@ -9,6 +9,3 @@ const georgia_olahraga = {
   "esports": 2,
   "gokart": 4
 };
-
-
-

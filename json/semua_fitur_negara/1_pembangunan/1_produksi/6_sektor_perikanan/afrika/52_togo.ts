@@ -4,6 +4,3 @@ const togo_perikanan = {
   mutiara: 66,
   ikan: 78,
 };
-
-
-

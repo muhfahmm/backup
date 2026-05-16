@@ -16,6 +16,3 @@ const pantai_gading_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

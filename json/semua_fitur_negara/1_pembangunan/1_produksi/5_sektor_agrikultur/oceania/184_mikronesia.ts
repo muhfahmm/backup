@@ -15,6 +15,3 @@ const mikronesia_agrikultur = {
   kapas: 216,
   tembakau: 40,
 };
-
-
-

@@ -15,6 +15,3 @@ const djibouti_agrikultur = {
   kapas: 53,
   tembakau: 42,
 };
-
-
-

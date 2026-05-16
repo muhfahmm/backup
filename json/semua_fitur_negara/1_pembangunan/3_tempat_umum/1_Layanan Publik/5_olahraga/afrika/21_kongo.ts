@@ -9,6 +9,3 @@ const kongo_olahraga = {
   "esports": 5,
   "gokart": 8
 };
-
-
-

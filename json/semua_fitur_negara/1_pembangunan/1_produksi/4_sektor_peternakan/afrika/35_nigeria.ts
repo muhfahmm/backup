@@ -5,6 +5,3 @@ const nigeria_peternakan = {
   sapi_potong: 1904,
   domba_kambing: 1680,
 };
-
-
-

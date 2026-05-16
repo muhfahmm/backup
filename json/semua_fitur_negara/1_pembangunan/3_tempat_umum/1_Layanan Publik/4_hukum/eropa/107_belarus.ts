@@ -9,6 +9,3 @@ const belarus_hukum = {
       "indeks_korupsi": 17,
       "indeks_keamanan": 42
   };
-
-
-

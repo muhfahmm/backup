@@ -14,6 +14,3 @@ const iran_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

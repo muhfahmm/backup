@@ -5,6 +5,3 @@ const republik_serbia_hunian = {
   apartemen: 1410,
   mansion: 47005,
 };
-
-
-

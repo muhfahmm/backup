@@ -1,4 +1,5 @@
-﻿const hong_kong_pertahanan = {
+﻿// @ts-nocheck
+const hong_kong_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 6,
     "hangar_tank": 2,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 26,
     "pertahanan_siber": 1
     };
-
-

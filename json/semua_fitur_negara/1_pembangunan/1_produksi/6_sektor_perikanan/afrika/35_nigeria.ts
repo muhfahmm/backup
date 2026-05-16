@@ -4,6 +4,3 @@ const nigeria_perikanan = {
   mutiara: 1512,
   ikan: 1736,
 };
-
-
-

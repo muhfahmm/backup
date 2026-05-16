@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const albania_strategis = {
     "waktu_respon": 28,
     "intelijen": 8,
@@ -13,5 +14,3 @@ const albania_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

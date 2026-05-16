@@ -10,6 +10,3 @@ const swissAgreements = [
   { "no": 8, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

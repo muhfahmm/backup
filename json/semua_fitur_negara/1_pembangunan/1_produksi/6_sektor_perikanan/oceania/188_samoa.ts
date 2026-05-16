@@ -4,6 +4,3 @@ const samoa_perikanan = {
   mutiara: 80,
   ikan: 10,
 };
-
-
-

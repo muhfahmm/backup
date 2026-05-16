@@ -13,6 +13,3 @@ const austria_ekstraksi = {
   logam_tanah_jarang: 444,
   bijih_besi: 0,
 };
-
-
-

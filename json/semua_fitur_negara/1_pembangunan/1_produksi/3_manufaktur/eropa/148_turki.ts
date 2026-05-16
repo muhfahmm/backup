@@ -8,6 +8,3 @@ const turki_manufaktur = {
   kayu: 24,
   pupuk: 40,
 };
-
-
-

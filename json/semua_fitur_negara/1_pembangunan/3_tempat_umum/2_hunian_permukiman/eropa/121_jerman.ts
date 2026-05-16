@@ -5,6 +5,3 @@ const jerman_hunian = {
   apartemen: 16788,
   mansion: 559614,
 };
-
-
-

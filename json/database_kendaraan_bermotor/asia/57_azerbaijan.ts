@@ -5,6 +5,3 @@ const azerbaijanVehicles = {
   bus: 1987,
   truk: 9939,
 };
-
-
-

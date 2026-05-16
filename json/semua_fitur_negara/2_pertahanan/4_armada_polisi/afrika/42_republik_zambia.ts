@@ -16,6 +16,3 @@ const republik_zambia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

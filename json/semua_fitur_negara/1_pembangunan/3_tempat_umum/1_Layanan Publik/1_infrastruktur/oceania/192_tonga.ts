@@ -9,6 +9,3 @@ const tonga_infrastruktur = {
   bandara: 5,
   helipad: 3,
 };
-
-
-

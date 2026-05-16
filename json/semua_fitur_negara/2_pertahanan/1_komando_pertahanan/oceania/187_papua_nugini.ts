@@ -14,6 +14,3 @@ const papua_nugini_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

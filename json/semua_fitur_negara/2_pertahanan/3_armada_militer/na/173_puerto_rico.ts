@@ -30,6 +30,3 @@ const puerto_rico_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -16,6 +16,3 @@ const guinea_bissau_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

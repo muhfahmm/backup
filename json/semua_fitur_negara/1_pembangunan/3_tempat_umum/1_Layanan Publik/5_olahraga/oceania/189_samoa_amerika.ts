@@ -9,6 +9,3 @@ const samoa_amerika_olahraga = {
   "esports": 4,
   "gokart": 4
 };
-
-
-

@@ -15,6 +15,3 @@ const prancis_agrikultur = {
   kapas: 11528,
   tembakau: 3668,
 };
-
-
-

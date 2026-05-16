@@ -8,6 +8,3 @@ const aljazair_manufaktur = {
   kayu: 110,
   pupuk: 99,
 };
-
-
-

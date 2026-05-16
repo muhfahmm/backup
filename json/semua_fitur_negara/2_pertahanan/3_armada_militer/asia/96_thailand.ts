@@ -30,6 +30,3 @@ const thailand_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

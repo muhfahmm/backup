@@ -11,6 +11,3 @@ const bahrain_olahan_pangan = {
   ikan_kaleng: 344,
   kopi_teh: 152,
 };
-
-
-

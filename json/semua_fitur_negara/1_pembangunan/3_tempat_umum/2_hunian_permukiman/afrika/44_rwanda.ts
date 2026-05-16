@@ -5,6 +5,3 @@ const rwanda_hunian = {
   apartemen: 2491,
   mansion: 83038,
 };
-
-
-

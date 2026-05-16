@@ -5,6 +5,3 @@ const namibia_hunian = {
   apartemen: 495,
   mansion: 16525,
 };
-
-
-

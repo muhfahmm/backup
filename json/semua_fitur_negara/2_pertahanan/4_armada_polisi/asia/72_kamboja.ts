@@ -16,6 +16,3 @@ const kamboja_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

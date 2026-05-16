@@ -13,6 +13,3 @@ const paraguay_ekstraksi = {
   logam_tanah_jarang: 45,
   bijih_besi: 0,
 };
-
-
-

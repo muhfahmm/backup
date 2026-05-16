@@ -5,6 +5,3 @@ const liberiaVehicles = {
   bus: 963,
   truk: 4818,
 };
-
-
-

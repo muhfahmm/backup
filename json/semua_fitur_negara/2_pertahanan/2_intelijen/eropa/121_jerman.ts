@@ -4,6 +4,3 @@ const jerman_intelijen = {
   jaringan_radar: 56,
   operasi_siber: 42,
 };
-
-
-

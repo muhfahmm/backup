@@ -14,6 +14,3 @@ const ekuadorAgreements = [
   { "no": 12, "mitra": "Venezuela", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

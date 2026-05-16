@@ -15,6 +15,3 @@ const lesothoAgreements = [
   { "no": 13, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

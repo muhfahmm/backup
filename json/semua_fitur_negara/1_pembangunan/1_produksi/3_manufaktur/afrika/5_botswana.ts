@@ -8,6 +8,3 @@ const botswana_manufaktur = {
   kayu: 18,
   pupuk: 6,
 };
-
-
-

@@ -30,6 +30,3 @@ const burkina_faso_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

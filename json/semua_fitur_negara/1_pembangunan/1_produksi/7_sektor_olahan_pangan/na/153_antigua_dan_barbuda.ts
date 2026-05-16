@@ -11,6 +11,3 @@ const antigua_dan_barbuda_olahan_pangan = {
   ikan_kaleng: 98,
   kopi_teh: 68,
 };
-
-
-

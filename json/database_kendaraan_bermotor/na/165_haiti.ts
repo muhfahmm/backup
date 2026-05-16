@@ -5,6 +5,3 @@ const haitiVehicles = {
   bus: 2224,
   truk: 11123,
 };
-
-
-

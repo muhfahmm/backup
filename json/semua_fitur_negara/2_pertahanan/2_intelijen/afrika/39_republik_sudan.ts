@@ -4,6 +4,3 @@ const republik_sudan_intelijen = {
   jaringan_radar: 2,
   operasi_siber: 4,
 };
-
-
-

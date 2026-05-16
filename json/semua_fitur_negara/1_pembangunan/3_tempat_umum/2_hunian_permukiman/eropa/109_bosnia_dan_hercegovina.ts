@@ -5,6 +5,3 @@ const bosnia_dan_hercegovina_hunian = {
   apartemen: 673,
   mansion: 22436,
 };
-
-
-

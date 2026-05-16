@@ -2,6 +2,3 @@
 const myanmar_farmasi = {
   farmasi: 30,
 };
-
-
-

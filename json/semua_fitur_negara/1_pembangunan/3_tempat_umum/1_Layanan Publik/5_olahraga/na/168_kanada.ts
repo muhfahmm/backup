@@ -9,6 +9,3 @@ const kanada_olahraga = {
   "esports": 36,
   "gokart": 192
 };
-
-
-

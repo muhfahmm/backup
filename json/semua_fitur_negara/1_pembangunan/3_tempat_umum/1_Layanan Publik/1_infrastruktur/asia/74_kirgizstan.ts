@@ -9,6 +9,3 @@ const kirgizstan_infrastruktur = {
   bandara: 4,
   helipad: 4,
 };
-
-
-

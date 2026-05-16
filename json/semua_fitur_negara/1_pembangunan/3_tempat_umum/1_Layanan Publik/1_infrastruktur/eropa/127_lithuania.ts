@@ -9,6 +9,3 @@ const lithuania_infrastruktur = {
   bandara: 1,
   helipad: 3,
 };
-
-
-

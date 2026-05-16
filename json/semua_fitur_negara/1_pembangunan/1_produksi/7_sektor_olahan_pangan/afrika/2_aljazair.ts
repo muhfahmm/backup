@@ -11,6 +11,3 @@ const aljazair_olahan_pangan = {
   ikan_kaleng: 264,
   kopi_teh: 275,
 };
-
-
-

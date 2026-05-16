@@ -11,6 +11,3 @@ const tuvaluAgreements = [
   { "no": 9, "mitra": "Selandia Baru", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Australia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

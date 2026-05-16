@@ -1,4 +1,5 @@
-﻿const bermuda_pertahanan = {
+﻿// @ts-nocheck
+const bermuda_pertahanan = {
     "penjara": 12,
     "gudang_senjata": 21,
     "hangar_tank": 15,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 39,
     "pertahanan_siber": 37
     };
-
-

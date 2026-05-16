@@ -5,6 +5,3 @@ const koreaSelatanVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

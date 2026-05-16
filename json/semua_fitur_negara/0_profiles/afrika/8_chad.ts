@@ -26,74 +26,9 @@ const chad_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
-
-const chad = {
-  ...chad_profile,
-  "sektor_listrik": chad_listrik,
-  "hunian": chad_hunian,
-  "infrastruktur": chad_infrastruktur,
-  "sektor_ekstraksi": chad_ekstraksi,
-  "sektor_manufaktur": chad_manufaktur,
-  "sektor_peternakan": chad_peternakan,
-  "sektor_agrikultur": chad_agrikultur,
-  "sektor_perikanan": chad_perikanan,
-  "sektor_olahan_pangan": chad_olahan_pangan,
-  "sektor_farmasi": chad_farmasi,
-  "sektor_pertahanan": chad_pertahanan,
-  "armada_militer": chad_armada,
-  "militer_strategis": chad_strategis,
-  "armada_kepolisian": chad_kepolisian,
-  "pabrik_militer": chad_pabrik,
-  "intelijen": chad_intelijen,
-    "pendidikan": chad_pendidikan,
-  "kesehatan": chad_kesehatan,
-  "hukum": chad_hukum,
-  "sektor_olahraga": chad_olahraga,
-  "sektor_komersial": chad_komersial,
-  "sektor_hiburan": chad_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 32,
-      "kepuasan": 67,
-      "pendapatan": 4
-    },
-    "korporasi": {
-      "tarif": 3,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 35,
-      "kepuasan": 61,
-      "pendapatan": 9
-    },
-    "bea_cukai": {
-      "tarif": 13,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 30,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 28,
-      "kepuasan": 93,
-      "pendapatan": 4
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const chad_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const chad = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

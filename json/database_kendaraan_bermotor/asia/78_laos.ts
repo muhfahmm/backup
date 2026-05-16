@@ -5,6 +5,3 @@ const laosVehicles = {
   bus: 1412,
   truk: 7061,
 };
-
-
-

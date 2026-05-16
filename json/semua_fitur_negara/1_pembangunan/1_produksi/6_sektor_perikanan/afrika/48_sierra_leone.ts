@@ -4,6 +4,3 @@ const sierra_leone_perikanan = {
   mutiara: 84,
   ikan: 80,
 };
-
-
-

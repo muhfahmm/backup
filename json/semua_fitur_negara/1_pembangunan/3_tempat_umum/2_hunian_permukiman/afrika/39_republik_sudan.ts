@@ -5,6 +5,3 @@ const republik_sudan_hunian = {
   apartemen: 8464,
   mansion: 282160,
 };
-
-
-

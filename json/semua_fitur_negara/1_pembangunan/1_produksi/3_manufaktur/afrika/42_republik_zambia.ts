@@ -8,6 +8,3 @@ const republik_zambia_manufaktur = {
   kayu: 20,
   pupuk: 10,
 };
-
-
-

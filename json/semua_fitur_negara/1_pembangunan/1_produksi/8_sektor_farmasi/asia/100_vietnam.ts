@@ -2,6 +2,3 @@
 const vietnam_farmasi = {
   farmasi: 27,
 };
-
-
-

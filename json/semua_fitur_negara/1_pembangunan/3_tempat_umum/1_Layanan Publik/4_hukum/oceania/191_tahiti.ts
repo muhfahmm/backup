@@ -9,6 +9,3 @@ const tahiti_hukum = {
       "indeks_korupsi": 37,
       "indeks_keamanan": 52
   };
-
-
-

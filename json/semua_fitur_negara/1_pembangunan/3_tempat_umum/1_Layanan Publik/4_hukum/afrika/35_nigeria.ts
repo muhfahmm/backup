@@ -9,6 +9,3 @@ const nigeria_hukum = {
       "indeks_korupsi": 44,
       "indeks_keamanan": 64
   };
-
-
-

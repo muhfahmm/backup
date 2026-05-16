@@ -15,6 +15,3 @@ const republik_zambia_agrikultur = {
   kapas: 132,
   tembakau: 52,
 };
-
-
-

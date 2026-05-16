@@ -8,6 +8,3 @@ const niger_manufaktur = {
   kayu: 15,
   pupuk: 8,
 };
-
-
-

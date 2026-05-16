@@ -13,6 +13,3 @@ const polandia_ekstraksi = {
   logam_tanah_jarang: 212,
   bijih_besi: 53,
 };
-
-
-

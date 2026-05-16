@@ -26,74 +26,9 @@ const republik_zambia_geopolitik = {
       "kekuatan_keras": 13,
       "prestise_diplomatik": 57
   }
-  };
-
-const republik_zambia = {
-  ...republik_zambia_profile,
-  "sektor_listrik": republik_zambia_listrik,
-  "hunian": republik_zambia_hunian,
-  "infrastruktur": republik_zambia_infrastruktur,
-  "sektor_ekstraksi": republik_zambia_ekstraksi,
-  "sektor_manufaktur": republik_zambia_manufaktur,
-  "sektor_peternakan": republik_zambia_peternakan,
-  "sektor_agrikultur": republik_zambia_agrikultur,
-  "sektor_perikanan": republik_zambia_perikanan,
-  "sektor_olahan_pangan": republik_zambia_olahan_pangan,
-  "sektor_farmasi": republik_zambia_farmasi,
-  "sektor_pertahanan": republik_zambia_pertahanan,
-  "armada_militer": republik_zambia_armada,
-  "militer_strategis": republik_zambia_strategis,
-  "armada_kepolisian": republik_zambia_kepolisian,
-  "pabrik_militer": republik_zambia_pabrik,
-  "intelijen": republik_zambia_intelijen,
-    "pendidikan": republik_zambia_pendidikan,
-  "kesehatan": republik_zambia_kesehatan,
-  "hukum": republik_zambia_hukum,
-  "sektor_olahraga": republik_zambia_olahraga,
-  "sektor_komersial": republik_zambia_komersial,
-  "sektor_hiburan": republik_zambia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 20,
-      "kepuasan": 67,
-      "pendapatan": 12
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 15
-    },
-    "penghasilan": {
-      "tarif": 11,
-      "kepuasan": 61,
-      "pendapatan": 3
-    },
-    "bea_cukai": {
-      "tarif": 24,
-      "kepuasan": 86,
-      "pendapatan": 10
-    },
-    "lingkungan": {
-      "tarif": 22,
-      "kepuasan": 88,
-      "pendapatan": 10
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 5 },
-    "lainnya": {
-      "tarif": 19,
-      "kepuasan": 93,
-      "pendapatan": 8
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const republik_zambia_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const republik_zambia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

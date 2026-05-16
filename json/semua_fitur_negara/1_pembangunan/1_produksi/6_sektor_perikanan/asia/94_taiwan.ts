@@ -4,6 +4,3 @@ const taiwan_perikanan = {
   mutiara: 312,
   ikan: 696,
 };
-
-
-

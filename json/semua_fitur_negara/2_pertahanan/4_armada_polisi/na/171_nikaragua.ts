@@ -16,6 +16,3 @@ const nikaragua_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

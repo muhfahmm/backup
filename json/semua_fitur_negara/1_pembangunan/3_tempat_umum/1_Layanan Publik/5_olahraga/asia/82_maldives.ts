@@ -9,6 +9,3 @@ const maldives_olahraga = {
   "esports": 2,
   "gokart": 11
 };
-
-
-

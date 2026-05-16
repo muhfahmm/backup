@@ -4,6 +4,3 @@ const chile_intelijen = {
   jaringan_radar: 10,
   operasi_siber: 34,
 };
-
-
-

@@ -16,6 +16,3 @@ const ukraina_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

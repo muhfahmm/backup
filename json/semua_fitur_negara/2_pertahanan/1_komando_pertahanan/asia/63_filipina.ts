@@ -14,6 +14,3 @@ const filipina_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

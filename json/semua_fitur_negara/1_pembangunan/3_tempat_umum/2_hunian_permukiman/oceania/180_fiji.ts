@@ -5,6 +5,3 @@ const fiji_hunian = {
   apartemen: 178,
   mansion: 5963,
 };
-
-
-

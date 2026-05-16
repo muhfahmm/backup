@@ -2,6 +2,3 @@
 const estonia_farmasi = {
   farmasi: 12,
 };
-
-
-

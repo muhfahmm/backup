@@ -8,6 +8,3 @@ const australia_manufaktur = {
   kayu: 1224,
   pupuk: 408,
 };
-
-
-

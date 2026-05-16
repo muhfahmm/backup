@@ -2,6 +2,3 @@
 const laos_farmasi = {
   farmasi: 23,
 };
-
-
-

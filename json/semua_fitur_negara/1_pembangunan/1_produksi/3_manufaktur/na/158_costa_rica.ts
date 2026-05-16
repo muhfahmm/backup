@@ -8,6 +8,3 @@ const costa_rica_manufaktur = {
   kayu: 33,
   pupuk: 30,
 };
-
-
-

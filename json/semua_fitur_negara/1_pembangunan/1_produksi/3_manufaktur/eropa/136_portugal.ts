@@ -8,6 +8,3 @@ const portugal_manufaktur = {
   kayu: 170,
   pupuk: 85,
 };
-
-
-

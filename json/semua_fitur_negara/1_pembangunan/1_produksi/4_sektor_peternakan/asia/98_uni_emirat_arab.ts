@@ -5,6 +5,3 @@ const uni_emirat_arab_peternakan = {
   sapi_potong: 2970,
   domba_kambing: 1914,
 };
-
-
-

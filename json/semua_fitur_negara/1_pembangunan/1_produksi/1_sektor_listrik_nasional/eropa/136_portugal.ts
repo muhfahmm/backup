@@ -7,6 +7,3 @@ const portugal_listrik = {
   pembangkit_listrik_tenaga_gas: 522,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

@@ -4,6 +4,3 @@ const republik_zambia_perikanan = {
   mutiara: 12,
   ikan: 78,
 };
-
-
-

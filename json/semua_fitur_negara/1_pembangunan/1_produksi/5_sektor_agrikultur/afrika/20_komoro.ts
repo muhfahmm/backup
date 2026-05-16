@@ -15,6 +15,3 @@ const komoro_agrikultur = {
   kapas: 64,
   tembakau: 204,
 };
-
-
-

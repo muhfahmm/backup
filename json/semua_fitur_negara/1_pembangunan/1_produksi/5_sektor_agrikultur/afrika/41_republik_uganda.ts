@@ -15,6 +15,3 @@ const republik_uganda_agrikultur = {
   kapas: 81,
   tembakau: 51,
 };
-
-
-

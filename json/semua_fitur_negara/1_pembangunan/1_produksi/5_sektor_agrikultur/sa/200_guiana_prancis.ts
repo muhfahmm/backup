@@ -15,6 +15,3 @@ const guiana_prancis_agrikultur = {
   kapas: 19,
   tembakau: 32,
 };
-
-
-

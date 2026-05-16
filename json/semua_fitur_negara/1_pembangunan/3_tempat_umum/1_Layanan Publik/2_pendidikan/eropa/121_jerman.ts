@@ -12,6 +12,3 @@ const jerman_pendidikan = {
       "pusat_pengembangan": 20,
       "literasi": 86
     };
-
-
-

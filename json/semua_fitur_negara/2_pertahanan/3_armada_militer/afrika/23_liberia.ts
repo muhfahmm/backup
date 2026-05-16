@@ -30,6 +30,3 @@ const liberia_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

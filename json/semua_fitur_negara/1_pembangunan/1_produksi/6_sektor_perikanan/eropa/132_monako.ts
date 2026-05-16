@@ -4,6 +4,3 @@ const monako_perikanan = {
   mutiara: 8,
   ikan: 12,
 };
-
-
-

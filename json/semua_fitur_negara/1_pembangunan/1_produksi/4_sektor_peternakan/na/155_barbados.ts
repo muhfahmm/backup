@@ -5,6 +5,3 @@ const barbados_peternakan = {
   sapi_potong: 26,
   domba_kambing: 17,
 };
-
-
-

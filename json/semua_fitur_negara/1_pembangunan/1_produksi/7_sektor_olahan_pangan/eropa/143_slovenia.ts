@@ -11,6 +11,3 @@ const slovenia_olahan_pangan = {
   ikan_kaleng: 84,
   kopi_teh: 66,
 };
-
-
-

@@ -5,6 +5,3 @@ const laos_hunian = {
   apartemen: 1429,
   mansion: 47665,
 };
-
-
-

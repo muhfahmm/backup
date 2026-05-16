@@ -15,6 +15,3 @@ const eritrea_agrikultur = {
   kapas: 44,
   tembakau: 53,
 };
-
-
-

@@ -5,6 +5,3 @@ const kubaVehicles = {
   bus: 2267,
   truk: 11338,
 };
-
-
-

@@ -5,6 +5,3 @@ const malta_hunian = {
   apartemen: 98,
   mansion: 3271,
 };
-
-
-

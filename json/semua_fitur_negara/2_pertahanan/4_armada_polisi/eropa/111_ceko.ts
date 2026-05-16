@@ -16,6 +16,3 @@ const ceko_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

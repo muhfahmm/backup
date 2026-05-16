@@ -9,6 +9,3 @@ const palestina_hukum = {
       "indeks_korupsi": 25,
       "indeks_keamanan": 69
   };
-
-
-

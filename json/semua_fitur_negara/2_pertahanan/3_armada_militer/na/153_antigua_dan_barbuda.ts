@@ -30,6 +30,3 @@ const antigua_dan_barbuda_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

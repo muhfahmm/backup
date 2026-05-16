@@ -5,6 +5,3 @@ const kanada_peternakan = {
   sapi_potong: 11904,
   domba_kambing: 5760,
 };
-
-
-

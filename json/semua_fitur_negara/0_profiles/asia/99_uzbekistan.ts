@@ -26,74 +26,9 @@ const uzbekistan_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
-
-const uzbekistan = {
-  ...uzbekistan_profile,
-  "sektor_listrik": uzbekistan_listrik,
-  "hunian": uzbekistan_hunian,
-  "infrastruktur": uzbekistan_infrastruktur,
-  "sektor_ekstraksi": uzbekistan_ekstraksi,
-  "sektor_manufaktur": uzbekistan_manufaktur,
-  "sektor_peternakan": uzbekistan_peternakan,
-  "sektor_agrikultur": uzbekistan_agrikultur,
-  "sektor_perikanan": uzbekistan_perikanan,
-  "sektor_olahan_pangan": uzbekistan_olahan_pangan,
-  "sektor_farmasi": uzbekistan_farmasi,
-  "sektor_pertahanan": uzbekistan_pertahanan,
-  "armada_militer": uzbekistan_armada,
-  "militer_strategis": uzbekistan_strategis,
-  "armada_kepolisian": uzbekistan_kepolisian,
-  "pabrik_militer": uzbekistan_pabrik,
-  "intelijen": uzbekistan_intelijen,
-    "pendidikan": uzbekistan_pendidikan,
-  "kesehatan": uzbekistan_kesehatan,
-  "hukum": uzbekistan_hukum,
-  "sektor_olahraga": uzbekistan_olahraga,
-  "sektor_komersial": uzbekistan_komersial,
-  "sektor_hiburan": uzbekistan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 18,
-      "kepuasan": 67,
-      "pendapatan": 39
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 74
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 46
-    },
-    "bea_cukai": {
-      "tarif": 6,
-      "kepuasan": 86,
-      "pendapatan": 8
-    },
-    "lingkungan": {
-      "tarif": 19,
-      "kepuasan": 88,
-      "pendapatan": 20
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 5 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 14 },
-    "lainnya": {
-      "tarif": 39,
-      "kepuasan": 93,
-      "pendapatan": 71
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const uzbekistan_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const uzbekistan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -8,6 +8,3 @@ const andorra_manufaktur = {
   kayu: 24,
   pupuk: 14,
 };
-
-
-

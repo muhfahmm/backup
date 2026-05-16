@@ -5,6 +5,3 @@ const mikronesiaVehicles = {
   bus: 22,
   truk: 112,
 };
-
-
-

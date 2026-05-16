@@ -5,6 +5,3 @@ const taiwan_peternakan = {
   sapi_potong: 768,
   domba_kambing: 408,
 };
-
-
-

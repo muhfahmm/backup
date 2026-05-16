@@ -11,6 +11,3 @@ const san_marino_olahan_pangan = {
   ikan_kaleng: 132,
   kopi_teh: 68,
 };
-
-
-

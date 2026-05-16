@@ -11,6 +11,3 @@ const thailandAgreements = [
   { "no": 9, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

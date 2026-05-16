@@ -4,6 +4,3 @@ const irlandia_komersial = {
   "hotel": 19,
   "pusat_grosir_tekstil": 12
 };
-
-
-

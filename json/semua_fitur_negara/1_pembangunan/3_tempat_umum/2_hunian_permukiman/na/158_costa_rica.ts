@@ -5,6 +5,3 @@ const costa_rica_hunian = {
   apartemen: 1012,
   mansion: 33746,
 };
-
-
-

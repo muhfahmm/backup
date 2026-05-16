@@ -16,6 +16,3 @@ const madagaskar_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

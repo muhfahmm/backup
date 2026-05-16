@@ -14,6 +14,3 @@ const belize_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

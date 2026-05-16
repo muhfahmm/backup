@@ -9,6 +9,3 @@ const vanuatu_infrastruktur = {
   bandara: 5,
   helipad: 1,
 };
-
-
-

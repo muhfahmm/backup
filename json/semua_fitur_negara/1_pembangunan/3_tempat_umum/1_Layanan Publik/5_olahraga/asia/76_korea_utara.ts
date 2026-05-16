@@ -9,6 +9,3 @@ const korea_utara_olahraga = {
   "esports": 0,
   "gokart": 6
 };
-
-
-

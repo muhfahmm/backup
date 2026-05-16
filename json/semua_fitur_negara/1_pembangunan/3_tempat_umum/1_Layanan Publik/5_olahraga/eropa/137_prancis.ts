@@ -9,6 +9,3 @@ const prancis_olahraga = {
   "esports": 28,
   "gokart": 90
 };
-
-
-

@@ -8,6 +8,3 @@ const bolivia_manufaktur = {
   kayu: 45,
   pupuk: 15,
 };
-
-
-

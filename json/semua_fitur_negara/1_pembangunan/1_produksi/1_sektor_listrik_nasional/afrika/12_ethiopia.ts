@@ -7,6 +7,3 @@ const ethiopia_listrik = {
   pembangkit_listrik_tenaga_uap: 238,
   pembangkit_listrik_tenaga_angin: 2,
 };
-
-
-

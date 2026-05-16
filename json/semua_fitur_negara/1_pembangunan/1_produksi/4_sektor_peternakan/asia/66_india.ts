@@ -5,6 +5,3 @@ const india_peternakan = {
   sapi_potong: 15327,
   domba_kambing: 5502,
 };
-
-
-

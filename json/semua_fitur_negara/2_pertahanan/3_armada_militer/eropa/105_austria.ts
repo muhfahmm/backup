@@ -30,6 +30,3 @@ const austria_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

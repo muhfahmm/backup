@@ -5,6 +5,3 @@ const brazil_hunian = {
   apartemen: 42417,
   mansion: 1413917,
 };
-
-
-

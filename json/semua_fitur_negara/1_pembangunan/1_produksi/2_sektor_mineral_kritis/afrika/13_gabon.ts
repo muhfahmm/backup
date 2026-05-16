@@ -13,6 +13,3 @@ const gabon_ekstraksi = {
   logam_tanah_jarang: 7,
   bijih_besi: 7,
 };
-
-
-

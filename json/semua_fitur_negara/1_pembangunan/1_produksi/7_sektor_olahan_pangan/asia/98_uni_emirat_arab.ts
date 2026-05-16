@@ -11,6 +11,3 @@ const uni_emirat_arab_olahan_pangan = {
   ikan_kaleng: 792,
   kopi_teh: 2838,
 };
-
-
-

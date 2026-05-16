@@ -5,6 +5,3 @@ const kroasiaVehicles = {
   bus: 817,
   truk: 4087,
 };
-
-
-

@@ -5,6 +5,3 @@ const kuba_peternakan = {
   sapi_potong: 760,
   domba_kambing: 874,
 };
-
-
-

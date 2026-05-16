@@ -11,6 +11,3 @@ const polandia_olahan_pangan = {
   ikan_kaleng: 1272,
   kopi_teh: 1325,
 };
-
-
-

@@ -13,6 +13,3 @@ const tunisia_ekstraksi = {
   logam_tanah_jarang: 8,
   bijih_besi: 0,
 };
-
-
-

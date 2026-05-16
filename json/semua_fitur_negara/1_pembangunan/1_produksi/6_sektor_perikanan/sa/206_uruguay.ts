@@ -4,6 +4,3 @@ const uruguay_perikanan = {
   mutiara: 28,
   ikan: 14,
 };
-
-
-

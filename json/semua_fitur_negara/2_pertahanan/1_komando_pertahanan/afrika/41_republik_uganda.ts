@@ -14,6 +14,3 @@ const republik_uganda_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

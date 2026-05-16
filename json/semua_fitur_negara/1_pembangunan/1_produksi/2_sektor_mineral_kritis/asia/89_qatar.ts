@@ -13,6 +13,3 @@ const qatar_ekstraksi = {
   logam_tanah_jarang: 30,
   bijih_besi: 135,
 };
-
-
-

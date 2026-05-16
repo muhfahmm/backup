@@ -11,6 +11,3 @@ const kroasia_olahan_pangan = {
   ikan_kaleng: 123,
   kopi_teh: 33,
 };
-
-
-

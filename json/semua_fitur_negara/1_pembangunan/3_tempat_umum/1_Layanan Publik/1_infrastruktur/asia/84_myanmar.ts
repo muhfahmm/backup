@@ -9,6 +9,3 @@ const myanmar_infrastruktur = {
   bandara: 1,
   helipad: 3,
 };
-
-
-

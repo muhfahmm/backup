@@ -4,6 +4,3 @@ const amerika_serikat_intelijen = {
   jaringan_radar: 198,
   operasi_siber: 177,
 };
-
-
-

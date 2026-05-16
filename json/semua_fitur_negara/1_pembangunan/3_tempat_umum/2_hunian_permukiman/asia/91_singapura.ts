@@ -5,6 +5,3 @@ const singapura_hunian = {
   apartemen: 1141,
   mansion: 38061,
 };
-
-
-

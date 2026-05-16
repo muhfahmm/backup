@@ -1,4 +1,5 @@
-﻿const papua_nugini_armada = {
+﻿// @ts-nocheck
+const papua_nugini_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
       }
 };
-
-

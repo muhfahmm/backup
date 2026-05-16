@@ -8,6 +8,3 @@ const kirgizstan_manufaktur = {
   kayu: 30,
   pupuk: 6,
 };
-
-
-

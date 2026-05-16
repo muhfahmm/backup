@@ -15,6 +15,3 @@ const antigua_dan_barbuda_agrikultur = {
   kapas: 144,
   tembakau: 60,
 };
-
-
-

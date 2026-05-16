@@ -30,6 +30,3 @@ const brunei_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

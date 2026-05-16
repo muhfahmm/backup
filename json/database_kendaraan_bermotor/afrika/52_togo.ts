@@ -5,6 +5,3 @@ const togoVehicles = {
   bus: 1577,
   truk: 7889,
 };
-
-
-

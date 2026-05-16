@@ -20,6 +20,3 @@ const burkina_faso_diplomasi = [
   { "no": 18, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

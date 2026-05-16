@@ -16,6 +16,3 @@ const bahama_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -5,6 +5,3 @@ const inggris_hunian = {
   apartemen: 13458,
   mansion: 448607,
 };
-
-
-

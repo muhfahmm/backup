@@ -7,6 +7,3 @@ const saint_vincent_dan_grenadine_listrik = {
   pembangkit_listrik_tenaga_gas: 40,
   pembangkit_listrik_tenaga_angin: 5,
 };
-
-
-

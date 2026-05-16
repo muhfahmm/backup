@@ -9,6 +9,3 @@ const tanjung_verde_olahraga = {
   "esports": 0,
   "gokart": 4
 };
-
-
-

@@ -12,6 +12,3 @@ const inggris_pendidikan = {
       "pusat_pengembangan": 40,
       "literasi": 91
     };
-
-
-

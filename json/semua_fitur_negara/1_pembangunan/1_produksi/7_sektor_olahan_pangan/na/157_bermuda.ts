@@ -11,6 +11,3 @@ const bermuda_olahan_pangan = {
   ikan_kaleng: 34,
   kopi_teh: 92,
 };
-
-
-

@@ -10,6 +10,3 @@ const panamaAgreements = [
   { "no": 8, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

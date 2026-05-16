@@ -5,6 +5,3 @@ const sri_lanka_hunian = {
   apartemen: 4388,
   mansion: 146272,
 };
-
-
-

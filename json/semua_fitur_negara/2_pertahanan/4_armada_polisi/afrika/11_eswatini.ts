@@ -16,6 +16,3 @@ const eswatini_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

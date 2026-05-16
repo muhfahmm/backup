@@ -5,6 +5,3 @@ const vanuatu_hunian = {
   apartemen: 59,
   mansion: 1975,
 };
-
-
-

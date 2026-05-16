@@ -8,6 +8,3 @@ const uzbekistan_manufaktur = {
   kayu: 77,
   pupuk: 21,
 };
-
-
-

@@ -8,6 +8,3 @@ const india_manufaktur = {
   kayu: 5109,
   pupuk: 2751,
 };
-
-
-

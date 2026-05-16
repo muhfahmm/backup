@@ -15,6 +15,3 @@ const palau_agrikultur = {
   kapas: 158,
   tembakau: 66,
 };
-
-
-

@@ -30,6 +30,3 @@ const costa_rica_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

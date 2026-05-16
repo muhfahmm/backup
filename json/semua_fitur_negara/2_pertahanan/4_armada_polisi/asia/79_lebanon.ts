@@ -16,6 +16,3 @@ const lebanon_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

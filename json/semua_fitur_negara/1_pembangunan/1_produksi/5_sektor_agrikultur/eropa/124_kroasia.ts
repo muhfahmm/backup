@@ -15,6 +15,3 @@ const kroasia_agrikultur = {
   kapas: 156,
   tembakau: 177,
 };
-
-
-

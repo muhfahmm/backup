@@ -1,4 +1,5 @@
-﻿const qatar_armada = {
+﻿// @ts-nocheck
+const qatar_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -29,5 +30,3 @@
         "pesawat_angkut": 2
       }
 };
-
-

@@ -5,6 +5,3 @@ const uniEmiratArabVehicles = {
   bus: 1926,
   truk: 9630,
 };
-
-
-

@@ -5,6 +5,3 @@ const portugal_hunian = {
   apartemen: 2082,
   mansion: 69415,
 };
-
-
-

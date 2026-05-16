@@ -2,6 +2,3 @@
 const vatikan_farmasi = {
   farmasi: 40,
 };
-
-
-

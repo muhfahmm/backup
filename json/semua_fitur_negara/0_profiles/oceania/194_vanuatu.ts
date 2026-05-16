@@ -26,74 +26,9 @@ const vanuatu_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
     }
-  };
-
-const vanuatu = {
-  ...vanuatu_profile,
-  "sektor_listrik": vanuatu_listrik,
-  "hunian": vanuatu_hunian,
-  "infrastruktur": vanuatu_infrastruktur,
-  "sektor_ekstraksi": vanuatu_ekstraksi,
-  "sektor_manufaktur": vanuatu_manufaktur,
-  "sektor_peternakan": vanuatu_peternakan,
-  "sektor_agrikultur": vanuatu_agrikultur,
-  "sektor_perikanan": vanuatu_perikanan,
-  "sektor_olahan_pangan": vanuatu_olahan_pangan,
-  "sektor_farmasi": vanuatu_farmasi,
-  "sektor_pertahanan": vanuatu_pertahanan,
-  "armada_militer": vanuatu_armada,
-  "militer_strategis": vanuatu_strategis,
-  "armada_kepolisian": vanuatu_kepolisian,
-  "pabrik_militer": vanuatu_pabrik,
-  "intelijen": vanuatu_intelijen,
-    "pendidikan": vanuatu_pendidikan,
-  "kesehatan": vanuatu_kesehatan,
-  "hukum": vanuatu_hukum,
-  "sektor_olahraga": vanuatu_olahraga,
-  "sektor_komersial": vanuatu_komersial,
-  "sektor_hiburan": vanuatu_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 8,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 10,
-      "kepuasan": 52,
-      "pendapatan": 0
-    },
-    "penghasilan": {
-      "tarif": 10,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 10,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 14,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const vanuatu_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const vanuatu = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

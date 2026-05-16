@@ -11,6 +11,3 @@ const hong_kong_olahan_pangan = {
   ikan_kaleng: 27,
   kopi_teh: 48,
 };
-
-
-

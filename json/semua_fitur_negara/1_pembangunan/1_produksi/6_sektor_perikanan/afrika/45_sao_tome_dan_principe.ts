@@ -4,6 +4,3 @@ const sao_tome_dan_principe_perikanan = {
   mutiara: 152,
   ikan: 88,
 };
-
-
-

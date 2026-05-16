@@ -8,6 +8,3 @@ const republik_tanzania_manufaktur = {
   kayu: 21,
   pupuk: 18,
 };
-
-
-

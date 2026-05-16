@@ -12,6 +12,3 @@ const kanada_pendidikan = {
       "pusat_pengembangan": 42,
       "literasi": 85
     };
-
-
-

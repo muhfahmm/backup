@@ -12,6 +12,3 @@ const hong_kong_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 71
     };
-
-
-

@@ -2,6 +2,3 @@
 const belanda_farmasi = {
   farmasi: 38,
 };
-
-
-

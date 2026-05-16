@@ -4,6 +4,3 @@ const israel_perikanan = {
   mutiara: 945,
   ikan: 1827,
 };
-
-
-

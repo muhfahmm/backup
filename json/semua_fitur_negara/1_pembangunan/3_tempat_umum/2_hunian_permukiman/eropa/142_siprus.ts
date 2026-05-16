@@ -5,6 +5,3 @@ const siprus_hunian = {
   apartemen: 240,
   mansion: 8027,
 };
-
-
-

@@ -8,6 +8,3 @@ const chad_manufaktur = {
   kayu: 36,
   pupuk: 27,
 };
-
-
-

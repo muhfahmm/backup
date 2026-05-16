@@ -16,6 +16,3 @@ const grenada_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

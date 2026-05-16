@@ -7,6 +7,3 @@ const makedonia_utara_listrik = {
   pembangkit_listrik_tenaga_gas: 55,
   pembangkit_listrik_tenaga_angin: 20,
 };
-
-
-

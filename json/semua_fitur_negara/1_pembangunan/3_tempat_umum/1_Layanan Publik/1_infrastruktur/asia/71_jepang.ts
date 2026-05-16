@@ -9,6 +9,3 @@ const jepang_infrastruktur = {
   bandara: 12,
   helipad: 20,
 };
-
-
-

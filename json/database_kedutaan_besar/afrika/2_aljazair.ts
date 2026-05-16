@@ -21,6 +21,3 @@ const aljazair_diplomasi = [
   { "no": 19, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

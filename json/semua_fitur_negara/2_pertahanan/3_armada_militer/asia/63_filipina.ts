@@ -30,6 +30,3 @@ const filipina_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

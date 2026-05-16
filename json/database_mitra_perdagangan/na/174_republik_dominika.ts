@@ -14,6 +14,3 @@ const republik_dominikaAgreements = [
   { "no": 12, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

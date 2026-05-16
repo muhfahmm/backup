@@ -4,6 +4,3 @@ const gibraltar_perikanan = {
   mutiara: 76,
   ikan: 18,
 };
-
-
-

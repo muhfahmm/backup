@@ -9,6 +9,3 @@ const vatikan_infrastruktur = {
   bandara: 3,
   helipad: 3,
 };
-
-
-

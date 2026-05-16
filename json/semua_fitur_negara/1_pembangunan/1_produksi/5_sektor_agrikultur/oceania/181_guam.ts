@@ -15,6 +15,3 @@ const guam_agrikultur = {
   kapas: 90,
   tembakau: 140,
 };
-
-
-

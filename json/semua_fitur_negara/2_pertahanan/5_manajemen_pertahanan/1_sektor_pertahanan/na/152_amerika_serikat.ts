@@ -9,6 +9,3 @@ const amerika_serikat_pertahanan = {
     "program_luar_angkasa": 25,
     "pertahanan_siber": 9
     };
-
-
-

@@ -8,6 +8,3 @@ const republik_serbia_manufaktur = {
   kayu: 25,
   pupuk: 10,
 };
-
-
-

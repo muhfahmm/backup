@@ -26,74 +26,9 @@ const selandia_baru_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const selandia_baru = {
-  ...selandia_baru_profile,
-  "sektor_listrik": selandia_baru_listrik,
-  "hunian": selandia_baru_hunian,
-  "infrastruktur": selandia_baru_infrastruktur,
-  "sektor_ekstraksi": selandia_baru_ekstraksi,
-  "sektor_manufaktur": selandia_baru_manufaktur,
-  "sektor_peternakan": selandia_baru_peternakan,
-  "sektor_agrikultur": selandia_baru_agrikultur,
-  "sektor_perikanan": selandia_baru_perikanan,
-  "sektor_olahan_pangan": selandia_baru_olahan_pangan,
-  "sektor_farmasi": selandia_baru_farmasi,
-  "sektor_pertahanan": selandia_baru_pertahanan,
-  "armada_militer": selandia_baru_armada,
-  "militer_strategis": selandia_baru_strategis,
-  "armada_kepolisian": selandia_baru_kepolisian,
-  "pabrik_militer": selandia_baru_pabrik,
-  "intelijen": selandia_baru_intelijen,
-    "pendidikan": selandia_baru_pendidikan,
-  "kesehatan": selandia_baru_kesehatan,
-  "hukum": selandia_baru_hukum,
-  "sektor_olahraga": selandia_baru_olahraga,
-  "sektor_komersial": selandia_baru_komersial,
-  "sektor_hiburan": selandia_baru_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 29,
-      "kepuasan": 67,
-      "pendapatan": 85
-    },
-    "korporasi": {
-      "tarif": 38,
-      "kepuasan": 52,
-      "pendapatan": 180
-    },
-    "penghasilan": {
-      "tarif": 15,
-      "kepuasan": 61,
-      "pendapatan": 102
-    },
-    "bea_cukai": {
-      "tarif": 5,
-      "kepuasan": 86,
-      "pendapatan": 18
-    },
-    "lingkungan": {
-      "tarif": 3,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 13 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 37 },
-    "lainnya": {
-      "tarif": 18,
-      "kepuasan": 93,
-      "pendapatan": 62
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const selandia_baru_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const selandia_baru = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

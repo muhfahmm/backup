@@ -9,6 +9,3 @@ const puerto_rico_hukum = {
       "indeks_korupsi": 30,
       "indeks_keamanan": 50
   };
-
-
-

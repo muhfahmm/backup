@@ -5,6 +5,3 @@ const trinidadDanTobagoVehicles = {
   bus: 277,
   truk: 1389,
 };
-
-
-

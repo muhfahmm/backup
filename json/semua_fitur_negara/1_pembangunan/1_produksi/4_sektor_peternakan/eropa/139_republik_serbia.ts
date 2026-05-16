@@ -5,6 +5,3 @@ const republik_serbia_peternakan = {
   sapi_potong: 125,
   domba_kambing: 170,
 };
-
-
-

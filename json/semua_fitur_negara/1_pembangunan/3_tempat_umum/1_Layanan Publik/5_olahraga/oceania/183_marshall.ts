@@ -9,6 +9,3 @@ const marshall_olahraga = {
   "esports": 3,
   "gokart": 12
 };
-
-
-

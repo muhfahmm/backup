@@ -5,6 +5,3 @@ const bosnia_dan_hercegovina_peternakan = {
   sapi_potong: 88,
   domba_kambing: 80,
 };
-
-
-

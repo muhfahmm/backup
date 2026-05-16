@@ -5,6 +5,3 @@ const palau_hunian = {
   apartemen: 3,
   mansion: 120,
 };
-
-
-

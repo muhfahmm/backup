@@ -18,7 +18,6 @@ const pabrikMiliterRate = {
   }
 };
 
-export interface SektorPabrikMiliter {
   pabrik_amunisi: number;
 }
 
@@ -33,6 +32,3 @@ const militerRate = {
 const produksiMiliterPabrik = [
   { key: "pabrik_amunisi", category: "Pabrik", label: "Pabrik Amunisi Militer", deskripsi: "Produksi Amunisi", biaya_pembangunan: 63750, waktu_pembangunan: 30, biaya_pemeliharaan: 420000 }
 ];
-
-
-

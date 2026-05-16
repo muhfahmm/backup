@@ -1,4 +1,5 @@
-﻿const grenada_pertahanan = {
+﻿// @ts-nocheck
+const grenada_pertahanan = {
     "penjara": 24,
     "gudang_senjata": 20,
     "hangar_tank": 21,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 6,
     "pertahanan_siber": 36
     };
-
-

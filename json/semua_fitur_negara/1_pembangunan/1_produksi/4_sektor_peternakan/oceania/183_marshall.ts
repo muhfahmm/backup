@@ -5,6 +5,3 @@ const marshall_peternakan = {
   sapi_potong: 108,
   domba_kambing: 144,
 };
-
-
-

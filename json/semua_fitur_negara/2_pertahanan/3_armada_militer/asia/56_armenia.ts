@@ -30,6 +30,3 @@ const armenia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

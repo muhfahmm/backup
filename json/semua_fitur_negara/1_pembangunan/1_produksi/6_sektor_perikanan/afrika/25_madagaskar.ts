@@ -4,6 +4,3 @@ const madagaskar_perikanan = {
   mutiara: 30,
   ikan: 58,
 };
-
-
-

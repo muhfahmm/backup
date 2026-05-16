@@ -8,6 +8,3 @@ const qatar_manufaktur = {
   kayu: 60,
   pupuk: 75,
 };
-
-
-

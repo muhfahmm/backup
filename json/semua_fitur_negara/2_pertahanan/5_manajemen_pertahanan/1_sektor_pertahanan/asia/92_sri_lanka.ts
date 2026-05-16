@@ -9,6 +9,3 @@ const sri_lanka_pertahanan = {
     "program_luar_angkasa": 35,
     "pertahanan_siber": 13
     };
-
-
-

@@ -13,6 +13,3 @@ const swiss_ekstraksi = {
   logam_tanah_jarang: 329,
   bijih_besi: 282,
 };
-
-
-

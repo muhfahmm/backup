@@ -5,6 +5,3 @@ const mauritania_peternakan = {
   sapi_potong: 86,
   domba_kambing: 64,
 };
-
-
-

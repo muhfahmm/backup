@@ -15,6 +15,3 @@ const luksemburg_agrikultur = {
   kapas: 39,
   tembakau: 213,
 };
-
-
-

@@ -4,6 +4,3 @@ const iran_perikanan = {
   mutiara: 414,
   ikan: 828,
 };
-
-
-

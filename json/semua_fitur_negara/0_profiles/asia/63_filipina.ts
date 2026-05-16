@@ -26,74 +26,9 @@ const filipina_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
-
-const filipina = {
-  ...filipina_profile,
-  "sektor_listrik": filipina_listrik,
-  "hunian": filipina_hunian,
-  "infrastruktur": filipina_infrastruktur,
-  "sektor_ekstraksi": filipina_ekstraksi,
-  "sektor_manufaktur": filipina_manufaktur,
-  "sektor_peternakan": filipina_peternakan,
-  "sektor_agrikultur": filipina_agrikultur,
-  "sektor_perikanan": filipina_perikanan,
-  "sektor_olahan_pangan": filipina_olahan_pangan,
-  "sektor_farmasi": filipina_farmasi,
-  "sektor_pertahanan": filipina_pertahanan,
-  "armada_militer": filipina_armada,
-  "militer_strategis": filipina_strategis,
-  "armada_kepolisian": filipina_kepolisian,
-  "pabrik_militer": filipina_pabrik,
-  "intelijen": filipina_intelijen,
-    "pendidikan": filipina_pendidikan,
-  "kesehatan": filipina_kesehatan,
-  "hukum": filipina_hukum,
-  "sektor_olahraga": filipina_olahraga,
-  "sektor_komersial": filipina_komersial,
-  "sektor_hiburan": filipina_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 34,
-      "kepuasan": 67,
-      "pendapatan": 201
-    },
-    "korporasi": {
-      "tarif": 5,
-      "kepuasan": 52,
-      "pendapatan": 44
-    },
-    "penghasilan": {
-      "tarif": 29,
-      "kepuasan": 61,
-      "pendapatan": 279
-    },
-    "bea_cukai": {
-      "tarif": 7,
-      "kepuasan": 86,
-      "pendapatan": 81
-    },
-    "lingkungan": {
-      "tarif": 27,
-      "kepuasan": 88,
-      "pendapatan": 149
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 22 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 64 },
-    "lainnya": {
-      "tarif": 7,
-      "kepuasan": 93,
-      "pendapatan": 69
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const filipina_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const filipina = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -5,6 +5,3 @@ const guatemala_hunian = {
   apartemen: 3492,
   mansion: 116422,
 };
-
-
-

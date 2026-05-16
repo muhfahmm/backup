@@ -9,6 +9,3 @@ const inggris_olahraga = {
   "esports": 57,
   "gokart": 117
 };
-
-
-

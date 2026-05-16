@@ -21,6 +21,3 @@ const iran_diplomasi = [
   { "no": 19, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

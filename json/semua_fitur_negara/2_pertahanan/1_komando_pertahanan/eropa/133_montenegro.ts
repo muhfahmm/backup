@@ -14,6 +14,3 @@ const montenegro_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

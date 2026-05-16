@@ -12,6 +12,3 @@ const italia_pendidikan = {
       "pusat_pengembangan": 49,
       "literasi": 86
     };
-
-
-

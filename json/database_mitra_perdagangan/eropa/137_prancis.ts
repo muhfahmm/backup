@@ -15,6 +15,3 @@ const prancisAgreements = [
   { "no": 13, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

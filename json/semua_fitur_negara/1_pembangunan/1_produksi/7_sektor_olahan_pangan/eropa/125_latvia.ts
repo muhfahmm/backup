@@ -11,6 +11,3 @@ const latvia_olahan_pangan = {
   ikan_kaleng: 120,
   kopi_teh: 76,
 };
-
-
-

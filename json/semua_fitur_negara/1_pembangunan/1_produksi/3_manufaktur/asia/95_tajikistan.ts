@@ -8,6 +8,3 @@ const tajikistan_manufaktur = {
   kayu: 36,
   pupuk: 40,
 };
-
-
-

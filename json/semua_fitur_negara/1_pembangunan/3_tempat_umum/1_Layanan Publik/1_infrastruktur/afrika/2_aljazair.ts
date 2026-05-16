@@ -9,6 +9,3 @@ const aljazair_infrastruktur = {
   bandara: 7,
   helipad: 10,
 };
-
-
-

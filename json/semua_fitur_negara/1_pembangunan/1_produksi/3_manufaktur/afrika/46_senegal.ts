@@ -8,6 +8,3 @@ const senegal_manufaktur = {
   kayu: 11,
   pupuk: 9,
 };
-
-
-

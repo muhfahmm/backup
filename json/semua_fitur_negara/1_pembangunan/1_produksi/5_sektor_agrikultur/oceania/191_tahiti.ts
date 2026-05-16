@@ -15,6 +15,3 @@ const tahiti_agrikultur = {
   kapas: 17,
   tembakau: 32,
 };
-
-
-

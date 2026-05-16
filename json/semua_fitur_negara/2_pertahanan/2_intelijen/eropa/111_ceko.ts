@@ -4,6 +4,3 @@ const ceko_intelijen = {
   jaringan_radar: 14,
   operasi_siber: 18,
 };
-
-
-

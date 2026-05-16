@@ -4,6 +4,3 @@ const kenya_perikanan = {
   mutiara: 63,
   ikan: 238,
 };
-
-
-

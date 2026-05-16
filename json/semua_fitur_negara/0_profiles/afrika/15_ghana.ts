@@ -26,74 +26,9 @@ const ghana_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
   }
-  };
-
-const ghana = {
-  ...ghana_profile,
-  "sektor_listrik": ghana_listrik,
-  "hunian": ghana_hunian,
-  "infrastruktur": ghana_infrastruktur,
-  "sektor_ekstraksi": ghana_ekstraksi,
-  "sektor_manufaktur": ghana_manufaktur,
-  "sektor_peternakan": ghana_peternakan,
-  "sektor_agrikultur": ghana_agrikultur,
-  "sektor_perikanan": ghana_perikanan,
-  "sektor_olahan_pangan": ghana_olahan_pangan,
-  "sektor_farmasi": ghana_farmasi,
-  "sektor_pertahanan": ghana_pertahanan,
-  "armada_militer": ghana_armada,
-  "militer_strategis": ghana_strategis,
-  "armada_kepolisian": ghana_kepolisian,
-  "pabrik_militer": ghana_pabrik,
-  "intelijen": ghana_intelijen,
-    "pendidikan": ghana_pendidikan,
-  "kesehatan": ghana_kesehatan,
-  "hukum": ghana_hukum,
-  "sektor_olahraga": ghana_olahraga,
-  "sektor_komersial": ghana_komersial,
-  "sektor_hiburan": ghana_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 36,
-      "kepuasan": 67,
-      "pendapatan": 55
-    },
-    "korporasi": {
-      "tarif": 21,
-      "kepuasan": 52,
-      "pendapatan": 45
-    },
-    "penghasilan": {
-      "tarif": 29,
-      "kepuasan": 61,
-      "pendapatan": 42
-    },
-    "bea_cukai": {
-      "tarif": 14,
-      "kepuasan": 86,
-      "pendapatan": 10
-    },
-    "lingkungan": {
-      "tarif": 19,
-      "kepuasan": 88,
-      "pendapatan": 29
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 4 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 12 },
-    "lainnya": {
-      "tarif": 17,
-      "kepuasan": 93,
-      "pendapatan": 24
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const ghana_extra = {
+"": {
     "harga_beras": 32,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const ghana = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

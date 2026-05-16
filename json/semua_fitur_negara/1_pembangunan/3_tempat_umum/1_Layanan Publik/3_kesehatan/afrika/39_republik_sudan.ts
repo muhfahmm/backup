@@ -6,6 +6,3 @@ const republik_sudan_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 61
   };
-
-
-

@@ -5,6 +5,3 @@ const guiana_prancis_peternakan = {
   sapi_potong: 33,
   domba_kambing: 50,
 };
-
-
-

@@ -8,6 +8,3 @@ const kuba_manufaktur = {
   kayu: 133,
   pupuk: 95,
 };
-
-
-

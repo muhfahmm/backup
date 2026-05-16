@@ -4,6 +4,3 @@ const republik_rumania_perikanan = {
   mutiara: 528,
   ikan: 360,
 };
-
-
-

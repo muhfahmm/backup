@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const namibia_strategis = {
     "waktu_respon": 25,
     "intelijen": 11,
@@ -13,5 +14,3 @@ const namibia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

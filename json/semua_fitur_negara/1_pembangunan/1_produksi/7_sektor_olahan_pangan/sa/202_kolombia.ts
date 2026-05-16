@@ -11,6 +11,3 @@ const kolombia_olahan_pangan = {
   ikan_kaleng: 1332,
   kopi_teh: 468,
 };
-
-
-

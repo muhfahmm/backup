@@ -9,6 +9,3 @@ const jepang_olahraga = {
   "esports": 49,
   "gokart": 91
 };
-
-
-

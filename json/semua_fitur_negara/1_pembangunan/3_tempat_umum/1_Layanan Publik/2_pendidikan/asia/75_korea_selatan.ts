@@ -12,6 +12,3 @@ const korea_selatan_pendidikan = {
       "pusat_pengembangan": 37,
       "literasi": 86
     };
-
-
-

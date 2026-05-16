@@ -14,6 +14,3 @@ const yordania_diplomasi = [
   { "no": 12, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

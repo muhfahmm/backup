@@ -11,6 +11,3 @@ const thailand_olahan_pangan = {
   ikan_kaleng: 779,
   kopi_teh: 1394,
 };
-
-
-

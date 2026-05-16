@@ -9,6 +9,3 @@ const austria_infrastruktur = {
   bandara: 6,
   helipad: 5,
 };
-
-
-

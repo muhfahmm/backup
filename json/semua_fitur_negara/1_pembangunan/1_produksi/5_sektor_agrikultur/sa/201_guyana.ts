@@ -15,6 +15,3 @@ const guyana_agrikultur = {
   kapas: 136,
   tembakau: 28,
 };
-
-
-

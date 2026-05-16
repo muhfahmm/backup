@@ -9,6 +9,3 @@ const spanyol_hukum = {
       "indeks_korupsi": 67,
       "indeks_keamanan": 71
   };
-
-
-

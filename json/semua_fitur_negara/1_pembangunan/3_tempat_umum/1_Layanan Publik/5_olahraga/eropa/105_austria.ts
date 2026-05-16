@@ -9,6 +9,3 @@ const austria_olahraga = {
   "esports": 10,
   "gokart": 13
 };
-
-
-

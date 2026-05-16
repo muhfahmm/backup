@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const ceko_strategis = {
     "waktu_respon": 21,
     "intelijen": 28,
@@ -13,5 +14,3 @@ const ceko_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

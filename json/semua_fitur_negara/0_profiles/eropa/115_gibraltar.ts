@@ -26,74 +26,9 @@ const gibraltar_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
-
-const gibraltar = {
-  ...gibraltar_profile,
-  "sektor_listrik": gibraltar_listrik,
-  "hunian": gibraltar_hunian,
-  "infrastruktur": gibraltar_infrastruktur,
-  "sektor_ekstraksi": gibraltar_ekstraksi,
-  "sektor_manufaktur": gibraltar_manufaktur,
-  "sektor_peternakan": gibraltar_peternakan,
-  "sektor_agrikultur": gibraltar_agrikultur,
-  "sektor_perikanan": gibraltar_perikanan,
-  "sektor_olahan_pangan": gibraltar_olahan_pangan,
-  "sektor_farmasi": gibraltar_farmasi,
-  "sektor_pertahanan": gibraltar_pertahanan,
-  "armada_militer": gibraltar_armada,
-  "militer_strategis": gibraltar_strategis,
-  "armada_kepolisian": gibraltar_kepolisian,
-  "pabrik_militer": gibraltar_pabrik,
-  "intelijen": gibraltar_intelijen,
-    "pendidikan": gibraltar_pendidikan,
-  "kesehatan": gibraltar_kesehatan,
-  "hukum": gibraltar_hukum,
-  "sektor_olahraga": gibraltar_olahraga,
-  "sektor_komersial": gibraltar_komersial,
-  "sektor_hiburan": gibraltar_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 20,
-      "kepuasan": 67,
-      "pendapatan": 2
-    },
-    "korporasi": {
-      "tarif": 35,
-      "kepuasan": 52,
-      "pendapatan": 6
-    },
-    "penghasilan": {
-      "tarif": 26,
-      "kepuasan": 61,
-      "pendapatan": 3
-    },
-    "bea_cukai": {
-      "tarif": 23,
-      "kepuasan": 86,
-      "pendapatan": 4
-    },
-    "lingkungan": {
-      "tarif": 5,
-      "kepuasan": 88,
-      "pendapatan": 0
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 17,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const gibraltar_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const gibraltar = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

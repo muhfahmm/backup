@@ -14,6 +14,3 @@ const korea_utara_strategis = {
       "misil_nuklir": 50
     }
   };
-
-
-

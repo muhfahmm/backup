@@ -11,6 +11,3 @@ const puerto_rico_olahan_pangan = {
   ikan_kaleng: 52,
   kopi_teh: 188,
 };
-
-
-

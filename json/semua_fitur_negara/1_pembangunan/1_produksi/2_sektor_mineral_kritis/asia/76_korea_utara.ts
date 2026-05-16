@@ -13,6 +13,3 @@ const korea_utara_ekstraksi = {
   logam_tanah_jarang: 28,
   bijih_besi: 4,
 };
-
-
-

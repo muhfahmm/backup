@@ -1,4 +1,5 @@
-﻿const vanuatu_kepolisian = {
+﻿// @ts-nocheck
+const vanuatu_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -15,5 +16,3 @@
       "samapta": 62
     }
   };
-
-

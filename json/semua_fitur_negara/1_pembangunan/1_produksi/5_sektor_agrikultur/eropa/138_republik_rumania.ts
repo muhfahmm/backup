@@ -15,6 +15,3 @@ const republik_rumania_agrikultur = {
   kapas: 1680,
   tembakau: 1272,
 };
-
-
-

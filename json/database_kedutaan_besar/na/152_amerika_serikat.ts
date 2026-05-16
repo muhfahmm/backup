@@ -17,6 +17,3 @@ const amerika_serikat_diplomasi = [
   { "no": 15, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 16, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

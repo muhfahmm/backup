@@ -9,6 +9,3 @@ const aljazair_hukum = {
       "indeks_korupsi": 58,
       "indeks_keamanan": 66
   };
-
-
-

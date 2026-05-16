@@ -6,6 +6,3 @@ const selandia_baru_kesehatan = {
       "harapan_hidup": 66,
       "indeks_kesehatan": 76
     };
-
-
-

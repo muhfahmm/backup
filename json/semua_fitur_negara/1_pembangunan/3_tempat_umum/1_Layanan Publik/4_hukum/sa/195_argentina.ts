@@ -9,6 +9,3 @@ const argentina_hukum = {
       "indeks_korupsi": 54,
       "indeks_keamanan": 75
   };
-
-
-

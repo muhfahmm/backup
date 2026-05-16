@@ -12,6 +12,3 @@ const tanjung_verde_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 84
   };
-
-
-

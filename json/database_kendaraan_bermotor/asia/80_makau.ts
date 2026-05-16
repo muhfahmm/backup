@@ -5,6 +5,3 @@ const makauVehicles = {
   bus: 0,
   truk: 0,
 };
-
-
-

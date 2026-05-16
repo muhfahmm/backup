@@ -9,6 +9,3 @@ const eswatini_hukum = {
       "indeks_korupsi": 25,
       "indeks_keamanan": 49
   };
-
-
-

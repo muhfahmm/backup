@@ -5,6 +5,3 @@ const kanada_hunian = {
   apartemen: 7504,
   mansion: 250139,
 };
-
-
-

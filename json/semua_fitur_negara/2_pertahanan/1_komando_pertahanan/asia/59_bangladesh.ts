@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bangladesh_strategis = {
     "waktu_respon": 27,
     "intelijen": 1,
@@ -13,5 +14,3 @@ const bangladesh_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

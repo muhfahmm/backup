@@ -6,6 +6,3 @@ const korea_utara_kesehatan = {
       "harapan_hidup": 68,
       "indeks_kesehatan": 58
     };
-
-
-

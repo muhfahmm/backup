@@ -12,6 +12,3 @@ const denmark_pendidikan = {
       "pusat_pengembangan": 4,
       "literasi": 90
     };
-
-
-

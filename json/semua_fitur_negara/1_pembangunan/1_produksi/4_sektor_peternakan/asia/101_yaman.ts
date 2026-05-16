@@ -5,6 +5,3 @@ const yaman_peternakan = {
   sapi_potong: 188,
   domba_kambing: 148,
 };
-
-
-

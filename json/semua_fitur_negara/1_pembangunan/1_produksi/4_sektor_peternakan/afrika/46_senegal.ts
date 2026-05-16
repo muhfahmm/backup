@@ -5,6 +5,3 @@ const senegal_peternakan = {
   sapi_potong: 36,
   domba_kambing: 27,
 };
-
-
-

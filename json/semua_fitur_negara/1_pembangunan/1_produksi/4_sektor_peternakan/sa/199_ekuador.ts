@@ -5,6 +5,3 @@ const ekuador_peternakan = {
   sapi_potong: 495,
   domba_kambing: 675,
 };
-
-
-

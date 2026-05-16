@@ -9,6 +9,3 @@ const gabon_infrastruktur = {
   bandara: 4,
   helipad: 4,
 };
-
-
-

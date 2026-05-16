@@ -4,6 +4,3 @@ const kosovo_perikanan = {
   mutiara: 0,
   ikan: 0,
 };
-
-
-

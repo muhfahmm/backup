@@ -9,6 +9,3 @@ const kazakhstan_olahraga = {
   "esports": 6,
   "gokart": 45
 };
-
-
-

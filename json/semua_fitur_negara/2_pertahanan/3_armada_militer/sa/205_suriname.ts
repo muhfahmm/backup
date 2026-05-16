@@ -30,6 +30,3 @@ const suriname_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

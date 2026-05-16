@@ -41,17 +41,9 @@ const perikananRate = {
   }
 };
 
-export interface SektorPerikanan {
-  udang?: number;
-  ikan?: number;
-  mutiara?: number;
 }
 
-export interface FisheryData {
   udang: number;
   ikan: number;
   mutiara: number;
 }
-
-
-

@@ -9,6 +9,3 @@ const kosovo_olahraga = {
   "esports": 2,
   "gokart": 9
 };
-
-
-

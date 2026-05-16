@@ -9,6 +9,3 @@ const curacao_olahraga = {
   "esports": 4,
   "gokart": 6
 };
-
-
-

@@ -15,6 +15,3 @@ const mauritania_agrikultur = {
   kapas: 94,
   tembakau: 146,
 };
-
-
-

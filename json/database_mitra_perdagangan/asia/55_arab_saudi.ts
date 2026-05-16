@@ -13,6 +13,3 @@ const arab_saudiAgreements = [
   { "no": 11, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Malaysia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

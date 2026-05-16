@@ -5,6 +5,3 @@ const benin_hunian = {
   apartemen: 2325,
   mansion: 77524,
 };
-
-
-

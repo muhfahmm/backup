@@ -16,6 +16,3 @@ const benin_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

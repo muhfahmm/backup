@@ -9,6 +9,3 @@ const slowakia_olahraga = {
   "esports": 5,
   "gokart": 12
 };
-
-
-

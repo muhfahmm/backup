@@ -11,6 +11,3 @@ const swiss_olahan_pangan = {
   ikan_kaleng: 1739,
   kopi_teh: 1927,
 };
-
-
-

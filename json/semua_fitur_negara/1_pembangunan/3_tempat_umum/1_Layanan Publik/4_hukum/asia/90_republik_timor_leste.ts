@@ -9,6 +9,3 @@ const republik_timor_leste_hukum = {
       "indeks_korupsi": 16,
       "indeks_keamanan": 51
   };
-
-
-

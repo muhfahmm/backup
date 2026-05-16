@@ -16,6 +16,3 @@ const aljazair_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

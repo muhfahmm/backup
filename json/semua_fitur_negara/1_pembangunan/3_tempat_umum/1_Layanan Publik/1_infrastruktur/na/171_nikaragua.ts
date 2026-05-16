@@ -9,6 +9,3 @@ const nikaragua_infrastruktur = {
   bandara: 1,
   helipad: 1,
 };
-
-
-

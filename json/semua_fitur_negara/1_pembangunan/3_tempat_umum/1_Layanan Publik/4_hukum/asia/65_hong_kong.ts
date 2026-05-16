@@ -9,6 +9,3 @@ const hong_kong_hukum = {
       "indeks_korupsi": 14,
       "indeks_keamanan": 47
   };
-
-
-

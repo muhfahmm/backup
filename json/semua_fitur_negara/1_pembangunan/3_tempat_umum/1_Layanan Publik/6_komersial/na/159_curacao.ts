@@ -4,6 +4,3 @@ const curacao_komersial = {
   "hotel": 6,
   "pusat_grosir_tekstil": 2
 };
-
-
-

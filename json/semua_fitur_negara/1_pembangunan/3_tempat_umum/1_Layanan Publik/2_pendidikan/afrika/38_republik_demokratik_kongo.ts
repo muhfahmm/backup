@@ -12,6 +12,3 @@ const republik_demokratik_kongo_pendidikan = {
       "pusat_pengembangan": 2,
       "literasi": 69
   };
-
-
-

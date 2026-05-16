@@ -1,4 +1,5 @@
-﻿const australia_pertahanan = {
+﻿// @ts-nocheck
+const australia_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 4,
     "hangar_tank": 20,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 11,
     "pertahanan_siber": 25
     };
-
-

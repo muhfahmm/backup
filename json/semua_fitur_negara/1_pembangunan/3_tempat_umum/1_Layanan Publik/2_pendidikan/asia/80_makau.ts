@@ -12,6 +12,3 @@ const makau_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 78
     };
-
-
-

@@ -13,6 +13,3 @@ const mikronesiaAgreements = [
   { "no": 11, "mitra": "Papua Nugini", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "Australia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

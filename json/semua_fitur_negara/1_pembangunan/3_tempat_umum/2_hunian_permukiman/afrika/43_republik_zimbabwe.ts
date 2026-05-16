@@ -5,6 +5,3 @@ const republik_zimbabwe_hunian = {
   apartemen: 2923,
   mansion: 97463,
 };
-
-
-

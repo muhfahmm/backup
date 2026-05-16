@@ -9,6 +9,3 @@ const liechtenstein_olahraga = {
   "esports": 0,
   "gokart": 4
 };
-
-
-

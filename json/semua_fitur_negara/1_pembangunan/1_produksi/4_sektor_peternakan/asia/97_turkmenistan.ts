@@ -5,6 +5,3 @@ const turkmenistan_peternakan = {
   sapi_potong: 74,
   domba_kambing: 88,
 };
-
-
-

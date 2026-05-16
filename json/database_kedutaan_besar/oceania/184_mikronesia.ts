@@ -21,6 +21,3 @@ const mikronesia_diplomasi = [
   { "no": 19, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 20, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

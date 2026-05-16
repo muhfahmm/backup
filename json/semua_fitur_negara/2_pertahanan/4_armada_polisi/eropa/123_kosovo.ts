@@ -16,6 +16,3 @@ const kosovo_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

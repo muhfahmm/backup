@@ -30,6 +30,3 @@ const barbados_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

@@ -4,6 +4,3 @@ const vatikan_komersial = {
   "hotel": 10,
   "pusat_grosir_tekstil": 2
 };
-
-
-

@@ -15,6 +15,3 @@ const bulgaria_agrikultur = {
   kapas: 180,
   tembakau: 350,
 };
-
-
-

@@ -5,6 +5,3 @@ const yordaniaVehicles = {
   bus: 1991,
   truk: 9956,
 };
-
-
-

@@ -12,6 +12,3 @@ const sudan_selatan_pendidikan = {
       "pusat_pengembangan": 1,
       "literasi": 66
   };
-
-
-

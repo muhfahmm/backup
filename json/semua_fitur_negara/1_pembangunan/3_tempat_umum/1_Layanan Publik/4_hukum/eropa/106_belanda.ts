@@ -9,6 +9,3 @@ const belanda_hukum = {
       "indeks_korupsi": 52,
       "indeks_keamanan": 80
   };
-
-
-

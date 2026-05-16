@@ -11,6 +11,3 @@ const rusia_olahan_pangan = {
   ikan_kaleng: 4725,
   kopi_teh: 4536,
 };
-
-
-

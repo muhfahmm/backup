@@ -12,6 +12,3 @@ const austria_pendidikan = {
       "pusat_pengembangan": 9,
       "literasi": 76
     };
-
-
-

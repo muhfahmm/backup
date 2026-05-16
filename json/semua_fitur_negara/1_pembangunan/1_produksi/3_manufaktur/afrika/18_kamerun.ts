@@ -8,6 +8,3 @@ const kamerun_manufaktur = {
   kayu: 40,
   pupuk: 64,
 };
-
-
-

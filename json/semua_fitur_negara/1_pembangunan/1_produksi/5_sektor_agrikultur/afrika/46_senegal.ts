@@ -15,6 +15,3 @@ const senegal_agrikultur = {
   kapas: 34,
   tembakau: 16,
 };
-
-
-

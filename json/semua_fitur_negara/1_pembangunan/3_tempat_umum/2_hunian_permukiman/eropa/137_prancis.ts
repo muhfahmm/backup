@@ -5,6 +5,3 @@ const prancis_hunian = {
   apartemen: 13562,
   mansion: 452095,
 };
-
-
-

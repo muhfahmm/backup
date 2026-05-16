@@ -5,6 +5,3 @@ const surinameVehicles = {
   bus: 115,
   truk: 575,
 };
-
-
-

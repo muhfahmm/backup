@@ -4,6 +4,3 @@ const arab_saudi_komersial = {
   "hotel": 97,
   "pusat_grosir_tekstil": 52
 };
-
-
-

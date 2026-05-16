@@ -26,74 +26,9 @@ const mongolia_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const mongolia = {
-  ...mongolia_profile,
-  "sektor_listrik": mongolia_listrik,
-  "hunian": mongolia_hunian,
-  "infrastruktur": mongolia_infrastruktur,
-  "sektor_ekstraksi": mongolia_ekstraksi,
-  "sektor_manufaktur": mongolia_manufaktur,
-  "sektor_peternakan": mongolia_peternakan,
-  "sektor_agrikultur": mongolia_agrikultur,
-  "sektor_perikanan": mongolia_perikanan,
-  "sektor_olahan_pangan": mongolia_olahan_pangan,
-  "sektor_farmasi": mongolia_farmasi,
-  "sektor_pertahanan": mongolia_pertahanan,
-  "armada_militer": mongolia_armada,
-  "militer_strategis": mongolia_strategis,
-  "armada_kepolisian": mongolia_kepolisian,
-  "pabrik_militer": mongolia_pabrik,
-  "intelijen": mongolia_intelijen,
-    "pendidikan": mongolia_pendidikan,
-  "kesehatan": mongolia_kesehatan,
-  "hukum": mongolia_hukum,
-  "sektor_olahraga": mongolia_olahraga,
-  "sektor_komersial": mongolia_komersial,
-  "sektor_hiburan": mongolia_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 25,
-      "kepuasan": 67,
-      "pendapatan": 10
-    },
-    "korporasi": {
-      "tarif": 40,
-      "kepuasan": 52,
-      "pendapatan": 13
-    },
-    "penghasilan": {
-      "tarif": 23,
-      "kepuasan": 61,
-      "pendapatan": 11
-    },
-    "bea_cukai": {
-      "tarif": 26,
-      "kepuasan": 86,
-      "pendapatan": 7
-    },
-    "lingkungan": {
-      "tarif": 37,
-      "kepuasan": 88,
-      "pendapatan": 16
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 7,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const mongolia_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 83.28,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const mongolia = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

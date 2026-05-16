@@ -8,6 +8,3 @@ const jepang_manufaktur = {
   kayu: 1904,
   pupuk: 952,
 };
-
-
-

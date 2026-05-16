@@ -12,6 +12,3 @@ const boliviaAgreements = [
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

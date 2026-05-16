@@ -4,6 +4,3 @@ const estonia_perikanan = {
   mutiara: 150,
   ikan: 185,
 };
-
-
-

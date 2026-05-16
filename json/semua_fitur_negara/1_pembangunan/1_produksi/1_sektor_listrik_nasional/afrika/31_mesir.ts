@@ -7,6 +7,3 @@ const mesir_listrik = {
   pembangkit_listrik_tenaga_uap: 528,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

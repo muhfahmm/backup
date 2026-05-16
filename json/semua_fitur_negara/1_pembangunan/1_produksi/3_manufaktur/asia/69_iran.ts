@@ -8,6 +8,3 @@ const iran_manufaktur = {
   kayu: 368,
   pupuk: 184,
 };
-
-
-

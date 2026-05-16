@@ -16,6 +16,3 @@ const kirgizstan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

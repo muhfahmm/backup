@@ -26,74 +26,9 @@ const kanada_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
-
-const kanada = {
-  ...kanada_profile,
-  "sektor_listrik": kanada_listrik,
-  "hunian": kanada_hunian,
-  "infrastruktur": kanada_infrastruktur,
-  "sektor_ekstraksi": kanada_ekstraksi,
-  "sektor_manufaktur": kanada_manufaktur,
-  "sektor_peternakan": kanada_peternakan,
-  "sektor_agrikultur": kanada_agrikultur,
-  "sektor_perikanan": kanada_perikanan,
-  "sektor_olahan_pangan": kanada_olahan_pangan,
-  "sektor_farmasi": kanada_farmasi,
-  "sektor_pertahanan": kanada_pertahanan,
-  "armada_militer": kanada_armada,
-  "militer_strategis": kanada_strategis,
-  "armada_kepolisian": kanada_kepolisian,
-  "pabrik_militer": kanada_pabrik,
-  "intelijen": kanada_intelijen,
-    "pendidikan": kanada_pendidikan,
-  "kesehatan": kanada_kesehatan,
-  "hukum": kanada_hukum,
-  "sektor_olahraga": kanada_olahraga,
-  "sektor_komersial": kanada_komersial,
-  "sektor_hiburan": kanada_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 17,
-      "kepuasan": 67,
-      "pendapatan": 586
-    },
-    "korporasi": {
-      "tarif": 16,
-      "kepuasan": 52,
-      "pendapatan": 749
-    },
-    "penghasilan": {
-      "tarif": 9,
-      "kepuasan": 61,
-      "pendapatan": 273
-    },
-    "bea_cukai": {
-      "tarif": 8,
-      "kepuasan": 86,
-      "pendapatan": 304
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 1479
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 109 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 327 },
-    "lainnya": {
-      "tarif": 7,
-      "kepuasan": 93,
-      "pendapatan": 193
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const kanada_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const kanada = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -16,6 +16,3 @@ const komoro_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

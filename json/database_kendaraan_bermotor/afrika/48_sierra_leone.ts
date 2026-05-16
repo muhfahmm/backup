@@ -5,6 +5,3 @@ const sierraLeoneVehicles = {
   bus: 1530,
   truk: 7650,
 };
-
-
-

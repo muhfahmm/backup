@@ -4,6 +4,3 @@ const norwegia_komersial = {
   "hotel": 50,
   "pusat_grosir_tekstil": 20
 };
-
-
-

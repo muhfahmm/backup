@@ -26,74 +26,9 @@ const montenegro_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
-
-const montenegro = {
-  ...montenegro_profile,
-  "sektor_listrik": montenegro_listrik,
-  "hunian": montenegro_hunian,
-  "infrastruktur": montenegro_infrastruktur,
-  "sektor_ekstraksi": montenegro_ekstraksi,
-  "sektor_manufaktur": montenegro_manufaktur,
-  "sektor_peternakan": montenegro_peternakan,
-  "sektor_agrikultur": montenegro_agrikultur,
-  "sektor_perikanan": montenegro_perikanan,
-  "sektor_olahan_pangan": montenegro_olahan_pangan,
-  "sektor_farmasi": montenegro_farmasi,
-  "sektor_pertahanan": montenegro_pertahanan,
-  "armada_militer": montenegro_armada,
-  "militer_strategis": montenegro_strategis,
-  "armada_kepolisian": montenegro_kepolisian,
-  "pabrik_militer": montenegro_pabrik,
-  "intelijen": montenegro_intelijen,
-    "pendidikan": montenegro_pendidikan,
-  "kesehatan": montenegro_kesehatan,
-  "hukum": montenegro_hukum,
-  "sektor_olahraga": montenegro_olahraga,
-  "sektor_komersial": montenegro_komersial,
-  "sektor_hiburan": montenegro_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 33,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 7,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 24,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 28,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 37,
-      "kepuasan": 88,
-      "pendapatan": 4
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 2,
-      "kepuasan": 93,
-      "pendapatan": 0
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const montenegro_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 32.8,
@@ -121,8 +56,4 @@ const montenegro = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

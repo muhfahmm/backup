@@ -4,6 +4,3 @@ const hungaria_intelijen = {
   jaringan_radar: 15,
   operasi_siber: 15,
 };
-
-
-

@@ -9,6 +9,3 @@ const honduras_pertahanan = {
     "program_luar_angkasa": 29,
     "pertahanan_siber": 4
     };
-
-
-

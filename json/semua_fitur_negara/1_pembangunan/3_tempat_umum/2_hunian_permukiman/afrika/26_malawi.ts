@@ -5,6 +5,3 @@ const malawi_hunian = {
   apartemen: 3674,
   mansion: 122467,
 };
-
-
-

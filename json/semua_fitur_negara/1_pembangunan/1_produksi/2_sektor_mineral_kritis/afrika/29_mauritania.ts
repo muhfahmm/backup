@@ -13,6 +13,3 @@ const mauritania_ekstraksi = {
   logam_tanah_jarang: 6,
   bijih_besi: 20,
 };
-
-
-

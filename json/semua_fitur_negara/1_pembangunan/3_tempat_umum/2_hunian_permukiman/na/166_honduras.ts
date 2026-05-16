@@ -5,6 +5,3 @@ const honduras_hunian = {
   apartemen: 1941,
   mansion: 64715,
 };
-
-
-

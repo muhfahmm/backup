@@ -5,6 +5,3 @@ const tahiti_peternakan = {
   sapi_potong: 40,
   domba_kambing: 18,
 };
-
-
-

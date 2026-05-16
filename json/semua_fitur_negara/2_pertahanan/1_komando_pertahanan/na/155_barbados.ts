@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const barbados_strategis = {
     "waktu_respon": 15,
     "intelijen": 39,
@@ -13,5 +14,3 @@ const barbados_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

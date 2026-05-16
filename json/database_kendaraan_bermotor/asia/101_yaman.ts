@@ -5,6 +5,3 @@ const yamanVehicles = {
   bus: 5699,
   truk: 28498,
 };
-
-
-

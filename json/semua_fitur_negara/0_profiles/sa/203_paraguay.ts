@@ -26,74 +26,9 @@ const paraguay_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
-
-const paraguay = {
-  ...paraguay_profile,
-  "sektor_listrik": paraguay_listrik,
-  "hunian": paraguay_hunian,
-  "infrastruktur": paraguay_infrastruktur,
-  "sektor_ekstraksi": paraguay_ekstraksi,
-  "sektor_manufaktur": paraguay_manufaktur,
-  "sektor_peternakan": paraguay_peternakan,
-  "sektor_agrikultur": paraguay_agrikultur,
-  "sektor_perikanan": paraguay_perikanan,
-  "sektor_olahan_pangan": paraguay_olahan_pangan,
-  "sektor_farmasi": paraguay_farmasi,
-  "sektor_pertahanan": paraguay_pertahanan,
-  "armada_militer": paraguay_armada,
-  "militer_strategis": paraguay_strategis,
-  "armada_kepolisian": paraguay_kepolisian,
-  "pabrik_militer": paraguay_pabrik,
-  "intelijen": paraguay_intelijen,
-    "pendidikan": paraguay_pendidikan,
-  "kesehatan": paraguay_kesehatan,
-  "hukum": paraguay_hukum,
-  "sektor_olahraga": paraguay_olahraga,
-  "sektor_komersial": paraguay_komersial,
-  "sektor_hiburan": paraguay_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 14,
-      "kepuasan": 67,
-      "pendapatan": 12
-    },
-    "korporasi": {
-      "tarif": 20,
-      "kepuasan": 52,
-      "pendapatan": 12
-    },
-    "penghasilan": {
-      "tarif": 37,
-      "kepuasan": 61,
-      "pendapatan": 30
-    },
-    "bea_cukai": {
-      "tarif": 8,
-      "kepuasan": 86,
-      "pendapatan": 3
-    },
-    "lingkungan": {
-      "tarif": 25,
-      "kepuasan": 88,
-      "pendapatan": 14
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 3 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 7 },
-    "lainnya": {
-      "tarif": 36,
-      "kepuasan": 93,
-      "pendapatan": 29
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const paraguay_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 82,
@@ -121,8 +56,4 @@ const paraguay = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

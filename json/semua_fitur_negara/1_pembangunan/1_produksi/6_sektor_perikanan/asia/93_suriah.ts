@@ -4,6 +4,3 @@ const suriah_perikanan = {
   mutiara: 23,
   ikan: 9,
 };
-
-
-

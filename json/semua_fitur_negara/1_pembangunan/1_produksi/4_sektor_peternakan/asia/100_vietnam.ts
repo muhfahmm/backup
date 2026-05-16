@@ -5,6 +5,3 @@ const vietnam_peternakan = {
   sapi_potong: 2380,
   domba_kambing: 1156,
 };
-
-
-

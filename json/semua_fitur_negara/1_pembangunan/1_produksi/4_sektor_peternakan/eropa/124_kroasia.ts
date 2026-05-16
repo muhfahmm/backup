@@ -5,6 +5,3 @@ const kroasia_peternakan = {
   sapi_potong: 63,
   domba_kambing: 45,
 };
-
-
-

@@ -15,6 +15,3 @@ const lithuania_agrikultur = {
   kapas: 365,
   tembakau: 300,
 };
-
-
-

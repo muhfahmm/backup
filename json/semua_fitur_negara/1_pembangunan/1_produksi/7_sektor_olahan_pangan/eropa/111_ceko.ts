@@ -11,6 +11,3 @@ const ceko_olahan_pangan = {
   ikan_kaleng: 690,
   kopi_teh: 690,
 };
-
-
-

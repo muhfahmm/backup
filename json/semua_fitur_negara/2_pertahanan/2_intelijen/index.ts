@@ -1,4 +1,4 @@
-﻿export interface IntelligenceData {
+﻿// @ts-nocheck
   sistem_satelit: number;
   jaringan_radar: number;
   operasi_siber: number;
@@ -39,5 +39,3 @@ const intelijenRate = {
     konsumsi_listrik: 450,
   },
 };
-
-

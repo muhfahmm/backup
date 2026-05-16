@@ -12,6 +12,3 @@ const el_salvadorAgreements = [
   { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

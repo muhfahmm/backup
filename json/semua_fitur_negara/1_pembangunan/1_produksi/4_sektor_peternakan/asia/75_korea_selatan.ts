@@ -5,6 +5,3 @@ const korea_selatan_peternakan = {
   sapi_potong: 2720,
   domba_kambing: 6800,
 };
-
-
-

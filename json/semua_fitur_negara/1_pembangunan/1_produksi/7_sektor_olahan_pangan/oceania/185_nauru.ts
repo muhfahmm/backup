@@ -11,6 +11,3 @@ const nauru_olahan_pangan = {
   ikan_kaleng: 39,
   kopi_teh: 138,
 };
-
-
-

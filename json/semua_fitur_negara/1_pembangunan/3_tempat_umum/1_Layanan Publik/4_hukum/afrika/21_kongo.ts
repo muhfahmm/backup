@@ -9,6 +9,3 @@ const kongo_hukum = {
       "indeks_korupsi": 33,
       "indeks_keamanan": 65
   };
-
-
-

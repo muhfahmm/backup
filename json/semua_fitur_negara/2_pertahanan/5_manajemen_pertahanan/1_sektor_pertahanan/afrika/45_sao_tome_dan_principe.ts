@@ -9,6 +9,3 @@ const sao_tome_dan_principe_pertahanan = {
     "program_luar_angkasa": 32,
     "pertahanan_siber": 6
     };
-
-
-

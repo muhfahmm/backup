@@ -26,74 +26,9 @@ const nepal_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
     }
-  };
-
-const nepal = {
-  ...nepal_profile,
-  "sektor_listrik": nepal_listrik,
-  "hunian": nepal_hunian,
-  "infrastruktur": nepal_infrastruktur,
-  "sektor_ekstraksi": nepal_ekstraksi,
-  "sektor_manufaktur": nepal_manufaktur,
-  "sektor_peternakan": nepal_peternakan,
-  "sektor_agrikultur": nepal_agrikultur,
-  "sektor_perikanan": nepal_perikanan,
-  "sektor_olahan_pangan": nepal_olahan_pangan,
-  "sektor_farmasi": nepal_farmasi,
-  "sektor_pertahanan": nepal_pertahanan,
-  "armada_militer": nepal_armada,
-  "militer_strategis": nepal_strategis,
-  "armada_kepolisian": nepal_kepolisian,
-  "pabrik_militer": nepal_pabrik,
-  "intelijen": nepal_intelijen,
-    "pendidikan": nepal_pendidikan,
-  "kesehatan": nepal_kesehatan,
-  "hukum": nepal_hukum,
-  "sektor_olahraga": nepal_olahraga,
-  "sektor_komersial": nepal_komersial,
-  "sektor_hiburan": nepal_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 20,
-      "kepuasan": 67,
-      "pendapatan": 8
-    },
-    "korporasi": {
-      "tarif": 18,
-      "kepuasan": 52,
-      "pendapatan": 16
-    },
-    "penghasilan": {
-      "tarif": 24,
-      "kepuasan": 61,
-      "pendapatan": 14
-    },
-    "bea_cukai": {
-      "tarif": 2,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 7,
-      "kepuasan": 88,
-      "pendapatan": 8
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 2 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 6 },
-    "lainnya": {
-      "tarif": 18,
-      "kepuasan": 93,
-      "pendapatan": 11
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const nepal_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 20.5,
@@ -121,8 +56,4 @@ const nepal = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -9,6 +9,3 @@ const saint_vincent_dan_grenadine_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 46
   };
-
-
-

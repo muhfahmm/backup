@@ -5,6 +5,3 @@ const burkina_faso_peternakan = {
   sapi_potong: 100,
   domba_kambing: 38,
 };
-
-
-

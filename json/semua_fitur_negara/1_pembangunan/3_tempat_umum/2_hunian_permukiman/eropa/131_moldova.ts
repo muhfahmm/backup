@@ -5,6 +5,3 @@ const moldova_hunian = {
   apartemen: 547,
   mansion: 18265,
 };
-
-
-

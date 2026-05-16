@@ -5,6 +5,3 @@ const samoaAmerikaVehicles = {
   bus: 11,
   truk: 55,
 };
-
-
-

@@ -30,6 +30,3 @@ const lesotho_armada = {
         "pesawat_angkut": 2
   }
 };
-
-
-

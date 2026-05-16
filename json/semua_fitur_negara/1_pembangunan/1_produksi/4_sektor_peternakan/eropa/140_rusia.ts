@@ -5,6 +5,3 @@ const rusia_peternakan = {
   sapi_potong: 8883,
   domba_kambing: 2268,
 };
-
-
-

@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const saint_vincent_dan_grenadine_strategis = {
     "waktu_respon": 3,
     "intelijen": 22,
@@ -13,5 +14,3 @@ const saint_vincent_dan_grenadine_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

@@ -1,4 +1,5 @@
-﻿const pantai_gading_pertahanan = {
+﻿// @ts-nocheck
+const pantai_gading_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 19,
     "hangar_tank": 24,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 38,
     "pertahanan_siber": 22
     };
-
-

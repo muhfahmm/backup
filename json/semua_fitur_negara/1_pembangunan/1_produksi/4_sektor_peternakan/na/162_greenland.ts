@@ -5,6 +5,3 @@ const greenland_peternakan = {
   sapi_potong: 128,
   domba_kambing: 76,
 };
-
-
-

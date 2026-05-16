@@ -5,6 +5,3 @@ const kepulauanFaroeVehicles = {
   bus: 9,
   truk: 48,
 };
-
-
-

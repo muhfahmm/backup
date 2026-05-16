@@ -11,25 +11,42 @@ export async function GET(request: Request) {
     }
 
     try {
-        // Find project root by looking for 'json' directory
         let currentDir = process.cwd();
         let projectRoot = currentDir;
-        
-        // If we are in 'apps', go up one level
         if (currentDir.endsWith('apps')) {
             projectRoot = path.join(currentDir, '..');
         }
         
-        const fullPath = path.join(projectRoot, 'json/semua_fitur_negara/0_profiles', countryPath);
+        const jsonRoot = path.join(projectRoot, 'json/semua_fitur_negara');
+        const profilesDir = path.join(jsonRoot, '0_profiles');
+        const targetFilename = path.basename(countryPath);
         
-        if (!fs.existsSync(fullPath)) {
-            console.error('File not found at:', fullPath);
+        // Find ALL files with this name across the json directory
+        const allFiles: string[] = [];
+        const findFiles = (dir: string) => {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+                const fullPath = path.join(dir, file);
+                if (fs.statSync(fullPath).isDirectory()) {
+                    findFiles(fullPath);
+                } else if (file === targetFilename) {
+                    allFiles.push(fullPath);
+                }
+            }
+        };
+        findFiles(jsonRoot);
+
+        if (allFiles.length === 0) {
             return NextResponse.json({ error: 'File not found' }, { status: 404 });
         }
 
-        const fileContent = fs.readFileSync(fullPath, 'utf8');
+        // Merge all file contents
+        let mergedContent = "// Virtual Merged Data for " + targetFilename + "\n";
+        for (const f of allFiles) {
+            mergedContent += fs.readFileSync(f, 'utf8') + "\n";
+        }
         
-        return new NextResponse(fileContent, {
+        return new NextResponse(mergedContent, {
             headers: { 'Content-Type': 'text/plain' },
         });
     } catch (e) {

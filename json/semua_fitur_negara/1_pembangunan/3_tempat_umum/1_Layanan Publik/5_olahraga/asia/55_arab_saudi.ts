@@ -9,6 +9,3 @@ const arab_saudi_olahraga = {
   "esports": 54,
   "gokart": 64
 };
-
-
-

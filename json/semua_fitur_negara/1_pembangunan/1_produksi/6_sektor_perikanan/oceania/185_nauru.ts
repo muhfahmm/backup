@@ -4,6 +4,3 @@ const nauru_perikanan = {
   mutiara: 39,
   ikan: 90,
 };
-
-
-

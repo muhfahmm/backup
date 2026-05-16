@@ -16,6 +16,3 @@ const niger_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

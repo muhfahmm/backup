@@ -7,6 +7,3 @@ const sao_tome_dan_principe_listrik = {
   pembangkit_listrik_tenaga_uap: 47,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

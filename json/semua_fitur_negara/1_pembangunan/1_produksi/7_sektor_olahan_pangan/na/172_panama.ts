@@ -11,6 +11,3 @@ const panama_olahan_pangan = {
   ikan_kaleng: 225,
   kopi_teh: 190,
 };
-
-
-

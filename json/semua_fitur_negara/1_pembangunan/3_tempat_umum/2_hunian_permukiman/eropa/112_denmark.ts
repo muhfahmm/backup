@@ -5,6 +5,3 @@ const denmark_hunian = {
   apartemen: 1173,
   mansion: 39107,
 };
-
-
-

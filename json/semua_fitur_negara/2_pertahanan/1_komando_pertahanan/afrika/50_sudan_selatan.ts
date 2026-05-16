@@ -14,6 +14,3 @@ const sudan_selatan_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

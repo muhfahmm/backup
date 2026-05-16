@@ -2,6 +2,3 @@
 const kuba_farmasi = {
   farmasi: 10,
 };
-
-
-

@@ -5,6 +5,3 @@ const republik_rumania_peternakan = {
   sapi_potong: 360,
   domba_kambing: 720,
 };
-
-
-

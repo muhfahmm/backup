@@ -15,6 +15,3 @@ const honduras_agrikultur = {
   kapas: 201,
   tembakau: 201,
 };
-
-
-

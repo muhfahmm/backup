@@ -9,6 +9,3 @@ const marshall_infrastruktur = {
   bandara: 3,
   helipad: 2,
 };
-
-
-

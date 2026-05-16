@@ -2,6 +2,3 @@
 const australia_pabrik = {
     "pabrik_amunisi": 40,
   };
-
-
-

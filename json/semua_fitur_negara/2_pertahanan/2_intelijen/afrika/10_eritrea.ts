@@ -4,6 +4,3 @@ const eritrea_intelijen = {
   jaringan_radar: 3,
   operasi_siber: 5,
 };
-
-
-

@@ -4,6 +4,3 @@ const singapura_intelijen = {
   jaringan_radar: 19,
   operasi_siber: 35,
 };
-
-
-

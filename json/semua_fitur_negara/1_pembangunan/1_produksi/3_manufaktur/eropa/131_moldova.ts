@@ -8,6 +8,3 @@ const moldova_manufaktur = {
   kayu: 32,
   pupuk: 24,
 };
-
-
-

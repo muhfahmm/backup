@@ -5,6 +5,3 @@ const chile_hunian = {
   apartemen: 3792,
   mansion: 126421,
 };
-
-
-

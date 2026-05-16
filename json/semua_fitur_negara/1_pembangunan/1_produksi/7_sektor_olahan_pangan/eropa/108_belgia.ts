@@ -11,6 +11,3 @@ const belgia_olahan_pangan = {
   ikan_kaleng: 1640,
   kopi_teh: 1722,
 };
-
-
-

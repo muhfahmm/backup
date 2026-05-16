@@ -9,6 +9,3 @@ const guiana_prancis_olahraga = {
   "esports": 1,
   "gokart": 13
 };
-
-
-

@@ -9,6 +9,3 @@ const guiana_prancis_hukum = {
       "indeks_korupsi": 35,
       "indeks_keamanan": 44
   };
-
-
-

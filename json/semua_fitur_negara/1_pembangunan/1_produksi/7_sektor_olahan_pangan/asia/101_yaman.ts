@@ -11,6 +11,3 @@ const yaman_olahan_pangan = {
   ikan_kaleng: 164,
   kopi_teh: 180,
 };
-
-
-

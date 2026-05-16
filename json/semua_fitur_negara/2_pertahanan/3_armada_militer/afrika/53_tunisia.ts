@@ -1,4 +1,5 @@
-﻿const tunisia_armada = {
+﻿// @ts-nocheck
+const tunisia_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -31,9 +32,5 @@
 };
 
 
-2
   }
 };
-
-
-

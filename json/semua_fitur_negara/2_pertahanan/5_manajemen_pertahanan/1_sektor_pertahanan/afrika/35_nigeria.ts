@@ -9,6 +9,3 @@ const nigeria_pertahanan = {
     "program_luar_angkasa": 15,
     "pertahanan_siber": 5
     };
-
-
-

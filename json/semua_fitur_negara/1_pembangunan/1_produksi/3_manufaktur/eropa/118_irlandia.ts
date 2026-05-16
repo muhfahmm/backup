@@ -8,6 +8,3 @@ const irlandia_manufaktur = {
   kayu: 245,
   pupuk: 147,
 };
-
-
-

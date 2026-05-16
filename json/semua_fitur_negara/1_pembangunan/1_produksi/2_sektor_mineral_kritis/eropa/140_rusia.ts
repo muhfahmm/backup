@@ -13,6 +13,3 @@ const rusia_ekstraksi = {
   logam_tanah_jarang: 189,
   bijih_besi: 1323,
 };
-
-
-

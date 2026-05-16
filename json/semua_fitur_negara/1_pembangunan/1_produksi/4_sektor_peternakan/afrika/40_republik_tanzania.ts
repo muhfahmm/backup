@@ -5,6 +5,3 @@ const republik_tanzania_peternakan = {
   sapi_potong: 141,
   domba_kambing: 60,
 };
-
-
-

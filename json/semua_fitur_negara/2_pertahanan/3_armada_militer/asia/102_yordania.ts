@@ -30,6 +30,3 @@ const yordania_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

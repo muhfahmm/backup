@@ -10,6 +10,3 @@ const mongoliaAgreements = [
   { "no": 8, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Filipina", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -5,6 +5,3 @@ const maroko_peternakan = {
   sapi_potong: 1080,
   domba_kambing: 432,
 };
-
-
-

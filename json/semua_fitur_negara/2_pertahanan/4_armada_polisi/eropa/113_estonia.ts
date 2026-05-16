@@ -16,6 +16,3 @@ const estonia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

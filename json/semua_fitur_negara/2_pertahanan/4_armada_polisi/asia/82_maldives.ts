@@ -16,6 +16,3 @@ const maldives_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

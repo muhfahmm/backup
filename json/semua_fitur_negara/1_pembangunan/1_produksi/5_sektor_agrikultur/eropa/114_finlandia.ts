@@ -15,6 +15,3 @@ const finlandia_agrikultur = {
   kapas: 567,
   tembakau: 414,
 };
-
-
-

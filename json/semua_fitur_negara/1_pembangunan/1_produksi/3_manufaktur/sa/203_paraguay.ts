@@ -8,6 +8,3 @@ const paraguay_manufaktur = {
   kayu: 45,
   pupuk: 45,
 };
-
-
-

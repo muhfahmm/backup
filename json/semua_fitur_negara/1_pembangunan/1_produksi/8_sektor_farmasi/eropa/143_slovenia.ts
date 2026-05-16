@@ -2,6 +2,3 @@
 const slovenia_farmasi = {
   farmasi: 28,
 };
-
-
-

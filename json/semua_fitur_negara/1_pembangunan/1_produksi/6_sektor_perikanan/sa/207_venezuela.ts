@@ -4,6 +4,3 @@ const venezuela_perikanan = {
   mutiara: 56,
   ikan: 96,
 };
-
-
-

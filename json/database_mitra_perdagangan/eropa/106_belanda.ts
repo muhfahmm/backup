@@ -15,6 +15,3 @@ const belandaAgreements = [
   { "no": 13, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

@@ -9,6 +9,3 @@ const belgia_hukum = {
       "indeks_korupsi": 45,
       "indeks_keamanan": 73
   };
-
-
-

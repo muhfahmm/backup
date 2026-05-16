@@ -8,6 +8,3 @@ const sudan_selatan_manufaktur = {
   kayu: 28,
   pupuk: 36,
 };
-
-
-

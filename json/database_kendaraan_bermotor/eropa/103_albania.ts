@@ -5,6 +5,3 @@ const albaniaVehicles = {
   bus: 573,
   truk: 2866,
 };
-
-
-

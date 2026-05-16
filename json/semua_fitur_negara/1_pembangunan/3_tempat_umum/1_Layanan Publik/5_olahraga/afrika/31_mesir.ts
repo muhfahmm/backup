@@ -9,6 +9,3 @@ const mesir_olahraga = {
   "esports": 19,
   "gokart": 12
 };
-
-
-

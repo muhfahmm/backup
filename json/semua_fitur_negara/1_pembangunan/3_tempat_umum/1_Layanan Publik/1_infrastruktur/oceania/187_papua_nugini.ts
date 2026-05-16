@@ -9,6 +9,3 @@ const papua_nugini_infrastruktur = {
   bandara: 1,
   helipad: 3,
 };
-
-
-

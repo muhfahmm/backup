@@ -8,6 +8,3 @@ const kolombia_manufaktur = {
   kayu: 504,
   pupuk: 252,
 };
-
-
-

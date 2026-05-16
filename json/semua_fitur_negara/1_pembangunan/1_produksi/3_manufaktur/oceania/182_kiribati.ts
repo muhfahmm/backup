@@ -8,6 +8,3 @@ const kiribati_manufaktur = {
   kayu: 8,
   pupuk: 20,
 };
-
-
-

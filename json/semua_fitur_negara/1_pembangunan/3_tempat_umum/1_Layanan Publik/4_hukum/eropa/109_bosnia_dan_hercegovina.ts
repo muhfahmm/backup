@@ -9,6 +9,3 @@ const bosnia_dan_hercegovina_hukum = {
       "indeks_korupsi": 32,
       "indeks_keamanan": 50
   };
-
-
-

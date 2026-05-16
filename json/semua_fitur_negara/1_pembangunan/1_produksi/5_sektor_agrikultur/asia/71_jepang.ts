@@ -15,6 +15,3 @@ const jepang_agrikultur = {
   kapas: 12852,
   tembakau: 18802,
 };
-
-
-

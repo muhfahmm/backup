@@ -13,6 +13,3 @@ const saint_kitts_dan_nevis_ekstraksi = {
   logam_tanah_jarang: 24,
   bijih_besi: 24,
 };
-
-
-

@@ -8,6 +8,3 @@ const republik_rumania_manufaktur = {
   kayu: 96,
   pupuk: 168,
 };
-
-
-

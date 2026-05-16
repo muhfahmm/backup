@@ -15,6 +15,3 @@ const afrika_selatan_agrikultur = {
   kapas: 1400,
   tembakau: 2240,
 };
-
-
-

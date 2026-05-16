@@ -14,6 +14,3 @@ const austria_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

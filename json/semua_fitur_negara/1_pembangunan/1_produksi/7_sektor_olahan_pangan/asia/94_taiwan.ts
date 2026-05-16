@@ -11,6 +11,3 @@ const taiwan_olahan_pangan = {
   ikan_kaleng: 432,
   kopi_teh: 744,
 };
-
-
-

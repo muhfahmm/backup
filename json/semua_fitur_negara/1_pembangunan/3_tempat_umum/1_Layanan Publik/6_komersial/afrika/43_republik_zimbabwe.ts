@@ -4,6 +4,3 @@ const republik_zimbabwe_komersial = {
   "hotel": 13,
   "pusat_grosir_tekstil": 3
 };
-
-
-

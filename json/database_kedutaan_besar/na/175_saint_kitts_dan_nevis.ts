@@ -14,6 +14,3 @@ const saint_kitts_dan_nevis_diplomasi = [
   { "no": 12, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

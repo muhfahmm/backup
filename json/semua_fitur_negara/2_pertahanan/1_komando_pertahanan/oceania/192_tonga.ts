@@ -14,6 +14,3 @@ const tonga_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

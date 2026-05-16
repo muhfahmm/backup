@@ -16,6 +16,3 @@ const marshall_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

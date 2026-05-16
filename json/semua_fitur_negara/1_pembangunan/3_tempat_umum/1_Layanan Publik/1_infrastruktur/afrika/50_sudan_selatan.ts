@@ -9,6 +9,3 @@ const sudan_selatan_infrastruktur = {
   bandara: 4,
   helipad: 3,
 };
-
-
-

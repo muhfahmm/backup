@@ -11,6 +11,3 @@ const vietnam_olahan_pangan = {
   ikan_kaleng: 1020,
   kopi_teh: 2108,
 };
-
-
-

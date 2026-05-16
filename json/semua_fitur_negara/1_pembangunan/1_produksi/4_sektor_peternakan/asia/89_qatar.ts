@@ -5,6 +5,3 @@ const qatar_peternakan = {
   sapi_potong: 735,
   domba_kambing: 570,
 };
-
-
-

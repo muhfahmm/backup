@@ -30,6 +30,3 @@ const estonia_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

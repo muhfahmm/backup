@@ -9,6 +9,3 @@ const saint_vincent_dan_grenadine_olahraga = {
   "esports": 0,
   "gokart": 11
 };
-
-
-

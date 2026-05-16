@@ -8,6 +8,3 @@ const kamboja_manufaktur = {
   kayu: 42,
   pupuk: 21,
 };
-
-
-

@@ -11,6 +11,3 @@ const bolivia_olahan_pangan = {
   ikan_kaleng: 240,
   kopi_teh: 70,
 };
-
-
-

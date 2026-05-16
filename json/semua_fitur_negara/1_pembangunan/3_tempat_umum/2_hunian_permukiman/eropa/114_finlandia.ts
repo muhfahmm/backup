@@ -5,6 +5,3 @@ const finlandia_hunian = {
   apartemen: 1116,
   mansion: 37229,
 };
-
-
-

@@ -4,6 +4,3 @@ const grenada_perikanan = {
   mutiara: 14,
   ikan: 17,
 };
-
-
-

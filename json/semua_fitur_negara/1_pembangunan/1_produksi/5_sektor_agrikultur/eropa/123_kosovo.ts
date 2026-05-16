@@ -15,6 +15,3 @@ const kosovo_agrikultur = {
   kapas: 237,
   tembakau: 75,
 };
-
-
-

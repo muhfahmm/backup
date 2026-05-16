@@ -11,6 +11,3 @@ const china_olahan_pangan = {
   ikan_kaleng: 9614,
   kopi_teh: 10626,
 };
-
-
-

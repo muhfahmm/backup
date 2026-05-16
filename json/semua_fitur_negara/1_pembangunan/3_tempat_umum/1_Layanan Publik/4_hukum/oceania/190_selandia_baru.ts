@@ -9,6 +9,3 @@ const selandia_baru_hukum = {
       "indeks_korupsi": 27,
       "indeks_keamanan": 68
   };
-
-
-

@@ -16,6 +16,3 @@ const bangladesh_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

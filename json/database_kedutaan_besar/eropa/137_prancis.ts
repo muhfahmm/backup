@@ -11,6 +11,3 @@ const prancis_diplomasi = [
   { "no": 9, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 10, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

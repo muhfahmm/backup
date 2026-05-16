@@ -14,6 +14,3 @@ const indonesia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

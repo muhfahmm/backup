@@ -4,6 +4,3 @@ const portugal_perikanan = {
   mutiara: 680,
   ikan: 442,
 };
-
-
-

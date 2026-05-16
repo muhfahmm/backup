@@ -15,6 +15,3 @@ const kiribati_agrikultur = {
   kapas: 136,
   tembakau: 160,
 };
-
-
-

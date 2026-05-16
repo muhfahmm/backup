@@ -9,6 +9,3 @@ const spanyol_olahraga = {
   "esports": 77,
   "gokart": 181
 };
-
-
-

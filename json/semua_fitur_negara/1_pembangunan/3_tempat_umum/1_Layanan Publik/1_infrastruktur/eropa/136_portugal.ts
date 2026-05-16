@@ -9,6 +9,3 @@ const portugal_infrastruktur = {
   bandara: 8,
   helipad: 4,
 };
-
-
-

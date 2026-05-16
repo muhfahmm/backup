@@ -5,6 +5,3 @@ const kenya_peternakan = {
   sapi_potong: 70,
   domba_kambing: 196,
 };
-
-
-

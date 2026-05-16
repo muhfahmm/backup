@@ -14,6 +14,3 @@ const polandiaAgreements = [
   { "no": 12, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

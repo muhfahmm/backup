@@ -14,6 +14,3 @@ const trinidad_dan_tobago_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

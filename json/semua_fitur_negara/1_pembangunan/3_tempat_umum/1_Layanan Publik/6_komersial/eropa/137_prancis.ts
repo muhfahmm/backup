@@ -4,6 +4,3 @@ const prancis_komersial = {
   "hotel": 187,
   "pusat_grosir_tekstil": 64
 };
-
-
-

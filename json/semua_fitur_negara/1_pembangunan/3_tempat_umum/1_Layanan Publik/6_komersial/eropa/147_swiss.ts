@@ -4,6 +4,3 @@ const swiss_komersial = {
   "hotel": 40,
   "pusat_grosir_tekstil": 17
 };
-
-
-

@@ -5,6 +5,3 @@ const jamaika_peternakan = {
   sapi_potong: 40,
   domba_kambing: 80,
 };
-
-
-

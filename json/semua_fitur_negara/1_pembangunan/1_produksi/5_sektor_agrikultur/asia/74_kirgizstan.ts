@@ -15,6 +15,3 @@ const kirgizstan_agrikultur = {
   kapas: 147,
   tembakau: 132,
 };
-
-
-

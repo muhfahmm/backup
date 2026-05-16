@@ -30,6 +30,3 @@ const ukraina_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

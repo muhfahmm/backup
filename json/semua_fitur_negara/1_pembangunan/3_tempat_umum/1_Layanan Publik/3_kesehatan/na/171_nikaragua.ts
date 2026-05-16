@@ -6,6 +6,3 @@ const nikaragua_kesehatan = {
       "harapan_hidup": 65,
       "indeks_kesehatan": 53
     };
-
-
-

@@ -14,6 +14,3 @@ const pakistan_strategis = {
       "misil_nuklir": 170
     }
   };
-
-
-

@@ -5,6 +5,3 @@ const monakoVehicles = {
   bus: 7,
   truk: 38,
 };
-
-
-

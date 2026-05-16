@@ -5,6 +5,3 @@ const irlandia_peternakan = {
   sapi_potong: 1078,
   domba_kambing: 784,
 };
-
-
-

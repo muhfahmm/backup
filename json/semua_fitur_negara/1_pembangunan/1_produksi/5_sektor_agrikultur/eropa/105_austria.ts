@@ -15,6 +15,3 @@ const austria_agrikultur = {
   kapas: 3034,
   tembakau: 5772,
 };
-
-
-

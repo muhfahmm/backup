@@ -5,6 +5,3 @@ const djibouti_hunian = {
   apartemen: 194,
   mansion: 6472,
 };
-
-
-

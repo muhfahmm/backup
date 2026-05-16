@@ -10,6 +10,3 @@ const iranAgreements = [
   { "no": 8, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

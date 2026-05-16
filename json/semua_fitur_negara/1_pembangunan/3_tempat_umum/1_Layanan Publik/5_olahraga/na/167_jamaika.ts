@@ -9,6 +9,3 @@ const jamaika_olahraga = {
   "esports": 4,
   "gokart": 12
 };
-
-
-

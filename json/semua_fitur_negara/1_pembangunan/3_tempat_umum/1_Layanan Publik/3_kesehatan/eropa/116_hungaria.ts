@@ -6,6 +6,3 @@ const hungaria_kesehatan = {
       "harapan_hidup": 70,
       "indeks_kesehatan": 76
     };
-
-
-

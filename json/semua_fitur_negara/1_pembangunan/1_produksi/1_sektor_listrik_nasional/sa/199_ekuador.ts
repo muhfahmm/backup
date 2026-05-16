@@ -7,6 +7,3 @@ const ekuador_listrik = {
   pembangkit_listrik_tenaga_gas: 367,
   pembangkit_listrik_tenaga_angin: 4,
 };
-
-
-

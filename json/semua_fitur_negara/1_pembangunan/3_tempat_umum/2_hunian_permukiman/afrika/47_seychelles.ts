@@ -5,6 +5,3 @@ const seychelles_hunian = {
   apartemen: 19,
   mansion: 653,
 };
-
-
-

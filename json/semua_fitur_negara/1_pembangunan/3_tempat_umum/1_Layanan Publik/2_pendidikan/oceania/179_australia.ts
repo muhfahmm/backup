@@ -12,6 +12,3 @@ const australia_pendidikan = {
       "pusat_pengembangan": 39,
       "literasi": 95
     };
-
-
-

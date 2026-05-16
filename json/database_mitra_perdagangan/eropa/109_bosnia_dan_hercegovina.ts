@@ -14,6 +14,3 @@ const bosnia_dan_hercegovinaAgreements = [
   { "no": 12, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

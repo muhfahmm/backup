@@ -15,6 +15,3 @@ const mongolia_agrikultur = {
   kapas: 232,
   tembakau: 76,
 };
-
-
-

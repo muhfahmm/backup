@@ -13,6 +13,3 @@ const taiwan_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 168,
 };
-
-
-

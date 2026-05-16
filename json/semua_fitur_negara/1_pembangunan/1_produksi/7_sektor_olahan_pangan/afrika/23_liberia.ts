@@ -11,6 +11,3 @@ const liberia_olahan_pangan = {
   ikan_kaleng: 69,
   kopi_teh: 123,
 };
-
-
-

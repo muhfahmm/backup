@@ -16,6 +16,3 @@ const ethiopia_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

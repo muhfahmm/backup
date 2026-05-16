@@ -11,6 +11,3 @@ const mesir_olahan_pangan = {
   ikan_kaleng: 987,
   kopi_teh: 2068,
 };
-
-
-

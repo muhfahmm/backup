@@ -16,6 +16,3 @@ const republik_afrika_tengah_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

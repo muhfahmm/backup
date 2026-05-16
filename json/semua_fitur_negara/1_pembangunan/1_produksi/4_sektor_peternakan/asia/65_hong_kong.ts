@@ -5,6 +5,3 @@ const hong_kong_peternakan = {
   sapi_potong: 36,
   domba_kambing: 41,
 };
-
-
-

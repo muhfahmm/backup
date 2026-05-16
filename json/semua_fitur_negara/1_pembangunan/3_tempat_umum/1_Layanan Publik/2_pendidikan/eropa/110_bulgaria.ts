@@ -12,6 +12,3 @@ const bulgaria_pendidikan = {
       "pusat_pengembangan": 0,
       "literasi": 63
     };
-
-
-

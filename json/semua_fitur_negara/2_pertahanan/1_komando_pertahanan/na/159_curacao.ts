@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const curacao_strategis = {
     "waktu_respon": 32,
     "intelijen": 27,
@@ -13,5 +14,3 @@ const curacao_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

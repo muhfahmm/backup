@@ -6,6 +6,3 @@ const italia_kesehatan = {
       "harapan_hidup": 77,
       "indeks_kesehatan": 89
     };
-
-
-

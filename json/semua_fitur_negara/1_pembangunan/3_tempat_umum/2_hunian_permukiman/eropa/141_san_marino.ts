@@ -5,6 +5,3 @@ const san_marino_hunian = {
   apartemen: 6,
   mansion: 228,
 };
-
-
-

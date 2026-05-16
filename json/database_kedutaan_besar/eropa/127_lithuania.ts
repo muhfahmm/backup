@@ -12,6 +12,3 @@ const lithuania_diplomasi = [
   { "no": 10, "mitra": "Benin", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Bhutan", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

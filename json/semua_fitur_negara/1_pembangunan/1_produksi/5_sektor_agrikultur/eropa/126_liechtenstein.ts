@@ -15,6 +15,3 @@ const liechtenstein_agrikultur = {
   kapas: 308,
   tembakau: 200,
 };
-
-
-

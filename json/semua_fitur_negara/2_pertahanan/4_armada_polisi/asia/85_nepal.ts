@@ -16,6 +16,3 @@ const nepal_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

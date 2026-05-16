@@ -4,6 +4,3 @@ const islandia_perikanan = {
   mutiara: 28,
   ikan: 160,
 };
-
-
-

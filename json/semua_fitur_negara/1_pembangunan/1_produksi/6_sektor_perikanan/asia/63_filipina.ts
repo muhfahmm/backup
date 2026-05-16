@@ -4,6 +4,3 @@ const filipina_perikanan = {
   mutiara: 360,
   ikan: 700,
 };
-
-
-

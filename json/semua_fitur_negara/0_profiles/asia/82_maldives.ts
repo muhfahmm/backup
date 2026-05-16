@@ -26,74 +26,9 @@ const maldives_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const maldives = {
-  ...maldives_profile,
-  "sektor_listrik": maldives_listrik,
-  "hunian": maldives_hunian,
-  "infrastruktur": maldives_infrastruktur,
-  "sektor_ekstraksi": maldives_ekstraksi,
-  "sektor_manufaktur": maldives_manufaktur,
-  "sektor_peternakan": maldives_peternakan,
-  "sektor_agrikultur": maldives_agrikultur,
-  "sektor_perikanan": maldives_perikanan,
-  "sektor_olahan_pangan": maldives_olahan_pangan,
-  "sektor_farmasi": maldives_farmasi,
-  "sektor_pertahanan": maldives_pertahanan,
-  "armada_militer": maldives_armada,
-  "militer_strategis": maldives_strategis,
-  "armada_kepolisian": maldives_kepolisian,
-  "pabrik_militer": maldives_pabrik,
-  "intelijen": maldives_intelijen,
-    "pendidikan": maldives_pendidikan,
-  "kesehatan": maldives_kesehatan,
-  "hukum": maldives_hukum,
-  "sektor_olahraga": maldives_olahraga,
-  "sektor_komersial": maldives_komersial,
-  "sektor_hiburan": maldives_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 15,
-      "kepuasan": 67,
-      "pendapatan": 1
-    },
-    "korporasi": {
-      "tarif": 11,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 2,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 18,
-      "kepuasan": 86,
-      "pendapatan": 2
-    },
-    "lingkungan": {
-      "tarif": 7,
-      "kepuasan": 88,
-      "pendapatan": 1
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 1 },
-    "lainnya": {
-      "tarif": 11,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const maldives_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 208.2,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const maldives = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

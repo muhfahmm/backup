@@ -16,6 +16,3 @@ const vatikan_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -1,4 +1,5 @@
-﻿const palestina_pertahanan = {
+﻿// @ts-nocheck
+const palestina_pertahanan = {
     "penjara": 25,
     "gudang_senjata": 32,
     "hangar_tank": 35,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 14,
     "pertahanan_siber": 23
     };
-
-

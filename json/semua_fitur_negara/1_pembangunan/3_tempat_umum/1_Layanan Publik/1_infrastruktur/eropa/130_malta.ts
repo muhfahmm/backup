@@ -9,6 +9,3 @@ const malta_infrastruktur = {
   bandara: 1,
   helipad: 4,
 };
-
-
-

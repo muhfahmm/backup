@@ -9,6 +9,3 @@ const ukraina_hukum = {
       "indeks_korupsi": 41,
       "indeks_keamanan": 45
   };
-
-
-

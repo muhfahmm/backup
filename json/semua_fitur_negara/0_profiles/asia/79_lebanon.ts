@@ -26,74 +26,9 @@ const lebanon_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const lebanon = {
-  ...lebanon_profile,
-  "sektor_listrik": lebanon_listrik,
-  "hunian": lebanon_hunian,
-  "infrastruktur": lebanon_infrastruktur,
-  "sektor_ekstraksi": lebanon_ekstraksi,
-  "sektor_manufaktur": lebanon_manufaktur,
-  "sektor_peternakan": lebanon_peternakan,
-  "sektor_agrikultur": lebanon_agrikultur,
-  "sektor_perikanan": lebanon_perikanan,
-  "sektor_olahan_pangan": lebanon_olahan_pangan,
-  "sektor_farmasi": lebanon_farmasi,
-  "sektor_pertahanan": lebanon_pertahanan,
-  "armada_militer": lebanon_armada,
-  "militer_strategis": lebanon_strategis,
-  "armada_kepolisian": lebanon_kepolisian,
-  "pabrik_militer": lebanon_pabrik,
-  "intelijen": lebanon_intelijen,
-    "pendidikan": lebanon_pendidikan,
-  "kesehatan": lebanon_kesehatan,
-  "hukum": lebanon_hukum,
-  "sektor_olahraga": lebanon_olahraga,
-  "sektor_komersial": lebanon_komersial,
-  "sektor_hiburan": lebanon_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 12,
-      "kepuasan": 67,
-      "pendapatan": 5
-    },
-    "korporasi": {
-      "tarif": 5,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 28,
-      "kepuasan": 61,
-      "pendapatan": 6
-    },
-    "bea_cukai": {
-      "tarif": 38,
-      "kepuasan": 86,
-      "pendapatan": 13
-    },
-    "lingkungan": {
-      "tarif": 19,
-      "kepuasan": 88,
-      "pendapatan": 6
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 3 },
-    "lainnya": {
-      "tarif": 15,
-      "kepuasan": 93,
-      "pendapatan": 6
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const lebanon_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const lebanon = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

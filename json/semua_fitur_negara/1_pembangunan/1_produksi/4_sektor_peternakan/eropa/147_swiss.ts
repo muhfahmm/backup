@@ -5,6 +5,3 @@ const swiss_peternakan = {
   sapi_potong: 1551,
   domba_kambing: 2303,
 };
-
-
-

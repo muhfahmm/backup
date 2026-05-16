@@ -14,6 +14,3 @@ const antigua_dan_barbuda_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

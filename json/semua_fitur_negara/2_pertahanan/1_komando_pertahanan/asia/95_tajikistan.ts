@@ -14,6 +14,3 @@ const tajikistan_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

@@ -4,6 +4,3 @@ const irlandia_perikanan = {
   mutiara: 1715,
   ikan: 637,
 };
-
-
-

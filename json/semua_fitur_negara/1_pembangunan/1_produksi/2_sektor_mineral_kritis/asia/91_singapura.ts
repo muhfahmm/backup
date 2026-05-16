@@ -13,6 +13,3 @@ const singapura_ekstraksi = {
   logam_tanah_jarang: 440,
   bijih_besi: 44,
 };
-
-
-

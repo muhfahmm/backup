@@ -2,6 +2,3 @@
 const haiti_farmasi = {
   farmasi: 38,
 };
-
-
-

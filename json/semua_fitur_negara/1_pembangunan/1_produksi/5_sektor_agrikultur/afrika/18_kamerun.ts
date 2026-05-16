@@ -15,6 +15,3 @@ const kamerun_agrikultur = {
   kapas: 480,
   tembakau: 360,
 };
-
-
-

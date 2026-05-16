@@ -5,6 +5,3 @@ const togo_peternakan = {
   sapi_potong: 66,
   domba_kambing: 46,
 };
-
-
-

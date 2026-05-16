@@ -4,6 +4,3 @@ const kolombia_komersial = {
   "hotel": 16,
   "pusat_grosir_tekstil": 16
 };
-
-
-

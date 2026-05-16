@@ -30,6 +30,3 @@ const israel_armada = {
         "pesawat_angkut": 15
       }
 };
-
-
-

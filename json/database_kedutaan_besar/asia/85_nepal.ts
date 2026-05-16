@@ -15,6 +15,3 @@ const nepal_diplomasi = [
   { "no": 13, "mitra": "Bhutan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Bosnia dan Hercegovina", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

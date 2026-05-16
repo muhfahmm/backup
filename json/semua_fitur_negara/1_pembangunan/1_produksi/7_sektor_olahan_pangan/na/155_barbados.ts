@@ -11,6 +11,3 @@ const barbados_olahan_pangan = {
   ikan_kaleng: 28,
   kopi_teh: 41,
 };
-
-
-

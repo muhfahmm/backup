@@ -9,6 +9,3 @@ const barbados_hukum = {
       "indeks_korupsi": 43,
       "indeks_keamanan": 62
   };
-
-
-

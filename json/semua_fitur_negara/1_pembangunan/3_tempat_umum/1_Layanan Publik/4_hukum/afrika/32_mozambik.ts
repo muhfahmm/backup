@@ -9,6 +9,3 @@ const mozambik_hukum = {
       "indeks_korupsi": 10,
       "indeks_keamanan": 40
   };
-
-
-

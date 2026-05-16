@@ -15,6 +15,3 @@ const sao_tome_dan_principe_agrikultur = {
   kapas: 84,
   tembakau: 156,
 };
-
-
-

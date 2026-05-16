@@ -5,6 +5,3 @@ const el_salvador_peternakan = {
   sapi_potong: 200,
   domba_kambing: 205,
 };
-
-
-

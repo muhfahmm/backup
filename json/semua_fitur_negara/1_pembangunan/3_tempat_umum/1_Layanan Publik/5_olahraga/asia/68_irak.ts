@@ -9,6 +9,3 @@ const irak_olahraga = {
   "esports": 9,
   "gokart": 26
 };
-
-
-

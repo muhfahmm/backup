@@ -4,6 +4,3 @@ const siprus_perikanan = {
   mutiara: 140,
   ikan: 116,
 };
-
-
-

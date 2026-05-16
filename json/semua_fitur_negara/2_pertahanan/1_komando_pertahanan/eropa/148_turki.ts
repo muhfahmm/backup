@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const turki_strategis = {
     "waktu_respon": 33,
     "intelijen": 7,
@@ -13,5 +14,3 @@ const turki_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

@@ -13,6 +13,3 @@ const republik_demokratik_kongoAgreements = [
   { "no": 11, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 12, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

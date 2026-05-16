@@ -4,6 +4,3 @@ const rusia_komersial = {
   "hotel": 267,
   "pusat_grosir_tekstil": 62
 };
-
-
-

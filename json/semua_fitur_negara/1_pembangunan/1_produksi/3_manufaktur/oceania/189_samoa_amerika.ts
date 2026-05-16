@@ -8,6 +8,3 @@ const samoa_amerika_manufaktur = {
   kayu: 8,
   pupuk: 16,
 };
-
-
-

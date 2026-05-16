@@ -5,6 +5,3 @@ const filipina_peternakan = {
   sapi_potong: 920,
   domba_kambing: 680,
 };
-
-
-

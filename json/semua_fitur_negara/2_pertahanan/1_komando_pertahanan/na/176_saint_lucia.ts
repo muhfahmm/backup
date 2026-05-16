@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const saint_lucia_strategis = {
     "waktu_respon": 16,
     "intelijen": 24,
@@ -13,5 +14,3 @@ const saint_lucia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

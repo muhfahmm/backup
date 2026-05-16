@@ -11,6 +11,3 @@ const kamerun_olahan_pangan = {
   ikan_kaleng: 336,
   kopi_teh: 280,
 };
-
-
-

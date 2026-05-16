@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const armenia_strategis = {
     "waktu_respon": 9,
     "intelijen": 13,
@@ -13,5 +14,3 @@ const armenia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

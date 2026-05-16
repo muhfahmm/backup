@@ -14,6 +14,3 @@ const bahama_diplomasi = [
   { "no": 12, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

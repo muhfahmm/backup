@@ -4,6 +4,3 @@ const hungaria_komersial = {
   "hotel": 51,
   "pusat_grosir_tekstil": 11
 };
-
-
-

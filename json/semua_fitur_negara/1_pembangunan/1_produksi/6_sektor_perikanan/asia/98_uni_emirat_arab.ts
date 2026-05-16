@@ -4,6 +4,3 @@ const uni_emirat_arab_perikanan = {
   mutiara: 1782,
   ikan: 528,
 };
-
-
-

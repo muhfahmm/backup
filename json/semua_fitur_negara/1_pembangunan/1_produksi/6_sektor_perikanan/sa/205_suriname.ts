@@ -4,6 +4,3 @@ const suriname_perikanan = {
   mutiara: 62,
   ikan: 44,
 };
-
-
-

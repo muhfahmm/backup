@@ -5,6 +5,3 @@ const mozambik_peternakan = {
   sapi_potong: 35,
   domba_kambing: 37,
 };
-
-
-

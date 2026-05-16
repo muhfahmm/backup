@@ -5,6 +5,3 @@ const lithuaniaVehicles = {
   bus: 560,
   truk: 2801,
 };
-
-
-

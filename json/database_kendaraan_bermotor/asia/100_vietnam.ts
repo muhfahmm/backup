@@ -5,6 +5,3 @@ const vietnamVehicles = {
   bus: 19108,
   truk: 95540,
 };
-
-
-

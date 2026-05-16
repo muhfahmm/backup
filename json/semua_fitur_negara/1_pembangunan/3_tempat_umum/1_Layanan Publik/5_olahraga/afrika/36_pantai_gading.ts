@@ -9,6 +9,3 @@ const pantai_gading_olahraga = {
   "esports": 0,
   "gokart": 15
 };
-
-
-

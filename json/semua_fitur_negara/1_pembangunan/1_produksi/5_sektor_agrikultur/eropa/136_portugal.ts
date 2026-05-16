@@ -15,6 +15,3 @@ const portugal_agrikultur = {
   kapas: 1275,
   tembakau: 833,
 };
-
-
-

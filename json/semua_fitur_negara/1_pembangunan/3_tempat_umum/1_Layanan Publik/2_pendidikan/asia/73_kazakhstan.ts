@@ -12,6 +12,3 @@ const kazakhstan_pendidikan = {
       "pusat_pengembangan": 3,
       "literasi": 78
     };
-
-
-

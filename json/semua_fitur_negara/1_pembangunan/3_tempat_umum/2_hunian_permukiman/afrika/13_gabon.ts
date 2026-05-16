@@ -5,6 +5,3 @@ const gabon_hunian = {
   apartemen: 429,
   mansion: 14305,
 };
-
-
-

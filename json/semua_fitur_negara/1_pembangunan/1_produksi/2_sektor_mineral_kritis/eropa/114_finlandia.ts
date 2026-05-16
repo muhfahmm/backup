@@ -13,6 +13,3 @@ const finlandia_ekstraksi = {
   logam_tanah_jarang: 90,
   bijih_besi: 36,
 };
-
-
-

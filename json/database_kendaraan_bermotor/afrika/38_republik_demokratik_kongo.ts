@@ -5,6 +5,3 @@ const republikDemokratikKongoVehicles = {
   bus: 1048,
   truk: 5244,
 };
-
-
-

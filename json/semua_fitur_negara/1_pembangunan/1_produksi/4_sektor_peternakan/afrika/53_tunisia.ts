@@ -5,6 +5,3 @@ const tunisia_peternakan = {
   sapi_potong: 98,
   domba_kambing: 44,
 };
-
-
-

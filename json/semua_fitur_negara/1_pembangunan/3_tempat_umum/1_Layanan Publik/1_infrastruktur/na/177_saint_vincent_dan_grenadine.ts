@@ -9,6 +9,3 @@ const saint_vincent_dan_grenadine_infrastruktur = {
   bandara: 5,
   helipad: 4,
 };
-
-
-

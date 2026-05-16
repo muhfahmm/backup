@@ -5,6 +5,3 @@ const trinidad_dan_tobago_peternakan = {
   sapi_potong: 52,
   domba_kambing: 20,
 };
-
-
-

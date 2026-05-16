@@ -9,6 +9,3 @@ const filipina_olahraga = {
   "esports": 6,
   "gokart": 35
 };
-
-
-

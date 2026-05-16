@@ -15,6 +15,3 @@ const georgia_agrikultur = {
   kapas: 112,
   tembakau: 112,
 };
-
-
-

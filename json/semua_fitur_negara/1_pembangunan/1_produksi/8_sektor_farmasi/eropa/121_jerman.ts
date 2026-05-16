@@ -2,6 +2,3 @@
 const jerman_farmasi = {
   farmasi: 23,
 };
-
-
-

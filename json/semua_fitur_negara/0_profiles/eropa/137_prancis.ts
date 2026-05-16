@@ -26,74 +26,9 @@ const prancis_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const prancis = {
-  ...prancis_profile,
-  "sektor_listrik": prancis_listrik,
-  "hunian": prancis_hunian,
-  "infrastruktur": prancis_infrastruktur,
-  "sektor_ekstraksi": prancis_ekstraksi,
-  "sektor_manufaktur": prancis_manufaktur,
-  "sektor_peternakan": prancis_peternakan,
-  "sektor_agrikultur": prancis_agrikultur,
-  "sektor_perikanan": prancis_perikanan,
-  "sektor_olahan_pangan": prancis_olahan_pangan,
-  "sektor_farmasi": prancis_farmasi,
-  "sektor_pertahanan": prancis_pertahanan,
-  "armada_militer": prancis_armada,
-  "militer_strategis": prancis_strategis,
-  "armada_kepolisian": prancis_kepolisian,
-  "pabrik_militer": prancis_pabrik,
-  "intelijen": prancis_intelijen,
-    "pendidikan": prancis_pendidikan,
-  "kesehatan": prancis_kesehatan,
-  "hukum": prancis_hukum,
-  "sektor_olahraga": prancis_olahraga,
-  "sektor_komersial": prancis_komersial,
-  "sektor_hiburan": prancis_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 30,
-      "kepuasan": 67,
-      "pendapatan": 1497
-    },
-    "korporasi": {
-      "tarif": 35,
-      "kepuasan": 52,
-      "pendapatan": 1939
-    },
-    "penghasilan": {
-      "tarif": 2,
-      "kepuasan": 61,
-      "pendapatan": 142
-    },
-    "bea_cukai": {
-      "tarif": 19,
-      "kepuasan": 86,
-      "pendapatan": 1458
-    },
-    "lingkungan": {
-      "tarif": 3,
-      "kepuasan": 88,
-      "pendapatan": 157
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 153 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 457 },
-    "lainnya": {
-      "tarif": 10,
-      "kepuasan": 93,
-      "pendapatan": 520
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const prancis_extra = {
+"": {
     "harga_beras": 22.4,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const prancis = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

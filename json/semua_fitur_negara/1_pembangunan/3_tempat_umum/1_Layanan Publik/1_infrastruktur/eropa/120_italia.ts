@@ -9,6 +9,3 @@ const italia_infrastruktur = {
   bandara: 36,
   helipad: 31,
 };
-
-
-

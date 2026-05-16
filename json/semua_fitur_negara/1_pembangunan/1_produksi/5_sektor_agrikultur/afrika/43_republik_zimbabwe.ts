@@ -15,6 +15,3 @@ const republik_zimbabwe_agrikultur = {
   kapas: 128,
   tembakau: 68,
 };
-
-
-

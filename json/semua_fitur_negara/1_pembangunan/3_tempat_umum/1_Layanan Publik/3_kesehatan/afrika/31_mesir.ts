@@ -6,6 +6,3 @@ const mesir_kesehatan = {
       "harapan_hidup": 71,
       "indeks_kesehatan": 85
   };
-
-
-

@@ -5,6 +5,3 @@ const sudan_selatan_peternakan = {
   sapi_potong: 200,
   domba_kambing: 96,
 };
-
-
-

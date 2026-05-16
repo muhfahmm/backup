@@ -5,6 +5,3 @@ const hongKongVehicles = {
   bus: 1490,
   truk: 7451,
 };
-
-
-

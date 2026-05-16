@@ -15,6 +15,3 @@ const thailand_agrikultur = {
   kapas: 738,
   tembakau: 2542,
 };
-
-
-

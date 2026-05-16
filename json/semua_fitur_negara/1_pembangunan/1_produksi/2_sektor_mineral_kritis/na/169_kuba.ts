@@ -13,6 +13,3 @@ const kuba_ekstraksi = {
   logam_tanah_jarang: 190,
   bijih_besi: 133,
 };
-
-
-

@@ -4,6 +4,3 @@ const makau_perikanan = {
   mutiara: 148,
   ikan: 124,
 };
-
-
-

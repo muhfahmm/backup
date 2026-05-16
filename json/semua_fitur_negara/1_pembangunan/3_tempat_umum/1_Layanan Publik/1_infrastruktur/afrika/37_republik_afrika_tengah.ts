@@ -9,6 +9,3 @@ const republik_afrika_tengah_infrastruktur = {
   bandara: 3,
   helipad: 1,
 };
-
-
-

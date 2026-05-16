@@ -9,6 +9,3 @@ const nauru_infrastruktur = {
   bandara: 3,
   helipad: 5,
 };
-
-
-

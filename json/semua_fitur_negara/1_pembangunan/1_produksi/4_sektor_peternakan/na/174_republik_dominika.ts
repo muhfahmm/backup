@@ -5,6 +5,3 @@ const republik_dominika_peternakan = {
   sapi_potong: 252,
   domba_kambing: 224,
 };
-
-
-

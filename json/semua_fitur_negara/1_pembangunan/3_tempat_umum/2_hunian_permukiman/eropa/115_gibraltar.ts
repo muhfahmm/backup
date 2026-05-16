@@ -5,6 +5,3 @@ const gibraltar_hunian = {
   apartemen: 6,
   mansion: 227,
 };
-
-
-

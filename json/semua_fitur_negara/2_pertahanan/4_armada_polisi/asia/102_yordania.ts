@@ -16,6 +16,3 @@ const yordania_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

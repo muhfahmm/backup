@@ -9,6 +9,3 @@ const guinea_bissau_infrastruktur = {
   bandara: 4,
   helipad: 5,
 };
-
-
-

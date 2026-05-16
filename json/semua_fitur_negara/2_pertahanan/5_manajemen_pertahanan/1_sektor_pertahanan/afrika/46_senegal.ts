@@ -9,6 +9,3 @@ const senegal_pertahanan = {
     "program_luar_angkasa": 28,
     "pertahanan_siber": 36
     };
-
-
-

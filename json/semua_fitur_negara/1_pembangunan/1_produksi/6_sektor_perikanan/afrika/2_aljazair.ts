@@ -4,6 +4,3 @@ const aljazair_perikanan = {
   mutiara: 187,
   ikan: 77,
 };
-
-
-

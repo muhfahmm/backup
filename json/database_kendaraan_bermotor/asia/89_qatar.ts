@@ -5,6 +5,3 @@ const qatarVehicles = {
   bus: 556,
   truk: 2781,
 };
-
-
-

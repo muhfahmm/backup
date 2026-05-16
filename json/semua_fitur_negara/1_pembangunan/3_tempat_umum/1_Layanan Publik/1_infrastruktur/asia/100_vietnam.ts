@@ -9,6 +9,3 @@ const vietnam_infrastruktur = {
   bandara: 10,
   helipad: 2,
 };
-
-
-

@@ -15,6 +15,3 @@ const spanyol_agrikultur = {
   kapas: 8932,
   tembakau: 6032,
 };
-
-
-

@@ -13,6 +13,3 @@ const madagaskar_ekstraksi = {
   logam_tanah_jarang: 2,
   bijih_besi: 12,
 };
-
-
-

@@ -10,6 +10,3 @@ const hong_kongAgreements = [
   { "no": 8, "mitra": "Indonesia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Thailand", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

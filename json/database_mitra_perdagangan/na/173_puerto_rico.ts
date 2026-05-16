@@ -14,6 +14,3 @@ const puerto_ricoAgreements = [
   { "no": 12, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

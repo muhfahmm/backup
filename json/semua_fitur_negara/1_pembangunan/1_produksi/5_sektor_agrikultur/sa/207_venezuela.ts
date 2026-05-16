@@ -15,6 +15,3 @@ const venezuela_agrikultur = {
   kapas: 568,
   tembakau: 304,
 };
-
-
-

@@ -13,6 +13,3 @@ const kiribati_ekstraksi = {
   logam_tanah_jarang: 14,
   bijih_besi: 0,
 };
-
-
-

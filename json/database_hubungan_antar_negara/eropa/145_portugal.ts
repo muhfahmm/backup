@@ -208,6 +208,3 @@ const portugal_relations = [
   { id: 206, name: "yordania", relation: 50 },
   { id: 207, name: "yunani", relation: 50 }
 ];
-
-
-

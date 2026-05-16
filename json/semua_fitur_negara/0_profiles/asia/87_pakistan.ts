@@ -26,74 +26,9 @@ const pakistan_geopolitik = {
       "kekuatan_keras": 4,
       "prestise_diplomatik": 57
     }
-  };
-
-const pakistan = {
-  ...pakistan_profile,
-  "sektor_listrik": pakistan_listrik,
-  "hunian": pakistan_hunian,
-  "infrastruktur": pakistan_infrastruktur,
-  "sektor_ekstraksi": pakistan_ekstraksi,
-  "sektor_manufaktur": pakistan_manufaktur,
-  "sektor_peternakan": pakistan_peternakan,
-  "sektor_agrikultur": pakistan_agrikultur,
-  "sektor_perikanan": pakistan_perikanan,
-  "sektor_olahan_pangan": pakistan_olahan_pangan,
-  "sektor_farmasi": pakistan_farmasi,
-  "sektor_pertahanan": pakistan_pertahanan,
-  "armada_militer": pakistan_armada,
-  "militer_strategis": pakistan_strategis,
-  "armada_kepolisian": pakistan_kepolisian,
-  "pabrik_militer": pakistan_pabrik,
-  "intelijen": pakistan_intelijen,
-    "pendidikan": pakistan_pendidikan,
-  "kesehatan": pakistan_kesehatan,
-  "hukum": pakistan_hukum,
-  "sektor_olahraga": pakistan_olahraga,
-  "sektor_komersial": pakistan_komersial,
-  "sektor_hiburan": pakistan_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 36,
-      "kepuasan": 67,
-      "pendapatan": 126
-    },
-    "korporasi": {
-      "tarif": 32,
-      "kepuasan": 52,
-      "pendapatan": 205
-    },
-    "penghasilan": {
-      "tarif": 14,
-      "kepuasan": 61,
-      "pendapatan": 59
-    },
-    "bea_cukai": {
-      "tarif": 35,
-      "kepuasan": 86,
-      "pendapatan": 300
-    },
-    "lingkungan": {
-      "tarif": 17,
-      "kepuasan": 88,
-      "pendapatan": 100
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 17 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 50 },
-    "lainnya": {
-      "tarif": 13,
-      "kepuasan": 93,
-      "pendapatan": 124
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const pakistan_extra = {
+"": {
     "harga_beras": 12.8,
     "harga_daging_sapi": 104.1,
     "harga_ayam": 57.4,
@@ -121,8 +56,4 @@ const pakistan = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

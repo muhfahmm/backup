@@ -6,6 +6,3 @@ const guyana_kesehatan = {
       "harapan_hidup": 56,
       "indeks_kesehatan": 74
     };
-
-
-

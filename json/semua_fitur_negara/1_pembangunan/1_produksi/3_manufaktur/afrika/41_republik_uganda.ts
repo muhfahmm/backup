@@ -8,6 +8,3 @@ const republik_uganda_manufaktur = {
   kayu: 18,
   pupuk: 27,
 };
-
-
-

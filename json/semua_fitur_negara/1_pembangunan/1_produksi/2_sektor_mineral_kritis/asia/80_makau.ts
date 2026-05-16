@@ -13,6 +13,3 @@ const makau_ekstraksi = {
   logam_tanah_jarang: 20,
   bijih_besi: 16,
 };
-
-
-

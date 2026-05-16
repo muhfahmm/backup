@@ -30,6 +30,3 @@ const greenland_armada = {
         "pesawat_angkut": 2
       }
 };
-
-
-

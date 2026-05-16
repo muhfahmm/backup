@@ -15,6 +15,3 @@ const turki_agrikultur = {
   kapas: 296,
   tembakau: 180,
 };
-
-
-

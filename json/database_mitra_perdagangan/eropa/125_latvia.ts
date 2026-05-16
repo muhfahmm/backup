@@ -14,6 +14,3 @@ const latviaAgreements = [
   { "no": 12, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

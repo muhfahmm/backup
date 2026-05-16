@@ -11,6 +11,3 @@ const tuvalu_olahan_pangan = {
   ikan_kaleng: 126,
   kopi_teh: 66,
 };
-
-
-

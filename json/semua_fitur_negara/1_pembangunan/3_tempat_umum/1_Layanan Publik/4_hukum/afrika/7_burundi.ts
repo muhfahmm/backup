@@ -9,6 +9,3 @@ const burundi_hukum = {
       "indeks_korupsi": 13,
       "indeks_keamanan": 63
   };
-
-
-

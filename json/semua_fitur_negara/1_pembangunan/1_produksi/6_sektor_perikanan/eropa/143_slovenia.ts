@@ -4,6 +4,3 @@ const slovenia_perikanan = {
   mutiara: 32,
   ikan: 80,
 };
-
-
-

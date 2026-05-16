@@ -8,6 +8,3 @@ const san_marino_manufaktur = {
   kayu: 32,
   pupuk: 20,
 };
-
-
-

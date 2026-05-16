@@ -16,6 +16,3 @@ const san_marino_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

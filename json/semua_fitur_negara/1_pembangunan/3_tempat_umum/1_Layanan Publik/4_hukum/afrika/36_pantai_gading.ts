@@ -9,6 +9,3 @@ const pantai_gading_hukum = {
       "indeks_korupsi": 38,
       "indeks_keamanan": 52
   };
-
-
-

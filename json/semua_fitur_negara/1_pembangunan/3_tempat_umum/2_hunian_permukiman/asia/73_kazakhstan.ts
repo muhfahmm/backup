@@ -5,6 +5,3 @@ const kazakhstan_hunian = {
   apartemen: 3700,
   mansion: 123338,
 };
-
-
-

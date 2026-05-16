@@ -9,6 +9,3 @@ const bahrain_hukum = {
       "indeks_korupsi": 46,
       "indeks_keamanan": 62
   };
-
-
-

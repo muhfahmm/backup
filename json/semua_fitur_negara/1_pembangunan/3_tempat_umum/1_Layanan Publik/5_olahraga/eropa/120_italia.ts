@@ -9,6 +9,3 @@ const italia_olahraga = {
   "esports": 25,
   "gokart": 154
 };
-
-
-

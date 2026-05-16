@@ -13,6 +13,3 @@ const angola_ekstraksi = {
   logam_tanah_jarang: 40,
   bijih_besi: 24,
 };
-
-
-

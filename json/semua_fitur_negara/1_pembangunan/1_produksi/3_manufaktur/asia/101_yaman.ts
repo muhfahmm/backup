@@ -8,6 +8,3 @@ const yaman_manufaktur = {
   kayu: 60,
   pupuk: 32,
 };
-
-
-

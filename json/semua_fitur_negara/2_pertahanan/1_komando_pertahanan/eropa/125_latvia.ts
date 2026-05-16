@@ -14,6 +14,3 @@ const latvia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

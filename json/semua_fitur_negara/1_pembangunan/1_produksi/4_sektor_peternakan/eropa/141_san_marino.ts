@@ -5,6 +5,3 @@ const san_marino_peternakan = {
   sapi_potong: 68,
   domba_kambing: 184,
 };
-
-
-

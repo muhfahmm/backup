@@ -26,74 +26,9 @@ const hong_kong_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
     }
-  };
-
-const hong_kong = {
-  ...hong_kong_profile,
-  "sektor_listrik": hong_kong_listrik,
-  "hunian": hong_kong_hunian,
-  "infrastruktur": hong_kong_infrastruktur,
-  "sektor_ekstraksi": hong_kong_ekstraksi,
-  "sektor_manufaktur": hong_kong_manufaktur,
-  "sektor_peternakan": hong_kong_peternakan,
-  "sektor_agrikultur": hong_kong_agrikultur,
-  "sektor_perikanan": hong_kong_perikanan,
-  "sektor_olahan_pangan": hong_kong_olahan_pangan,
-  "sektor_farmasi": hong_kong_farmasi,
-  "sektor_pertahanan": hong_kong_pertahanan,
-  "armada_militer": hong_kong_armada,
-  "militer_strategis": hong_kong_strategis,
-  "armada_kepolisian": hong_kong_kepolisian,
-  "pabrik_militer": hong_kong_pabrik,
-  "intelijen": hong_kong_intelijen,
-    "pendidikan": hong_kong_pendidikan,
-  "kesehatan": hong_kong_kesehatan,
-  "hukum": hong_kong_hukum,
-  "sektor_olahraga": hong_kong_olahraga,
-  "sektor_komersial": hong_kong_komersial,
-  "sektor_hiburan": hong_kong_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 14,
-      "kepuasan": 67,
-      "pendapatan": 3
-    },
-    "korporasi": {
-      "tarif": 14,
-      "kepuasan": 52,
-      "pendapatan": 2
-    },
-    "penghasilan": {
-      "tarif": 2,
-      "kepuasan": 61,
-      "pendapatan": 0
-    },
-    "bea_cukai": {
-      "tarif": 6,
-      "kepuasan": 86,
-      "pendapatan": 1
-    },
-    "lingkungan": {
-      "tarif": 16,
-      "kepuasan": 88,
-      "pendapatan": 4
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 7,
-      "kepuasan": 93,
-      "pendapatan": 1
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const hong_kong_extra = {
+"": {
     "harga_beras": 16,
     "harga_daging_sapi": 145.74,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const hong_kong = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

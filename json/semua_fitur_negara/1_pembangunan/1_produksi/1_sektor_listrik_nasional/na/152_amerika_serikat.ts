@@ -7,6 +7,3 @@ const amerika_serikat_listrik = {
   pembangkit_listrik_tenaga_gas: 43,
   pembangkit_listrik_tenaga_angin: 6,
 };
-
-
-

@@ -13,6 +13,3 @@ const argentina_diplomasi = [
   { "no": 11, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 12, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
-
-
-

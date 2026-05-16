@@ -4,6 +4,3 @@ const kuwait_perikanan = {
   mutiara: 680,
   ikan: 320,
 };
-
-
-

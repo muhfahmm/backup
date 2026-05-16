@@ -8,6 +8,3 @@ const guyana_manufaktur = {
   kayu: 14,
   pupuk: 18,
 };
-
-
-

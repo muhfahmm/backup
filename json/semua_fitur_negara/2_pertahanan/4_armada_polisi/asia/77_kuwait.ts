@@ -16,6 +16,3 @@ const kuwait_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

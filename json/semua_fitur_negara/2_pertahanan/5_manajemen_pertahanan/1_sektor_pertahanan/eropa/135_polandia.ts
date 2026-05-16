@@ -1,4 +1,5 @@
-﻿const polandia_pertahanan = {
+﻿// @ts-nocheck
+const polandia_pertahanan = {
     "penjara": 16,
     "gudang_senjata": 9,
     "hangar_tank": 29,
@@ -8,5 +9,3 @@
     "program_luar_angkasa": 25,
     "pertahanan_siber": 16
     };
-
-

@@ -15,6 +15,3 @@ const malaysia_agrikultur = {
   kapas: 1908,
   tembakau: 720,
 };
-
-
-

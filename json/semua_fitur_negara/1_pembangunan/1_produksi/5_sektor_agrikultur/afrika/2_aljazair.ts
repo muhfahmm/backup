@@ -15,6 +15,3 @@ const aljazair_agrikultur = {
   kapas: 385,
   tembakau: 528,
 };
-
-
-

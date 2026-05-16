@@ -16,6 +16,3 @@ const india_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

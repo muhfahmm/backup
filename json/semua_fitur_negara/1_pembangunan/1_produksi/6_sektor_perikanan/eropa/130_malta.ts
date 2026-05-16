@@ -4,6 +4,3 @@ const malta_perikanan = {
   mutiara: 36,
   ikan: 40,
 };
-
-
-

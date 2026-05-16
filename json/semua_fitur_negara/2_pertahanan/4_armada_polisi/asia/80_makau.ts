@@ -16,6 +16,3 @@ const makau_kepolisian = {
       "samapta": 62
     }
   };
-
-
-

@@ -6,6 +6,3 @@ const latvia_kesehatan = {
       "harapan_hidup": 67,
       "indeks_kesehatan": 68
     };
-
-
-

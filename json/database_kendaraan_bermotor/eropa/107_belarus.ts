@@ -5,6 +5,3 @@ const belarusVehicles = {
   bus: 1896,
   truk: 9483,
 };
-
-
-

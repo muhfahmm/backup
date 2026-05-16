@@ -6,6 +6,3 @@ const ekuador_kesehatan = {
       "harapan_hidup": 59,
       "indeks_kesehatan": 51
     };
-
-
-

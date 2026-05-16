@@ -15,6 +15,3 @@ const indonesiaAgreements = [
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" }
 ];
-
-
-

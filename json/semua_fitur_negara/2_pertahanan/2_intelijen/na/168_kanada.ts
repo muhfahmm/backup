@@ -4,6 +4,3 @@ const kanada_intelijen = {
   jaringan_radar: 51,
   operasi_siber: 79,
 };
-
-
-

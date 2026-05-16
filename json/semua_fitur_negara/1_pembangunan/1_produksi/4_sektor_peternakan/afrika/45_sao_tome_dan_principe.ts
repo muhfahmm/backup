@@ -5,6 +5,3 @@ const sao_tome_dan_principe_peternakan = {
   sapi_potong: 52,
   domba_kambing: 80,
 };
-
-
-

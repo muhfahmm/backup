@@ -15,6 +15,3 @@ const tuvalu_agrikultur = {
   kapas: 99,
   tembakau: 150,
 };
-
-
-

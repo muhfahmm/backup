@@ -5,6 +5,3 @@ const vatikan_hunian = {
   apartemen: 0,
   mansion: 5,
 };
-
-
-

@@ -5,6 +5,3 @@ const uzbekistan_peternakan = {
   sapi_potong: 315,
   domba_kambing: 147,
 };
-
-
-

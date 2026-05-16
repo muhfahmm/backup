@@ -9,6 +9,3 @@ const makau_pertahanan = {
     "program_luar_angkasa": 9,
     "pertahanan_siber": 37
     };
-
-
-

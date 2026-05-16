@@ -14,6 +14,3 @@ const prancis_strategis = {
       "misil_nuklir": 290
     }
   };
-
-
-

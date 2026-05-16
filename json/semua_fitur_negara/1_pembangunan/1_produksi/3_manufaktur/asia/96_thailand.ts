@@ -8,6 +8,3 @@ const thailand_manufaktur = {
   kayu: 246,
   pupuk: 287,
 };
-
-
-

@@ -9,6 +9,3 @@ const fiji_hukum = {
       "indeks_korupsi": 18,
       "indeks_keamanan": 42
   };
-
-
-

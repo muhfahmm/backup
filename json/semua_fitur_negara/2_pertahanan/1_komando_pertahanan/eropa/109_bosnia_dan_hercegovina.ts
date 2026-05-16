@@ -1,4 +1,5 @@
-﻿
+﻿// @ts-nocheck
+
 const bosnia_dan_hercegovina_strategis = {
     "waktu_respon": 29,
     "intelijen": 9,
@@ -13,5 +14,3 @@ const bosnia_dan_hercegovina_strategis = {
       "misil_nuklir": 0
     }
   };
-
-

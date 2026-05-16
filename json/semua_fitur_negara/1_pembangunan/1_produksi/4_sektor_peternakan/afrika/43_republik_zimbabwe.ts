@@ -5,6 +5,3 @@ const republik_zimbabwe_peternakan = {
   sapi_potong: 92,
   domba_kambing: 56,
 };
-
-
-

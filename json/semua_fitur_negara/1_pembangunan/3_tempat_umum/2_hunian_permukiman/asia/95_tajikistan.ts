@@ -5,6 +5,3 @@ const tajikistan_hunian = {
   apartemen: 1842,
   mansion: 61430,
 };
-
-
-

@@ -30,6 +30,3 @@ const inggris_armada = {
         "pesawat_angkut": 40
       }
 };
-
-
-

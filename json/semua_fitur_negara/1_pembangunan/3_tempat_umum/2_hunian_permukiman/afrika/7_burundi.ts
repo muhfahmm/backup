@@ -5,6 +5,3 @@ const burundi_hunian = {
   apartemen: 2263,
   mansion: 75433,
 };
-
-
-

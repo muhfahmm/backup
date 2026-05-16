@@ -5,6 +5,3 @@ const belgia_peternakan = {
   sapi_potong: 1640,
   domba_kambing: 1681,
 };
-
-
-

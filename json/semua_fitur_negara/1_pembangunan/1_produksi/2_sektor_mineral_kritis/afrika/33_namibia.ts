@@ -13,6 +13,3 @@ const namibia_ekstraksi = {
   logam_tanah_jarang: 1,
   bijih_besi: 0,
 };
-
-
-

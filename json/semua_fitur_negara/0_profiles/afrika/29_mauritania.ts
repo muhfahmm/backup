@@ -26,74 +26,9 @@ const mauritania_geopolitik = {
       "kekuatan_keras": 40,
       "prestise_diplomatik": 57
   }
-  };
-
-const mauritania = {
-  ...mauritania_profile,
-  "sektor_listrik": mauritania_listrik,
-  "hunian": mauritania_hunian,
-  "infrastruktur": mauritania_infrastruktur,
-  "sektor_ekstraksi": mauritania_ekstraksi,
-  "sektor_manufaktur": mauritania_manufaktur,
-  "sektor_peternakan": mauritania_peternakan,
-  "sektor_agrikultur": mauritania_agrikultur,
-  "sektor_perikanan": mauritania_perikanan,
-  "sektor_olahan_pangan": mauritania_olahan_pangan,
-  "sektor_farmasi": mauritania_farmasi,
-  "sektor_pertahanan": mauritania_pertahanan,
-  "armada_militer": mauritania_armada,
-  "militer_strategis": mauritania_strategis,
-  "armada_kepolisian": mauritania_kepolisian,
-  "pabrik_militer": mauritania_pabrik,
-  "intelijen": mauritania_intelijen,
-    "pendidikan": mauritania_pendidikan,
-  "kesehatan": mauritania_kesehatan,
-  "hukum": mauritania_hukum,
-  "sektor_olahraga": mauritania_olahraga,
-  "sektor_komersial": mauritania_komersial,
-  "sektor_hiburan": mauritania_hiburan,
-  // =============================================================
-  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
-  // =============================================================
-  "pajak": {
-    "ppn": {
-      "tarif": 6,
-      "kepuasan": 67,
-      "pendapatan": 0
-    },
-    "korporasi": {
-      "tarif": 7,
-      "kepuasan": 52,
-      "pendapatan": 1
-    },
-    "penghasilan": {
-      "tarif": 6,
-      "kepuasan": 61,
-      "pendapatan": 1
-    },
-    "bea_cukai": {
-      "tarif": 1,
-      "kepuasan": 86,
-      "pendapatan": 0
-    },
-    "lingkungan": {
-      "tarif": 12,
-      "kepuasan": 88,
-      "pendapatan": 2
-    },
-    "transit_sekutu": { "tarif": 5, "kepuasan": 85, "pendapatan": 1 },
-    "transit_non_sekutu": { "tarif": 15, "kepuasan": 75, "pendapatan": 2 },
-    "lainnya": {
-      "tarif": 40,
-      "kepuasan": 93,
-      "pendapatan": 3
-    }
-  },
-  
-  // =============================================================
-  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
-  // =============================================================
-  "harga": {
+  };
+const mauritania_extra = {
+"": {
     "harga_beras": 8,
     "harga_daging_sapi": 52.05,
     "harga_ayam": 41,
@@ -121,8 +56,4 @@ const mauritania = {
     "lingkungan": 60
   }
 };
-
-
-
-
 

@@ -15,6 +15,3 @@ const mauritius_agrikultur = {
   kapas: 32,
   tembakau: 60,
 };
-
-
-

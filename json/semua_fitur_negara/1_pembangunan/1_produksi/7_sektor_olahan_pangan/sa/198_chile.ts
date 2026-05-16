@@ -11,6 +11,3 @@ const chile_olahan_pangan = {
   ikan_kaleng: 1836,
   kopi_teh: 702,
 };
-
-
-

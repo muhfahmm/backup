@@ -5,6 +5,3 @@ const kongo_hunian = {
   apartemen: 1061,
   mansion: 35399,
 };
-
-
-

@@ -8,6 +8,3 @@ const jerman_manufaktur = {
   kayu: 2838,
   pupuk: 1290,
 };
-
-
-

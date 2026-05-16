@@ -4,6 +4,3 @@ const china_intelijen = {
   jaringan_radar: 162,
   operasi_siber: 195,
 };
-
-
-

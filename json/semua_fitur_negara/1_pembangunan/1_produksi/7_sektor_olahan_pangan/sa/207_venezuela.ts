@@ -11,6 +11,3 @@ const venezuela_olahan_pangan = {
   ikan_kaleng: 360,
   kopi_teh: 104,
 };
-
-
-

@@ -4,6 +4,3 @@ const montenegro_perikanan = {
   mutiara: 6,
   ikan: 24,
 };
-
-
-

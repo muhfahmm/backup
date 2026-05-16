@@ -9,6 +9,3 @@ const pantai_gading_infrastruktur = {
   bandara: 2,
   helipad: 5,
 };
-
-
-

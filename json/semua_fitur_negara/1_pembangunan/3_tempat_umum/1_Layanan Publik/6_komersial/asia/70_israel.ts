@@ -4,6 +4,3 @@ const israel_komersial = {
   "hotel": 44,
   "pusat_grosir_tekstil": 5
 };
-
-
-

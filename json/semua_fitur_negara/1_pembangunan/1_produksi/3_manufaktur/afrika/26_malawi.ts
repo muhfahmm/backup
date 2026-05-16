@@ -8,6 +8,3 @@ const malawi_manufaktur = {
   kayu: 56,
   pupuk: 40,
 };
-
-
-

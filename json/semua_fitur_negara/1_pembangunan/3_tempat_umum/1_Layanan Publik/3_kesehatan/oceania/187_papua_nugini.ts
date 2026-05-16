@@ -6,6 +6,3 @@ const papua_nugini_kesehatan = {
       "harapan_hidup": 63,
       "indeks_kesehatan": 63
     };
-
-
-

@@ -8,6 +8,3 @@ const monako_manufaktur = {
   kayu: 4,
   pupuk: 4,
 };
-
-
-

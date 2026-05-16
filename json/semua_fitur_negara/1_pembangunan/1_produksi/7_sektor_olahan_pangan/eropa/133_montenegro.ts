@@ -11,6 +11,3 @@ const montenegro_olahan_pangan = {
   ikan_kaleng: 27,
   kopi_teh: 32,
 };
-
-
-

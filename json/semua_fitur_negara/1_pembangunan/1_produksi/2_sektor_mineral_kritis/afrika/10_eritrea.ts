@@ -13,6 +13,3 @@ const eritrea_ekstraksi = {
   logam_tanah_jarang: 8,
   bijih_besi: 1,
 };
-
-
-

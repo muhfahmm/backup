@@ -4,6 +4,3 @@ const somalia_perikanan = {
   mutiara: 87,
   ikan: 36,
 };
-
-
-

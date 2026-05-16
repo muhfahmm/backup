@@ -14,6 +14,3 @@ const bolivia_strategis = {
       "misil_nuklir": 0
     }
   };
-
-
-

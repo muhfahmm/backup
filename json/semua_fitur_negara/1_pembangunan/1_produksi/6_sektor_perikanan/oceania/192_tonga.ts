@@ -4,6 +4,3 @@ const tonga_perikanan = {
   mutiara: 14,
   ikan: 34,
 };
-
-
-

@@ -4,6 +4,3 @@ const albania_perikanan = {
   mutiara: 35,
   ikan: 27,
 };
-
-
-

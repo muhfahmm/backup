@@ -8,6 +8,3 @@ const montenegro_manufaktur = {
   kayu: 6,
   pupuk: 3,
 };
-
-
-

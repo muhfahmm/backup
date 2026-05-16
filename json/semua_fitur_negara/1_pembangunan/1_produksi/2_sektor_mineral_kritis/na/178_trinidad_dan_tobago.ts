@@ -13,6 +13,3 @@ const trinidad_dan_tobago_ekstraksi = {
   logam_tanah_jarang: 20,
   bijih_besi: 0,
 };
-
-
-
