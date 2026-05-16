@@ -1,4 +1,5 @@
-export const guiana_prancis_armada = {
+﻿// @ts-nocheck
+const guiana_prancis_armada = {
     "barak": 20,
     "darat": {
         "tank_tempur_utama": 222,
@@ -28,4 +29,7 @@ export const guiana_prancis_armada = {
         "drone_kamikaze": 100,
         "pesawat_angkut": 100
       }
-} as const;
+};
+
+
+

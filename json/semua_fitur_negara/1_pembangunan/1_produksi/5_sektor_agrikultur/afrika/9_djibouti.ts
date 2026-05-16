@@ -1,4 +1,5 @@
-export const djibouti_agrikultur = {
+﻿// @ts-nocheck
+const djibouti_agrikultur = {
   padi: 39,
   gandum: 55,
   jagung: 12,
@@ -13,4 +14,7 @@ export const djibouti_agrikultur = {
   karet: 0,
   kapas: 53,
   tembakau: 42,
-} as const;
+};
+
+
+

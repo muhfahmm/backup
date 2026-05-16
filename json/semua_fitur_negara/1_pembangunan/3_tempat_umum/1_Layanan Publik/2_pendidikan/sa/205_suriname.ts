@@ -1,4 +1,5 @@
-export const suriname_pendidikan = {
+﻿// @ts-nocheck
+const suriname_pendidikan = {
       "prasekolah": 29,
       "dasar": 109,
       "menengah": 95,
@@ -10,4 +11,7 @@ export const suriname_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 2,
       "literasi": 80
-    } as const;
+    };
+
+
+

@@ -1,4 +1,4 @@
-export const kolombia_pertahanan = {
+﻿const kolombia_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 12,
     "hangar_tank": 34,
@@ -7,4 +7,6 @@ export const kolombia_pertahanan = {
     "pangkalan_laut": 32,
     "program_luar_angkasa": 40,
     "pertahanan_siber": 39
-    } as const;
+    };
+
+

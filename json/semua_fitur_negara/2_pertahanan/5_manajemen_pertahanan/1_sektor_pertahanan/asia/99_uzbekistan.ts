@@ -1,4 +1,5 @@
-export const uzbekistan_pertahanan = {
+﻿// @ts-nocheck
+const uzbekistan_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 30,
     "hangar_tank": 14,
@@ -7,4 +8,7 @@ export const uzbekistan_pertahanan = {
     "pangkalan_laut": 33,
     "program_luar_angkasa": 23,
     "pertahanan_siber": 12
-    } as const;
+    };
+
+
+

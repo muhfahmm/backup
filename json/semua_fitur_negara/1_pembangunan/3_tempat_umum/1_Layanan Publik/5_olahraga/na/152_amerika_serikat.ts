@@ -1,4 +1,5 @@
-export const amerika_serikat_olahraga = {
+﻿// @ts-nocheck
+const amerika_serikat_olahraga = {
   "kolam_renang": 2039,
   "sirkuit_balap": 208,
   "stadion": 653,
@@ -7,4 +8,7 @@ export const amerika_serikat_olahraga = {
   "golf": 401,
   "esports": 517,
   "gokart": 1137
-} as const;
+};
+
+
+

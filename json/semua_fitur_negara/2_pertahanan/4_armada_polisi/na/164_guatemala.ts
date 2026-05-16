@@ -1,4 +1,5 @@
-export const guatemala_kepolisian = {
+﻿// @ts-nocheck
+const guatemala_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const guatemala_kepolisian = {
       "pasukan_swat": 13,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const tonga_hukum = {
+﻿// @ts-nocheck
+const tonga_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 10,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const tonga_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 39,
       "indeks_keamanan": 47
-  } as const;
+  };
+
+
+

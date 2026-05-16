@@ -1,4 +1,5 @@
-export const lebanon_pendidikan = {
+﻿// @ts-nocheck
+const lebanon_pendidikan = {
       "prasekolah": 64,
       "dasar": 27,
       "menengah": 54,
@@ -10,4 +11,7 @@ export const lebanon_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 81
-    } as const;
+    };
+
+
+

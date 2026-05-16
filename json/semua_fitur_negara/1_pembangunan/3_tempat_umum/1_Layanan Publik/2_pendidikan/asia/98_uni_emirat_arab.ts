@@ -1,4 +1,5 @@
-export const uni_emirat_arab_pendidikan = {
+﻿// @ts-nocheck
+const uni_emirat_arab_pendidikan = {
       "prasekolah": 371,
       "dasar": 649,
       "menengah": 482,
@@ -10,4 +11,7 @@ export const uni_emirat_arab_pendidikan = {
       "pusat_penelitian": 16,
       "pusat_pengembangan": 4,
       "literasi": 83
-    } as const;
+    };
+
+
+

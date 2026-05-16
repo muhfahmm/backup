@@ -1,4 +1,5 @@
-export const afrika_selatan_hukum = {
+﻿// @ts-nocheck
+const afrika_selatan_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 23,
       "kejaksaan": 28,
@@ -7,4 +8,7 @@ export const afrika_selatan_hukum = {
       "akademi_polisi": 9,
       "indeks_korupsi": 34,
       "indeks_keamanan": 52
-  } as const;
+  };
+
+
+

@@ -1,41 +1,19 @@
-export const hungaria_profile = {
+﻿// @ts-nocheck
+const hungaria_profile = {
   "name_en": "Hungary",
   "capital": "Budapest",
   "name_id": "Hungaria",
   "lon": 20,
   "lat": 47,
-  "flag": "🇭🇺",
+  "flag": "ðŸ‡­ðŸ‡º",
   "jumlah_penduduk": 9489000,
   "anggaran": 2042,
   "pendapatan_nasional": "5834",
   "religion": "Katolik",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { hungaria_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/116_hungaria";
-import { hungaria_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/116_hungaria";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { hungaria_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/116_hungaria";
 
-import { hungaria_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/116_hungaria";
-import { hungaria_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/116_hungaria";
-import { hungaria_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/116_hungaria";
-import { hungaria_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/116_hungaria";
-import { hungaria_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/116_hungaria";
-import { hungaria_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/116_hungaria";
-import { hungaria_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/116_hungaria";
-import { hungaria_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/116_hungaria";
-import { hungaria_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/116_hungaria";
-import { hungaria_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/116_hungaria";
-import { hungaria_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/116_hungaria";
-import { hungaria_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/116_hungaria";
-import { hungaria_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/116_hungaria";
-import { hungaria_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/116_hungaria";
-import { hungaria_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/116_hungaria";
-import { hungaria_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/116_hungaria";
-import { hungaria_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/116_hungaria";
-import { hungaria_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/116_hungaria";
-import { hungaria_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/116_hungaria";
 const hungaria_geopolitik = {
     "un_vote": 94,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const hungaria_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const hungaria: CountryData = {
+const hungaria = {
   ...hungaria_profile,
   "sektor_listrik": hungaria_listrik,
   "hunian": hungaria_hunian,
@@ -75,7 +53,7 @@ export const hungaria: CountryData = {
   "sektor_komersial": hungaria_komersial,
   "sektor_hiburan": hungaria_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const hungaria: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const hungaria: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": hungaria_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,
@@ -143,5 +121,8 @@ export const hungaria: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const israel_olahraga = {
+﻿// @ts-nocheck
+const israel_olahraga = {
   "kolam_renang": 34,
   "sirkuit_balap": 8,
   "stadion": 11,
@@ -7,4 +8,7 @@ export const israel_olahraga = {
   "golf": 14,
   "esports": 20,
   "gokart": 49
-} as const;
+};
+
+
+

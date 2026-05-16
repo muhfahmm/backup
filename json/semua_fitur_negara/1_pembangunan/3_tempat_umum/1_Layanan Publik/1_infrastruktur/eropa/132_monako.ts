@@ -1,4 +1,5 @@
-export const monako_infrastruktur = {
+﻿// @ts-nocheck
+const monako_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 15,
   terminal_bus: 3,
@@ -7,4 +8,7 @@ export const monako_infrastruktur = {
   pelabuhan: 3,
   bandara: 5,
   helipad: 2,
-} as const;
+};
+
+
+

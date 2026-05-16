@@ -1,4 +1,4 @@
-export const republik_tanzania_kepolisian = {
+﻿const republik_tanzania_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const republik_tanzania_kepolisian = {
       "pasukan_swat": 34,
       "samapta": 62
     }
-  } as const;
+  };
+
+

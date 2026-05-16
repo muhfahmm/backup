@@ -1,41 +1,19 @@
-export const nigeria_profile = {
+﻿// @ts-nocheck
+const nigeria_profile = {
   "name_en": "Nigeria",
   "capital": "Abuja",
   "name_id": "Nigeria",
   "lon": 8,
   "lat": 10,
-  "flag": "🇳🇬",
+  "flag": "ðŸ‡³ðŸ‡¬",
   "jumlah_penduduk": 223800000,
   "anggaran": 4618,
   "pendapatan_nasional": "13196",
   "religion": "Islam",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { nigeria_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/35_nigeria";
-import { nigeria_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/35_nigeria";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { nigeria_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/35_nigeria";
 
-import { nigeria_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/35_nigeria";
-import { nigeria_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/35_nigeria";
-import { nigeria_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/35_nigeria";
-import { nigeria_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/35_nigeria";
-import { nigeria_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/35_nigeria";
-import { nigeria_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/35_nigeria";
-import { nigeria_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/35_nigeria";
-import { nigeria_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/35_nigeria";
-import { nigeria_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/35_nigeria";
-import { nigeria_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/35_nigeria";
-import { nigeria_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/35_nigeria";
-import { nigeria_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/35_nigeria";
-import { nigeria_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/35_nigeria";
-import { nigeria_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/35_nigeria";
-import { nigeria_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/35_nigeria";
-import { nigeria_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/35_nigeria";
-import { nigeria_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/35_nigeria";
-import { nigeria_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/35_nigeria";
-import { nigeria_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/35_nigeria";
 const nigeria_geopolitik = {
     "un_vote": 175,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const nigeria_geopolitik = {
       "kekuatan_keras": 1,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const nigeria: CountryData = {
+const nigeria = {
   ...nigeria_profile,
   "sektor_listrik": nigeria_listrik,
   "hunian": nigeria_hunian,
@@ -75,7 +53,7 @@ export const nigeria: CountryData = {
   "sektor_komersial": nigeria_komersial,
   "sektor_hiburan": nigeria_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const nigeria: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const nigeria: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": nigeria_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 34,
@@ -143,5 +121,8 @@ export const nigeria: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const namibia_olahan_pangan = {
+﻿// @ts-nocheck
+const namibia_olahan_pangan = {
   air_mineral: 22,
   gula: 32,
   roti: 50,
@@ -9,4 +10,7 @@ export const namibia_olahan_pangan = {
   pakan_ternak: 38,
   ikan_kaleng: 38,
   kopi_teh: 24,
-} as const;
+};
+
+
+

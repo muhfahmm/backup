@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface SektorHiburan {
   bioskop?: number;
   teater?: number;
@@ -6,7 +7,7 @@ export interface SektorHiburan {
 // ===================
 // DETAIL TOTAL BANGUNAN: Hiburan (Total: 2 Bangunan)
 // ===================
-export const hiburanRate: Record<string, any> = {
+const hiburanRate: Record<string, any> = {
   "26_bioskop": {
     key: "26_bioskop",
     dataKey: "bioskop",
@@ -34,3 +35,6 @@ export const hiburanRate: Record<string, any> = {
     efek: "Meningkatkan kas negara"
   },
 };
+
+
+

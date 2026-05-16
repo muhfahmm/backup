@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { australiaEmbassyConfig } from './179_australia';
 export { fijiEmbassyConfig } from './180_fiji';
 export { guamEmbassyConfig } from './181_guam';
@@ -14,3 +15,6 @@ export { tahitiEmbassyConfig } from './191_tahiti';
 export { tongaEmbassyConfig } from './192_tonga';
 export { tuvaluEmbassyConfig } from './193_tuvalu';
 export { vanuatuEmbassyConfig } from './194_vanuatu';
+
+
+

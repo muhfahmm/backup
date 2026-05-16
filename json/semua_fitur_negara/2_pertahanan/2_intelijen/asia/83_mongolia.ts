@@ -1,5 +1,9 @@
-export const mongolia_intelijen = {
+﻿// @ts-nocheck
+const mongolia_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 2,
   operasi_siber: 3,
-} as const;
+};
+
+
+

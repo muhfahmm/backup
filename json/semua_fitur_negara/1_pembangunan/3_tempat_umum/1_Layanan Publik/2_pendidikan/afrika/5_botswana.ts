@@ -1,4 +1,5 @@
-export const botswana_pendidikan = {
+﻿// @ts-nocheck
+const botswana_pendidikan = {
       "prasekolah": 66,
       "dasar": 95,
       "menengah": 21,
@@ -10,4 +11,7 @@ export const botswana_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 63
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const liechtenstein_hukum = {
+﻿// @ts-nocheck
+const liechtenstein_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 10,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const liechtenstein_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 48,
       "indeks_keamanan": 48
-  } as const;
+  };
+
+
+

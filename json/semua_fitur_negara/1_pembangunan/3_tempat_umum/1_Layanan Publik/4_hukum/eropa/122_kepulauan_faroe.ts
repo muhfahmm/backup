@@ -1,4 +1,5 @@
-export const kepulauan_faroe_hukum = {
+﻿// @ts-nocheck
+const kepulauan_faroe_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 5,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const kepulauan_faroe_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 39,
       "indeks_keamanan": 67
-  } as const;
+  };
+
+
+

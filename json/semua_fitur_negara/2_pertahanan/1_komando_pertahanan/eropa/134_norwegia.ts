@@ -1,6 +1,6 @@
-import { norwegia_intelijen } from "../../2_intelijen/eropa/134_norwegia";
+﻿// @ts-nocheck
 
-export const norwegia_strategis = {
+const norwegia_strategis = {
     "waktu_respon": 31,
     "intelijen": 17,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const norwegia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const kamerun_pendidikan = {
+﻿// @ts-nocheck
+const kamerun_pendidikan = {
       "prasekolah": 81,
       "dasar": 94,
       "menengah": 59,
@@ -10,4 +11,7 @@ export const kamerun_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 75
-  } as const;
+  };
+
+
+

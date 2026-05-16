@@ -1,4 +1,5 @@
-export const liberia_pendidikan = {
+﻿// @ts-nocheck
+const liberia_pendidikan = {
       "prasekolah": 27,
       "dasar": 138,
       "menengah": 35,
@@ -10,4 +11,7 @@ export const liberia_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 0,
       "literasi": 67
-  } as const;
+  };
+
+
+

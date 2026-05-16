@@ -1,41 +1,19 @@
-export const tanjung_verde_profile = {
+﻿// @ts-nocheck
+const tanjung_verde_profile = {
   "name_en": "Cape Verde",
   "capital": "Praia",
   "name_id": "Tanjung verde",
   "lon": -24,
   "lat": 16,
-  "flag": "🇨🇻",
+  "flag": "ðŸ‡¨ðŸ‡»",
   "jumlah_penduduk": "10M",
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Liberalisme"
-} as const;
+};
 
-import { tanjung_verde_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/51_tanjung_verde";
-import { tanjung_verde_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/51_tanjung_verde";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { tanjung_verde_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/51_tanjung_verde";
 
-import { tanjung_verde_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/51_tanjung_verde";
-import { tanjung_verde_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/51_tanjung_verde";
-import { tanjung_verde_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/51_tanjung_verde";
-import { tanjung_verde_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/51_tanjung_verde";
-import { tanjung_verde_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/51_tanjung_verde";
-import { tanjung_verde_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/51_tanjung_verde";
-import { tanjung_verde_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/51_tanjung_verde";
-import { tanjung_verde_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/51_tanjung_verde";
-import { tanjung_verde_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/51_tanjung_verde";
-import { tanjung_verde_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/51_tanjung_verde";
-import { tanjung_verde_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/51_tanjung_verde";
-import { tanjung_verde_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/51_tanjung_verde";
-import { tanjung_verde_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/51_tanjung_verde";
-import { tanjung_verde_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/51_tanjung_verde";
-import { tanjung_verde_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/51_tanjung_verde";
-import { tanjung_verde_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/51_tanjung_verde";
-import { tanjung_verde_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/51_tanjung_verde";
-import { tanjung_verde_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/51_tanjung_verde";
-import { tanjung_verde_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/51_tanjung_verde";
 const tanjung_verde_geopolitik = {
     "un_vote": 97,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const tanjung_verde_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const tanjung_verde: CountryData = {
+const tanjung_verde = {
   ...tanjung_verde_profile,
   "sektor_listrik": tanjung_verde_listrik,
   "hunian": tanjung_verde_hunian,
@@ -75,7 +53,7 @@ export const tanjung_verde: CountryData = {
   "sektor_komersial": tanjung_verde_komersial,
   "sektor_hiburan": tanjung_verde_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const tanjung_verde: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const tanjung_verde: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tanjung_verde_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,
@@ -143,5 +121,8 @@ export const tanjung_verde: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

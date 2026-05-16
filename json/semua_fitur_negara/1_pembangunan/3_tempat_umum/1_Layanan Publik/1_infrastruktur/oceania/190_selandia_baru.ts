@@ -1,4 +1,5 @@
-export const selandia_baru_infrastruktur = {
+﻿// @ts-nocheck
+const selandia_baru_infrastruktur = {
   jalur_sepeda: 12,
   jalan_raya: 47,
   terminal_bus: 23,
@@ -7,4 +8,7 @@ export const selandia_baru_infrastruktur = {
   pelabuhan: 15,
   bandara: 4,
   helipad: 4,
-} as const;
+};
+
+
+

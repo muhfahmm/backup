@@ -1,4 +1,5 @@
-export const gibraltar_olahan_pangan = {
+﻿// @ts-nocheck
+const gibraltar_olahan_pangan = {
   air_mineral: 76,
   gula: 38,
   roti: 52,
@@ -9,4 +10,7 @@ export const gibraltar_olahan_pangan = {
   pakan_ternak: 36,
   ikan_kaleng: 36,
   kopi_teh: 22,
-} as const;
+};
+
+
+

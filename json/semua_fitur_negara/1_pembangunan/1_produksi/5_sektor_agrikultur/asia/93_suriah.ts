@@ -1,4 +1,5 @@
-export const suriah_agrikultur = {
+﻿// @ts-nocheck
+const suriah_agrikultur = {
   padi: 56,
   gandum: 28,
   jagung: 57,
@@ -13,4 +14,7 @@ export const suriah_agrikultur = {
   karet: 0,
   kapas: 26,
   tembakau: 75,
-} as const;
+};
+
+
+

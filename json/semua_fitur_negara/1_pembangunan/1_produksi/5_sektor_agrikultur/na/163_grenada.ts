@@ -1,4 +1,5 @@
-export const grenada_agrikultur = {
+﻿// @ts-nocheck
+const grenada_agrikultur = {
   padi: 68,
   gandum: 43,
   jagung: 66,
@@ -13,4 +14,7 @@ export const grenada_agrikultur = {
   karet: 0,
   kapas: 80,
   tembakau: 75,
-} as const;
+};
+
+
+

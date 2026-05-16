@@ -1,4 +1,5 @@
-export const uni_emirat_arab_hukum = {
+﻿// @ts-nocheck
+const uni_emirat_arab_hukum = {
       "pusat_bantuan_hukum": 34,
       "pengadilan": 34,
       "kejaksaan": 21,
@@ -7,4 +8,7 @@ export const uni_emirat_arab_hukum = {
       "akademi_polisi": 14,
       "indeks_korupsi": 31,
       "indeks_keamanan": 65
-  } as const;
+  };
+
+
+

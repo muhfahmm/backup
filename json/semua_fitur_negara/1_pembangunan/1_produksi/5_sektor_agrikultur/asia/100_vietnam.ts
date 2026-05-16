@@ -1,4 +1,5 @@
-export const vietnam_agrikultur = {
+﻿// @ts-nocheck
+const vietnam_agrikultur = {
   padi: 4488,
   gandum: 2040,
   jagung: 1904,
@@ -13,4 +14,7 @@ export const vietnam_agrikultur = {
   karet: 1904,
   kapas: 4556,
   tembakau: 4148,
-} as const;
+};
+
+
+

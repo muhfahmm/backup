@@ -1,4 +1,5 @@
-export const oman_pendidikan = {
+﻿// @ts-nocheck
+const oman_pendidikan = {
       "prasekolah": 84,
       "dasar": 97,
       "menengah": 71,
@@ -10,4 +11,7 @@ export const oman_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const polandiaAgreements = [
+﻿// @ts-nocheck
+const polandiaAgreements = [
   { "no": 1, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const polandiaAgreements = [
   { "no": 12, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

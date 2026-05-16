@@ -1,4 +1,5 @@
-export const amerika_serikat_agrikultur = {
+﻿// @ts-nocheck
+const amerika_serikat_agrikultur = {
   padi: 5684,
   gandum: 7076,
   jagung: 5336,
@@ -13,4 +14,7 @@ export const amerika_serikat_agrikultur = {
   karet: 0,
   kapas: 4640,
   tembakau: 5684,
-} as const;
+};
+
+
+

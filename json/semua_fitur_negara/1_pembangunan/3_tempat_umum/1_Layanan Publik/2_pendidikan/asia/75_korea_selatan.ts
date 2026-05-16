@@ -1,4 +1,5 @@
-export const korea_selatan_pendidikan = {
+﻿// @ts-nocheck
+const korea_selatan_pendidikan = {
       "prasekolah": 878,
       "dasar": 1590,
       "menengah": 896,
@@ -10,4 +11,7 @@ export const korea_selatan_pendidikan = {
       "pusat_penelitian": 78,
       "pusat_pengembangan": 37,
       "literasi": 86
-    } as const;
+    };
+
+
+

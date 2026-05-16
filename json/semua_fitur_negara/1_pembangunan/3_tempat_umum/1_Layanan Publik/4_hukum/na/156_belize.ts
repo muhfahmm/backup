@@ -1,4 +1,5 @@
-export const belize_hukum = {
+﻿// @ts-nocheck
+const belize_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 15,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const belize_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 13,
       "indeks_keamanan": 58
-  } as const;
+  };
+
+
+

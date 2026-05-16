@@ -1,4 +1,5 @@
-export const kuba_agrikultur = {
+﻿// @ts-nocheck
+const kuba_agrikultur = {
   padi: 646,
   gandum: 1406,
   jagung: 1349,
@@ -13,4 +14,7 @@ export const kuba_agrikultur = {
   karet: 0,
   kapas: 1254,
   tembakau: 494,
-} as const;
+};
+
+
+

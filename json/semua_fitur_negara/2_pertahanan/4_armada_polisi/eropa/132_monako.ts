@@ -1,4 +1,5 @@
-export const monako_kepolisian = {
+﻿// @ts-nocheck
+const monako_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const monako_kepolisian = {
       "pasukan_swat": 8,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Perikanan (Total: 3 Bangunan)
 // ===================
-export const perikananRate = {
+const perikananRate = {
   "1_tambak_udang": {
     key: "1_tambak_udang",
     dataKey: "udang",
@@ -51,3 +52,6 @@ export interface FisheryData {
   ikan: number;
   mutiara: number;
 }
+
+
+

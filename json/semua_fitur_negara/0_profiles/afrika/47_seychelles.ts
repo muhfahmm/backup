@@ -1,41 +1,19 @@
-export const seychelles_profile = {
+﻿// @ts-nocheck
+const seychelles_profile = {
   "name_en": "Seychelles",
   "capital": "Victoria",
   "name_id": "Seychelles",
   "lon": 55.66666666,
   "lat": -4.58333333,
-  "flag": "🇸🇨",
+  "flag": "ðŸ‡¸ðŸ‡¨",
   "jumlah_penduduk": 100447,
   "anggaran": 19,
   "pendapatan_nasional": "56",
   "religion": "Katolik",
   "ideology": "Liberalisme"
-} as const;
+};
 
-import { seychelles_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/47_seychelles";
-import { seychelles_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/47_seychelles";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { seychelles_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/47_seychelles";
 
-import { seychelles_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/47_seychelles";
-import { seychelles_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/47_seychelles";
-import { seychelles_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/47_seychelles";
-import { seychelles_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/47_seychelles";
-import { seychelles_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/47_seychelles";
-import { seychelles_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/47_seychelles";
-import { seychelles_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/47_seychelles";
-import { seychelles_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/47_seychelles";
-import { seychelles_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/47_seychelles";
-import { seychelles_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/47_seychelles";
-import { seychelles_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/47_seychelles";
-import { seychelles_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/47_seychelles";
-import { seychelles_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/47_seychelles";
-import { seychelles_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/47_seychelles";
-import { seychelles_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/47_seychelles";
-import { seychelles_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/47_seychelles";
-import { seychelles_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/47_seychelles";
-import { seychelles_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/47_seychelles";
-import { seychelles_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/47_seychelles";
 const seychelles_geopolitik = {
     "un_vote": 6,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const seychelles_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const seychelles: CountryData = {
+const seychelles = {
   ...seychelles_profile,
   "sektor_listrik": seychelles_listrik,
   "hunian": seychelles_hunian,
@@ -75,7 +53,7 @@ export const seychelles: CountryData = {
   "sektor_komersial": seychelles_komersial,
   "sektor_hiburan": seychelles_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const seychelles: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const seychelles: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": seychelles_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,
@@ -143,5 +121,8 @@ export const seychelles: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

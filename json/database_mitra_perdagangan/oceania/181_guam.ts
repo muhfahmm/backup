@@ -1,4 +1,5 @@
-export const guamAgreements = [
+﻿// @ts-nocheck
+const guamAgreements = [
   { "no": 1, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const guamAgreements = [
   { "no": 12, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Selandia Baru", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

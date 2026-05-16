@@ -1,6 +1,5 @@
-import { andorra_intelijen } from "../../2_intelijen/eropa/104_andorra";
-
-export const andorra_strategis = {
+﻿
+const andorra_strategis = {
     "waktu_respon": 6,
     "intelijen": 31,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const andorra_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

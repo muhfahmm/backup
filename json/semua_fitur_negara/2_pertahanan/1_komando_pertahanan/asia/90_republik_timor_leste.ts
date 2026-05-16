@@ -1,6 +1,6 @@
-import { republik_timor_leste_intelijen } from "../../2_intelijen/asia/90_republik_timor_leste";
+﻿// @ts-nocheck
 
-export const republik_timor_leste_strategis = {
+const republik_timor_leste_strategis = {
     "waktu_respon": 18,
     "intelijen": 25,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_timor_leste_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

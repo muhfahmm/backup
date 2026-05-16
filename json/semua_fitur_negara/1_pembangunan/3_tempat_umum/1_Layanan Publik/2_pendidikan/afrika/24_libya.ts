@@ -1,4 +1,5 @@
-export const libya_pendidikan = {
+﻿// @ts-nocheck
+const libya_pendidikan = {
       "prasekolah": 68,
       "dasar": 20,
       "menengah": 90,
@@ -10,4 +11,7 @@ export const libya_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 73
-  } as const;
+  };
+
+
+

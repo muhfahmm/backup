@@ -1,4 +1,5 @@
-export const polandia_ekstraksi = {
+﻿// @ts-nocheck
+const polandia_ekstraksi = {
   emas: 371,
   uranium: 0,
   batu_bara: 530,
@@ -11,4 +12,7 @@ export const polandia_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 212,
   bijih_besi: 53,
-} as const;
+};
+
+
+

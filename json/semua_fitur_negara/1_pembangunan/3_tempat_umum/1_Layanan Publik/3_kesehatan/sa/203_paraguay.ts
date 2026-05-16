@@ -1,7 +1,11 @@
-export const paraguay_kesehatan = {
+﻿// @ts-nocheck
+const paraguay_kesehatan = {
       "rumah_sakit_besar": 8,
       "rumah_sakit_kecil": 24,
       "pusat_diagnostik": 15,
       "harapan_hidup": 63,
       "indeks_kesehatan": 50
-    } as const;
+    };
+
+
+

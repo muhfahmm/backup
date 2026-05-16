@@ -1,4 +1,5 @@
-export const sao_tome_dan_principe_olahan_pangan = {
+﻿// @ts-nocheck
+const sao_tome_dan_principe_olahan_pangan = {
   air_mineral: 136,
   gula: 100,
   roti: 184,
@@ -9,4 +10,7 @@ export const sao_tome_dan_principe_olahan_pangan = {
   pakan_ternak: 180,
   ikan_kaleng: 72,
   kopi_teh: 136,
-} as const;
+};
+
+
+

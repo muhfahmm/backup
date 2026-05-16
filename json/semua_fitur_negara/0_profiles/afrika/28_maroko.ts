@@ -1,41 +1,19 @@
-export const maroko_profile = {
+﻿// @ts-nocheck
+const maroko_profile = {
   "name_en": "Morocco",
   "capital": "Rabat",
   "name_id": "Maroko",
   "lon": -5,
   "lat": 32,
-  "flag": "🇲🇦",
+  "flag": "ðŸ‡²ðŸ‡¦",
   "jumlah_penduduk": 36828330,
   "anggaran": 1313,
   "pendapatan_nasional": "3750",
   "religion": "Islam",
   "ideology": "Monarki"
-} as const;
+};
 
-import { maroko_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/28_maroko";
-import { maroko_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/28_maroko";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { maroko_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/28_maroko";
 
-import { maroko_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/28_maroko";
-import { maroko_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/28_maroko";
-import { maroko_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/28_maroko";
-import { maroko_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/28_maroko";
-import { maroko_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/28_maroko";
-import { maroko_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/28_maroko";
-import { maroko_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/28_maroko";
-import { maroko_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/28_maroko";
-import { maroko_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/28_maroko";
-import { maroko_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/28_maroko";
-import { maroko_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/28_maroko";
-import { maroko_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/28_maroko";
-import { maroko_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/28_maroko";
-import { maroko_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/28_maroko";
-import { maroko_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/28_maroko";
-import { maroko_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/28_maroko";
-import { maroko_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/28_maroko";
-import { maroko_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/28_maroko";
-import { maroko_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/28_maroko";
 const maroko_geopolitik = {
     "un_vote": 109,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const maroko_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const maroko: CountryData = {
+const maroko = {
   ...maroko_profile,
   "sektor_listrik": maroko_listrik,
   "hunian": maroko_hunian,
@@ -75,7 +53,7 @@ export const maroko: CountryData = {
   "sektor_komersial": maroko_komersial,
   "sektor_hiburan": maroko_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const maroko: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const maroko: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": maroko_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,
@@ -143,5 +121,8 @@ export const maroko: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

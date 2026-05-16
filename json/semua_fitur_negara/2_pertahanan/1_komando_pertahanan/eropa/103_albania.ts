@@ -1,6 +1,5 @@
-import { albania_intelijen } from "../../2_intelijen/eropa/103_albania";
-
-export const albania_strategis = {
+﻿
+const albania_strategis = {
     "waktu_respon": 28,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const albania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

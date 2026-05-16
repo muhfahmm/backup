@@ -1,4 +1,5 @@
-export const saint_lucia_pendidikan = {
+﻿// @ts-nocheck
+const saint_lucia_pendidikan = {
       "prasekolah": 100,
       "dasar": 64,
       "menengah": 94,
@@ -10,4 +11,7 @@ export const saint_lucia_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 64
-    } as const;
+    };
+
+
+

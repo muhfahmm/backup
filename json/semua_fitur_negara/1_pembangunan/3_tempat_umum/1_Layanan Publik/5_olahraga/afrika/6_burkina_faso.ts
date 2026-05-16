@@ -1,4 +1,5 @@
-export const burkina_faso_olahraga = {
+﻿// @ts-nocheck
+const burkina_faso_olahraga = {
   "kolam_renang": 11,
   "sirkuit_balap": 3,
   "stadion": 8,
@@ -7,4 +8,7 @@ export const burkina_faso_olahraga = {
   "golf": 1,
   "esports": 3,
   "gokart": 5
-} as const;
+};
+
+
+

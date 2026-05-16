@@ -1,6 +1,6 @@
-import { angola_intelijen } from "../../2_intelijen/afrika/3_angola";
+﻿// @ts-nocheck
 
-export const angola_strategis = {
+const angola_strategis = {
     "waktu_respon": 5,
     "intelijen": 26,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const angola_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

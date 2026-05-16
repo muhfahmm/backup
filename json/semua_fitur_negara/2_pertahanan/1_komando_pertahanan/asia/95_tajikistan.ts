@@ -1,6 +1,6 @@
-import { tajikistan_intelijen } from "../../2_intelijen/asia/95_tajikistan";
+﻿// @ts-nocheck
 
-export const tajikistan_strategis = {
+const tajikistan_strategis = {
     "waktu_respon": 6,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tajikistan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

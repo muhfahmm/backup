@@ -1,6 +1,6 @@
-import { mozambik_intelijen } from "../../2_intelijen/afrika/32_mozambik";
+﻿// @ts-nocheck
 
-export const mozambik_strategis = {
+const mozambik_strategis = {
     "waktu_respon": 12,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const mozambik_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

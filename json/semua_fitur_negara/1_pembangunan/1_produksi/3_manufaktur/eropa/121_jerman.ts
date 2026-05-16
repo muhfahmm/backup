@@ -1,4 +1,5 @@
-export const jerman_manufaktur = {
+﻿// @ts-nocheck
+const jerman_manufaktur = {
   semikonduktor: 1548,
   mobil: 3096,
   sepeda_motor: 1032,
@@ -6,4 +7,7 @@ export const jerman_manufaktur = {
   semen_beton: 1806,
   kayu: 2838,
   pupuk: 1290,
-} as const;
+};
+
+
+

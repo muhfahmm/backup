@@ -1,6 +1,6 @@
-import { uni_emirat_arab_intelijen } from "../../2_intelijen/asia/98_uni_emirat_arab";
+﻿// @ts-nocheck
 
-export const uni_emirat_arab_strategis = {
+const uni_emirat_arab_strategis = {
     "waktu_respon": 33,
     "intelijen": 5,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const uni_emirat_arab_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

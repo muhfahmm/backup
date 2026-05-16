@@ -1,6 +1,5 @@
-import { kepulauan_faroe_intelijen } from "../../2_intelijen/eropa/122_kepulauan_faroe";
-
-export const kepulauan_faroe_strategis = {
+﻿
+const kepulauan_faroe_strategis = {
     "waktu_respon": 31,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const kepulauan_faroe_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

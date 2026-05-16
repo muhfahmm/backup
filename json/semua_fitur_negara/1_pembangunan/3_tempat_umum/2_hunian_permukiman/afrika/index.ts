@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./10_eritrea";
 export * from "./11_eswatini";
 export * from "./12_ethiopia";
@@ -51,3 +52,6 @@ export * from "./6_burkina_faso";
 export * from "./7_burundi";
 export * from "./8_chad";
 export * from "./9_djibouti";
+
+
+

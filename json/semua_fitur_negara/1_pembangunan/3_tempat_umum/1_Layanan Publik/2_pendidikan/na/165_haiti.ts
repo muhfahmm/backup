@@ -1,4 +1,5 @@
-export const haiti_pendidikan = {
+﻿// @ts-nocheck
+const haiti_pendidikan = {
       "prasekolah": 88,
       "dasar": 108,
       "menengah": 89,
@@ -10,4 +11,7 @@ export const haiti_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 65
-    } as const;
+    };
+
+
+

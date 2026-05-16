@@ -1,41 +1,19 @@
-export const bahama_profile = {
+﻿// @ts-nocheck
+const bahama_profile = {
   "name_en": "Bahamas",
   "capital": "Nassau",
   "name_id": "Bahama",
   "lon": -76,
   "lat": 24.25,
-  "flag": "🇧🇸",
+  "flag": "ðŸ‡§ðŸ‡¸",
   "jumlah_penduduk": 398165,
   "anggaran": 136,
   "pendapatan_nasional": "389",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { bahama_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/154_bahama";
-import { bahama_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/154_bahama";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { bahama_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/154_bahama";
 
-import { bahama_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/154_bahama";
-import { bahama_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/154_bahama";
-import { bahama_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/154_bahama";
-import { bahama_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/154_bahama";
-import { bahama_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/154_bahama";
-import { bahama_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/154_bahama";
-import { bahama_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/154_bahama";
-import { bahama_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/154_bahama";
-import { bahama_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/154_bahama";
-import { bahama_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/154_bahama";
-import { bahama_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/154_bahama";
-import { bahama_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/154_bahama";
-import { bahama_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/154_bahama";
-import { bahama_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/154_bahama";
-import { bahama_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/154_bahama";
-import { bahama_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/154_bahama";
-import { bahama_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/154_bahama";
-import { bahama_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/154_bahama";
-import { bahama_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/154_bahama";
 const bahama_geopolitik = {
     "un_vote": 170,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const bahama_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const bahama: CountryData = {
+const bahama = {
   ...bahama_profile,
   "sektor_listrik": bahama_listrik,
   "hunian": bahama_hunian,
@@ -75,7 +53,7 @@ export const bahama: CountryData = {
   "sektor_komersial": bahama_komersial,
   "sektor_hiburan": bahama_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const bahama: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const bahama: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bahama_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,
@@ -143,5 +121,8 @@ export const bahama: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,41 +1,19 @@
-export const qatar_profile = {
+﻿// @ts-nocheck
+const qatar_profile = {
   "name_en": "Qatar",
   "capital": "Doha",
   "name_id": "Qatar",
   "lon": 51.53,
   "lat": 25.28,
-  "flag": "🇶🇦",
+  "flag": "ðŸ‡¶ðŸ‡¦",
   "jumlah_penduduk": 3214609,
   "anggaran": 2139,
   "pendapatan_nasional": "6112",
   "religion": "Islam",
   "ideology": "Monarki"
-} as const;
+};
 
-import { qatar_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/89_qatar";
-import { qatar_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/89_qatar";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { qatar_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/89_qatar";
 
-import { qatar_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/89_qatar";
-import { qatar_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/89_qatar";
-import { qatar_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/89_qatar";
-import { qatar_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/89_qatar";
-import { qatar_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/89_qatar";
-import { qatar_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/89_qatar";
-import { qatar_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/89_qatar";
-import { qatar_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/89_qatar";
-import { qatar_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/89_qatar";
-import { qatar_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/89_qatar";
-import { qatar_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/89_qatar";
-import { qatar_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/89_qatar";
-import { qatar_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/89_qatar";
-import { qatar_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/89_qatar";
-import { qatar_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/89_qatar";
-import { qatar_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/89_qatar";
-import { qatar_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/89_qatar";
-import { qatar_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/89_qatar";
-import { qatar_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/89_qatar";
 const qatar_geopolitik = {
     "un_vote": 182,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const qatar_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const qatar: CountryData = {
+const qatar = {
   ...qatar_profile,
   "sektor_listrik": qatar_listrik,
   "hunian": qatar_hunian,
@@ -75,7 +53,7 @@ export const qatar: CountryData = {
   "sektor_komersial": qatar_komersial,
   "sektor_hiburan": qatar_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const qatar: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const qatar: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": qatar_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 36,
@@ -143,5 +121,8 @@ export const qatar: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

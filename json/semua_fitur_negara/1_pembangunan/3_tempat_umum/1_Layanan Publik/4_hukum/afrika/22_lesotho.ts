@@ -1,4 +1,5 @@
-export const lesotho_hukum = {
+﻿// @ts-nocheck
+const lesotho_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 12,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const lesotho_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 30,
       "indeks_keamanan": 59
-  } as const;
+  };
+
+
+

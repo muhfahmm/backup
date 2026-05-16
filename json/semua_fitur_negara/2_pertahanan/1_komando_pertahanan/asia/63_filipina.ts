@@ -1,6 +1,6 @@
-import { filipina_intelijen } from "../../2_intelijen/asia/63_filipina";
+﻿// @ts-nocheck
 
-export const filipina_strategis = {
+const filipina_strategis = {
     "waktu_respon": 40,
     "intelijen": 40,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const filipina_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

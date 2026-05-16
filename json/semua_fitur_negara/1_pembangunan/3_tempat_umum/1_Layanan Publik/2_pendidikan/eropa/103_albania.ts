@@ -1,4 +1,5 @@
-export const albania_pendidikan = {
+﻿// @ts-nocheck
+const albania_pendidikan = {
       "prasekolah": 69,
       "dasar": 37,
       "menengah": 75,
@@ -10,4 +11,7 @@ export const albania_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 67
-    } as const;
+    };
+
+
+

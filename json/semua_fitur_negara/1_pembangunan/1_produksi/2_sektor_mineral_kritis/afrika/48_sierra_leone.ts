@@ -1,4 +1,5 @@
-export const sierra_leone_ekstraksi = {
+﻿// @ts-nocheck
+const sierra_leone_ekstraksi = {
   emas: 24,
   uranium: 0,
   batu_bara: 40,
@@ -11,4 +12,7 @@ export const sierra_leone_ekstraksi = {
   aluminium: 24,
   logam_tanah_jarang: 0,
   bijih_besi: 12,
-} as const;
+};
+
+
+

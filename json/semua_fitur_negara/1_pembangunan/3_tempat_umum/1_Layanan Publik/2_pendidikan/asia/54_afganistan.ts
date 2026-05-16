@@ -1,4 +1,5 @@
-export const afganistan_pendidikan = {
+﻿// @ts-nocheck
+const afganistan_pendidikan = {
       "prasekolah": 82,
       "dasar": 114,
       "menengah": 78,
@@ -10,4 +11,7 @@ export const afganistan_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 2,
       "literasi": 77
-    } as const;
+    };
+
+
+

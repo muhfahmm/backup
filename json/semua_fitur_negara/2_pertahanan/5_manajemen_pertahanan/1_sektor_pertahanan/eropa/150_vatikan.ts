@@ -1,4 +1,4 @@
-export const vatikan_pertahanan = {
+﻿const vatikan_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 26,
     "hangar_tank": 2,
@@ -7,4 +7,6 @@ export const vatikan_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 2,
     "pertahanan_siber": 6
-    } as const;
+    };
+
+

@@ -1,4 +1,5 @@
-export const jepang_pendidikan = {
+﻿// @ts-nocheck
+const jepang_pendidikan = {
       "prasekolah": 859,
       "dasar": 1604,
       "menengah": 818,
@@ -10,4 +11,7 @@ export const jepang_pendidikan = {
       "pusat_penelitian": 41,
       "pusat_pengembangan": 35,
       "literasi": 94
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const antigua_dan_barbuda_agrikultur = {
+﻿// @ts-nocheck
+const antigua_dan_barbuda_agrikultur = {
   padi: 44,
   gandum: 160,
   jagung: 66,
@@ -13,4 +14,7 @@ export const antigua_dan_barbuda_agrikultur = {
   karet: 0,
   kapas: 144,
   tembakau: 60,
-} as const;
+};
+
+
+

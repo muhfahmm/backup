@@ -1,6 +1,5 @@
-import { slovenia_intelijen } from "../../2_intelijen/eropa/143_slovenia";
-
-export const slovenia_strategis = {
+﻿
+const slovenia_strategis = {
     "waktu_respon": 17,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const slovenia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

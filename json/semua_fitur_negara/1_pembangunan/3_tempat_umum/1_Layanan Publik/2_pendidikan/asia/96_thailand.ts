@@ -1,4 +1,5 @@
-export const thailand_pendidikan = {
+﻿// @ts-nocheck
+const thailand_pendidikan = {
       "prasekolah": 308,
       "dasar": 201,
       "menengah": 283,
@@ -10,4 +11,7 @@ export const thailand_pendidikan = {
       "pusat_penelitian": 12,
       "pusat_pengembangan": 7,
       "literasi": 79
-    } as const;
+    };
+
+
+

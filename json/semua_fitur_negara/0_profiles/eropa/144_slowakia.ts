@@ -1,41 +1,19 @@
-export const slowakia_profile = {
+﻿// @ts-nocheck
+const slowakia_profile = {
   "name_en": "Slovakia",
   "capital": "Bratislava",
   "name_id": "Slowakia",
   "lon": 19.5,
   "lat": 48.66666666,
-  "flag": "🇸🇰",
+  "flag": "ðŸ‡¸ðŸ‡°",
   "jumlah_penduduk": 5423229,
   "anggaran": 1264,
   "pendapatan_nasional": "3611",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { slowakia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/144_slowakia";
-import { slowakia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/144_slowakia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { slowakia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/144_slowakia";
 
-import { slowakia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/144_slowakia";
-import { slowakia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/144_slowakia";
-import { slowakia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/144_slowakia";
-import { slowakia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/144_slowakia";
-import { slowakia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/144_slowakia";
-import { slowakia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/144_slowakia";
-import { slowakia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/144_slowakia";
-import { slowakia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/144_slowakia";
-import { slowakia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/144_slowakia";
-import { slowakia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/144_slowakia";
-import { slowakia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/144_slowakia";
-import { slowakia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/144_slowakia";
-import { slowakia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/144_slowakia";
-import { slowakia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/144_slowakia";
-import { slowakia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/144_slowakia";
-import { slowakia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/144_slowakia";
-import { slowakia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/144_slowakia";
-import { slowakia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/144_slowakia";
-import { slowakia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/144_slowakia";
 const slowakia_geopolitik = {
     "un_vote": 176,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const slowakia_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const slowakia: CountryData = {
+const slowakia = {
   ...slowakia_profile,
   "sektor_listrik": slowakia_listrik,
   "hunian": slowakia_hunian,
@@ -75,7 +53,7 @@ export const slowakia: CountryData = {
   "sektor_komersial": slowakia_komersial,
   "sektor_hiburan": slowakia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const slowakia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const slowakia: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": slowakia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,
@@ -143,5 +121,8 @@ export const slowakia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

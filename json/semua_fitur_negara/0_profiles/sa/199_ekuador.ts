@@ -1,41 +1,19 @@
-export const ekuador_profile = {
+﻿// @ts-nocheck
+const ekuador_profile = {
   "name_en": "Ecuador",
   "capital": "Quito",
   "name_id": "Ekuador",
   "lon": -77.5,
   "lat": -2,
-  "flag": "🇪🇨",
+  "flag": "ðŸ‡ªðŸ‡¨",
   "jumlah_penduduk": 18103660,
   "anggaran": 1118,
   "pendapatan_nasional": "3195",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { ekuador_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/sa/199_ekuador";
-import { ekuador_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/sa/199_ekuador";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { ekuador_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/sa/199_ekuador";
 
-import { ekuador_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/sa/199_ekuador";
-import { ekuador_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/sa/199_ekuador";
-import { ekuador_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/sa/199_ekuador";
-import { ekuador_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/sa/199_ekuador";
-import { ekuador_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/sa/199_ekuador";
-import { ekuador_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/sa/199_ekuador";
-import { ekuador_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/sa/199_ekuador";
-import { ekuador_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/sa/199_ekuador";
-import { ekuador_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/sa/199_ekuador";
-import { ekuador_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/sa/199_ekuador";
-import { ekuador_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/sa/199_ekuador";
-import { ekuador_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/sa/199_ekuador";
-import { ekuador_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/sa/199_ekuador";
-import { ekuador_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/sa/199_ekuador";
-import { ekuador_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/sa/199_ekuador";
-import { ekuador_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/sa/199_ekuador";
-import { ekuador_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/sa/199_ekuador";
-import { ekuador_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/sa/199_ekuador";
-import { ekuador_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/sa/199_ekuador";
 const ekuador_geopolitik = {
     "un_vote": 32,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const ekuador_geopolitik = {
       "kekuatan_keras": 4,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const ekuador: CountryData = {
+const ekuador = {
   ...ekuador_profile,
   "sektor_listrik": ekuador_listrik,
   "hunian": ekuador_hunian,
@@ -75,7 +53,7 @@ export const ekuador: CountryData = {
   "sektor_komersial": ekuador_komersial,
   "sektor_hiburan": ekuador_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const ekuador: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const ekuador: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ekuador_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,
@@ -143,5 +121,8 @@ export const ekuador: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

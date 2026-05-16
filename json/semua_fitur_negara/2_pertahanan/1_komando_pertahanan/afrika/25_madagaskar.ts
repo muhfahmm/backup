@@ -1,6 +1,6 @@
-import { madagaskar_intelijen } from "../../2_intelijen/afrika/25_madagaskar";
+﻿// @ts-nocheck
 
-export const madagaskar_strategis = {
+const madagaskar_strategis = {
     "waktu_respon": 15,
     "intelijen": 34,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const madagaskar_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

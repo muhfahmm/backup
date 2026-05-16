@@ -1,4 +1,5 @@
-export const kiribati_pendidikan = {
+﻿// @ts-nocheck
+const kiribati_pendidikan = {
       "prasekolah": 14,
       "dasar": 56,
       "menengah": 36,
@@ -10,4 +11,7 @@ export const kiribati_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 83
-    } as const;
+    };
+
+
+

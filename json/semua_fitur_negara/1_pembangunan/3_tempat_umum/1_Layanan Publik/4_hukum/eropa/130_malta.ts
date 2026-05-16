@@ -1,4 +1,5 @@
-export const malta_hukum = {
+﻿// @ts-nocheck
+const malta_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 14,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const malta_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 29,
       "indeks_keamanan": 52
-  } as const;
+  };
+
+
+

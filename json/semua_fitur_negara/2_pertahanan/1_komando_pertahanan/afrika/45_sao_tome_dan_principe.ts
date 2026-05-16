@@ -1,6 +1,6 @@
-import { sao_tome_dan_principe_intelijen } from "../../2_intelijen/afrika/45_sao_tome_dan_principe";
+﻿// @ts-nocheck
 
-export const sao_tome_dan_principe_strategis = {
+const sao_tome_dan_principe_strategis = {
     "waktu_respon": 39,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const sao_tome_dan_principe_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

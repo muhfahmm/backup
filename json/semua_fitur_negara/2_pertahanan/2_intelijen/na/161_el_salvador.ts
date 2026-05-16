@@ -1,5 +1,9 @@
-export const el_salvador_intelijen = {
+﻿// @ts-nocheck
+const el_salvador_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 4,
   operasi_siber: 4,
-} as const;
+};
+
+
+

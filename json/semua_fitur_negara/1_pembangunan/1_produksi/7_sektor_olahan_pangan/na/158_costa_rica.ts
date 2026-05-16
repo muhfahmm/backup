@@ -1,4 +1,5 @@
-export const costa_rica_olahan_pangan = {
+﻿// @ts-nocheck
+const costa_rica_olahan_pangan = {
   air_mineral: 90,
   gula: 54,
   roti: 93,
@@ -9,4 +10,7 @@ export const costa_rica_olahan_pangan = {
   pakan_ternak: 57,
   ikan_kaleng: 102,
   kopi_teh: 51,
-} as const;
+};
+
+
+

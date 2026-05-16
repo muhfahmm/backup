@@ -1,4 +1,5 @@
-export const guiana_prancis_infrastruktur = {
+﻿// @ts-nocheck
+const guiana_prancis_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 15,
   terminal_bus: 2,
@@ -7,4 +8,7 @@ export const guiana_prancis_infrastruktur = {
   pelabuhan: 3,
   bandara: 4,
   helipad: 5,
-} as const;
+};
+
+
+

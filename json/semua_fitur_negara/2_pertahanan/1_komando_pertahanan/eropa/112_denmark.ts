@@ -1,6 +1,5 @@
-import { denmark_intelijen } from "../../2_intelijen/eropa/112_denmark";
-
-export const denmark_strategis = {
+﻿
+const denmark_strategis = {
     "waktu_respon": 22,
     "intelijen": 24,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const denmark_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

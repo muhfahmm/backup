@@ -1,4 +1,5 @@
-export const seychelles_hukum = {
+﻿// @ts-nocheck
+const seychelles_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 8,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const seychelles_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 20,
       "indeks_keamanan": 58
-  } as const;
+  };
+
+
+

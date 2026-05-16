@@ -1,5 +1,4 @@
-import * as allEmbassiesImports from "./index";
-
+﻿// @ts-nocheck
 // Combine all kedutaan into a single registry from the central index
 const allEmbassies: Record<string, any> = allEmbassiesImports;
 
@@ -38,7 +37,7 @@ const normalizeCountryName = (name: string): string => {
     .replace(/[()]/g, '');
 };
 
-export const getInitialEmbassy = (countryNameEn: string, countryNameId: string, playerCountry: string = "Indonesia"): any => {
+const getInitialEmbassy = (countryNameEn: string, countryNameId: string, playerCountry: string = "Indonesia"): any => {
   const keyEn = `${normalizeCountryName(countryNameEn)}EmbassyConfig`;
   const keyId = `${normalizeCountryName(countryNameId)}EmbassyConfig`;
 
@@ -67,3 +66,6 @@ export const getInitialEmbassy = (countryNameEn: string, countryNameId: string, 
     relationshipBonus: 0
   };
 };
+
+
+

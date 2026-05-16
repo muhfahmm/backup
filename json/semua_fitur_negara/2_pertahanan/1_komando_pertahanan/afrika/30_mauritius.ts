@@ -1,6 +1,5 @@
-import { mauritius_intelijen } from "../../2_intelijen/afrika/30_mauritius";
-
-export const mauritius_strategis = {
+﻿
+const mauritius_strategis = {
     "waktu_respon": 39,
     "intelijen": 21,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const mauritius_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

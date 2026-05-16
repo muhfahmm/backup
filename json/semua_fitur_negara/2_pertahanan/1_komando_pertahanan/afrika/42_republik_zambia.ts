@@ -1,6 +1,6 @@
-import { republik_zambia_intelijen } from "../../2_intelijen/afrika/42_republik_zambia";
+﻿// @ts-nocheck
 
-export const republik_zambia_strategis = {
+const republik_zambia_strategis = {
     "waktu_respon": 16,
     "intelijen": 3,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_zambia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

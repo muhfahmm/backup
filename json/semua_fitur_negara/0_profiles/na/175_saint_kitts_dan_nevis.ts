@@ -1,41 +1,19 @@
-export const saint_kitts_dan_nevis_profile = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_profile = {
   "name_en": "Saint Kitts and Nevis",
   "capital": "Basseterre",
   "name_id": "Saint kitts dan nevis",
   "lon": -62.75,
   "lat": 17.33333333,
-  "flag": "🇰🇳",
+  "flag": "ðŸ‡°ðŸ‡³",
   "jumlah_penduduk": 51320,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { saint_kitts_dan_nevis_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/175_saint_kitts_dan_nevis";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { saint_kitts_dan_nevis_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/175_saint_kitts_dan_nevis";
 
-import { saint_kitts_dan_nevis_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/175_saint_kitts_dan_nevis";
-import { saint_kitts_dan_nevis_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/175_saint_kitts_dan_nevis";
 const saint_kitts_dan_nevis_geopolitik = {
     "un_vote": 64,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const saint_kitts_dan_nevis_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const saint_kitts_dan_nevis: CountryData = {
+const saint_kitts_dan_nevis = {
   ...saint_kitts_dan_nevis_profile,
   "sektor_listrik": saint_kitts_dan_nevis_listrik,
   "hunian": saint_kitts_dan_nevis_hunian,
@@ -75,7 +53,7 @@ export const saint_kitts_dan_nevis: CountryData = {
   "sektor_komersial": saint_kitts_dan_nevis_komersial,
   "sektor_hiburan": saint_kitts_dan_nevis_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const saint_kitts_dan_nevis: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const saint_kitts_dan_nevis: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": saint_kitts_dan_nevis_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,
@@ -143,5 +121,8 @@ export const saint_kitts_dan_nevis: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const vietnam_ekstraksi = {
+﻿// @ts-nocheck
+const vietnam_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 340,
@@ -11,4 +12,7 @@ export const vietnam_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 544,
   bijih_besi: 68,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadineAgreements = [
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadineAgreements = [
   { "no": 1, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const saint_vincent_dan_grenadineAgreements = [
   { "no": 12, "mitra": "Kanada", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

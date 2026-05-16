@@ -1,4 +1,5 @@
-export const hong_kong_infrastruktur = {
+﻿// @ts-nocheck
+const hong_kong_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 18,
   terminal_bus: 7,
@@ -7,4 +8,7 @@ export const hong_kong_infrastruktur = {
   pelabuhan: 4,
   bandara: 3,
   helipad: 3,
-} as const;
+};
+
+
+

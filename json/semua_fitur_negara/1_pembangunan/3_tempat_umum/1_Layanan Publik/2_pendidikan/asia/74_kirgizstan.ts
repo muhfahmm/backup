@@ -1,4 +1,5 @@
-export const kirgizstan_pendidikan = {
+﻿// @ts-nocheck
+const kirgizstan_pendidikan = {
       "prasekolah": 84,
       "dasar": 78,
       "menengah": 75,
@@ -10,4 +11,7 @@ export const kirgizstan_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 2,
       "literasi": 62
-    } as const;
+    };
+
+
+

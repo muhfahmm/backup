@@ -1,4 +1,5 @@
-export const bhutan_hukum = {
+﻿// @ts-nocheck
+const bhutan_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 2,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const bhutan_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 21,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

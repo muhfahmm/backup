@@ -1,4 +1,5 @@
-export const republik_uganda_pendidikan = {
+﻿// @ts-nocheck
+const republik_uganda_pendidikan = {
       "prasekolah": 32,
       "dasar": 83,
       "menengah": 10,
@@ -10,4 +11,7 @@ export const republik_uganda_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 82
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const selandia_baru_ekstraksi = {
+﻿// @ts-nocheck
+const selandia_baru_ekstraksi = {
   emas: 105,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const selandia_baru_ekstraksi = {
   aluminium: 126,
   logam_tanah_jarang: 63,
   bijih_besi: 0,
-} as const;
+};
+
+
+

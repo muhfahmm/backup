@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Listrik (Total: 6 Bangunan)
 // ===================
-export const KAPASITAS_LISTRIK_METADATA = {
+const KAPASITAS_LISTRIK_METADATA = {
   "1_pembangkit_listrik_tenaga_nuklir": {
     key: "1_pembangkit_listrik_tenaga_nuklir",
     dataKey: "pembangkit_listrik_tenaga_nuklir",
@@ -95,13 +96,13 @@ export interface ElectricityData {
   pembangkit_listrik_tenaga_angin: number;
 }
 
-export const DASHBOARD_LABELS = {
+const DASHBOARD_LABELS = {
   supply: { title: "Pemasukan Listrik (Pasokan)", label: "Total Kapasitas Terpasang", unit: "MW" },
   usage: { title: "Penggunaan Listrik (Beban)", label: "Total Konsumsi Nasional", unit: "MW" },
   balance: { title: "Neraca Daya", label: "Surplus/Defisit", unit: "MW" }
 };
 
-export const SECTOR_USAGE_LABELS = {
+const SECTOR_USAGE_LABELS = {
   extraction: "Sektor Ekstraksi & Energi",
   manufacturing: "Sektor Industri & Manufaktur",
   pangan: "Sektor Pangan (Tani & Ternak)",
@@ -109,3 +110,6 @@ export const SECTOR_USAGE_LABELS = {
   social: "Sektor Sosial & Layanan Publik",
   transportation: "Sektor Transportasi & Logistik"
 };
+
+
+

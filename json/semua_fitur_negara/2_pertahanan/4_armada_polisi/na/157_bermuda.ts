@@ -1,4 +1,5 @@
-export const bermuda_kepolisian = {
+﻿// @ts-nocheck
+const bermuda_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const bermuda_kepolisian = {
       "pasukan_swat": 9,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

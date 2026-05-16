@@ -1,4 +1,5 @@
-export const kanada_pendidikan = {
+﻿// @ts-nocheck
+const kanada_pendidikan = {
       "prasekolah": 1438,
       "dasar": 1454,
       "menengah": 577,
@@ -10,4 +11,7 @@ export const kanada_pendidikan = {
       "pusat_penelitian": 27,
       "pusat_pengembangan": 42,
       "literasi": 85
-    } as const;
+    };
+
+
+

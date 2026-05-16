@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevis_olahraga = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_olahraga = {
   "kolam_renang": 16,
   "sirkuit_balap": 1,
   "stadion": 3,
@@ -7,4 +8,7 @@ export const saint_kitts_dan_nevis_olahraga = {
   "golf": 4,
   "esports": 0,
   "gokart": 9
-} as const;
+};
+
+
+

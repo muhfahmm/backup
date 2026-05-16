@@ -1,4 +1,5 @@
-export const selandia_baru_pendidikan = {
+﻿// @ts-nocheck
+const selandia_baru_pendidikan = {
       "prasekolah": 183,
       "dasar": 278,
       "menengah": 116,
@@ -10,4 +11,7 @@ export const selandia_baru_pendidikan = {
       "pusat_penelitian": 12,
       "pusat_pengembangan": 7,
       "literasi": 78
-    } as const;
+    };
+
+
+

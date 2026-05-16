@@ -1,4 +1,5 @@
-export const marshall_ekstraksi = {
+﻿// @ts-nocheck
+const marshall_ekstraksi = {
   emas: 32,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const marshall_ekstraksi = {
   aluminium: 16,
   logam_tanah_jarang: 40,
   bijih_besi: 32,
-} as const;
+};
+
+
+

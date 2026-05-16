@@ -1,6 +1,6 @@
-import { nigeria_intelijen } from "../../2_intelijen/afrika/35_nigeria";
+﻿// @ts-nocheck
 
-export const nigeria_strategis = {
+const nigeria_strategis = {
     "waktu_respon": 12,
     "intelijen": 12,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const nigeria_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

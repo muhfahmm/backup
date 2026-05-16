@@ -1,4 +1,5 @@
-export const kenya_ekstraksi = {
+﻿// @ts-nocheck
+const kenya_ekstraksi = {
   emas: 42,
   uranium: 0,
   batu_bara: 70,
@@ -11,4 +12,7 @@ export const kenya_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 63,
   bijih_besi: 0,
-} as const;
+};
+
+
+

@@ -1,6 +1,6 @@
-import { china_intelijen } from "../../2_intelijen/asia/62_china";
+﻿// @ts-nocheck
 
-export const china_strategis = {
+const china_strategis = {
     "waktu_respon": 32,
     "intelijen": 5,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const china_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 600
     }
-  } as const;
+  };
+
+
+

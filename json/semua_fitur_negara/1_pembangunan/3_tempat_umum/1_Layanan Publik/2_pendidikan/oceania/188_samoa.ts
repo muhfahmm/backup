@@ -1,4 +1,5 @@
-export const samoa_pendidikan = {
+﻿// @ts-nocheck
+const samoa_pendidikan = {
       "prasekolah": 23,
       "dasar": 68,
       "menengah": 86,
@@ -10,4 +11,7 @@ export const samoa_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 71
-    } as const;
+    };
+
+
+

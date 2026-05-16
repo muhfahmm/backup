@@ -1,6 +1,5 @@
-import { jamaika_intelijen } from "../../2_intelijen/na/167_jamaika";
-
-export const jamaika_strategis = {
+﻿
+const jamaika_strategis = {
     "waktu_respon": 32,
     "intelijen": 39,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const jamaika_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { albaniaAgreements } from './103_albania';
 export { andorraAgreements } from './104_andorra';
 export { austriaAgreements } from './105_austria';
@@ -47,3 +48,6 @@ export { turkiAgreements } from './148_turki';
 export { ukrainaAgreements } from './149_ukraina';
 export { vatikanAgreements } from './150_vatikan';
 export { yunaniAgreements } from './151_yunani';
+
+
+

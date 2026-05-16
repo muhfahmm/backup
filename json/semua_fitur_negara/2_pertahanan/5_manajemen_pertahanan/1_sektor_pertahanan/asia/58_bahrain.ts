@@ -1,4 +1,4 @@
-export const bahrain_pertahanan = {
+﻿const bahrain_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 20,
     "hangar_tank": 38,
@@ -7,4 +7,6 @@ export const bahrain_pertahanan = {
     "pangkalan_laut": 25,
     "program_luar_angkasa": 1,
     "pertahanan_siber": 17
-    } as const;
+    };
+
+

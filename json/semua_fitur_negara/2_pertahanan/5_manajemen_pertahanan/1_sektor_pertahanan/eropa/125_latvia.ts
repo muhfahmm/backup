@@ -1,4 +1,4 @@
-export const latvia_pertahanan = {
+﻿const latvia_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 25,
     "hangar_tank": 32,
@@ -7,4 +7,6 @@ export const latvia_pertahanan = {
     "pangkalan_laut": 1,
     "program_luar_angkasa": 20,
     "pertahanan_siber": 28
-    } as const;
+    };
+
+

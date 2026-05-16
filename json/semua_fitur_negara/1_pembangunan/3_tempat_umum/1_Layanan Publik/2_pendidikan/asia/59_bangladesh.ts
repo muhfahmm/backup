@@ -1,4 +1,5 @@
-export const bangladesh_pendidikan = {
+﻿// @ts-nocheck
+const bangladesh_pendidikan = {
       "prasekolah": 105,
       "dasar": 737,
       "menengah": 487,
@@ -10,4 +11,7 @@ export const bangladesh_pendidikan = {
       "pusat_penelitian": 10,
       "pusat_pengembangan": 9,
       "literasi": 85
-    } as const;
+    };
+
+
+

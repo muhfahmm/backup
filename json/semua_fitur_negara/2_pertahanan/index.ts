@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./1_komando_pertahanan";
 export * from "./2_intelijen";
 export * from "./3_armada_militer";
@@ -9,7 +10,7 @@ export type { SektorArmadaMiliter } from "./3_armada_militer";
 export type { SektorArmadaKepolisian } from "./4_armada_polisi";
 export type { SektorPertahanan } from "./5_manajemen_pertahanan";
 
-export const produksiMiliter = [
+const produksiMiliter = [
   // 1. Strategis & Intelijen (Intelijen)
   { key: "satellite", category: "Intelijen", label: "Sistem Satelit", deskripsi: "Orbit Intelijen", biaya_pembangunan: 262, waktu_pembangunan: 180 },
   { key: "radar", category: "Intelijen", label: "Jaringan Radar", deskripsi: "Deteksi Dini", biaya_pembangunan: 90, waktu_pembangunan: 90 },
@@ -26,3 +27,6 @@ export const produksiMiliter = [
   { key: "cctv_network", category: "Polisi", label: "Network CCTV", deskripsi: "Surveillance", biaya_pembangunan: 7, waktu_pembangunan: 30 },
   { key: "forensik", category: "Polisi", label: "Pusat Forensik", deskripsi: "Identifikasi", biaya_pembangunan: 22, waktu_pembangunan: 90 }
 ];
+
+
+

@@ -1,4 +1,5 @@
-export const namibia_agrikultur = {
+﻿// @ts-nocheck
+const namibia_agrikultur = {
   padi: 51,
   gandum: 21,
   jagung: 19,
@@ -13,4 +14,7 @@ export const namibia_agrikultur = {
   karet: 0,
   kapas: 18,
   tembakau: 55,
-} as const;
+};
+
+
+

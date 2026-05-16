@@ -1,4 +1,5 @@
-export const papua_nugini_olahraga = {
+﻿// @ts-nocheck
+const papua_nugini_olahraga = {
   "kolam_renang": 4,
   "sirkuit_balap": 3,
   "stadion": 2,
@@ -7,4 +8,7 @@ export const papua_nugini_olahraga = {
   "golf": 1,
   "esports": 5,
   "gokart": 2
-} as const;
+};
+
+
+

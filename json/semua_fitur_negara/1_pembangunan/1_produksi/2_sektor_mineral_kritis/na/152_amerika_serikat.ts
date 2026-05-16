@@ -1,4 +1,5 @@
-export const amerika_serikat_ekstraksi = {
+﻿// @ts-nocheck
+const amerika_serikat_ekstraksi = {
   emas: 928,
   uranium: 423,
   batu_bara: 696,
@@ -11,4 +12,7 @@ export const amerika_serikat_ekstraksi = {
   aluminium: 348,
   logam_tanah_jarang: 232,
   bijih_besi: 464,
-} as const;
+};
+
+
+

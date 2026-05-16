@@ -1,6 +1,6 @@
-import { liechtenstein_intelijen } from "../../2_intelijen/eropa/126_liechtenstein";
+﻿// @ts-nocheck
 
-export const liechtenstein_strategis = {
+const liechtenstein_strategis = {
     "waktu_respon": 8,
     "intelijen": 25,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const liechtenstein_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

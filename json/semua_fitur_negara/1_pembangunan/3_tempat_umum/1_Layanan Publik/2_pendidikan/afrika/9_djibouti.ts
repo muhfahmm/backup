@@ -1,4 +1,5 @@
-export const djibouti_pendidikan = {
+﻿// @ts-nocheck
+const djibouti_pendidikan = {
       "prasekolah": 69,
       "dasar": 25,
       "menengah": 80,
@@ -10,4 +11,7 @@ export const djibouti_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 61
-  } as const;
+  };
+
+
+

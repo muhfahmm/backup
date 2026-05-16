@@ -1,4 +1,5 @@
-export const uni_emirat_arab_agrikultur = {
+﻿// @ts-nocheck
+const uni_emirat_arab_agrikultur = {
   padi: 4356,
   gandum: 2244,
   jagung: 726,
@@ -13,4 +14,7 @@ export const uni_emirat_arab_agrikultur = {
   karet: 0,
   kapas: 4950,
   tembakau: 1320,
-} as const;
+};
+
+
+

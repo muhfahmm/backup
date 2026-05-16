@@ -1,4 +1,5 @@
-export const vanuatu_ekstraksi = {
+﻿// @ts-nocheck
+const vanuatu_ekstraksi = {
   emas: 2,
   uranium: 0,
   batu_bara: 8,
@@ -11,4 +12,7 @@ export const vanuatu_ekstraksi = {
   aluminium: 8,
   logam_tanah_jarang: 0,
   bijih_besi: 4,
-} as const;
+};
+
+
+

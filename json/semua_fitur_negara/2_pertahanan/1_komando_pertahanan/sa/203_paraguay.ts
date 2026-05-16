@@ -1,6 +1,6 @@
-import { paraguay_intelijen } from "../../2_intelijen/sa/203_paraguay";
+﻿// @ts-nocheck
 
-export const paraguay_strategis = {
+const paraguay_strategis = {
     "waktu_respon": 14,
     "intelijen": 19,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const paraguay_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

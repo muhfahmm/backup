@@ -1,4 +1,5 @@
-export const palau_agrikultur = {
+﻿// @ts-nocheck
+const palau_agrikultur = {
   padi: 110,
   gandum: 110,
   jagung: 22,
@@ -13,4 +14,7 @@ export const palau_agrikultur = {
   karet: 0,
   kapas: 158,
   tembakau: 66,
-} as const;
+};
+
+
+

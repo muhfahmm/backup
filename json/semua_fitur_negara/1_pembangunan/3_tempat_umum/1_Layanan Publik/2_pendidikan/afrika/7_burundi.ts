@@ -1,4 +1,5 @@
-export const burundi_pendidikan = {
+﻿// @ts-nocheck
+const burundi_pendidikan = {
       "prasekolah": 69,
       "dasar": 103,
       "menengah": 11,
@@ -10,4 +11,7 @@ export const burundi_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 70
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { guinea_intelijen } from "../../2_intelijen/afrika/16_guinea";
+﻿// @ts-nocheck
 
-export const guinea_strategis = {
+const guinea_strategis = {
     "waktu_respon": 39,
     "intelijen": 19,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const guinea_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

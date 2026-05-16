@@ -1,4 +1,5 @@
-export const mauritius_olahan_pangan = {
+﻿// @ts-nocheck
+const mauritius_olahan_pangan = {
   air_mineral: 44,
   gula: 13,
   roti: 14,
@@ -9,4 +10,7 @@ export const mauritius_olahan_pangan = {
   pakan_ternak: 28,
   ikan_kaleng: 26,
   kopi_teh: 15,
-} as const;
+};
+
+
+

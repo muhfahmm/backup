@@ -1,4 +1,5 @@
-export const kolombia_olahan_pangan = {
+﻿// @ts-nocheck
+const kolombia_olahan_pangan = {
   air_mineral: 1476,
   gula: 540,
   roti: 828,
@@ -9,4 +10,7 @@ export const kolombia_olahan_pangan = {
   pakan_ternak: 576,
   ikan_kaleng: 1332,
   kopi_teh: 468,
-} as const;
+};
+
+
+

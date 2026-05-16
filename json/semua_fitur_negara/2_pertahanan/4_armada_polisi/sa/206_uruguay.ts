@@ -1,4 +1,4 @@
-export const uruguay_kepolisian = {
+﻿const uruguay_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const uruguay_kepolisian = {
       "pasukan_swat": 34,
       "samapta": 62
     }
-  } as const;
+  };
+
+

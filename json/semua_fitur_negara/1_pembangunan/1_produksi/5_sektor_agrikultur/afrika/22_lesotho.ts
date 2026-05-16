@@ -1,4 +1,5 @@
-export const lesotho_agrikultur = {
+﻿// @ts-nocheck
+const lesotho_agrikultur = {
   padi: 171,
   gandum: 129,
   jagung: 201,
@@ -13,4 +14,7 @@ export const lesotho_agrikultur = {
   karet: 0,
   kapas: 183,
   tembakau: 147,
-} as const;
+};
+
+
+

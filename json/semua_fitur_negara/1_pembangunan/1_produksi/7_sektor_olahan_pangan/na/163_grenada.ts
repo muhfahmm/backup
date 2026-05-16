@@ -1,4 +1,5 @@
-export const grenada_olahan_pangan = {
+﻿// @ts-nocheck
+const grenada_olahan_pangan = {
   air_mineral: 15,
   gula: 21,
   roti: 16,
@@ -9,4 +10,7 @@ export const grenada_olahan_pangan = {
   pakan_ternak: 37,
   ikan_kaleng: 37,
   kopi_teh: 45,
-} as const;
+};
+
+
+

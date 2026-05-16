@@ -1,4 +1,5 @@
-export const uzbekistan_pendidikan = {
+﻿// @ts-nocheck
+const uzbekistan_pendidikan = {
       "prasekolah": 81,
       "dasar": 30,
       "menengah": 68,
@@ -10,4 +11,7 @@ export const uzbekistan_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 60
-    } as const;
+    };
+
+
+

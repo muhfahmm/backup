@@ -1,4 +1,5 @@
-export const kepulauan_faroe_agrikultur = {
+﻿// @ts-nocheck
+const kepulauan_faroe_agrikultur = {
   padi: 43,
   gandum: 51,
   jagung: 14,
@@ -13,4 +14,7 @@ export const kepulauan_faroe_agrikultur = {
   karet: 0,
   kapas: 73,
   tembakau: 53,
-} as const;
+};
+
+
+

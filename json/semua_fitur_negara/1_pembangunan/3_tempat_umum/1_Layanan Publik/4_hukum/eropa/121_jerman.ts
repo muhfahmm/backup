@@ -1,4 +1,5 @@
-export const jerman_hukum = {
+﻿// @ts-nocheck
+const jerman_hukum = {
       "pusat_bantuan_hukum": 82,
       "pengadilan": 120,
       "kejaksaan": 41,
@@ -7,4 +8,7 @@ export const jerman_hukum = {
       "akademi_polisi": 21,
       "indeks_korupsi": 76,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

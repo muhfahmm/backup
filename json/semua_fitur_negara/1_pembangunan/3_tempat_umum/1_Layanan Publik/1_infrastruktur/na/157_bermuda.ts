@@ -1,4 +1,5 @@
-export const bermuda_infrastruktur = {
+﻿// @ts-nocheck
+const bermuda_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 10,
   terminal_bus: 4,
@@ -7,4 +8,7 @@ export const bermuda_infrastruktur = {
   pelabuhan: 3,
   bandara: 5,
   helipad: 5,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const el_salvador_pertahanan = {
+﻿// @ts-nocheck
+const el_salvador_pertahanan = {
     "penjara": 18,
     "gudang_senjata": 7,
     "hangar_tank": 3,
@@ -7,4 +8,7 @@ export const el_salvador_pertahanan = {
     "pangkalan_laut": 11,
     "program_luar_angkasa": 29,
     "pertahanan_siber": 18
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const palestina_pendidikan = {
+﻿// @ts-nocheck
+const palestina_pendidikan = {
       "prasekolah": 90,
       "dasar": 141,
       "menengah": 13,
@@ -10,4 +11,7 @@ export const palestina_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 75
-    } as const;
+    };
+
+
+

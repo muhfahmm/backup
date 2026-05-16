@@ -1,4 +1,5 @@
-export const djibouti_ekstraksi = {
+﻿// @ts-nocheck
+const djibouti_ekstraksi = {
   emas: 6,
   uranium: 0,
   batu_bara: 1,
@@ -11,4 +12,7 @@ export const djibouti_ekstraksi = {
   aluminium: 9,
   logam_tanah_jarang: 0,
   bijih_besi: 9,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const panama_pendidikan = {
+﻿// @ts-nocheck
+const panama_pendidikan = {
       "prasekolah": 81,
       "dasar": 134,
       "menengah": 89,
@@ -10,4 +11,7 @@ export const panama_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 80
-    } as const;
+    };
+
+
+

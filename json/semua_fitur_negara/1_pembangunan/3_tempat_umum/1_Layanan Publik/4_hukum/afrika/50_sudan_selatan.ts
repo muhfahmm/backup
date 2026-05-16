@@ -1,4 +1,5 @@
-export const sudan_selatan_hukum = {
+﻿// @ts-nocheck
+const sudan_selatan_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 14,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const sudan_selatan_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 34,
       "indeks_keamanan": 66
-  } as const;
+  };
+
+
+

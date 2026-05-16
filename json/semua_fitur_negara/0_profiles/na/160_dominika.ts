@@ -1,41 +1,19 @@
-export const dominika_profile = {
+﻿// @ts-nocheck
+const dominika_profile = {
   "name_en": "Dominica",
   "capital": "Roseau",
   "name_id": "Dominika",
   "lon": -61.33333333,
   "lat": 15.41666666,
-  "flag": "🇩🇲",
+  "flag": "ðŸ‡©ðŸ‡²",
   "jumlah_penduduk": 72412,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { dominika_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/160_dominika";
-import { dominika_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/160_dominika";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { dominika_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/160_dominika";
 
-import { dominika_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/160_dominika";
-import { dominika_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/160_dominika";
-import { dominika_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/160_dominika";
-import { dominika_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/160_dominika";
-import { dominika_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/160_dominika";
-import { dominika_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/160_dominika";
-import { dominika_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/160_dominika";
-import { dominika_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/160_dominika";
-import { dominika_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/160_dominika";
-import { dominika_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/160_dominika";
-import { dominika_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/160_dominika";
-import { dominika_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/160_dominika";
-import { dominika_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/160_dominika";
-import { dominika_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/160_dominika";
-import { dominika_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/160_dominika";
-import { dominika_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/160_dominika";
-import { dominika_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/160_dominika";
-import { dominika_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/160_dominika";
-import { dominika_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/160_dominika";
 const dominika_geopolitik = {
     "un_vote": 54,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const dominika_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const dominika: CountryData = {
+const dominika = {
   ...dominika_profile,
   "sektor_listrik": dominika_listrik,
   "hunian": dominika_hunian,
@@ -75,7 +53,7 @@ export const dominika: CountryData = {
   "sektor_komersial": dominika_komersial,
   "sektor_hiburan": dominika_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const dominika: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const dominika: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": dominika_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,
@@ -143,5 +121,8 @@ export const dominika: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

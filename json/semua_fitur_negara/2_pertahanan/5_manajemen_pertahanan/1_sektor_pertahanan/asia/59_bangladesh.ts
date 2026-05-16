@@ -1,4 +1,5 @@
-export const bangladesh_pertahanan = {
+﻿// @ts-nocheck
+const bangladesh_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 38,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const bangladesh_pertahanan = {
     "pangkalan_laut": 14,
     "program_luar_angkasa": 40,
     "pertahanan_siber": 7
-    } as const;
+    };
+
+
+

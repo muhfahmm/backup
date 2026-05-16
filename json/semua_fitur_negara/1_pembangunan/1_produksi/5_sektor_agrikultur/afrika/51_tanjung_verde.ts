@@ -1,4 +1,5 @@
-export const tanjung_verde_agrikultur = {
+﻿// @ts-nocheck
+const tanjung_verde_agrikultur = {
   padi: 87,
   gandum: 129,
   jagung: 177,
@@ -13,4 +14,7 @@ export const tanjung_verde_agrikultur = {
   karet: 0,
   kapas: 132,
   tembakau: 144,
-} as const;
+};
+
+
+

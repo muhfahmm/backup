@@ -1,4 +1,5 @@
-export const pantai_gading_agrikultur = {
+﻿// @ts-nocheck
+const pantai_gading_agrikultur = {
   padi: 250,
   gandum: 330,
   jagung: 125,
@@ -13,4 +14,7 @@ export const pantai_gading_agrikultur = {
   karet: 270,
   kapas: 330,
   tembakau: 280,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const kongo_hukum = {
+﻿// @ts-nocheck
+const kongo_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 10,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const kongo_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 33,
       "indeks_keamanan": 65
-  } as const;
+  };
+
+
+

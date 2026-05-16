@@ -1,41 +1,19 @@
-export const tajikistan_profile = {
+﻿// @ts-nocheck
+const tajikistan_profile = {
   "name_en": "Tajikistan",
   "capital": "Dushanbe",
   "name_id": "Tajikistan",
   "lon": 71,
   "lat": 39,
-  "flag": "🇹🇯",
+  "flag": "ðŸ‡¹ðŸ‡¯",
   "jumlah_penduduk": 9806453,
   "anggaran": 117,
   "pendapatan_nasional": "333",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { tajikistan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/95_tajikistan";
-import { tajikistan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/95_tajikistan";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { tajikistan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/95_tajikistan";
 
-import { tajikistan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/95_tajikistan";
-import { tajikistan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/95_tajikistan";
-import { tajikistan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/95_tajikistan";
-import { tajikistan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/95_tajikistan";
-import { tajikistan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/95_tajikistan";
-import { tajikistan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/95_tajikistan";
-import { tajikistan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/95_tajikistan";
-import { tajikistan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/95_tajikistan";
-import { tajikistan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/95_tajikistan";
-import { tajikistan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/95_tajikistan";
-import { tajikistan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/95_tajikistan";
-import { tajikistan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/95_tajikistan";
-import { tajikistan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/95_tajikistan";
-import { tajikistan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/95_tajikistan";
-import { tajikistan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/95_tajikistan";
-import { tajikistan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/95_tajikistan";
-import { tajikistan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/95_tajikistan";
-import { tajikistan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/95_tajikistan";
-import { tajikistan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/95_tajikistan";
 const tajikistan_geopolitik = {
     "un_vote": 177,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const tajikistan_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const tajikistan: CountryData = {
+const tajikistan = {
   ...tajikistan_profile,
   "sektor_listrik": tajikistan_listrik,
   "hunian": tajikistan_hunian,
@@ -75,7 +53,7 @@ export const tajikistan: CountryData = {
   "sektor_komersial": tajikistan_komersial,
   "sektor_hiburan": tajikistan_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const tajikistan: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const tajikistan: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tajikistan_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,
@@ -143,5 +121,8 @@ export const tajikistan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

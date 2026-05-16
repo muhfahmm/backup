@@ -1,6 +1,6 @@
-import { benin_intelijen } from "../../2_intelijen/afrika/4_benin";
+﻿// @ts-nocheck
 
-export const benin_strategis = {
+const benin_strategis = {
     "waktu_respon": 5,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const benin_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

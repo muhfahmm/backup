@@ -1,4 +1,5 @@
-export const papua_nugini_infrastruktur = {
+﻿// @ts-nocheck
+const papua_nugini_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 8,
   terminal_bus: 6,
@@ -7,4 +8,7 @@ export const papua_nugini_infrastruktur = {
   pelabuhan: 1,
   bandara: 1,
   helipad: 3,
-} as const;
+};
+
+
+

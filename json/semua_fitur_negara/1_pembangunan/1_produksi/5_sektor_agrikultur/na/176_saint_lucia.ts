@@ -1,4 +1,5 @@
-export const saint_lucia_agrikultur = {
+﻿// @ts-nocheck
+const saint_lucia_agrikultur = {
   padi: 71,
   gandum: 56,
   jagung: 56,
@@ -13,4 +14,7 @@ export const saint_lucia_agrikultur = {
   karet: 0,
   kapas: 48,
   tembakau: 17,
-} as const;
+};
+
+
+

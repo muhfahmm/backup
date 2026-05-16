@@ -1,4 +1,5 @@
-export const iran_agrikultur = {
+﻿// @ts-nocheck
+const iran_agrikultur = {
   padi: 966,
   gandum: 2254,
   jagung: 1610,
@@ -13,4 +14,7 @@ export const iran_agrikultur = {
   karet: 0,
   kapas: 1104,
   tembakau: 3634,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const guinea_bissau_armada = {
+﻿// @ts-nocheck
+const guinea_bissau_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -28,4 +29,7 @@ export const guinea_bissau_armada = {
         "drone_kamikaze": 10,
         "pesawat_angkut": 2
   }
-} as const;
+};
+
+
+

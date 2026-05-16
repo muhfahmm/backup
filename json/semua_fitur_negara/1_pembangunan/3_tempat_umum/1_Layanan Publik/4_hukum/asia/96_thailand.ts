@@ -1,4 +1,5 @@
-export const thailand_hukum = {
+﻿// @ts-nocheck
+const thailand_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 24,
       "kejaksaan": 12,
@@ -7,4 +8,7 @@ export const thailand_hukum = {
       "akademi_polisi": 10,
       "indeks_korupsi": 39,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

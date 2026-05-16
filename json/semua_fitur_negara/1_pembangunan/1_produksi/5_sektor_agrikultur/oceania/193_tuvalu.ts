@@ -1,4 +1,5 @@
-export const tuvalu_agrikultur = {
+﻿// @ts-nocheck
+const tuvalu_agrikultur = {
   padi: 228,
   gandum: 144,
   jagung: 231,
@@ -13,4 +14,7 @@ export const tuvalu_agrikultur = {
   karet: 0,
   kapas: 99,
   tembakau: 150,
-} as const;
+};
+
+
+

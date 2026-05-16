@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./179_australia";
 export * from "./180_fiji";
 export * from "./181_guam";
@@ -14,3 +15,6 @@ export * from "./191_tahiti";
 export * from "./192_tonga";
 export * from "./193_tuvalu";
 export * from "./194_vanuatu";
+
+
+

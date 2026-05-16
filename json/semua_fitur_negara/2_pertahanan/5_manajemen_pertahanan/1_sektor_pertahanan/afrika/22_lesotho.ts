@@ -1,4 +1,5 @@
-export const lesotho_pertahanan = {
+﻿// @ts-nocheck
+const lesotho_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 28,
     "hangar_tank": 3,
@@ -7,4 +8,7 @@ export const lesotho_pertahanan = {
     "pangkalan_laut": 23,
     "program_luar_angkasa": 13,
     "pertahanan_siber": 8
-    } as const;
+    };
+
+
+

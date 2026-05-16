@@ -1,4 +1,4 @@
-export const malawi_pertahanan = {
+﻿const malawi_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 1,
     "hangar_tank": 9,
@@ -7,4 +7,6 @@ export const malawi_pertahanan = {
     "pangkalan_laut": 34,
     "program_luar_angkasa": 40,
     "pertahanan_siber": 10
-    } as const;
+    };
+
+

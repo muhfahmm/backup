@@ -1,4 +1,4 @@
-export const kuwait_pertahanan = {
+﻿const kuwait_pertahanan = {
     "penjara": 32,
     "gudang_senjata": 18,
     "hangar_tank": 32,
@@ -7,4 +7,6 @@ export const kuwait_pertahanan = {
     "pangkalan_laut": 4,
     "program_luar_angkasa": 12,
     "pertahanan_siber": 34
-    } as const;
+    };
+
+

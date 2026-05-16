@@ -1,4 +1,5 @@
-export const nepal_agrikultur = {
+﻿// @ts-nocheck
+const nepal_agrikultur = {
   padi: 276,
   gandum: 188,
   jagung: 220,
@@ -13,4 +14,7 @@ export const nepal_agrikultur = {
   karet: 0,
   kapas: 244,
   tembakau: 116,
-} as const;
+};
+
+
+

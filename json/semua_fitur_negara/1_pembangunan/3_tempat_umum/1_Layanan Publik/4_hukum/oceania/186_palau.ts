@@ -1,4 +1,5 @@
-export const palau_hukum = {
+﻿// @ts-nocheck
+const palau_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 13,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const palau_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 47,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

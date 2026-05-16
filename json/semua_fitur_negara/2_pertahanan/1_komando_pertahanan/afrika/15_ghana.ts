@@ -1,6 +1,6 @@
-import { ghana_intelijen } from "../../2_intelijen/afrika/15_ghana";
+﻿// @ts-nocheck
 
-export const ghana_strategis = {
+const ghana_strategis = {
     "waktu_respon": 7,
     "intelijen": 3,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const ghana_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

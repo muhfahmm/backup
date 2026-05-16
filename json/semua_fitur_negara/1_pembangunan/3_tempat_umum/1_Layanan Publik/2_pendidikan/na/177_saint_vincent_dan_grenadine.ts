@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadine_pendidikan = {
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadine_pendidikan = {
       "prasekolah": 10,
       "dasar": 117,
       "menengah": 87,
@@ -10,4 +11,7 @@ export const saint_vincent_dan_grenadine_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 65
-    } as const;
+    };
+
+
+

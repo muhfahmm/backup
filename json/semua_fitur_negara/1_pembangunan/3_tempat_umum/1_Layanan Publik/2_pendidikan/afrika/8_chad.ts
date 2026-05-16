@@ -1,4 +1,5 @@
-export const chad_pendidikan = {
+﻿// @ts-nocheck
+const chad_pendidikan = {
       "prasekolah": 71,
       "dasar": 94,
       "menengah": 28,
@@ -10,4 +11,7 @@ export const chad_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 71
-  } as const;
+  };
+
+
+

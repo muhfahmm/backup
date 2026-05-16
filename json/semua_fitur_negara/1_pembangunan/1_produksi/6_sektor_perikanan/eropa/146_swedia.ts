@@ -1,5 +1,9 @@
-export const swedia_perikanan = {
+﻿// @ts-nocheck
+const swedia_perikanan = {
   udang: 666,
   mutiara: 2590,
   ikan: 1036,
-} as const;
+};
+
+
+

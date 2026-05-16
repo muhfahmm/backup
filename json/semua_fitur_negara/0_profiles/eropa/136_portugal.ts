@@ -1,41 +1,19 @@
-export const portugal_profile = {
+﻿// @ts-nocheck
+const portugal_profile = {
   "name_en": "Portugal",
   "capital": "Lisbon",
   "name_id": "Portugal",
   "lon": -9.13,
   "lat": 38.72,
-  "flag": "🇵🇹",
+  "flag": "ðŸ‡µðŸ‡¹",
   "jumlah_penduduk": 10749635,
   "anggaran": 2722,
   "pendapatan_nasional": "7778",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { portugal_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/136_portugal";
-import { portugal_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/136_portugal";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { portugal_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/136_portugal";
 
-import { portugal_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/136_portugal";
-import { portugal_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/136_portugal";
-import { portugal_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/136_portugal";
-import { portugal_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/136_portugal";
-import { portugal_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/136_portugal";
-import { portugal_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/136_portugal";
-import { portugal_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/136_portugal";
-import { portugal_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/136_portugal";
-import { portugal_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/136_portugal";
-import { portugal_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/136_portugal";
-import { portugal_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/136_portugal";
-import { portugal_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/136_portugal";
-import { portugal_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/136_portugal";
-import { portugal_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/136_portugal";
-import { portugal_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/136_portugal";
-import { portugal_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/136_portugal";
-import { portugal_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/136_portugal";
-import { portugal_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/136_portugal";
-import { portugal_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/136_portugal";
 const portugal_geopolitik = {
     "un_vote": 194,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const portugal_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const portugal: CountryData = {
+const portugal = {
   ...portugal_profile,
   "sektor_listrik": portugal_listrik,
   "hunian": portugal_hunian,
@@ -75,7 +53,7 @@ export const portugal: CountryData = {
   "sektor_komersial": portugal_komersial,
   "sektor_hiburan": portugal_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const portugal: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const portugal: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": portugal_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,
@@ -143,5 +121,8 @@ export const portugal: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const papua_nuginiAgreements = [
+﻿// @ts-nocheck
+const papua_nuginiAgreements = [
   { "no": 1, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const papua_nuginiAgreements = [
   { "no": 12, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

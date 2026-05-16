@@ -1,4 +1,5 @@
-export const samoa_amerikaAgreements = [
+﻿// @ts-nocheck
+const samoa_amerikaAgreements = [
   { "no": 1, "mitra": "Selandia Baru", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
@@ -14,3 +15,6 @@ export const samoa_amerikaAgreements = [
   { "no": 13, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

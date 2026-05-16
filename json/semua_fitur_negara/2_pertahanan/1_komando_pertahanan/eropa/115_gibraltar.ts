@@ -1,6 +1,5 @@
-import { gibraltar_intelijen } from "../../2_intelijen/eropa/115_gibraltar";
-
-export const gibraltar_strategis = {
+﻿
+const gibraltar_strategis = {
     "waktu_respon": 7,
     "intelijen": 39,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const gibraltar_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,5 @@
-export const mozambik_hukum = {
+﻿// @ts-nocheck
+const mozambik_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 3,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const mozambik_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 10,
       "indeks_keamanan": 40
-  } as const;
+  };
+
+
+

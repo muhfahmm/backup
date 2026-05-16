@@ -1,4 +1,5 @@
-export const saint_lucia_pertahanan = {
+﻿// @ts-nocheck
+const saint_lucia_pertahanan = {
     "penjara": 10,
     "gudang_senjata": 19,
     "hangar_tank": 34,
@@ -7,4 +8,7 @@ export const saint_lucia_pertahanan = {
     "pangkalan_laut": 12,
     "program_luar_angkasa": 2,
     "pertahanan_siber": 33
-    } as const;
+    };
+
+
+

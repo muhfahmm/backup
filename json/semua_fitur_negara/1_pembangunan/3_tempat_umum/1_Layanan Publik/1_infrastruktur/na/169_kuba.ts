@@ -1,4 +1,5 @@
-export const kuba_infrastruktur = {
+﻿// @ts-nocheck
+const kuba_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 18,
   terminal_bus: 3,
@@ -7,4 +8,7 @@ export const kuba_infrastruktur = {
   pelabuhan: 4,
   bandara: 4,
   helipad: 1,
-} as const;
+};
+
+
+

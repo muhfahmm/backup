@@ -1,4 +1,5 @@
-export const irlandia_hukum = {
+﻿// @ts-nocheck
+const irlandia_hukum = {
       "pusat_bantuan_hukum": 35,
       "pengadilan": 43,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const irlandia_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 54,
       "indeks_keamanan": 54
-  } as const;
+  };
+
+
+

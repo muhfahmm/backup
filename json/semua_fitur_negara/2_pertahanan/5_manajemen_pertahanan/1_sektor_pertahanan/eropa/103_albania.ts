@@ -1,4 +1,5 @@
-export const albania_pertahanan = {
+﻿// @ts-nocheck
+const albania_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 22,
     "hangar_tank": 22,
@@ -7,4 +8,7 @@ export const albania_pertahanan = {
     "pangkalan_laut": 17,
     "program_luar_angkasa": 35,
     "pertahanan_siber": 35
-    } as const;
+    };
+
+
+

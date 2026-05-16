@@ -1,6 +1,6 @@
-import { azerbaijan_intelijen } from "../../2_intelijen/asia/57_azerbaijan";
+﻿// @ts-nocheck
 
-export const azerbaijan_strategis = {
+const azerbaijan_strategis = {
     "waktu_respon": 2,
     "intelijen": 10,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const azerbaijan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

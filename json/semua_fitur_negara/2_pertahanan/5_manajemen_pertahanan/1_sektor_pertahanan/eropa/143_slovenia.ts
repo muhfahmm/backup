@@ -1,4 +1,4 @@
-export const slovenia_pertahanan = {
+﻿const slovenia_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 16,
     "hangar_tank": 11,
@@ -7,4 +7,6 @@ export const slovenia_pertahanan = {
     "pangkalan_laut": 18,
     "program_luar_angkasa": 17,
     "pertahanan_siber": 33
-    } as const;
+    };
+
+

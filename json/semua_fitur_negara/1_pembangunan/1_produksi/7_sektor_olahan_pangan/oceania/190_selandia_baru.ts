@@ -1,4 +1,5 @@
-export const selandia_baru_olahan_pangan = {
+﻿// @ts-nocheck
+const selandia_baru_olahan_pangan = {
   air_mineral: 630,
   gula: 483,
   roti: 1029,
@@ -9,4 +10,7 @@ export const selandia_baru_olahan_pangan = {
   pakan_ternak: 546,
   ikan_kaleng: 252,
   kopi_teh: 378,
-} as const;
+};
+
+
+

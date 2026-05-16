@@ -1,4 +1,5 @@
-export const hong_kong_olahan_pangan = {
+﻿// @ts-nocheck
+const hong_kong_olahan_pangan = {
   air_mineral: 49,
   gula: 17,
   roti: 32,
@@ -9,4 +10,7 @@ export const hong_kong_olahan_pangan = {
   pakan_ternak: 12,
   ikan_kaleng: 27,
   kopi_teh: 48,
-} as const;
+};
+
+
+

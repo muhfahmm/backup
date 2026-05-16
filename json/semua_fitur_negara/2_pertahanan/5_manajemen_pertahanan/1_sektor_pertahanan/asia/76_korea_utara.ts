@@ -1,4 +1,5 @@
-export const korea_utara_pertahanan = {
+﻿// @ts-nocheck
+const korea_utara_pertahanan = {
     "penjara": 2,
     "gudang_senjata": 40,
     "hangar_tank": 1,
@@ -7,4 +8,7 @@ export const korea_utara_pertahanan = {
     "pangkalan_laut": 30,
     "program_luar_angkasa": 38,
     "pertahanan_siber": 17
-    } as const;
+    };
+
+
+

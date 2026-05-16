@@ -1,6 +1,5 @@
-import { guatemala_intelijen } from "../../2_intelijen/na/164_guatemala";
-
-export const guatemala_strategis = {
+﻿
+const guatemala_strategis = {
     "waktu_respon": 5,
     "intelijen": 11,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const guatemala_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

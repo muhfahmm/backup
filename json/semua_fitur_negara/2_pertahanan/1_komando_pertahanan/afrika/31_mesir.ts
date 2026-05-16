@@ -1,6 +1,6 @@
-import { mesir_intelijen } from "../../2_intelijen/afrika/31_mesir";
+﻿// @ts-nocheck
 
-export const mesir_strategis = {
+const mesir_strategis = {
     "waktu_respon": 36,
     "intelijen": 17,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const mesir_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

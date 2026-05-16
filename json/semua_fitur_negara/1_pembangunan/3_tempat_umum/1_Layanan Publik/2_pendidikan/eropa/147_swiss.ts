@@ -1,4 +1,5 @@
-export const swiss_pendidikan = {
+﻿// @ts-nocheck
+const swiss_pendidikan = {
       "prasekolah": 480,
       "dasar": 614,
       "menengah": 493,
@@ -10,4 +11,7 @@ export const swiss_pendidikan = {
       "pusat_penelitian": 19,
       "pusat_pengembangan": 7,
       "literasi": 86
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const puerto_rico_pendidikan = {
+﻿// @ts-nocheck
+const puerto_rico_pendidikan = {
       "prasekolah": 84,
       "dasar": 54,
       "menengah": 68,
@@ -10,4 +11,7 @@ export const puerto_rico_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 65
-    } as const;
+    };
+
+
+

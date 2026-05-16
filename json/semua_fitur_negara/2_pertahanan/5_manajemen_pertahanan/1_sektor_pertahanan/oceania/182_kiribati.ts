@@ -1,4 +1,5 @@
-export const kiribati_pertahanan = {
+﻿// @ts-nocheck
+const kiribati_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 6,
     "hangar_tank": 22,
@@ -7,4 +8,7 @@ export const kiribati_pertahanan = {
     "pangkalan_laut": 28,
     "program_luar_angkasa": 25,
     "pertahanan_siber": 31
-    } as const;
+    };
+
+
+

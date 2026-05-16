@@ -1,4 +1,5 @@
-export const andorra_olahan_pangan = {
+﻿// @ts-nocheck
+const andorra_olahan_pangan = {
   air_mineral: 36,
   gula: 78,
   roti: 76,
@@ -9,4 +10,7 @@ export const andorra_olahan_pangan = {
   pakan_ternak: 98,
   ikan_kaleng: 96,
   kopi_teh: 34,
-} as const;
+};
+
+
+

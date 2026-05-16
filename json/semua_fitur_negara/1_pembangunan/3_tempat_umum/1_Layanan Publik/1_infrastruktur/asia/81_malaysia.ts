@@ -1,4 +1,5 @@
-export const malaysia_infrastruktur = {
+﻿// @ts-nocheck
+const malaysia_infrastruktur = {
   jalur_sepeda: 30,
   jalan_raya: 44,
   terminal_bus: 19,
@@ -7,4 +8,7 @@ export const malaysia_infrastruktur = {
   pelabuhan: 13,
   bandara: 9,
   helipad: 3,
-} as const;
+};
+
+
+

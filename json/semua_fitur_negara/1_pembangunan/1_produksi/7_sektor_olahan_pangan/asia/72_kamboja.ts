@@ -1,4 +1,5 @@
-export const kamboja_olahan_pangan = {
+﻿// @ts-nocheck
+const kamboja_olahan_pangan = {
   air_mineral: 78,
   gula: 126,
   roti: 93,
@@ -9,4 +10,7 @@ export const kamboja_olahan_pangan = {
   pakan_ternak: 75,
   ikan_kaleng: 93,
   kopi_teh: 108,
-} as const;
+};
+
+
+

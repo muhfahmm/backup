@@ -1,4 +1,5 @@
-export const irlandia_ekstraksi = {
+﻿// @ts-nocheck
+const irlandia_ekstraksi = {
   emas: 441,
   uranium: 0,
   batu_bara: 441,
@@ -11,4 +12,7 @@ export const irlandia_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 392,
   bijih_besi: 343,
-} as const;
+};
+
+
+

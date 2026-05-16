@@ -1,6 +1,6 @@
-import { gabon_intelijen } from "../../2_intelijen/afrika/13_gabon";
+﻿// @ts-nocheck
 
-export const gabon_strategis = {
+const gabon_strategis = {
     "waktu_respon": 33,
     "intelijen": 17,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const gabon_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

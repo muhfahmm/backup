@@ -1,6 +1,6 @@
-import { korea_utara_intelijen } from "../../2_intelijen/asia/76_korea_utara";
+﻿// @ts-nocheck
 
-export const korea_utara_strategis = {
+const korea_utara_strategis = {
     "waktu_respon": 21,
     "intelijen": 19,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const korea_utara_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 50
     }
-  } as const;
+  };
+
+
+

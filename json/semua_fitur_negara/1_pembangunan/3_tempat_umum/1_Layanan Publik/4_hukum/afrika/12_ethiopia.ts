@@ -1,4 +1,5 @@
-export const ethiopia_hukum = {
+﻿// @ts-nocheck
+const ethiopia_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 15,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const ethiopia_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 38,
       "indeks_keamanan": 48
-  } as const;
+  };
+
+
+

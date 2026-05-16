@@ -1,4 +1,5 @@
-export const palestina_agrikultur = {
+﻿// @ts-nocheck
+const palestina_agrikultur = {
   padi: 116,
   gandum: 72,
   jagung: 70,
@@ -13,4 +14,7 @@ export const palestina_agrikultur = {
   karet: 0,
   kapas: 90,
   tembakau: 74,
-} as const;
+};
+
+
+

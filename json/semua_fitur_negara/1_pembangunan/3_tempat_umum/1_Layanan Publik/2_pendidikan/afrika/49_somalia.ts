@@ -1,4 +1,5 @@
-export const somalia_pendidikan = {
+﻿// @ts-nocheck
+const somalia_pendidikan = {
       "prasekolah": 36,
       "dasar": 29,
       "menengah": 80,
@@ -10,4 +11,7 @@ export const somalia_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 83
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const kolombia_agrikultur = {
+﻿// @ts-nocheck
+const kolombia_agrikultur = {
   padi: 1656,
   gandum: 1980,
   jagung: 432,
@@ -13,4 +14,7 @@ export const kolombia_agrikultur = {
   karet: 2736,
   kapas: 1872,
   tembakau: 1836,
-} as const;
+};
+
+
+

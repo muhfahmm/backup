@@ -1,4 +1,5 @@
-export const jerman_infrastruktur = {
+﻿// @ts-nocheck
+const jerman_infrastruktur = {
   jalur_sepeda: 52,
   jalan_raya: 213,
   terminal_bus: 67,
@@ -7,4 +8,7 @@ export const jerman_infrastruktur = {
   pelabuhan: 44,
   bandara: 38,
   helipad: 31,
-} as const;
+};
+
+
+

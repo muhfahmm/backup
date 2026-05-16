@@ -1,4 +1,5 @@
-export const polandia_infrastruktur = {
+﻿// @ts-nocheck
+const polandia_infrastruktur = {
   jalur_sepeda: 48,
   jalan_raya: 76,
   terminal_bus: 14,
@@ -7,4 +8,7 @@ export const polandia_infrastruktur = {
   pelabuhan: 11,
   bandara: 6,
   helipad: 8,
-} as const;
+};
+
+
+

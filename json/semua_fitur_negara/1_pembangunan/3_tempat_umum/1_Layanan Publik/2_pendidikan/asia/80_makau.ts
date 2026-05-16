@@ -1,4 +1,5 @@
-export const makau_pendidikan = {
+﻿// @ts-nocheck
+const makau_pendidikan = {
       "prasekolah": 83,
       "dasar": 49,
       "menengah": 92,
@@ -10,4 +11,7 @@ export const makau_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 78
-    } as const;
+    };
+
+
+

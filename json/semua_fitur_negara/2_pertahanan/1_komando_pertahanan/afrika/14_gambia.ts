@@ -1,6 +1,6 @@
-import { gambia_intelijen } from "../../2_intelijen/afrika/14_gambia";
+﻿// @ts-nocheck
 
-export const gambia_strategis = {
+const gambia_strategis = {
     "waktu_respon": 2,
     "intelijen": 12,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const gambia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

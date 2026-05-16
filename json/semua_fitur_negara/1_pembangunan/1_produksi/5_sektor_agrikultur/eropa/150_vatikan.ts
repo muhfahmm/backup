@@ -1,4 +1,5 @@
-export const vatikan_agrikultur = {
+﻿// @ts-nocheck
+const vatikan_agrikultur = {
   padi: 320,
   gandum: 244,
   jagung: 200,
@@ -13,4 +14,7 @@ export const vatikan_agrikultur = {
   karet: 0,
   kapas: 224,
   tembakau: 268,
-} as const;
+};
+
+
+

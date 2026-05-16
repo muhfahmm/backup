@@ -1,4 +1,5 @@
-export const venezuela_olahan_pangan = {
+﻿// @ts-nocheck
+const venezuela_olahan_pangan = {
   air_mineral: 200,
   gula: 240,
   roti: 224,
@@ -9,4 +10,7 @@ export const venezuela_olahan_pangan = {
   pakan_ternak: 400,
   ikan_kaleng: 360,
   kopi_teh: 104,
-} as const;
+};
+
+
+

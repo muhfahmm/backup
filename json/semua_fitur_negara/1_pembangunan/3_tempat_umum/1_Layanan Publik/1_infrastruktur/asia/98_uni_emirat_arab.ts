@@ -1,4 +1,5 @@
-export const uni_emirat_arab_infrastruktur = {
+﻿// @ts-nocheck
+const uni_emirat_arab_infrastruktur = {
   jalur_sepeda: 46,
   jalan_raya: 44,
   terminal_bus: 23,
@@ -7,4 +8,7 @@ export const uni_emirat_arab_infrastruktur = {
   pelabuhan: 11,
   bandara: 9,
   helipad: 8,
-} as const;
+};
+
+
+

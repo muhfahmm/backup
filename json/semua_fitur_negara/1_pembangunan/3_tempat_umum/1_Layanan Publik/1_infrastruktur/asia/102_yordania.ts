@@ -1,4 +1,5 @@
-export const yordania_infrastruktur = {
+﻿// @ts-nocheck
+const yordania_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 7,
   terminal_bus: 7,
@@ -7,4 +8,7 @@ export const yordania_infrastruktur = {
   pelabuhan: 5,
   bandara: 1,
   helipad: 1,
-} as const;
+};
+
+
+

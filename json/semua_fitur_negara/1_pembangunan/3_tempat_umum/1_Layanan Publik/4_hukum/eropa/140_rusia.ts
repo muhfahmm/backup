@@ -1,4 +1,5 @@
-export const rusia_hukum = {
+﻿// @ts-nocheck
+const rusia_hukum = {
       "pusat_bantuan_hukum": 124,
       "pengadilan": 66,
       "kejaksaan": 94,
@@ -7,4 +8,7 @@ export const rusia_hukum = {
       "akademi_polisi": 12,
       "indeks_korupsi": 50,
       "indeks_keamanan": 73
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const bhutan_olahan_pangan = {
+﻿// @ts-nocheck
+const bhutan_olahan_pangan = {
   air_mineral: 102,
   gula: 93,
   roti: 81,
@@ -9,4 +10,7 @@ export const bhutan_olahan_pangan = {
   pakan_ternak: 93,
   ikan_kaleng: 33,
   kopi_teh: 147,
-} as const;
+};
+
+
+

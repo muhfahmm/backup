@@ -1,4 +1,5 @@
-export const denmark_ekstraksi = {
+﻿// @ts-nocheck
+const denmark_ekstraksi = {
   emas: 264,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const denmark_ekstraksi = {
   aluminium: 264,
   logam_tanah_jarang: 308,
   bijih_besi: 440,
-} as const;
+};
+
+
+

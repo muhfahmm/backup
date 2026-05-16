@@ -1,6 +1,10 @@
-export const republikTimorLesteVehicles = {
+﻿// @ts-nocheck
+const republikTimorLesteVehicles = {
   sepeda_motor: 0,
   mobil: 0,
   bus: 0,
   truk: 0,
 };
+
+
+

@@ -1,4 +1,5 @@
-export const hong_kong_diplomasi = [
+﻿// @ts-nocheck
+const hong_kong_diplomasi = [
   { "no": 1, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Aljazair", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -14,3 +15,6 @@ export const hong_kong_diplomasi = [
   { "no": 13, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 14, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

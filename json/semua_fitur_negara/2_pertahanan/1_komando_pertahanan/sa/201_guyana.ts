@@ -1,6 +1,5 @@
-import { guyana_intelijen } from "../../2_intelijen/sa/201_guyana";
-
-export const guyana_strategis = {
+﻿
+const guyana_strategis = {
     "waktu_respon": 6,
     "intelijen": 14,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const guyana_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

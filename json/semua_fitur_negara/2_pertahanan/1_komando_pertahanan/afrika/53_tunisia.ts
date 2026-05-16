@@ -1,6 +1,6 @@
-import { tunisia_intelijen } from "../../2_intelijen/afrika/53_tunisia";
+﻿// @ts-nocheck
 
-export const tunisia_strategis = {
+const tunisia_strategis = {
     "waktu_respon": 31,
     "intelijen": 32,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tunisia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

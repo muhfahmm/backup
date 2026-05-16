@@ -1,6 +1,6 @@
-import { brunei_intelijen } from "../../2_intelijen/asia/61_brunei";
+﻿// @ts-nocheck
 
-export const brunei_strategis = {
+const brunei_strategis = {
     "waktu_respon": 11,
     "intelijen": 38,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const brunei_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

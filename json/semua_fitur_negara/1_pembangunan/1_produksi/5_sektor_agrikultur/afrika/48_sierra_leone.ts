@@ -1,4 +1,5 @@
-export const sierra_leone_agrikultur = {
+﻿// @ts-nocheck
+const sierra_leone_agrikultur = {
   padi: 124,
   gandum: 296,
   jagung: 220,
@@ -13,4 +14,7 @@ export const sierra_leone_agrikultur = {
   karet: 0,
   kapas: 208,
   tembakau: 204,
-} as const;
+};
+
+
+

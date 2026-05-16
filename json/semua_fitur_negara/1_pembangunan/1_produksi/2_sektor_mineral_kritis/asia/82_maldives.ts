@@ -1,4 +1,5 @@
-export const maldives_ekstraksi = {
+﻿// @ts-nocheck
+const maldives_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 18,
@@ -11,4 +12,7 @@ export const maldives_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 0,
   bijih_besi: 18,
-} as const;
+};
+
+
+

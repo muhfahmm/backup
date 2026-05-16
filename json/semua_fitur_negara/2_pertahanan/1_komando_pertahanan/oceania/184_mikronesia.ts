@@ -1,6 +1,6 @@
-import { mikronesia_intelijen } from "../../2_intelijen/oceania/184_mikronesia";
+﻿// @ts-nocheck
 
-export const mikronesia_strategis = {
+const mikronesia_strategis = {
     "waktu_respon": 25,
     "intelijen": 27,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const mikronesia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

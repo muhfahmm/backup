@@ -1,4 +1,5 @@
-export const turkmenistan_pendidikan = {
+﻿// @ts-nocheck
+const turkmenistan_pendidikan = {
       "prasekolah": 87,
       "dasar": 112,
       "menengah": 86,
@@ -10,4 +11,7 @@ export const turkmenistan_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 85
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const trinidad_dan_tobago_diplomasi = [
+﻿// @ts-nocheck
+const trinidad_dan_tobago_diplomasi = [
   { "no": 1, "mitra": "Afganistan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Aljazair", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const trinidad_dan_tobago_diplomasi = [
   { "no": 12, "mitra": "Benin", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 13, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

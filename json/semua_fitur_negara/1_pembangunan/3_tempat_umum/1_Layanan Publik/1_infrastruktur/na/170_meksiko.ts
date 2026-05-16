@@ -1,4 +1,5 @@
-export const meksiko_infrastruktur = {
+﻿// @ts-nocheck
+const meksiko_infrastruktur = {
   jalur_sepeda: 52,
   jalan_raya: 119,
   terminal_bus: 61,
@@ -7,4 +8,7 @@ export const meksiko_infrastruktur = {
   pelabuhan: 20,
   bandara: 15,
   helipad: 22,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const afrika_selatan_pertahanan = {
+﻿// @ts-nocheck
+const afrika_selatan_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 16,
     "hangar_tank": 17,
@@ -7,4 +8,7 @@ export const afrika_selatan_pertahanan = {
     "pangkalan_laut": 9,
     "program_luar_angkasa": 13,
     "pertahanan_siber": 23
-    } as const;
+    };
+
+
+

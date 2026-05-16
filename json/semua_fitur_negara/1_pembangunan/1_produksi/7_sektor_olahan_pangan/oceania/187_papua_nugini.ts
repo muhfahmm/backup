@@ -1,4 +1,5 @@
-export const papua_nugini_olahan_pangan = {
+﻿// @ts-nocheck
+const papua_nugini_olahan_pangan = {
   air_mineral: 39,
   gula: 105,
   roti: 114,
@@ -9,4 +10,7 @@ export const papua_nugini_olahan_pangan = {
   pakan_ternak: 90,
   ikan_kaleng: 93,
   kopi_teh: 87,
-} as const;
+};
+
+
+

@@ -1,6 +1,5 @@
-import { arab_saudi_intelijen } from "../../2_intelijen/asia/55_arab_saudi";
-
-export const arab_saudi_strategis = {
+﻿
+const arab_saudi_strategis = {
     "waktu_respon": 31,
     "intelijen": 15,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const arab_saudi_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

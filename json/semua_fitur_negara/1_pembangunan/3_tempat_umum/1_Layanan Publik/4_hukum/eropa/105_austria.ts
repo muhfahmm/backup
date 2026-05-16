@@ -1,4 +1,5 @@
-export const austria_hukum = {
+﻿// @ts-nocheck
+const austria_hukum = {
       "pusat_bantuan_hukum": 23,
       "pengadilan": 28,
       "kejaksaan": 24,
@@ -7,4 +8,7 @@ export const austria_hukum = {
       "akademi_polisi": 10,
       "indeks_korupsi": 41,
       "indeks_keamanan": 56
-  } as const;
+  };
+
+
+

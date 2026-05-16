@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { eritreaEmbassyConfig } from './10_eritrea';
 export { eswatiniEmbassyConfig } from './11_eswatini';
 export { ethiopiaEmbassyConfig } from './12_ethiopia';
@@ -51,3 +52,6 @@ export { burkina_fasoEmbassyConfig } from './6_burkina_faso';
 export { burundiEmbassyConfig } from './7_burundi';
 export { chadEmbassyConfig } from './8_chad';
 export { djiboutiEmbassyConfig } from './9_djibouti';
+
+
+

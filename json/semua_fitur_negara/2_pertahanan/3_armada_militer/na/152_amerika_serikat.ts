@@ -1,4 +1,5 @@
-export const amerika_serikat_armada = {
+﻿// @ts-nocheck
+const amerika_serikat_armada = {
     "barak": 133,
     "darat": {
         "tank_tempur_utama": 4650,
@@ -28,4 +29,7 @@ export const amerika_serikat_armada = {
         "drone_kamikaze": 5000,
         "pesawat_angkut": 900
       }
-} as const;
+};
+
+
+

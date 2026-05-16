@@ -1,6 +1,5 @@
-import { yunani_intelijen } from "../../2_intelijen/eropa/151_yunani";
-
-export const yunani_strategis = {
+﻿
+const yunani_strategis = {
     "waktu_respon": 8,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const yunani_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

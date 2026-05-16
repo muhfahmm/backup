@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Peternakan (Total: 4 Bangunan)
 // ===================
-export const peternakanRate = {
+const peternakanRate = {
   "1_peternakan_unggas": {
     key: "1_peternakan_unggas",
     dataKey: "ayam_unggas",
@@ -65,3 +66,6 @@ export interface LivestockData {
   sapi_potong: number;
   domba_kambing: number;
 }
+
+
+

@@ -1,4 +1,5 @@
-export const sao_tome_dan_principe_infrastruktur = {
+﻿// @ts-nocheck
+const sao_tome_dan_principe_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 16,
   terminal_bus: 4,
@@ -7,4 +8,7 @@ export const sao_tome_dan_principe_infrastruktur = {
   pelabuhan: 5,
   bandara: 3,
   helipad: 5,
-} as const;
+};
+
+
+

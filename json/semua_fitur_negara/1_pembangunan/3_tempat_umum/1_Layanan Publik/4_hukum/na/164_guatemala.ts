@@ -1,4 +1,5 @@
-export const guatemala_hukum = {
+﻿// @ts-nocheck
+const guatemala_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 15,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const guatemala_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 37,
       "indeks_keamanan": 68
-  } as const;
+  };
+
+
+

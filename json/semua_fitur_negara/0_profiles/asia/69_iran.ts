@@ -1,41 +1,19 @@
-export const iran_profile = {
+﻿// @ts-nocheck
+const iran_profile = {
   "name_en": "Iran",
   "capital": "Tehran",
   "name_id": "Iran",
   "lon": 51.38,
   "lat": 35.68,
-  "flag": "🇮🇷",
+  "flag": "ðŸ‡®ðŸ‡·",
   "jumlah_penduduk": 86563000,
   "anggaran": 3598,
   "pendapatan_nasional": "10279",
   "religion": "Islam",
   "ideology": "Konservatisme"
-} as const;
+};
 
-import { iran_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/69_iran";
-import { iran_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/69_iran";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { iran_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/69_iran";
 
-import { iran_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/69_iran";
-import { iran_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/69_iran";
-import { iran_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/69_iran";
-import { iran_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/69_iran";
-import { iran_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/69_iran";
-import { iran_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/69_iran";
-import { iran_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/69_iran";
-import { iran_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/69_iran";
-import { iran_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/69_iran";
-import { iran_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/69_iran";
-import { iran_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/69_iran";
-import { iran_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/69_iran";
-import { iran_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/69_iran";
-import { iran_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/69_iran";
-import { iran_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/69_iran";
-import { iran_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/69_iran";
-import { iran_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/69_iran";
-import { iran_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/69_iran";
-import { iran_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/69_iran";
 const iran_geopolitik = {
     "un_vote": 191,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const iran_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const iran: CountryData = {
+const iran = {
   ...iran_profile,
   "sektor_listrik": iran_listrik,
   "hunian": iran_hunian,
@@ -75,7 +53,7 @@ export const iran: CountryData = {
   "sektor_komersial": iran_komersial,
   "sektor_hiburan": iran_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const iran: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const iran: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": iran_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,
@@ -143,5 +121,8 @@ export const iran: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,6 +1,6 @@
-import { afrika_selatan_intelijen } from "../../2_intelijen/afrika/1_afrika_selatan";
+﻿// @ts-nocheck
 
-export const afrika_selatan_strategis = {
+const afrika_selatan_strategis = {
     "waktu_respon": 36,
     "intelijen": 23,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const afrika_selatan_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

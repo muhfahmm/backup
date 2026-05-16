@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export type Ideology = 
   | "Demokrasi"
   | "Komunisme"
@@ -8,7 +9,7 @@ export type Ideology =
   | "Nasionalisme"
   | "Monarki";
 
-export const ideologies: Ideology[] = [
+const ideologies: Ideology[] = [
   "Demokrasi",
   "Komunisme",
   "Kapitalisme",
@@ -18,3 +19,7 @@ export const ideologies: Ideology[] = [
   "Nasionalisme",
   "Monarki"
 ];
+
+
+
+

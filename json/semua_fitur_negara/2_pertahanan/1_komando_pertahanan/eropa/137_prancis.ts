@@ -1,6 +1,6 @@
-import { prancis_intelijen } from "../../2_intelijen/eropa/137_prancis";
+﻿// @ts-nocheck
 
-export const prancis_strategis = {
+const prancis_strategis = {
     "waktu_respon": 37,
     "intelijen": 22,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const prancis_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 290
     }
-  } as const;
+  };
+
+
+

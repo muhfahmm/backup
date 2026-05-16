@@ -1,4 +1,5 @@
-export const finlandia_hukum = {
+﻿// @ts-nocheck
+const finlandia_hukum = {
       "pusat_bantuan_hukum": 19,
       "pengadilan": 25,
       "kejaksaan": 28,
@@ -7,4 +8,7 @@ export const finlandia_hukum = {
       "akademi_polisi": 14,
       "indeks_korupsi": 37,
       "indeks_keamanan": 55
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const filipina_hukum = {
+﻿// @ts-nocheck
+const filipina_hukum = {
       "pusat_bantuan_hukum": 15,
       "pengadilan": 26,
       "kejaksaan": 30,
@@ -7,4 +8,7 @@ export const filipina_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 23,
       "indeks_keamanan": 61
-  } as const;
+  };
+
+
+

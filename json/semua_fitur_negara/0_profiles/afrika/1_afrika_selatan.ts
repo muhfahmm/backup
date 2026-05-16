@@ -1,41 +1,19 @@
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { afrika_selatan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/1_afrika_selatan";
+﻿
 
-import { afrika_selatan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/1_afrika_selatan";
-import { afrika_selatan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/1_afrika_selatan";
-import { afrika_selatan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/1_afrika_selatan";
-import { afrika_selatan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/1_afrika_selatan";
-import { afrika_selatan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/1_afrika_selatan";
-import { afrika_selatan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/1_afrika_selatan";
-import { afrika_selatan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/1_afrika_selatan";
-import { afrika_selatan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/1_afrika_selatan";
-import { afrika_selatan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/1_afrika_selatan";
-import { afrika_selatan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/1_afrika_selatan";
-import { afrika_selatan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/1_afrika_selatan";
-import { afrika_selatan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/1_afrika_selatan";
-import { afrika_selatan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/1_afrika_selatan";
-import { afrika_selatan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/1_afrika_selatan";
-import { afrika_selatan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/1_afrika_selatan";
-import { afrika_selatan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/1_afrika_selatan";
-import { afrika_selatan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/1_afrika_selatan";
-import { afrika_selatan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/1_afrika_selatan";
-import { afrika_selatan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/1_afrika_selatan";
-import { afrika_selatan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/1_afrika_selatan";
-import { afrika_selatan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/1_afrika_selatan";
-
-export const afrika_selatan_profile = {
+// @ts-nocheck
+const afrika_selatan_profile = {
   "name_en": "South Africa",
   "capital": "Pretoria",
   "name_id": "Afrika Selatan",
   "lon": 28.18,
   "lat": -25.74,
-  "flag": "🇿🇦",
+  "flag": "ðŸ‡¿ðŸ‡¦",
   "jumlah_penduduk": 63100945,
   "anggaran": 3938,
   "pendapatan_nasional": "11251",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
 const afrika_selatan_geopolitik = {
     "un_vote": 188,
@@ -49,9 +27,9 @@ const afrika_selatan_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const afrika_selatan: CountryData = {
+const afrika_selatan = {
   ...afrika_selatan_profile,
   "sektor_listrik": afrika_selatan_listrik,
   "infrastruktur": afrika_selatan_infrastruktur,
@@ -76,7 +54,7 @@ export const afrika_selatan: CountryData = {
   "sektor_hiburan": afrika_selatan_hiburan,
   "hunian": afrika_selatan_hunian,
   // =============================================================
-  // 11. 💰 PAJAK & EKONOMI
+  // 11. ðŸ’° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -114,7 +92,7 @@ export const afrika_selatan: CountryData = {
   },
   
   // =============================================================
-  // 13. 🛒 HARGA PASAR DOMESTIK
+  // 13. ðŸ›’ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -130,11 +108,11 @@ export const afrika_selatan: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. 🌍 GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": afrika_selatan_geopolitik,
   // =============================================================
-  // 16. 🏛️ KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 13,
@@ -144,3 +122,6 @@ export const afrika_selatan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+

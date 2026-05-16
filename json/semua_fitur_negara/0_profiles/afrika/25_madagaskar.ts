@@ -1,41 +1,19 @@
-export const madagaskar_profile = {
+﻿// @ts-nocheck
+const madagaskar_profile = {
   "name_en": "Madagascar",
   "capital": "Antananarivo",
   "name_id": "Madagaskar",
   "lon": 47.31,
   "lat": -18.55,
-  "flag": "🇲🇬",
+  "flag": "ðŸ‡²ðŸ‡¬",
   "jumlah_penduduk": 28915653,
   "anggaran": 146,
   "pendapatan_nasional": "417",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { madagaskar_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/25_madagaskar";
-import { madagaskar_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/25_madagaskar";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { madagaskar_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/25_madagaskar";
 
-import { madagaskar_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/25_madagaskar";
-import { madagaskar_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/25_madagaskar";
-import { madagaskar_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/25_madagaskar";
-import { madagaskar_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/25_madagaskar";
-import { madagaskar_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/25_madagaskar";
-import { madagaskar_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/25_madagaskar";
-import { madagaskar_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/25_madagaskar";
-import { madagaskar_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/25_madagaskar";
-import { madagaskar_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/25_madagaskar";
-import { madagaskar_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/25_madagaskar";
-import { madagaskar_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/25_madagaskar";
-import { madagaskar_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/25_madagaskar";
-import { madagaskar_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/25_madagaskar";
-import { madagaskar_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/25_madagaskar";
-import { madagaskar_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/25_madagaskar";
-import { madagaskar_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/25_madagaskar";
-import { madagaskar_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/25_madagaskar";
-import { madagaskar_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/25_madagaskar";
-import { madagaskar_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/25_madagaskar";
 const madagaskar_geopolitik = {
     "un_vote": 87,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const madagaskar_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const madagaskar: CountryData = {
+const madagaskar = {
   ...madagaskar_profile,
   "sektor_listrik": madagaskar_listrik,
   "hunian": madagaskar_hunian,
@@ -75,7 +53,7 @@ export const madagaskar: CountryData = {
   "sektor_komersial": madagaskar_komersial,
   "sektor_hiburan": madagaskar_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const madagaskar: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const madagaskar: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": madagaskar_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,
@@ -143,5 +121,8 @@ export const madagaskar: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const burkina_faso_agrikultur = {
+﻿// @ts-nocheck
+const burkina_faso_agrikultur = {
   padi: 138,
   gandum: 88,
   jagung: 50,
@@ -13,4 +14,7 @@ export const burkina_faso_agrikultur = {
   karet: 0,
   kapas: 96,
   tembakau: 76,
-} as const;
+};
+
+
+

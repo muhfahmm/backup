@@ -1,6 +1,5 @@
-import { bahrain_intelijen } from "../../2_intelijen/asia/58_bahrain";
-
-export const bahrain_strategis = {
+﻿
+const bahrain_strategis = {
     "waktu_respon": 36,
     "intelijen": 37,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const bahrain_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

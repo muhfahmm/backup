@@ -1,4 +1,5 @@
-export const belarus_hukum = {
+﻿// @ts-nocheck
+const belarus_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 8,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const belarus_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 17,
       "indeks_keamanan": 42
-  } as const;
+  };
+
+
+

@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Agrikultur (Total: 14 Bangunan)
 // ===================
-export const agrikulturRate = {
+const agrikulturRate = {
   "1_sawah_padi": {
     key: "1_sawah_padi",
     dataKey: "padi",
@@ -206,3 +207,6 @@ export interface AgricultureData {
   kapas: number;
   tembakau: number;
 }
+
+
+

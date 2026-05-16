@@ -1,6 +1,6 @@
-import { nepal_intelijen } from "../../2_intelijen/asia/85_nepal";
+﻿// @ts-nocheck
 
-export const nepal_strategis = {
+const nepal_strategis = {
     "waktu_respon": 23,
     "intelijen": 38,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const nepal_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

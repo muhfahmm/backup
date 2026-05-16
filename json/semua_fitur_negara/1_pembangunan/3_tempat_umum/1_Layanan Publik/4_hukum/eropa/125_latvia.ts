@@ -1,4 +1,5 @@
-export const latvia_hukum = {
+﻿// @ts-nocheck
+const latvia_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 13,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const latvia_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 39,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

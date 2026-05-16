@@ -1,6 +1,6 @@
-import { senegal_intelijen } from "../../2_intelijen/afrika/46_senegal";
+﻿// @ts-nocheck
 
-export const senegal_strategis = {
+const senegal_strategis = {
     "waktu_respon": 4,
     "intelijen": 13,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const senegal_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const jamaika_pendidikan = {
+﻿// @ts-nocheck
+const jamaika_pendidikan = {
       "prasekolah": 83,
       "dasar": 60,
       "menengah": 19,
@@ -10,4 +11,7 @@ export const jamaika_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 71
-    } as const;
+    };
+
+
+

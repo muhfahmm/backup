@@ -1,4 +1,5 @@
-export const bosnia_dan_hercegovina_hukum = {
+﻿// @ts-nocheck
+const bosnia_dan_hercegovina_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 10,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const bosnia_dan_hercegovina_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 32,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

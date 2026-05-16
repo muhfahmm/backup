@@ -1,4 +1,5 @@
-export const estonia_kepolisian = {
+﻿// @ts-nocheck
+const estonia_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const estonia_kepolisian = {
       "pasukan_swat": 25,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

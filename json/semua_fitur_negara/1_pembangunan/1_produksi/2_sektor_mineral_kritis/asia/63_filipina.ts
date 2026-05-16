@@ -1,4 +1,5 @@
-export const filipina_ekstraksi = {
+﻿// @ts-nocheck
+const filipina_ekstraksi = {
   emas: 100,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const filipina_ekstraksi = {
   aluminium: 80,
   logam_tanah_jarang: 180,
   bijih_besi: 0,
-} as const;
+};
+
+
+

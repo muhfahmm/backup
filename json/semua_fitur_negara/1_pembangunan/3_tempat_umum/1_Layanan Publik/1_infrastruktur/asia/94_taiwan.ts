@@ -1,4 +1,5 @@
-export const taiwan_infrastruktur = {
+﻿// @ts-nocheck
+const taiwan_infrastruktur = {
   jalur_sepeda: 13,
   jalan_raya: 76,
   terminal_bus: 16,
@@ -7,4 +8,7 @@ export const taiwan_infrastruktur = {
   pelabuhan: 14,
   bandara: 10,
   helipad: 5,
-} as const;
+};
+
+
+

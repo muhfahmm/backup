@@ -1,41 +1,19 @@
-export const kuba_profile = {
+﻿// @ts-nocheck
+const kuba_profile = {
   "name_en": "Cuba",
   "capital": "Havana",
   "name_id": "Kuba",
   "lon": -80,
   "lat": 21.5,
-  "flag": "🇨🇺",
+  "flag": "ðŸ‡¨ðŸ‡º",
   "jumlah_penduduk": 9748007,
   "anggaran": 1021,
   "pendapatan_nasional": "2917",
   "religion": "Katolik",
   "ideology": "Komunisme"
-} as const;
+};
 
-import { kuba_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/169_kuba";
-import { kuba_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/169_kuba";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { kuba_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/169_kuba";
 
-import { kuba_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/169_kuba";
-import { kuba_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/169_kuba";
-import { kuba_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/169_kuba";
-import { kuba_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/169_kuba";
-import { kuba_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/169_kuba";
-import { kuba_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/169_kuba";
-import { kuba_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/169_kuba";
-import { kuba_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/169_kuba";
-import { kuba_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/169_kuba";
-import { kuba_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/169_kuba";
-import { kuba_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/169_kuba";
-import { kuba_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/169_kuba";
-import { kuba_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/169_kuba";
-import { kuba_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/169_kuba";
-import { kuba_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/169_kuba";
-import { kuba_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/169_kuba";
-import { kuba_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/169_kuba";
-import { kuba_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/169_kuba";
-import { kuba_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/169_kuba";
 const kuba_geopolitik = {
     "un_vote": 171,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const kuba_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const kuba: CountryData = {
+const kuba = {
   ...kuba_profile,
   "sektor_listrik": kuba_listrik,
   "hunian": kuba_hunian,
@@ -75,7 +53,7 @@ export const kuba: CountryData = {
   "sektor_komersial": kuba_komersial,
   "sektor_hiburan": kuba_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const kuba: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const kuba: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kuba_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,
@@ -143,5 +121,8 @@ export const kuba: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const tahiti_agrikultur = {
+﻿// @ts-nocheck
+const tahiti_agrikultur = {
   padi: 33,
   gandum: 53,
   jagung: 35,
@@ -13,4 +14,7 @@ export const tahiti_agrikultur = {
   karet: 0,
   kapas: 17,
   tembakau: 32,
-} as const;
+};
+
+
+

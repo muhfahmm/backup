@@ -1,4 +1,5 @@
-export const meksiko_pertahanan = {
+﻿// @ts-nocheck
+const meksiko_pertahanan = {
     "penjara": 5,
     "gudang_senjata": 20,
     "hangar_tank": 4,
@@ -7,4 +8,7 @@ export const meksiko_pertahanan = {
     "pangkalan_laut": 10,
     "program_luar_angkasa": 30,
     "pertahanan_siber": 17
-    } as const;
+    };
+
+
+

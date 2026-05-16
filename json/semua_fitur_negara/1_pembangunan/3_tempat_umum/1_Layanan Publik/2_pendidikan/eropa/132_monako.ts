@@ -1,4 +1,5 @@
-export const monako_pendidikan = {
+﻿// @ts-nocheck
+const monako_pendidikan = {
       "prasekolah": 17,
       "dasar": 146,
       "menengah": 67,
@@ -10,4 +11,7 @@ export const monako_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 75
-    } as const;
+    };
+
+
+

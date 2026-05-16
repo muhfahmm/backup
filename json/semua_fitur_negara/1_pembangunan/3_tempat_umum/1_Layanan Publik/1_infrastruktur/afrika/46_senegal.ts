@@ -1,4 +1,5 @@
-export const senegal_infrastruktur = {
+﻿// @ts-nocheck
+const senegal_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 20,
   terminal_bus: 3,
@@ -7,4 +8,7 @@ export const senegal_infrastruktur = {
   pelabuhan: 2,
   bandara: 3,
   helipad: 4,
-} as const;
+};
+
+
+

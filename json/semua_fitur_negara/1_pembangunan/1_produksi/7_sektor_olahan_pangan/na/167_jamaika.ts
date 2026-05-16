@@ -1,4 +1,5 @@
-export const jamaika_olahan_pangan = {
+﻿// @ts-nocheck
+const jamaika_olahan_pangan = {
   air_mineral: 48,
   gula: 128,
   roti: 128,
@@ -9,4 +10,7 @@ export const jamaika_olahan_pangan = {
   pakan_ternak: 60,
   ikan_kaleng: 48,
   kopi_teh: 196,
-} as const;
+};
+
+
+

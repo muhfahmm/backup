@@ -1,4 +1,5 @@
-export const papua_nugini_agrikultur = {
+﻿// @ts-nocheck
+const papua_nugini_agrikultur = {
   padi: 99,
   gandum: 198,
   jagung: 90,
@@ -13,4 +14,7 @@ export const papua_nugini_agrikultur = {
   karet: 0,
   kapas: 108,
   tembakau: 186,
-} as const;
+};
+
+
+

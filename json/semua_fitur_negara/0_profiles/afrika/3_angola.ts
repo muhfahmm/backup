@@ -1,41 +1,19 @@
-export const angola_profile = {
+﻿// @ts-nocheck
+const angola_profile = {
   "name_en": "Angola",
   "capital": "Luanda",
   "name_id": "Angola",
   "lon": 13.23,
   "lat": -8.83,
-  "flag": "🇦🇴",
+  "flag": "ðŸ‡¦ðŸ‡´",
   "jumlah_penduduk": 38778554,
   "anggaran": 826,
   "pendapatan_nasional": "2361",
   "religion": "Katolik",
   "ideology": "Sosialisme"
-} as const;
+};
 
-import { angola_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/3_angola";
-import { angola_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/3_angola";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { angola_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/3_angola";
 
-import { angola_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/3_angola";
-import { angola_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/3_angola";
-import { angola_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/3_angola";
-import { angola_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/3_angola";
-import { angola_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/3_angola";
-import { angola_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/3_angola";
-import { angola_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/3_angola";
-import { angola_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/3_angola";
-import { angola_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/3_angola";
-import { angola_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/3_angola";
-import { angola_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/3_angola";
-import { angola_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/3_angola";
-import { angola_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/3_angola";
-import { angola_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/3_angola";
-import { angola_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/3_angola";
-import { angola_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/3_angola";
-import { angola_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/3_angola";
-import { angola_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/3_angola";
-import { angola_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/3_angola";
 const angola_geopolitik = {
     "un_vote": 155,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const angola_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const angola: CountryData = {
+const angola = {
   ...angola_profile,
   "sektor_listrik": angola_listrik,
   "hunian": angola_hunian,
@@ -75,7 +53,7 @@ export const angola: CountryData = {
   "sektor_komersial": angola_komersial,
   "sektor_hiburan": angola_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const angola: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const angola: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": angola_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,
@@ -143,5 +121,8 @@ export const angola: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

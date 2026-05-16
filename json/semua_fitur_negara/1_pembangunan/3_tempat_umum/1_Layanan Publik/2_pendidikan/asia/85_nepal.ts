@@ -1,4 +1,5 @@
-export const nepal_pendidikan = {
+﻿// @ts-nocheck
+const nepal_pendidikan = {
       "prasekolah": 92,
       "dasar": 72,
       "menengah": 50,
@@ -10,4 +11,7 @@ export const nepal_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 76
-    } as const;
+    };
+
+
+

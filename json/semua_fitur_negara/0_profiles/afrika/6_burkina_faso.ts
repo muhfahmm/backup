@@ -1,41 +1,19 @@
-export const burkina_faso_profile = {
+﻿// @ts-nocheck
+const burkina_faso_profile = {
   "name_en": "Burkina Faso",
   "capital": "Ouagadougou",
   "name_id": "Burkina faso",
   "lon": -2,
   "lat": 13,
-  "flag": "🇧🇫",
+  "flag": "ðŸ‡§ðŸ‡«",
   "jumlah_penduduk": 22185654,
   "anggaran": 175,
   "pendapatan_nasional": "500",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { burkina_faso_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/6_burkina_faso";
-import { burkina_faso_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/6_burkina_faso";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { burkina_faso_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/6_burkina_faso";
 
-import { burkina_faso_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/6_burkina_faso";
-import { burkina_faso_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/6_burkina_faso";
-import { burkina_faso_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/6_burkina_faso";
-import { burkina_faso_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/6_burkina_faso";
-import { burkina_faso_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/6_burkina_faso";
-import { burkina_faso_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/6_burkina_faso";
-import { burkina_faso_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/6_burkina_faso";
-import { burkina_faso_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/6_burkina_faso";
-import { burkina_faso_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/6_burkina_faso";
-import { burkina_faso_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/6_burkina_faso";
-import { burkina_faso_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/6_burkina_faso";
-import { burkina_faso_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/6_burkina_faso";
-import { burkina_faso_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/6_burkina_faso";
-import { burkina_faso_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/6_burkina_faso";
-import { burkina_faso_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/6_burkina_faso";
-import { burkina_faso_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/6_burkina_faso";
-import { burkina_faso_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/6_burkina_faso";
-import { burkina_faso_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/6_burkina_faso";
-import { burkina_faso_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/6_burkina_faso";
 const burkina_faso_geopolitik = {
     "un_vote": 46,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const burkina_faso_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const burkina_faso: CountryData = {
+const burkina_faso = {
   ...burkina_faso_profile,
   "sektor_listrik": burkina_faso_listrik,
   "hunian": burkina_faso_hunian,
@@ -75,7 +53,7 @@ export const burkina_faso: CountryData = {
   "sektor_komersial": burkina_faso_komersial,
   "sektor_hiburan": burkina_faso_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const burkina_faso: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const burkina_faso: CountryData = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": burkina_faso_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 29,
@@ -143,5 +121,8 @@ export const burkina_faso: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

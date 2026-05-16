@@ -1,4 +1,5 @@
-export const laos_pendidikan = {
+﻿// @ts-nocheck
+const laos_pendidikan = {
       "prasekolah": 14,
       "dasar": 54,
       "menengah": 15,
@@ -10,4 +11,7 @@ export const laos_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 79
-    } as const;
+    };
+
+
+

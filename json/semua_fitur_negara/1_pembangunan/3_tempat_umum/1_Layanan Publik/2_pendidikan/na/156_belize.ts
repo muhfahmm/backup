@@ -1,4 +1,5 @@
-export const belize_pendidikan = {
+﻿// @ts-nocheck
+const belize_pendidikan = {
       "prasekolah": 88,
       "dasar": 100,
       "menengah": 12,
@@ -10,4 +11,7 @@ export const belize_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 82
-    } as const;
+    };
+
+
+

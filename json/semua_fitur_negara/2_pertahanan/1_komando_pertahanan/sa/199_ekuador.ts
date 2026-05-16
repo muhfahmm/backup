@@ -1,6 +1,6 @@
-import { ekuador_intelijen } from "../../2_intelijen/sa/199_ekuador";
+﻿// @ts-nocheck
 
-export const ekuador_strategis = {
+const ekuador_strategis = {
     "waktu_respon": 39,
     "intelijen": 12,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const ekuador_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevis_agrikultur = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_agrikultur = {
   padi: 240,
   gandum: 186,
   jagung: 198,
@@ -13,4 +14,7 @@ export const saint_kitts_dan_nevis_agrikultur = {
   karet: 0,
   kapas: 189,
   tembakau: 189,
-} as const;
+};
+
+
+

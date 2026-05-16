@@ -1,6 +1,5 @@
-import { ceko_intelijen } from "../../2_intelijen/eropa/111_ceko";
-
-export const ceko_strategis = {
+﻿
+const ceko_strategis = {
     "waktu_respon": 21,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const ceko_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

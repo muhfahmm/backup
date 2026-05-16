@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Pabrik Militer (Total: 4 Bangunan)
 // ===================
-export const pabrikMiliterRate = {
+const pabrikMiliterRate = {
   "2_pabrik_amunisi": {
     key: "2_pabrik_amunisi",
     dataKey: "pabrik_amunisi",
@@ -21,7 +22,7 @@ export interface SektorPabrikMiliter {
   pabrik_amunisi: number;
 }
 
-export const militerRate = {
+const militerRate = {
   "2_pabrik_amunisi": {
     dataKey: "pabrik_amunisi",
     production: 25000,
@@ -29,6 +30,9 @@ export const militerRate = {
   }
 };
 
-export const produksiMiliterPabrik = [
+const produksiMiliterPabrik = [
   { key: "pabrik_amunisi", category: "Pabrik", label: "Pabrik Amunisi Militer", deskripsi: "Produksi Amunisi", biaya_pembangunan: 63750, waktu_pembangunan: 30, biaya_pemeliharaan: 420000 }
 ];
+
+
+

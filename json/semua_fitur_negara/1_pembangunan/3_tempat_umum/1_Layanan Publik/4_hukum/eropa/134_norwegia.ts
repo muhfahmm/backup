@@ -1,4 +1,5 @@
-export const norwegia_hukum = {
+﻿// @ts-nocheck
+const norwegia_hukum = {
       "pusat_bantuan_hukum": 38,
       "pengadilan": 47,
       "kejaksaan": 29,
@@ -7,4 +8,7 @@ export const norwegia_hukum = {
       "akademi_polisi": 7,
       "indeks_korupsi": 22,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

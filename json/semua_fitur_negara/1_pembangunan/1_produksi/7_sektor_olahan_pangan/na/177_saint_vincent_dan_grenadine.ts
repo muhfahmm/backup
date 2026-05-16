@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadine_olahan_pangan = {
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadine_olahan_pangan = {
   air_mineral: 20,
   gula: 48,
   roti: 17,
@@ -9,4 +10,7 @@ export const saint_vincent_dan_grenadine_olahan_pangan = {
   pakan_ternak: 16,
   ikan_kaleng: 14,
   kopi_teh: 41,
-} as const;
+};
+
+
+

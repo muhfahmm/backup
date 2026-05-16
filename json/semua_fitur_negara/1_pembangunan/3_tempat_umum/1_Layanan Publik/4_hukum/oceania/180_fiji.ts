@@ -1,4 +1,5 @@
-export const fiji_hukum = {
+﻿// @ts-nocheck
+const fiji_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 9,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const fiji_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 18,
       "indeks_keamanan": 42
-  } as const;
+  };
+
+
+

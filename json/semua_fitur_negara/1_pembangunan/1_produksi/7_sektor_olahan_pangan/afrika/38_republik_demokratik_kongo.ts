@@ -1,4 +1,5 @@
-export const republik_demokratik_kongo_olahan_pangan = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_olahan_pangan = {
   air_mineral: 51,
   gula: 90,
   roti: 150,
@@ -9,4 +10,7 @@ export const republik_demokratik_kongo_olahan_pangan = {
   pakan_ternak: 33,
   ikan_kaleng: 129,
   kopi_teh: 72,
-} as const;
+};
+
+
+

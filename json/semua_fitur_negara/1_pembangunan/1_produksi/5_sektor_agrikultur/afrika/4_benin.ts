@@ -1,4 +1,5 @@
-export const benin_agrikultur = {
+﻿// @ts-nocheck
+const benin_agrikultur = {
   padi: 26,
   gandum: 148,
   jagung: 150,
@@ -13,4 +14,7 @@ export const benin_agrikultur = {
   karet: 0,
   kapas: 50,
   tembakau: 98,
-} as const;
+};
+
+
+

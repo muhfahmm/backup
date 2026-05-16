@@ -1,6 +1,5 @@
-import { hungaria_intelijen } from "../../2_intelijen/eropa/116_hungaria";
-
-export const hungaria_strategis = {
+﻿
+const hungaria_strategis = {
     "waktu_respon": 27,
     "intelijen": 20,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const hungaria_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

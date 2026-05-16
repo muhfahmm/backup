@@ -1,4 +1,5 @@
-export const montenegro_pendidikan = {
+﻿// @ts-nocheck
+const montenegro_pendidikan = {
       "prasekolah": 50,
       "dasar": 143,
       "menengah": 50,
@@ -10,4 +11,7 @@ export const montenegro_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 69
-    } as const;
+    };
+
+
+

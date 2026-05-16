@@ -1,4 +1,5 @@
-export const barbados_hukum = {
+﻿// @ts-nocheck
+const barbados_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 8,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const barbados_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 43,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

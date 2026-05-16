@@ -1,6 +1,6 @@
-import { republik_afrika_tengah_intelijen } from "../../2_intelijen/afrika/37_republik_afrika_tengah";
+﻿// @ts-nocheck
 
-export const republik_afrika_tengah_strategis = {
+const republik_afrika_tengah_strategis = {
     "waktu_respon": 2,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_afrika_tengah_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

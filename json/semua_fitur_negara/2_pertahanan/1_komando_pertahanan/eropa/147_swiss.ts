@@ -1,6 +1,6 @@
-import { swiss_intelijen } from "../../2_intelijen/eropa/147_swiss";
+﻿// @ts-nocheck
 
-export const swiss_strategis = {
+const swiss_strategis = {
     "waktu_respon": 2,
     "intelijen": 1,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const swiss_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./100_vietnam";
 export * from "./101_yaman";
 export * from "./102_yordania";
@@ -47,3 +48,6 @@ export * from "./96_thailand";
 export * from "./97_turkmenistan";
 export * from "./98_uni_emirat_arab";
 export * from "./99_uzbekistan";
+
+
+

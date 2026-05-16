@@ -1,4 +1,5 @@
-export const kamboja_pendidikan = {
+﻿// @ts-nocheck
+const kamboja_pendidikan = {
       "prasekolah": 99,
       "dasar": 149,
       "menengah": 12,
@@ -10,4 +11,7 @@ export const kamboja_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 2,
       "literasi": 64
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const korea_selatan_olahraga = {
+﻿// @ts-nocheck
+const korea_selatan_olahraga = {
   "kolam_renang": 357,
   "sirkuit_balap": 19,
   "stadion": 85,
@@ -7,4 +8,7 @@ export const korea_selatan_olahraga = {
   "golf": 34,
   "esports": 23,
   "gokart": 88
-} as const;
+};
+
+
+

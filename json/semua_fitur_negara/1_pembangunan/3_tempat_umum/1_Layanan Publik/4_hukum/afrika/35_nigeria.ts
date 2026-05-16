@@ -1,4 +1,5 @@
-export const nigeria_hukum = {
+﻿// @ts-nocheck
+const nigeria_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 20,
       "kejaksaan": 24,
@@ -7,4 +8,7 @@ export const nigeria_hukum = {
       "akademi_polisi": 12,
       "indeks_korupsi": 44,
       "indeks_keamanan": 64
-  } as const;
+  };
+
+
+

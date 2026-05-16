@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_olahraga = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_olahraga = {
   "kolam_renang": 14,
   "sirkuit_balap": 3,
   "stadion": 4,
@@ -7,4 +8,7 @@ export const republik_afrika_tengah_olahraga = {
   "golf": 1,
   "esports": 4,
   "gokart": 7
-} as const;
+};
+
+
+

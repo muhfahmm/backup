@@ -1,41 +1,19 @@
-export const austria_profile = {
+﻿// @ts-nocheck
+const austria_profile = {
   "name_en": "Austria",
   "capital": "Vienna",
   "name_id": "Austria",
   "lon": 16.37,
   "lat": 48.2,
-  "flag": "🇦🇹",
+  "flag": "ðŸ‡¦ðŸ‡¹",
   "jumlah_penduduk": 9159950,
   "anggaran": 4959,
   "pendapatan_nasional": "14168",
   "religion": "Katolik",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { austria_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/105_austria";
-import { austria_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/105_austria";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { austria_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/105_austria";
 
-import { austria_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/105_austria";
-import { austria_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/105_austria";
-import { austria_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/105_austria";
-import { austria_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/105_austria";
-import { austria_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/105_austria";
-import { austria_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/105_austria";
-import { austria_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/105_austria";
-import { austria_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/105_austria";
-import { austria_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/105_austria";
-import { austria_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/105_austria";
-import { austria_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/105_austria";
-import { austria_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/105_austria";
-import { austria_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/105_austria";
-import { austria_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/105_austria";
-import { austria_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/105_austria";
-import { austria_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/105_austria";
-import { austria_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/105_austria";
-import { austria_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/105_austria";
-import { austria_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/105_austria";
 const austria_geopolitik = {
     "un_vote": 192,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const austria_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const austria: CountryData = {
+const austria = {
   ...austria_profile,
   "sektor_listrik": austria_listrik,
   "hunian": austria_hunian,
@@ -75,7 +53,7 @@ export const austria: CountryData = {
   "sektor_komersial": austria_komersial,
   "sektor_hiburan": austria_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const austria: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const austria: CountryData = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": austria_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,
@@ -143,5 +121,8 @@ export const austria: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

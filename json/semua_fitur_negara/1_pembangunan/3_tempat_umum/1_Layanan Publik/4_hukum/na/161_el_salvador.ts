@@ -1,4 +1,5 @@
-export const el_salvador_hukum = {
+﻿// @ts-nocheck
+const el_salvador_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 15,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const el_salvador_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 37,
       "indeks_keamanan": 53
-  } as const;
+  };
+
+
+

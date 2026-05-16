@@ -1,4 +1,5 @@
-export const republik_tanzania_pendidikan = {
+﻿// @ts-nocheck
+const republik_tanzania_pendidikan = {
       "prasekolah": 48,
       "dasar": 117,
       "menengah": 43,
@@ -10,4 +11,7 @@ export const republik_tanzania_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 81
-  } as const;
+  };
+
+
+

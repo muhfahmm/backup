@@ -1,4 +1,5 @@
-export const mali_pertahanan = {
+﻿// @ts-nocheck
+const mali_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 17,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const mali_pertahanan = {
     "pangkalan_laut": 37,
     "program_luar_angkasa": 4,
     "pertahanan_siber": 37
-    } as const;
+    };
+
+
+

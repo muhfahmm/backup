@@ -1,4 +1,5 @@
-export const benin_hukum = {
+﻿// @ts-nocheck
+const benin_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 10,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const benin_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 44,
       "indeks_keamanan": 54
-  } as const;
+  };
+
+
+

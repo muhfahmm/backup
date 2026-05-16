@@ -1,4 +1,5 @@
-export const papua_nugini_pendidikan = {
+﻿// @ts-nocheck
+const papua_nugini_pendidikan = {
       "prasekolah": 75,
       "dasar": 65,
       "menengah": 88,
@@ -10,4 +11,7 @@ export const papua_nugini_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

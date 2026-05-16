@@ -1,6 +1,6 @@
-import { bhutan_intelijen } from "../../2_intelijen/asia/60_bhutan";
+﻿// @ts-nocheck
 
-export const bhutan_strategis = {
+const bhutan_strategis = {
     "waktu_respon": 6,
     "intelijen": 40,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const bhutan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

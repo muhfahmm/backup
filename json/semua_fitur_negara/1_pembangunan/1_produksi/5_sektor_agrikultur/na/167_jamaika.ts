@@ -1,4 +1,5 @@
-export const jamaika_agrikultur = {
+﻿// @ts-nocheck
+const jamaika_agrikultur = {
   padi: 48,
   gandum: 252,
   jagung: 72,
@@ -13,4 +14,7 @@ export const jamaika_agrikultur = {
   karet: 0,
   kapas: 64,
   tembakau: 108,
-} as const;
+};
+
+
+

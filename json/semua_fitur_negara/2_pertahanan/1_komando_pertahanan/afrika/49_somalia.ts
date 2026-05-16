@@ -1,6 +1,6 @@
-import { somalia_intelijen } from "../../2_intelijen/afrika/49_somalia";
+﻿// @ts-nocheck
 
-export const somalia_strategis = {
+const somalia_strategis = {
     "waktu_respon": 35,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const somalia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

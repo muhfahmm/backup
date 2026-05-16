@@ -1,4 +1,5 @@
-export const sri_lanka_agrikultur = {
+﻿// @ts-nocheck
+const sri_lanka_agrikultur = {
   padi: 380,
   gandum: 60,
   jagung: 50,
@@ -13,4 +14,7 @@ export const sri_lanka_agrikultur = {
   karet: 0,
   kapas: 220,
   tembakau: 230,
-} as const;
+};
+
+
+

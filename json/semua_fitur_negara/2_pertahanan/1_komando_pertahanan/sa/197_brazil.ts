@@ -1,6 +1,6 @@
-import { brazil_intelijen } from "../../2_intelijen/sa/197_brazil";
+﻿// @ts-nocheck
 
-export const brazil_strategis = {
+const brazil_strategis = {
     "waktu_respon": 39,
     "intelijen": 30,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const brazil_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

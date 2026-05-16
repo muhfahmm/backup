@@ -1,4 +1,5 @@
-export const makau_pertahanan = {
+﻿// @ts-nocheck
+const makau_pertahanan = {
     "penjara": 2,
     "gudang_senjata": 38,
     "hangar_tank": 22,
@@ -7,4 +8,7 @@ export const makau_pertahanan = {
     "pangkalan_laut": 40,
     "program_luar_angkasa": 9,
     "pertahanan_siber": 37
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { sudan_selatan_intelijen } from "../../2_intelijen/afrika/50_sudan_selatan";
+﻿// @ts-nocheck
 
-export const sudan_selatan_strategis = {
+const sudan_selatan_strategis = {
     "waktu_respon": 29,
     "intelijen": 13,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const sudan_selatan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

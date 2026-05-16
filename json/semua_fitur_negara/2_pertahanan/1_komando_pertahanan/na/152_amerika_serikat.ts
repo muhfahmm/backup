@@ -1,6 +1,5 @@
-import { amerika_serikat_intelijen } from "../../2_intelijen/na/152_amerika_serikat";
-
-export const amerika_serikat_strategis = {
+﻿
+const amerika_serikat_strategis = {
     "waktu_respon": 16,
     "intelijen": 6,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const amerika_serikat_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 5044
     }
-  } as const;
+  };
+
+

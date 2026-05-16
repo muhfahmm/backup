@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface OlahragaData {
   kolam_renang: number;
   sirkuit_balap: number;
@@ -12,7 +13,7 @@ export interface OlahragaData {
 // ===================
 // DETAIL TOTAL BANGUNAN: Olahraga & Rekreasi (Total: 7 Bangunan)
 // ===================
-export const olahragaRate: Record<string, any> = {
+const olahragaRate: Record<string, any> = {
   "16_kolam_renang": {
     key: "16_kolam_renang",
     dataKey: "kolam_renang",
@@ -105,3 +106,6 @@ export const olahragaRate: Record<string, any> = {
     efek: "Meningkatkan kas negara"
   },
 };
+
+
+

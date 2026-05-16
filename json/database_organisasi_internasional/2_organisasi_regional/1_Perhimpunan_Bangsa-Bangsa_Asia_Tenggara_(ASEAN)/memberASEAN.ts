@@ -1,4 +1,5 @@
-export const members = [
+﻿// @ts-nocheck
+const members = [
   "brunei",
   "filipina",
   "indonesia",
@@ -10,3 +11,6 @@ export const members = [
   "thailand",
   "vietnam"
 ];
+
+
+

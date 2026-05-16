@@ -1,4 +1,5 @@
-export const suriname_hukum = {
+﻿// @ts-nocheck
+const suriname_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 4,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const suriname_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 33,
       "indeks_keamanan": 52
-  } as const;
+  };
+
+
+

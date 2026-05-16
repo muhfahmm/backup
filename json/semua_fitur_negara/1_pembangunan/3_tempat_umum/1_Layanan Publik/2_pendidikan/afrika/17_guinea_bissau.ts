@@ -1,4 +1,5 @@
-export const guinea_bissau_pendidikan = {
+﻿// @ts-nocheck
+const guinea_bissau_pendidikan = {
       "prasekolah": 32,
       "dasar": 55,
       "menengah": 34,
@@ -10,4 +11,7 @@ export const guinea_bissau_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 83
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const denmark_hukum = {
+﻿// @ts-nocheck
+const denmark_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 30,
       "kejaksaan": 26,
@@ -7,4 +8,7 @@ export const denmark_hukum = {
       "akademi_polisi": 8,
       "indeks_korupsi": 37,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

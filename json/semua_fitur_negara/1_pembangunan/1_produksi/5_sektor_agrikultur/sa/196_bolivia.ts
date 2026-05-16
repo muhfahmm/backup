@@ -1,4 +1,5 @@
-export const bolivia_agrikultur = {
+﻿// @ts-nocheck
+const bolivia_agrikultur = {
   padi: 190,
   gandum: 135,
   jagung: 290,
@@ -13,4 +14,7 @@ export const bolivia_agrikultur = {
   karet: 0,
   kapas: 295,
   tembakau: 80,
-} as const;
+};
+
+
+

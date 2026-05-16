@@ -1,4 +1,5 @@
-export const marshall_hukum = {
+﻿// @ts-nocheck
+const marshall_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 12,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const marshall_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 49,
       "indeks_keamanan": 56
-  } as const;
+  };
+
+
+

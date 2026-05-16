@@ -1,4 +1,5 @@
-export const polandia_pendidikan = {
+﻿// @ts-nocheck
+const polandia_pendidikan = {
       "prasekolah": 254,
       "dasar": 178,
       "menengah": 369,
@@ -10,4 +11,7 @@ export const polandia_pendidikan = {
       "pusat_penelitian": 7,
       "pusat_pengembangan": 3,
       "literasi": 79
-    } as const;
+    };
+
+
+

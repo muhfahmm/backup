@@ -1,4 +1,4 @@
-export interface SektorGeopolitik {
+﻿export interface SektorGeopolitik {
   un_vote: number;
   sekutu?: readonly string[];
   musuh?: readonly string[];
@@ -19,3 +19,5 @@ export interface SektorGeopolitik {
   pengaruh_global: number;
   peringkat_diplomasi: number;
 }
+
+

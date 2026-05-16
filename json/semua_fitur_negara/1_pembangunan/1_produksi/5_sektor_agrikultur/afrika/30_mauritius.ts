@@ -1,4 +1,5 @@
-export const mauritius_agrikultur = {
+﻿// @ts-nocheck
+const mauritius_agrikultur = {
   padi: 42,
   gandum: 77,
   jagung: 51,
@@ -13,4 +14,7 @@ export const mauritius_agrikultur = {
   karet: 0,
   kapas: 32,
   tembakau: 60,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const makedonia_utara_pendidikan = {
+﻿// @ts-nocheck
+const makedonia_utara_pendidikan = {
       "prasekolah": 80,
       "dasar": 135,
       "menengah": 86,
@@ -10,4 +11,7 @@ export const makedonia_utara_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 75
-    } as const;
+    };
+
+
+

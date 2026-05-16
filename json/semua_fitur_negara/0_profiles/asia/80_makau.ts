@@ -1,41 +1,19 @@
-export const makau_profile = {
+﻿// @ts-nocheck
+const makau_profile = {
   "name_en": "Macau",
   "capital": "N/A",
   "name_id": "Makau",
   "lon": 113.55,
   "lat": 22.16666666,
-  "flag": "🇲🇴",
+  "flag": "ðŸ‡²ðŸ‡´",
   "jumlah_penduduk": "10M",
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Buddha",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { makau_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/80_makau";
-import { makau_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/80_makau";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { makau_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/80_makau";
 
-import { makau_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/80_makau";
-import { makau_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/80_makau";
-import { makau_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/80_makau";
-import { makau_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/80_makau";
-import { makau_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/80_makau";
-import { makau_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/80_makau";
-import { makau_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/80_makau";
-import { makau_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/80_makau";
-import { makau_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/80_makau";
-import { makau_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/80_makau";
-import { makau_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/80_makau";
-import { makau_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/80_makau";
-import { makau_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/80_makau";
-import { makau_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/80_makau";
-import { makau_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/80_makau";
-import { makau_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/80_makau";
-import { makau_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/80_makau";
-import { makau_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/80_makau";
-import { makau_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/80_makau";
 const makau_geopolitik = {
     "un_vote": 8,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const makau_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const makau: CountryData = {
+const makau = {
   ...makau_profile,
   "sektor_listrik": makau_listrik,
   "hunian": makau_hunian,
@@ -75,7 +53,7 @@ export const makau: CountryData = {
   "sektor_komersial": makau_komersial,
   "sektor_hiburan": makau_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const makau: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const makau: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": makau_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,
@@ -143,5 +121,8 @@ export const makau: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const argentina_pendidikan = {
+﻿// @ts-nocheck
+const argentina_pendidikan = {
       "prasekolah": 175,
       "dasar": 798,
       "menengah": 360,
@@ -10,4 +11,7 @@ export const argentina_pendidikan = {
       "pusat_penelitian": 18,
       "pusat_pengembangan": 2,
       "literasi": 88
-    } as const;
+    };
+
+
+

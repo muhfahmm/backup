@@ -1,3 +1,7 @@
-export const maroko_pabrik = {
+﻿// @ts-nocheck
+const maroko_pabrik = {
     "pabrik_amunisi": 3,
-  } as const;
+  };
+
+
+

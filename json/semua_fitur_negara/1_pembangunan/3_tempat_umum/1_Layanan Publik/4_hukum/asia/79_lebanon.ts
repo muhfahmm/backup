@@ -1,4 +1,5 @@
-export const lebanon_hukum = {
+﻿// @ts-nocheck
+const lebanon_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 4,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const lebanon_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 15,
       "indeks_keamanan": 60
-  } as const;
+  };
+
+
+

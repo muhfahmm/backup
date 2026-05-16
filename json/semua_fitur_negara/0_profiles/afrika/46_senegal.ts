@@ -1,41 +1,19 @@
-export const senegal_profile = {
+﻿// @ts-nocheck
+const senegal_profile = {
   "name_en": "Senegal",
   "capital": "Dakar",
   "name_id": "Senegal",
   "lon": -14,
   "lat": 14,
-  "flag": "🇸🇳",
+  "flag": "ðŸ‡¸ðŸ‡³",
   "jumlah_penduduk": 19075959,
   "anggaran": 272,
   "pendapatan_nasional": "778",
   "religion": "Islam",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { senegal_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/46_senegal";
-import { senegal_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/46_senegal";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { senegal_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/46_senegal";
 
-import { senegal_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/46_senegal";
-import { senegal_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/46_senegal";
-import { senegal_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/46_senegal";
-import { senegal_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/46_senegal";
-import { senegal_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/46_senegal";
-import { senegal_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/46_senegal";
-import { senegal_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/46_senegal";
-import { senegal_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/46_senegal";
-import { senegal_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/46_senegal";
-import { senegal_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/46_senegal";
-import { senegal_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/46_senegal";
-import { senegal_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/46_senegal";
-import { senegal_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/46_senegal";
-import { senegal_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/46_senegal";
-import { senegal_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/46_senegal";
-import { senegal_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/46_senegal";
-import { senegal_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/46_senegal";
-import { senegal_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/46_senegal";
-import { senegal_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/46_senegal";
 const senegal_geopolitik = {
     "un_vote": 119,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const senegal_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const senegal: CountryData = {
+const senegal = {
   ...senegal_profile,
   "sektor_listrik": senegal_listrik,
   "hunian": senegal_hunian,
@@ -75,7 +53,7 @@ export const senegal: CountryData = {
   "sektor_komersial": senegal_komersial,
   "sektor_hiburan": senegal_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const senegal: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const senegal: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": senegal_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,
@@ -143,5 +121,8 @@ export const senegal: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

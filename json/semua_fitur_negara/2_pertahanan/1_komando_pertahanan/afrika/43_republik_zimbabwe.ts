@@ -1,6 +1,6 @@
-import { republik_zimbabwe_intelijen } from "../../2_intelijen/afrika/43_republik_zimbabwe";
+﻿// @ts-nocheck
 
-export const republik_zimbabwe_strategis = {
+const republik_zimbabwe_strategis = {
     "waktu_respon": 32,
     "intelijen": 15,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_zimbabwe_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

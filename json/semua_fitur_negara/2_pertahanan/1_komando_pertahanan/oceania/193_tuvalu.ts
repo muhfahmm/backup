@@ -1,6 +1,6 @@
-import { tuvalu_intelijen } from "../../2_intelijen/oceania/193_tuvalu";
+﻿// @ts-nocheck
 
-export const tuvalu_strategis = {
+const tuvalu_strategis = {
     "waktu_respon": 36,
     "intelijen": 13,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tuvalu_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

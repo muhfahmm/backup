@@ -1,4 +1,5 @@
-export const somalia_pertahanan = {
+﻿// @ts-nocheck
+const somalia_pertahanan = {
     "penjara": 8,
     "gudang_senjata": 25,
     "hangar_tank": 11,
@@ -7,4 +8,7 @@ export const somalia_pertahanan = {
     "pangkalan_laut": 13,
     "program_luar_angkasa": 31,
     "pertahanan_siber": 18
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { turkmenistan_intelijen } from "../../2_intelijen/asia/97_turkmenistan";
+﻿// @ts-nocheck
 
-export const turkmenistan_strategis = {
+const turkmenistan_strategis = {
     "waktu_respon": 15,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const turkmenistan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

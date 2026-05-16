@@ -1,4 +1,5 @@
-export const ceko_pertahanan = {
+﻿// @ts-nocheck
+const ceko_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 2,
     "hangar_tank": 6,
@@ -7,4 +8,7 @@ export const ceko_pertahanan = {
     "pangkalan_laut": 34,
     "program_luar_angkasa": 15,
     "pertahanan_siber": 29
-    } as const;
+    };
+
+
+

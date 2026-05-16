@@ -1,4 +1,5 @@
-export const georgia_hukum = {
+﻿// @ts-nocheck
+const georgia_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 14,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const georgia_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 19,
       "indeks_keamanan": 53
-  } as const;
+  };
+
+
+

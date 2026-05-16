@@ -1,6 +1,6 @@
-import { belgia_intelijen } from "../../2_intelijen/eropa/108_belgia";
+﻿// @ts-nocheck
 
-export const belgia_strategis = {
+const belgia_strategis = {
     "waktu_respon": 7,
     "intelijen": 36,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const belgia_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

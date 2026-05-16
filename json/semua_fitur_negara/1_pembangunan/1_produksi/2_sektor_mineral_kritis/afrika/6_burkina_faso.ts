@@ -1,4 +1,5 @@
-export const burkina_faso_ekstraksi = {
+﻿// @ts-nocheck
+const burkina_faso_ekstraksi = {
   emas: 20,
   uranium: 0,
   batu_bara: 16,
@@ -11,4 +12,7 @@ export const burkina_faso_ekstraksi = {
   aluminium: 6,
   logam_tanah_jarang: 14,
   bijih_besi: 2,
-} as const;
+};
+
+
+

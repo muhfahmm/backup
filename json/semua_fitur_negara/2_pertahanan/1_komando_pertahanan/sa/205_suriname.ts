@@ -1,6 +1,6 @@
-import { suriname_intelijen } from "../../2_intelijen/sa/205_suriname";
+﻿// @ts-nocheck
 
-export const suriname_strategis = {
+const suriname_strategis = {
     "waktu_respon": 7,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const suriname_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

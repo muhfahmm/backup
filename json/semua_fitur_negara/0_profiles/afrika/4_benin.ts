@@ -1,41 +1,19 @@
-export const benin_profile = {
+﻿// @ts-nocheck
+const benin_profile = {
   "name_en": "Benin",
   "capital": "Porto-Novo",
   "name_id": "Benin",
   "lon": 2.25,
   "lat": 9.5,
-  "flag": "🇧🇯",
+  "flag": "ðŸ‡§ðŸ‡¯",
   "jumlah_penduduk": 13224860,
   "anggaran": 185,
   "pendapatan_nasional": "528",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { benin_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/4_benin";
-import { benin_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/4_benin";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { benin_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/4_benin";
 
-import { benin_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/4_benin";
-import { benin_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/4_benin";
-import { benin_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/4_benin";
-import { benin_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/4_benin";
-import { benin_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/4_benin";
-import { benin_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/4_benin";
-import { benin_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/4_benin";
-import { benin_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/4_benin";
-import { benin_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/4_benin";
-import { benin_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/4_benin";
-import { benin_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/4_benin";
-import { benin_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/4_benin";
-import { benin_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/4_benin";
-import { benin_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/4_benin";
-import { benin_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/4_benin";
-import { benin_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/4_benin";
-import { benin_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/4_benin";
-import { benin_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/4_benin";
-import { benin_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/4_benin";
 const benin_geopolitik = {
     "un_vote": 62,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const benin_geopolitik = {
       "kekuatan_keras": 31,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const benin: CountryData = {
+const benin = {
   ...benin_profile,
   "sektor_listrik": benin_listrik,
   "hunian": benin_hunian,
@@ -75,7 +53,7 @@ export const benin: CountryData = {
   "sektor_komersial": benin_komersial,
   "sektor_hiburan": benin_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const benin: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const benin: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": benin_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,
@@ -143,5 +121,8 @@ export const benin: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

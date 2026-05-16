@@ -1,4 +1,5 @@
-export const kosovo_pendidikan = {
+﻿// @ts-nocheck
+const kosovo_pendidikan = {
       "prasekolah": 60,
       "dasar": 93,
       "menengah": 81,
@@ -10,4 +11,7 @@ export const kosovo_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 66
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const irak_pendidikan = {
+﻿// @ts-nocheck
+const irak_pendidikan = {
       "prasekolah": 165,
       "dasar": 305,
       "menengah": 209,
@@ -10,4 +11,7 @@ export const irak_pendidikan = {
       "pusat_penelitian": 20,
       "pusat_pengembangan": 9,
       "literasi": 76
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const makedonia_utara_infrastruktur = {
+﻿// @ts-nocheck
+const makedonia_utara_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 12,
   terminal_bus: 6,
@@ -7,4 +8,7 @@ export const makedonia_utara_infrastruktur = {
   pelabuhan: 5,
   bandara: 1,
   helipad: 1,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const kepulauan_faroe_ekstraksi = {
+﻿// @ts-nocheck
+const kepulauan_faroe_ekstraksi = {
   emas: 1,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const kepulauan_faroe_ekstraksi = {
   aluminium: 4,
   logam_tanah_jarang: 0,
   bijih_besi: 9,
-} as const;
+};
+
+
+

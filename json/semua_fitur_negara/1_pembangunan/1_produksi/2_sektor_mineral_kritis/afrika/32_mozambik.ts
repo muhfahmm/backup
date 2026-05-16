@@ -1,4 +1,5 @@
-export const mozambik_ekstraksi = {
+﻿// @ts-nocheck
+const mozambik_ekstraksi = {
   emas: 9,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const mozambik_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 5,
   bijih_besi: 4,
-} as const;
+};
+
+
+

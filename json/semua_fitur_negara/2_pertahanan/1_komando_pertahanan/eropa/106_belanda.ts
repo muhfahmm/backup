@@ -1,6 +1,5 @@
-import { belanda_intelijen } from "../../2_intelijen/eropa/106_belanda";
-
-export const belanda_strategis = {
+﻿
+const belanda_strategis = {
     "waktu_respon": 7,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const belanda_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,6 +1,10 @@
-export const vatikanVehicles = {
+﻿// @ts-nocheck
+const vatikanVehicles = {
   sepeda_motor: 123,
   mobil: 66,
   bus: 0,
   truk: 0,
 };
+
+
+

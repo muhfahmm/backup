@@ -1,4 +1,5 @@
-export const sudan_selatan_pertahanan = {
+﻿// @ts-nocheck
+const sudan_selatan_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 17,
     "hangar_tank": 1,
@@ -7,4 +8,7 @@ export const sudan_selatan_pertahanan = {
     "pangkalan_laut": 15,
     "program_luar_angkasa": 34,
     "pertahanan_siber": 11
-    } as const;
+    };
+
+
+

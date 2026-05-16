@@ -1,4 +1,5 @@
-export const liechtenstein_agrikultur = {
+﻿// @ts-nocheck
+const liechtenstein_agrikultur = {
   padi: 140,
   gandum: 60,
   jagung: 80,
@@ -13,4 +14,7 @@ export const liechtenstein_agrikultur = {
   karet: 0,
   kapas: 308,
   tembakau: 200,
-} as const;
+};
+
+
+

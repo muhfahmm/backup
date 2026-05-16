@@ -1,4 +1,5 @@
-export const kuba_pendidikan = {
+﻿// @ts-nocheck
+const kuba_pendidikan = {
       "prasekolah": 98,
       "dasar": 36,
       "menengah": 40,
@@ -10,4 +11,7 @@ export const kuba_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 73
-    } as const;
+    };
+
+
+

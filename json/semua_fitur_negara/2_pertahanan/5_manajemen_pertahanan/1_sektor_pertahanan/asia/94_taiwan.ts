@@ -1,4 +1,4 @@
-export const taiwan_pertahanan = {
+﻿const taiwan_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 4,
     "hangar_tank": 5,
@@ -7,4 +7,6 @@ export const taiwan_pertahanan = {
     "pangkalan_laut": 30,
     "program_luar_angkasa": 19,
     "pertahanan_siber": 12
-    } as const;
+    };
+
+

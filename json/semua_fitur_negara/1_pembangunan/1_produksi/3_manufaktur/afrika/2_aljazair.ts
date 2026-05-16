@@ -1,4 +1,5 @@
-export const aljazair_manufaktur = {
+﻿// @ts-nocheck
+const aljazair_manufaktur = {
   mobil: 88,
   semen_beton: 77,
   sepeda_motor: 154,
@@ -6,4 +7,7 @@ export const aljazair_manufaktur = {
   smelter: 66,
   kayu: 110,
   pupuk: 99,
-} as const;
+};
+
+
+

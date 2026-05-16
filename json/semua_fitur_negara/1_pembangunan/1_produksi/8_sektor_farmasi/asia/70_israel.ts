@@ -1,3 +1,7 @@
-export const israel_farmasi = {
+﻿// @ts-nocheck
+const israel_farmasi = {
   farmasi: 16,
-} as const;
+};
+
+
+

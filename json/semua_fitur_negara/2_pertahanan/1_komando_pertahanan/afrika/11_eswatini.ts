@@ -1,6 +1,6 @@
-import { eswatini_intelijen } from "../../2_intelijen/afrika/11_eswatini";
+﻿// @ts-nocheck
 
-export const eswatini_strategis = {
+const eswatini_strategis = {
     "waktu_respon": 38,
     "intelijen": 23,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const eswatini_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

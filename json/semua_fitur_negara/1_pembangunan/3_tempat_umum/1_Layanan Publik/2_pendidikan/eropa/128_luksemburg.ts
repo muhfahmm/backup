@@ -1,4 +1,5 @@
-export const luksemburg_pendidikan = {
+﻿// @ts-nocheck
+const luksemburg_pendidikan = {
       "prasekolah": 88,
       "dasar": 33,
       "menengah": 59,
@@ -10,4 +11,7 @@ export const luksemburg_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 60
-    } as const;
+    };
+
+
+

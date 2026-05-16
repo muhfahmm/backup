@@ -1,4 +1,5 @@
-export const islandia_hukum = {
+﻿// @ts-nocheck
+const islandia_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 9,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const islandia_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 38,
       "indeks_keamanan": 49
-  } as const;
+  };
+
+
+

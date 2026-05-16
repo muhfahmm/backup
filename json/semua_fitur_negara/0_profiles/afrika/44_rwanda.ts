@@ -1,41 +1,19 @@
-export const rwanda_profile = {
+﻿// @ts-nocheck
+const rwanda_profile = {
   "name_en": "Rwanda",
   "capital": "Kigali",
   "name_id": "Rwanda",
   "lon": 30,
   "lat": -2,
-  "flag": "🇷🇼",
+  "flag": "ðŸ‡·ðŸ‡¼",
   "jumlah_penduduk": 14104969,
   "anggaran": 126,
   "pendapatan_nasional": "361",
   "religion": "Katolik",
   "ideology": "Konservatisme"
-} as const;
+};
 
-import { rwanda_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/44_rwanda";
-import { rwanda_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/44_rwanda";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { rwanda_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/44_rwanda";
 
-import { rwanda_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/44_rwanda";
-import { rwanda_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/44_rwanda";
-import { rwanda_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/44_rwanda";
-import { rwanda_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/44_rwanda";
-import { rwanda_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/44_rwanda";
-import { rwanda_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/44_rwanda";
-import { rwanda_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/44_rwanda";
-import { rwanda_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/44_rwanda";
-import { rwanda_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/44_rwanda";
-import { rwanda_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/44_rwanda";
-import { rwanda_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/44_rwanda";
-import { rwanda_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/44_rwanda";
-import { rwanda_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/44_rwanda";
-import { rwanda_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/44_rwanda";
-import { rwanda_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/44_rwanda";
-import { rwanda_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/44_rwanda";
-import { rwanda_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/44_rwanda";
-import { rwanda_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/44_rwanda";
-import { rwanda_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/44_rwanda";
 const rwanda_geopolitik = {
     "un_vote": 50,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const rwanda_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const rwanda: CountryData = {
+const rwanda = {
   ...rwanda_profile,
   "sektor_listrik": rwanda_listrik,
   "hunian": rwanda_hunian,
@@ -75,7 +53,7 @@ export const rwanda: CountryData = {
   "sektor_komersial": rwanda_komersial,
   "sektor_hiburan": rwanda_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const rwanda: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const rwanda: CountryData = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": rwanda_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,
@@ -143,5 +121,8 @@ export const rwanda: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

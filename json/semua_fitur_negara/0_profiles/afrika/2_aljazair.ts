@@ -1,41 +1,19 @@
-export const aljazair_profile = {
+﻿// @ts-nocheck
+const aljazair_profile = {
   "name_en": "Algeria",
   "capital": "Algiers",
   "name_id": "Aljazair",
   "lon": 3.08,
   "lat": 36.73,
-  "flag": "🇩🇿",
+  "flag": "ðŸ‡©ðŸ‡¿",
   "jumlah_penduduk": 47400000,
   "anggaran": 2334,
   "pendapatan_nasional": "6667",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { aljazair_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/2_aljazair";
-import { aljazair_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/2_aljazair";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { aljazair_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/2_aljazair";
 
-import { aljazair_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/2_aljazair";
-import { aljazair_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/2_aljazair";
-import { aljazair_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/2_aljazair";
-import { aljazair_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/2_aljazair";
-import { aljazair_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/2_aljazair";
-import { aljazair_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/2_aljazair";
-import { aljazair_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/2_aljazair";
-import { aljazair_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/2_aljazair";
-import { aljazair_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/2_aljazair";
-import { aljazair_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/2_aljazair";
-import { aljazair_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/2_aljazair";
-import { aljazair_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/2_aljazair";
-import { aljazair_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/2_aljazair";
-import { aljazair_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/2_aljazair";
-import { aljazair_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/2_aljazair";
-import { aljazair_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/2_aljazair";
-import { aljazair_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/2_aljazair";
-import { aljazair_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/2_aljazair";
-import { aljazair_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/2_aljazair";
 const aljazair_geopolitik = {
     "un_vote": 84,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const aljazair_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const aljazair: CountryData = {
+const aljazair = {
   ...aljazair_profile,
   "sektor_listrik": aljazair_listrik,
   "hunian": aljazair_hunian,
@@ -75,7 +53,7 @@ export const aljazair: CountryData = {
   "sektor_komersial": aljazair_komersial,
   "sektor_hiburan": aljazair_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const aljazair: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const aljazair: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": aljazair_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,
@@ -143,5 +121,8 @@ export const aljazair: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

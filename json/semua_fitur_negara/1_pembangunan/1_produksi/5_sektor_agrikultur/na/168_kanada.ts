@@ -1,4 +1,5 @@
-export const kanada_agrikultur = {
+﻿// @ts-nocheck
+const kanada_agrikultur = {
   padi: 17664,
   gandum: 24192,
   jagung: 8832,
@@ -13,4 +14,7 @@ export const kanada_agrikultur = {
   karet: 0,
   kapas: 21504,
   tembakau: 10752,
-} as const;
+};
+
+
+

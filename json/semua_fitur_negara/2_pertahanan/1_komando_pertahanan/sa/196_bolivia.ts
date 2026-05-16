@@ -1,6 +1,6 @@
-import { bolivia_intelijen } from "../../2_intelijen/sa/196_bolivia";
+﻿// @ts-nocheck
 
-export const bolivia_strategis = {
+const bolivia_strategis = {
     "waktu_respon": 18,
     "intelijen": 35,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const bolivia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const lesotho_pendidikan = {
+﻿// @ts-nocheck
+const lesotho_pendidikan = {
       "prasekolah": 37,
       "dasar": 68,
       "menengah": 28,
@@ -10,4 +11,7 @@ export const lesotho_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 2,
       "literasi": 76
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const kroasia_hukum = {
+﻿// @ts-nocheck
+const kroasia_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 13,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const kroasia_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 45,
       "indeks_keamanan": 55
-  } as const;
+  };
+
+
+

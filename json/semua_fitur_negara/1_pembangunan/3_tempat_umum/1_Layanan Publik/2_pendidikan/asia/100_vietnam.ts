@@ -1,4 +1,5 @@
-export const vietnam_pendidikan = {
+﻿// @ts-nocheck
+const vietnam_pendidikan = {
       "prasekolah": 255,
       "dasar": 634,
       "menengah": 354,
@@ -10,4 +11,7 @@ export const vietnam_pendidikan = {
       "pusat_penelitian": 8,
       "pusat_pengembangan": 7,
       "literasi": 76
-    } as const;
+    };
+
+
+

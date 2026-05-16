@@ -1,4 +1,5 @@
-export const makedonia_utara_olahan_pangan = {
+﻿// @ts-nocheck
+const makedonia_utara_olahan_pangan = {
   air_mineral: 150,
   gula: 114,
   roti: 126,
@@ -9,4 +10,7 @@ export const makedonia_utara_olahan_pangan = {
   pakan_ternak: 93,
   ikan_kaleng: 147,
   kopi_teh: 132,
-} as const;
+};
+
+
+

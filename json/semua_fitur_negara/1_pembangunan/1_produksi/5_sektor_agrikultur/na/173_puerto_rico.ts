@@ -1,4 +1,5 @@
-export const puerto_rico_agrikultur = {
+﻿// @ts-nocheck
+const puerto_rico_agrikultur = {
   padi: 168,
   gandum: 284,
   jagung: 168,
@@ -13,4 +14,7 @@ export const puerto_rico_agrikultur = {
   karet: 0,
   kapas: 248,
   tembakau: 116,
-} as const;
+};
+
+
+

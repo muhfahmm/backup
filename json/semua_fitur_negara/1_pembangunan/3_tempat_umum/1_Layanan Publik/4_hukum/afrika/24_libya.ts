@@ -1,4 +1,5 @@
-export const libya_hukum = {
+﻿// @ts-nocheck
+const libya_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 13,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const libya_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 28,
       "indeks_keamanan": 44
-  } as const;
+  };
+
+
+

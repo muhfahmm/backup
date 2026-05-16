@@ -1,4 +1,5 @@
-export const guam_hukum = {
+﻿// @ts-nocheck
+const guam_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 10,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const guam_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 43,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

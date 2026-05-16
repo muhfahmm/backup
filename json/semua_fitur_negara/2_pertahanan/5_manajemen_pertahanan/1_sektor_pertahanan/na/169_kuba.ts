@@ -1,4 +1,5 @@
-export const kuba_pertahanan = {
+﻿// @ts-nocheck
+const kuba_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 37,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const kuba_pertahanan = {
     "pangkalan_laut": 4,
     "program_luar_angkasa": 27,
     "pertahanan_siber": 15
-    } as const;
+    };
+
+
+

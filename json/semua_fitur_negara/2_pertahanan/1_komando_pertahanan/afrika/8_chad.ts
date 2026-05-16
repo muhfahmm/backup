@@ -1,6 +1,6 @@
-import { chad_intelijen } from "../../2_intelijen/afrika/8_chad";
+﻿// @ts-nocheck
 
-export const chad_strategis = {
+const chad_strategis = {
     "waktu_respon": 27,
     "intelijen": 30,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const chad_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { tahiti_intelijen } from "../../2_intelijen/oceania/191_tahiti";
+﻿// @ts-nocheck
 
-export const tahiti_strategis = {
+const tahiti_strategis = {
     "waktu_respon": 14,
     "intelijen": 34,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tahiti_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

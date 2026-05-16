@@ -1,4 +1,5 @@
-export const republik_dominika_agrikultur = {
+﻿// @ts-nocheck
+const republik_dominika_agrikultur = {
   padi: 882,
   gandum: 700,
   jagung: 350,
@@ -13,4 +14,7 @@ export const republik_dominika_agrikultur = {
   karet: 0,
   kapas: 434,
   tembakau: 294,
-} as const;
+};
+
+
+

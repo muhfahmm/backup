@@ -1,6 +1,6 @@
-import { spanyol_intelijen } from "../../2_intelijen/eropa/145_spanyol";
+﻿// @ts-nocheck
 
-export const spanyol_strategis = {
+const spanyol_strategis = {
     "waktu_respon": 40,
     "intelijen": 8,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const spanyol_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

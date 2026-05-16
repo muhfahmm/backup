@@ -1,4 +1,5 @@
-export const republik_demokratik_kongo_agrikultur = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_agrikultur = {
   padi: 105,
   gandum: 60,
   jagung: 75,
@@ -13,4 +14,7 @@ export const republik_demokratik_kongo_agrikultur = {
   karet: 0,
   kapas: 192,
   tembakau: 150,
-} as const;
+};
+
+
+

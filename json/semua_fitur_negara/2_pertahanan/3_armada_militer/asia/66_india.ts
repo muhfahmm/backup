@@ -1,4 +1,5 @@
-export const india_armada = {
+﻿// @ts-nocheck
+const india_armada = {
     "barak": 145,
     "darat": {
         "tank_tempur_utama": 4614,
@@ -28,4 +29,7 @@ export const india_armada = {
         "drone_kamikaze": 500,
         "pesawat_angkut": 250
       }
-} as const;
+};
+
+
+

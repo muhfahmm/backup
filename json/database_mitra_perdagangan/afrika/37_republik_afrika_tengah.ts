@@ -1,4 +1,5 @@
-export const republik_afrika_tengahAgreements = [
+﻿// @ts-nocheck
+const republik_afrika_tengahAgreements = [
   { "no": 1, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
@@ -10,3 +11,6 @@ export const republik_afrika_tengahAgreements = [
   { "no": 9, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

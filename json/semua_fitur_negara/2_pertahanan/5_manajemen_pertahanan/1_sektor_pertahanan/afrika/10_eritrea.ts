@@ -1,4 +1,5 @@
-export const eritrea_pertahanan = {
+﻿// @ts-nocheck
+const eritrea_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 13,
     "hangar_tank": 14,
@@ -7,4 +8,7 @@ export const eritrea_pertahanan = {
     "pangkalan_laut": 16,
     "program_luar_angkasa": 22,
     "pertahanan_siber": 40
-    } as const;
+    };
+
+
+

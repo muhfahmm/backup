@@ -1,4 +1,5 @@
-export const sao_tome_dan_principe_hukum = {
+﻿// @ts-nocheck
+const sao_tome_dan_principe_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 2,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const sao_tome_dan_principe_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 50,
       "indeks_keamanan": 68
-  } as const;
+  };
+
+
+

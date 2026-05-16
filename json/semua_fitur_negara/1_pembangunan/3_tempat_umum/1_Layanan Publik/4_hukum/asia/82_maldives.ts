@@ -1,4 +1,5 @@
-export const maldives_hukum = {
+﻿// @ts-nocheck
+const maldives_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 12,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const maldives_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 12,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

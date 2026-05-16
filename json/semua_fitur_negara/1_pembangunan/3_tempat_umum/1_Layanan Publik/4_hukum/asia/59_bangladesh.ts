@@ -1,4 +1,5 @@
-export const bangladesh_hukum = {
+﻿// @ts-nocheck
+const bangladesh_hukum = {
       "pusat_bantuan_hukum": 39,
       "pengadilan": 49,
       "kejaksaan": 25,
@@ -7,4 +8,7 @@ export const bangladesh_hukum = {
       "akademi_polisi": 7,
       "indeks_korupsi": 36,
       "indeks_keamanan": 70
-  } as const;
+  };
+
+
+

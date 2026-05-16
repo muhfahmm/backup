@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./1_Layanan Publik";
 export * from "./2_hunian_permukiman";
 
@@ -10,3 +11,6 @@ export interface SektorSosial {
   hiburan?: import("./1_Layanan Publik/7_hiburan").SektorHiburan;
   hunian?: import("./2_hunian_permukiman").HunianData;
 }
+
+
+

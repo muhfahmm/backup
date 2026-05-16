@@ -1,4 +1,5 @@
-export const kiribati_infrastruktur = {
+﻿// @ts-nocheck
+const kiribati_infrastruktur = {
   jalur_sepeda: 7,
   jalan_raya: 14,
   terminal_bus: 7,
@@ -7,4 +8,7 @@ export const kiribati_infrastruktur = {
   pelabuhan: 5,
   bandara: 3,
   helipad: 3,
-} as const;
+};
+
+
+

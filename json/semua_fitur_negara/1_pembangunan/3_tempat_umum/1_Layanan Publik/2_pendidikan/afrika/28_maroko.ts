@@ -1,4 +1,5 @@
-export const maroko_pendidikan = {
+﻿// @ts-nocheck
+const maroko_pendidikan = {
       "prasekolah": 55,
       "dasar": 26,
       "menengah": 71,
@@ -10,4 +11,7 @@ export const maroko_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 79
-  } as const;
+  };
+
+
+

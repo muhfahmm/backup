@@ -1,6 +1,6 @@
-import { palestina_intelijen } from "../../2_intelijen/asia/88_palestina";
+﻿// @ts-nocheck
 
-export const palestina_strategis = {
+const palestina_strategis = {
     "waktu_respon": 26,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const palestina_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

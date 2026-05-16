@@ -1,6 +1,5 @@
-import { bermuda_intelijen } from "../../2_intelijen/na/157_bermuda";
-
-export const bermuda_strategis = {
+﻿
+const bermuda_strategis = {
     "waktu_respon": 5,
     "intelijen": 39,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const bermuda_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,5 @@
-export const kolombia_pendidikan = {
+﻿// @ts-nocheck
+const kolombia_pendidikan = {
       "prasekolah": 382,
       "dasar": 577,
       "menengah": 469,
@@ -10,4 +11,7 @@ export const kolombia_pendidikan = {
       "pusat_penelitian": 6,
       "pusat_pengembangan": 4,
       "literasi": 85
-    } as const;
+    };
+
+
+

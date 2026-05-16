@@ -1,6 +1,5 @@
-import { palau_intelijen } from "../../2_intelijen/oceania/186_palau";
-
-export const palau_strategis = {
+﻿
+const palau_strategis = {
     "waktu_respon": 14,
     "intelijen": 14,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const palau_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

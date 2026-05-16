@@ -1,4 +1,4 @@
-export const kroasia_pertahanan = {
+﻿const kroasia_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 9,
     "hangar_tank": 18,
@@ -7,4 +7,6 @@ export const kroasia_pertahanan = {
     "pangkalan_laut": 13,
     "program_luar_angkasa": 16,
     "pertahanan_siber": 37
-    } as const;
+    };
+
+

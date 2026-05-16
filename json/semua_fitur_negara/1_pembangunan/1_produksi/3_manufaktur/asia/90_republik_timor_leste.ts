@@ -1,4 +1,5 @@
-export const republik_timor_leste_manufaktur = {
+﻿// @ts-nocheck
+const republik_timor_leste_manufaktur = {
   semikonduktor: 8,
   mobil: 5,
   sepeda_motor: 13,
@@ -6,4 +7,7 @@ export const republik_timor_leste_manufaktur = {
   semen_beton: 7,
   kayu: 7,
   pupuk: 6,
-} as const;
+};
+
+
+

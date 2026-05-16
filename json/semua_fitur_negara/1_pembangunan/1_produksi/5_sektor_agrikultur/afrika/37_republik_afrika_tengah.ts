@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_agrikultur = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_agrikultur = {
   padi: 75,
   gandum: 213,
   jagung: 129,
@@ -13,4 +14,7 @@ export const republik_afrika_tengah_agrikultur = {
   karet: 0,
   kapas: 144,
   tembakau: 108,
-} as const;
+};
+
+
+

@@ -1,4 +1,4 @@
-export const belarus_kepolisian = {
+﻿const belarus_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const belarus_kepolisian = {
       "pasukan_swat": 26,
       "samapta": 62
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,4 @@
-export const grenada_pertahanan = {
+﻿const grenada_pertahanan = {
     "penjara": 24,
     "gudang_senjata": 20,
     "hangar_tank": 21,
@@ -7,4 +7,6 @@ export const grenada_pertahanan = {
     "pangkalan_laut": 11,
     "program_luar_angkasa": 6,
     "pertahanan_siber": 36
-    } as const;
+    };
+
+

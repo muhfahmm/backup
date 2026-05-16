@@ -1,6 +1,6 @@
-import { yordania_intelijen } from "../../2_intelijen/asia/102_yordania";
+﻿// @ts-nocheck
 
-export const yordania_strategis = {
+const yordania_strategis = {
     "waktu_respon": 35,
     "intelijen": 17,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const yordania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const republik_dominika_infrastruktur = {
+﻿// @ts-nocheck
+const republik_dominika_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 17,
   terminal_bus: 4,
@@ -7,4 +8,7 @@ export const republik_dominika_infrastruktur = {
   pelabuhan: 1,
   bandara: 5,
   helipad: 4,
-} as const;
+};
+
+
+

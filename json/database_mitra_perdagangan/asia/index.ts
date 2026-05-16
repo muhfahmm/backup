@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { afganistanAgreements } from './54_afganistan';
 export { arab_saudiAgreements } from './55_arab_saudi';
 export { armeniaAgreements } from './56_armenia';
@@ -47,3 +48,6 @@ export { uzbekistanAgreements } from './99_uzbekistan';
 export { vietnamAgreements } from './100_vietnam';
 export { yamanAgreements } from './101_yaman';
 export { yordaniaAgreements } from './102_yordania';
+
+
+

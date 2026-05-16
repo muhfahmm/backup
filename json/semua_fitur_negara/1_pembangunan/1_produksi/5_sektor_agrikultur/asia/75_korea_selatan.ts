@@ -1,4 +1,5 @@
-export const korea_selatan_agrikultur = {
+﻿// @ts-nocheck
+const korea_selatan_agrikultur = {
   padi: 6460,
   gandum: 3740,
   jagung: 4760,
@@ -13,4 +14,7 @@ export const korea_selatan_agrikultur = {
   karet: 0,
   kapas: 11050,
   tembakau: 12920,
-} as const;
+};
+
+
+

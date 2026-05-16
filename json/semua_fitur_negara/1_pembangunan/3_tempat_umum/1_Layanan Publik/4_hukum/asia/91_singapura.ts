@@ -1,4 +1,5 @@
-export const singapura_hukum = {
+﻿// @ts-nocheck
+const singapura_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 41,
       "kejaksaan": 18,
@@ -7,4 +8,7 @@ export const singapura_hukum = {
       "akademi_polisi": 10,
       "indeks_korupsi": 29,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

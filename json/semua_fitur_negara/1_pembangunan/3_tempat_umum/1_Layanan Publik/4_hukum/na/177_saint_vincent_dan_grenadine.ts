@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadine_hukum = {
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadine_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 9,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const saint_vincent_dan_grenadine_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 35,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

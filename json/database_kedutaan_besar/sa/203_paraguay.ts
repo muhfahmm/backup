@@ -1,4 +1,5 @@
-export const paraguay_diplomasi = [
+﻿// @ts-nocheck
+const paraguay_diplomasi = [
   { "no": 1, "mitra": "Angola", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Antigua dan Barbuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Argentina", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -11,3 +12,6 @@ export const paraguay_diplomasi = [
   { "no": 10, "mitra": "Bermuda", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 11, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

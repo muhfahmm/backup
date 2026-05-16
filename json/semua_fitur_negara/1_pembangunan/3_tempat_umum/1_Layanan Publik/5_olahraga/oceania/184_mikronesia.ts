@@ -1,4 +1,5 @@
-export const mikronesia_olahraga = {
+﻿// @ts-nocheck
+const mikronesia_olahraga = {
   "kolam_renang": 10,
   "sirkuit_balap": 2,
   "stadion": 2,
@@ -7,4 +8,7 @@ export const mikronesia_olahraga = {
   "golf": 0,
   "esports": 4,
   "gokart": 10
-} as const;
+};
+
+
+

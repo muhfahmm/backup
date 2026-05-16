@@ -1,4 +1,4 @@
-export const saint_kitts_dan_nevis_kepolisian = {
+﻿const saint_kitts_dan_nevis_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const saint_kitts_dan_nevis_kepolisian = {
       "pasukan_swat": 34,
       "samapta": 62
     }
-  } as const;
+  };
+
+

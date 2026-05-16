@@ -1,4 +1,5 @@
-export const nauru_agrikultur = {
+﻿// @ts-nocheck
+const nauru_agrikultur = {
   padi: 102,
   gandum: 126,
   jagung: 57,
@@ -13,4 +14,7 @@ export const nauru_agrikultur = {
   karet: 0,
   kapas: 198,
   tembakau: 120,
-} as const;
+};
+
+
+

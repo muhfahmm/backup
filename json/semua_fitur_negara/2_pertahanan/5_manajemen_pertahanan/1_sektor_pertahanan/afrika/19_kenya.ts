@@ -1,4 +1,5 @@
-export const kenya_pertahanan = {
+﻿// @ts-nocheck
+const kenya_pertahanan = {
     "penjara": 33,
     "gudang_senjata": 7,
     "hangar_tank": 13,
@@ -7,4 +8,7 @@ export const kenya_pertahanan = {
     "pangkalan_laut": 10,
     "program_luar_angkasa": 30,
     "pertahanan_siber": 19
-    } as const;
+    };
+
+
+

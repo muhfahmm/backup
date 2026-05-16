@@ -1,4 +1,5 @@
-export const republik_demokratik_kongo_hukum = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 9,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const republik_demokratik_kongo_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 16,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

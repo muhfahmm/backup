@@ -1,4 +1,5 @@
-export const nauru_pendidikan = {
+﻿// @ts-nocheck
+const nauru_pendidikan = {
       "prasekolah": 46,
       "dasar": 76,
       "menengah": 26,
@@ -10,4 +11,7 @@ export const nauru_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 2,
       "literasi": 74
-    } as const;
+    };
+
+
+

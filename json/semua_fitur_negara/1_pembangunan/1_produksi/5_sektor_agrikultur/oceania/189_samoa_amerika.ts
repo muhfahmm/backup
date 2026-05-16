@@ -1,4 +1,5 @@
-export const samoa_amerika_agrikultur = {
+﻿// @ts-nocheck
+const samoa_amerika_agrikultur = {
   padi: 88,
   gandum: 110,
   jagung: 134,
@@ -13,4 +14,7 @@ export const samoa_amerika_agrikultur = {
   karet: 0,
   kapas: 30,
   tembakau: 88,
-} as const;
+};
+
+
+

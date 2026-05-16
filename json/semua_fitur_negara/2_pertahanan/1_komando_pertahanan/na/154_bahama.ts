@@ -1,6 +1,5 @@
-import { bahama_intelijen } from "../../2_intelijen/na/154_bahama";
-
-export const bahama_strategis = {
+﻿
+const bahama_strategis = {
     "waktu_respon": 10,
     "intelijen": 34,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const bahama_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

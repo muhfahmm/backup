@@ -1,4 +1,5 @@
-export const prancis_agrikultur = {
+﻿// @ts-nocheck
+const prancis_agrikultur = {
   padi: 4978,
   gandum: 19126,
   jagung: 13362,
@@ -13,4 +14,7 @@ export const prancis_agrikultur = {
   karet: 0,
   kapas: 11528,
   tembakau: 3668,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const republik_uganda_kepolisian = {
+﻿// @ts-nocheck
+const republik_uganda_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const republik_uganda_kepolisian = {
       "pasukan_swat": 2,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

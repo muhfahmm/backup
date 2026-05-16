@@ -1,6 +1,6 @@
-import { san_marino_intelijen } from "../../2_intelijen/eropa/141_san_marino";
+﻿// @ts-nocheck
 
-export const san_marino_strategis = {
+const san_marino_strategis = {
     "waktu_respon": 28,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const san_marino_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

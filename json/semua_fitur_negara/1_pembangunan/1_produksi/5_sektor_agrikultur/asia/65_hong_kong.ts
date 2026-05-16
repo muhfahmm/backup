@@ -1,4 +1,5 @@
-export const hong_kong_agrikultur = {
+﻿// @ts-nocheck
+const hong_kong_agrikultur = {
   padi: 33,
   gandum: 13,
   jagung: 66,
@@ -13,4 +14,7 @@ export const hong_kong_agrikultur = {
   karet: 0,
   kapas: 11,
   tembakau: 76,
-} as const;
+};
+
+
+

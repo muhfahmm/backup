@@ -1,4 +1,5 @@
-export const pantai_gading_olahan_pangan = {
+﻿// @ts-nocheck
+const pantai_gading_olahan_pangan = {
   air_mineral: 85,
   gula: 105,
   roti: 50,
@@ -9,4 +10,7 @@ export const pantai_gading_olahan_pangan = {
   pakan_ternak: 205,
   ikan_kaleng: 105,
   kopi_teh: 105,
-} as const;
+};
+
+
+

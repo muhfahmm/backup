@@ -1,5 +1,9 @@
-export const rwanda_intelijen = {
+﻿// @ts-nocheck
+const rwanda_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 5,
   operasi_siber: 3,
-} as const;
+};
+
+
+

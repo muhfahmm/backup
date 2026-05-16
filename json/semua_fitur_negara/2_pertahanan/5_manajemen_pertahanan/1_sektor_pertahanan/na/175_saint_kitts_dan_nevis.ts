@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevis_pertahanan = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 32,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const saint_kitts_dan_nevis_pertahanan = {
     "pangkalan_laut": 6,
     "program_luar_angkasa": 14,
     "pertahanan_siber": 19
-    } as const;
+    };
+
+
+

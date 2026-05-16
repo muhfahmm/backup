@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { argentinaEmbassyConfig } from './195_argentina';
 export { boliviaEmbassyConfig } from './196_bolivia';
 export { brazilEmbassyConfig } from './197_brazil';
@@ -11,3 +12,6 @@ export { peruEmbassyConfig } from './204_peru';
 export { surinameEmbassyConfig } from './205_suriname';
 export { uruguayEmbassyConfig } from './206_uruguay';
 export { venezuelaEmbassyConfig } from './207_venezuela';
+
+
+

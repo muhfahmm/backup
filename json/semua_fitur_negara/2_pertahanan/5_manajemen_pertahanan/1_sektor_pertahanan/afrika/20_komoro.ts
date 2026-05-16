@@ -1,4 +1,4 @@
-export const komoro_pertahanan = {
+﻿const komoro_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 39,
     "hangar_tank": 27,
@@ -7,4 +7,6 @@ export const komoro_pertahanan = {
     "pangkalan_laut": 6,
     "program_luar_angkasa": 25,
     "pertahanan_siber": 25
-    } as const;
+    };
+
+

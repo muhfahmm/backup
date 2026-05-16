@@ -1,4 +1,5 @@
-export const belarus_pendidikan = {
+﻿// @ts-nocheck
+const belarus_pendidikan = {
       "prasekolah": 14,
       "dasar": 144,
       "menengah": 100,
@@ -10,4 +11,7 @@ export const belarus_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 80
-    } as const;
+    };
+
+
+

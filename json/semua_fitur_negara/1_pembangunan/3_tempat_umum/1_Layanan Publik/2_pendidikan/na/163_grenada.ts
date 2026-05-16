@@ -1,4 +1,5 @@
-export const grenada_pendidikan = {
+﻿// @ts-nocheck
+const grenada_pendidikan = {
       "prasekolah": 80,
       "dasar": 115,
       "menengah": 47,
@@ -10,4 +11,7 @@ export const grenada_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 70
-    } as const;
+    };
+
+
+

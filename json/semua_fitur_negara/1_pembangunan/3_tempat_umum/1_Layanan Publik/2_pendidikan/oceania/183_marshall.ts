@@ -1,4 +1,5 @@
-export const marshall_pendidikan = {
+﻿// @ts-nocheck
+const marshall_pendidikan = {
       "prasekolah": 20,
       "dasar": 89,
       "menengah": 22,
@@ -10,4 +11,7 @@ export const marshall_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

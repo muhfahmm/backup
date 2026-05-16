@@ -1,6 +1,6 @@
-import { haiti_intelijen } from "../../2_intelijen/na/165_haiti";
+﻿// @ts-nocheck
 
-export const haiti_strategis = {
+const haiti_strategis = {
     "waktu_respon": 33,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const haiti_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

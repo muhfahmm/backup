@@ -1,4 +1,5 @@
-export const mauritius_hukum = {
+﻿// @ts-nocheck
+const mauritius_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 2,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const mauritius_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 48,
       "indeks_keamanan": 47
-  } as const;
+  };
+
+
+

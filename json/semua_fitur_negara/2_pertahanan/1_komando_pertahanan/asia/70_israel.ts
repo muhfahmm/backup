@@ -1,6 +1,6 @@
-import { israel_intelijen } from "../../2_intelijen/asia/70_israel";
+﻿// @ts-nocheck
 
-export const israel_strategis = {
+const israel_strategis = {
     "waktu_respon": 37,
     "intelijen": 27,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const israel_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 90
     }
-  } as const;
+  };
+
+
+

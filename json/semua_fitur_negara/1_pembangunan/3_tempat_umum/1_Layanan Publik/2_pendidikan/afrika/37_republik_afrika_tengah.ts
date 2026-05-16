@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_pendidikan = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_pendidikan = {
       "prasekolah": 78,
       "dasar": 46,
       "menengah": 49,
@@ -10,4 +11,7 @@ export const republik_afrika_tengah_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 66
-  } as const;
+  };
+
+
+

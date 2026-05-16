@@ -1,4 +1,5 @@
-export const sierra_leone_kepolisian = {
+﻿// @ts-nocheck
+const sierra_leone_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const sierra_leone_kepolisian = {
       "pasukan_swat": 15,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { argentinaAgreements } from './195_argentina';
 export { boliviaAgreements } from './196_bolivia';
 export { brazilAgreements } from './197_brazil';
@@ -11,3 +12,6 @@ export { peruAgreements } from './204_peru';
 export { surinameAgreements } from './205_suriname';
 export { uruguayAgreements } from './206_uruguay';
 export { venezuelaAgreements } from './207_venezuela';
+
+
+

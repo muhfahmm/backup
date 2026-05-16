@@ -1,4 +1,5 @@
-export const taiwan_kepolisian = {
+﻿// @ts-nocheck
+const taiwan_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const taiwan_kepolisian = {
       "pasukan_swat": 13,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

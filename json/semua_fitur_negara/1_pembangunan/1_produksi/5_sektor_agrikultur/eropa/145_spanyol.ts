@@ -1,4 +1,5 @@
-export const spanyol_agrikultur = {
+﻿// @ts-nocheck
+const spanyol_agrikultur = {
   padi: 5452,
   gandum: 3828,
   jagung: 1856,
@@ -13,4 +14,7 @@ export const spanyol_agrikultur = {
   karet: 0,
   kapas: 8932,
   tembakau: 6032,
-} as const;
+};
+
+
+

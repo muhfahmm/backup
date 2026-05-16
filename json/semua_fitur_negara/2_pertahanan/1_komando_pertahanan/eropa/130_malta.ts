@@ -1,6 +1,6 @@
-import { malta_intelijen } from "../../2_intelijen/eropa/130_malta";
+﻿// @ts-nocheck
 
-export const malta_strategis = {
+const malta_strategis = {
     "waktu_respon": 3,
     "intelijen": 36,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const malta_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

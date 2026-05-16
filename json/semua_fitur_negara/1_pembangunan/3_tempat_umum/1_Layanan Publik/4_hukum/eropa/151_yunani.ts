@@ -1,4 +1,5 @@
-export const yunani_hukum = {
+﻿// @ts-nocheck
+const yunani_hukum = {
       "pusat_bantuan_hukum": 24,
       "pengadilan": 41,
       "kejaksaan": 13,
@@ -7,4 +8,7 @@ export const yunani_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 53,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

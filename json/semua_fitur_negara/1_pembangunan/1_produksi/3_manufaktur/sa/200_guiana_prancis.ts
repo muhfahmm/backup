@@ -1,4 +1,5 @@
-export const guiana_prancis_manufaktur = {
+﻿// @ts-nocheck
+const guiana_prancis_manufaktur = {
   semikonduktor: 14,
   mobil: 10,
   sepeda_motor: 6,
@@ -6,4 +7,7 @@ export const guiana_prancis_manufaktur = {
   semen_beton: 7,
   kayu: 11,
   pupuk: 7,
-} as const;
+};
+
+
+

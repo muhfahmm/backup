@@ -1,4 +1,5 @@
-export const samoa_amerika_kepolisian = {
+﻿// @ts-nocheck
+const samoa_amerika_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const samoa_amerika_kepolisian = {
       "pasukan_swat": 7,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

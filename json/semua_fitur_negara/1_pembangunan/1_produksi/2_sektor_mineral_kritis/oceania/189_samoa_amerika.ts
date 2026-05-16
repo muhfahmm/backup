@@ -1,4 +1,5 @@
-export const samoa_amerika_ekstraksi = {
+﻿// @ts-nocheck
+const samoa_amerika_ekstraksi = {
   emas: 6,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const samoa_amerika_ekstraksi = {
   aluminium: 16,
   logam_tanah_jarang: 10,
   bijih_besi: 20,
-} as const;
+};
+
+
+

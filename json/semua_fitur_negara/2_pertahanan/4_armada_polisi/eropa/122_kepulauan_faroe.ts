@@ -1,4 +1,5 @@
-export const kepulauan_faroe_kepolisian = {
+﻿// @ts-nocheck
+const kepulauan_faroe_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const kepulauan_faroe_kepolisian = {
       "pasukan_swat": 25,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

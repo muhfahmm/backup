@@ -1,4 +1,5 @@
-export const san_marino_pendidikan = {
+﻿// @ts-nocheck
+const san_marino_pendidikan = {
       "prasekolah": 79,
       "dasar": 39,
       "menengah": 61,
@@ -10,4 +11,7 @@ export const san_marino_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 73
-    } as const;
+    };
+
+
+

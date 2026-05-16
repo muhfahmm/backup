@@ -1,4 +1,4 @@
-export const republik_rumania_kepolisian = {
+﻿const republik_rumania_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const republik_rumania_kepolisian = {
       "pasukan_swat": 27,
       "samapta": 62
     }
-  } as const;
+  };
+
+

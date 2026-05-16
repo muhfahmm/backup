@@ -1,4 +1,5 @@
-export const venezuela_manufaktur = {
+﻿// @ts-nocheck
+const venezuela_manufaktur = {
   semikonduktor: 32,
   mobil: 88,
   sepeda_motor: 112,
@@ -6,4 +7,7 @@ export const venezuela_manufaktur = {
   semen_beton: 72,
   kayu: 72,
   pupuk: 56,
-} as const;
+};
+
+
+

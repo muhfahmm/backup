@@ -1,41 +1,19 @@
-export const korea_selatan_profile = {
+﻿// @ts-nocheck
+const korea_selatan_profile = {
   "name_en": "South Korea",
   "capital": "Seoul",
   "name_id": "Korea Selatan",
   "lon": 126.97,
   "lat": 37.56,
-  "flag": "🇰🇷",
+  "flag": "ðŸ‡°ðŸ‡·",
   "jumlah_penduduk": "10M",
   "anggaran": 17112,
   "pendapatan_nasional": "48893",
   "religion": "Ateisme",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { korea_selatan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/75_korea_selatan";
-import { korea_selatan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/75_korea_selatan";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { korea_selatan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/75_korea_selatan";
 
-import { korea_selatan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/75_korea_selatan";
-import { korea_selatan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/75_korea_selatan";
-import { korea_selatan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/75_korea_selatan";
-import { korea_selatan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/75_korea_selatan";
-import { korea_selatan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/75_korea_selatan";
-import { korea_selatan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/75_korea_selatan";
-import { korea_selatan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/75_korea_selatan";
-import { korea_selatan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/75_korea_selatan";
-import { korea_selatan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/75_korea_selatan";
-import { korea_selatan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/75_korea_selatan";
-import { korea_selatan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/75_korea_selatan";
-import { korea_selatan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/75_korea_selatan";
-import { korea_selatan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/75_korea_selatan";
-import { korea_selatan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/75_korea_selatan";
-import { korea_selatan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/75_korea_selatan";
-import { korea_selatan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/75_korea_selatan";
-import { korea_selatan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/75_korea_selatan";
-import { korea_selatan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/75_korea_selatan";
-import { korea_selatan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/75_korea_selatan";
 const korea_selatan_geopolitik = {
     "un_vote": 185,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const korea_selatan_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const korea_selatan: CountryData = {
+const korea_selatan = {
   ...korea_selatan_profile,
   "sektor_listrik": korea_selatan_listrik,
   "hunian": korea_selatan_hunian,
@@ -75,7 +53,7 @@ export const korea_selatan: CountryData = {
   "sektor_komersial": korea_selatan_komersial,
   "sektor_hiburan": korea_selatan_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const korea_selatan: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const korea_selatan: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": korea_selatan_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,
@@ -143,5 +121,8 @@ export const korea_selatan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

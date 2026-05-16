@@ -1,4 +1,5 @@
-export const jerman_ekstraksi = {
+﻿// @ts-nocheck
+const jerman_ekstraksi = {
   emas: 0,
   uranium: 8,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const jerman_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 2580,
   bijih_besi: 2580,
-} as const;
+};
+
+
+

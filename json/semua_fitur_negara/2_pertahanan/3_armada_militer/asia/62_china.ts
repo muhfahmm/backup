@@ -1,4 +1,5 @@
-export const china_armada = {
+﻿// @ts-nocheck
+const china_armada = {
     "barak": 203,
     "darat": {
         "tank_tempur_utama": 5000,
@@ -28,4 +29,7 @@ export const china_armada = {
         "drone_kamikaze": 4000,
         "pesawat_angkut": 300
       }
-} as const;
+};
+
+
+

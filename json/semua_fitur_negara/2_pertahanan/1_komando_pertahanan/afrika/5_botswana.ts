@@ -1,6 +1,6 @@
-import { botswana_intelijen } from "../../2_intelijen/afrika/5_botswana";
+﻿// @ts-nocheck
 
-export const botswana_strategis = {
+const botswana_strategis = {
     "waktu_respon": 19,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const botswana_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

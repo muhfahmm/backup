@@ -1,4 +1,4 @@
-export const inggris_kepolisian = {
+﻿const inggris_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const inggris_kepolisian = {
       "pasukan_swat": 24,
       "samapta": 62
     }
-  } as const;
+  };
+
+

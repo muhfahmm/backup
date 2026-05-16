@@ -1,6 +1,5 @@
-import { turki_intelijen } from "../../2_intelijen/eropa/148_turki";
-
-export const turki_strategis = {
+﻿
+const turki_strategis = {
     "waktu_respon": 33,
     "intelijen": 7,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const turki_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

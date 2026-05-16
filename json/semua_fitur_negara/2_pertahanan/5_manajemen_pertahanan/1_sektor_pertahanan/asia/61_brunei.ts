@@ -1,4 +1,5 @@
-export const brunei_pertahanan = {
+﻿// @ts-nocheck
+const brunei_pertahanan = {
     "penjara": 3,
     "gudang_senjata": 34,
     "hangar_tank": 36,
@@ -7,4 +8,7 @@ export const brunei_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 27,
     "pertahanan_siber": 34
-    } as const;
+    };
+
+
+

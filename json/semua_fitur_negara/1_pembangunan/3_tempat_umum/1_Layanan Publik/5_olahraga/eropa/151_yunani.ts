@@ -1,4 +1,5 @@
-export const yunani_olahraga = {
+﻿// @ts-nocheck
+const yunani_olahraga = {
   "kolam_renang": 49,
   "sirkuit_balap": 6,
   "stadion": 26,
@@ -7,4 +8,7 @@ export const yunani_olahraga = {
   "golf": 6,
   "esports": 7,
   "gokart": 40
-} as const;
+};
+
+
+

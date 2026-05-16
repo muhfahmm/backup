@@ -1,4 +1,5 @@
-export const belanda_pendidikan = {
+﻿// @ts-nocheck
+const belanda_pendidikan = {
       "prasekolah": 1064,
       "dasar": 1965,
       "menengah": 915,
@@ -10,4 +11,7 @@ export const belanda_pendidikan = {
       "pusat_penelitian": 48,
       "pusat_pengembangan": 27,
       "literasi": 85
-    } as const;
+    };
+
+
+

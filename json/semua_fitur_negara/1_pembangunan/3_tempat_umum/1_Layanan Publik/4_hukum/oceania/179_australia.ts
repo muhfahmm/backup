@@ -1,4 +1,5 @@
-export const australia_hukum = {
+﻿// @ts-nocheck
+const australia_hukum = {
       "pusat_bantuan_hukum": 50,
       "pengadilan": 170,
       "kejaksaan": 53,
@@ -7,4 +8,7 @@ export const australia_hukum = {
       "akademi_polisi": 25,
       "indeks_korupsi": 69,
       "indeks_keamanan": 67
-  } as const;
+  };
+
+
+

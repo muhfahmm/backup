@@ -1,6 +1,6 @@
-import { republik_dominika_intelijen } from "../../2_intelijen/na/174_republik_dominika";
+﻿// @ts-nocheck
 
-export const republik_dominika_strategis = {
+const republik_dominika_strategis = {
     "waktu_respon": 31,
     "intelijen": 35,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_dominika_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

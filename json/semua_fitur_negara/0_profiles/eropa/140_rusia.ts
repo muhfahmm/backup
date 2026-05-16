@@ -1,41 +1,19 @@
-export const rusia_profile = {
+﻿// @ts-nocheck
+const rusia_profile = {
   "name_en": "Russia",
   "capital": "Moscow",
   "name_id": "Rusia",
   "lon": 37.61,
   "lat": 55.75,
-  "flag": "🇷🇺",
+  "flag": "ðŸ‡·ðŸ‡º",
   "jumlah_penduduk": 146028325,
   "anggaran": 19640,
   "pendapatan_nasional": "56116",
   "religion": "Kristen Ortodoks",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { rusia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/140_rusia";
-import { rusia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/140_rusia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { rusia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/140_rusia";
 
-import { rusia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/140_rusia";
-import { rusia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/140_rusia";
-import { rusia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/140_rusia";
-import { rusia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/140_rusia";
-import { rusia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/140_rusia";
-import { rusia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/140_rusia";
-import { rusia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/140_rusia";
-import { rusia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/140_rusia";
-import { rusia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/140_rusia";
-import { rusia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/140_rusia";
-import { rusia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/140_rusia";
-import { rusia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/140_rusia";
-import { rusia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/140_rusia";
-import { rusia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/140_rusia";
-import { rusia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/140_rusia";
-import { rusia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/140_rusia";
-import { rusia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/140_rusia";
-import { rusia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/140_rusia";
-import { rusia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/140_rusia";
 const rusia_geopolitik = {
     "un_vote": 150,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const rusia_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const rusia: CountryData = {
+const rusia = {
   ...rusia_profile,
   "sektor_listrik": rusia_listrik,
   "hunian": rusia_hunian,
@@ -75,7 +53,7 @@ export const rusia: CountryData = {
   "sektor_komersial": rusia_komersial,
   "sektor_hiburan": rusia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const rusia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const rusia: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": rusia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,
@@ -143,5 +121,8 @@ export const rusia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

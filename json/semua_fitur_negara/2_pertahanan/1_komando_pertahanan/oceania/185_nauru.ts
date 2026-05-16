@@ -1,6 +1,6 @@
-import { nauru_intelijen } from "../../2_intelijen/oceania/185_nauru";
+﻿// @ts-nocheck
 
-export const nauru_strategis = {
+const nauru_strategis = {
     "waktu_respon": 3,
     "intelijen": 24,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const nauru_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const marshall_agrikultur = {
+﻿// @ts-nocheck
+const marshall_agrikultur = {
   padi: 188,
   gandum: 212,
   jagung: 256,
@@ -13,4 +14,7 @@ export const marshall_agrikultur = {
   karet: 0,
   kapas: 128,
   tembakau: 128,
-} as const;
+};
+
+
+

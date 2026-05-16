@@ -1,6 +1,6 @@
-import { lithuania_intelijen } from "../../2_intelijen/eropa/127_lithuania";
+﻿// @ts-nocheck
 
-export const lithuania_strategis = {
+const lithuania_strategis = {
     "waktu_respon": 40,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const lithuania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

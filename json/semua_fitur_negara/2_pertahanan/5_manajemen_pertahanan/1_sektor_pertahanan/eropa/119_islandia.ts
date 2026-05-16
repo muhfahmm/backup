@@ -1,4 +1,5 @@
-export const islandia_pertahanan = {
+﻿// @ts-nocheck
+const islandia_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 12,
     "hangar_tank": 15,
@@ -7,4 +8,7 @@ export const islandia_pertahanan = {
     "pangkalan_laut": 22,
     "program_luar_angkasa": 32,
     "pertahanan_siber": 6
-    } as const;
+    };
+
+
+

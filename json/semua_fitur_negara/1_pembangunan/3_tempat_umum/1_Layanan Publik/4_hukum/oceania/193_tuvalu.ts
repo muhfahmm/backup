@@ -1,4 +1,5 @@
-export const tuvalu_hukum = {
+﻿// @ts-nocheck
+const tuvalu_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 15,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const tuvalu_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 42,
       "indeks_keamanan": 49
-  } as const;
+  };
+
+
+

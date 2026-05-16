@@ -1,4 +1,5 @@
-export const suriah_pendidikan = {
+﻿// @ts-nocheck
+const suriah_pendidikan = {
       "prasekolah": 36,
       "dasar": 129,
       "menengah": 70,
@@ -10,4 +11,7 @@ export const suriah_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 74
-    } as const;
+    };
+
+
+

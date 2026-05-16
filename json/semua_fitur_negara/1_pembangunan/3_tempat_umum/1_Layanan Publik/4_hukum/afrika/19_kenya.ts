@@ -1,4 +1,5 @@
-export const kenya_hukum = {
+﻿// @ts-nocheck
+const kenya_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 5,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const kenya_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 45,
       "indeks_keamanan": 44
-  } as const;
+  };
+
+
+

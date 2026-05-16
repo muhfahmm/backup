@@ -1,4 +1,5 @@
-export const tuvalu_pendidikan = {
+﻿// @ts-nocheck
+const tuvalu_pendidikan = {
       "prasekolah": 48,
       "dasar": 104,
       "menengah": 27,
@@ -10,4 +11,7 @@ export const tuvalu_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 78
-    } as const;
+    };
+
+
+

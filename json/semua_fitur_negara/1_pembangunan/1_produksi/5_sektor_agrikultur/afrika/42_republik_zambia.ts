@@ -1,4 +1,5 @@
-export const republik_zambia_agrikultur = {
+﻿// @ts-nocheck
+const republik_zambia_agrikultur = {
   padi: 128,
   gandum: 82,
   jagung: 136,
@@ -13,4 +14,7 @@ export const republik_zambia_agrikultur = {
   karet: 0,
   kapas: 132,
   tembakau: 52,
-} as const;
+};
+
+
+

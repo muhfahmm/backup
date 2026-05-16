@@ -1,4 +1,5 @@
-export const mauritania_pendidikan = {
+﻿// @ts-nocheck
+const mauritania_pendidikan = {
       "prasekolah": 52,
       "dasar": 128,
       "menengah": 28,
@@ -10,4 +11,7 @@ export const mauritania_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 84
-  } as const;
+  };
+
+
+

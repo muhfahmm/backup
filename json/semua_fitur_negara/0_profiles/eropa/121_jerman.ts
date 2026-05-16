@@ -1,41 +1,19 @@
-export const jerman_profile = {
+﻿// @ts-nocheck
+const jerman_profile = {
   "name_en": "Germany",
   "capital": "Berlin",
   "name_id": "Jerman",
   "lon": 13.4,
   "lat": 52.52,
-  "flag": "🇩🇪",
+  "flag": "ðŸ‡©ðŸ‡ª",
   "jumlah_penduduk": 83497147,
   "anggaran": 44629,
   "pendapatan_nasional": "127510",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { jerman_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/121_jerman";
-import { jerman_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/121_jerman";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { jerman_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/121_jerman";
 
-import { jerman_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/121_jerman";
-import { jerman_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/121_jerman";
-import { jerman_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/121_jerman";
-import { jerman_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/121_jerman";
-import { jerman_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/121_jerman";
-import { jerman_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/121_jerman";
-import { jerman_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/121_jerman";
-import { jerman_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/121_jerman";
-import { jerman_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/121_jerman";
-import { jerman_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/121_jerman";
-import { jerman_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/121_jerman";
-import { jerman_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/121_jerman";
-import { jerman_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/121_jerman";
-import { jerman_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/121_jerman";
-import { jerman_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/121_jerman";
-import { jerman_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/121_jerman";
-import { jerman_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/121_jerman";
-import { jerman_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/121_jerman";
-import { jerman_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/121_jerman";
 const jerman_geopolitik = {
     "un_vote": 197,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const jerman_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const jerman: CountryData = {
+const jerman = {
   ...jerman_profile,
   "sektor_listrik": jerman_listrik,
   "hunian": jerman_hunian,
@@ -75,7 +53,7 @@ export const jerman: CountryData = {
   "sektor_komersial": jerman_komersial,
   "sektor_hiburan": jerman_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const jerman: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const jerman: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": jerman_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,
@@ -143,5 +121,8 @@ export const jerman: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

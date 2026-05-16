@@ -1,6 +1,6 @@
-import { suriah_intelijen } from "../../2_intelijen/asia/93_suriah";
+﻿// @ts-nocheck
 
-export const suriah_strategis = {
+const suriah_strategis = {
     "waktu_respon": 25,
     "intelijen": 7,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const suriah_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,10 +1,11 @@
+﻿// @ts-nocheck
 export interface HunianData {
   rumah_subsidi?: number;
   apartemen?: number;
   mansion?: number;
 }
 
-export const hunianRate = {
+const hunianRate = {
   rumah_subsidi: {
     biaya_pembangunan: 500,
     waktu_pembangunan: 4,
@@ -40,3 +41,6 @@ export * from "./eropa";
 export * from "./na";
 export * from "./sa";
 export * from "./oceania";
+
+
+

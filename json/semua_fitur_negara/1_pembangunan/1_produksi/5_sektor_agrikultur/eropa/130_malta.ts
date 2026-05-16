@@ -1,4 +1,5 @@
-export const malta_agrikultur = {
+﻿// @ts-nocheck
+const malta_agrikultur = {
   padi: 122,
   gandum: 132,
   jagung: 110,
@@ -13,4 +14,7 @@ export const malta_agrikultur = {
   karet: 0,
   kapas: 132,
   tembakau: 124,
-} as const;
+};
+
+
+

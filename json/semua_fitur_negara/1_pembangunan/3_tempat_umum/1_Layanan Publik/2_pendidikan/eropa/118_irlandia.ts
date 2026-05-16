@@ -1,4 +1,5 @@
-export const irlandia_pendidikan = {
+﻿// @ts-nocheck
+const irlandia_pendidikan = {
       "prasekolah": 206,
       "dasar": 223,
       "menengah": 284,
@@ -10,4 +11,7 @@ export const irlandia_pendidikan = {
       "pusat_penelitian": 17,
       "pusat_pengembangan": 2,
       "literasi": 84
-    } as const;
+    };
+
+
+

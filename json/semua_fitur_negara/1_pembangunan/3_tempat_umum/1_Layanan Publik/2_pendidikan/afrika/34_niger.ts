@@ -1,4 +1,5 @@
-export const niger_pendidikan = {
+﻿// @ts-nocheck
+const niger_pendidikan = {
       "prasekolah": 10,
       "dasar": 21,
       "menengah": 13,
@@ -10,4 +11,7 @@ export const niger_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 1,
       "literasi": 83
-  } as const;
+  };
+
+
+

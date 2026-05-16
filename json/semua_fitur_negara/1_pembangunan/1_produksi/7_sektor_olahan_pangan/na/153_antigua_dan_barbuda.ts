@@ -1,4 +1,5 @@
-export const antigua_dan_barbuda_olahan_pangan = {
+﻿// @ts-nocheck
+const antigua_dan_barbuda_olahan_pangan = {
   air_mineral: 38,
   gula: 76,
   roti: 22,
@@ -9,4 +10,7 @@ export const antigua_dan_barbuda_olahan_pangan = {
   pakan_ternak: 32,
   ikan_kaleng: 98,
   kopi_teh: 68,
-} as const;
+};
+
+
+

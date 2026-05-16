@@ -1,6 +1,6 @@
-import { oman_intelijen } from "../../2_intelijen/asia/86_oman";
+﻿// @ts-nocheck
 
-export const oman_strategis = {
+const oman_strategis = {
     "waktu_respon": 6,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const oman_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

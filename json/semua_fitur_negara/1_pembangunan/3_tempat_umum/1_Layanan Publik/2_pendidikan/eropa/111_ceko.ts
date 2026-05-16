@@ -1,4 +1,5 @@
-export const ceko_pendidikan = {
+﻿// @ts-nocheck
+const ceko_pendidikan = {
       "prasekolah": 139,
       "dasar": 443,
       "menengah": 229,
@@ -10,4 +11,7 @@ export const ceko_pendidikan = {
       "pusat_penelitian": 19,
       "pusat_pengembangan": 4,
       "literasi": 89
-    } as const;
+    };
+
+
+

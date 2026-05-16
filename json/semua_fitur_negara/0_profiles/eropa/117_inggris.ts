@@ -1,41 +1,19 @@
-export const inggris_profile = {
+﻿// @ts-nocheck
+const inggris_profile = {
   "name_en": "United Kingdom",
   "capital": "London",
   "name_id": "Inggris",
   "lon": -0.12,
   "lat": 51.5,
-  "flag": "🇬🇧",
+  "flag": "ðŸ‡¬ðŸ‡§",
   "jumlah_penduduk": 69487000,
   "anggaran": 34030,
   "pendapatan_nasional": "97230",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { inggris_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/117_inggris";
-import { inggris_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/117_inggris";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { inggris_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/117_inggris";
 
-import { inggris_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/117_inggris";
-import { inggris_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/117_inggris";
-import { inggris_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/117_inggris";
-import { inggris_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/117_inggris";
-import { inggris_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/117_inggris";
-import { inggris_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/117_inggris";
-import { inggris_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/117_inggris";
-import { inggris_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/117_inggris";
-import { inggris_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/117_inggris";
-import { inggris_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/117_inggris";
-import { inggris_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/117_inggris";
-import { inggris_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/117_inggris";
-import { inggris_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/117_inggris";
-import { inggris_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/117_inggris";
-import { inggris_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/117_inggris";
-import { inggris_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/117_inggris";
-import { inggris_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/117_inggris";
-import { inggris_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/117_inggris";
-import { inggris_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/117_inggris";
 const inggris_geopolitik = {
     "un_vote": 181,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const inggris_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const inggris: CountryData = {
+const inggris = {
   ...inggris_profile,
   "sektor_listrik": inggris_listrik,
   "hunian": inggris_hunian,
@@ -75,7 +53,7 @@ export const inggris: CountryData = {
   "sektor_komersial": inggris_komersial,
   "sektor_hiburan": inggris_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const inggris: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const inggris: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": inggris_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,
@@ -143,5 +121,8 @@ export const inggris: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

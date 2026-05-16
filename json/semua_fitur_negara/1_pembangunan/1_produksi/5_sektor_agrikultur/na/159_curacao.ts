@@ -1,4 +1,5 @@
-export const curacao_agrikultur = {
+﻿// @ts-nocheck
+const curacao_agrikultur = {
   padi: 78,
   gandum: 142,
   jagung: 140,
@@ -13,4 +14,7 @@ export const curacao_agrikultur = {
   karet: 0,
   kapas: 68,
   tembakau: 108,
-} as const;
+};
+
+
+

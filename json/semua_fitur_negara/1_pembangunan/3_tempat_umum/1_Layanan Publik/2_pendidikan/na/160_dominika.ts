@@ -1,4 +1,5 @@
-export const dominika_pendidikan = {
+﻿// @ts-nocheck
+const dominika_pendidikan = {
       "prasekolah": 60,
       "dasar": 75,
       "menengah": 46,
@@ -10,4 +11,7 @@ export const dominika_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

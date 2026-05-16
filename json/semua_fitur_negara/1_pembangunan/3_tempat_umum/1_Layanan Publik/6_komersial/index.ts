@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface SektorKomersial {
   pusat_belanja?: number;
   hotel?: number;
@@ -7,7 +8,7 @@ export interface SektorKomersial {
 // ===================
 // DETAIL TOTAL BANGUNAN: Komersial (Total: 3 Bangunan)
 // ===================
-export const komersialRate: Record<string, any> = {
+const komersialRate: Record<string, any> = {
   "23_pusat_belanja": {
     key: "23_pusat_belanja",
     dataKey: "pusat_belanja",
@@ -48,3 +49,6 @@ export const komersialRate: Record<string, any> = {
     efek: "Meningkatkan kas negara"
   },
 };
+
+
+

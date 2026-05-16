@@ -1,4 +1,5 @@
-export const eswatini_agrikultur = {
+﻿// @ts-nocheck
+const eswatini_agrikultur = {
   padi: 58,
   gandum: 73,
   jagung: 70,
@@ -13,4 +14,7 @@ export const eswatini_agrikultur = {
   karet: 0,
   kapas: 79,
   tembakau: 12,
-} as const;
+};
+
+
+

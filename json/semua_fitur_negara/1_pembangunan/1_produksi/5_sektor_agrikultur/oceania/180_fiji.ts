@@ -1,4 +1,5 @@
-export const fiji_agrikultur = {
+﻿// @ts-nocheck
+const fiji_agrikultur = {
   padi: 156,
   gandum: 58,
   jagung: 108,
@@ -13,4 +14,7 @@ export const fiji_agrikultur = {
   karet: 0,
   kapas: 154,
   tembakau: 40,
-} as const;
+};
+
+
+

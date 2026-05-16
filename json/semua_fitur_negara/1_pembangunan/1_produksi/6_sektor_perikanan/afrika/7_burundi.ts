@@ -1,5 +1,9 @@
-export const burundi_perikanan = {
+﻿// @ts-nocheck
+const burundi_perikanan = {
   udang: 0,
   mutiara: 0,
   ikan: 0,
-} as const;
+};
+
+
+

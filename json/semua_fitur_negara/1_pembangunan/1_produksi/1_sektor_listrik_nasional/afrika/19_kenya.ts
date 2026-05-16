@@ -1,8 +1,12 @@
-export const kenya_listrik = {
+﻿// @ts-nocheck
+const kenya_listrik = {
   pembangkit_listrik_tenaga_gas: 30,
   pembangkit_listrik_tenaga_air: 20,
   pembangkit_listrik_tenaga_nuklir: 0,
   pembangkit_listrik_tenaga_surya: 5,
   pembangkit_listrik_tenaga_uap: 99,
   pembangkit_listrik_tenaga_angin: 4,
-} as const;
+};
+
+
+

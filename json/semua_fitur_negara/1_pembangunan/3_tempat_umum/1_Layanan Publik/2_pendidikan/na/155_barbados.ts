@@ -1,4 +1,5 @@
-export const barbados_pendidikan = {
+﻿// @ts-nocheck
+const barbados_pendidikan = {
       "prasekolah": 30,
       "dasar": 34,
       "menengah": 60,
@@ -10,4 +11,7 @@ export const barbados_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 81
-    } as const;
+    };
+
+
+

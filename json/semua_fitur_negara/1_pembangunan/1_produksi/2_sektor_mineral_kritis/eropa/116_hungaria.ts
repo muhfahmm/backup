@@ -1,4 +1,5 @@
-export const hungaria_ekstraksi = {
+﻿// @ts-nocheck
+const hungaria_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 40,
@@ -11,4 +12,7 @@ export const hungaria_ekstraksi = {
   aluminium: 72,
   logam_tanah_jarang: 40,
   bijih_besi: 48,
-} as const;
+};
+
+
+

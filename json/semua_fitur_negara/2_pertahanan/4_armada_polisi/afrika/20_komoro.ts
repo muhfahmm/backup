@@ -1,4 +1,5 @@
-export const komoro_kepolisian = {
+﻿// @ts-nocheck
+const komoro_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const komoro_kepolisian = {
       "pasukan_swat": 34,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

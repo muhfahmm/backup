@@ -1,4 +1,5 @@
-export const mikronesia_hukum = {
+﻿// @ts-nocheck
+const mikronesia_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 6,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const mikronesia_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 44,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

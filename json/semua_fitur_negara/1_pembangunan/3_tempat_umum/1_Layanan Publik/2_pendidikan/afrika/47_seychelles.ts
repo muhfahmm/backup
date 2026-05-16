@@ -1,4 +1,5 @@
-export const seychelles_pendidikan = {
+﻿// @ts-nocheck
+const seychelles_pendidikan = {
       "prasekolah": 25,
       "dasar": 97,
       "menengah": 42,
@@ -10,4 +11,7 @@ export const seychelles_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 62
-  } as const;
+  };
+
+
+

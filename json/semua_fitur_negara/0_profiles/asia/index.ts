@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { afganistan } from "./54_afganistan";
 export { arab_saudi } from "./55_arab_saudi";
 export { armenia } from "./56_armenia";
@@ -47,3 +48,6 @@ export { uzbekistan } from "./99_uzbekistan";
 export { vietnam } from "./100_vietnam";
 export { yaman } from "./101_yaman";
 export { yordania } from "./102_yordania";
+
+
+

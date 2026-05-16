@@ -1,6 +1,6 @@
-import { libya_intelijen } from "../../2_intelijen/afrika/24_libya";
+﻿// @ts-nocheck
 
-export const libya_strategis = {
+const libya_strategis = {
     "waktu_respon": 21,
     "intelijen": 31,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const libya_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { jerman_intelijen } from "../../2_intelijen/eropa/121_jerman";
+﻿// @ts-nocheck
 
-export const jerman_strategis = {
+const jerman_strategis = {
     "waktu_respon": 25,
     "intelijen": 10,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const jerman_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const trinidad_dan_tobago_pendidikan = {
+﻿// @ts-nocheck
+const trinidad_dan_tobago_pendidikan = {
       "prasekolah": 88,
       "dasar": 140,
       "menengah": 90,
@@ -10,4 +11,7 @@ export const trinidad_dan_tobago_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 0,
       "literasi": 82
-    } as const;
+    };
+
+
+

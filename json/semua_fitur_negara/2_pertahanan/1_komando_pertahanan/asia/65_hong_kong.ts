@@ -1,6 +1,6 @@
-import { hong_kong_intelijen } from "../../2_intelijen/asia/65_hong_kong";
+﻿// @ts-nocheck
 
-export const hong_kong_strategis = {
+const hong_kong_strategis = {
     "waktu_respon": 1,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const hong_kong_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

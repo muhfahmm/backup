@@ -1,6 +1,6 @@
-import { fiji_intelijen } from "../../2_intelijen/oceania/180_fiji";
+﻿// @ts-nocheck
 
-export const fiji_strategis = {
+const fiji_strategis = {
     "waktu_respon": 13,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const fiji_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

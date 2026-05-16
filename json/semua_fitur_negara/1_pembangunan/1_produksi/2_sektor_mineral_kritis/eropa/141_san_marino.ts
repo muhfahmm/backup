@@ -1,4 +1,5 @@
-export const san_marino_ekstraksi = {
+﻿// @ts-nocheck
+const san_marino_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const san_marino_ekstraksi = {
   aluminium: 8,
   logam_tanah_jarang: 0,
   bijih_besi: 0,
-} as const;
+};
+
+
+

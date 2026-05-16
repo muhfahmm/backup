@@ -1,4 +1,5 @@
-export const montenegro_hukum = {
+﻿// @ts-nocheck
+const montenegro_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 2,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const montenegro_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 47,
       "indeks_keamanan": 43
-  } as const;
+  };
+
+
+

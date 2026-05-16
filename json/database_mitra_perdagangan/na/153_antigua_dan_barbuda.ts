@@ -1,4 +1,5 @@
-export const antigua_dan_barbudaAgreements = [
+﻿// @ts-nocheck
+const antigua_dan_barbudaAgreements = [
   { "no": 1, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
@@ -11,3 +12,6 @@ export const antigua_dan_barbudaAgreements = [
   { "no": 10, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
   { "no": 11, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

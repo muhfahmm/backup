@@ -1,41 +1,19 @@
-export const bangladesh_profile = {
+﻿// @ts-nocheck
+const bangladesh_profile = {
   "name_en": "Bangladesh",
   "capital": "Dhaka",
   "name_id": "Bangladesh",
   "lon": 90,
   "lat": 24,
-  "flag": "🇧🇩",
+  "flag": "ðŸ‡§ðŸ‡©",
   "jumlah_penduduk": 169828911,
   "anggaran": 4473,
   "pendapatan_nasional": "12779",
   "religion": "Islam",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { bangladesh_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/59_bangladesh";
-import { bangladesh_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/59_bangladesh";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { bangladesh_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/59_bangladesh";
 
-import { bangladesh_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/59_bangladesh";
-import { bangladesh_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/59_bangladesh";
-import { bangladesh_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/59_bangladesh";
-import { bangladesh_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/59_bangladesh";
-import { bangladesh_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/59_bangladesh";
-import { bangladesh_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/59_bangladesh";
-import { bangladesh_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/59_bangladesh";
-import { bangladesh_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/59_bangladesh";
-import { bangladesh_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/59_bangladesh";
-import { bangladesh_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/59_bangladesh";
-import { bangladesh_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/59_bangladesh";
-import { bangladesh_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/59_bangladesh";
-import { bangladesh_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/59_bangladesh";
-import { bangladesh_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/59_bangladesh";
-import { bangladesh_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/59_bangladesh";
-import { bangladesh_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/59_bangladesh";
-import { bangladesh_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/59_bangladesh";
-import { bangladesh_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/59_bangladesh";
-import { bangladesh_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/59_bangladesh";
 const bangladesh_geopolitik = {
     "un_vote": 118,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const bangladesh_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const bangladesh: CountryData = {
+const bangladesh = {
   ...bangladesh_profile,
   "sektor_listrik": bangladesh_listrik,
   "hunian": bangladesh_hunian,
@@ -75,7 +53,7 @@ export const bangladesh: CountryData = {
   "sektor_komersial": bangladesh_komersial,
   "sektor_hiburan": bangladesh_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const bangladesh: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const bangladesh: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bangladesh_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 36,
@@ -143,5 +121,8 @@ export const bangladesh: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

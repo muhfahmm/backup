@@ -1,6 +1,5 @@
-import { siprus_intelijen } from "../../2_intelijen/eropa/142_siprus";
-
-export const siprus_strategis = {
+﻿
+const siprus_strategis = {
     "waktu_respon": 2,
     "intelijen": 25,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const siprus_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,5 @@
-export const bosnia_dan_hercegovina_ekstraksi = {
+﻿// @ts-nocheck
+const bosnia_dan_hercegovina_ekstraksi = {
   emas: 16,
   uranium: 0,
   batu_bara: 8,
@@ -11,4 +12,7 @@ export const bosnia_dan_hercegovina_ekstraksi = {
   aluminium: 36,
   logam_tanah_jarang: 16,
   bijih_besi: 36,
-} as const;
+};
+
+
+

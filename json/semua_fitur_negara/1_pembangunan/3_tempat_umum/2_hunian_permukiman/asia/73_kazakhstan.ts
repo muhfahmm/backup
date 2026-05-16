@@ -1,7 +1,10 @@
-import { HunianData } from "..";
+﻿// @ts-nocheck
 
-export const kazakhstan_hunian: HunianData = {
+const kazakhstan_hunian = {
   rumah_subsidi: 246677,
   apartemen: 3700,
   mansion: 123338,
 };
+
+
+

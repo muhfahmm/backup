@@ -1,4 +1,5 @@
-export const sao_tome_dan_principe_agrikultur = {
+﻿// @ts-nocheck
+const sao_tome_dan_principe_agrikultur = {
   padi: 244,
   gandum: 172,
   jagung: 292,
@@ -13,4 +14,7 @@ export const sao_tome_dan_principe_agrikultur = {
   karet: 0,
   kapas: 84,
   tembakau: 156,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const somalia_hukum = {
+﻿// @ts-nocheck
+const somalia_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 10,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const somalia_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 33,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

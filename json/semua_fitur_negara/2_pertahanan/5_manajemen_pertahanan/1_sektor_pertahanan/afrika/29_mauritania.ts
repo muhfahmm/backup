@@ -1,4 +1,5 @@
-export const mauritania_pertahanan = {
+﻿// @ts-nocheck
+const mauritania_pertahanan = {
     "penjara": 2,
     "gudang_senjata": 19,
     "hangar_tank": 24,
@@ -7,4 +8,7 @@ export const mauritania_pertahanan = {
     "pangkalan_laut": 26,
     "program_luar_angkasa": 19,
     "pertahanan_siber": 17
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const chile_agrikultur = {
+﻿// @ts-nocheck
+const chile_agrikultur = {
   padi: 2484,
   gandum: 2646,
   jagung: 3888,
@@ -13,4 +14,7 @@ export const chile_agrikultur = {
   karet: 0,
   kapas: 972,
   tembakau: 1836,
-} as const;
+};
+
+
+

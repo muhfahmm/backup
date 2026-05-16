@@ -1,4 +1,5 @@
-export const malta_pendidikan = {
+﻿// @ts-nocheck
+const malta_pendidikan = {
       "prasekolah": 51,
       "dasar": 148,
       "menengah": 92,
@@ -10,4 +11,7 @@ export const malta_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 60
-    } as const;
+    };
+
+
+

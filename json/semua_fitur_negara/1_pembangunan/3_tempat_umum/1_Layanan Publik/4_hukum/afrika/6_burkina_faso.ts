@@ -1,4 +1,5 @@
-export const burkina_faso_hukum = {
+﻿// @ts-nocheck
+const burkina_faso_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 9,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const burkina_faso_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 49,
       "indeks_keamanan": 48
-  } as const;
+  };
+
+
+

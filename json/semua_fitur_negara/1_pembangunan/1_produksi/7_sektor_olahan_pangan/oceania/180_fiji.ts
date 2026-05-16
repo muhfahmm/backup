@@ -1,4 +1,5 @@
-export const fiji_olahan_pangan = {
+﻿// @ts-nocheck
+const fiji_olahan_pangan = {
   air_mineral: 94,
   gula: 90,
   roti: 58,
@@ -9,4 +10,7 @@ export const fiji_olahan_pangan = {
   pakan_ternak: 24,
   ikan_kaleng: 82,
   kopi_teh: 72,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const meksiko_pendidikan = {
+﻿// @ts-nocheck
+const meksiko_pendidikan = {
       "prasekolah": 973,
       "dasar": 1963,
       "menengah": 1381,
@@ -10,4 +11,7 @@ export const meksiko_pendidikan = {
       "pusat_penelitian": 40,
       "pusat_pengembangan": 28,
       "literasi": 91
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { malaysia_intelijen } from "../../2_intelijen/asia/81_malaysia";
+﻿// @ts-nocheck
 
-export const malaysia_strategis = {
+const malaysia_strategis = {
     "waktu_respon": 16,
     "intelijen": 1,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const malaysia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

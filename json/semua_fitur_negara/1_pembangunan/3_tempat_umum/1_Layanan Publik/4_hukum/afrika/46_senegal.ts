@@ -1,4 +1,5 @@
-export const senegal_hukum = {
+﻿// @ts-nocheck
+const senegal_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 13,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const senegal_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 43,
       "indeks_keamanan": 68
-  } as const;
+  };
+
+
+

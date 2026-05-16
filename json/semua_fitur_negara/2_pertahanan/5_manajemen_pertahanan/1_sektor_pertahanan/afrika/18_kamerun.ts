@@ -1,4 +1,5 @@
-export const kamerun_pertahanan = {
+﻿// @ts-nocheck
+const kamerun_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 5,
     "hangar_tank": 13,
@@ -7,4 +8,7 @@ export const kamerun_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 37,
     "pertahanan_siber": 18
-    } as const;
+    };
+
+
+

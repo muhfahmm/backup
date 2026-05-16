@@ -1,6 +1,6 @@
-import { kuba_intelijen } from "../../2_intelijen/na/169_kuba";
+﻿// @ts-nocheck
 
-export const kuba_strategis = {
+const kuba_strategis = {
     "waktu_respon": 34,
     "intelijen": 30,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kuba_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

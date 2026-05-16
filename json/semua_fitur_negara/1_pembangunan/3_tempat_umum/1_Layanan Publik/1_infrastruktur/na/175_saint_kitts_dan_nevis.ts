@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevis_infrastruktur = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 19,
   terminal_bus: 3,
@@ -7,4 +8,7 @@ export const saint_kitts_dan_nevis_infrastruktur = {
   pelabuhan: 4,
   bandara: 5,
   helipad: 1,
-} as const;
+};
+
+
+

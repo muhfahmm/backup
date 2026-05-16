@@ -1,41 +1,19 @@
-export const jamaika_profile = {
+﻿// @ts-nocheck
+const jamaika_profile = {
   "name_en": "Jamaica",
   "capital": "Kingston",
   "name_id": "Jamaika",
   "lon": -77.5,
   "lat": 18.25,
-  "flag": "🇯🇲",
+  "flag": "ðŸ‡¯ðŸ‡²",
   "jumlah_penduduk": 2774538,
   "anggaran": 175,
   "pendapatan_nasional": "500",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { jamaika_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/167_jamaika";
-import { jamaika_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/167_jamaika";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { jamaika_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/167_jamaika";
 
-import { jamaika_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/167_jamaika";
-import { jamaika_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/167_jamaika";
-import { jamaika_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/167_jamaika";
-import { jamaika_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/167_jamaika";
-import { jamaika_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/167_jamaika";
-import { jamaika_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/167_jamaika";
-import { jamaika_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/167_jamaika";
-import { jamaika_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/167_jamaika";
-import { jamaika_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/167_jamaika";
-import { jamaika_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/167_jamaika";
-import { jamaika_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/167_jamaika";
-import { jamaika_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/167_jamaika";
-import { jamaika_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/167_jamaika";
-import { jamaika_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/167_jamaika";
-import { jamaika_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/167_jamaika";
-import { jamaika_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/167_jamaika";
-import { jamaika_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/167_jamaika";
-import { jamaika_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/167_jamaika";
-import { jamaika_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/167_jamaika";
 const jamaika_geopolitik = {
     "un_vote": 57,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const jamaika_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const jamaika: CountryData = {
+const jamaika = {
   ...jamaika_profile,
   "sektor_listrik": jamaika_listrik,
   "hunian": jamaika_hunian,
@@ -75,7 +53,7 @@ export const jamaika: CountryData = {
   "sektor_komersial": jamaika_komersial,
   "sektor_hiburan": jamaika_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const jamaika: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const jamaika: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": jamaika_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,
@@ -143,5 +121,8 @@ export const jamaika: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

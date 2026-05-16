@@ -1,4 +1,5 @@
-export const bahrain_hukum = {
+﻿// @ts-nocheck
+const bahrain_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 2,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const bahrain_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 46,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

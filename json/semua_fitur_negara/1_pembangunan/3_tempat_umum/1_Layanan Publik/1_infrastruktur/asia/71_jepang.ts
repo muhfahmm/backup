@@ -1,4 +1,5 @@
-export const jepang_infrastruktur = {
+﻿// @ts-nocheck
+const jepang_infrastruktur = {
   jalur_sepeda: 84,
   jalan_raya: 138,
   terminal_bus: 85,
@@ -7,4 +8,7 @@ export const jepang_infrastruktur = {
   pelabuhan: 23,
   bandara: 12,
   helipad: 20,
-} as const;
+};
+
+
+

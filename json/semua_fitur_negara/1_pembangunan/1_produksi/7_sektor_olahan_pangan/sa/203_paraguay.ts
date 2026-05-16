@@ -1,4 +1,5 @@
-export const paraguay_olahan_pangan = {
+﻿// @ts-nocheck
+const paraguay_olahan_pangan = {
   air_mineral: 165,
   gula: 155,
   roti: 225,
@@ -9,4 +10,7 @@ export const paraguay_olahan_pangan = {
   pakan_ternak: 250,
   ikan_kaleng: 245,
   kopi_teh: 205,
-} as const;
+};
+
+
+

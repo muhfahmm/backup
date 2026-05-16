@@ -1,4 +1,5 @@
-export const tuvalu_olahan_pangan = {
+﻿// @ts-nocheck
+const tuvalu_olahan_pangan = {
   air_mineral: 111,
   gula: 135,
   roti: 99,
@@ -9,4 +10,7 @@ export const tuvalu_olahan_pangan = {
   pakan_ternak: 126,
   ikan_kaleng: 126,
   kopi_teh: 66,
-} as const;
+};
+
+
+

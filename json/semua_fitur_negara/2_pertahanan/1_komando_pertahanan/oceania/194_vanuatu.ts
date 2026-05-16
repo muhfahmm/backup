@@ -1,6 +1,6 @@
-import { vanuatu_intelijen } from "../../2_intelijen/oceania/194_vanuatu";
+﻿// @ts-nocheck
 
-export const vanuatu_strategis = {
+const vanuatu_strategis = {
     "waktu_respon": 12,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const vanuatu_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { kamerun_intelijen } from "../../2_intelijen/afrika/18_kamerun";
+﻿// @ts-nocheck
 
-export const kamerun_strategis = {
+const kamerun_strategis = {
     "waktu_respon": 29,
     "intelijen": 1,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kamerun_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

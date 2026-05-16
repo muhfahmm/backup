@@ -1,4 +1,5 @@
-export const vanuatu_agrikultur = {
+﻿// @ts-nocheck
+const vanuatu_agrikultur = {
   padi: 41,
   gandum: 24,
   jagung: 42,
@@ -13,4 +14,7 @@ export const vanuatu_agrikultur = {
   karet: 0,
   kapas: 66,
   tembakau: 29,
-} as const;
+};
+
+
+

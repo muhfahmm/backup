@@ -1,4 +1,5 @@
-export const tonga_infrastruktur = {
+﻿// @ts-nocheck
+const tonga_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 7,
   terminal_bus: 7,
@@ -7,4 +8,7 @@ export const tonga_infrastruktur = {
   pelabuhan: 5,
   bandara: 5,
   helipad: 3,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const togo_pendidikan = {
+﻿// @ts-nocheck
+const togo_pendidikan = {
       "prasekolah": 71,
       "dasar": 96,
       "menengah": 95,
@@ -10,4 +11,7 @@ export const togo_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 62
-  } as const;
+  };
+
+
+

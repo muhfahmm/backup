@@ -1,4 +1,5 @@
-export const aljazair_agrikultur = {
+﻿// @ts-nocheck
+const aljazair_agrikultur = {
   padi: 231,
   gandum: 297,
   jagung: 704,
@@ -13,4 +14,7 @@ export const aljazair_agrikultur = {
   karet: 0,
   kapas: 385,
   tembakau: 528,
-} as const;
+};
+
+
+

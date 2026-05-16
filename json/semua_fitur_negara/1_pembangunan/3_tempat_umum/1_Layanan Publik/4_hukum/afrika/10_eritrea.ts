@@ -1,4 +1,5 @@
-export const eritrea_hukum = {
+﻿// @ts-nocheck
+const eritrea_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 2,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const eritrea_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 35,
       "indeks_keamanan": 57
-  } as const;
+  };
+
+
+

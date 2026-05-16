@@ -1,4 +1,5 @@
-export const gibraltar_agrikultur = {
+﻿// @ts-nocheck
+const gibraltar_agrikultur = {
   padi: 140,
   gandum: 152,
   jagung: 62,
@@ -13,4 +14,7 @@ export const gibraltar_agrikultur = {
   karet: 0,
   kapas: 66,
   tembakau: 114,
-} as const;
+};
+
+
+

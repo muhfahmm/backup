@@ -1,4 +1,4 @@
-export const tuvalu_kepolisian = {
+﻿const tuvalu_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const tuvalu_kepolisian = {
       "pasukan_swat": 24,
       "samapta": 62
     }
-  } as const;
+  };
+
+

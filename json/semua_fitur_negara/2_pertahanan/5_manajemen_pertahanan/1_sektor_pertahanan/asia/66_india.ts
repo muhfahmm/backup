@@ -1,4 +1,5 @@
-export const india_pertahanan = {
+﻿// @ts-nocheck
+const india_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 32,
     "hangar_tank": 16,
@@ -7,4 +8,7 @@ export const india_pertahanan = {
     "pangkalan_laut": 14,
     "program_luar_angkasa": 15,
     "pertahanan_siber": 40
-    } as const;
+    };
+
+
+

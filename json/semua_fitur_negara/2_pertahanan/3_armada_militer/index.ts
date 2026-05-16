@@ -1,7 +1,7 @@
-// ===================
+﻿// ===================
 // DETAIL TOTAL BANGUNAN: Armada Militer (Total: 22 Unit)
 // ===================
-export const armadaMiliterRate = {
+const armadaMiliterRate = {
   // ARMADA DARAT
   "1_barak": {
     key: "1_barak",
@@ -293,7 +293,7 @@ export interface SektorArmadaMiliter {
   };
 }
 
-export const armadaMiliterList = [
+const armadaMiliterList = [
   // 2. Armada Tempur (Armada)
   { key: "barak", category: "Armada", label: "Barak Militer", deskripsi: "Hunian Tentara", biaya_pembangunan: 26250, waktu_pembangunan: 15, biaya_pemeliharaan: 15 },
   { key: "tank", category: "Armada", label: "Main Battle Tank", deskripsi: "Kavaleri Darat", biaya_pembangunan: 63750, waktu_pembangunan: 30, biaya_pemeliharaan: 10 },
@@ -319,3 +319,5 @@ export const armadaMiliterList = [
   { key: "kamikaze", category: "Armada", label: "Drone Kamikaze", deskripsi: "Serangan Bunuh Diri", biaya_pembangunan: 3750, waktu_pembangunan: 7, biaya_pemeliharaan: 1 },
   { key: "transport", category: "Armada", label: "Pesawat Angkut", deskripsi: "Logistik Udara", biaya_pembangunan: 56250, waktu_pembangunan: 60, biaya_pemeliharaan: 15 }
 ];
+
+

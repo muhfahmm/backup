@@ -1,4 +1,4 @@
-export const lebanon_armada = {
+﻿const lebanon_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -28,4 +28,11 @@ export const lebanon_armada = {
         "drone_kamikaze": 10,
         "pesawat_angkut": 2
       }
-} as const;
+};
+
+
+     }
+};
+
+
+

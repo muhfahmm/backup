@@ -1,6 +1,6 @@
-import { tonga_intelijen } from "../../2_intelijen/oceania/192_tonga";
+﻿// @ts-nocheck
 
-export const tonga_strategis = {
+const tonga_strategis = {
     "waktu_respon": 11,
     "intelijen": 3,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tonga_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

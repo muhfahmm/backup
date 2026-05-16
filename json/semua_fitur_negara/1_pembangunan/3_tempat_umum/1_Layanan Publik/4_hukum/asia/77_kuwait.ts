@@ -1,4 +1,5 @@
-export const kuwait_hukum = {
+﻿// @ts-nocheck
+const kuwait_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 3,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const kuwait_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 40,
       "indeks_keamanan": 42
-  } as const;
+  };
+
+
+

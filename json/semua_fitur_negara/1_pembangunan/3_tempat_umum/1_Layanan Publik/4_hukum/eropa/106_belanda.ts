@@ -1,4 +1,5 @@
-export const belanda_hukum = {
+﻿// @ts-nocheck
+const belanda_hukum = {
       "pusat_bantuan_hukum": 136,
       "pengadilan": 120,
       "kejaksaan": 37,
@@ -7,4 +8,7 @@ export const belanda_hukum = {
       "akademi_polisi": 24,
       "indeks_korupsi": 52,
       "indeks_keamanan": 80
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const kenya_pendidikan = {
+﻿// @ts-nocheck
+const kenya_pendidikan = {
       "prasekolah": 80,
       "dasar": 39,
       "menengah": 99,
@@ -10,4 +11,7 @@ export const kenya_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 2,
       "literasi": 60
-  } as const;
+  };
+
+
+

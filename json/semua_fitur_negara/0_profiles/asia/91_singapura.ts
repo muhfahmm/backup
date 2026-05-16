@@ -1,41 +1,19 @@
-export const singapura_profile = {
+﻿// @ts-nocheck
+const singapura_profile = {
   "name_en": "Singapore",
   "capital": "Singapore",
   "name_id": "Singapura",
   "lon": 103.81,
   "lat": 1.35,
-  "flag": "🇸🇬",
+  "flag": "ðŸ‡¸ðŸ‡¬",
   "jumlah_penduduk": 6110200,
   "anggaran": 4862,
   "pendapatan_nasional": "13890",
   "religion": "Buddha",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { singapura_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/91_singapura";
-import { singapura_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/91_singapura";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { singapura_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/91_singapura";
 
-import { singapura_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/91_singapura";
-import { singapura_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/91_singapura";
-import { singapura_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/91_singapura";
-import { singapura_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/91_singapura";
-import { singapura_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/91_singapura";
-import { singapura_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/91_singapura";
-import { singapura_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/91_singapura";
-import { singapura_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/91_singapura";
-import { singapura_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/91_singapura";
-import { singapura_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/91_singapura";
-import { singapura_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/91_singapura";
-import { singapura_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/91_singapura";
-import { singapura_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/91_singapura";
-import { singapura_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/91_singapura";
-import { singapura_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/91_singapura";
-import { singapura_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/91_singapura";
-import { singapura_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/91_singapura";
-import { singapura_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/91_singapura";
-import { singapura_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/91_singapura";
 const singapura_geopolitik = {
     "un_vote": 148,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const singapura_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const singapura: CountryData = {
+const singapura = {
   ...singapura_profile,
   "sektor_listrik": singapura_listrik,
   "hunian": singapura_hunian,
@@ -75,7 +53,7 @@ export const singapura: CountryData = {
   "sektor_komersial": singapura_komersial,
   "sektor_hiburan": singapura_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const singapura: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const singapura: CountryData = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": singapura_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,
@@ -143,5 +121,8 @@ export const singapura: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

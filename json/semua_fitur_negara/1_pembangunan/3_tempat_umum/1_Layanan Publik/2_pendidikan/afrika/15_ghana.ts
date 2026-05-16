@@ -1,4 +1,5 @@
-export const ghana_pendidikan = {
+﻿// @ts-nocheck
+const ghana_pendidikan = {
       "prasekolah": 63,
       "dasar": 65,
       "menengah": 41,
@@ -10,4 +11,7 @@ export const ghana_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 75
-  } as const;
+  };
+
+
+

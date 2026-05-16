@@ -1,6 +1,6 @@
-import { uzbekistan_intelijen } from "../../2_intelijen/asia/99_uzbekistan";
+﻿// @ts-nocheck
 
-export const uzbekistan_strategis = {
+const uzbekistan_strategis = {
     "waktu_respon": 18,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const uzbekistan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

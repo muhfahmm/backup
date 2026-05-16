@@ -1,4 +1,5 @@
-export const bolivia_hukum = {
+﻿// @ts-nocheck
+const bolivia_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 9,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const bolivia_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 14,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

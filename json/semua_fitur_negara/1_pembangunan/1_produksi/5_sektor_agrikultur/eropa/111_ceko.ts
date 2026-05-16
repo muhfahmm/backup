@@ -1,4 +1,5 @@
-export const ceko_agrikultur = {
+﻿// @ts-nocheck
+const ceko_agrikultur = {
   padi: 1817,
   gandum: 529,
   jagung: 920,
@@ -13,4 +14,7 @@ export const ceko_agrikultur = {
   karet: 0,
   kapas: 1679,
   tembakau: 621,
-} as const;
+};
+
+
+

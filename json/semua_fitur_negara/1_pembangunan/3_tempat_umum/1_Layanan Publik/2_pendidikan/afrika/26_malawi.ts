@@ -1,4 +1,5 @@
-export const malawi_pendidikan = {
+﻿// @ts-nocheck
+const malawi_pendidikan = {
       "prasekolah": 23,
       "dasar": 106,
       "menengah": 37,
@@ -10,4 +11,7 @@ export const malawi_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 76
-  } as const;
+  };
+
+
+

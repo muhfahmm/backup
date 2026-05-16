@@ -1,4 +1,5 @@
-export const lithuania_pendidikan = {
+﻿// @ts-nocheck
+const lithuania_pendidikan = {
       "prasekolah": 34,
       "dasar": 106,
       "menengah": 75,
@@ -10,4 +11,7 @@ export const lithuania_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 71
-    } as const;
+    };
+
+
+

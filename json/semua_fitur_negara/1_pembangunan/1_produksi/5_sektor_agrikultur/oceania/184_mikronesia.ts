@@ -1,4 +1,5 @@
-export const mikronesia_agrikultur = {
+﻿// @ts-nocheck
+const mikronesia_agrikultur = {
   padi: 132,
   gandum: 96,
   jagung: 200,
@@ -13,4 +14,7 @@ export const mikronesia_agrikultur = {
   karet: 0,
   kapas: 216,
   tembakau: 40,
-} as const;
+};
+
+
+

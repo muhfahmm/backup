@@ -1,4 +1,5 @@
-export const yunani_pendidikan = {
+﻿// @ts-nocheck
+const yunani_pendidikan = {
       "prasekolah": 259,
       "dasar": 565,
       "menengah": 436,
@@ -10,4 +11,7 @@ export const yunani_pendidikan = {
       "pusat_penelitian": 11,
       "pusat_pengembangan": 7,
       "literasi": 88
-    } as const;
+    };
+
+
+

@@ -1,4 +1,8 @@
-export const kamboja_hiburan = {
+﻿// @ts-nocheck
+const kamboja_hiburan = {
   "bioskop": 50,
   "teater": 13
-} as const;
+};
+
+
+

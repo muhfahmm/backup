@@ -1,4 +1,5 @@
-export const kazakhstan_hukum = {
+﻿// @ts-nocheck
+const kazakhstan_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 39,
       "kejaksaan": 25,
@@ -7,4 +8,7 @@ export const kazakhstan_hukum = {
       "akademi_polisi": 12,
       "indeks_korupsi": 39,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

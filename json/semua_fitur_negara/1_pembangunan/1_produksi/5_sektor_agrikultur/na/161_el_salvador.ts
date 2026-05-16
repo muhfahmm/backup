@@ -1,4 +1,5 @@
-export const el_salvador_agrikultur = {
+﻿// @ts-nocheck
+const el_salvador_agrikultur = {
   padi: 65,
   gandum: 315,
   jagung: 335,
@@ -13,4 +14,7 @@ export const el_salvador_agrikultur = {
   karet: 0,
   kapas: 110,
   tembakau: 315,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const qatar_pertahanan = {
+﻿// @ts-nocheck
+const qatar_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 6,
     "hangar_tank": 30,
@@ -7,4 +8,7 @@ export const qatar_pertahanan = {
     "pangkalan_laut": 11,
     "program_luar_angkasa": 7,
     "pertahanan_siber": 24
-    } as const;
+    };
+
+
+

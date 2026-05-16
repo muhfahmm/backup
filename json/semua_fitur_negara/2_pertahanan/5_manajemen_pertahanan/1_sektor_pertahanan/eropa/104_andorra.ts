@@ -1,4 +1,4 @@
-export const andorra_pertahanan = {
+﻿const andorra_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 18,
     "hangar_tank": 31,
@@ -7,4 +7,6 @@ export const andorra_pertahanan = {
     "pangkalan_laut": 4,
     "program_luar_angkasa": 27,
     "pertahanan_siber": 31
-    } as const;
+    };
+
+

@@ -1,4 +1,5 @@
-export const denmark_kepolisian = {
+﻿// @ts-nocheck
+const denmark_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const denmark_kepolisian = {
       "pasukan_swat": 31,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

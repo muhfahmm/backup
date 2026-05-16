@@ -1,6 +1,6 @@
-import { pakistan_intelijen } from "../../2_intelijen/asia/87_pakistan";
+﻿// @ts-nocheck
 
-export const pakistan_strategis = {
+const pakistan_strategis = {
     "waktu_respon": 33,
     "intelijen": 10,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const pakistan_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 170
     }
-  } as const;
+  };
+
+
+

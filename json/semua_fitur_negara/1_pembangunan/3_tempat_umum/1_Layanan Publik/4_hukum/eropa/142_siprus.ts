@@ -1,4 +1,5 @@
-export const siprus_hukum = {
+﻿// @ts-nocheck
+const siprus_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 8,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const siprus_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 42,
       "indeks_keamanan": 54
-  } as const;
+  };
+
+
+

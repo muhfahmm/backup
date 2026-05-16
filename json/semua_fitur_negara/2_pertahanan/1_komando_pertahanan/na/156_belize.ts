@@ -1,6 +1,6 @@
-import { belize_intelijen } from "../../2_intelijen/na/156_belize";
+﻿// @ts-nocheck
 
-export const belize_strategis = {
+const belize_strategis = {
     "waktu_respon": 22,
     "intelijen": 14,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const belize_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

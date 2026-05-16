@@ -1,4 +1,5 @@
-export const irlandia_kepolisian = {
+﻿// @ts-nocheck
+const irlandia_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const irlandia_kepolisian = {
       "pasukan_swat": 21,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

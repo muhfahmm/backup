@@ -1,4 +1,5 @@
-export const malaysia_hukum = {
+﻿// @ts-nocheck
+const malaysia_hukum = {
       "pusat_bantuan_hukum": 31,
       "pengadilan": 44,
       "kejaksaan": 16,
@@ -7,4 +8,7 @@ export const malaysia_hukum = {
       "akademi_polisi": 10,
       "indeks_korupsi": 53,
       "indeks_keamanan": 60
-  } as const;
+  };
+
+
+

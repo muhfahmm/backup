@@ -1,6 +1,5 @@
-import { kazakhstan_intelijen } from "../../2_intelijen/asia/73_kazakhstan";
-
-export const kazakhstan_strategis = {
+﻿
+const kazakhstan_strategis = {
     "waktu_respon": 5,
     "intelijen": 30,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const kazakhstan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

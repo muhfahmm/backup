@@ -1,6 +1,6 @@
-import { burkina_faso_intelijen } from "../../2_intelijen/afrika/6_burkina_faso";
+﻿// @ts-nocheck
 
-export const burkina_faso_strategis = {
+const burkina_faso_strategis = {
     "waktu_respon": 11,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const burkina_faso_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

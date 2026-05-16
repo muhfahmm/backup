@@ -1,4 +1,5 @@
-export const republik_tanzania_hukum = {
+﻿// @ts-nocheck
+const republik_tanzania_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 13,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const republik_tanzania_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 14,
       "indeks_keamanan": 63
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { ethiopia_intelijen } from "../../2_intelijen/afrika/12_ethiopia";
+﻿// @ts-nocheck
 
-export const ethiopia_strategis = {
+const ethiopia_strategis = {
     "waktu_respon": 5,
     "intelijen": 34,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const ethiopia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

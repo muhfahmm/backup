@@ -1,4 +1,5 @@
-export const nepal_hukum = {
+﻿// @ts-nocheck
+const nepal_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 9,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const nepal_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 31,
       "indeks_keamanan": 43
-  } as const;
+  };
+
+
+

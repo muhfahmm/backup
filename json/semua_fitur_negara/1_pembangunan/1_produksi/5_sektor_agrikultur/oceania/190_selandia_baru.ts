@@ -1,4 +1,5 @@
-export const selandia_baru_agrikultur = {
+﻿// @ts-nocheck
+const selandia_baru_agrikultur = {
   padi: 630,
   gandum: 546,
   jagung: 882,
@@ -13,4 +14,7 @@ export const selandia_baru_agrikultur = {
   karet: 0,
   kapas: 1218,
   tembakau: 588,
-} as const;
+};
+
+
+

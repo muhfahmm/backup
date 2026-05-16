@@ -1,6 +1,6 @@
-import { nikaragua_intelijen } from "../../2_intelijen/na/171_nikaragua";
+﻿// @ts-nocheck
 
-export const nikaragua_strategis = {
+const nikaragua_strategis = {
     "waktu_respon": 36,
     "intelijen": 24,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const nikaragua_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

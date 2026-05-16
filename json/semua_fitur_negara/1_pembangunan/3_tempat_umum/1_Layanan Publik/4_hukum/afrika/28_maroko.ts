@@ -1,4 +1,5 @@
-export const maroko_hukum = {
+﻿// @ts-nocheck
+const maroko_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 5,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const maroko_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 43,
       "indeks_keamanan": 60
-  } as const;
+  };
+
+
+

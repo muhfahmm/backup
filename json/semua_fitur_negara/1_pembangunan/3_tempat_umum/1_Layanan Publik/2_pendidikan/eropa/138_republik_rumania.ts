@@ -1,4 +1,5 @@
-export const republik_rumania_pendidikan = {
+﻿// @ts-nocheck
+const republik_rumania_pendidikan = {
       "prasekolah": 259,
       "dasar": 731,
       "menengah": 480,
@@ -10,4 +11,7 @@ export const republik_rumania_pendidikan = {
       "pusat_penelitian": 14,
       "pusat_pengembangan": 5,
       "literasi": 78
-    } as const;
+    };
+
+
+

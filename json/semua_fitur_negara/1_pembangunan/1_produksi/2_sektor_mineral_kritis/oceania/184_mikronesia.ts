@@ -1,4 +1,5 @@
-export const mikronesia_ekstraksi = {
+﻿// @ts-nocheck
+const mikronesia_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 40,
@@ -11,4 +12,7 @@ export const mikronesia_ekstraksi = {
   aluminium: 32,
   logam_tanah_jarang: 8,
   bijih_besi: 0,
-} as const;
+};
+
+
+

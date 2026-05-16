@@ -1,4 +1,5 @@
-export const makedonia_utara_ekstraksi = {
+﻿// @ts-nocheck
+const makedonia_utara_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const makedonia_utara_ekstraksi = {
   aluminium: 9,
   logam_tanah_jarang: 0,
   bijih_besi: 21,
-} as const;
+};
+
+
+

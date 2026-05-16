@@ -1,4 +1,5 @@
-export const china_olahraga = {
+﻿// @ts-nocheck
+const china_olahraga = {
   "kolam_renang": 1573,
   "sirkuit_balap": 180,
   "stadion": 1333,
@@ -7,4 +8,7 @@ export const china_olahraga = {
   "golf": 253,
   "esports": 429,
   "gokart": 1014
-} as const;
+};
+
+
+

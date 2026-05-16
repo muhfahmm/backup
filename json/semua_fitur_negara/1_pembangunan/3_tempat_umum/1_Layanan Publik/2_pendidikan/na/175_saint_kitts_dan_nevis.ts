@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevis_pendidikan = {
+﻿// @ts-nocheck
+const saint_kitts_dan_nevis_pendidikan = {
       "prasekolah": 32,
       "dasar": 28,
       "menengah": 48,
@@ -10,4 +11,7 @@ export const saint_kitts_dan_nevis_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 68
-    } as const;
+    };
+
+
+

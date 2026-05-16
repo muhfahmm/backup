@@ -1,4 +1,5 @@
-export const samoa_amerika_hukum = {
+﻿// @ts-nocheck
+const samoa_amerika_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 14,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const samoa_amerika_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 34,
       "indeks_keamanan": 45
-  } as const;
+  };
+
+
+

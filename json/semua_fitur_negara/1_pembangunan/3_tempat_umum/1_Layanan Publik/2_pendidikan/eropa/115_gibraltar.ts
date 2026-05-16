@@ -1,4 +1,5 @@
-export const gibraltar_pendidikan = {
+﻿// @ts-nocheck
+const gibraltar_pendidikan = {
       "prasekolah": 75,
       "dasar": 76,
       "menengah": 69,
@@ -10,4 +11,7 @@ export const gibraltar_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 2,
       "literasi": 78
-    } as const;
+    };
+
+
+

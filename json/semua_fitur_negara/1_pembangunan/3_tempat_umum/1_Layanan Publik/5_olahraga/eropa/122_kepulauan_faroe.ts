@@ -1,4 +1,5 @@
-export const kepulauan_faroe_olahraga = {
+﻿// @ts-nocheck
+const kepulauan_faroe_olahraga = {
   "kolam_renang": 12,
   "sirkuit_balap": 3,
   "stadion": 8,
@@ -7,4 +8,7 @@ export const kepulauan_faroe_olahraga = {
   "golf": 5,
   "esports": 1,
   "gokart": 9
-} as const;
+};
+
+
+

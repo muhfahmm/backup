@@ -1,4 +1,5 @@
-export const komoro_pendidikan = {
+﻿// @ts-nocheck
+const komoro_pendidikan = {
       "prasekolah": 27,
       "dasar": 86,
       "menengah": 45,
@@ -10,4 +11,7 @@ export const komoro_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 77
-  } as const;
+  };
+
+
+

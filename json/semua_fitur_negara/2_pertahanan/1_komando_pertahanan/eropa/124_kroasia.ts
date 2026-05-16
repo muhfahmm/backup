@@ -1,6 +1,6 @@
-import { kroasia_intelijen } from "../../2_intelijen/eropa/124_kroasia";
+﻿// @ts-nocheck
 
-export const kroasia_strategis = {
+const kroasia_strategis = {
     "waktu_respon": 27,
     "intelijen": 11,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kroasia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

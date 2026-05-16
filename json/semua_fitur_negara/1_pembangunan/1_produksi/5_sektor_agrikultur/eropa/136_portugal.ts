@@ -1,4 +1,5 @@
-export const portugal_agrikultur = {
+﻿// @ts-nocheck
+const portugal_agrikultur = {
   padi: 782,
   gandum: 884,
   jagung: 527,
@@ -13,4 +14,7 @@ export const portugal_agrikultur = {
   karet: 0,
   kapas: 1275,
   tembakau: 833,
-} as const;
+};
+
+
+

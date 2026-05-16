@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_olahan_pangan = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_olahan_pangan = {
   air_mineral: 141,
   gula: 144,
   roti: 54,
@@ -9,4 +10,7 @@ export const republik_afrika_tengah_olahan_pangan = {
   pakan_ternak: 45,
   ikan_kaleng: 141,
   kopi_teh: 69,
-} as const;
+};
+
+
+

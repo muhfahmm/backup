@@ -1,6 +1,6 @@
-import { mongolia_intelijen } from "../../2_intelijen/asia/83_mongolia";
+﻿// @ts-nocheck
 
-export const mongolia_strategis = {
+const mongolia_strategis = {
     "waktu_respon": 31,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const mongolia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const israel_pertahanan = {
+﻿// @ts-nocheck
+const israel_pertahanan = {
     "penjara": 5,
     "gudang_senjata": 5,
     "hangar_tank": 36,
@@ -7,4 +8,7 @@ export const israel_pertahanan = {
     "pangkalan_laut": 21,
     "program_luar_angkasa": 17,
     "pertahanan_siber": 18
-    } as const;
+    };
+
+
+

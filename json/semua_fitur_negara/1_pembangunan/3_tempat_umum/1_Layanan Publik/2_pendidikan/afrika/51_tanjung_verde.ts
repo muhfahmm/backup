@@ -1,4 +1,5 @@
-export const tanjung_verde_pendidikan = {
+﻿// @ts-nocheck
+const tanjung_verde_pendidikan = {
       "prasekolah": 41,
       "dasar": 68,
       "menengah": 73,
@@ -10,4 +11,7 @@ export const tanjung_verde_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 84
-  } as const;
+  };
+
+
+

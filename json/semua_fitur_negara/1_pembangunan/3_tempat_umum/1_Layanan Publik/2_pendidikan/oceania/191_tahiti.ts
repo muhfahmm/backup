@@ -1,4 +1,5 @@
-export const tahiti_pendidikan = {
+﻿// @ts-nocheck
+const tahiti_pendidikan = {
       "prasekolah": 42,
       "dasar": 37,
       "menengah": 77,
@@ -10,4 +11,7 @@ export const tahiti_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 83
-    } as const;
+    };
+
+
+

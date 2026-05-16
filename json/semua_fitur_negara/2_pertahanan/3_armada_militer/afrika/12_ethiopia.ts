@@ -1,4 +1,5 @@
-export const ethiopia_armada = {
+﻿// @ts-nocheck
+const ethiopia_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -28,4 +29,7 @@ export const ethiopia_armada = {
         "drone_kamikaze": 10,
         "pesawat_angkut": 2
   }
-} as const;
+};
+
+
+

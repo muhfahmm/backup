@@ -1,4 +1,5 @@
-export const israel_agrikultur = {
+﻿// @ts-nocheck
+const israel_agrikultur = {
   padi: 2016,
   gandum: 2142,
   jagung: 819,
@@ -13,4 +14,7 @@ export const israel_agrikultur = {
   karet: 0,
   kapas: 3024,
   tembakau: 2520,
-} as const;
+};
+
+
+

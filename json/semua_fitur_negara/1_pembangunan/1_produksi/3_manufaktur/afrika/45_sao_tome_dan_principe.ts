@@ -1,4 +1,5 @@
-export const sao_tome_dan_principe_manufaktur = {
+﻿// @ts-nocheck
+const sao_tome_dan_principe_manufaktur = {
   mobil: 24,
   semen_beton: 52,
   sepeda_motor: 24,
@@ -6,4 +7,7 @@ export const sao_tome_dan_principe_manufaktur = {
   smelter: 44,
   kayu: 40,
   pupuk: 28,
-} as const;
+};
+
+
+

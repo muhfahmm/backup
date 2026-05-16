@@ -1,4 +1,5 @@
-export const taiwan_pendidikan = {
+﻿// @ts-nocheck
+const taiwan_pendidikan = {
       "prasekolah": 276,
       "dasar": 488,
       "menengah": 491,
@@ -10,4 +11,7 @@ export const taiwan_pendidikan = {
       "pusat_penelitian": 13,
       "pusat_pengembangan": 2,
       "literasi": 89
-    } as const;
+    };
+
+
+

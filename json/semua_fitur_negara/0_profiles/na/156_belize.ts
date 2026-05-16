@@ -1,41 +1,19 @@
-export const belize_profile = {
+﻿// @ts-nocheck
+const belize_profile = {
   "name_en": "Belize",
   "capital": "Belmopan",
   "name_id": "Belize",
   "lon": -88.75,
   "lat": 17.25,
-  "flag": "🇧🇿",
+  "flag": "ðŸ‡§ðŸ‡¿",
   "jumlah_penduduk": 417634,
   "anggaran": 24,
   "pendapatan_nasional": "69",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { belize_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/na/156_belize";
-import { belize_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/na/156_belize";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { belize_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/na/156_belize";
 
-import { belize_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/na/156_belize";
-import { belize_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/na/156_belize";
-import { belize_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/na/156_belize";
-import { belize_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/na/156_belize";
-import { belize_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/na/156_belize";
-import { belize_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/na/156_belize";
-import { belize_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/na/156_belize";
-import { belize_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/na/156_belize";
-import { belize_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/na/156_belize";
-import { belize_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/na/156_belize";
-import { belize_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/na/156_belize";
-import { belize_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/na/156_belize";
-import { belize_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/na/156_belize";
-import { belize_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/na/156_belize";
-import { belize_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/na/156_belize";
-import { belize_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/na/156_belize";
-import { belize_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/na/156_belize";
-import { belize_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/na/156_belize";
-import { belize_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/na/156_belize";
 const belize_geopolitik = {
     "un_vote": 15,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const belize_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const belize: CountryData = {
+const belize = {
   ...belize_profile,
   "sektor_listrik": belize_listrik,
   "hunian": belize_hunian,
@@ -75,7 +53,7 @@ export const belize: CountryData = {
   "sektor_komersial": belize_komersial,
   "sektor_hiburan": belize_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const belize: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const belize: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": belize_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 23,
@@ -143,5 +121,8 @@ export const belize: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

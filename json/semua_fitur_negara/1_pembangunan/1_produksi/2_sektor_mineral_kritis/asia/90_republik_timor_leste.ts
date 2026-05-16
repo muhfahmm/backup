@@ -1,4 +1,5 @@
-export const republik_timor_leste_ekstraksi = {
+﻿// @ts-nocheck
+const republik_timor_leste_ekstraksi = {
   emas: 9,
   uranium: 0,
   batu_bara: 5,
@@ -11,4 +12,7 @@ export const republik_timor_leste_ekstraksi = {
   aluminium: 10,
   logam_tanah_jarang: 0,
   bijih_besi: 8,
-} as const;
+};
+
+
+

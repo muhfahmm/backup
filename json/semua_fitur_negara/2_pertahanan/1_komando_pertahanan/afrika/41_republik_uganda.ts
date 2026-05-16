@@ -1,6 +1,6 @@
-import { republik_uganda_intelijen } from "../../2_intelijen/afrika/41_republik_uganda";
+﻿// @ts-nocheck
 
-export const republik_uganda_strategis = {
+const republik_uganda_strategis = {
     "waktu_respon": 7,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_uganda_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

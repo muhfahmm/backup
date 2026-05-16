@@ -1,4 +1,5 @@
-export const mali_pendidikan = {
+﻿// @ts-nocheck
+const mali_pendidikan = {
       "prasekolah": 93,
       "dasar": 51,
       "menengah": 53,
@@ -10,4 +11,7 @@ export const mali_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 72
-  } as const;
+  };
+
+
+

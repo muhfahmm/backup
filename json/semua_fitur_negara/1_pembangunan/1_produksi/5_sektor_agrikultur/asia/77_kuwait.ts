@@ -1,4 +1,5 @@
-export const kuwait_agrikultur = {
+﻿// @ts-nocheck
+const kuwait_agrikultur = {
   padi: 1440,
   gandum: 1040,
   jagung: 1100,
@@ -13,4 +14,7 @@ export const kuwait_agrikultur = {
   karet: 0,
   kapas: 1420,
   tembakau: 1300,
-} as const;
+};
+
+
+

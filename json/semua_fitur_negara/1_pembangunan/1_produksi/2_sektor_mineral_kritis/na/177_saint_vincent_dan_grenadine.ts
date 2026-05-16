@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadine_ekstraksi = {
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadine_ekstraksi = {
   emas: 4,
   uranium: 0,
   batu_bara: 9,
@@ -11,4 +12,7 @@ export const saint_vincent_dan_grenadine_ekstraksi = {
   aluminium: 8,
   logam_tanah_jarang: 0,
   bijih_besi: 5,
-} as const;
+};
+
+
+

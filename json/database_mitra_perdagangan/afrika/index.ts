@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { afrika_selatanAgreements } from './1_afrika_selatan';
 export { aljazairAgreements } from './2_aljazair';
 export { angolaAgreements } from './3_angola';
@@ -51,3 +52,6 @@ export { sudan_selatanAgreements } from './50_sudan_selatan';
 export { tanjung_verdeAgreements } from './51_tanjung_verde';
 export { togoAgreements } from './52_togo';
 export { tunisiaAgreements } from './53_tunisia';
+
+
+

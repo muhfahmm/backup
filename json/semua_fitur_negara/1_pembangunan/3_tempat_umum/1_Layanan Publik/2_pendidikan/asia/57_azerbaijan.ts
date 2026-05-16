@@ -1,4 +1,5 @@
-export const azerbaijan_pendidikan = {
+﻿// @ts-nocheck
+const azerbaijan_pendidikan = {
       "prasekolah": 74,
       "dasar": 32,
       "menengah": 28,
@@ -10,4 +11,7 @@ export const azerbaijan_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 2,
       "literasi": 60
-    } as const;
+    };
+
+
+

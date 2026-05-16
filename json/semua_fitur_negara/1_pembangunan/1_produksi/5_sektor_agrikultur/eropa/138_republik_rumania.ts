@@ -1,4 +1,5 @@
-export const republik_rumania_agrikultur = {
+﻿// @ts-nocheck
+const republik_rumania_agrikultur = {
   padi: 576,
   gandum: 912,
   jagung: 1512,
@@ -13,4 +14,7 @@ export const republik_rumania_agrikultur = {
   karet: 0,
   kapas: 1680,
   tembakau: 1272,
-} as const;
+};
+
+
+

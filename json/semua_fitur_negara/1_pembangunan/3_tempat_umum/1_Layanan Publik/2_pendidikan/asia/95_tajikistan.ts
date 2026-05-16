@@ -1,4 +1,5 @@
-export const tajikistan_pendidikan = {
+﻿// @ts-nocheck
+const tajikistan_pendidikan = {
       "prasekolah": 44,
       "dasar": 145,
       "menengah": 17,
@@ -10,4 +11,7 @@ export const tajikistan_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

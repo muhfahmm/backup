@@ -1,4 +1,5 @@
-export const kolombia_hukum = {
+﻿// @ts-nocheck
+const kolombia_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 42,
       "kejaksaan": 24,
@@ -7,4 +8,7 @@ export const kolombia_hukum = {
       "akademi_polisi": 14,
       "indeks_korupsi": 56,
       "indeks_keamanan": 58
-  } as const;
+  };
+
+
+

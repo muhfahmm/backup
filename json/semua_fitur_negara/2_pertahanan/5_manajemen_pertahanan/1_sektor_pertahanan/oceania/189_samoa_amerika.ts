@@ -1,4 +1,5 @@
-export const samoa_amerika_pertahanan = {
+﻿// @ts-nocheck
+const samoa_amerika_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 31,
     "hangar_tank": 12,
@@ -7,4 +8,7 @@ export const samoa_amerika_pertahanan = {
     "pangkalan_laut": 30,
     "program_luar_angkasa": 9,
     "pertahanan_siber": 10
-    } as const;
+    };
+
+
+

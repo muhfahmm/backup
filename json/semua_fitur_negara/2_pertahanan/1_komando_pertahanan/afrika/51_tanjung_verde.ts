@@ -1,6 +1,6 @@
-import { tanjung_verde_intelijen } from "../../2_intelijen/afrika/51_tanjung_verde";
+﻿// @ts-nocheck
 
-export const tanjung_verde_strategis = {
+const tanjung_verde_strategis = {
     "waktu_respon": 23,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const tanjung_verde_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

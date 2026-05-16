@@ -1,4 +1,5 @@
-export const dominika_pertahanan = {
+﻿// @ts-nocheck
+const dominika_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 36,
     "hangar_tank": 27,
@@ -7,4 +8,7 @@ export const dominika_pertahanan = {
     "pangkalan_laut": 16,
     "program_luar_angkasa": 37,
     "pertahanan_siber": 21
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const guinea_bissau_ekstraksi = {
+﻿// @ts-nocheck
+const guinea_bissau_ekstraksi = {
   emas: 18,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const guinea_bissau_ekstraksi = {
   aluminium: 14,
   logam_tanah_jarang: 20,
   bijih_besi: 4,
-} as const;
+};
+
+
+

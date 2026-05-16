@@ -1,4 +1,5 @@
-export const vanuatu_pendidikan = {
+﻿// @ts-nocheck
+const vanuatu_pendidikan = {
       "prasekolah": 89,
       "dasar": 20,
       "menengah": 38,
@@ -10,4 +11,7 @@ export const vanuatu_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 78
-    } as const;
+    };
+
+
+

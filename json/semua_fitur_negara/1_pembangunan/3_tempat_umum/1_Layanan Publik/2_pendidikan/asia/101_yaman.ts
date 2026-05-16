@@ -1,4 +1,5 @@
-export const yaman_pendidikan = {
+﻿// @ts-nocheck
+const yaman_pendidikan = {
       "prasekolah": 59,
       "dasar": 146,
       "menengah": 45,
@@ -10,4 +11,7 @@ export const yaman_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 61
-    } as const;
+    };
+
+
+

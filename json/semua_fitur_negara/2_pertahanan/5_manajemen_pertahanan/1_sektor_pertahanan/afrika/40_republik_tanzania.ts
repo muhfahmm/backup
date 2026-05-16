@@ -1,4 +1,4 @@
-export const republik_tanzania_pertahanan = {
+﻿const republik_tanzania_pertahanan = {
     "penjara": 12,
     "gudang_senjata": 2,
     "hangar_tank": 4,
@@ -7,4 +7,6 @@ export const republik_tanzania_pertahanan = {
     "pangkalan_laut": 19,
     "program_luar_angkasa": 11,
     "pertahanan_siber": 14
-    } as const;
+    };
+
+

@@ -1,4 +1,5 @@
-export const spanyol_pendidikan = {
+﻿// @ts-nocheck
+const spanyol_pendidikan = {
       "prasekolah": 1247,
       "dasar": 995,
       "menengah": 552,
@@ -10,4 +11,7 @@ export const spanyol_pendidikan = {
       "pusat_penelitian": 74,
       "pusat_pengembangan": 44,
       "literasi": 86
-    } as const;
+    };
+
+
+

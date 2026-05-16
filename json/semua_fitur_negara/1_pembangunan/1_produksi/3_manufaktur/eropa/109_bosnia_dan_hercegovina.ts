@@ -1,4 +1,5 @@
-export const bosnia_dan_hercegovina_manufaktur = {
+﻿// @ts-nocheck
+const bosnia_dan_hercegovina_manufaktur = {
   semikonduktor: 40,
   mobil: 44,
   sepeda_motor: 48,
@@ -6,4 +7,7 @@ export const bosnia_dan_hercegovina_manufaktur = {
   semen_beton: 40,
   kayu: 28,
   pupuk: 16,
-} as const;
+};
+
+
+

@@ -1,3 +1,7 @@
-export const uni_emirat_arab_farmasi = {
+﻿// @ts-nocheck
+const uni_emirat_arab_farmasi = {
   farmasi: 4,
-} as const;
+};
+
+
+

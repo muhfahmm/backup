@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Olahan Pangan (Total: 10 Bangunan)
 // ===================
-export const olahanPanganRate = {
+const olahanPanganRate = {
   "1_pabrik_air_mineral": {
     key: "1_pabrik_air_mineral",
     dataKey: "air_mineral",
@@ -149,3 +150,6 @@ export interface FoodProcessingData {
   ikan_kaleng: number;
   kopi_teh: number;
 }
+
+
+

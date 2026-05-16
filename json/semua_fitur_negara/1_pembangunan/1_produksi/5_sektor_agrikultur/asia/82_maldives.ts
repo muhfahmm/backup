@@ -1,4 +1,5 @@
-export const maldives_agrikultur = {
+﻿// @ts-nocheck
+const maldives_agrikultur = {
   padi: 110,
   gandum: 34,
   jagung: 20,
@@ -13,4 +14,7 @@ export const maldives_agrikultur = {
   karet: 0,
   kapas: 92,
   tembakau: 66,
-} as const;
+};
+
+
+

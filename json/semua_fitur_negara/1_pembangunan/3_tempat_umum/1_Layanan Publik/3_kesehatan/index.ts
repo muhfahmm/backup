@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface KesehatanData {
   rumah_sakit_besar?: number;
   rumah_sakit_kecil?: number;
@@ -9,7 +10,7 @@ export interface KesehatanData {
 // ===================
 // DETAIL TOTAL BANGUNAN: Kesehatan (Total: 3 Bangunan)
 // ===================
-export const kesehatanRate: Record<string, any> = {
+const kesehatanRate: Record<string, any> = {
   "11_rumah_sakit_besar": {
     key: "11_rumah_sakit_besar",
     dataKey: "rumah_sakit_besar",
@@ -50,3 +51,6 @@ export const kesehatanRate: Record<string, any> = {
     efek: "Mengurangi jumlah kematian akibat pandemi dan epidemi sebesar 0.01%"
   },
 };
+
+
+

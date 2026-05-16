@@ -1,4 +1,5 @@
-export const nauru_hukum = {
+﻿// @ts-nocheck
+const nauru_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 8,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const nauru_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 45,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

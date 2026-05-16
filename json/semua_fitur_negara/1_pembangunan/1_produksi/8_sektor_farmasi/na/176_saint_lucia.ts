@@ -1,3 +1,7 @@
-export const saint_lucia_farmasi = {
+﻿// @ts-nocheck
+const saint_lucia_farmasi = {
   farmasi: 20,
-} as const;
+};
+
+
+

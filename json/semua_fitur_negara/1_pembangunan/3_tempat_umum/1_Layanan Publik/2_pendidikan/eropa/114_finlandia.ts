@@ -1,4 +1,5 @@
-export const finlandia_pendidikan = {
+﻿// @ts-nocheck
+const finlandia_pendidikan = {
       "prasekolah": 320,
       "dasar": 593,
       "menengah": 385,
@@ -10,4 +11,7 @@ export const finlandia_pendidikan = {
       "pusat_penelitian": 9,
       "pusat_pengembangan": 10,
       "literasi": 81
-    } as const;
+    };
+
+
+

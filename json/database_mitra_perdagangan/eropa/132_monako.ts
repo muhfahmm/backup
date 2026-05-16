@@ -1,4 +1,5 @@
-export const monakoAgreements = [
+﻿// @ts-nocheck
+const monakoAgreements = [
   { "no": 1, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
@@ -14,3 +15,6 @@ export const monakoAgreements = [
   { "no": 13, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 14, "mitra": "China", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

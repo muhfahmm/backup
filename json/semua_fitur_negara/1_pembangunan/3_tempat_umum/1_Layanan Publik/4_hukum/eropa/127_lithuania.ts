@@ -1,4 +1,5 @@
-export const lithuania_hukum = {
+﻿// @ts-nocheck
+const lithuania_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 3,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const lithuania_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 49,
       "indeks_keamanan": 61
-  } as const;
+  };
+
+
+

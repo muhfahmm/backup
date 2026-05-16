@@ -1,4 +1,5 @@
-export const polandia_agrikultur = {
+﻿// @ts-nocheck
+const polandia_agrikultur = {
   padi: 1272,
   gandum: 3233,
   jagung: 2862,
@@ -13,4 +14,7 @@ export const polandia_agrikultur = {
   karet: 0,
   kapas: 848,
   tembakau: 4028,
-} as const;
+};
+
+
+

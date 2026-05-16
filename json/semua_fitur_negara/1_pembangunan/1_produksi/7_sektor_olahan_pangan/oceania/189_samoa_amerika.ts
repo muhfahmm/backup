@@ -1,4 +1,5 @@
-export const samoa_amerika_olahan_pangan = {
+﻿// @ts-nocheck
+const samoa_amerika_olahan_pangan = {
   air_mineral: 50,
   gula: 66,
   roti: 76,
@@ -9,4 +10,7 @@ export const samoa_amerika_olahan_pangan = {
   pakan_ternak: 58,
   ikan_kaleng: 66,
   kopi_teh: 90,
-} as const;
+};
+
+
+

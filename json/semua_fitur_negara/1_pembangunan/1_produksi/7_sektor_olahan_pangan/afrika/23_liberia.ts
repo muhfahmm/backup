@@ -1,4 +1,5 @@
-export const liberia_olahan_pangan = {
+﻿// @ts-nocheck
+const liberia_olahan_pangan = {
   air_mineral: 93,
   gula: 81,
   roti: 144,
@@ -9,4 +10,7 @@ export const liberia_olahan_pangan = {
   pakan_ternak: 78,
   ikan_kaleng: 69,
   kopi_teh: 123,
-} as const;
+};
+
+
+

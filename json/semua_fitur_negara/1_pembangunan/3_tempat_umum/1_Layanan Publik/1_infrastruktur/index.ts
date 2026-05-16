@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface SektorInfrastruktur {
   jalur_sepeda: number;
   jalan_raya: number;
@@ -12,7 +13,7 @@ export interface SektorInfrastruktur {
 // ===================
 // DETAIL TOTAL BANGUNAN: Infrastruktur (Total: 8 Bangunan)
 // ===================
-export const infrastrukturRate: Record<string, any> = {
+const infrastrukturRate: Record<string, any> = {
   "1_jalur_sepeda": {
     key: "1_jalur_sepeda",
     dataKey: "jalur_sepeda",
@@ -118,3 +119,6 @@ export const infrastrukturRate: Record<string, any> = {
     efek: "Mempercepat Estimasi Waktu Pengiriman ekspor-impor 0.1%"
   },
 };
+
+
+

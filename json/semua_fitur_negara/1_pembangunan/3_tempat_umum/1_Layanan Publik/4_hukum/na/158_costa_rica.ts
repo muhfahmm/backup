@@ -1,4 +1,5 @@
-export const costa_rica_hukum = {
+﻿// @ts-nocheck
+const costa_rica_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 7,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const costa_rica_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 10,
       "indeks_keamanan": 40
-  } as const;
+  };
+
+
+

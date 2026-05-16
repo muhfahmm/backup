@@ -1,4 +1,5 @@
-export const benin_pendidikan = {
+﻿// @ts-nocheck
+const benin_pendidikan = {
       "prasekolah": 25,
       "dasar": 147,
       "menengah": 48,
@@ -10,4 +11,7 @@ export const benin_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 70
-  } as const;
+  };
+
+
+

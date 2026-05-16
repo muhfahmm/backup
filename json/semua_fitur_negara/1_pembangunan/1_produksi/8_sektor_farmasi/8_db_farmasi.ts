@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Farmasi (Total: 1 Bangunan)
 // ===================
-export const farmasiRate = {
+const farmasiRate = {
   "1_pabrik_farmasi": {
     key: "1_pabrik_farmasi",
     dataKey: "farmasi",
@@ -23,3 +24,6 @@ export interface SektorFarmasi {
 export interface PharmacyData {
   farmasi: number;
 }
+
+
+

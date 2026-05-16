@@ -1,4 +1,5 @@
-export const jerman_olahan_pangan = {
+﻿// @ts-nocheck
+const jerman_olahan_pangan = {
   air_mineral: 9030,
   gula: 5160,
   roti: 3096,
@@ -9,4 +10,7 @@ export const jerman_olahan_pangan = {
   pakan_ternak: 11352,
   ikan_kaleng: 11094,
   kopi_teh: 3354,
-} as const;
+};
+
+
+

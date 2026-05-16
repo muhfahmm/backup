@@ -1,4 +1,5 @@
-export const malaysia_pertahanan = {
+﻿// @ts-nocheck
+const malaysia_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 9,
     "hangar_tank": 33,
@@ -7,4 +8,7 @@ export const malaysia_pertahanan = {
     "pangkalan_laut": 31,
     "program_luar_angkasa": 40,
     "pertahanan_siber": 25
-    } as const;
+    };
+
+
+

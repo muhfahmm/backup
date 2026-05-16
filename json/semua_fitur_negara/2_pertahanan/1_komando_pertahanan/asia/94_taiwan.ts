@@ -1,6 +1,6 @@
-import { taiwan_intelijen } from "../../2_intelijen/asia/94_taiwan";
+﻿// @ts-nocheck
 
-export const taiwan_strategis = {
+const taiwan_strategis = {
     "waktu_respon": 11,
     "intelijen": 24,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const taiwan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

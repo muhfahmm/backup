@@ -1,6 +1,6 @@
-import { irlandia_intelijen } from "../../2_intelijen/eropa/118_irlandia";
+﻿// @ts-nocheck
 
-export const irlandia_strategis = {
+const irlandia_strategis = {
     "waktu_respon": 36,
     "intelijen": 27,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const irlandia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const china_pendidikan = {
+﻿// @ts-nocheck
+const china_pendidikan = {
       "prasekolah": 5493,
       "dasar": 9642,
       "menengah": 4946,
@@ -10,4 +11,7 @@ export const china_pendidikan = {
       "pusat_penelitian": 418,
       "pusat_pengembangan": 249,
       "literasi": 97
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const bolivia_pendidikan = {
+﻿// @ts-nocheck
+const bolivia_pendidikan = {
       "prasekolah": 42,
       "dasar": 84,
       "menengah": 36,
@@ -10,4 +11,7 @@ export const bolivia_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 68
-    } as const;
+    };
+
+
+

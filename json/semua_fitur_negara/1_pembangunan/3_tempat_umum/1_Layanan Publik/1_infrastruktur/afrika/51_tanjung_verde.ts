@@ -1,4 +1,5 @@
-export const tanjung_verde_infrastruktur = {
+﻿// @ts-nocheck
+const tanjung_verde_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 12,
   terminal_bus: 5,
@@ -7,4 +8,7 @@ export const tanjung_verde_infrastruktur = {
   pelabuhan: 2,
   bandara: 5,
   helipad: 3,
-} as const;
+};
+
+
+

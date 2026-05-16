@@ -1,4 +1,5 @@
-export const malaysia_pendidikan = {
+﻿// @ts-nocheck
+const malaysia_pendidikan = {
       "prasekolah": 398,
       "dasar": 591,
       "menengah": 391,
@@ -10,4 +11,7 @@ export const malaysia_pendidikan = {
       "pusat_penelitian": 9,
       "pusat_pengembangan": 10,
       "literasi": 86
-    } as const;
+    };
+
+
+

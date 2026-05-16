@@ -1,4 +1,5 @@
-export const argentina_hukum = {
+﻿// @ts-nocheck
+const argentina_hukum = {
       "pusat_bantuan_hukum": 38,
       "pengadilan": 44,
       "kejaksaan": 12,
@@ -7,4 +8,7 @@ export const argentina_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 54,
       "indeks_keamanan": 75
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const filipina_agrikultur = {
+﻿// @ts-nocheck
+const filipina_agrikultur = {
   padi: 600,
   gandum: 720,
   jagung: 680,
@@ -13,4 +14,7 @@ export const filipina_agrikultur = {
   karet: 1180,
   kapas: 1540,
   tembakau: 780,
-} as const;
+};
+
+
+

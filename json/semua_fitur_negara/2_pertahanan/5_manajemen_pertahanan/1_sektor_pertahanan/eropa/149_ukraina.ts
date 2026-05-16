@@ -1,4 +1,5 @@
-export const ukraina_pertahanan = {
+﻿// @ts-nocheck
+const ukraina_pertahanan = {
     "penjara": 9,
     "gudang_senjata": 11,
     "hangar_tank": 37,
@@ -7,4 +8,7 @@ export const ukraina_pertahanan = {
     "pangkalan_laut": 18,
     "program_luar_angkasa": 30,
     "pertahanan_siber": 12
-    } as const;
+    };
+
+
+

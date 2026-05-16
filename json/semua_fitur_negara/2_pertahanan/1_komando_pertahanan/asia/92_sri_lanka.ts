@@ -1,6 +1,6 @@
-import { sri_lanka_intelijen } from "../../2_intelijen/asia/92_sri_lanka";
+﻿// @ts-nocheck
 
-export const sri_lanka_strategis = {
+const sri_lanka_strategis = {
     "waktu_respon": 19,
     "intelijen": 20,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const sri_lanka_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

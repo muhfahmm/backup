@@ -1,4 +1,5 @@
-export const aljazair_infrastruktur = {
+﻿// @ts-nocheck
+const aljazair_infrastruktur = {
   jalur_sepeda: 37,
   jalan_raya: 49,
   terminal_bus: 13,
@@ -7,4 +8,7 @@ export const aljazair_infrastruktur = {
   pelabuhan: 8,
   bandara: 7,
   helipad: 10,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const spanyol_hukum = {
+﻿// @ts-nocheck
+const spanyol_hukum = {
       "pusat_bantuan_hukum": 140,
       "pengadilan": 110,
       "kejaksaan": 88,
@@ -7,4 +8,7 @@ export const spanyol_hukum = {
       "akademi_polisi": 17,
       "indeks_korupsi": 67,
       "indeks_keamanan": 71
-  } as const;
+  };
+
+
+

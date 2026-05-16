@@ -1,6 +1,5 @@
-import { aljazair_intelijen } from "../../2_intelijen/afrika/2_aljazair";
-
-export const aljazair_strategis = {
+﻿
+const aljazair_strategis = {
     "waktu_respon": 15,
     "intelijen": 1,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const aljazair_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

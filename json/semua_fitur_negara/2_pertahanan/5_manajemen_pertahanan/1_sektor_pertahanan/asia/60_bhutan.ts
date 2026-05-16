@@ -1,4 +1,4 @@
-export const bhutan_pertahanan = {
+﻿const bhutan_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 36,
     "hangar_tank": 38,
@@ -7,4 +7,6 @@ export const bhutan_pertahanan = {
     "pangkalan_laut": 32,
     "program_luar_angkasa": 8,
     "pertahanan_siber": 1
-    } as const;
+    };
+
+

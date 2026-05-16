@@ -1,4 +1,5 @@
-export const rwanda_pendidikan = {
+﻿// @ts-nocheck
+const rwanda_pendidikan = {
       "prasekolah": 10,
       "dasar": 58,
       "menengah": 88,
@@ -10,4 +11,7 @@ export const rwanda_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 70
-  } as const;
+  };
+
+
+

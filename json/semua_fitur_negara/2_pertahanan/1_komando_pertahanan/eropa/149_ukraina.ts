@@ -1,6 +1,5 @@
-import { ukraina_intelijen } from "../../2_intelijen/eropa/149_ukraina";
-
-export const ukraina_strategis = {
+﻿
+const ukraina_strategis = {
     "waktu_respon": 33,
     "intelijen": 37,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const ukraina_strategis = {
       "program_nuklir": 95,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

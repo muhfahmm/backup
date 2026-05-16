@@ -1,4 +1,5 @@
-export const singapura_pendidikan = {
+﻿// @ts-nocheck
+const singapura_pendidikan = {
       "prasekolah": 401,
       "dasar": 479,
       "menengah": 470,
@@ -10,4 +11,7 @@ export const singapura_pendidikan = {
       "pusat_penelitian": 17,
       "pusat_pengembangan": 9,
       "literasi": 83
-    } as const;
+    };
+
+
+

@@ -1,41 +1,19 @@
-export const ukraina_profile = {
+﻿// @ts-nocheck
+const ukraina_profile = {
   "name_en": "Ukraine",
   "capital": "Kyiv",
   "name_id": "Ukraina",
   "lon": 30.52,
   "lat": 50.45,
-  "flag": "🇺🇦",
+  "flag": "ðŸ‡ºðŸ‡¦",
   "jumlah_penduduk": 36700000,
   "anggaran": 1556,
   "pendapatan_nasional": "4445",
   "religion": "Kristen Ortodoks",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { ukraina_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/149_ukraina";
-import { ukraina_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/149_ukraina";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { ukraina_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/149_ukraina";
 
-import { ukraina_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/149_ukraina";
-import { ukraina_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/149_ukraina";
-import { ukraina_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/149_ukraina";
-import { ukraina_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/149_ukraina";
-import { ukraina_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/149_ukraina";
-import { ukraina_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/149_ukraina";
-import { ukraina_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/149_ukraina";
-import { ukraina_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/149_ukraina";
-import { ukraina_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/149_ukraina";
-import { ukraina_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/149_ukraina";
-import { ukraina_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/149_ukraina";
-import { ukraina_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/149_ukraina";
-import { ukraina_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/149_ukraina";
-import { ukraina_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/149_ukraina";
-import { ukraina_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/149_ukraina";
-import { ukraina_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/149_ukraina";
-import { ukraina_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/149_ukraina";
-import { ukraina_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/149_ukraina";
-import { ukraina_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/149_ukraina";
 const ukraina_geopolitik = {
     "un_vote": 205,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const ukraina_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const ukraina: CountryData = {
+const ukraina = {
   ...ukraina_profile,
   "sektor_listrik": ukraina_listrik,
   "hunian": ukraina_hunian,
@@ -75,7 +53,7 @@ export const ukraina: CountryData = {
   "sektor_komersial": ukraina_komersial,
   "sektor_hiburan": ukraina_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const ukraina: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const ukraina: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ukraina_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,
@@ -143,5 +121,8 @@ export const ukraina: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

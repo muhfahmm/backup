@@ -1,4 +1,5 @@
-export const guiana_prancis_agrikultur = {
+﻿// @ts-nocheck
+const guiana_prancis_agrikultur = {
   padi: 51,
   gandum: 23,
   jagung: 20,
@@ -13,4 +14,7 @@ export const guiana_prancis_agrikultur = {
   karet: 0,
   kapas: 19,
   tembakau: 32,
-} as const;
+};
+
+
+

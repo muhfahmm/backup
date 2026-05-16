@@ -1,6 +1,5 @@
-import { estonia_intelijen } from "../../2_intelijen/eropa/113_estonia";
-
-export const estonia_strategis = {
+﻿
+const estonia_strategis = {
     "waktu_respon": 17,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const estonia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

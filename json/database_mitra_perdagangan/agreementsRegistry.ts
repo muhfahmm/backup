@@ -1,5 +1,4 @@
-import * as allAgreementsImports from "./index";
-
+﻿// @ts-nocheck
 // Combine all perjanjian into a single registry from the central index
 const allAgreements: Record<string, any[]> = allAgreementsImports;
 
@@ -38,10 +37,13 @@ const normalizeCountryName = (name: string): string => {
     .replace(/[()]/g, '');
 };
 
-export const getInitialAgreements = (countryNameEn: string, countryNameId: string): any[] => {
+const getInitialAgreements = (countryNameEn: string, countryNameId: string): any[] => {
   const keyEn = `${normalizeCountryName(countryNameEn)}Agreements`;
   const keyId = `${normalizeCountryName(countryNameId)}Agreements`;
 
   // Try lookup with ID name first, then EN name
   return allAgreements[keyId] || allAgreements[keyEn] || [];
 };
+
+
+

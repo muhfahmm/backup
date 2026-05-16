@@ -1,4 +1,5 @@
-export const trinidad_dan_tobago_pertahanan = {
+﻿// @ts-nocheck
+const trinidad_dan_tobago_pertahanan = {
     "penjara": 37,
     "gudang_senjata": 38,
     "hangar_tank": 34,
@@ -7,4 +8,7 @@ export const trinidad_dan_tobago_pertahanan = {
     "pangkalan_laut": 15,
     "program_luar_angkasa": 1,
     "pertahanan_siber": 14
-    } as const;
+    };
+
+
+

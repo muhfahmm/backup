@@ -1,4 +1,5 @@
-export const andorra_pendidikan = {
+﻿// @ts-nocheck
+const andorra_pendidikan = {
       "prasekolah": 20,
       "dasar": 23,
       "menengah": 41,
@@ -10,4 +11,7 @@ export const andorra_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 0,
       "literasi": 63
-    } as const;
+    };
+
+
+

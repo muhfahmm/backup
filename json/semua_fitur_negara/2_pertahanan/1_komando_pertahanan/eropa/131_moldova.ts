@@ -1,6 +1,6 @@
-import { moldova_intelijen } from "../../2_intelijen/eropa/131_moldova";
+﻿// @ts-nocheck
 
-export const moldova_strategis = {
+const moldova_strategis = {
     "waktu_respon": 40,
     "intelijen": 12,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const moldova_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

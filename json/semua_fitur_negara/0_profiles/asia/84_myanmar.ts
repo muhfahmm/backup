@@ -1,41 +1,19 @@
-export const myanmar_profile = {
+﻿// @ts-nocheck
+const myanmar_profile = {
   "name_en": "Myanmar",
   "capital": "Naypyidaw",
   "name_id": "Myanmar",
   "lon": 96.07,
   "lat": 19.76,
-  "flag": "🇲🇲",
+  "flag": "ðŸ‡²ðŸ‡²",
   "jumlah_penduduk": 51375327,
   "anggaran": 583,
   "pendapatan_nasional": "1667",
   "religion": "Buddha",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { myanmar_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/84_myanmar";
-import { myanmar_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/84_myanmar";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { myanmar_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/84_myanmar";
 
-import { myanmar_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/84_myanmar";
-import { myanmar_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/84_myanmar";
-import { myanmar_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/84_myanmar";
-import { myanmar_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/84_myanmar";
-import { myanmar_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/84_myanmar";
-import { myanmar_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/84_myanmar";
-import { myanmar_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/84_myanmar";
-import { myanmar_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/84_myanmar";
-import { myanmar_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/84_myanmar";
-import { myanmar_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/84_myanmar";
-import { myanmar_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/84_myanmar";
-import { myanmar_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/84_myanmar";
-import { myanmar_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/84_myanmar";
-import { myanmar_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/84_myanmar";
-import { myanmar_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/84_myanmar";
-import { myanmar_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/84_myanmar";
-import { myanmar_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/84_myanmar";
-import { myanmar_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/84_myanmar";
-import { myanmar_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/84_myanmar";
 const myanmar_geopolitik = {
     "un_vote": 55,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const myanmar_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const myanmar: CountryData = {
+const myanmar = {
   ...myanmar_profile,
   "sektor_listrik": myanmar_listrik,
   "hunian": myanmar_hunian,
@@ -75,7 +53,7 @@ export const myanmar: CountryData = {
   "sektor_komersial": myanmar_komersial,
   "sektor_hiburan": myanmar_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const myanmar: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const myanmar: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": myanmar_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,
@@ -143,5 +121,8 @@ export const myanmar: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

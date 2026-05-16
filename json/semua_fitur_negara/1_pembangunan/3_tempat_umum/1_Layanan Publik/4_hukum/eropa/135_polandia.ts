@@ -1,4 +1,5 @@
-export const polandia_hukum = {
+﻿// @ts-nocheck
+const polandia_hukum = {
       "pusat_bantuan_hukum": 22,
       "pengadilan": 31,
       "kejaksaan": 21,
@@ -7,4 +8,7 @@ export const polandia_hukum = {
       "akademi_polisi": 6,
       "indeks_korupsi": 59,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

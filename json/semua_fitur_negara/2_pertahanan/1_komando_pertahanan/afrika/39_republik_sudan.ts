@@ -1,6 +1,6 @@
-import { republik_sudan_intelijen } from "../../2_intelijen/afrika/39_republik_sudan";
+﻿// @ts-nocheck
 
-export const republik_sudan_strategis = {
+const republik_sudan_strategis = {
     "waktu_respon": 27,
     "intelijen": 6,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_sudan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const seychelles_kepolisian = {
+﻿// @ts-nocheck
+const seychelles_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const seychelles_kepolisian = {
       "pasukan_swat": 30,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

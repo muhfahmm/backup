@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface PendidikanData {
   prasekolah?: number;
   dasar?: number;
@@ -15,7 +16,7 @@ export interface PendidikanData {
 // ===================
 // DETAIL TOTAL BANGUNAN: Pendidikan (Total: 10 Bangunan)
 // ===================
-export const pendidikanRate: Record<string, any> = {
+const pendidikanRate: Record<string, any> = {
   "1_prasekolah": {
     key: "1_prasekolah",
     dataKey: "prasekolah",
@@ -147,3 +148,6 @@ export const pendidikanRate: Record<string, any> = {
     efek: "Mempercepat waktu penelitian sebesar 0.21%"
   },
 };
+
+
+

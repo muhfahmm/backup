@@ -1,4 +1,5 @@
-export const puerto_rico_hukum = {
+﻿// @ts-nocheck
+const puerto_rico_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 4,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const puerto_rico_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 30,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

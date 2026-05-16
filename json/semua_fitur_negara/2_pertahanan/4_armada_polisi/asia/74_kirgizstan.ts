@@ -1,4 +1,5 @@
-export const kirgizstan_kepolisian = {
+﻿// @ts-nocheck
+const kirgizstan_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const kirgizstan_kepolisian = {
       "pasukan_swat": 9,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const korea_selatan_infrastruktur = {
+﻿// @ts-nocheck
+const korea_selatan_infrastruktur = {
   jalur_sepeda: 159,
   jalan_raya: 207,
   terminal_bus: 42,
@@ -7,4 +8,7 @@ export const korea_selatan_infrastruktur = {
   pelabuhan: 24,
   bandara: 20,
   helipad: 19,
-} as const;
+};
+
+
+

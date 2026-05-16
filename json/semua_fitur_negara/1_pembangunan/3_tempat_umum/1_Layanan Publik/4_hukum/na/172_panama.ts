@@ -1,4 +1,5 @@
-export const panama_hukum = {
+﻿// @ts-nocheck
+const panama_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 15,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const panama_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 35,
       "indeks_keamanan": 67
-  } as const;
+  };
+
+
+

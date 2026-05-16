@@ -1,4 +1,5 @@
-export const ghana_hukum = {
+﻿// @ts-nocheck
+const ghana_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 9,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const ghana_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 24,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

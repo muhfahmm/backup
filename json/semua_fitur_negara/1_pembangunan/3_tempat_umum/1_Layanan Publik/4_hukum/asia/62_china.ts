@@ -1,4 +1,5 @@
-export const china_hukum = {
+﻿// @ts-nocheck
+const china_hukum = {
       "pusat_bantuan_hukum": 906,
       "pengadilan": 513,
       "kejaksaan": 449,
@@ -7,4 +8,7 @@ export const china_hukum = {
       "akademi_polisi": 280,
       "indeks_korupsi": 73,
       "indeks_keamanan": 96
-  } as const;
+  };
+
+
+

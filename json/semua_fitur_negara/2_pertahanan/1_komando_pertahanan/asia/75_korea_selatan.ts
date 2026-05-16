@@ -1,6 +1,6 @@
-import { korea_selatan_intelijen } from "../../2_intelijen/asia/75_korea_selatan";
+﻿// @ts-nocheck
 
-export const korea_selatan_strategis = {
+const korea_selatan_strategis = {
     "waktu_respon": 6,
     "intelijen": 35,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const korea_selatan_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { kiribati_intelijen } from "../../2_intelijen/oceania/182_kiribati";
+﻿// @ts-nocheck
 
-export const kiribati_strategis = {
+const kiribati_strategis = {
     "waktu_respon": 4,
     "intelijen": 12,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kiribati_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

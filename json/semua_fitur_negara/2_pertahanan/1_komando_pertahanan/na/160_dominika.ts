@@ -1,6 +1,5 @@
-import { dominika_intelijen } from "../../2_intelijen/na/160_dominika";
-
-export const dominika_strategis = {
+﻿
+const dominika_strategis = {
     "waktu_respon": 2,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const dominika_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

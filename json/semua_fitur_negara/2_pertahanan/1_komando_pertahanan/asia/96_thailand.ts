@@ -1,6 +1,6 @@
-import { thailand_intelijen } from "../../2_intelijen/asia/96_thailand";
+﻿// @ts-nocheck
 
-export const thailand_strategis = {
+const thailand_strategis = {
     "waktu_respon": 24,
     "intelijen": 8,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const thailand_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

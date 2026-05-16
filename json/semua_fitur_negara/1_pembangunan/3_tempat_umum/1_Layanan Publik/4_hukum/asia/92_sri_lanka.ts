@@ -1,4 +1,5 @@
-export const sri_lanka_hukum = {
+﻿// @ts-nocheck
+const sri_lanka_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 13,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const sri_lanka_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 23,
       "indeks_keamanan": 70
-  } as const;
+  };
+
+
+

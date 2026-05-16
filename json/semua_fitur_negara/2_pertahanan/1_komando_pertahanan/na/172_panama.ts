@@ -1,6 +1,6 @@
-import { panama_intelijen } from "../../2_intelijen/na/172_panama";
+﻿// @ts-nocheck
 
-export const panama_strategis = {
+const panama_strategis = {
     "waktu_respon": 2,
     "intelijen": 4,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const panama_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

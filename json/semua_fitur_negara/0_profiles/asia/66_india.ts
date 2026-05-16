@@ -1,41 +1,19 @@
-export const india_profile = {
+﻿// @ts-nocheck
+const india_profile = {
   "name_en": "India",
   "capital": "New Delhi",
   "name_id": "India",
   "lon": 77.2,
   "lat": 28.61,
-  "flag": "🇮🇳",
+  "flag": "ðŸ‡®ðŸ‡³",
   "jumlah_penduduk": 1417492000,
   "anggaran": 38309,
   "pendapatan_nasional": "109453",
   "religion": "Hindu",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { india_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/66_india";
-import { india_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/66_india";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { india_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/66_india";
 
-import { india_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/66_india";
-import { india_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/66_india";
-import { india_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/66_india";
-import { india_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/66_india";
-import { india_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/66_india";
-import { india_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/66_india";
-import { india_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/66_india";
-import { india_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/66_india";
-import { india_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/66_india";
-import { india_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/66_india";
-import { india_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/66_india";
-import { india_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/66_india";
-import { india_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/66_india";
-import { india_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/66_india";
-import { india_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/66_india";
-import { india_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/66_india";
-import { india_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/66_india";
-import { india_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/66_india";
-import { india_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/66_india";
 const india_geopolitik = {
     "un_vote": 204,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const india_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const india: CountryData = {
+const india = {
   ...india_profile,
   "sektor_listrik": india_listrik,
   "hunian": india_hunian,
@@ -75,7 +53,7 @@ export const india: CountryData = {
   "sektor_komersial": india_komersial,
   "sektor_hiburan": india_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const india: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const india: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": india_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,
@@ -143,5 +121,8 @@ export const india: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

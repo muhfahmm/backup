@@ -1,4 +1,5 @@
-export const san_marino_agrikultur = {
+﻿// @ts-nocheck
+const san_marino_agrikultur = {
   padi: 40,
   gandum: 148,
   jagung: 52,
@@ -13,4 +14,7 @@ export const san_marino_agrikultur = {
   karet: 0,
   kapas: 156,
   tembakau: 192,
-} as const;
+};
+
+
+

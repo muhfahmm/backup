@@ -1,4 +1,5 @@
-export const bolivia_pertahanan = {
+﻿// @ts-nocheck
+const bolivia_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 25,
     "hangar_tank": 7,
@@ -7,4 +8,7 @@ export const bolivia_pertahanan = {
     "pangkalan_laut": 26,
     "program_luar_angkasa": 4,
     "pertahanan_siber": 26
-    } as const;
+    };
+
+
+

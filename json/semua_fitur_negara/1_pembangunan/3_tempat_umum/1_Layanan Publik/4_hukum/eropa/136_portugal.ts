@@ -1,4 +1,5 @@
-export const portugal_hukum = {
+﻿// @ts-nocheck
+const portugal_hukum = {
       "pusat_bantuan_hukum": 16,
       "pengadilan": 50,
       "kejaksaan": 25,
@@ -7,4 +8,7 @@ export const portugal_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 53,
       "indeks_keamanan": 62
-  } as const;
+  };
+
+
+

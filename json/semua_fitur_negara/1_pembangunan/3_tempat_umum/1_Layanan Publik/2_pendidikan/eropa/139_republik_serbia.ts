@@ -1,4 +1,5 @@
-export const republik_serbia_pendidikan = {
+﻿// @ts-nocheck
+const republik_serbia_pendidikan = {
       "prasekolah": 68,
       "dasar": 24,
       "menengah": 71,
@@ -10,4 +11,7 @@ export const republik_serbia_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 66
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { sierra_leone_intelijen } from "../../2_intelijen/afrika/48_sierra_leone";
+﻿// @ts-nocheck
 
-export const sierra_leone_strategis = {
+const sierra_leone_strategis = {
     "waktu_respon": 1,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const sierra_leone_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

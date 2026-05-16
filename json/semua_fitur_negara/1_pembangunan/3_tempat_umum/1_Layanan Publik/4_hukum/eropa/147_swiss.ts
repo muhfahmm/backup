@@ -1,4 +1,5 @@
-export const swiss_hukum = {
+﻿// @ts-nocheck
+const swiss_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 27,
       "kejaksaan": 14,
@@ -7,4 +8,7 @@ export const swiss_hukum = {
       "akademi_polisi": 6,
       "indeks_korupsi": 47,
       "indeks_keamanan": 59
-  } as const;
+  };
+
+
+

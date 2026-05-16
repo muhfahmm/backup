@@ -1,4 +1,5 @@
-export const sierra_leone_pertahanan = {
+﻿// @ts-nocheck
+const sierra_leone_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 7,
     "hangar_tank": 32,
@@ -7,4 +8,7 @@ export const sierra_leone_pertahanan = {
     "pangkalan_laut": 11,
     "program_luar_angkasa": 38,
     "pertahanan_siber": 14
-    } as const;
+    };
+
+
+

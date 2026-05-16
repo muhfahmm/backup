@@ -1,4 +1,5 @@
-export const bermuda_pendidikan = {
+﻿// @ts-nocheck
+const bermuda_pendidikan = {
       "prasekolah": 65,
       "dasar": 79,
       "menengah": 38,
@@ -10,4 +11,7 @@ export const bermuda_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 1,
       "literasi": 85
-    } as const;
+    };
+
+
+

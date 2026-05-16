@@ -1,4 +1,5 @@
-export const uruguay_hukum = {
+﻿// @ts-nocheck
+const uruguay_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 3,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const uruguay_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 10,
       "indeks_keamanan": 65
-  } as const;
+  };
+
+
+

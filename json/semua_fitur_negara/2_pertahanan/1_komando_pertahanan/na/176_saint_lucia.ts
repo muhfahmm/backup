@@ -1,6 +1,5 @@
-import { saint_lucia_intelijen } from "../../2_intelijen/na/176_saint_lucia";
-
-export const saint_lucia_strategis = {
+﻿
+const saint_lucia_strategis = {
     "waktu_respon": 16,
     "intelijen": 24,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const saint_lucia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

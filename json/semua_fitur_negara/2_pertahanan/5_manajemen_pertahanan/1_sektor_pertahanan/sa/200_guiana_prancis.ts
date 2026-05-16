@@ -1,4 +1,5 @@
-export const guiana_prancis_pertahanan = {
+﻿// @ts-nocheck
+const guiana_prancis_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 27,
     "hangar_tank": 20,
@@ -7,4 +8,7 @@ export const guiana_prancis_pertahanan = {
     "pangkalan_laut": 15,
     "program_luar_angkasa": 29,
     "pertahanan_siber": 16
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const amerika_serikat_pendidikan = {
+﻿// @ts-nocheck
+const amerika_serikat_pendidikan = {
       "prasekolah": 6825,
       "dasar": 6564,
       "menengah": 7992,
@@ -10,4 +11,7 @@ export const amerika_serikat_pendidikan = {
       "pusat_penelitian": 590,
       "pusat_pengembangan": 432,
       "literasi": 98
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const fiji_pendidikan = {
+﻿// @ts-nocheck
+const fiji_pendidikan = {
       "prasekolah": 47,
       "dasar": 94,
       "menengah": 60,
@@ -10,4 +11,7 @@ export const fiji_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 71
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const kuwait_pendidikan = {
+﻿// @ts-nocheck
+const kuwait_pendidikan = {
       "prasekolah": 50,
       "dasar": 22,
       "menengah": 30,
@@ -10,4 +11,7 @@ export const kuwait_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 66
-    } as const;
+    };
+
+
+

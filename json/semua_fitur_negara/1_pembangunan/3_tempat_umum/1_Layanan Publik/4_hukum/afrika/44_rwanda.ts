@@ -1,4 +1,5 @@
-export const rwanda_hukum = {
+﻿// @ts-nocheck
+const rwanda_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 5,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const rwanda_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 22,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

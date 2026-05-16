@@ -1,41 +1,19 @@
-export const guyana_profile = {
+﻿// @ts-nocheck
+const guyana_profile = {
   "name_en": "Guyana",
   "capital": "Georgetown",
   "name_id": "Guyana",
   "lon": -59,
   "lat": 5,
-  "flag": "🇬🇾",
+  "flag": "ðŸ‡¬ðŸ‡¾",
   "jumlah_penduduk": 956044,
   "anggaran": 146,
   "pendapatan_nasional": "417",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { guyana_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/sa/201_guyana";
-import { guyana_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/sa/201_guyana";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { guyana_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/sa/201_guyana";
 
-import { guyana_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/sa/201_guyana";
-import { guyana_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/sa/201_guyana";
-import { guyana_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/sa/201_guyana";
-import { guyana_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/sa/201_guyana";
-import { guyana_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/sa/201_guyana";
-import { guyana_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/sa/201_guyana";
-import { guyana_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/sa/201_guyana";
-import { guyana_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/sa/201_guyana";
-import { guyana_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/sa/201_guyana";
-import { guyana_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/sa/201_guyana";
-import { guyana_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/sa/201_guyana";
-import { guyana_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/sa/201_guyana";
-import { guyana_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/sa/201_guyana";
-import { guyana_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/sa/201_guyana";
-import { guyana_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/sa/201_guyana";
-import { guyana_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/sa/201_guyana";
-import { guyana_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/sa/201_guyana";
-import { guyana_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/sa/201_guyana";
-import { guyana_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/sa/201_guyana";
 const guyana_geopolitik = {
     "un_vote": 74,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const guyana_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const guyana: CountryData = {
+const guyana = {
   ...guyana_profile,
   "sektor_listrik": guyana_listrik,
   "hunian": guyana_hunian,
@@ -75,7 +53,7 @@ export const guyana: CountryData = {
   "sektor_komersial": guyana_komersial,
   "sektor_hiburan": guyana_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const guyana: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const guyana: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guyana_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,
@@ -143,5 +121,8 @@ export const guyana: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

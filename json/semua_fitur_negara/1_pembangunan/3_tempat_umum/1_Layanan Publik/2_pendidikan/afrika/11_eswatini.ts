@@ -1,4 +1,5 @@
-export const eswatini_pendidikan = {
+﻿// @ts-nocheck
+const eswatini_pendidikan = {
       "prasekolah": 24,
       "dasar": 101,
       "menengah": 91,
@@ -10,4 +11,7 @@ export const eswatini_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 64
-  } as const;
+  };
+
+
+

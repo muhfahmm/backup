@@ -1,4 +1,5 @@
-export const bhutan_agrikultur = {
+﻿// @ts-nocheck
+const bhutan_agrikultur = {
   padi: 57,
   gandum: 228,
   jagung: 204,
@@ -13,4 +14,7 @@ export const bhutan_agrikultur = {
   karet: 0,
   kapas: 30,
   tembakau: 159,
-} as const;
+};
+
+
+

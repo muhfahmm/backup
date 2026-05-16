@@ -1,4 +1,5 @@
-export const barbados_pertahanan = {
+﻿// @ts-nocheck
+const barbados_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 40,
     "hangar_tank": 11,
@@ -7,4 +8,7 @@ export const barbados_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 12,
     "pertahanan_siber": 28
-    } as const;
+    };
+
+
+

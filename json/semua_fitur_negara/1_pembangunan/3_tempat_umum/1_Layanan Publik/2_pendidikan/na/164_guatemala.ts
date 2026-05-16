@@ -1,4 +1,5 @@
-export const guatemala_pendidikan = {
+﻿// @ts-nocheck
+const guatemala_pendidikan = {
       "prasekolah": 81,
       "dasar": 105,
       "menengah": 32,
@@ -10,4 +11,7 @@ export const guatemala_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 74
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const san_marino_hukum = {
+﻿// @ts-nocheck
+const san_marino_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 14,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const san_marino_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 38,
       "indeks_keamanan": 55
-  } as const;
+  };
+
+
+

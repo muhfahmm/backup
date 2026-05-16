@@ -1,4 +1,5 @@
-export const slowakia_pendidikan = {
+﻿// @ts-nocheck
+const slowakia_pendidikan = {
       "prasekolah": 68,
       "dasar": 115,
       "menengah": 40,
@@ -10,4 +11,7 @@ export const slowakia_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 80
-    } as const;
+    };
+
+
+

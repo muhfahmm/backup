@@ -1,4 +1,5 @@
-export const siprus_pertahanan = {
+﻿// @ts-nocheck
+const siprus_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 24,
     "hangar_tank": 16,
@@ -7,4 +8,7 @@ export const siprus_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 4,
     "pertahanan_siber": 32
-    } as const;
+    };
+
+
+

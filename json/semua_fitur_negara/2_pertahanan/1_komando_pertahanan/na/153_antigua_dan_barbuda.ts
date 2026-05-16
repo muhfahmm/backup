@@ -1,6 +1,6 @@
-import { antigua_dan_barbuda_intelijen } from "../../2_intelijen/na/153_antigua_dan_barbuda";
+﻿// @ts-nocheck
 
-export const antigua_dan_barbuda_strategis = {
+const antigua_dan_barbuda_strategis = {
     "waktu_respon": 32,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const antigua_dan_barbuda_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

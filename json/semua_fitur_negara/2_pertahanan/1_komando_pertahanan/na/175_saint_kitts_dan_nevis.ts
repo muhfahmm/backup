@@ -1,6 +1,5 @@
-import { saint_kitts_dan_nevis_intelijen } from "../../2_intelijen/na/175_saint_kitts_dan_nevis";
-
-export const saint_kitts_dan_nevis_strategis = {
+﻿
+const saint_kitts_dan_nevis_strategis = {
     "waktu_respon": 27,
     "intelijen": 11,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const saint_kitts_dan_nevis_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

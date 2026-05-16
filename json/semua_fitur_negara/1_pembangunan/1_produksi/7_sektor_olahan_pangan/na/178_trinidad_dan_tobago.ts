@@ -1,4 +1,5 @@
-export const trinidad_dan_tobago_olahan_pangan = {
+﻿// @ts-nocheck
+const trinidad_dan_tobago_olahan_pangan = {
   air_mineral: 40,
   gula: 64,
   roti: 64,
@@ -9,4 +10,7 @@ export const trinidad_dan_tobago_olahan_pangan = {
   pakan_ternak: 74,
   ikan_kaleng: 78,
   kopi_teh: 80,
-} as const;
+};
+
+
+

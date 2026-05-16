@@ -1,4 +1,5 @@
-export const hungaria_pendidikan = {
+﻿// @ts-nocheck
+const hungaria_pendidikan = {
       "prasekolah": 113,
       "dasar": 462,
       "menengah": 397,
@@ -10,4 +11,7 @@ export const hungaria_pendidikan = {
       "pusat_penelitian": 15,
       "pusat_pengembangan": 3,
       "literasi": 89
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { portugal_intelijen } from "../../2_intelijen/eropa/136_portugal";
+﻿// @ts-nocheck
 
-export const portugal_strategis = {
+const portugal_strategis = {
     "waktu_respon": 10,
     "intelijen": 23,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const portugal_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

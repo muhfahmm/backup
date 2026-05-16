@@ -1,4 +1,5 @@
-export const swedia_pendidikan = {
+﻿// @ts-nocheck
+const swedia_pendidikan = {
       "prasekolah": 161,
       "dasar": 271,
       "menengah": 176,
@@ -10,4 +11,7 @@ export const swedia_pendidikan = {
       "pusat_penelitian": 16,
       "pusat_pengembangan": 4,
       "literasi": 87
-    } as const;
+    };
+
+
+

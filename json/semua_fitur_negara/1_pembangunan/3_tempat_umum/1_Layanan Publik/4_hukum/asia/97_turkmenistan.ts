@@ -1,4 +1,5 @@
-export const turkmenistan_hukum = {
+﻿// @ts-nocheck
+const turkmenistan_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 8,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const turkmenistan_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 43,
       "indeks_keamanan": 49
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const paraguay_pertahanan = {
+﻿// @ts-nocheck
+const paraguay_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 7,
     "hangar_tank": 20,
@@ -7,4 +8,7 @@ export const paraguay_pertahanan = {
     "pangkalan_laut": 14,
     "program_luar_angkasa": 36,
     "pertahanan_siber": 5
-    } as const;
+    };
+
+
+

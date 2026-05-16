@@ -1,4 +1,5 @@
-export const el_salvador_pendidikan = {
+﻿// @ts-nocheck
+const el_salvador_pendidikan = {
       "prasekolah": 87,
       "dasar": 78,
       "menengah": 54,
@@ -10,4 +11,7 @@ export const el_salvador_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 76
-    } as const;
+    };
+
+
+

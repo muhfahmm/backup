@@ -1,4 +1,5 @@
-export const guiana_prancis_hukum = {
+﻿// @ts-nocheck
+const guiana_prancis_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 11,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const guiana_prancis_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 35,
       "indeks_keamanan": 44
-  } as const;
+  };
+
+
+

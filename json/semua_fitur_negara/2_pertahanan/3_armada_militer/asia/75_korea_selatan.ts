@@ -1,4 +1,5 @@
-export const korea_selatan_armada = {
+﻿// @ts-nocheck
+const korea_selatan_armada = {
     "barak": 60,
     "darat": {
         "tank_tempur_utama": 2501,
@@ -28,4 +29,7 @@ export const korea_selatan_armada = {
         "drone_kamikaze": 200,
         "pesawat_angkut": 40
       }
-} as const;
+};
+
+
+

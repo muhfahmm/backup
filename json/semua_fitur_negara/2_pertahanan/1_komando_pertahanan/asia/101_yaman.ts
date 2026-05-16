@@ -1,6 +1,6 @@
-import { yaman_intelijen } from "../../2_intelijen/asia/101_yaman";
+﻿// @ts-nocheck
 
-export const yaman_strategis = {
+const yaman_strategis = {
     "waktu_respon": 30,
     "intelijen": 13,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const yaman_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

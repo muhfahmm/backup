@@ -1,4 +1,5 @@
-export const puerto_rico_infrastruktur = {
+﻿// @ts-nocheck
+const puerto_rico_infrastruktur = {
   jalur_sepeda: 8,
   jalan_raya: 16,
   terminal_bus: 2,
@@ -7,4 +8,7 @@ export const puerto_rico_infrastruktur = {
   pelabuhan: 4,
   bandara: 3,
   helipad: 3,
-} as const;
+};
+
+
+

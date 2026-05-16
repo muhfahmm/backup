@@ -1,4 +1,5 @@
-export const maldives_pendidikan = {
+﻿// @ts-nocheck
+const maldives_pendidikan = {
       "prasekolah": 96,
       "dasar": 58,
       "menengah": 74,
@@ -10,4 +11,7 @@ export const maldives_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 1,
       "literasi": 70
-    } as const;
+    };
+
+
+

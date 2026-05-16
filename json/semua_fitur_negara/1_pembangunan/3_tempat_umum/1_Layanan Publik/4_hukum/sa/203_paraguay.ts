@@ -1,4 +1,5 @@
-export const paraguay_hukum = {
+﻿// @ts-nocheck
+const paraguay_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 6,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const paraguay_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 34,
       "indeks_keamanan": 49
-  } as const;
+  };
+
+
+

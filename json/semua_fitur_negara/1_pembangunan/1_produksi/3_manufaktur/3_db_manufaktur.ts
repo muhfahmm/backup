@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Manufaktur (Total: 7 Bangunan)
 // ===================
-export const manufakturRate = {
+const manufakturRate = {
   "1_pabrik_elektronik": {
     key: "1_pabrik_elektronik",
     dataKey: "semikonduktor",
@@ -107,3 +108,6 @@ export interface ManufacturingData {
   kayu: number;
   pupuk: number;
 }
+
+
+

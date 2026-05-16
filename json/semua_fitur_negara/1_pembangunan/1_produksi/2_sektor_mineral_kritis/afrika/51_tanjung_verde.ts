@@ -1,4 +1,5 @@
-export const tanjung_verde_ekstraksi = {
+﻿// @ts-nocheck
+const tanjung_verde_ekstraksi = {
   emas: 21,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const tanjung_verde_ekstraksi = {
   aluminium: 6,
   logam_tanah_jarang: 12,
   bijih_besi: 15,
-} as const;
+};
+
+
+

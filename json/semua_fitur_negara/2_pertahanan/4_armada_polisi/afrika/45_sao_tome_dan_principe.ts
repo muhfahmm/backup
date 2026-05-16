@@ -1,4 +1,4 @@
-export const sao_tome_dan_principe_kepolisian = {
+﻿const sao_tome_dan_principe_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,6 @@ export const sao_tome_dan_principe_kepolisian = {
       "pasukan_swat": 5,
       "samapta": 62
     }
-  } as const;
+  };
+
+

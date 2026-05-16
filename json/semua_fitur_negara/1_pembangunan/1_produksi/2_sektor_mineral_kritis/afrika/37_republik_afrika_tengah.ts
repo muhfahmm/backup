@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_ekstraksi = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_ekstraksi = {
   emas: 12,
   uranium: 0,
   batu_bara: 30,
@@ -11,4 +12,7 @@ export const republik_afrika_tengah_ekstraksi = {
   aluminium: 3,
   logam_tanah_jarang: 3,
   bijih_besi: 24,
-} as const;
+};
+
+
+

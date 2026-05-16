@@ -1,4 +1,5 @@
-export const samoa_amerika_infrastruktur = {
+﻿// @ts-nocheck
+const samoa_amerika_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 5,
   terminal_bus: 2,
@@ -7,4 +8,7 @@ export const samoa_amerika_infrastruktur = {
   pelabuhan: 4,
   bandara: 2,
   helipad: 3,
-} as const;
+};
+
+
+

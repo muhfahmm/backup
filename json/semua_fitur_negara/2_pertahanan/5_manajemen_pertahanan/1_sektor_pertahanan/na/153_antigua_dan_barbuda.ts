@@ -1,4 +1,5 @@
-export const antigua_dan_barbuda_pertahanan = {
+﻿// @ts-nocheck
+const antigua_dan_barbuda_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 8,
     "hangar_tank": 7,
@@ -7,4 +8,7 @@ export const antigua_dan_barbuda_pertahanan = {
     "pangkalan_laut": 33,
     "program_luar_angkasa": 31,
     "pertahanan_siber": 22
-    } as const;
+    };
+
+
+

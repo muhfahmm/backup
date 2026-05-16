@@ -1,4 +1,5 @@
-export const eritrea_pendidikan = {
+﻿// @ts-nocheck
+const eritrea_pendidikan = {
       "prasekolah": 68,
       "dasar": 95,
       "menengah": 70,
@@ -10,4 +11,7 @@ export const eritrea_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 0,
       "literasi": 83
-  } as const;
+  };
+
+
+

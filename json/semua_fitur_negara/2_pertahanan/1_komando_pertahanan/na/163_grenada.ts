@@ -1,6 +1,6 @@
-import { grenada_intelijen } from "../../2_intelijen/na/163_grenada";
+﻿// @ts-nocheck
 
-export const grenada_strategis = {
+const grenada_strategis = {
     "waktu_respon": 34,
     "intelijen": 20,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const grenada_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

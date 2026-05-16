@@ -1,6 +1,6 @@
-import { guiana_prancis_intelijen } from "../../2_intelijen/sa/200_guiana_prancis";
+﻿// @ts-nocheck
 
-export const guiana_prancis_strategis = {
+const guiana_prancis_strategis = {
     "waktu_respon": 4,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const guiana_prancis_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

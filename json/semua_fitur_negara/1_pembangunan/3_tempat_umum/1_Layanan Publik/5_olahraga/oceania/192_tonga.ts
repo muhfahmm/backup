@@ -1,4 +1,5 @@
-export const tonga_olahraga = {
+﻿// @ts-nocheck
+const tonga_olahraga = {
   "kolam_renang": 7,
   "sirkuit_balap": 3,
   "stadion": 10,
@@ -7,4 +8,7 @@ export const tonga_olahraga = {
   "golf": 0,
   "esports": 5,
   "gokart": 5
-} as const;
+};
+
+
+

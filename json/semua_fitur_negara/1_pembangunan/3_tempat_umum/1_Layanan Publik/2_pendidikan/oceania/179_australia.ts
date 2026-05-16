@@ -1,4 +1,5 @@
-export const australia_pendidikan = {
+﻿// @ts-nocheck
+const australia_pendidikan = {
       "prasekolah": 1293,
       "dasar": 1368,
       "menengah": 1371,
@@ -10,4 +11,7 @@ export const australia_pendidikan = {
       "pusat_penelitian": 23,
       "pusat_pengembangan": 39,
       "literasi": 95
-    } as const;
+    };
+
+
+

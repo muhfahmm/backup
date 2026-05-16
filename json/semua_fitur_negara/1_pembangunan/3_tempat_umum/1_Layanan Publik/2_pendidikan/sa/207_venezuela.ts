@@ -1,4 +1,5 @@
-export const venezuela_pendidikan = {
+﻿// @ts-nocheck
+const venezuela_pendidikan = {
       "prasekolah": 41,
       "dasar": 31,
       "menengah": 19,
@@ -10,4 +11,7 @@ export const venezuela_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 76
-    } as const;
+    };
+
+
+

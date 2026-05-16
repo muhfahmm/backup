@@ -1,4 +1,5 @@
-export const vietnam_hukum = {
+﻿// @ts-nocheck
+const vietnam_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 36,
       "kejaksaan": 17,
@@ -7,4 +8,7 @@ export const vietnam_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 37,
       "indeks_keamanan": 55
-  } as const;
+  };
+
+
+

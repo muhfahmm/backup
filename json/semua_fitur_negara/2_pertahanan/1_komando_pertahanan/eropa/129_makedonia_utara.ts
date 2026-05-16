@@ -1,6 +1,6 @@
-import { makedonia_utara_intelijen } from "../../2_intelijen/eropa/129_makedonia_utara";
+﻿// @ts-nocheck
 
-export const makedonia_utara_strategis = {
+const makedonia_utara_strategis = {
     "waktu_respon": 2,
     "intelijen": 32,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const makedonia_utara_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,41 +1,19 @@
-export const filipina_profile = {
+﻿// @ts-nocheck
+const filipina_profile = {
   "name_en": "Philippines",
   "capital": "Manila",
   "name_id": "Filipina",
   "lon": 120.98,
   "lat": 14.59,
-  "flag": "🇵🇭",
+  "flag": "ðŸ‡µðŸ‡­",
   "jumlah_penduduk": 114123600,
   "anggaran": 4230,
   "pendapatan_nasional": "12084",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { filipina_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/63_filipina";
-import { filipina_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/63_filipina";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { filipina_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/63_filipina";
 
-import { filipina_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/63_filipina";
-import { filipina_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/63_filipina";
-import { filipina_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/63_filipina";
-import { filipina_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/63_filipina";
-import { filipina_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/63_filipina";
-import { filipina_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/63_filipina";
-import { filipina_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/63_filipina";
-import { filipina_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/63_filipina";
-import { filipina_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/63_filipina";
-import { filipina_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/63_filipina";
-import { filipina_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/63_filipina";
-import { filipina_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/63_filipina";
-import { filipina_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/63_filipina";
-import { filipina_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/63_filipina";
-import { filipina_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/63_filipina";
-import { filipina_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/63_filipina";
-import { filipina_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/63_filipina";
-import { filipina_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/63_filipina";
-import { filipina_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/63_filipina";
 const filipina_geopolitik = {
     "un_vote": 139,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const filipina_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const filipina: CountryData = {
+const filipina = {
   ...filipina_profile,
   "sektor_listrik": filipina_listrik,
   "hunian": filipina_hunian,
@@ -75,7 +53,7 @@ export const filipina: CountryData = {
   "sektor_komersial": filipina_komersial,
   "sektor_hiburan": filipina_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const filipina: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const filipina: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": filipina_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 13,
@@ -143,5 +121,8 @@ export const filipina: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

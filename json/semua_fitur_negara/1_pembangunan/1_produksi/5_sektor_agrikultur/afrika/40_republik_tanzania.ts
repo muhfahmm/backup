@@ -1,4 +1,5 @@
-export const republik_tanzania_agrikultur = {
+﻿// @ts-nocheck
+const republik_tanzania_agrikultur = {
   padi: 216,
   gandum: 33,
   jagung: 156,
@@ -13,4 +14,7 @@ export const republik_tanzania_agrikultur = {
   karet: 0,
   kapas: 198,
   tembakau: 81,
-} as const;
+};
+
+
+

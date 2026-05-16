@@ -1,4 +1,5 @@
-export const vietnam_olahraga = {
+﻿// @ts-nocheck
+const vietnam_olahraga = {
   "kolam_renang": 57,
   "sirkuit_balap": 5,
   "stadion": 10,
@@ -7,4 +8,7 @@ export const vietnam_olahraga = {
   "golf": 12,
   "esports": 9,
   "gokart": 36
-} as const;
+};
+
+
+

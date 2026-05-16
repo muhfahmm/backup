@@ -1,4 +1,5 @@
-export const tonga_pertahanan = {
+﻿// @ts-nocheck
+const tonga_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 28,
     "hangar_tank": 24,
@@ -7,4 +8,7 @@ export const tonga_pertahanan = {
     "pangkalan_laut": 31,
     "program_luar_angkasa": 16,
     "pertahanan_siber": 39
-    } as const;
+    };
+
+
+

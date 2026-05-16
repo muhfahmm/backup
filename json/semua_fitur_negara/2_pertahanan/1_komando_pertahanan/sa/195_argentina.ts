@@ -1,6 +1,6 @@
-import { argentina_intelijen } from "../../2_intelijen/sa/195_argentina";
+﻿// @ts-nocheck
 
-export const argentina_strategis = {
+const argentina_strategis = {
     "waktu_respon": 28,
     "intelijen": 35,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const argentina_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

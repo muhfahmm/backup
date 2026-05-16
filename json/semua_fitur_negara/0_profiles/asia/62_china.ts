@@ -1,41 +1,19 @@
-export const china_profile = {
+﻿// @ts-nocheck
+const china_profile = {
   "name_en": "China",
   "capital": "Beijing",
   "name_id": "China",
   "lon": 116.4,
   "lat": 39.9,
-  "flag": "🇨🇳",
+  "flag": "ðŸ‡¨ðŸ‡³",
   "jumlah_penduduk": 1404890000,
   "anggaran": 180167,
   "pendapatan_nasional": "514763",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { china_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/62_china";
-import { china_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/62_china";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { china_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/62_china";
 
-import { china_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/62_china";
-import { china_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/62_china";
-import { china_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/62_china";
-import { china_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/62_china";
-import { china_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/62_china";
-import { china_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/62_china";
-import { china_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/62_china";
-import { china_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/62_china";
-import { china_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/62_china";
-import { china_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/62_china";
-import { china_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/62_china";
-import { china_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/62_china";
-import { china_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/62_china";
-import { china_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/62_china";
-import { china_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/62_china";
-import { china_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/62_china";
-import { china_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/62_china";
-import { china_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/62_china";
-import { china_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/62_china";
 const china_geopolitik = {
     "un_vote": 201,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const china_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const china: CountryData = {
+const china = {
   ...china_profile,
   "sektor_listrik": china_listrik,
   "hunian": china_hunian,
@@ -75,7 +53,7 @@ export const china: CountryData = {
   "sektor_komersial": china_komersial,
   "sektor_hiburan": china_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const china: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const china: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": china_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,
@@ -143,5 +121,8 @@ export const china: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

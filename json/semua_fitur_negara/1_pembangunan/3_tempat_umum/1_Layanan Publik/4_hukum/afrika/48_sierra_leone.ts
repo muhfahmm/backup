@@ -1,4 +1,5 @@
-export const sierra_leone_hukum = {
+﻿// @ts-nocheck
+const sierra_leone_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 6,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const sierra_leone_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 10,
       "indeks_keamanan": 55
-  } as const;
+  };
+
+
+

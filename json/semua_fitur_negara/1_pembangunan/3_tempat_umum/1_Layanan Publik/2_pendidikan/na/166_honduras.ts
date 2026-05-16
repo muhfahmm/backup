@@ -1,4 +1,5 @@
-export const honduras_pendidikan = {
+﻿// @ts-nocheck
+const honduras_pendidikan = {
       "prasekolah": 69,
       "dasar": 128,
       "menengah": 29,
@@ -10,4 +11,7 @@ export const honduras_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 2,
       "literasi": 78
-    } as const;
+    };
+
+
+

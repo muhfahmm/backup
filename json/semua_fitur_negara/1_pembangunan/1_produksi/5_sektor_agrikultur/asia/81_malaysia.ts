@@ -1,4 +1,5 @@
-export const malaysia_agrikultur = {
+﻿// @ts-nocheck
+const malaysia_agrikultur = {
   padi: 1800,
   gandum: 2700,
   jagung: 1944,
@@ -13,4 +14,7 @@ export const malaysia_agrikultur = {
   karet: 1476,
   kapas: 1908,
   tembakau: 720,
-} as const;
+};
+
+
+

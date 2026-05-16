@@ -1,4 +1,4 @@
-export const israel_kepolisian = {
+﻿const israel_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +14,11 @@ export const israel_kepolisian = {
       "pasukan_swat": 9,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+   }
+  };
+
+
+

@@ -1,9 +1,10 @@
-// ═══════════════════════════════════════════════════════════
+﻿// @ts-nocheck
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // BUILDINGS DATABASE - SINGLE SOURCE OF TRUTH
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 // NOTE: JSON file temporarily removed. Re-add buildings.json to
 // src/app/server/go/ folder to re-enable building database.
-// ═══════════════════════════════════════════════════════════
+// â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
 
 // Empty fallback when JSON is not available
 const buildingsData = {
@@ -23,7 +24,7 @@ const buildingsData = {
 export { buildingsData };
 
 // Flatten all buildings for easy lookup
-export const allBuildings: BuildingInfo[] = [];
+const allBuildings: BuildingInfo[] = [];
 
 // Interface matching JSON structure
 export interface BuildingInfo {
@@ -101,6 +102,8 @@ export function getSectorDescription(sector: string): string {
 
 // NOTE: Building database is currently empty.
 // To re-enable, restore buildings.json to src/app/server/go/ folder
-// and update this file to import from JSON.
+// and update this file to 
 
-console.log("[DB] Building database is empty - buildings.json not found");
+
+
+

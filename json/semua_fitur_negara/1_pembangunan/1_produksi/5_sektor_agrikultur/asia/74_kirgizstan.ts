@@ -1,4 +1,5 @@
-export const kirgizstan_agrikultur = {
+﻿// @ts-nocheck
+const kirgizstan_agrikultur = {
   padi: 219,
   gandum: 63,
   jagung: 114,
@@ -13,4 +14,7 @@ export const kirgizstan_agrikultur = {
   karet: 0,
   kapas: 147,
   tembakau: 132,
-} as const;
+};
+
+
+

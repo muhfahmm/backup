@@ -1,4 +1,5 @@
-export const mikronesia_pertahanan = {
+﻿// @ts-nocheck
+const mikronesia_pertahanan = {
     "penjara": 21,
     "gudang_senjata": 17,
     "hangar_tank": 3,
@@ -7,4 +8,7 @@ export const mikronesia_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 6,
     "pertahanan_siber": 22
-    } as const;
+    };
+
+
+

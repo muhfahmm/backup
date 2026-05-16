@@ -1,4 +1,5 @@
-export const brunei_pendidikan = {
+﻿// @ts-nocheck
+const brunei_pendidikan = {
       "prasekolah": 61,
       "dasar": 50,
       "menengah": 97,
@@ -10,4 +11,7 @@ export const brunei_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 0,
       "literasi": 69
-    } as const;
+    };
+
+
+

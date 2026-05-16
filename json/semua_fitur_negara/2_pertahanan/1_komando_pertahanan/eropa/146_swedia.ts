@@ -1,6 +1,5 @@
-import { swedia_intelijen } from "../../2_intelijen/eropa/146_swedia";
-
-export const swedia_strategis = {
+﻿
+const swedia_strategis = {
     "waktu_respon": 40,
     "intelijen": 9,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const swedia_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,6 +1,5 @@
-import { bosnia_dan_hercegovina_intelijen } from "../../2_intelijen/eropa/109_bosnia_dan_hercegovina";
-
-export const bosnia_dan_hercegovina_strategis = {
+﻿
+const bosnia_dan_hercegovina_strategis = {
     "waktu_respon": 29,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const bosnia_dan_hercegovina_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

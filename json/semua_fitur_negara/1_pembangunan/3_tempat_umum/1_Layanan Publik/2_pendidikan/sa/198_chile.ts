@@ -1,4 +1,5 @@
-export const chile_pendidikan = {
+﻿// @ts-nocheck
+const chile_pendidikan = {
       "prasekolah": 199,
       "dasar": 719,
       "menengah": 307,
@@ -10,4 +11,7 @@ export const chile_pendidikan = {
       "pusat_penelitian": 16,
       "pusat_pengembangan": 10,
       "literasi": 89
-    } as const;
+    };
+
+
+

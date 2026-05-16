@@ -1,4 +1,5 @@
-export const curacao_hukum = {
+﻿// @ts-nocheck
+const curacao_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 4,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const curacao_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 44,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

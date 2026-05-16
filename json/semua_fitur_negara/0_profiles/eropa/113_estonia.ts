@@ -1,41 +1,19 @@
-export const estonia_profile = {
+﻿// @ts-nocheck
+const estonia_profile = {
   "name_en": "Estonia",
   "capital": "Tallinn",
   "name_id": "Estonia",
   "lon": 26,
   "lat": 59,
-  "flag": "🇪🇪",
+  "flag": "ðŸ‡ªðŸ‡ª",
   "jumlah_penduduk": 1374687,
   "anggaran": 389,
   "pendapatan_nasional": "1111",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { estonia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/113_estonia";
-import { estonia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/113_estonia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { estonia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/113_estonia";
 
-import { estonia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/113_estonia";
-import { estonia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/113_estonia";
-import { estonia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/113_estonia";
-import { estonia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/113_estonia";
-import { estonia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/113_estonia";
-import { estonia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/113_estonia";
-import { estonia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/113_estonia";
-import { estonia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/113_estonia";
-import { estonia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/113_estonia";
-import { estonia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/113_estonia";
-import { estonia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/113_estonia";
-import { estonia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/113_estonia";
-import { estonia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/113_estonia";
-import { estonia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/113_estonia";
-import { estonia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/113_estonia";
-import { estonia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/113_estonia";
-import { estonia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/113_estonia";
-import { estonia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/113_estonia";
-import { estonia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/113_estonia";
 const estonia_geopolitik = {
     "un_vote": 168,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const estonia_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const estonia: CountryData = {
+const estonia = {
   ...estonia_profile,
   "sektor_listrik": estonia_listrik,
   "hunian": estonia_hunian,
@@ -75,7 +53,7 @@ export const estonia: CountryData = {
   "sektor_komersial": estonia_komersial,
   "sektor_hiburan": estonia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const estonia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const estonia: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": estonia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,
@@ -143,5 +121,8 @@ export const estonia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

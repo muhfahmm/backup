@@ -1,7 +1,8 @@
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Ekstraksi (Total: 12 Bangunan)
 // ===================
-export const mineralKritisRate = {
+const mineralKritisRate = {
   "1_tambang_emas": {
     key: "1_tambang_emas",
     dataKey: "emas",
@@ -177,3 +178,6 @@ export interface ExtractionData {
   logam_tanah_jarang: number;
   bijih_besi: number;
 }
+
+
+

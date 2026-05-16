@@ -1,4 +1,5 @@
-export const mikronesia_pendidikan = {
+﻿// @ts-nocheck
+const mikronesia_pendidikan = {
       "prasekolah": 100,
       "dasar": 27,
       "menengah": 41,
@@ -10,4 +11,7 @@ export const mikronesia_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 76
-    } as const;
+    };
+
+
+

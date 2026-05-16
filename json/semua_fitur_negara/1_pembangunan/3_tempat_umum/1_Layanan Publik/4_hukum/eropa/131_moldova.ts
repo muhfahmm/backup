@@ -1,4 +1,5 @@
-export const moldova_hukum = {
+﻿// @ts-nocheck
+const moldova_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 2,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const moldova_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 45,
       "indeks_keamanan": 69
-  } as const;
+  };
+
+
+

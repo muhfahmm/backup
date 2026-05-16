@@ -1,4 +1,5 @@
-export const prancis_pendidikan = {
+﻿// @ts-nocheck
+const prancis_pendidikan = {
       "prasekolah": 747,
       "dasar": 1622,
       "menengah": 529,
@@ -10,4 +11,7 @@ export const prancis_pendidikan = {
       "pusat_penelitian": 80,
       "pusat_pengembangan": 38,
       "literasi": 91
-    } as const;
+    };
+
+
+

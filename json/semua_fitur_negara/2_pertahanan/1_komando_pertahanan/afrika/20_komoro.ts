@@ -1,6 +1,6 @@
-import { komoro_intelijen } from "../../2_intelijen/afrika/20_komoro";
+﻿// @ts-nocheck
 
-export const komoro_strategis = {
+const komoro_strategis = {
     "waktu_respon": 27,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const komoro_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

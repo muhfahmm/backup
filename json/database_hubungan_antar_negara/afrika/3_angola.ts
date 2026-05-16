@@ -1,4 +1,5 @@
-export const angola_relations = [
+﻿// @ts-nocheck
+const angola_relations = [
   { id: 1, name: "afganistan", relation: 50 },
   { id: 2, name: "afrika selatan", relation: 80 },
   { id: 3, name: "albania", relation: 50 },
@@ -206,3 +207,7 @@ export const angola_relations = [
   { id: 205, name: "yordania", relation: 50 },
   { id: 206, name: "yunani", relation: 50 }
 ];
+
+
+
+

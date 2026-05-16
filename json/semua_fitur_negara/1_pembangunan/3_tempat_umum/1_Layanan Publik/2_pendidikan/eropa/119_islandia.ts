@@ -1,4 +1,5 @@
-export const islandia_pendidikan = {
+﻿// @ts-nocheck
+const islandia_pendidikan = {
       "prasekolah": 19,
       "dasar": 129,
       "menengah": 93,
@@ -10,4 +11,7 @@ export const islandia_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 1,
       "literasi": 75
-    } as const;
+    };
+
+
+

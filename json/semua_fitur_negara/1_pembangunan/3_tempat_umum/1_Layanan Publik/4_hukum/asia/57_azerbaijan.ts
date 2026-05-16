@@ -1,4 +1,5 @@
-export const azerbaijan_hukum = {
+﻿// @ts-nocheck
+const azerbaijan_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 3,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const azerbaijan_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 27,
       "indeks_keamanan": 56
-  } as const;
+  };
+
+
+

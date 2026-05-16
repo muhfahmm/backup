@@ -1,6 +1,6 @@
-import { indonesia_intelijen } from "../../2_intelijen/asia/67_indonesia";
+﻿// @ts-nocheck
 
-export const indonesia_strategis = {
+const indonesia_strategis = {
     "waktu_respon": 1,
     "intelijen": 13,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const indonesia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

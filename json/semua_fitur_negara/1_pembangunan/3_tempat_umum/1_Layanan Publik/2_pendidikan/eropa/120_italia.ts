@@ -1,4 +1,5 @@
-export const italia_pendidikan = {
+﻿// @ts-nocheck
+const italia_pendidikan = {
       "prasekolah": 691,
       "dasar": 1278,
       "menengah": 774,
@@ -10,4 +11,7 @@ export const italia_pendidikan = {
       "pusat_penelitian": 26,
       "pusat_pengembangan": 49,
       "literasi": 86
-    } as const;
+    };
+
+
+

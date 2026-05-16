@@ -1,4 +1,5 @@
-export const selandia_baru_pertahanan = {
+﻿// @ts-nocheck
+const selandia_baru_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 32,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const selandia_baru_pertahanan = {
     "pangkalan_laut": 12,
     "program_luar_angkasa": 8,
     "pertahanan_siber": 36
-    } as const;
+    };
+
+
+

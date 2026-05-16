@@ -1,3 +1,7 @@
-export const korea_selatan_farmasi = {
+﻿// @ts-nocheck
+const korea_selatan_farmasi = {
   farmasi: 27,
-} as const;
+};
+
+
+

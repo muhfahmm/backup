@@ -1,4 +1,5 @@
-export const tajikistan_hukum = {
+﻿// @ts-nocheck
+const tajikistan_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 6,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const tajikistan_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 22,
       "indeks_keamanan": 56
-  } as const;
+  };
+
+
+

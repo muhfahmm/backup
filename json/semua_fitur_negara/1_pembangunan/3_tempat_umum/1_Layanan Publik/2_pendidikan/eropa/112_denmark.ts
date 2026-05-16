@@ -1,4 +1,5 @@
-export const denmark_pendidikan = {
+﻿// @ts-nocheck
+const denmark_pendidikan = {
       "prasekolah": 102,
       "dasar": 655,
       "menengah": 268,
@@ -10,4 +11,7 @@ export const denmark_pendidikan = {
       "pusat_penelitian": 15,
       "pusat_pengembangan": 4,
       "literasi": 90
-    } as const;
+    };
+
+
+

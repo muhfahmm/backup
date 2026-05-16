@@ -1,41 +1,19 @@
-export const uzbekistan_profile = {
+﻿// @ts-nocheck
+const uzbekistan_profile = {
   "name_en": "Uzbekistan",
   "capital": "Tashkent",
   "name_id": "Uzbekistan",
   "lon": 64,
   "lat": 41,
-  "flag": "🇺🇿",
+  "flag": "ðŸ‡ºðŸ‡¿",
   "jumlah_penduduk": 38236704,
   "anggaran": 875,
   "pendapatan_nasional": "2500",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { uzbekistan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/99_uzbekistan";
-import { uzbekistan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/99_uzbekistan";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { uzbekistan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/99_uzbekistan";
 
-import { uzbekistan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/99_uzbekistan";
-import { uzbekistan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/99_uzbekistan";
-import { uzbekistan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/99_uzbekistan";
-import { uzbekistan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/99_uzbekistan";
-import { uzbekistan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/99_uzbekistan";
-import { uzbekistan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/99_uzbekistan";
-import { uzbekistan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/99_uzbekistan";
-import { uzbekistan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/99_uzbekistan";
-import { uzbekistan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/99_uzbekistan";
-import { uzbekistan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/99_uzbekistan";
-import { uzbekistan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/99_uzbekistan";
-import { uzbekistan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/99_uzbekistan";
-import { uzbekistan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/99_uzbekistan";
-import { uzbekistan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/99_uzbekistan";
-import { uzbekistan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/99_uzbekistan";
-import { uzbekistan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/99_uzbekistan";
-import { uzbekistan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/99_uzbekistan";
-import { uzbekistan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/99_uzbekistan";
-import { uzbekistan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/99_uzbekistan";
 const uzbekistan_geopolitik = {
     "un_vote": 80,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const uzbekistan_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const uzbekistan: CountryData = {
+const uzbekistan = {
   ...uzbekistan_profile,
   "sektor_listrik": uzbekistan_listrik,
   "hunian": uzbekistan_hunian,
@@ -75,7 +53,7 @@ export const uzbekistan: CountryData = {
   "sektor_komersial": uzbekistan_komersial,
   "sektor_hiburan": uzbekistan_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const uzbekistan: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const uzbekistan: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": uzbekistan_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 34,
@@ -143,5 +121,8 @@ export const uzbekistan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

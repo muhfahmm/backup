@@ -1,6 +1,6 @@
-import { pantai_gading_intelijen } from "../../2_intelijen/afrika/36_pantai_gading";
+﻿// @ts-nocheck
 
-export const pantai_gading_strategis = {
+const pantai_gading_strategis = {
     "waktu_respon": 4,
     "intelijen": 38,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const pantai_gading_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

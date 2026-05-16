@@ -1,4 +1,5 @@
-export const vanuatu_olahan_pangan = {
+﻿// @ts-nocheck
+const vanuatu_olahan_pangan = {
   air_mineral: 48,
   gula: 17,
   roti: 22,
@@ -9,4 +10,7 @@ export const vanuatu_olahan_pangan = {
   pakan_ternak: 20,
   ikan_kaleng: 30,
   kopi_teh: 47,
-} as const;
+};
+
+
+

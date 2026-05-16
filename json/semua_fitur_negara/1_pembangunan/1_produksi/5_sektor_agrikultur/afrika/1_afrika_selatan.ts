@@ -1,4 +1,5 @@
-export const afrika_selatan_agrikultur = {
+﻿// @ts-nocheck
+const afrika_selatan_agrikultur = {
   padi: 1280,
   gandum: 1480,
   jagung: 2840,
@@ -13,4 +14,7 @@ export const afrika_selatan_agrikultur = {
   karet: 0,
   kapas: 1400,
   tembakau: 2240,
-} as const;
+};
+
+
+

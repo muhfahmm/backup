@@ -1,6 +1,5 @@
-import { afganistan_intelijen } from "../../2_intelijen/asia/54_afganistan";
-
-export const afganistan_strategis = {
+﻿
+const afganistan_strategis = {
     "waktu_respon": 24,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const afganistan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

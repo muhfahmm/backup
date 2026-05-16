@@ -1,4 +1,5 @@
-export const costa_rica_agrikultur = {
+﻿// @ts-nocheck
+const costa_rica_agrikultur = {
   padi: 171,
   gandum: 57,
   jagung: 216,
@@ -13,4 +14,7 @@ export const costa_rica_agrikultur = {
   karet: 0,
   kapas: 201,
   tembakau: 237,
-} as const;
+};
+
+
+

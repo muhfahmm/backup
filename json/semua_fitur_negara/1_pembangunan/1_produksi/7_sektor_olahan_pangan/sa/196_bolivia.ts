@@ -1,4 +1,5 @@
-export const bolivia_olahan_pangan = {
+﻿// @ts-nocheck
+const bolivia_olahan_pangan = {
   air_mineral: 200,
   gula: 120,
   roti: 135,
@@ -9,4 +10,7 @@ export const bolivia_olahan_pangan = {
   pakan_ternak: 250,
   ikan_kaleng: 240,
   kopi_teh: 70,
-} as const;
+};
+
+
+

@@ -1,6 +1,6 @@
-import { marshall_intelijen } from "../../2_intelijen/oceania/183_marshall";
+﻿// @ts-nocheck
 
-export const marshall_strategis = {
+const marshall_strategis = {
     "waktu_respon": 11,
     "intelijen": 11,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const marshall_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

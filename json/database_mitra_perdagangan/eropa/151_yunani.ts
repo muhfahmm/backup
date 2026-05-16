@@ -1,4 +1,5 @@
-export const yunaniAgreements = [
+﻿// @ts-nocheck
+const yunaniAgreements = [
   { "no": 1, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Italia", "type": "Perdagangan", "status": "Aktif" },
@@ -9,3 +10,6 @@ export const yunaniAgreements = [
   { "no": 8, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

@@ -1,6 +1,6 @@
-import { vatikan_intelijen } from "../../2_intelijen/eropa/150_vatikan";
+﻿// @ts-nocheck
 
-export const vatikan_strategis = {
+const vatikan_strategis = {
     "waktu_respon": 37,
     "intelijen": 39,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const vatikan_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

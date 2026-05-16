@@ -1,6 +1,5 @@
-import { saint_vincent_dan_grenadine_intelijen } from "../../2_intelijen/na/177_saint_vincent_dan_grenadine";
-
-export const saint_vincent_dan_grenadine_strategis = {
+﻿
+const saint_vincent_dan_grenadine_strategis = {
     "waktu_respon": 3,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const saint_vincent_dan_grenadine_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

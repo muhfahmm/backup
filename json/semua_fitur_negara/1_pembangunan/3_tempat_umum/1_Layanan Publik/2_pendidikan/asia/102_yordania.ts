@@ -1,4 +1,5 @@
-export const yordania_pendidikan = {
+﻿// @ts-nocheck
+const yordania_pendidikan = {
       "prasekolah": 20,
       "dasar": 122,
       "menengah": 37,
@@ -10,4 +11,7 @@ export const yordania_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 63
-    } as const;
+    };
+
+
+

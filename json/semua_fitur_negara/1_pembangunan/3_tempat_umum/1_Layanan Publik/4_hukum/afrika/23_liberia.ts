@@ -1,4 +1,5 @@
-export const liberia_hukum = {
+﻿// @ts-nocheck
+const liberia_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 2,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const liberia_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 37,
       "indeks_keamanan": 45
-  } as const;
+  };
+
+
+

@@ -1,4 +1,4 @@
-export const namibia_pertahanan = {
+﻿const namibia_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 22,
     "hangar_tank": 4,
@@ -7,4 +7,6 @@ export const namibia_pertahanan = {
     "pangkalan_laut": 12,
     "program_luar_angkasa": 30,
     "pertahanan_siber": 4
-    } as const;
+    };
+
+

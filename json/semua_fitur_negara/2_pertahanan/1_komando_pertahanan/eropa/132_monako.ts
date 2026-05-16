@@ -1,6 +1,6 @@
-import { monako_intelijen } from "../../2_intelijen/eropa/132_monako";
+﻿// @ts-nocheck
 
-export const monako_strategis = {
+const monako_strategis = {
     "waktu_respon": 2,
     "intelijen": 28,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const monako_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

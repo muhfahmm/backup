@@ -1,4 +1,5 @@
-export const bulgaria_pendidikan = {
+﻿// @ts-nocheck
+const bulgaria_pendidikan = {
       "prasekolah": 67,
       "dasar": 136,
       "menengah": 55,
@@ -10,4 +11,7 @@ export const bulgaria_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 0,
       "literasi": 63
-    } as const;
+    };
+
+
+

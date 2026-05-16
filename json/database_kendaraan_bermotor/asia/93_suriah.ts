@@ -1,6 +1,10 @@
-export const suriahVehicles = {
+﻿// @ts-nocheck
+const suriahVehicles = {
   sepeda_motor: 2535942,
   mobil: 1352502,
   bus: 3381,
   truk: 16906,
 };
+
+
+

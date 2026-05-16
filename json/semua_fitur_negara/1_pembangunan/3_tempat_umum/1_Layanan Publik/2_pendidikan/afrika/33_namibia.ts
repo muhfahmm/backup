@@ -1,4 +1,5 @@
-export const namibia_pendidikan = {
+﻿// @ts-nocheck
+const namibia_pendidikan = {
       "prasekolah": 38,
       "dasar": 148,
       "menengah": 50,
@@ -10,4 +11,7 @@ export const namibia_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 62
-  } as const;
+  };
+
+
+

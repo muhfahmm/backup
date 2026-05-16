@@ -1,4 +1,5 @@
-export const namibia_infrastruktur = {
+﻿// @ts-nocheck
+const namibia_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 15,
   terminal_bus: 2,
@@ -7,4 +8,7 @@ export const namibia_infrastruktur = {
   pelabuhan: 4,
   bandara: 4,
   helipad: 2,
-} as const;
+};
+
+
+

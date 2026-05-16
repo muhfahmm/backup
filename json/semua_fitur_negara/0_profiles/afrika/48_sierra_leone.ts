@@ -1,41 +1,19 @@
-export const sierra_leone_profile = {
+﻿// @ts-nocheck
+const sierra_leone_profile = {
   "name_en": "Sierra Leone",
   "capital": "Freetown",
   "name_id": "Sierra leone",
   "lon": -11.5,
   "lat": 8.5,
-  "flag": "🇸🇱",
+  "flag": "ðŸ‡¸ðŸ‡±",
   "jumlah_penduduk": 8642022,
   "anggaran": 39,
   "pendapatan_nasional": "111",
   "religion": "Islam",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { sierra_leone_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/48_sierra_leone";
-import { sierra_leone_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/48_sierra_leone";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { sierra_leone_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/48_sierra_leone";
 
-import { sierra_leone_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/48_sierra_leone";
-import { sierra_leone_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/48_sierra_leone";
-import { sierra_leone_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/48_sierra_leone";
-import { sierra_leone_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/48_sierra_leone";
-import { sierra_leone_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/48_sierra_leone";
-import { sierra_leone_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/48_sierra_leone";
-import { sierra_leone_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/48_sierra_leone";
-import { sierra_leone_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/48_sierra_leone";
-import { sierra_leone_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/48_sierra_leone";
-import { sierra_leone_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/48_sierra_leone";
-import { sierra_leone_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/48_sierra_leone";
-import { sierra_leone_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/48_sierra_leone";
-import { sierra_leone_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/48_sierra_leone";
-import { sierra_leone_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/48_sierra_leone";
-import { sierra_leone_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/48_sierra_leone";
-import { sierra_leone_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/48_sierra_leone";
-import { sierra_leone_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/48_sierra_leone";
-import { sierra_leone_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/48_sierra_leone";
-import { sierra_leone_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/48_sierra_leone";
 const sierra_leone_geopolitik = {
     "un_vote": 91,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const sierra_leone_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const sierra_leone: CountryData = {
+const sierra_leone = {
   ...sierra_leone_profile,
   "sektor_listrik": sierra_leone_listrik,
   "hunian": sierra_leone_hunian,
@@ -75,7 +53,7 @@ export const sierra_leone: CountryData = {
   "sektor_komersial": sierra_leone_komersial,
   "sektor_hiburan": sierra_leone_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const sierra_leone: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const sierra_leone: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": sierra_leone_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,
@@ -143,5 +121,8 @@ export const sierra_leone: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

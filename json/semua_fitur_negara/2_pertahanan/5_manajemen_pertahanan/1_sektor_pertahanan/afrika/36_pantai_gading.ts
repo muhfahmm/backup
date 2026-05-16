@@ -1,4 +1,4 @@
-export const pantai_gading_pertahanan = {
+﻿const pantai_gading_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 19,
     "hangar_tank": 24,
@@ -7,4 +7,6 @@ export const pantai_gading_pertahanan = {
     "pangkalan_laut": 31,
     "program_luar_angkasa": 38,
     "pertahanan_siber": 22
-    } as const;
+    };
+
+

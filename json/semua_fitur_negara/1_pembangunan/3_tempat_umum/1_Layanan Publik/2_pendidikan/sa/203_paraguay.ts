@@ -1,4 +1,5 @@
-export const paraguay_pendidikan = {
+﻿// @ts-nocheck
+const paraguay_pendidikan = {
       "prasekolah": 25,
       "dasar": 112,
       "menengah": 16,
@@ -10,4 +11,7 @@ export const paraguay_pendidikan = {
       "pusat_penelitian": 4,
       "pusat_pengembangan": 0,
       "literasi": 83
-    } as const;
+    };
+
+
+

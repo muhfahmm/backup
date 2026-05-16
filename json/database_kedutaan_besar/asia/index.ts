@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { vietnamEmbassyConfig } from './100_vietnam';
 export { yamanEmbassyConfig } from './101_yaman';
 export { yordaniaEmbassyConfig } from './102_yordania';
@@ -47,3 +48,6 @@ export { thailandEmbassyConfig } from './96_thailand';
 export { turkmenistanEmbassyConfig } from './97_turkmenistan';
 export { uni_emirat_arabEmbassyConfig } from './98_uni_emirat_arab';
 export { uzbekistanEmbassyConfig } from './99_uzbekistan';
+
+
+

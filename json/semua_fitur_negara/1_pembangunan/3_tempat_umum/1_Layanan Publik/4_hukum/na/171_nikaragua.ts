@@ -1,4 +1,5 @@
-export const nikaragua_hukum = {
+﻿// @ts-nocheck
+const nikaragua_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 14,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const nikaragua_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 45,
       "indeks_keamanan": 68
-  } as const;
+  };
+
+
+

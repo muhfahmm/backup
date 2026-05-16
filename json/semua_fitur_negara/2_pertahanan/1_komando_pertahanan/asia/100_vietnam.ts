@@ -1,6 +1,6 @@
-import { vietnam_intelijen } from "../../2_intelijen/asia/100_vietnam";
+﻿// @ts-nocheck
 
-export const vietnam_strategis = {
+const vietnam_strategis = {
     "waktu_respon": 8,
     "intelijen": 40,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const vietnam_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

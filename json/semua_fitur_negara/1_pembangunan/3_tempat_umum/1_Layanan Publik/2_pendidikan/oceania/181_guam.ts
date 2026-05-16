@@ -1,4 +1,5 @@
-export const guam_pendidikan = {
+﻿// @ts-nocheck
+const guam_pendidikan = {
       "prasekolah": 40,
       "dasar": 104,
       "menengah": 34,
@@ -10,4 +11,7 @@ export const guam_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 81
-    } as const;
+    };
+
+
+

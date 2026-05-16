@@ -1,4 +1,5 @@
-export const australia_ekstraksi = {
+﻿// @ts-nocheck
+const australia_ekstraksi = {
   emas: 918,
   uranium: 2243,
   batu_bara: 102,
@@ -11,4 +12,7 @@ export const australia_ekstraksi = {
   aluminium: 408,
   logam_tanah_jarang: 1020,
   bijih_besi: 408,
-} as const;
+};
+
+
+

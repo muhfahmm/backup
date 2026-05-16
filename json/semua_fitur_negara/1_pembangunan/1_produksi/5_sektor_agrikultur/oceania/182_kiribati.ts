@@ -1,4 +1,5 @@
-export const kiribati_agrikultur = {
+﻿// @ts-nocheck
+const kiribati_agrikultur = {
   padi: 146,
   gandum: 80,
   jagung: 128,
@@ -13,4 +14,7 @@ export const kiribati_agrikultur = {
   karet: 0,
   kapas: 136,
   tembakau: 160,
-} as const;
+};
+
+
+

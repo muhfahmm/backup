@@ -1,4 +1,5 @@
-export const tanjung_verde_kepolisian = {
+﻿// @ts-nocheck
+const tanjung_verde_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const tanjung_verde_kepolisian = {
       "pasukan_swat": 23,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const tunisia_pendidikan = {
+﻿// @ts-nocheck
+const tunisia_pendidikan = {
       "prasekolah": 41,
       "dasar": 92,
       "menengah": 11,
@@ -10,4 +11,7 @@ export const tunisia_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 1,
       "literasi": 84
-  } as const;
+  };
+
+
+

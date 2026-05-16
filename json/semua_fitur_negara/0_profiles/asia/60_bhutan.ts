@@ -1,41 +1,19 @@
-export const bhutan_profile = {
+﻿// @ts-nocheck
+const bhutan_profile = {
   "name_en": "Bhutan",
   "capital": "Thimphu",
   "name_id": "Bhutan",
   "lon": 90.5,
   "lat": 27.5,
-  "flag": "🇧🇹",
+  "flag": "ðŸ‡§ðŸ‡¹",
   "jumlah_penduduk": 784043,
   "anggaran": 27,
   "pendapatan_nasional": "78",
   "religion": "Buddha",
   "ideology": "Monarki"
-} as const;
+};
 
-import { bhutan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/60_bhutan";
-import { bhutan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/60_bhutan";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { bhutan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/60_bhutan";
 
-import { bhutan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/60_bhutan";
-import { bhutan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/60_bhutan";
-import { bhutan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/60_bhutan";
-import { bhutan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/60_bhutan";
-import { bhutan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/60_bhutan";
-import { bhutan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/60_bhutan";
-import { bhutan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/60_bhutan";
-import { bhutan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/60_bhutan";
-import { bhutan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/60_bhutan";
-import { bhutan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/60_bhutan";
-import { bhutan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/60_bhutan";
-import { bhutan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/60_bhutan";
-import { bhutan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/60_bhutan";
-import { bhutan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/60_bhutan";
-import { bhutan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/60_bhutan";
-import { bhutan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/60_bhutan";
-import { bhutan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/60_bhutan";
-import { bhutan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/60_bhutan";
-import { bhutan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/60_bhutan";
 const bhutan_geopolitik = {
     "un_vote": 149,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const bhutan_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const bhutan: CountryData = {
+const bhutan = {
   ...bhutan_profile,
   "sektor_listrik": bhutan_listrik,
   "hunian": bhutan_hunian,
@@ -75,7 +53,7 @@ export const bhutan: CountryData = {
   "sektor_komersial": bhutan_komersial,
   "sektor_hiburan": bhutan_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const bhutan: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const bhutan: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bhutan_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,
@@ -143,5 +121,8 @@ export const bhutan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

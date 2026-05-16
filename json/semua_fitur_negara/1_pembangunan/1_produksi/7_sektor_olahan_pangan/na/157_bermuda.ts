@@ -1,4 +1,5 @@
-export const bermuda_olahan_pangan = {
+﻿// @ts-nocheck
+const bermuda_olahan_pangan = {
   air_mineral: 90,
   gula: 36,
   roti: 60,
@@ -9,4 +10,7 @@ export const bermuda_olahan_pangan = {
   pakan_ternak: 24,
   ikan_kaleng: 34,
   kopi_teh: 92,
-} as const;
+};
+
+
+

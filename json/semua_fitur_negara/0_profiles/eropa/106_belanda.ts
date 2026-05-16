@@ -1,41 +1,19 @@
-export const belanda_profile = {
+﻿// @ts-nocheck
+const belanda_profile = {
   "name_en": "Netherlands",
   "capital": "Amsterdam",
   "name_id": "Belanda",
   "lon": 4.9,
   "lat": 52.36,
-  "flag": "🇳🇱",
+  "flag": "ðŸ‡³ðŸ‡±",
   "jumlah_penduduk": 18137265,
   "anggaran": 10598,
   "pendapatan_nasional": "30280",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { belanda_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/106_belanda";
-import { belanda_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/106_belanda";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { belanda_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/106_belanda";
 
-import { belanda_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/106_belanda";
-import { belanda_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/106_belanda";
-import { belanda_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/106_belanda";
-import { belanda_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/106_belanda";
-import { belanda_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/106_belanda";
-import { belanda_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/106_belanda";
-import { belanda_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/106_belanda";
-import { belanda_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/106_belanda";
-import { belanda_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/106_belanda";
-import { belanda_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/106_belanda";
-import { belanda_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/106_belanda";
-import { belanda_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/106_belanda";
-import { belanda_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/106_belanda";
-import { belanda_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/106_belanda";
-import { belanda_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/106_belanda";
-import { belanda_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/106_belanda";
-import { belanda_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/106_belanda";
-import { belanda_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/106_belanda";
-import { belanda_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/106_belanda";
 const belanda_geopolitik = {
     "un_vote": 196,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const belanda_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const belanda: CountryData = {
+const belanda = {
   ...belanda_profile,
   "sektor_listrik": belanda_listrik,
   "hunian": belanda_hunian,
@@ -75,7 +53,7 @@ export const belanda: CountryData = {
   "sektor_komersial": belanda_komersial,
   "sektor_hiburan": belanda_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const belanda: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const belanda: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": belanda_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 23,
@@ -143,5 +121,8 @@ export const belanda: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

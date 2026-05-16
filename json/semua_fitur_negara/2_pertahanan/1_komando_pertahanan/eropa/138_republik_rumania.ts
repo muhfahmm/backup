@@ -1,6 +1,6 @@
-import { republik_rumania_intelijen } from "../../2_intelijen/eropa/138_republik_rumania";
+﻿// @ts-nocheck
 
-export const republik_rumania_strategis = {
+const republik_rumania_strategis = {
     "waktu_respon": 30,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_rumania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

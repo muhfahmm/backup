@@ -1,6 +1,6 @@
-import { myanmar_intelijen } from "../../2_intelijen/asia/84_myanmar";
+﻿// @ts-nocheck
 
-export const myanmar_strategis = {
+const myanmar_strategis = {
     "waktu_respon": 7,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const myanmar_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const georgia_pendidikan = {
+﻿// @ts-nocheck
+const georgia_pendidikan = {
       "prasekolah": 64,
       "dasar": 115,
       "menengah": 92,
@@ -10,4 +11,7 @@ export const georgia_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 0,
       "literasi": 71
-    } as const;
+    };
+
+
+

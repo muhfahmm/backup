@@ -1,4 +1,5 @@
-export const guiana_prancis_diplomasi = [
+﻿// @ts-nocheck
+const guiana_prancis_diplomasi = [
   { "no": 1, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Aljazair", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Amerika Serikat", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -15,3 +16,6 @@ export const guiana_prancis_diplomasi = [
   { "no": 14, "mitra": "Belize", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 15, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

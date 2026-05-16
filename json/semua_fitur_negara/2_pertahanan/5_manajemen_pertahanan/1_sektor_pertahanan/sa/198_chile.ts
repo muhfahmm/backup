@@ -1,4 +1,5 @@
-export const chile_pertahanan = {
+﻿// @ts-nocheck
+const chile_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 5,
     "hangar_tank": 31,
@@ -7,4 +8,7 @@ export const chile_pertahanan = {
     "pangkalan_laut": 25,
     "program_luar_angkasa": 32,
     "pertahanan_siber": 27
-    } as const;
+    };
+
+
+

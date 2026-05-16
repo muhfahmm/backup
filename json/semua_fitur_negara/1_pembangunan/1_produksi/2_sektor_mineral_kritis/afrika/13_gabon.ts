@@ -1,4 +1,5 @@
-export const gabon_ekstraksi = {
+﻿// @ts-nocheck
+const gabon_ekstraksi = {
   emas: 1,
   uranium: 0,
   batu_bara: 4,
@@ -11,4 +12,7 @@ export const gabon_ekstraksi = {
   aluminium: 0,
   logam_tanah_jarang: 7,
   bijih_besi: 7,
-} as const;
+};
+
+
+

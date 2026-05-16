@@ -1,4 +1,5 @@
-export const belarus_pertahanan = {
+﻿// @ts-nocheck
+const belarus_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 36,
     "hangar_tank": 1,
@@ -7,4 +8,7 @@ export const belarus_pertahanan = {
     "pangkalan_laut": 36,
     "program_luar_angkasa": 13,
     "pertahanan_siber": 10
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const djibouti_hukum = {
+﻿// @ts-nocheck
+const djibouti_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 15,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const djibouti_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 33,
       "indeks_keamanan": 65
-  } as const;
+  };
+
+
+

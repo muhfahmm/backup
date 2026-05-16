@@ -1,4 +1,4 @@
-export const belanda_armada = {
+﻿const belanda_armada = {
     "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
@@ -28,4 +28,6 @@ export const belanda_armada = {
         "drone_kamikaze": 10,
         "pesawat_angkut": 2
       }
-} as const;
+};
+
+

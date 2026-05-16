@@ -1,7 +1,4 @@
-import { SektorPertahanan, SektorArmadaMiliter, SektorMiliterStrategis, SektorArmadaKepolisian, pertahananRate } from "../../../2_pertahanan";
-import { SektorPabrikMiliter, pabrikMiliterRate } from "../../2_produksi_militer";
-import { SektorInfrastruktur } from "../../3_tempat_umum/1_Layanan Publik/1_infrastruktur";
-import { 
+﻿// @ts-nocheck
   SektorManufaktur, 
   SektorPeternakan, 
   SektorAgrikultur, 
@@ -13,17 +10,8 @@ import {
   manufakturRate,
   olahanPanganRate,
   farmasiRate
-} from "../index";
-import { PendidikanData, KesehatanData, HukumData, SektorKomersial, SektorHiburan, HunianData, hunianRate } from "../../3_tempat_umum";
-import { OlahragaData } from "../../3_tempat_umum/1_Layanan Publik/5_olahraga";
-import { SektorListrik, KAPASITAS_LISTRIK_METADATA } from "./1_db_listrik";
-import { intelijenRate } from "../../../2_pertahanan/2_intelijen";
-import { armadaMiliterRate } from "../../../2_pertahanan/3_armada_militer";
-import { armadaPolisiRate } from "../../../2_pertahanan/4_armada_polisi";
-import { religionStorage } from "@/app/game/components/2_navigasi_menu/2_navigasi_bawah/6_sosial_budaya/1_agama/religionStorage";
-import { TAOISME_ELECTRICITY_EFFICIENCY } from "@/app/game/components/2_navigasi_menu/2_navigasi_bawah/6_sosial_budaya/1_agama/logic/10_taoisme/1_plus/plus";
 
-export const KAPASITAS_LISTRIK = Object.fromEntries(
+const KAPASITAS_LISTRIK = Object.fromEntries(
   Object.entries(KAPASITAS_LISTRIK_METADATA).map(([key, val]) => [val.dataKey, val.produksi])
 ) as Record<string, number>;
 
@@ -46,7 +34,7 @@ export function hitungOutputPLTN(electricity: SektorListrik) {
 const withMin1MW = (rate: number) => rate <= 0 ? 0 : Math.max(rate, 1);
 
 // Konsumsi Ekstraksi (Mining) - Dynamic based on mineralKritisRate
-export const KONSUMSI_EKSTRAKSI = Object.fromEntries(
+const KONSUMSI_EKSTRAKSI = Object.fromEntries(
   Object.values(mineralKritisRate).map(val => [val.dataKey, val.konsumsi_listrik])
 ) as Record<string, number>;
 
@@ -68,7 +56,7 @@ export function hitungKonsumsiEkstraksi(extraction: SektorEkstraksi) {
 }
 
 // Konsumsi Produksi & Manufaktur - Sinkronisasi Otomatis dengan Database Rate
-export const KONSUMSI_PRODUKSI = {
+const KONSUMSI_PRODUKSI = {
   // Manufaktur
   semikonduktor: manufakturRate["1_pabrik_elektronik"].konsumsi_listrik,
   mobil: manufakturRate["2_pabrik_mobil"].konsumsi_listrik,
@@ -126,7 +114,7 @@ export function hitungKonsumsiFarmasi(farmasi: SektorFarmasi) {
 }
 
 // Konsumsi Pangan (Tani & Ternak)
-export const KONSUMSI_PANGAN = {
+const KONSUMSI_PANGAN = {
   ayam_unggas: 0.05, sapi_perah: 0.5, sapi_potong: 0.2, domba_kambing: 0.1,
   udang: 0.65, ikan: 0.5, mutiara: 0.8,
   padi: 0.2, gandum: 0.3, jagung: 0.1,
@@ -163,14 +151,14 @@ export function hitungKonsumsiPangan(peternakan: SektorPeternakan, agrikultur: S
 }
 
 // Konsumsi Pertahanan (Defense)
-export const KONSUMSI_PERTAHANAN = {
+const KONSUMSI_PERTAHANAN = {
   penjara: pertahananRate["1_penjara"].konsumsi_listrik,
   barak: armadaMiliterRate["1_barak"].konsumsi_listrik || 1,
   gudang_senjata: pertahananRate["2_gudang_senjata"].konsumsi_listrik,
   hangar_tank: pertahananRate["3_hangar_tank"].konsumsi_listrik
 };
 
-export const KONSUMSI_STRATEGIC = {
+const KONSUMSI_STRATEGIC = {
   pusat_komando: pertahananRate["5_pusat_komando"].konsumsi_listrik,
   pangkalan_udara: pertahananRate["6_pangkalan_udara"].konsumsi_listrik,
   pangkalan_laut: pertahananRate["7_pangkalan_laut"].konsumsi_listrik,
@@ -179,7 +167,7 @@ export const KONSUMSI_STRATEGIC = {
   pertahanan_siber: pertahananRate["9_pertahanan_siber"].konsumsi_listrik
 };
 
-export const KONSUMSI_PABRIK_MILITER = {
+const KONSUMSI_PABRIK_MILITER = {
   pabrik_amunisi: pabrikMiliterRate["2_pabrik_amunisi"].konsumsi_listrik
 };
 
@@ -261,7 +249,7 @@ export function hitungKonsumsiPolisiDatabase(police: any) {
 }
 
 // Konsumsi Sosial
-export const KONSUMSI_SOSIAL = {
+const KONSUMSI_SOSIAL = {
   pendidikan: {
     prasekolah: 1, dasar: 2, menengah: 5, lanjutan: 8,
     universitas: 25, lembaga_pendidikan: 15, laboratorium: 30, observatorium: 10,
@@ -274,7 +262,7 @@ export const KONSUMSI_SOSIAL = {
   hiburan: { bioskop: 15, teater: 12 }
 };
 
-export function hitungKonsumsiSosial(data: { pendidikan?: PendidikanData; kesehatan?: KesehatanData; hukum?: HukumData }) {
+export function hitungKonsumsiSosial(data: { pendidikan?; kesehatan?; hukum? }) {
   const edu = data.pendidikan || {};
   const kesehatan = data.kesehatan || {};
   const hukum = data.hukum || {};
@@ -291,7 +279,7 @@ export function hitungKonsumsiSosial(data: { pendidikan?: PendidikanData; keseha
   return totalEdu + totalHealth + totalLaw;
 }
 
-export function hitungKonsumsiOlahraga(olahraga: OlahragaData) {
+export function hitungKonsumsiOlahraga(olahraga) {
   if (!olahraga) return 0;
   return Object.keys(KONSUMSI_SOSIAL.olahraga).reduce((total, key) =>
     total + ((olahraga as any)[key] ?? 0) * withMin1MW((KONSUMSI_SOSIAL.olahraga as any)[key]), 0);
@@ -310,13 +298,13 @@ export function hitungKonsumsiHiburan(hiburan?: SektorHiburan) {
 }
 
 // Konsumsi Hunian & Pemukiman - Sinkronisasi Otomatis dengan Database Rate
-export const KONSUMSI_HUNIAN = {
+const KONSUMSI_HUNIAN = {
   rumah_subsidi: hunianRate.rumah_subsidi.konsumsi_listrik, 
   apartemen: hunianRate.apartemen.konsumsi_listrik, 
   mansion: hunianRate.mansion.konsumsi_listrik
 };
 
-export function hitungKonsumsiHunian(hunian?: HunianData) {
+export function hitungKonsumsiHunian(hunian?) {
   if (!hunian) return 0;
   return (
     (hunian.rumah_subsidi ?? 0) * withMin1MW(KONSUMSI_HUNIAN.rumah_subsidi) +
@@ -326,7 +314,7 @@ export function hitungKonsumsiHunian(hunian?: HunianData) {
 }
 
 // Konsumsi Transportasi
-export const KONSUMSI_TRANSPORTASI = {
+const KONSUMSI_TRANSPORTASI = {
   jalur_sepeda: 0, jalan_raya: 3, terminal_bus: 5, stasiun_kereta_api: 15,
   kereta_bawah_tanah: 20, pelabuhan: 25, bandara: 30, helipad: 2
 };
@@ -383,3 +371,6 @@ export function hitungTotalKonsumsiNasional(data: any) {
 
   return total;
 }
+
+
+

@@ -1,4 +1,4 @@
-export const irak_pertahanan = {
+﻿const irak_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 9,
     "hangar_tank": 18,
@@ -7,4 +7,6 @@ export const irak_pertahanan = {
     "pangkalan_laut": 8,
     "program_luar_angkasa": 29,
     "pertahanan_siber": 18
-    } as const;
+    };
+
+

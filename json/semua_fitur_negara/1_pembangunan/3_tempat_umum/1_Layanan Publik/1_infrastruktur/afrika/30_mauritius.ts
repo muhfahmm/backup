@@ -1,4 +1,5 @@
-export const mauritius_infrastruktur = {
+﻿// @ts-nocheck
+const mauritius_infrastruktur = {
   jalur_sepeda: 7,
   jalan_raya: 8,
   terminal_bus: 6,
@@ -7,4 +8,7 @@ export const mauritius_infrastruktur = {
   pelabuhan: 5,
   bandara: 1,
   helipad: 3,
-} as const;
+};
+
+
+

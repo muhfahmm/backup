@@ -1,6 +1,6 @@
-import { papua_nugini_intelijen } from "../../2_intelijen/oceania/187_papua_nugini";
+﻿// @ts-nocheck
 
-export const papua_nugini_strategis = {
+const papua_nugini_strategis = {
     "waktu_respon": 8,
     "intelijen": 5,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const papua_nugini_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

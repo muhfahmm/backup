@@ -1,6 +1,6 @@
-import { kuwait_intelijen } from "../../2_intelijen/asia/77_kuwait";
+﻿// @ts-nocheck
 
-export const kuwait_strategis = {
+const kuwait_strategis = {
     "waktu_respon": 37,
     "intelijen": 27,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kuwait_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

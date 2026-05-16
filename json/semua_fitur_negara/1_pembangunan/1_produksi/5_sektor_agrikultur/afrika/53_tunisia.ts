@@ -1,4 +1,5 @@
-export const tunisia_agrikultur = {
+﻿// @ts-nocheck
+const tunisia_agrikultur = {
   padi: 118,
   gandum: 28,
   jagung: 86,
@@ -13,4 +14,7 @@ export const tunisia_agrikultur = {
   karet: 0,
   kapas: 82,
   tembakau: 134,
-} as const;
+};
+
+
+

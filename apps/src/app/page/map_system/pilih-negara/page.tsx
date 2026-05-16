@@ -1,10 +1,14 @@
-'use client';
+ 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronLeft, ChevronRight, Search, Shield, Globe, Play, ArrowLeft } from 'lucide-react';
+import { 
+    ChevronLeft, ChevronRight, Search, Shield, Globe, Play, ArrowLeft, 
+    User, Building, Factory, Users, Coins, Landmark, Menu 
+} from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from '../map-data';
+import countryPaths from '../country-paths.json';
 
 interface Country {
     id: number;
@@ -14,6 +18,8 @@ interface Country {
     latitude: number;
     longitude: number;
     continent: string;
+    flag?: string;
+    name_id?: string;
 }
 
 export default function PilihNegaraPage() {
@@ -25,9 +31,33 @@ export default function PilihNegaraPage() {
     const hasInitRef = useRef(false);
     const [hasInteracted, setHasInteracted] = useState(false);
     const [wasmModule, setWasmModule] = useState<any>(null);
+    const [selectedMenu, setSelectedMenu] = useState('Profil');
+    const [countryDetail, setCountryDetail] = useState<any>(null);
+
+    const navbarItems = [
+        { name: 'Profil', icon: User },
+        { name: 'Pembangunan', icon: Building },
+        { name: 'Produksi', icon: Factory },
+        { name: 'Pertahanan', icon: Shield },
+        { name: 'Layanan Publik', icon: Users },
+        { name: 'Ekonomi', icon: Coins },
+        { name: 'Geopolitik', icon: Globe },
+        { name: 'Pemerintahan', icon: Landmark },
+    ];
+
+    const getFlagEmoji = (iso: string) => {
+        if (!iso || iso.length !== 2) return '🌐';
+        const codePoints = iso.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
+        return String.fromCodePoint(...codePoints);
+    };
 
     useEffect(() => {
-        setCountries(COUNTRIES_DATA);
+        const enhancedData = COUNTRIES_DATA.map(c => ({
+            ...c,
+            flag: getFlagEmoji(c.iso),
+            name_id: c.country.charAt(0).toUpperCase() + c.country.slice(1)
+        }));
+        setCountries(enhancedData);
         
         const initMap = async () => {
             if (hasInitRef.current) return;
@@ -58,16 +88,79 @@ export default function PilihNegaraPage() {
         c.capital.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
-    // Sync selected country to WASM map engine
+    // Sync selected country to WASM map engine and local state
     useEffect(() => {
-        if (!hasInteracted || !wasmModule) return;
-
         const selected = filteredCountries[currentIndex];
         if (selected) {
-            try {
-                wasmModule.set_selected_country_on_map(selected.iso);
-            } catch (e) {
-                console.error("Failed to sync selection to map:", e);
+            // Load data directly from TS file via API
+            const loadStats = async () => {
+                const relPath = (countryPaths as any)[selected.country];
+                if (!relPath) return;
+
+                try {
+                    const res = await fetch(`/api/country-data?path=${relPath}`);
+                    const text = await res.text();
+                    
+                    // Simple Regex Parser for TS Data
+                    const extractObject = (key: string, content: string) => {
+                        const regex = new RegExp(`"${key}":\\s*(\\{[\\s\\S]*?\\})(?:,|\\n|\\s*\\})`);
+                        const match = content.match(regex);
+                        if (match) {
+                            try {
+                                // Clean up trailing commas and other TS artifacts to make it valid JSON
+                                let jsonStr = match[1]
+                                    .replace(/,(\s*[\]}])/g, '$1') // trailing commas
+                                    .replace(/'/g, '"')           // single to double quotes
+                                    .replace(/(\w+):/g, '"$1":');  // unquoted keys
+                                return JSON.parse(jsonStr);
+                            } catch (e) { return null; }
+                        }
+                        return null;
+                    };
+
+                    const profileMatch = text.match(/_profile\s*=\s*(\{[\s\S]*?\})(?:\s*as\s+const)?\s*(?:;|\n)/);
+                    let profile: any = null;
+                    if (profileMatch) {
+                        try {
+                            // Clean up TS text to make it JSON-parsable
+                            let jsonStr = profileMatch[1]
+                                .replace(/,(\s*[\]}])/g, '$1') // trailing commas
+                                .replace(/'/g, '"')           // single to double quotes
+                                .replace(/(\w+):/g, '"$1":');  // unquoted keys
+                            profile = JSON.parse(jsonStr);
+                        } catch (e) {}
+                    }
+
+                    const pajak = extractObject('pajak', text);
+                    const harga = extractObject('harga', text);
+                    
+                    // Merge into a usable detail object
+                    if (profile) {
+                        setCountryDetail({
+                            ...profile,
+                            ppn: pajak?.ppn?.tarif,
+                            corporate: pajak?.korporasi?.tarif,
+                            income_tax: pajak?.penghasilan?.tarif,
+                            price_rice: harga?.harga_beras,
+                            price_fuel: harga?.harga_bbm,
+                            // Fallbacks for geopolitik (as it's often a reference)
+                            un_vote: text.match(/"un_vote":\s*(\d+)/)?.[1],
+                            reputation: text.match(/"reputasi_diplomatik":\s*"(.*?)"/)?.[1]
+                        });
+                    }
+                } catch (e) {
+                    console.error("Failed to load country data directly:", e);
+                }
+            };
+            
+            loadStats();
+
+            if (hasInteracted && wasmModule) {
+                try {
+                    wasmModule.set_selected_country_on_map(selected.iso);
+                } catch (e) {
+                    console.error("Failed to sync selection to map:", e);
+                }
             }
         }
     }, [currentIndex, hasInteracted, filteredCountries, wasmModule]);
@@ -109,6 +202,144 @@ export default function PilihNegaraPage() {
 
     return (
         <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">
+            {/* Top Navbar */}
+            <nav className="fixed top-0 left-0 right-0 z-40 bg-black/40 backdrop-blur-xl border-b border-white/5 px-8 py-3 flex items-center justify-between pointer-events-auto">
+                <div className="flex items-center gap-4">
+                    <div className="p-2 bg-emerald-500/10 rounded-lg border border-emerald-500/20">
+                        <Shield className="w-5 h-5 text-emerald-500" />
+                    </div>
+                    <div className="flex flex-col">
+                        <span className="text-white font-black text-sm tracking-tighter">PRESIDEN<span className="text-emerald-500">SIMULATOR</span></span>
+                        <span className="text-[8px] text-slate-500 font-bold tracking-[0.3em] uppercase">Selection Phase</span>
+                    </div>
+                </div>
+
+                <div className="hidden lg:flex items-center gap-1">
+                    {navbarItems.map((item) => (
+                        <button
+                            key={item.name}
+                            onClick={() => setSelectedMenu(item.name)}
+                            className={`
+                                group relative px-4 py-2 rounded-xl flex items-center gap-2 transition-all duration-300
+                                ${selectedMenu === item.name ? 'bg-white/10 text-white' : 'text-slate-400 hover:text-white hover:bg-white/5'}
+                            `}
+                        >
+                            <item.icon className={`w-3.5 h-3.5 transition-colors ${selectedMenu === item.name ? 'text-emerald-500' : 'group-hover:text-emerald-400'}`} />
+                            <span className="text-[10px] font-black tracking-widest uppercase">{item.name}</span>
+                            
+                            {selectedMenu === item.name && (
+                                <motion.div 
+                                    layoutId="nav-active"
+                                    className="absolute bottom-0 left-4 right-4 h-0.5 bg-emerald-500 rounded-full"
+                                />
+                            )}
+                        </button>
+                    ))}
+                </div>
+
+                <div className="flex items-center gap-4">
+                    <div className="flex flex-col items-end mr-4">
+                        <span className="text-slate-500 text-[8px] font-bold tracking-widest uppercase">Global Status</span>
+                        <span className="text-emerald-500 text-[10px] font-black tracking-widest">STABLE</span>
+                    </div>
+                    <button className="p-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl transition-all">
+                        <Menu className="w-4 h-4 text-white" />
+                    </button>
+                </div>
+            </nav>
+
+            {/* Stats Dashboard Overlay */}
+            <div className="fixed top-24 left-8 z-30 w-80 pointer-events-none">
+                <AnimatePresence mode="wait">
+                    {countryDetail ? (
+                        <motion.div
+                            key={countries[currentIndex]?.iso}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
+                            className="bg-black/60 backdrop-blur-2xl border border-emerald-500/20 rounded-2xl p-6 pointer-events-auto"
+                        >
+                            <div className="flex items-center gap-3 mb-6">
+                                <span className="text-3xl">{countries[currentIndex]?.flag}</span>
+                                <div>
+                                    <h2 className="text-white font-black text-xl tracking-tight uppercase leading-none">{countries[currentIndex]?.name_id}</h2>
+                                    <p className="text-emerald-500/60 text-[10px] font-bold tracking-[0.2em] uppercase mt-1">Operational Data</p>
+                                </div>
+                            </div>
+
+                            {selectedMenu === 'Profil' && (
+                                <div className="space-y-4">
+                                    <div className="grid grid-cols-2 gap-4">
+                                        <StatItem label="Capital" value={countryDetail.capital || 'N/A'} />
+                                        <StatItem label="Ideology" value={countryDetail.ideology || 'N/A'} />
+                                    </div>
+                                    <StatItem label="Population" value={countryDetail.population?.toLocaleString() || '0'} />
+                                    <div className="pt-4 border-t border-white/5">
+                                        <div className="flex justify-between text-[10px] mb-1">
+                                            <span className="text-slate-500 font-bold uppercase">Budget Revenue</span>
+                                            <span className="text-emerald-400 font-black">${countryDetail.budget || 0}B</span>
+                                        </div>
+                                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                                            <motion.div 
+                                                initial={{ width: 0 }}
+                                                animate={{ width: countryDetail.budget ? '65%' : '0%' }}
+                                                className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" 
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+
+                            {selectedMenu === 'Ekonomi' && (
+                                <div className="space-y-4">
+                                    <h3 className="text-white text-[10px] font-black tracking-widest uppercase border-l-2 border-emerald-500 pl-2">Taxation Rates</h3>
+                                    <div className="space-y-2">
+                                        <ProgressBar label="PPN" value={countryDetail.ppn || 0} max={40} unit="%" />
+                                        <ProgressBar label="Corporate" value={countryDetail.corporate || 0} max={50} unit="%" />
+                                        <ProgressBar label="Income" value={countryDetail.income_tax || 0} max={60} unit="%" />
+                                    </div>
+                                    <h3 className="text-white text-[10px] font-black tracking-widest uppercase border-l-2 border-emerald-500 pl-2 mt-6">Market Prices</h3>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <StatItem label="Rice" value={`$${countryDetail.price_rice || 'N/A'}`} />
+                                        <StatItem label="Fuel" value={`$${countryDetail.price_fuel || 'N/A'}`} />
+                                    </div>
+                                </div>
+                            )}
+
+                            {selectedMenu === 'Geopolitik' && (
+                                <div className="space-y-4">
+                                    <StatItem label="UN Vote Rank" value={`#${countryDetail.un_vote || 'N/A'}`} />
+                                    <StatItem label="Diplomatic Rep" value={countryDetail.reputation || 'Netral'} />
+                                    <div className="pt-4 border-t border-white/5 space-y-3">
+                                        <ProgressBar label="Soft Power" value={countryDetail.soft_power || 0} max={100} color="bg-blue-500" />
+                                        <ProgressBar label="Hard Power" value={countryDetail.hard_power || 0} max={100} color="bg-red-500" />
+                                        <ProgressBar label="Diplomacy" value={countryDetail.diplomacy || 0} max={100} color="bg-emerald-500" />
+                                    </div>
+                                </div>
+                            )}
+
+                            {/* Default Fallback for other menus */}
+                            {!['Profil', 'Ekonomi', 'Geopolitik'].includes(selectedMenu) && (
+                                <div className="flex flex-col items-center justify-center py-8 text-center">
+                                    <div className="w-12 h-12 rounded-full border-2 border-emerald-500/20 flex items-center justify-center mb-4">
+                                        <Search className="w-6 h-6 text-emerald-500/40" />
+                                    </div>
+                                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Data processing in progress...</p>
+                                </div>
+                            )}
+                        </motion.div>
+                    ) : (
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            className="bg-black/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6"
+                        >
+                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest text-center">Select a country to view intelligence report</p>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
+            </div>
+
             {/* Loading Overlay */}
             <AnimatePresence>
                 {isLoading && (
@@ -243,6 +474,35 @@ export default function PilihNegaraPage() {
                         </button>
                     </Link>
                 </div>
+            </div>
+        </div>
+    );
+}
+
+// Sub-components for Stats Dashboard
+function StatItem({ label, value }: { label: string, value: string | number }) {
+    return (
+        <div className="flex flex-col">
+            <span className="text-slate-500 text-[8px] font-bold tracking-widest uppercase">{label}</span>
+            <span className="text-white text-xs font-black tracking-tight">{value}</span>
+        </div>
+    );
+}
+
+function ProgressBar({ label, value, max, unit = "", color = "bg-emerald-500" }: { label: string, value: number, max: number, unit?: string, color?: string }) {
+    const percentage = Math.min((value / max) * 100, 100);
+    return (
+        <div>
+            <div className="flex justify-between text-[8px] mb-1">
+                <span className="text-slate-400 font-bold uppercase">{label}</span>
+                <span className="text-white font-black">{value}{unit}</span>
+            </div>
+            <div className="h-1 bg-white/5 rounded-full overflow-hidden">
+                <motion.div 
+                    initial={{ width: 0 }}
+                    animate={{ width: `${percentage}%` }}
+                    className={`h-full ${color} shadow-sm`} 
+                />
             </div>
         </div>
     );

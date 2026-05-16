@@ -1,4 +1,5 @@
-export const ukraina_pendidikan = {
+﻿// @ts-nocheck
+const ukraina_pendidikan = {
       "prasekolah": 70,
       "dasar": 123,
       "menengah": 43,
@@ -10,4 +11,7 @@ export const ukraina_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 69
-    } as const;
+    };
+
+
+

@@ -1,6 +1,5 @@
-import { maroko_intelijen } from "../../2_intelijen/afrika/28_maroko";
-
-export const maroko_strategis = {
+﻿
+const maroko_strategis = {
     "waktu_respon": 39,
     "intelijen": 38,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const maroko_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

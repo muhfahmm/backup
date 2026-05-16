@@ -1,6 +1,5 @@
-import { lebanon_intelijen } from "../../2_intelijen/asia/79_lebanon";
-
-export const lebanon_strategis = {
+﻿
+const lebanon_strategis = {
     "waktu_respon": 16,
     "intelijen": 1,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const lebanon_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

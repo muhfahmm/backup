@@ -1,4 +1,5 @@
-export const makedonia_utara_agrikultur = {
+﻿// @ts-nocheck
+const makedonia_utara_agrikultur = {
   padi: 99,
   gandum: 162,
   jagung: 228,
@@ -13,4 +14,7 @@ export const makedonia_utara_agrikultur = {
   karet: 0,
   kapas: 30,
   tembakau: 201,
-} as const;
+};
+
+
+

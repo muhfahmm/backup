@@ -1,6 +1,5 @@
-import { barbados_intelijen } from "../../2_intelijen/na/155_barbados";
-
-export const barbados_strategis = {
+﻿
+const barbados_strategis = {
     "waktu_respon": 15,
     "intelijen": 39,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const barbados_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,5 @@
-export const republik_timor_leste_hukum = {
+﻿// @ts-nocheck
+const republik_timor_leste_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 11,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const republik_timor_leste_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 16,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

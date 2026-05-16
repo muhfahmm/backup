@@ -1,4 +1,5 @@
-export const sierra_leone_manufaktur = {
+﻿// @ts-nocheck
+const sierra_leone_manufaktur = {
   mobil: 32,
   semen_beton: 24,
   sepeda_motor: 24,
@@ -6,4 +7,7 @@ export const sierra_leone_manufaktur = {
   smelter: 60,
   kayu: 28,
   pupuk: 36,
-} as const;
+};
+
+
+

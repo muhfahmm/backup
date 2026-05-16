@@ -1,4 +1,5 @@
-export const seychelles_agrikultur = {
+﻿// @ts-nocheck
+const seychelles_agrikultur = {
   padi: 132,
   gandum: 142,
   jagung: 40,
@@ -13,4 +14,7 @@ export const seychelles_agrikultur = {
   karet: 0,
   kapas: 26,
   tembakau: 36,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const ethiopia_pertahanan = {
+﻿// @ts-nocheck
+const ethiopia_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 4,
     "hangar_tank": 8,
@@ -7,4 +8,7 @@ export const ethiopia_pertahanan = {
     "pangkalan_laut": 33,
     "program_luar_angkasa": 22,
     "pertahanan_siber": 26
-    } as const;
+    };
+
+
+

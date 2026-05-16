@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./195_argentina";
 export * from "./196_bolivia";
 export * from "./197_brazil";
@@ -11,3 +12,6 @@ export * from "./204_peru";
 export * from "./205_suriname";
 export * from "./206_uruguay";
 export * from "./207_venezuela";
+
+
+

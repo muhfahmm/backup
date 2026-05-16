@@ -1,4 +1,5 @@
-export const suriname_agrikultur = {
+﻿// @ts-nocheck
+const suriname_agrikultur = {
   padi: 36,
   gandum: 154,
   jagung: 144,
@@ -13,4 +14,7 @@ export const suriname_agrikultur = {
   karet: 54,
   kapas: 42,
   tembakau: 46,
-} as const;
+};
+
+
+

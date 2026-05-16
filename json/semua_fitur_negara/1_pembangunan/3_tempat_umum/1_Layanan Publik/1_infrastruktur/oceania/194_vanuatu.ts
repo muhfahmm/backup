@@ -1,4 +1,5 @@
-export const vanuatu_infrastruktur = {
+﻿// @ts-nocheck
+const vanuatu_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 17,
   terminal_bus: 6,
@@ -7,4 +8,7 @@ export const vanuatu_infrastruktur = {
   pelabuhan: 1,
   bandara: 5,
   helipad: 1,
-} as const;
+};
+
+
+

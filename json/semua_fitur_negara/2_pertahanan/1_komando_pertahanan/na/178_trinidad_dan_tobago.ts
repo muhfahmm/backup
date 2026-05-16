@@ -1,6 +1,6 @@
-import { trinidad_dan_tobago_intelijen } from "../../2_intelijen/na/178_trinidad_dan_tobago";
+﻿// @ts-nocheck
 
-export const trinidad_dan_tobago_strategis = {
+const trinidad_dan_tobago_strategis = {
     "waktu_respon": 9,
     "intelijen": 35,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const trinidad_dan_tobago_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

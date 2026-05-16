@@ -1,6 +1,5 @@
-import { rusia_intelijen } from "../../2_intelijen/eropa/140_rusia";
-
-export const rusia_strategis = {
+﻿
+const rusia_strategis = {
     "waktu_respon": 6,
     "intelijen": 15,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const rusia_strategis = {
       "program_nuklir": 100,
       "misil_nuklir": 5580
     }
-  } as const;
+  };
+
+

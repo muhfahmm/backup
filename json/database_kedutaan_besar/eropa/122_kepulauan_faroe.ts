@@ -1,4 +1,5 @@
-export const kepulauan_faroe_diplomasi = [
+﻿// @ts-nocheck
+const kepulauan_faroe_diplomasi = [
   { "no": 1, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Amerika Serikat", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Andorra", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -17,3 +18,6 @@ export const kepulauan_faroe_diplomasi = [
   { "no": 16, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 17, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

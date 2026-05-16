@@ -1,4 +1,5 @@
-export const republik_timor_leste_olahraga = {
+﻿// @ts-nocheck
+const republik_timor_leste_olahraga = {
   "kolam_renang": 12,
   "sirkuit_balap": 1,
   "stadion": 9,
@@ -7,4 +8,7 @@ export const republik_timor_leste_olahraga = {
   "golf": 1,
   "esports": 1,
   "gokart": 9
-} as const;
+};
+
+
+

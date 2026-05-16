@@ -1,4 +1,5 @@
-export const hong_kong_pendidikan = {
+﻿// @ts-nocheck
+const hong_kong_pendidikan = {
       "prasekolah": 44,
       "dasar": 26,
       "menengah": 75,
@@ -10,4 +11,7 @@ export const hong_kong_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 71
-    } as const;
+    };
+
+
+

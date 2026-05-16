@@ -1,4 +1,5 @@
-export const marshall_olahan_pangan = {
+﻿// @ts-nocheck
+const marshall_olahan_pangan = {
   air_mineral: 76,
   gula: 200,
   roti: 160,
@@ -9,4 +10,7 @@ export const marshall_olahan_pangan = {
   pakan_ternak: 128,
   ikan_kaleng: 160,
   kopi_teh: 188,
-} as const;
+};
+
+
+

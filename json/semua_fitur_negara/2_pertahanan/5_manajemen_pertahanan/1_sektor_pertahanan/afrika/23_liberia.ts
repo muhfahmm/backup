@@ -1,4 +1,5 @@
-export const liberia_pertahanan = {
+﻿// @ts-nocheck
+const liberia_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 16,
     "hangar_tank": 34,
@@ -7,4 +8,7 @@ export const liberia_pertahanan = {
     "pangkalan_laut": 1,
     "program_luar_angkasa": 30,
     "pertahanan_siber": 34
-    } as const;
+    };
+
+
+

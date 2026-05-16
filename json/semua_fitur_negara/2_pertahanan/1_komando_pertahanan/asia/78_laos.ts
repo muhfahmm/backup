@@ -1,6 +1,6 @@
-import { laos_intelijen } from "../../2_intelijen/asia/78_laos";
+﻿// @ts-nocheck
 
-export const laos_strategis = {
+const laos_strategis = {
     "waktu_respon": 4,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const laos_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

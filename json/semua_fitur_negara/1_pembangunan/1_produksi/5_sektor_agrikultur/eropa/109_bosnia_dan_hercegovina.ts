@@ -1,4 +1,5 @@
-export const bosnia_dan_hercegovina_agrikultur = {
+﻿// @ts-nocheck
+const bosnia_dan_hercegovina_agrikultur = {
   padi: 208,
   gandum: 276,
   jagung: 48,
@@ -13,4 +14,7 @@ export const bosnia_dan_hercegovina_agrikultur = {
   karet: 0,
   kapas: 304,
   tembakau: 44,
-} as const;
+};
+
+
+

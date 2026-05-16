@@ -1,41 +1,19 @@
-export const denmark_profile = {
+﻿// @ts-nocheck
+const denmark_profile = {
   "name_en": "Denmark",
   "capital": "Copenhagen",
   "name_id": "Denmark",
   "lon": 12.56,
   "lat": 55.67,
-  "flag": "🇩🇰",
+  "flag": "ðŸ‡©ðŸ‡°",
   "jumlah_penduduk": 6029607,
   "anggaran": 3986,
   "pendapatan_nasional": "11390",
   "religion": "Protestan",
   "ideology": "Sosialisme"
-} as const;
+};
 
-import { denmark_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/112_denmark";
-import { denmark_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/112_denmark";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { denmark_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/112_denmark";
 
-import { denmark_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/112_denmark";
-import { denmark_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/112_denmark";
-import { denmark_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/112_denmark";
-import { denmark_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/112_denmark";
-import { denmark_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/112_denmark";
-import { denmark_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/112_denmark";
-import { denmark_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/112_denmark";
-import { denmark_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/112_denmark";
-import { denmark_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/112_denmark";
-import { denmark_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/112_denmark";
-import { denmark_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/112_denmark";
-import { denmark_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/112_denmark";
-import { denmark_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/112_denmark";
-import { denmark_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/112_denmark";
-import { denmark_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/112_denmark";
-import { denmark_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/112_denmark";
-import { denmark_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/112_denmark";
-import { denmark_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/112_denmark";
-import { denmark_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/112_denmark";
 const denmark_geopolitik = {
     "un_vote": 184,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const denmark_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const denmark: CountryData = {
+const denmark = {
   ...denmark_profile,
   "sektor_listrik": denmark_listrik,
   "hunian": denmark_hunian,
@@ -75,7 +53,7 @@ export const denmark: CountryData = {
   "sektor_komersial": denmark_komersial,
   "sektor_hiburan": denmark_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const denmark: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const denmark: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": denmark_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,
@@ -143,5 +121,8 @@ export const denmark: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

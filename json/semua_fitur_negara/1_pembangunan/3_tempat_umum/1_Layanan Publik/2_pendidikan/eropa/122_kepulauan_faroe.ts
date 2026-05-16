@@ -1,4 +1,5 @@
-export const kepulauan_faroe_pendidikan = {
+﻿// @ts-nocheck
+const kepulauan_faroe_pendidikan = {
       "prasekolah": 100,
       "dasar": 43,
       "menengah": 77,
@@ -10,4 +11,7 @@ export const kepulauan_faroe_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 0,
       "literasi": 72
-    } as const;
+    };
+
+
+

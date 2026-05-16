@@ -1,4 +1,5 @@
-export const jamaika_hukum = {
+﻿// @ts-nocheck
+const jamaika_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 2,
       "kejaksaan": 1,
@@ -7,4 +8,7 @@ export const jamaika_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 38,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

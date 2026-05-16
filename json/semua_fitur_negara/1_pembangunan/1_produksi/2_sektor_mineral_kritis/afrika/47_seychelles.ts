@@ -1,4 +1,5 @@
-export const seychelles_ekstraksi = {
+﻿// @ts-nocheck
+const seychelles_ekstraksi = {
   emas: 18,
   uranium: 0,
   batu_bara: 0,
@@ -11,4 +12,7 @@ export const seychelles_ekstraksi = {
   aluminium: 20,
   logam_tanah_jarang: 16,
   bijih_besi: 0,
-} as const;
+};
+
+
+

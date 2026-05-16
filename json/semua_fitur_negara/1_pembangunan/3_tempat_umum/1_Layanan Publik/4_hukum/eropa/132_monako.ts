@@ -1,4 +1,5 @@
-export const monako_hukum = {
+﻿// @ts-nocheck
+const monako_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 8,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const monako_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 35,
       "indeks_keamanan": 59
-  } as const;
+  };
+
+
+

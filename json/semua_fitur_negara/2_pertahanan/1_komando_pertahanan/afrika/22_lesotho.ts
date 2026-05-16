@@ -1,6 +1,6 @@
-import { lesotho_intelijen } from "../../2_intelijen/afrika/22_lesotho";
+﻿// @ts-nocheck
 
-export const lesotho_strategis = {
+const lesotho_strategis = {
     "waktu_respon": 34,
     "intelijen": 21,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const lesotho_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

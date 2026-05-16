@@ -1,3 +1,7 @@
-export const nigeria_farmasi = {
+﻿// @ts-nocheck
+const nigeria_farmasi = {
   farmasi: 28,
-} as const;
+};
+
+
+

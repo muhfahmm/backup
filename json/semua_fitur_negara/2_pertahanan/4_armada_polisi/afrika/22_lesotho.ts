@@ -1,4 +1,5 @@
-export const lesotho_kepolisian = {
+﻿// @ts-nocheck
+const lesotho_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const lesotho_kepolisian = {
       "pasukan_swat": 22,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

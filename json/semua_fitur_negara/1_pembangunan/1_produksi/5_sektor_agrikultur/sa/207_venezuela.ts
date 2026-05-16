@@ -1,4 +1,5 @@
-export const venezuela_agrikultur = {
+﻿// @ts-nocheck
+const venezuela_agrikultur = {
   padi: 592,
   gandum: 408,
   jagung: 592,
@@ -13,4 +14,7 @@ export const venezuela_agrikultur = {
   karet: 272,
   kapas: 568,
   tembakau: 304,
-} as const;
+};
+
+
+

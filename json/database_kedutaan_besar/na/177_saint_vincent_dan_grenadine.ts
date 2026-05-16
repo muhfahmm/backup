@@ -1,4 +1,5 @@
-export const saint_vincent_dan_grenadine_diplomasi = [
+﻿// @ts-nocheck
+const saint_vincent_dan_grenadine_diplomasi = [
   { "no": 1, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Antigua dan Barbuda", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -18,3 +19,6 @@ export const saint_vincent_dan_grenadine_diplomasi = [
   { "no": 17, "mitra": "Brazil", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 18, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

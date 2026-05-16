@@ -1,4 +1,5 @@
-export const greenland_pendidikan = {
+﻿// @ts-nocheck
+const greenland_pendidikan = {
       "prasekolah": 33,
       "dasar": 24,
       "menengah": 41,
@@ -10,4 +11,7 @@ export const greenland_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 66
-    } as const;
+    };
+
+
+

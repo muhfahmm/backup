@@ -1,4 +1,5 @@
-export const yordania_hukum = {
+﻿// @ts-nocheck
+const yordania_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 9,
       "kejaksaan": 6,
@@ -7,4 +8,7 @@ export const yordania_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 34,
       "indeks_keamanan": 43
-  } as const;
+  };
+
+
+

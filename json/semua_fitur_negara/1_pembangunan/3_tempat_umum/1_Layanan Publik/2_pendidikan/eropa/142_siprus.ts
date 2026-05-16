@@ -1,4 +1,5 @@
-export const siprus_pendidikan = {
+﻿// @ts-nocheck
+const siprus_pendidikan = {
       "prasekolah": 82,
       "dasar": 141,
       "menengah": 80,
@@ -10,4 +11,7 @@ export const siprus_pendidikan = {
       "pusat_penelitian": 3,
       "pusat_pengembangan": 2,
       "literasi": 79
-    } as const;
+    };
+
+
+

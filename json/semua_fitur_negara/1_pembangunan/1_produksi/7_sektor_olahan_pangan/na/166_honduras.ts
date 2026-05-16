@@ -1,4 +1,5 @@
-export const honduras_olahan_pangan = {
+﻿// @ts-nocheck
+const honduras_olahan_pangan = {
   air_mineral: 54,
   gula: 147,
   roti: 69,
@@ -9,4 +10,7 @@ export const honduras_olahan_pangan = {
   pakan_ternak: 108,
   ikan_kaleng: 108,
   kopi_teh: 150,
-} as const;
+};
+
+
+

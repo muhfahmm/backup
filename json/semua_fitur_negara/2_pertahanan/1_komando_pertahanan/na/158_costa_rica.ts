@@ -1,6 +1,5 @@
-import { costa_rica_intelijen } from "../../2_intelijen/na/158_costa_rica";
-
-export const costa_rica_strategis = {
+﻿
+const costa_rica_strategis = {
     "waktu_respon": 10,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const costa_rica_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,5 @@
-export const estonia_hukum = {
+﻿// @ts-nocheck
+const estonia_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 7,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const estonia_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 24,
       "indeks_keamanan": 43
-  } as const;
+  };
+
+
+

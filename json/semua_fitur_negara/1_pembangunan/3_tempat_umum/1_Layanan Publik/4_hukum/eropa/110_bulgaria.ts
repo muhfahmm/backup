@@ -1,4 +1,5 @@
-export const bulgaria_hukum = {
+﻿// @ts-nocheck
+const bulgaria_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 14,
       "kejaksaan": 2,
@@ -7,4 +8,7 @@ export const bulgaria_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 40,
       "indeks_keamanan": 61
-  } as const;
+  };
+
+
+

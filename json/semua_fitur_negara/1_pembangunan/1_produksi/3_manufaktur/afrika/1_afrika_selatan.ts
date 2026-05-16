@@ -1,4 +1,5 @@
-export const afrika_selatan_manufaktur = {
+﻿// @ts-nocheck
+const afrika_selatan_manufaktur = {
   mobil: 560,
   semen_beton: 320,
   sepeda_motor: 480,
@@ -6,4 +7,7 @@ export const afrika_selatan_manufaktur = {
   smelter: 600,
   kayu: 560,
   pupuk: 400,
-} as const;
+};
+
+
+

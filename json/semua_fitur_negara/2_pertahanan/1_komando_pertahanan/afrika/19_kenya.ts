@@ -1,6 +1,6 @@
-import { kenya_intelijen } from "../../2_intelijen/afrika/19_kenya";
+﻿// @ts-nocheck
 
-export const kenya_strategis = {
+const kenya_strategis = {
     "waktu_respon": 16,
     "intelijen": 32,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kenya_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

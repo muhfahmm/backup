@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { argentina } from "./195_argentina";
 export { bolivia } from "./196_bolivia";
 export { brazil } from "./197_brazil";
@@ -11,3 +12,6 @@ export { peru } from "./204_peru";
 export { suriname } from "./205_suriname";
 export { uruguay } from "./206_uruguay";
 export { venezuela } from "./207_venezuela";
+
+
+

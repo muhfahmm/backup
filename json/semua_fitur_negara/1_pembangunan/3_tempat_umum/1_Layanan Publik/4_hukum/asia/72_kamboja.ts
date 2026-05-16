@@ -1,4 +1,5 @@
-export const kamboja_hukum = {
+﻿// @ts-nocheck
+const kamboja_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 10,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const kamboja_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 24,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

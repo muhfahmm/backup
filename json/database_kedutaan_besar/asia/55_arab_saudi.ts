@@ -1,4 +1,5 @@
-export const arab_saudi_diplomasi = [
+﻿// @ts-nocheck
+const arab_saudi_diplomasi = [
   { "no": 1, "mitra": "Afganistan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -16,3 +17,6 @@ export const arab_saudi_diplomasi = [
   { "no": 15, "mitra": "Brunei", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 16, "mitra": "Bulgaria", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

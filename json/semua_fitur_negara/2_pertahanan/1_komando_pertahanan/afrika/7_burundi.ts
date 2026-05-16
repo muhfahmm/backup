@@ -1,6 +1,6 @@
-import { burundi_intelijen } from "../../2_intelijen/afrika/7_burundi";
+﻿// @ts-nocheck
 
-export const burundi_strategis = {
+const burundi_strategis = {
     "waktu_respon": 13,
     "intelijen": 18,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const burundi_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

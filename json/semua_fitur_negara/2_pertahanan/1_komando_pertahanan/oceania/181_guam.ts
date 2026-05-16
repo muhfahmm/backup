@@ -1,6 +1,5 @@
-import { guam_intelijen } from "../../2_intelijen/oceania/181_guam";
-
-export const guam_strategis = {
+﻿
+const guam_strategis = {
     "waktu_respon": 36,
     "intelijen": 26,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const guam_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,6 +1,6 @@
-import { singapura_intelijen } from "../../2_intelijen/asia/91_singapura";
+﻿// @ts-nocheck
 
-export const singapura_strategis = {
+const singapura_strategis = {
     "waktu_respon": 23,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const singapura_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

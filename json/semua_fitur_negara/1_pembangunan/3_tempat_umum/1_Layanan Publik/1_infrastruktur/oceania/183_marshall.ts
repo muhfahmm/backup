@@ -1,4 +1,5 @@
-export const marshall_infrastruktur = {
+﻿// @ts-nocheck
+const marshall_infrastruktur = {
   jalur_sepeda: 7,
   jalan_raya: 17,
   terminal_bus: 4,
@@ -7,4 +8,7 @@ export const marshall_infrastruktur = {
   pelabuhan: 1,
   bandara: 3,
   helipad: 2,
-} as const;
+};
+
+
+

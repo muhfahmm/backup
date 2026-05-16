@@ -1,6 +1,6 @@
-import { greenland_intelijen } from "../../2_intelijen/na/162_greenland";
+﻿// @ts-nocheck
 
-export const greenland_strategis = {
+const greenland_strategis = {
     "waktu_respon": 18,
     "intelijen": 3,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const greenland_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

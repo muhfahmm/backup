@@ -1,41 +1,19 @@
-export const latvia_profile = {
+﻿// @ts-nocheck
+const latvia_profile = {
   "name_en": "Latvia",
   "capital": "Riga",
   "name_id": "Latvia",
   "lon": 25,
   "lat": 57,
-  "flag": "🇱🇻",
+  "flag": "ðŸ‡±ðŸ‡»",
   "jumlah_penduduk": 1857400,
   "anggaran": 418,
   "pendapatan_nasional": "1195",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { latvia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/125_latvia";
-import { latvia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/125_latvia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { latvia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/125_latvia";
 
-import { latvia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/125_latvia";
-import { latvia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/125_latvia";
-import { latvia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/125_latvia";
-import { latvia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/125_latvia";
-import { latvia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/125_latvia";
-import { latvia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/125_latvia";
-import { latvia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/125_latvia";
-import { latvia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/125_latvia";
-import { latvia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/125_latvia";
-import { latvia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/125_latvia";
-import { latvia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/125_latvia";
-import { latvia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/125_latvia";
-import { latvia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/125_latvia";
-import { latvia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/125_latvia";
-import { latvia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/125_latvia";
-import { latvia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/125_latvia";
-import { latvia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/125_latvia";
-import { latvia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/125_latvia";
-import { latvia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/125_latvia";
 const latvia_geopolitik = {
     "un_vote": 164,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const latvia_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const latvia: CountryData = {
+const latvia = {
   ...latvia_profile,
   "sektor_listrik": latvia_listrik,
   "hunian": latvia_hunian,
@@ -75,7 +53,7 @@ export const latvia: CountryData = {
   "sektor_komersial": latvia_komersial,
   "sektor_hiburan": latvia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const latvia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const latvia: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": latvia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,
@@ -143,5 +121,8 @@ export const latvia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

@@ -1,4 +1,5 @@
-export const panama_pertahanan = {
+﻿// @ts-nocheck
+const panama_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 13,
     "hangar_tank": 12,
@@ -7,4 +8,7 @@ export const panama_pertahanan = {
     "pangkalan_laut": 3,
     "program_luar_angkasa": 17,
     "pertahanan_siber": 40
-    } as const;
+    };
+
+
+

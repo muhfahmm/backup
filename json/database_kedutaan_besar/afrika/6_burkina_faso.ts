@@ -1,4 +1,5 @@
-export const burkina_faso_diplomasi = [
+﻿// @ts-nocheck
+const burkina_faso_diplomasi = [
   { "no": 1, "mitra": "Afganistan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Afrika Selatan", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 3, "mitra": "Albania", "type": "Kedutaan Besar", "status": "Aktif" },
@@ -19,3 +20,6 @@ export const burkina_faso_diplomasi = [
   { "no": 18, "mitra": "Bolivia", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 19, "mitra": "Botswana", "type": "Kedutaan Besar", "status": "Aktif" }
 ];
+
+
+

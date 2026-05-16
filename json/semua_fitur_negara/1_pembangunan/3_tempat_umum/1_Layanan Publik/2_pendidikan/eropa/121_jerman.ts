@@ -1,4 +1,5 @@
-export const jerman_pendidikan = {
+﻿// @ts-nocheck
+const jerman_pendidikan = {
       "prasekolah": 731,
       "dasar": 819,
       "menengah": 1281,
@@ -10,4 +11,7 @@ export const jerman_pendidikan = {
       "pusat_penelitian": 58,
       "pusat_pengembangan": 20,
       "literasi": 86
-    } as const;
+    };
+
+
+

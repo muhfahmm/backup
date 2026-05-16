@@ -1,4 +1,5 @@
-export const laos_agrikultur = {
+﻿// @ts-nocheck
+const laos_agrikultur = {
   padi: 51,
   gandum: 207,
   jagung: 93,
@@ -13,4 +14,7 @@ export const laos_agrikultur = {
   karet: 0,
   kapas: 156,
   tembakau: 108,
-} as const;
+};
+
+
+

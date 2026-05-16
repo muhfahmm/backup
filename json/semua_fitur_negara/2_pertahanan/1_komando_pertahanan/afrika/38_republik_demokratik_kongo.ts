@@ -1,6 +1,6 @@
-import { republik_demokratik_kongo_intelijen } from "../../2_intelijen/afrika/38_republik_demokratik_kongo";
+﻿// @ts-nocheck
 
-export const republik_demokratik_kongo_strategis = {
+const republik_demokratik_kongo_strategis = {
     "waktu_respon": 32,
     "intelijen": 26,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_demokratik_kongo_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

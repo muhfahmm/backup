@@ -1,41 +1,19 @@
-export const polandia_profile = {
+﻿// @ts-nocheck
+const polandia_profile = {
   "name_en": "Poland",
   "capital": "Warsaw",
   "name_id": "Polandia",
   "lon": 21.01,
   "lat": 52.22,
-  "flag": "🇵🇱",
+  "flag": "ðŸ‡µðŸ‡±",
   "jumlah_penduduk": 37296000,
   "anggaran": 8167,
   "pendapatan_nasional": "23335",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { polandia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/135_polandia";
-import { polandia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/135_polandia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { polandia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/135_polandia";
 
-import { polandia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/135_polandia";
-import { polandia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/135_polandia";
-import { polandia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/135_polandia";
-import { polandia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/135_polandia";
-import { polandia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/135_polandia";
-import { polandia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/135_polandia";
-import { polandia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/135_polandia";
-import { polandia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/135_polandia";
-import { polandia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/135_polandia";
-import { polandia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/135_polandia";
-import { polandia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/135_polandia";
-import { polandia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/135_polandia";
-import { polandia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/135_polandia";
-import { polandia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/135_polandia";
-import { polandia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/135_polandia";
-import { polandia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/135_polandia";
-import { polandia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/135_polandia";
-import { polandia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/135_polandia";
-import { polandia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/135_polandia";
 const polandia_geopolitik = {
     "un_vote": 200,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const polandia_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const polandia: CountryData = {
+const polandia = {
   ...polandia_profile,
   "sektor_listrik": polandia_listrik,
   "hunian": polandia_hunian,
@@ -75,7 +53,7 @@ export const polandia: CountryData = {
   "sektor_komersial": polandia_komersial,
   "sektor_hiburan": polandia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const polandia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 22.4,
@@ -129,11 +107,11 @@ export const polandia: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": polandia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,
@@ -143,5 +121,8 @@ export const polandia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

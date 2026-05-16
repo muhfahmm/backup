@@ -1,4 +1,4 @@
-export interface SektorPertahanan {
+﻿export interface SektorPertahanan {
   penjara: number;
   gudang_senjata: number;
   hangar_tank: number;
@@ -13,7 +13,7 @@ export interface SektorPertahanan {
 // ===================
 // DETAIL TOTAL BANGUNAN: Pertahanan (Total: 9 Bangunan)
 // ===================
-export const pertahananRate = {
+const pertahananRate = {
   "1_penjara": {
     key: "1_penjara",
     dataKey: "penjara",
@@ -115,3 +115,11 @@ export const pertahananRate = {
     konsumsi_listrik: 50
   },
 };
+
+
+
+  },
+};
+
+
+

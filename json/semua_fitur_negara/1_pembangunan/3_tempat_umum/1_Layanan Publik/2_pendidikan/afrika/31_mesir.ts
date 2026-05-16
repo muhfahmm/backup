@@ -1,4 +1,5 @@
-export const mesir_pendidikan = {
+﻿// @ts-nocheck
+const mesir_pendidikan = {
       "prasekolah": 178,
       "dasar": 276,
       "menengah": 320,
@@ -10,4 +11,7 @@ export const mesir_pendidikan = {
       "pusat_penelitian": 12,
       "pusat_pengembangan": 8,
       "literasi": 87
-  } as const;
+  };
+
+
+

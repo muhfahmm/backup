@@ -1,4 +1,4 @@
-export const brazil_pertahanan = {
+﻿const brazil_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 3,
     "hangar_tank": 34,
@@ -7,4 +7,6 @@ export const brazil_pertahanan = {
     "pangkalan_laut": 11,
     "program_luar_angkasa": 24,
     "pertahanan_siber": 39
-    } as const;
+    };
+
+

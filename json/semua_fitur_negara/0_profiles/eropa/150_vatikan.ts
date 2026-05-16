@@ -1,41 +1,19 @@
-export const vatikan_profile = {
+﻿// @ts-nocheck
+const vatikan_profile = {
   "name_en": "Vatican City",
   "capital": "Vatican City",
   "name_id": "Vatikan",
   "lon": 12.45,
   "lat": 41.9,
-  "flag": "🇻🇦",
+  "flag": "ðŸ‡»ðŸ‡¦",
   "jumlah_penduduk": 882,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Monarki"
-} as const;
+};
 
-import { vatikan_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/eropa/150_vatikan";
-import { vatikan_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/eropa/150_vatikan";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { vatikan_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/eropa/150_vatikan";
 
-import { vatikan_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/eropa/150_vatikan";
-import { vatikan_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/eropa/150_vatikan";
-import { vatikan_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/eropa/150_vatikan";
-import { vatikan_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/eropa/150_vatikan";
-import { vatikan_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/eropa/150_vatikan";
-import { vatikan_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/eropa/150_vatikan";
-import { vatikan_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/eropa/150_vatikan";
-import { vatikan_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/eropa/150_vatikan";
-import { vatikan_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/eropa/150_vatikan";
-import { vatikan_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/eropa/150_vatikan";
-import { vatikan_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/eropa/150_vatikan";
-import { vatikan_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/eropa/150_vatikan";
-import { vatikan_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/eropa/150_vatikan";
-import { vatikan_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/eropa/150_vatikan";
-import { vatikan_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/eropa/150_vatikan";
-import { vatikan_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/eropa/150_vatikan";
-import { vatikan_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/eropa/150_vatikan";
-import { vatikan_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/eropa/150_vatikan";
-import { vatikan_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/eropa/150_vatikan";
 const vatikan_geopolitik = {
     "un_vote": 34,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const vatikan_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const vatikan: CountryData = {
+const vatikan = {
   ...vatikan_profile,
   "sektor_listrik": vatikan_listrik,
   "hunian": vatikan_hunian,
@@ -75,7 +53,7 @@ export const vatikan: CountryData = {
   "sektor_komersial": vatikan_komersial,
   "sektor_hiburan": vatikan_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const vatikan: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const vatikan: CountryData = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": vatikan_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,
@@ -143,5 +121,8 @@ export const vatikan: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

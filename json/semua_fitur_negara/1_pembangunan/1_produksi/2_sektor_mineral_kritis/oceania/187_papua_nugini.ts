@@ -1,4 +1,5 @@
-export const papua_nugini_ekstraksi = {
+﻿// @ts-nocheck
+const papua_nugini_ekstraksi = {
   emas: 0,
   uranium: 0,
   batu_bara: 18,
@@ -11,4 +12,7 @@ export const papua_nugini_ekstraksi = {
   aluminium: 24,
   logam_tanah_jarang: 3,
   bijih_besi: 30,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const burkina_faso_pertahanan = {
+﻿// @ts-nocheck
+const burkina_faso_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 5,
     "hangar_tank": 15,
@@ -7,4 +8,7 @@ export const burkina_faso_pertahanan = {
     "pangkalan_laut": 19,
     "program_luar_angkasa": 18,
     "pertahanan_siber": 21
-    } as const;
+    };
+
+
+

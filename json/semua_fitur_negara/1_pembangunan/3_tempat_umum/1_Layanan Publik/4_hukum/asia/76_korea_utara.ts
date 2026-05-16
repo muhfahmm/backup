@@ -1,4 +1,5 @@
-export const korea_utara_hukum = {
+﻿// @ts-nocheck
+const korea_utara_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 4,
       "kejaksaan": 4,
@@ -7,4 +8,7 @@ export const korea_utara_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 32,
       "indeks_keamanan": 52
-  } as const;
+  };
+
+
+

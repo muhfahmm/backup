@@ -1,4 +1,5 @@
-export const papua_nugini_relations = [
+﻿// @ts-nocheck
+const papua_nugini_relations = [
   { id: 1, name: "afganistan", relation: 50 },
   { id: 2, name: "afrika selatan", relation: 50 },
   { id: 3, name: "albania", relation: 50 },
@@ -206,3 +207,6 @@ export const papua_nugini_relations = [
   { id: 205, name: "yordania", relation: 50 },
   { id: 206, name: "yunani", relation: 50 }
 ];
+
+
+

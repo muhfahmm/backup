@@ -1,4 +1,5 @@
-export const jamaika_infrastruktur = {
+﻿// @ts-nocheck
+const jamaika_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 15,
   terminal_bus: 7,
@@ -7,4 +8,7 @@ export const jamaika_infrastruktur = {
   pelabuhan: 5,
   bandara: 3,
   helipad: 2,
-} as const;
+};
+
+
+

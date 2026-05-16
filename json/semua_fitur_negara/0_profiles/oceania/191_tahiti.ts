@@ -1,41 +1,19 @@
-export const tahiti_profile = {
+﻿// @ts-nocheck
+const tahiti_profile = {
   "name_en": "French Polynesia",
-  "capital": "Papeetē",
+  "capital": "PapeetÄ“",
   "name_id": "Tahiti",
   "lon": -140,
   "lat": -15,
-  "flag": "🇵🇫",
+  "flag": "ðŸ‡µðŸ‡«",
   "jumlah_penduduk": 308872,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { tahiti_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/oceania/191_tahiti";
-import { tahiti_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/oceania/191_tahiti";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { tahiti_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/oceania/191_tahiti";
 
-import { tahiti_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/oceania/191_tahiti";
-import { tahiti_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/oceania/191_tahiti";
-import { tahiti_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/oceania/191_tahiti";
-import { tahiti_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/oceania/191_tahiti";
-import { tahiti_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/oceania/191_tahiti";
-import { tahiti_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/oceania/191_tahiti";
-import { tahiti_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/oceania/191_tahiti";
-import { tahiti_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/oceania/191_tahiti";
-import { tahiti_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/oceania/191_tahiti";
-import { tahiti_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/oceania/191_tahiti";
-import { tahiti_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/oceania/191_tahiti";
-import { tahiti_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/oceania/191_tahiti";
-import { tahiti_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/oceania/191_tahiti";
-import { tahiti_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/oceania/191_tahiti";
-import { tahiti_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/oceania/191_tahiti";
-import { tahiti_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/oceania/191_tahiti";
-import { tahiti_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/oceania/191_tahiti";
-import { tahiti_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/oceania/191_tahiti";
-import { tahiti_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/oceania/191_tahiti";
 const tahiti_geopolitik = {
     "un_vote": 81,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const tahiti_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const tahiti: CountryData = {
+const tahiti = {
   ...tahiti_profile,
   "sektor_listrik": tahiti_listrik,
   "hunian": tahiti_hunian,
@@ -75,7 +53,7 @@ export const tahiti: CountryData = {
   "sektor_komersial": tahiti_komersial,
   "sektor_hiburan": tahiti_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const tahiti: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const tahiti: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tahiti_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 38,
@@ -143,5 +121,8 @@ export const tahiti: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

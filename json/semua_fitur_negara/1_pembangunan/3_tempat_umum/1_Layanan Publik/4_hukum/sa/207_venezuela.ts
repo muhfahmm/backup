@@ -1,4 +1,5 @@
-export const venezuela_hukum = {
+﻿// @ts-nocheck
+const venezuela_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 14,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const venezuela_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 43,
       "indeks_keamanan": 53
-  } as const;
+  };
+
+
+

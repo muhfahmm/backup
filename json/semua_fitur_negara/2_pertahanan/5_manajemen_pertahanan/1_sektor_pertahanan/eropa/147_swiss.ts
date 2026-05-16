@@ -1,4 +1,5 @@
-export const swiss_pertahanan = {
+﻿// @ts-nocheck
+const swiss_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 5,
     "hangar_tank": 26,
@@ -7,4 +8,7 @@ export const swiss_pertahanan = {
     "pangkalan_laut": 30,
     "program_luar_angkasa": 4,
     "pertahanan_siber": 29
-    } as const;
+    };
+
+
+

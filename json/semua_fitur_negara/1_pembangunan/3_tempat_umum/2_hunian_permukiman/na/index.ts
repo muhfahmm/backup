@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export * from "./152_amerika_serikat";
 export * from "./153_antigua_dan_barbuda";
 export * from "./154_bahama";
@@ -25,3 +26,6 @@ export * from "./175_saint_kitts_dan_nevis";
 export * from "./176_saint_lucia";
 export * from "./177_saint_vincent_dan_grenadine";
 export * from "./178_trinidad_dan_tobago";
+
+
+

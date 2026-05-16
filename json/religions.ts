@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export type Religion = 
   | "Islam"
   | "Protestan"
@@ -11,7 +12,7 @@ export type Religion =
   | "Taoisme"
   | "Shinto";
 
-export const religions: Religion[] = [
+const religions: Religion[] = [
   "Islam",
   "Protestan",
   "Katolik",
@@ -24,3 +25,7 @@ export const religions: Religion[] = [
   "Taoisme",
   "Shinto"
 ];
+
+
+
+

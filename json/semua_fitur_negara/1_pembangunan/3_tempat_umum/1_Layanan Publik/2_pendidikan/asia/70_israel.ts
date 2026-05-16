@@ -1,4 +1,5 @@
-export const israel_pendidikan = {
+﻿// @ts-nocheck
+const israel_pendidikan = {
       "prasekolah": 336,
       "dasar": 547,
       "menengah": 329,
@@ -10,4 +11,7 @@ export const israel_pendidikan = {
       "pusat_penelitian": 9,
       "pusat_pengembangan": 6,
       "literasi": 87
-    } as const;
+    };
+
+
+

@@ -1,4 +1,5 @@
-export const amerika_serikat_olahan_pangan = {
+﻿// @ts-nocheck
+const amerika_serikat_olahan_pangan = {
   air_mineral: 2784,
   gula: 4988,
   roti: 1624,
@@ -9,4 +10,7 @@ export const amerika_serikat_olahan_pangan = {
   pakan_ternak: 1392,
   ikan_kaleng: 1740,
   kopi_teh: 1856,
-} as const;
+};
+
+
+

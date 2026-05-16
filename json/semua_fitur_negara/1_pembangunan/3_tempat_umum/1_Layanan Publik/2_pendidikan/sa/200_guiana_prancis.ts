@@ -1,4 +1,5 @@
-export const guiana_prancis_pendidikan = {
+﻿// @ts-nocheck
+const guiana_prancis_pendidikan = {
       "prasekolah": 98,
       "dasar": 42,
       "menengah": 65,
@@ -10,4 +11,7 @@ export const guiana_prancis_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 2,
       "literasi": 65
-    } as const;
+    };
+
+
+

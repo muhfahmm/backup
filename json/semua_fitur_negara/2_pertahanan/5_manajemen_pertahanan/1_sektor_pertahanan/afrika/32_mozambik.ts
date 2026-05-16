@@ -1,4 +1,5 @@
-export const mozambik_pertahanan = {
+﻿// @ts-nocheck
+const mozambik_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 16,
     "hangar_tank": 25,
@@ -7,4 +8,7 @@ export const mozambik_pertahanan = {
     "pangkalan_laut": 27,
     "program_luar_angkasa": 1,
     "pertahanan_siber": 40
-    } as const;
+    };
+
+
+

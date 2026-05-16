@@ -1,6 +1,5 @@
-import { finlandia_intelijen } from "../../2_intelijen/eropa/114_finlandia";
-
-export const finlandia_strategis = {
+﻿
+const finlandia_strategis = {
     "waktu_respon": 40,
     "intelijen": 4,
     "status_nuklir": true,
@@ -13,4 +12,6 @@ export const finlandia_strategis = {
       "program_nuklir": 80,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,6 +1,6 @@
-import { seychelles_intelijen } from "../../2_intelijen/afrika/47_seychelles";
+﻿// @ts-nocheck
 
-export const seychelles_strategis = {
+const seychelles_strategis = {
     "waktu_respon": 1,
     "intelijen": 9,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const seychelles_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

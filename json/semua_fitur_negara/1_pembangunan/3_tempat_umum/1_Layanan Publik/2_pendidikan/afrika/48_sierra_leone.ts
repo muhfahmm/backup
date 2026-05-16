@@ -1,4 +1,5 @@
-export const sierra_leone_pendidikan = {
+﻿// @ts-nocheck
+const sierra_leone_pendidikan = {
       "prasekolah": 23,
       "dasar": 104,
       "menengah": 54,
@@ -10,4 +11,7 @@ export const sierra_leone_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 1,
       "literasi": 85
-  } as const;
+  };
+
+
+

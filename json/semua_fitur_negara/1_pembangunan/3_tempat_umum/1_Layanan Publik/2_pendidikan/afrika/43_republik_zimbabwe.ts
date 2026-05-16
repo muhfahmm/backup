@@ -1,4 +1,5 @@
-export const republik_zimbabwe_pendidikan = {
+﻿// @ts-nocheck
+const republik_zimbabwe_pendidikan = {
       "prasekolah": 53,
       "dasar": 37,
       "menengah": 79,
@@ -10,4 +11,7 @@ export const republik_zimbabwe_pendidikan = {
       "pusat_penelitian": 0,
       "pusat_pengembangan": 1,
       "literasi": 66
-  } as const;
+  };
+
+
+

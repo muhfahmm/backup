@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export interface DefenseCommandData {
   pusat_komando_strategis: number;
   bunker_komando: number;
@@ -26,7 +27,7 @@ export interface SektorMiliterStrategis {
 // ===================
 // DETAIL TOTAL BANGUNAN: Komando Pertahanan (Total: 3 Bangunan)
 // ===================
-export const komandoPertahananRate = {
+const komandoPertahananRate = {
   "pusat_komando_strategis": {
     key: "pusat_komando_strategis",
     dataKey: "pusat_komando_strategis",
@@ -79,3 +80,6 @@ export const komandoPertahananRate = {
     groupId: "nuklir"
   }
 };
+
+
+

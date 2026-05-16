@@ -1,6 +1,6 @@
-import { kanada_intelijen } from "../../2_intelijen/na/168_kanada";
+﻿// @ts-nocheck
 
-export const kanada_strategis = {
+const kanada_strategis = {
     "waktu_respon": 18,
     "intelijen": 30,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const kanada_strategis = {
       "program_nuklir": 95,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const bosnia_dan_hercegovina_pendidikan = {
+﻿// @ts-nocheck
+const bosnia_dan_hercegovina_pendidikan = {
       "prasekolah": 75,
       "dasar": 39,
       "menengah": 48,
@@ -10,4 +11,7 @@ export const bosnia_dan_hercegovina_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 2,
       "literasi": 76
-    } as const;
+    };
+
+
+

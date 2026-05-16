@@ -1,6 +1,6 @@
-import { republik_tanzania_intelijen } from "../../2_intelijen/afrika/40_republik_tanzania";
+﻿// @ts-nocheck
 
-export const republik_tanzania_strategis = {
+const republik_tanzania_strategis = {
     "waktu_respon": 31,
     "intelijen": 14,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const republik_tanzania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

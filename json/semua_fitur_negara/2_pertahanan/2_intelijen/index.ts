@@ -1,10 +1,10 @@
-export interface IntelligenceData {
+﻿export interface IntelligenceData {
   sistem_satelit: number;
   jaringan_radar: number;
   operasi_siber: number;
 }
 
-export const intelijenRate = {
+const intelijenRate = {
   "sistem_satelit": {
     key: "sistem_satelit",
     dataKey: "sistem_satelit",
@@ -39,3 +39,5 @@ export const intelijenRate = {
     konsumsi_listrik: 450,
   },
 };
+
+

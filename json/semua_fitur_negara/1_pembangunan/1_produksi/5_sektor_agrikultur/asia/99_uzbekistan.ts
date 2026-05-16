@@ -1,4 +1,5 @@
-export const uzbekistan_agrikultur = {
+﻿// @ts-nocheck
+const uzbekistan_agrikultur = {
   padi: 525,
   gandum: 112,
   jagung: 525,
@@ -13,4 +14,7 @@ export const uzbekistan_agrikultur = {
   karet: 0,
   kapas: 413,
   tembakau: 497,
-} as const;
+};
+
+
+

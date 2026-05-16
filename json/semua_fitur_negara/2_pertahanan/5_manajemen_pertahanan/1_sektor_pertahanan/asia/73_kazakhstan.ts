@@ -1,4 +1,5 @@
-export const kazakhstan_pertahanan = {
+﻿// @ts-nocheck
+const kazakhstan_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 32,
     "hangar_tank": 18,
@@ -7,4 +8,7 @@ export const kazakhstan_pertahanan = {
     "pangkalan_laut": 23,
     "program_luar_angkasa": 20,
     "pertahanan_siber": 6
-    } as const;
+    };
+
+
+

@@ -1,6 +1,6 @@
-import { kosovo_intelijen } from "../../2_intelijen/eropa/123_kosovo";
+﻿// @ts-nocheck
 
-export const kosovo_strategis = {
+const kosovo_strategis = {
     "waktu_respon": 11,
     "intelijen": 7,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kosovo_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

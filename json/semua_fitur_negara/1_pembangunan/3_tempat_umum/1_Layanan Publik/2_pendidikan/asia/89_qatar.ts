@@ -1,4 +1,5 @@
-export const qatar_pendidikan = {
+﻿// @ts-nocheck
+const qatar_pendidikan = {
       "prasekolah": 380,
       "dasar": 201,
       "menengah": 364,
@@ -10,4 +11,7 @@ export const qatar_pendidikan = {
       "pusat_penelitian": 19,
       "pusat_pengembangan": 9,
       "literasi": 86
-    } as const;
+    };
+
+
+

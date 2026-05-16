@@ -1,4 +1,5 @@
-export const monako_agrikultur = {
+﻿// @ts-nocheck
+const monako_agrikultur = {
   padi: 38,
   gandum: 14,
   jagung: 71,
@@ -13,4 +14,7 @@ export const monako_agrikultur = {
   karet: 0,
   kapas: 17,
   tembakau: 57,
-} as const;
+};
+
+
+

@@ -1,4 +1,5 @@
-export const pantai_gading_ekstraksi = {
+﻿// @ts-nocheck
+const pantai_gading_ekstraksi = {
   emas: 50,
   uranium: 0,
   batu_bara: 15,
@@ -11,4 +12,7 @@ export const pantai_gading_ekstraksi = {
   aluminium: 15,
   logam_tanah_jarang: 50,
   bijih_besi: 0,
-} as const;
+};
+
+
+

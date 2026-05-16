@@ -1,4 +1,5 @@
-export const inggris_hukum = {
+﻿// @ts-nocheck
+const inggris_hukum = {
       "pusat_bantuan_hukum": 62,
       "pengadilan": 195,
       "kejaksaan": 86,
@@ -7,4 +8,7 @@ export const inggris_hukum = {
       "akademi_polisi": 36,
       "indeks_korupsi": 40,
       "indeks_keamanan": 67
-  } as const;
+  };
+
+
+

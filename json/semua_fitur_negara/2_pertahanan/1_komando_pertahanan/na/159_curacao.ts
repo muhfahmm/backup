@@ -1,6 +1,5 @@
-import { curacao_intelijen } from "../../2_intelijen/na/159_curacao";
-
-export const curacao_strategis = {
+﻿
+const curacao_strategis = {
     "waktu_respon": 32,
     "intelijen": 27,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const curacao_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

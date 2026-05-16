@@ -1,4 +1,5 @@
-export const korea_selatan_olahan_pangan = {
+﻿// @ts-nocheck
+const korea_selatan_olahan_pangan = {
   air_mineral: 5270,
   gula: 2380,
   roti: 7650,
@@ -9,4 +10,7 @@ export const korea_selatan_olahan_pangan = {
   pakan_ternak: 3060,
   ikan_kaleng: 8330,
   kopi_teh: 2380,
-} as const;
+};
+
+
+

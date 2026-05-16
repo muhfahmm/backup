@@ -1,4 +1,5 @@
-export const sierra_leone_infrastruktur = {
+﻿// @ts-nocheck
+const sierra_leone_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 14,
   terminal_bus: 4,
@@ -7,4 +8,7 @@ export const sierra_leone_infrastruktur = {
   pelabuhan: 1,
   bandara: 4,
   helipad: 5,
-} as const;
+};
+
+
+

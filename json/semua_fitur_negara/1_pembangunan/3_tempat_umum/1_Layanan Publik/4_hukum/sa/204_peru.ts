@@ -1,4 +1,5 @@
-export const peru_hukum = {
+﻿// @ts-nocheck
+const peru_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 46,
       "kejaksaan": 18,
@@ -7,4 +8,7 @@ export const peru_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 30,
       "indeks_keamanan": 59
-  } as const;
+  };
+
+
+

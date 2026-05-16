@@ -1,4 +1,5 @@
-export const prancis_hukum = {
+﻿// @ts-nocheck
+const prancis_hukum = {
       "pusat_bantuan_hukum": 57,
       "pengadilan": 66,
       "kejaksaan": 32,
@@ -7,4 +8,7 @@ export const prancis_hukum = {
       "akademi_polisi": 25,
       "indeks_korupsi": 62,
       "indeks_keamanan": 77
-  } as const;
+  };
+
+
+

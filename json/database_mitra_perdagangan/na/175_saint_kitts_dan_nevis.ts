@@ -1,4 +1,5 @@
-export const saint_kitts_dan_nevisAgreements = [
+﻿// @ts-nocheck
+const saint_kitts_dan_nevisAgreements = [
   { "no": 1, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
@@ -13,3 +14,6 @@ export const saint_kitts_dan_nevisAgreements = [
   { "no": 12, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 13, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" }
 ];
+
+
+

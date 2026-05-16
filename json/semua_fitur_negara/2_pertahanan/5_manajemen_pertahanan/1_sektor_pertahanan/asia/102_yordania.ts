@@ -1,4 +1,5 @@
-export const yordania_pertahanan = {
+﻿// @ts-nocheck
+const yordania_pertahanan = {
     "penjara": 23,
     "gudang_senjata": 15,
     "hangar_tank": 21,
@@ -7,4 +8,7 @@ export const yordania_pertahanan = {
     "pangkalan_laut": 26,
     "program_luar_angkasa": 3,
     "pertahanan_siber": 24
-    } as const;
+    };
+
+
+

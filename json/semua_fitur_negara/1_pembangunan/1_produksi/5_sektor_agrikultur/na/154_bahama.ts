@@ -1,4 +1,5 @@
-export const bahama_agrikultur = {
+﻿// @ts-nocheck
+const bahama_agrikultur = {
   padi: 292,
   gandum: 76,
   jagung: 172,
@@ -13,4 +14,7 @@ export const bahama_agrikultur = {
   karet: 0,
   kapas: 268,
   tembakau: 140,
-} as const;
+};
+
+
+

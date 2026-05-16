@@ -1,4 +1,5 @@
-export const djibouti_infrastruktur = {
+﻿// @ts-nocheck
+const djibouti_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 16,
   terminal_bus: 2,
@@ -7,4 +8,7 @@ export const djibouti_infrastruktur = {
   pelabuhan: 2,
   bandara: 5,
   helipad: 4,
-} as const;
+};
+
+
+

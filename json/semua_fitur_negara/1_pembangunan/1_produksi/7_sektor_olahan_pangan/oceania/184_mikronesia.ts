@@ -1,4 +1,5 @@
-export const mikronesia_olahan_pangan = {
+﻿// @ts-nocheck
+const mikronesia_olahan_pangan = {
   air_mineral: 144,
   gula: 176,
   roti: 188,
@@ -9,4 +10,7 @@ export const mikronesia_olahan_pangan = {
   pakan_ternak: 148,
   ikan_kaleng: 136,
   kopi_teh: 124,
-} as const;
+};
+
+
+

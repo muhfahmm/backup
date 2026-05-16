@@ -1,41 +1,19 @@
-export const georgia_profile = {
+﻿// @ts-nocheck
+const georgia_profile = {
   "name_en": "Georgia",
   "capital": "Tbilisi",
   "name_id": "Georgia",
   "lon": 43.5,
   "lat": 42,
-  "flag": "🇬🇪",
+  "flag": "ðŸ‡¬ðŸ‡ª",
   "jumlah_penduduk": 3704500,
   "anggaran": 243,
   "pendapatan_nasional": "694",
   "religion": "Kristen Ortodoks",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { georgia_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/64_georgia";
-import { georgia_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/64_georgia";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { georgia_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/64_georgia";
 
-import { georgia_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/64_georgia";
-import { georgia_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/64_georgia";
-import { georgia_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/64_georgia";
-import { georgia_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/64_georgia";
-import { georgia_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/64_georgia";
-import { georgia_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/64_georgia";
-import { georgia_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/64_georgia";
-import { georgia_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/64_georgia";
-import { georgia_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/64_georgia";
-import { georgia_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/64_georgia";
-import { georgia_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/64_georgia";
-import { georgia_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/64_georgia";
-import { georgia_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/64_georgia";
-import { georgia_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/64_georgia";
-import { georgia_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/64_georgia";
-import { georgia_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/64_georgia";
-import { georgia_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/64_georgia";
-import { georgia_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/64_georgia";
-import { georgia_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/64_georgia";
 const georgia_geopolitik = {
     "un_vote": 127,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const georgia_geopolitik = {
       "kekuatan_keras": 32,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const georgia: CountryData = {
+const georgia = {
   ...georgia_profile,
   "sektor_listrik": georgia_listrik,
   "hunian": georgia_hunian,
@@ -75,7 +53,7 @@ export const georgia: CountryData = {
   "sektor_komersial": georgia_komersial,
   "sektor_hiburan": georgia_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const georgia: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 32,
@@ -129,11 +107,11 @@ export const georgia: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": georgia_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,
@@ -143,5 +121,8 @@ export const georgia: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

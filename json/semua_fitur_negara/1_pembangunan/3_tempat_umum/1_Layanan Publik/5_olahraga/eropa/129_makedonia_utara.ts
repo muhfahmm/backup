@@ -1,4 +1,5 @@
-export const makedonia_utara_olahraga = {
+﻿// @ts-nocheck
+const makedonia_utara_olahraga = {
   "kolam_renang": 6,
   "sirkuit_balap": 1,
   "stadion": 6,
@@ -7,4 +8,7 @@ export const makedonia_utara_olahraga = {
   "golf": 4,
   "esports": 0,
   "gokart": 7
-} as const;
+};
+
+
+

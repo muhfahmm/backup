@@ -1,4 +1,5 @@
-export const vatikan_pendidikan = {
+﻿// @ts-nocheck
+const vatikan_pendidikan = {
       "prasekolah": 95,
       "dasar": 51,
       "menengah": 84,
@@ -10,4 +11,7 @@ export const vatikan_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 1,
       "literasi": 76
-    } as const;
+    };
+
+
+

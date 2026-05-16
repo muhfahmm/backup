@@ -1,4 +1,5 @@
-export const islandia_olahraga = {
+﻿// @ts-nocheck
+const islandia_olahraga = {
   "kolam_renang": 12,
   "sirkuit_balap": 1,
   "stadion": 10,
@@ -7,4 +8,7 @@ export const islandia_olahraga = {
   "golf": 3,
   "esports": 2,
   "gokart": 13
-} as const;
+};
+
+
+

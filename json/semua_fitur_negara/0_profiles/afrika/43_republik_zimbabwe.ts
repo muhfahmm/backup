@@ -1,41 +1,19 @@
-export const republik_zimbabwe_profile = {
+﻿// @ts-nocheck
+const republik_zimbabwe_profile = {
   "name_en": "Zimbabwe",
   "capital": "Harare",
   "name_id": "Republik zimbabwe",
   "lon": 30,
   "lat": -20,
-  "flag": "🇿🇼",
+  "flag": "ðŸ‡¿ðŸ‡¼",
   "jumlah_penduduk": 17073087,
   "anggaran": 194,
   "pendapatan_nasional": "556",
   "religion": "Protestan",
   "ideology": "Sosialisme"
-} as const;
+};
 
-import { republik_zimbabwe_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/43_republik_zimbabwe";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { republik_zimbabwe_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/43_republik_zimbabwe";
 
-import { republik_zimbabwe_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/43_republik_zimbabwe";
-import { republik_zimbabwe_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/43_republik_zimbabwe";
 const republik_zimbabwe_geopolitik = {
     "un_vote": 36,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const republik_zimbabwe_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const republik_zimbabwe: CountryData = {
+const republik_zimbabwe = {
   ...republik_zimbabwe_profile,
   "sektor_listrik": republik_zimbabwe_listrik,
   "hunian": republik_zimbabwe_hunian,
@@ -75,7 +53,7 @@ export const republik_zimbabwe: CountryData = {
   "sektor_komersial": republik_zimbabwe_komersial,
   "sektor_hiburan": republik_zimbabwe_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const republik_zimbabwe: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 8,
@@ -129,11 +107,11 @@ export const republik_zimbabwe: CountryData = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_zimbabwe_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,
@@ -143,5 +121,8 @@ export const republik_zimbabwe: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

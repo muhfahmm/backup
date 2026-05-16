@@ -1,4 +1,5 @@
-export const kirgizstan_hukum = {
+﻿// @ts-nocheck
+const kirgizstan_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 5,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const kirgizstan_hukum = {
       "akademi_polisi": 3,
       "indeks_korupsi": 35,
       "indeks_keamanan": 53
-  } as const;
+  };
+
+
+

@@ -1,6 +1,6 @@
-import { jepang_intelijen } from "../../2_intelijen/asia/71_jepang";
+﻿// @ts-nocheck
 
-export const jepang_strategis = {
+const jepang_strategis = {
     "waktu_respon": 15,
     "intelijen": 3,
     "status_nuklir": true,
@@ -13,4 +13,7 @@ export const jepang_strategis = {
       "program_nuklir": 95,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

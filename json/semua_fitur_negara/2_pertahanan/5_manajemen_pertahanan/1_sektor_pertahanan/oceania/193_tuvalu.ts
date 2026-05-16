@@ -1,4 +1,5 @@
-export const tuvalu_pertahanan = {
+﻿// @ts-nocheck
+const tuvalu_pertahanan = {
     "penjara": 38,
     "gudang_senjata": 26,
     "hangar_tank": 1,
@@ -7,4 +8,7 @@ export const tuvalu_pertahanan = {
     "pangkalan_laut": 4,
     "program_luar_angkasa": 5,
     "pertahanan_siber": 31
-    } as const;
+    };
+
+
+

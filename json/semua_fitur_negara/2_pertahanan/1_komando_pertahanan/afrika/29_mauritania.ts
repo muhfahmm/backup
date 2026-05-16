@@ -1,6 +1,5 @@
-import { mauritania_intelijen } from "../../2_intelijen/afrika/29_mauritania";
-
-export const mauritania_strategis = {
+﻿
+const mauritania_strategis = {
     "waktu_respon": 26,
     "intelijen": 5,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const mauritania_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

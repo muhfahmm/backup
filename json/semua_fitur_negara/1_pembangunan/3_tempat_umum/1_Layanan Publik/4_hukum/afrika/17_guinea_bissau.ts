@@ -1,4 +1,5 @@
-export const guinea_bissau_hukum = {
+﻿// @ts-nocheck
+const guinea_bissau_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 8,
       "kejaksaan": 3,
@@ -7,4 +8,7 @@ export const guinea_bissau_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 10,
       "indeks_keamanan": 64
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const tanjung_verde_hukum = {
+﻿// @ts-nocheck
+const tanjung_verde_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 5,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const tanjung_verde_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 13,
       "indeks_keamanan": 51
-  } as const;
+  };
+
+
+

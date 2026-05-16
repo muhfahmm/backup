@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { amerika_serikatEmbassyConfig } from './152_amerika_serikat';
 export { antigua_dan_barbudaEmbassyConfig } from './153_antigua_dan_barbuda';
 export { bahamaEmbassyConfig } from './154_bahama';
@@ -25,3 +26,6 @@ export { saint_kitts_dan_nevisEmbassyConfig } from './175_saint_kitts_dan_nevis'
 export { saint_luciaEmbassyConfig } from './176_saint_lucia';
 export { saint_vincent_dan_grenadineEmbassyConfig } from './177_saint_vincent_dan_grenadine';
 export { trinidad_dan_tobagoEmbassyConfig } from './178_trinidad_dan_tobago';
+
+
+

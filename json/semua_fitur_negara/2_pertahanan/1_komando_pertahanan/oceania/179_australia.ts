@@ -1,6 +1,5 @@
-import { australia_intelijen } from "../../2_intelijen/oceania/179_australia";
-
-export const australia_strategis = {
+﻿
+const australia_strategis = {
     "waktu_respon": 21,
     "intelijen": 20,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const australia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

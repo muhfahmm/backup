@@ -1,4 +1,5 @@
-export const liechtenstein_pendidikan = {
+﻿// @ts-nocheck
+const liechtenstein_pendidikan = {
       "prasekolah": 22,
       "dasar": 49,
       "menengah": 34,
@@ -10,4 +11,7 @@ export const liechtenstein_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 64
-    } as const;
+    };
+
+
+

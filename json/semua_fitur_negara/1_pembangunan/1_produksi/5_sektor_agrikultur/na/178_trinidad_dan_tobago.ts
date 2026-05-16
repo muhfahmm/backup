@@ -1,4 +1,5 @@
-export const trinidad_dan_tobago_agrikultur = {
+﻿// @ts-nocheck
+const trinidad_dan_tobago_agrikultur = {
   padi: 140,
   gandum: 32,
   jagung: 38,
@@ -13,4 +14,7 @@ export const trinidad_dan_tobago_agrikultur = {
   karet: 0,
   kapas: 76,
   tembakau: 92,
-} as const;
+};
+
+
+

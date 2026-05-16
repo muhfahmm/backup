@@ -1,4 +1,5 @@
-export const singapura_pertahanan = {
+﻿// @ts-nocheck
+const singapura_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 31,
     "hangar_tank": 37,
@@ -7,4 +8,7 @@ export const singapura_pertahanan = {
     "pangkalan_laut": 20,
     "program_luar_angkasa": 23,
     "pertahanan_siber": 20
-    } as const;
+    };
+
+
+

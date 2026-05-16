@@ -1,6 +1,5 @@
-import { bulgaria_intelijen } from "../../2_intelijen/eropa/110_bulgaria";
-
-export const bulgaria_strategis = {
+﻿
+const bulgaria_strategis = {
     "waktu_respon": 35,
     "intelijen": 35,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const bulgaria_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

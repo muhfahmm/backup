@@ -1,4 +1,5 @@
-export const amerika_serikat_relations = [
+﻿// @ts-nocheck
+const amerika_serikat_relations = [
   { id: 1, name: "afganistan", relation: 50 },
   { id: 2, name: "afrika selatan", relation: 65 },
   { id: 3, name: "albania", relation: 85 },
@@ -206,3 +207,6 @@ export const amerika_serikat_relations = [
   { id: 205, name: "yordania", relation: 80 },
   { id: 206, name: "yunani", relation: 90 }
 ];
+
+
+

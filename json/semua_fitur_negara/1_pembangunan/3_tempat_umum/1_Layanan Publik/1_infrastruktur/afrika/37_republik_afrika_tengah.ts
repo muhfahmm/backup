@@ -1,4 +1,5 @@
-export const republik_afrika_tengah_infrastruktur = {
+﻿// @ts-nocheck
+const republik_afrika_tengah_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 6,
   terminal_bus: 5,
@@ -7,4 +8,7 @@ export const republik_afrika_tengah_infrastruktur = {
   pelabuhan: 5,
   bandara: 3,
   helipad: 1,
-} as const;
+};
+
+
+

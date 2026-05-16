@@ -1,4 +1,5 @@
-export const republik_dominika_hukum = {
+﻿// @ts-nocheck
+const republik_dominika_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 4,
       "kejaksaan": 7,
@@ -7,4 +8,7 @@ export const republik_dominika_hukum = {
       "akademi_polisi": 4,
       "indeks_korupsi": 41,
       "indeks_keamanan": 61
-  } as const;
+  };
+
+
+

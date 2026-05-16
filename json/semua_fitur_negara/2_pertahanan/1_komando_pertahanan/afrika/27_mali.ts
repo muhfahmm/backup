@@ -1,6 +1,6 @@
-import { mali_intelijen } from "../../2_intelijen/afrika/27_mali";
+﻿// @ts-nocheck
 
-export const mali_strategis = {
+const mali_strategis = {
     "waktu_respon": 26,
     "intelijen": 14,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const mali_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const taiwan_hukum = {
+﻿// @ts-nocheck
+const taiwan_hukum = {
       "pusat_bantuan_hukum": 35,
       "pengadilan": 37,
       "kejaksaan": 21,
@@ -7,4 +8,7 @@ export const taiwan_hukum = {
       "akademi_polisi": 8,
       "indeks_korupsi": 51,
       "indeks_keamanan": 50
-  } as const;
+  };
+
+
+

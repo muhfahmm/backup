@@ -1,4 +1,5 @@
-export const tahiti_infrastruktur = {
+﻿// @ts-nocheck
+const tahiti_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 10,
   terminal_bus: 8,
@@ -7,4 +8,7 @@ export const tahiti_infrastruktur = {
   pelabuhan: 5,
   bandara: 3,
   helipad: 3,
-} as const;
+};
+
+
+

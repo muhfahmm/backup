@@ -1,41 +1,19 @@
-export const vanuatu_profile = {
+﻿// @ts-nocheck
+const vanuatu_profile = {
   "name_en": "Vanuatu",
   "capital": "Port Vila",
   "name_id": "Vanuatu",
   "lon": 167,
   "lat": -16,
-  "flag": "🇻🇺",
+  "flag": "ðŸ‡»ðŸ‡º",
   "jumlah_penduduk": 321409,
   "anggaran": 10,
   "pendapatan_nasional": "28",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-} as const;
+};
 
-import { vanuatu_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/oceania/194_vanuatu";
-import { vanuatu_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/oceania/194_vanuatu";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { vanuatu_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/oceania/194_vanuatu";
 
-import { vanuatu_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/oceania/194_vanuatu";
-import { vanuatu_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/oceania/194_vanuatu";
-import { vanuatu_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/oceania/194_vanuatu";
-import { vanuatu_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/oceania/194_vanuatu";
-import { vanuatu_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/oceania/194_vanuatu";
-import { vanuatu_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/oceania/194_vanuatu";
-import { vanuatu_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/oceania/194_vanuatu";
-import { vanuatu_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/oceania/194_vanuatu";
-import { vanuatu_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/oceania/194_vanuatu";
-import { vanuatu_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/oceania/194_vanuatu";
-import { vanuatu_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/oceania/194_vanuatu";
-import { vanuatu_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/oceania/194_vanuatu";
-import { vanuatu_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/oceania/194_vanuatu";
-import { vanuatu_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/oceania/194_vanuatu";
-import { vanuatu_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/oceania/194_vanuatu";
-import { vanuatu_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/oceania/194_vanuatu";
-import { vanuatu_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/oceania/194_vanuatu";
-import { vanuatu_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/oceania/194_vanuatu";
-import { vanuatu_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/oceania/194_vanuatu";
 const vanuatu_geopolitik = {
     "un_vote": 1,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const vanuatu_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const vanuatu: CountryData = {
+const vanuatu = {
   ...vanuatu_profile,
   "sektor_listrik": vanuatu_listrik,
   "hunian": vanuatu_hunian,
@@ -75,7 +53,7 @@ export const vanuatu: CountryData = {
   "sektor_komersial": vanuatu_komersial,
   "sektor_hiburan": vanuatu_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const vanuatu: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const vanuatu: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": vanuatu_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,
@@ -143,5 +121,8 @@ export const vanuatu: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

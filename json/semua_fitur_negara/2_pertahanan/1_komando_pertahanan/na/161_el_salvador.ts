@@ -1,6 +1,6 @@
-import { el_salvador_intelijen } from "../../2_intelijen/na/161_el_salvador";
+﻿// @ts-nocheck
 
-export const el_salvador_strategis = {
+const el_salvador_strategis = {
     "waktu_respon": 3,
     "intelijen": 22,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const el_salvador_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

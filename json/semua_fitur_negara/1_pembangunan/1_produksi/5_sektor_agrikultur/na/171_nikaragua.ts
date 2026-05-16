@@ -1,4 +1,5 @@
-export const nikaragua_agrikultur = {
+﻿// @ts-nocheck
+const nikaragua_agrikultur = {
   padi: 52,
   gandum: 34,
   jagung: 32,
@@ -13,4 +14,7 @@ export const nikaragua_agrikultur = {
   karet: 0,
   kapas: 32,
   tembakau: 19,
-} as const;
+};
+
+
+

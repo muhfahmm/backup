@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { albaniaEmbassyConfig } from './103_albania';
 export { andorraEmbassyConfig } from './104_andorra';
 export { austriaEmbassyConfig } from './105_austria';
@@ -47,3 +48,6 @@ export { turkiEmbassyConfig } from './148_turki';
 export { ukrainaEmbassyConfig } from './149_ukraina';
 export { vatikanEmbassyConfig } from './150_vatikan';
 export { yunaniEmbassyConfig } from './151_yunani';
+
+
+

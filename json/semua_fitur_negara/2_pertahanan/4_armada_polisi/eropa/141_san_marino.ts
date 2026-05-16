@@ -1,4 +1,5 @@
-export const san_marino_kepolisian = {
+﻿// @ts-nocheck
+const san_marino_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const san_marino_kepolisian = {
       "pasukan_swat": 40,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

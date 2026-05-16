@@ -1,6 +1,6 @@
-import { kongo_intelijen } from "../../2_intelijen/afrika/21_kongo";
+﻿// @ts-nocheck
 
-export const kongo_strategis = {
+const kongo_strategis = {
     "waktu_respon": 19,
     "intelijen": 26,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const kongo_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

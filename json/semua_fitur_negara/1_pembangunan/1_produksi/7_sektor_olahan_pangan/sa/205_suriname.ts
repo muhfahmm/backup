@@ -1,4 +1,5 @@
-export const suriname_olahan_pangan = {
+﻿// @ts-nocheck
+const suriname_olahan_pangan = {
   air_mineral: 98,
   gula: 26,
   roti: 86,
@@ -9,4 +10,7 @@ export const suriname_olahan_pangan = {
   pakan_ternak: 72,
   ikan_kaleng: 56,
   kopi_teh: 74,
-} as const;
+};
+
+
+

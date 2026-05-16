@@ -1,4 +1,5 @@
-export const honduras_agrikultur = {
+﻿// @ts-nocheck
+const honduras_agrikultur = {
   padi: 192,
   gandum: 138,
   jagung: 36,
@@ -13,4 +14,7 @@ export const honduras_agrikultur = {
   karet: 0,
   kapas: 201,
   tembakau: 201,
-} as const;
+};
+
+
+

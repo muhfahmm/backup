@@ -1,4 +1,5 @@
-export const afrika_selatan_pendidikan = {
+﻿// @ts-nocheck
+const afrika_selatan_pendidikan = {
       "prasekolah": 190,
       "dasar": 416,
       "menengah": 181,
@@ -10,4 +11,7 @@ export const afrika_selatan_pendidikan = {
       "pusat_penelitian": 20,
       "pusat_pengembangan": 9,
       "literasi": 78
-  } as const;
+  };
+
+
+

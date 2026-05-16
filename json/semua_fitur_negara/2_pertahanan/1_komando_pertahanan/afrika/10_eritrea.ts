@@ -1,6 +1,6 @@
-import { eritrea_intelijen } from "../../2_intelijen/afrika/10_eritrea";
+﻿// @ts-nocheck
 
-export const eritrea_strategis = {
+const eritrea_strategis = {
     "waktu_respon": 31,
     "intelijen": 36,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const eritrea_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

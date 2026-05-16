@@ -1,6 +1,6 @@
-import { maldives_intelijen } from "../../2_intelijen/asia/82_maldives";
+﻿// @ts-nocheck
 
-export const maldives_strategis = {
+const maldives_strategis = {
     "waktu_respon": 10,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const maldives_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

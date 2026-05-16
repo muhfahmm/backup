@@ -1,4 +1,5 @@
-export const tanjung_verde_olahan_pangan = {
+﻿// @ts-nocheck
+const tanjung_verde_olahan_pangan = {
   air_mineral: 108,
   gula: 69,
   roti: 105,
@@ -9,4 +10,7 @@ export const tanjung_verde_olahan_pangan = {
   pakan_ternak: 48,
   ikan_kaleng: 108,
   kopi_teh: 114,
-} as const;
+};
+
+
+

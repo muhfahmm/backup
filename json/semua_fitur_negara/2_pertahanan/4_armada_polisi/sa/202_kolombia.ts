@@ -1,4 +1,5 @@
-export const kolombia_kepolisian = {
+﻿// @ts-nocheck
+const kolombia_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,
       "akademi_kepolisian": 0,
@@ -14,4 +15,7 @@ export const kolombia_kepolisian = {
       "pasukan_swat": 8,
       "samapta": 62
     }
-  } as const;
+  };
+
+
+

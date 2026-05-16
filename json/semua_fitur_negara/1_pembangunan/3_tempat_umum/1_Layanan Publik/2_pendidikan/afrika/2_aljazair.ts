@@ -1,4 +1,5 @@
-export const aljazair_pendidikan = {
+﻿// @ts-nocheck
+const aljazair_pendidikan = {
       "prasekolah": 387,
       "dasar": 583,
       "menengah": 412,
@@ -10,4 +11,7 @@ export const aljazair_pendidikan = {
       "pusat_penelitian": 13,
       "pusat_pengembangan": 6,
       "literasi": 82
-  } as const;
+  };
+
+
+

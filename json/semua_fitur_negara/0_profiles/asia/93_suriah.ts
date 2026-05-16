@@ -1,41 +1,19 @@
-export const suriah_profile = {
+﻿// @ts-nocheck
+const suriah_profile = {
   "name_en": "Syria",
   "capital": "Damascus",
   "name_id": "Suriah",
   "lon": 38,
   "lat": 35,
-  "flag": "🇸🇾",
+  "flag": "ðŸ‡¸ðŸ‡¾",
   "jumlah_penduduk": 22125000,
   "anggaran": 117,
   "pendapatan_nasional": "333",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-} as const;
+};
 
-import { suriah_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/93_suriah";
-import { suriah_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/93_suriah";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { suriah_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/93_suriah";
 
-import { suriah_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/93_suriah";
-import { suriah_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/93_suriah";
-import { suriah_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/93_suriah";
-import { suriah_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/93_suriah";
-import { suriah_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/93_suriah";
-import { suriah_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/93_suriah";
-import { suriah_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/93_suriah";
-import { suriah_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/93_suriah";
-import { suriah_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/93_suriah";
-import { suriah_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/93_suriah";
-import { suriah_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/93_suriah";
-import { suriah_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/93_suriah";
-import { suriah_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/93_suriah";
-import { suriah_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/93_suriah";
-import { suriah_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/93_suriah";
-import { suriah_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/93_suriah";
-import { suriah_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/93_suriah";
-import { suriah_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/93_suriah";
-import { suriah_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/93_suriah";
 const suriah_geopolitik = {
     "un_vote": 65,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const suriah_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const suriah: CountryData = {
+const suriah = {
   ...suriah_profile,
   "sektor_listrik": suriah_listrik,
   "hunian": suriah_hunian,
@@ -75,7 +53,7 @@ export const suriah: CountryData = {
   "sektor_komersial": suriah_komersial,
   "sektor_hiburan": suriah_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const suriah: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 12.8,
@@ -129,11 +107,11 @@ export const suriah: CountryData = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": suriah_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 38,
@@ -143,5 +121,8 @@ export const suriah: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

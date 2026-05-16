@@ -1,4 +1,5 @@
-export const brazil_hukum = {
+﻿// @ts-nocheck
+const brazil_hukum = {
       "pusat_bantuan_hukum": 99,
       "pengadilan": 167,
       "kejaksaan": 33,
@@ -7,4 +8,7 @@ export const brazil_hukum = {
       "akademi_polisi": 18,
       "indeks_korupsi": 57,
       "indeks_keamanan": 74
-  } as const;
+  };
+
+
+

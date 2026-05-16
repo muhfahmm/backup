@@ -1,4 +1,5 @@
-export const andorra_hukum = {
+﻿// @ts-nocheck
+const andorra_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 11,
       "kejaksaan": 9,
@@ -7,4 +8,7 @@ export const andorra_hukum = {
       "akademi_polisi": 1,
       "indeks_korupsi": 13,
       "indeks_keamanan": 70
-  } as const;
+  };
+
+
+

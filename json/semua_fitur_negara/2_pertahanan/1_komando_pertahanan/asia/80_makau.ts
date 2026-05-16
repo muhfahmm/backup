@@ -1,6 +1,5 @@
-import { makau_intelijen } from "../../2_intelijen/asia/80_makau";
-
-export const makau_strategis = {
+﻿
+const makau_strategis = {
     "waktu_respon": 22,
     "intelijen": 37,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const makau_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

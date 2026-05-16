@@ -1,4 +1,5 @@
-export const guyana_hukum = {
+﻿// @ts-nocheck
+const guyana_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 4,
       "kejaksaan": 8,
@@ -7,4 +8,7 @@ export const guyana_hukum = {
       "akademi_polisi": 5,
       "indeks_korupsi": 34,
       "indeks_keamanan": 65
-  } as const;
+  };
+
+
+

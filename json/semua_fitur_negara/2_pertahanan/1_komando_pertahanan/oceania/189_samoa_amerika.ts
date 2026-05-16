@@ -1,6 +1,6 @@
-import { samoa_amerika_intelijen } from "../../2_intelijen/oceania/189_samoa_amerika";
+﻿// @ts-nocheck
 
-export const samoa_amerika_strategis = {
+const samoa_amerika_strategis = {
     "waktu_respon": 7,
     "intelijen": 16,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const samoa_amerika_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

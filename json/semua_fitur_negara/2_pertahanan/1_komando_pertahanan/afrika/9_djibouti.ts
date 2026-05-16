@@ -1,6 +1,6 @@
-import { djibouti_intelijen } from "../../2_intelijen/afrika/9_djibouti";
+﻿// @ts-nocheck
 
-export const djibouti_strategis = {
+const djibouti_strategis = {
     "waktu_respon": 14,
     "intelijen": 5,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const djibouti_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

@@ -1,4 +1,5 @@
-export const thailand_pertahanan = {
+﻿// @ts-nocheck
+const thailand_pertahanan = {
     "penjara": 10,
     "gudang_senjata": 5,
     "hangar_tank": 36,
@@ -7,4 +8,7 @@ export const thailand_pertahanan = {
     "pangkalan_laut": 19,
     "program_luar_angkasa": 10,
     "pertahanan_siber": 14
-    } as const;
+    };
+
+
+

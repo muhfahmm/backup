@@ -1,4 +1,5 @@
-export const kosovo_hukum = {
+﻿// @ts-nocheck
+const kosovo_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 11,
       "kejaksaan": 5,
@@ -7,4 +8,7 @@ export const kosovo_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 19,
       "indeks_keamanan": 64
-  } as const;
+  };
+
+
+

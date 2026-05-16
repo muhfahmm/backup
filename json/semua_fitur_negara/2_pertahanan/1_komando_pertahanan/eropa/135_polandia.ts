@@ -1,6 +1,6 @@
-import { polandia_intelijen } from "../../2_intelijen/eropa/135_polandia";
+﻿// @ts-nocheck
 
-export const polandia_strategis = {
+const polandia_strategis = {
     "waktu_respon": 3,
     "intelijen": 15,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const polandia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

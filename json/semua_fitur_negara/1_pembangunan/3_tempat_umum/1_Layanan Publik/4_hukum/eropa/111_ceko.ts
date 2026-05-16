@@ -1,4 +1,5 @@
-export const ceko_hukum = {
+﻿// @ts-nocheck
+const ceko_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 37,
       "kejaksaan": 29,
@@ -7,4 +8,7 @@ export const ceko_hukum = {
       "akademi_polisi": 13,
       "indeks_korupsi": 28,
       "indeks_keamanan": 64
-  } as const;
+  };
+
+
+

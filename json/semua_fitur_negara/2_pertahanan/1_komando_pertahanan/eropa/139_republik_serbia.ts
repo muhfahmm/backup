@@ -1,6 +1,5 @@
-import { republik_serbia_intelijen } from "../../2_intelijen/eropa/139_republik_serbia";
-
-export const republik_serbia_strategis = {
+﻿
+const republik_serbia_strategis = {
     "waktu_respon": 28,
     "intelijen": 33,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const republik_serbia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

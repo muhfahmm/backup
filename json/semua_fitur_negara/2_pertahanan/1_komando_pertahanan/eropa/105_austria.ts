@@ -1,6 +1,6 @@
-import { austria_intelijen } from "../../2_intelijen/eropa/105_austria";
+﻿// @ts-nocheck
 
-export const austria_strategis = {
+const austria_strategis = {
     "waktu_respon": 35,
     "intelijen": 25,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const austria_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

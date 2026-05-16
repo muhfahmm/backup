@@ -1,6 +1,6 @@
-import { uruguay_intelijen } from "../../2_intelijen/sa/206_uruguay";
+﻿// @ts-nocheck
 
-export const uruguay_strategis = {
+const uruguay_strategis = {
     "waktu_respon": 1,
     "intelijen": 4,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const uruguay_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

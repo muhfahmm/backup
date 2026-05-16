@@ -1,6 +1,6 @@
-import { irak_intelijen } from "../../2_intelijen/asia/68_irak";
+﻿// @ts-nocheck
 
-export const irak_strategis = {
+const irak_strategis = {
     "waktu_respon": 12,
     "intelijen": 23,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const irak_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

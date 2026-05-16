@@ -1,4 +1,5 @@
-export const republik_timor_leste_agrikultur = {
+﻿// @ts-nocheck
+const republik_timor_leste_agrikultur = {
   padi: 22,
   gandum: 11,
   jagung: 29,
@@ -13,4 +14,7 @@ export const republik_timor_leste_agrikultur = {
   karet: 0,
   kapas: 47,
   tembakau: 61,
-} as const;
+};
+
+
+

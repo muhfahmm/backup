@@ -1,4 +1,5 @@
-export const moldova_pendidikan = {
+﻿// @ts-nocheck
+const moldova_pendidikan = {
       "prasekolah": 74,
       "dasar": 100,
       "menengah": 24,
@@ -10,4 +11,7 @@ export const moldova_pendidikan = {
       "pusat_penelitian": 1,
       "pusat_pengembangan": 0,
       "literasi": 62
-    } as const;
+    };
+
+
+

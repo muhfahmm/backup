@@ -1,3 +1,4 @@
+﻿// @ts-nocheck
 export { albania } from "./103_albania";
 export { andorra } from "./104_andorra";
 export { austria } from "./105_austria";
@@ -47,3 +48,6 @@ export { turki } from "./148_turki";
 export { ukraina } from "./149_ukraina";
 export { vatikan } from "./150_vatikan";
 export { yunani } from "./151_yunani";
+
+
+

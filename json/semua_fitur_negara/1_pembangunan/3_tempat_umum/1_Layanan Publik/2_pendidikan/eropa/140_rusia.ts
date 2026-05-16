@@ -1,4 +1,5 @@
-export const rusia_pendidikan = {
+﻿// @ts-nocheck
+const rusia_pendidikan = {
       "prasekolah": 1181,
       "dasar": 1996,
       "menengah": 1193,
@@ -10,4 +11,7 @@ export const rusia_pendidikan = {
       "pusat_penelitian": 64,
       "pusat_pengembangan": 33,
       "literasi": 95
-    } as const;
+    };
+
+
+

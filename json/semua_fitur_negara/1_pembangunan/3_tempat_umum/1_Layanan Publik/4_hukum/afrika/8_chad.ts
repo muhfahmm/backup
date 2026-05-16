@@ -1,4 +1,5 @@
-export const chad_hukum = {
+﻿// @ts-nocheck
+const chad_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 10,
       "kejaksaan": 10,
@@ -7,4 +8,7 @@ export const chad_hukum = {
       "akademi_polisi": 2,
       "indeks_korupsi": 21,
       "indeks_keamanan": 46
-  } as const;
+  };
+
+
+

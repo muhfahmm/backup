@@ -1,6 +1,6 @@
-import { rwanda_intelijen } from "../../2_intelijen/afrika/44_rwanda";
+﻿// @ts-nocheck
 
-export const rwanda_strategis = {
+const rwanda_strategis = {
     "waktu_respon": 27,
     "intelijen": 40,
     "status_nuklir": false,
@@ -13,4 +13,7 @@ export const rwanda_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+
+

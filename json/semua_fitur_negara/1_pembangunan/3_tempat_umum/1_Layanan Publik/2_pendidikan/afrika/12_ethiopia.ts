@@ -1,4 +1,5 @@
-export const ethiopia_pendidikan = {
+﻿// @ts-nocheck
+const ethiopia_pendidikan = {
       "prasekolah": 84,
       "dasar": 54,
       "menengah": 41,
@@ -10,4 +11,7 @@ export const ethiopia_pendidikan = {
       "pusat_penelitian": 5,
       "pusat_pengembangan": 1,
       "literasi": 63
-  } as const;
+  };
+
+
+

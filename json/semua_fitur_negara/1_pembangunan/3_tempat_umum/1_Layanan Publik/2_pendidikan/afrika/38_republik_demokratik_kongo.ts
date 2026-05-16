@@ -1,4 +1,5 @@
-export const republik_demokratik_kongo_pendidikan = {
+﻿// @ts-nocheck
+const republik_demokratik_kongo_pendidikan = {
       "prasekolah": 60,
       "dasar": 127,
       "menengah": 17,
@@ -10,4 +11,7 @@ export const republik_demokratik_kongo_pendidikan = {
       "pusat_penelitian": 2,
       "pusat_pengembangan": 2,
       "literasi": 69
-  } as const;
+  };
+
+
+

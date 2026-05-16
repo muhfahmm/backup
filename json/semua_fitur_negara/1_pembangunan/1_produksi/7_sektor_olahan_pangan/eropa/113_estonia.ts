@@ -1,4 +1,5 @@
-export const estonia_olahan_pangan = {
+﻿// @ts-nocheck
+const estonia_olahan_pangan = {
   air_mineral: 70,
   gula: 140,
   roti: 200,
@@ -9,4 +10,7 @@ export const estonia_olahan_pangan = {
   pakan_ternak: 225,
   ikan_kaleng: 160,
   kopi_teh: 165,
-} as const;
+};
+
+
+

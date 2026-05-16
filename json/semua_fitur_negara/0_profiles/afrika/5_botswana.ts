@@ -1,41 +1,19 @@
-export const botswana_profile = {
+﻿// @ts-nocheck
+const botswana_profile = {
   "name_en": "Botswana",
   "capital": "Gaborone",
   "name_id": "Botswana",
   "lon": 24,
   "lat": -22,
-  "flag": "🇧🇼",
+  "flag": "ðŸ‡§ðŸ‡¼",
   "jumlah_penduduk": 2675063,
   "anggaran": 194,
   "pendapatan_nasional": "556",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-} as const;
+};
 
-import { botswana_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/afrika/5_botswana";
-import { botswana_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/afrika/5_botswana";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { botswana_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/afrika/5_botswana";
 
-import { botswana_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/afrika/5_botswana";
-import { botswana_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/afrika/5_botswana";
-import { botswana_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/afrika/5_botswana";
-import { botswana_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/afrika/5_botswana";
-import { botswana_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/afrika/5_botswana";
-import { botswana_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/afrika/5_botswana";
-import { botswana_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/afrika/5_botswana";
-import { botswana_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/afrika/5_botswana";
-import { botswana_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/afrika/5_botswana";
-import { botswana_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/afrika/5_botswana";
-import { botswana_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/afrika/5_botswana";
-import { botswana_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/afrika/5_botswana";
-import { botswana_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/afrika/5_botswana";
-import { botswana_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/afrika/5_botswana";
-import { botswana_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/afrika/5_botswana";
-import { botswana_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/afrika/5_botswana";
-import { botswana_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/afrika/5_botswana";
-import { botswana_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/afrika/5_botswana";
-import { botswana_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/afrika/5_botswana";
 const botswana_geopolitik = {
     "un_vote": 48,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const botswana_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
   }
-  } as const;
+  };
 
-export const botswana: CountryData = {
+const botswana = {
   ...botswana_profile,
   "sektor_listrik": botswana_listrik,
   "hunian": botswana_hunian,
@@ -75,7 +53,7 @@ export const botswana: CountryData = {
   "sektor_komersial": botswana_komersial,
   "sektor_hiburan": botswana_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const botswana: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const botswana: CountryData = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": botswana_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,
@@ -143,5 +121,8 @@ export const botswana: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 

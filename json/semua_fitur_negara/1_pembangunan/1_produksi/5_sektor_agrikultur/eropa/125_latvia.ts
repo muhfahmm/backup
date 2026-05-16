@@ -1,4 +1,5 @@
-export const latvia_agrikultur = {
+﻿// @ts-nocheck
+const latvia_agrikultur = {
   padi: 148,
   gandum: 52,
   jagung: 68,
@@ -13,4 +14,7 @@ export const latvia_agrikultur = {
   karet: 0,
   kapas: 56,
   tembakau: 156,
-} as const;
+};
+
+
+

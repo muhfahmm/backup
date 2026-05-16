@@ -1,6 +1,5 @@
-import { namibia_intelijen } from "../../2_intelijen/afrika/33_namibia";
-
-export const namibia_strategis = {
+﻿
+const namibia_strategis = {
     "waktu_respon": 25,
     "intelijen": 11,
     "status_nuklir": false,
@@ -13,4 +12,6 @@ export const namibia_strategis = {
       "program_nuklir": 0,
       "misil_nuklir": 0
     }
-  } as const;
+  };
+
+

@@ -1,4 +1,4 @@
-export const nepal_pertahanan = {
+﻿const nepal_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 2,
     "hangar_tank": 5,
@@ -7,4 +7,6 @@ export const nepal_pertahanan = {
     "pangkalan_laut": 10,
     "program_luar_angkasa": 40,
     "pertahanan_siber": 35
-    } as const;
+    };
+
+

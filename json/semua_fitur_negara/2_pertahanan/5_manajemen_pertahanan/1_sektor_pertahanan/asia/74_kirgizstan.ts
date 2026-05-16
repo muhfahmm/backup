@@ -1,4 +1,5 @@
-export const kirgizstan_pertahanan = {
+﻿// @ts-nocheck
+const kirgizstan_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 18,
     "hangar_tank": 30,
@@ -7,4 +8,7 @@ export const kirgizstan_pertahanan = {
     "pangkalan_laut": 9,
     "program_luar_angkasa": 29,
     "pertahanan_siber": 29
-    } as const;
+    };
+
+
+

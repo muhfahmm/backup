@@ -1,4 +1,5 @@
-export const yordania_agrikultur = {
+﻿// @ts-nocheck
+const yordania_agrikultur = {
   padi: 96,
   gandum: 90,
   jagung: 24,
@@ -13,4 +14,7 @@ export const yordania_agrikultur = {
   karet: 0,
   kapas: 20,
   tembakau: 118,
-} as const;
+};
+
+
+

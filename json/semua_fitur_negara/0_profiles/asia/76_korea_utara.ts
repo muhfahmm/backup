@@ -1,41 +1,19 @@
-export const korea_utara_profile = {
+﻿// @ts-nocheck
+const korea_utara_profile = {
   "name_en": "North Korea",
   "capital": "Pyongyang",
   "name_id": "Korea Utara",
   "lon": 125.75,
   "lat": 39.03,
-  "flag": "🇰🇵",
+  "flag": "ðŸ‡°ðŸ‡µ",
   "jumlah_penduduk": "10M",
   "anggaran": 175,
   "pendapatan_nasional": "500",
   "religion": "Ateisme",
   "ideology": "Komunisme"
-} as const;
+};
 
-import { korea_utara_komersial } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/asia/76_korea_utara";
-import { korea_utara_hiburan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/asia/76_korea_utara";
-import { CountryData } from "@/app/database/data/semua_fitur_negara";
-import { korea_utara_intelijen } from "@/app/database/data/semua_fitur_negara/2_pertahanan/2_intelijen/asia/76_korea_utara";
 
-import { korea_utara_agrikultur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/5_sektor_agrikultur/asia/76_korea_utara";
-import { korea_utara_armada } from "@/app/database/data/semua_fitur_negara/2_pertahanan/3_armada_militer/asia/76_korea_utara";
-import { korea_utara_ekstraksi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis/asia/76_korea_utara";
-import { korea_utara_farmasi } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/8_sektor_farmasi/asia/76_korea_utara";
-import { korea_utara_hukum } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/asia/76_korea_utara";
-import { korea_utara_infrastruktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/asia/76_korea_utara";
-import { korea_utara_kepolisian } from "@/app/database/data/semua_fitur_negara/2_pertahanan/4_armada_polisi/asia/76_korea_utara";
-import { korea_utara_kesehatan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/asia/76_korea_utara";
-import { korea_utara_listrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/1_sektor_listrik_nasional/asia/76_korea_utara";
-import { korea_utara_manufaktur } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/3_manufaktur/asia/76_korea_utara";
-import { korea_utara_olahan_pangan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/7_sektor_olahan_pangan/asia/76_korea_utara";
-import { korea_utara_olahraga } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/asia/76_korea_utara";
-import { korea_utara_pabrik } from "@/app/database/data/semua_fitur_negara/1_pembangunan/2_produksi_militer/1_pabrik_militer/asia/76_korea_utara";
-import { korea_utara_pendidikan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/asia/76_korea_utara";
-import { korea_utara_perikanan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/6_sektor_perikanan/asia/76_korea_utara";
-import { korea_utara_pertahanan } from "@/app/database/data/semua_fitur_negara/2_pertahanan/5_manajemen_pertahanan/1_sektor_pertahanan/asia/76_korea_utara";
-import { korea_utara_peternakan } from "@/app/database/data/semua_fitur_negara/1_pembangunan/1_produksi/4_sektor_peternakan/asia/76_korea_utara";
-import { korea_utara_strategis } from "@/app/database/data/semua_fitur_negara/2_pertahanan/1_komando_pertahanan/asia/76_korea_utara";
-import { korea_utara_hunian } from "@/app/database/data/semua_fitur_negara/1_pembangunan/3_tempat_umum/2_hunian_permukiman/asia/76_korea_utara";
 const korea_utara_geopolitik = {
     "un_vote": 56,
     "reputasi_diplomatik": "Netral",
@@ -48,9 +26,9 @@ const korea_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  } as const;
+  };
 
-export const korea_utara: CountryData = {
+const korea_utara = {
   ...korea_utara_profile,
   "sektor_listrik": korea_utara_listrik,
   "hunian": korea_utara_hunian,
@@ -75,7 +53,7 @@ export const korea_utara: CountryData = {
   "sektor_komersial": korea_utara_komersial,
   "sektor_hiburan": korea_utara_hiburan,
   // =============================================================
-  // 11. ðŸ’° PAJAK & EKONOMI
+  // 11. Ã°Å¸â€™Â° PAJAK & EKONOMI
   // =============================================================
   "pajak": {
     "ppn": {
@@ -113,7 +91,7 @@ export const korea_utara: CountryData = {
   },
   
   // =============================================================
-  // 13. ðŸ›’ HARGA PASAR DOMESTIK
+  // 13. Ã°Å¸â€ºâ€™ HARGA PASAR DOMESTIK
   // =============================================================
   "harga": {
     "harga_beras": 16,
@@ -129,11 +107,11 @@ export const korea_utara: CountryData = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": korea_utara_geopolitik,
   // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 3,
@@ -143,5 +121,8 @@ export const korea_utara: CountryData = {
     "lingkungan": 60
   }
 };
+
+
+
 
 
