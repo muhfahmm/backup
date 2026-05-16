@@ -103,8 +103,12 @@ impl MapEngine {
             self.offset_y += y - self.last_mouse_y;
             self.last_mouse_x = x;
             self.last_mouse_y = y;
+            
+            // Sync targets immediately to stop any active lerping
             self.target_offset_x = self.offset_x;
             self.target_offset_y = self.offset_y;
+            self.target_scale = self.scale;
+            
             self.apply_clamping();
         }
     }
@@ -113,28 +117,28 @@ impl MapEngine {
         self.is_panning = false;
     }
 
-    pub fn set_selected_country(&mut self, iso: Option<String>) {
+    pub fn set_selected_country(&mut self, iso: Option<String>, should_center: bool) {
         self.selected_country_iso = iso.clone();
         
         if let Some(iso_val) = iso {
-            // Find country coordinates
-            for country_js in &self.countries {
-                if let Ok(country) = serde_wasm_bindgen::from_value::<CountryData>(country_js.clone()) {
-                    if country.iso.to_lowercase() == iso_val.to_lowercase() {
-                        if let (Some(lat), Some(lng)) = (country.latitude, country.longitude) {
-                            let (px, py) = self.project(lng, lat);
-                            
-                            // Set target zoom (zoom in a bit more for small countries if needed, but 4.0 is a good default)
-                            let new_scale = 4.0f64.max(self.scale);
-                            self.target_scale = new_scale;
-                            
-                            // Calculate offset to center the point
-                            self.target_offset_x = (self.width / 2.0) - (px * new_scale);
-                            self.target_offset_y = (self.height / 2.0) - (py * new_scale);
-                            
-                            // Clamping will be applied during interpolation
+            if should_center {
+                // Find country coordinates
+                for country_js in &self.countries {
+                    if let Ok(country) = serde_wasm_bindgen::from_value::<CountryData>(country_js.clone()) {
+                        if country.iso.to_lowercase() == iso_val.to_lowercase() {
+                            if let (Some(lat), Some(lng)) = (country.latitude, country.longitude) {
+                                let (px, py) = self.project(lng, lat);
+                                
+                                // Set target zoom
+                                let new_scale = 4.0f64.max(self.scale);
+                                self.target_scale = new_scale;
+                                
+                                // Calculate offset to center the point
+                                self.target_offset_x = (self.width / 2.0) - (px * new_scale);
+                                self.target_offset_y = (self.height / 2.0) - (py * new_scale);
+                            }
+                            break;
                         }
-                        break;
                     }
                 }
             }
@@ -156,6 +160,45 @@ impl MapEngine {
             self.offset_x = self.offset_x.clamp(min_x, 0.0);
             self.offset_y = self.offset_y.clamp(min_y, 0.0);
         }
+    }
+
+    fn unproject(&self, mouse_x: f64, mouse_y: f64) -> (f64, f64) {
+        let x_norm = (mouse_x - self.offset_x) / (self.width * self.scale);
+        let y_norm = (mouse_y - self.offset_y) / (self.height * self.scale);
+        let lng = x_norm * 360.0 - 180.0;
+        let lat = 90.0 - y_norm * 180.0;
+        (lng, lat)
+    }
+
+    fn is_point_in_polygon(&self, poly: &Vec<Vec<Vec<f64>>>, lng: f64, lat: f64) -> bool {
+        for ring in poly {
+            let mut inside = false;
+            let mut j = ring.len() - 1;
+            for i in 0..ring.len() {
+                if ((ring[i][1] > lat) != (ring[j][1] > lat)) &&
+                   (lng < (ring[j][0] - ring[i][0]) * (lat - ring[i][1]) / (ring[j][1] - ring[i][1]) + ring[i][0]) {
+                    inside = !inside;
+                }
+                j = i;
+            }
+            if inside { return true; }
+        }
+        false
+    }
+
+    fn is_point_in_feature(&self, feature: &geojson::Feature, lng: f64, lat: f64) -> bool {
+        if let Some(ref geometry) = feature.geometry {
+            match &geometry.value {
+                Value::Polygon(poly) => return self.is_point_in_polygon(poly, lng, lat),
+                Value::MultiPolygon(multi) => {
+                    for poly in multi {
+                        if self.is_point_in_polygon(poly, lng, lat) { return true; }
+                    }
+                }
+                _ => {}
+            }
+        }
+        false
     }
 
     fn update_camera(&mut self) {
@@ -335,7 +378,29 @@ impl MapEngine {
     }
     
     pub fn get_country_at(&self, mouse_x: f64, mouse_y: f64) -> JsValue {
-        let hit_threshold = 10.0;
+        let (lng, lat) = self.unproject(mouse_x, mouse_y);
+        
+        // 1. Polygon-based detection (Priority)
+        if let Some(ref fc) = self.data {
+            for feature in &fc.features {
+                if self.is_point_in_feature(feature, lng, lat) {
+                    if let Some(properties) = &feature.properties {
+                        if let Some(iso) = properties.get("ISO_A2").and_then(|v| v.as_str()) {
+                            for country_js in &self.countries {
+                                if let Ok(country) = serde_wasm_bindgen::from_value::<CountryData>(country_js.clone()) {
+                                    if country.iso.to_lowercase() == iso.to_lowercase() {
+                                        return country_js.clone();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // 2. Fallback to dot-based detection (for tiny islands)
+        let hit_threshold = 15.0; 
         for country_js in &self.countries {
             if let Ok(country) = serde_wasm_bindgen::from_value::<CountryData>(country_js.clone()) {
                 if let (Some(lat), Some(lng)) = (country.latitude, country.longitude) {
@@ -357,10 +422,10 @@ thread_local! {
 }
 
 #[wasm_bindgen]
-pub fn set_selected_country_on_map(iso: String) {
+pub fn set_selected_country_on_map(iso: String, should_center: bool) {
     ACTIVE_ENGINE.with(|global_engine| {
         if let Some(engine) = global_engine.borrow().as_ref() {
-            engine.borrow_mut().set_selected_country(Some(iso));
+            engine.borrow_mut().set_selected_country(Some(iso), should_center);
         }
     });
 }

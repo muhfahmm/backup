@@ -1,6 +1,6 @@
  'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
     ChevronLeft, ChevronRight, Search, Shield, Globe, Play, ArrowLeft, 
@@ -34,6 +34,8 @@ export default function PilihNegaraPage() {
     const [wasmModule, setWasmModule] = useState<any>(null);
     const [selectedMenu, setSelectedMenu] = useState('Profil');
     const [countryDetail, setCountryDetail] = useState<any>(null);
+    const isMapClickRef = useRef(false);
+    const dragStartPosRef = useRef({ x: 0, y: 0 });
 
     const navbarItems = [
         { name: 'Profil', icon: User },
@@ -51,6 +53,23 @@ export default function PilihNegaraPage() {
         const codePoints = iso.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
         return String.fromCodePoint(...codePoints);
     };
+
+    useEffect(() => {
+        const handleGlobalMouseUp = () => {
+            const canvas = document.getElementById('map-canvas-bg');
+            if (canvas) {
+                const event = new MouseEvent('mouseup', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window
+                });
+                canvas.dispatchEvent(event);
+            }
+        };
+
+        window.addEventListener('mouseup', handleGlobalMouseUp);
+        return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
+    }, []);
 
     useEffect(() => {
         const enhancedData = COUNTRIES_DATA.map(c => ({
@@ -84,15 +103,18 @@ export default function PilihNegaraPage() {
         initMap();
     }, []);
 
-    const filteredCountries = countries.filter(c => 
+    const filteredCountries = useMemo(() => countries.filter(c => 
         c.country.toLowerCase().includes(searchQuery.toLowerCase()) || 
         c.capital.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    ), [countries, searchQuery]);
 
     // Sync selected country to WASM map engine and local state
     useEffect(() => {
         const selected = filteredCountries[currentIndex];
-        if (selected) {
+        
+        // ONLY proceed if we have a selected country AND the user has interacted
+        // This prevents Afghanistan from being automatically selected on load
+        if (selected && hasInteracted) {
             // Load data directly from TS file via API
             const loadStats = async () => {
                 // Case-insensitive lookup for country path
@@ -109,35 +131,31 @@ export default function PilihNegaraPage() {
                     const res = await fetch(`/api/country-data?path=${relPath}`);
                     const text = await res.text();
                     
-                    // Simple Regex Parser for TS Data
-                    const extractObject = (key: string, content: string) => {
-                        const regex = new RegExp(`"${key}":\\s*(\\{[\\s\\S]*?\\})(?:,|\\n|\\s*\\})`);
-                        const match = content.match(regex);
-                        if (match) {
-                            try {
-                                // Clean up trailing commas and other TS artifacts to make it valid JSON
-                                let jsonStr = match[1]
-                                    .replace(/,(\s*[\]}])/g, '$1') // trailing commas
-                                    .replace(/'/g, '"')           // single to double quotes
-                                    .replace(/(\w+):/g, '"$1":');  // unquoted keys
-                                return JSON.parse(jsonStr);
-                            } catch (e) { return null; }
-                        }
-                        return null;
-                    };
-                    // Universal Object Parser: Find all 'const name = { ... }' patterns and merge them
-                    const objectMatches = text.matchAll(/const\s+\w+\s*=\s*(\{[\s\S]*?\})\s*;?/g);
                     let mergedData: any = {};
-                    
-                    for (const match of objectMatches) {
-                        try {
-                            let jsonStr = match[1]
-                                .replace(/,(\s*[\]}])/g, '$1') // trailing commas
-                                .replace(/'/g, '"')           // single to double quotes
-                                .replace(/(\w+):/g, '"$1":');  // unquoted keys
-                            const parsed = JSON.parse(jsonStr);
-                            mergedData = { ...mergedData, ...parsed };
-                        } catch (e) {}
+                    // Universal Object Parser: Execute the entire file to resolve cross-references
+                    try {
+                        // Find all constant names defined in the file to extract them
+                        const varNames = Array.from(text.matchAll(/const\s+(\w+)\s*=/g), m => m[1]);
+                        
+                        if (varNames.length > 0) {
+                            // Replace const with var to avoid Temporal Dead Zone (TDZ) errors
+                            // when constants refer to each other across different bundled files
+                            const scriptText = text.replace(/const\s+/g, 'var ');
+                            const script = `
+                                ${scriptText}
+                                const allData = { ${varNames.join(', ')} };
+                                let merged = {};
+                                for (let key in allData) {
+                                    if (typeof allData[key] === 'object' && allData[key] !== null) {
+                                        merged = { ...merged, ...allData[key] };
+                                    }
+                                }
+                                return merged;
+                            `;
+                            mergedData = new Function(script)();
+                        }
+                    } catch (e) {
+                        console.error("Failed to evaluate country data file:", e);
                     }
 
                     if (Object.keys(mergedData).length > 0) {
@@ -149,8 +167,8 @@ export default function PilihNegaraPage() {
                             income_tax: mergedData.pajak?.penghasilan?.tarif,
                             price_rice: mergedData.harga?.harga_beras,
                             price_fuel: mergedData.harga?.harga_bbm,
-                            un_vote: mergedData.geopolitik?.un_vote,
-                            reputation: mergedData.geopolitik?.reputasi_diplomatik
+                            un_vote: mergedData.un_vote,
+                            reputation: mergedData.reputasi_diplomatik
                         });
                     } else {
                         setCountryDetail(null);
@@ -164,7 +182,9 @@ export default function PilihNegaraPage() {
 
             if (wasmModule) {
                 try {
-                    wasmModule.set_selected_country_on_map(selected.iso);
+                    // Always center and zoom on selection, even if triggered by map click
+                    wasmModule.set_selected_country_on_map(selected.iso, true);
+                    isMapClickRef.current = false;
                 } catch (e) {
                     console.error("Failed to sync selection to map:", e);
                 }
@@ -189,6 +209,13 @@ export default function PilihNegaraPage() {
 
     const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
         if (!wasmModule || !wasmModule.get_country_at_on_map) return;
+
+        // Prevent click when dragging
+        const dragDistance = Math.sqrt(
+            Math.pow(e.clientX - dragStartPosRef.current.x, 2) + 
+            Math.pow(e.clientY - dragStartPosRef.current.y, 2)
+        );
+        if (dragDistance > 5) return;
         
         const canvas = e.currentTarget;
         const rect = canvas.getBoundingClientRect();
@@ -197,6 +224,7 @@ export default function PilihNegaraPage() {
         
         const clickedCountry = wasmModule.get_country_at_on_map(x, y);
         if (clickedCountry && clickedCountry.iso) {
+            isMapClickRef.current = true;
             const iso = clickedCountry.iso;
             // Check if it's already in the filtered list
             const filteredIndex = filteredCountries.findIndex(c => c.iso.toLowerCase() === iso.toLowerCase());
@@ -239,11 +267,11 @@ export default function PilihNegaraPage() {
     return (
         <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">
             {/* Status Bar (Replacement for Nav) */}
-            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-6 py-2 flex items-center justify-between shadow-sm">
+            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-5 flex items-center justify-between shadow-md h-24">
                 <div className="flex items-center gap-10 overflow-x-auto no-scrollbar">
                     {/* Help Icon */}
-                    <button className="flex items-center justify-center w-6 h-6 rounded-full border border-[#8b7e66]/30 text-[#8b7e66] hover:bg-[#8b7e66]/10 transition-colors">
-                        <HelpCircle className="w-3.5 h-3.5" />
+                    <button className="flex items-center justify-center w-8 h-8 rounded-full border border-[#8b7e66]/40 text-[#8b7e66] hover:bg-[#8b7e66]/20 transition-colors shadow-sm">
+                        <HelpCircle className="w-4 h-4" />
                     </button>
 
                     {/* Stats Items */}
@@ -257,28 +285,32 @@ export default function PilihNegaraPage() {
                         <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
                         
                         {/* UN Vote Badge */}
-                        <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
-                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
-                            <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-md font-black text-[11px] shadow-sm">
-                                {countryDetail?.un_vote || 0}
+                        <div className="flex items-center gap-4 border-l border-[#c4b49c] pl-8">
+                            <span className="text-[10px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
+                            <div className="bg-[#5ea3b1] text-white px-4 py-1.5 rounded-lg font-black text-[14px] shadow-md border border-[#4d8a96]">
+                                {hasInteracted ? (countryDetail?.un_vote || 0) : '-'}
                             </div>
                         </div>
                     </div>
                 </div>
 
                 {/* Selected Country Badge (Right) */}
-                <div className="flex items-center gap-3 bg-[#dcc9a3]/40 backdrop-blur-sm border border-black/5 px-4 py-1.5 rounded-2xl shadow-inner ml-4">
+                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4">
                     <img 
                         src={`https://flagcdn.com/w80/${countries[currentIndex]?.iso?.toLowerCase()}.png`} 
-                        className="w-6 h-4 rounded-sm object-cover border border-black/10 shadow-sm"
+                        className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
                         alt="flag"
                         onError={(e) => {
                             (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
                         }}
                     />
-                    <div className="flex flex-col leading-none">
-                        <span className="text-[10px] font-black text-black tracking-tighter uppercase">{countries[currentIndex]?.country}</span>
-                        <span className="text-[8px] font-bold text-black/50 uppercase tracking-widest">{countries[currentIndex]?.capital}</span>
+                    <div className="flex flex-col leading-tight">
+                        <span className="text-[12px] font-black text-black tracking-tight uppercase">
+                            {hasInteracted ? countries[currentIndex]?.country : 'Select Country'}
+                        </span>
+                        <span className="text-[10px] font-bold text-black/60 uppercase tracking-widest">
+                            {hasInteracted ? countries[currentIndex]?.capital : 'Region Map'}
+                        </span>
                     </div>
                 </div>
             </nav>
@@ -393,8 +425,21 @@ export default function PilihNegaraPage() {
                 <canvas 
                     id="map-canvas-bg" 
                     className="w-full h-full block cursor-pointer" 
-                    onMouseDown={() => setHasInteracted(true)}
+                    onMouseDown={(e) => {
+                        setHasInteracted(true);
+                        dragStartPosRef.current = { x: e.clientX, y: e.clientY };
+                    }}
                     onClick={handleCanvasClick}
+                    onMouseLeave={(e) => {
+                        // Dispatch a fake mouseup to the canvas when the mouse leaves
+                        // to ensure the WASM engine stops panning
+                        const event = new MouseEvent('mouseup', {
+                            bubbles: true,
+                            cancelable: true,
+                            view: window
+                        });
+                        e.currentTarget.dispatchEvent(event);
+                    }}
                 />
                 <div className="absolute inset-0 bg-black/20 pointer-events-none" />
             </div>
@@ -503,8 +548,14 @@ export default function PilihNegaraPage() {
                         </button>
                     </Link>
 
-                    <Link href={`/page/map_system?country=${filteredCountries[currentIndex]?.country}`}>
-                        <button className="flex items-center gap-3 px-8 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-white font-black tracking-widest rounded-xl text-[10px] transition-all hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+                    <Link 
+                        href={hasInteracted ? `/page/map_system?country=${filteredCountries[currentIndex]?.country}` : '#'}
+                        onClick={(e) => !hasInteracted && e.preventDefault()}
+                    >
+                        <button 
+                            disabled={!hasInteracted}
+                            className={`flex items-center gap-3 px-8 py-2.5 ${hasInteracted ? 'bg-cyan-500 hover:bg-cyan-400 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]' : 'bg-slate-700 opacity-50 cursor-not-allowed'} text-white font-black tracking-widest rounded-xl text-[10px] transition-all`}
+                        >
                             MULAI SIMULASI
                             <Play className="w-3 h-3 fill-white" />
                         </button>
@@ -518,13 +569,13 @@ export default function PilihNegaraPage() {
 // Sub-components for Stats Dashboard
 function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: React.ReactNode, label: string, value: string | number, color?: string }) {
     return (
-        <div className="flex items-center gap-3 min-w-fit">
-            <div className="p-1.5 bg-[#dcc9a3]/40 rounded-lg text-[#8b7e66]">
+        <div className="flex items-center gap-4 min-w-fit">
+            <div className="p-2 bg-[#dcc9a3]/60 rounded-xl text-[#8b7e66] shadow-sm border border-black/5">
                 {icon}
             </div>
             <div className="flex flex-col">
-                <span className="text-[8px] font-black text-[#8b7e66]/80 tracking-widest uppercase leading-none mb-1">{label}</span>
-                <span className={`text-[11px] font-black tracking-tighter uppercase leading-none ${color}`}>{value}</span>
+                <span className="text-[10px] font-black text-[#8b7e66]/80 tracking-widest uppercase leading-none mb-1.5">{label}</span>
+                <span className={`text-[13px] font-black tracking-tighter uppercase leading-none ${color}`}>{value}</span>
             </div>
         </div>
     );

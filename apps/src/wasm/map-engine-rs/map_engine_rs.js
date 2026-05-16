@@ -96,12 +96,13 @@ export class MapEngine {
         wasm.mapengine_set_data(this.__wbg_ptr, ptr0, len0);
     }
     /**
-     * @param {string | null} [iso]
+     * @param {string | null | undefined} iso
+     * @param {boolean} should_center
      */
-    set_selected_country(iso) {
+    set_selected_country(iso, should_center) {
         var ptr0 = isLikeNone(iso) ? 0 : passStringToWasm0(iso, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         var len0 = WASM_VECTOR_LEN;
-        wasm.mapengine_set_selected_country(this.__wbg_ptr, ptr0, len0);
+        wasm.mapengine_set_selected_country(this.__wbg_ptr, ptr0, len0, should_center);
     }
 }
 if (Symbol.dispose) MapEngine.prototype[Symbol.dispose] = MapEngine.prototype.free;
@@ -118,11 +119,12 @@ export function get_country_at_on_map(mouse_x, mouse_y) {
 
 /**
  * @param {string} iso
+ * @param {boolean} should_center
  */
-export function set_selected_country_on_map(iso) {
+export function set_selected_country_on_map(iso, should_center) {
     const ptr0 = passStringToWasm0(iso, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
     const len0 = WASM_VECTOR_LEN;
-    wasm.set_selected_country_on_map(ptr0, len0);
+    wasm.set_selected_country_on_map(ptr0, len0, should_center);
 }
 
 /**
