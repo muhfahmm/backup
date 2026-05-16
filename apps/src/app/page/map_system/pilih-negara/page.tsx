@@ -616,4 +616,3 @@ function ProgressBar({ label, value, max, unit = "", color = "bg-emerald-500" }:
 
 
 
-
