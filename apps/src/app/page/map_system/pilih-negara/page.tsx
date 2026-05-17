@@ -115,6 +115,9 @@ export default function PilihNegaraPage() {
         // ONLY proceed if we have a selected country AND the user has interacted
         // This prevents Afghanistan from being automatically selected on load
         if (selected && hasInteracted) {
+            // Immediately reset to null to clear stale data from previous country during loading
+            setCountryDetail(null);
+            
             // Load data directly from TS file via API
             const loadStats = async () => {
                 // Case-insensitive lookup for country path
@@ -276,7 +279,7 @@ export default function PilihNegaraPage() {
 
                     {/* Stats Items */}
                     <div className="flex items-center gap-10">
-                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={hasInteracted ? (countryDetail?.capital || '-') : '-'} />
+                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={hasInteracted ? (countries[currentIndex]?.capital || '-') : '-'} />
                         <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={hasInteracted ? (countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0') : '0'} />
                         <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={hasInteracted ? (`${countryDetail?.anggaran || 0} EM`) : '0 EM'} />
                         <StatusItem icon={<Globe className="w-3.5 h-3.5" />} label="TOTAL NEGARA" value="207" />
@@ -320,98 +323,6 @@ export default function PilihNegaraPage() {
                 </div>
             </nav>
 
-            {/* Stats Dashboard Overlay */}
-            <div className="fixed top-20 left-8 z-30 w-80 pointer-events-none">
-                <AnimatePresence mode="wait">
-                    {countryDetail ? (
-                        <motion.div
-                            key={countries[currentIndex]?.iso}
-                            initial={{ opacity: 0, x: -20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            exit={{ opacity: 0, x: -20 }}
-                            className="bg-black/60 backdrop-blur-2xl border border-emerald-500/20 rounded-2xl p-6 pointer-events-auto"
-                        >
-                            <div className="flex items-center gap-3 mb-6">
-                                <span className="text-3xl">{countries[currentIndex]?.flag}</span>
-                                <div>
-                                    <h2 className="text-white font-black text-xl tracking-tight uppercase leading-none">{countries[currentIndex]?.name_id}</h2>
-                                    <p className="text-emerald-500/60 text-[10px] font-bold tracking-[0.2em] uppercase mt-1">Operational Data</p>
-                                </div>
-                            </div>
-
-                            {selectedMenu === 'Profil' && (
-                                <div className="space-y-4">
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <StatItem label="Capital" value={countryDetail.capital || 'N/A'} />
-                                        <StatItem label="Ideology" value={countryDetail.ideology || 'N/A'} />
-                                    </div>
-                                    <StatItem label="Population" value={countryDetail.population?.toLocaleString() || '0'} />
-                                    <div className="pt-4 border-t border-white/5">
-                                        <div className="flex justify-between text-[10px] mb-1">
-                                            <span className="text-slate-500 font-bold uppercase">Budget Revenue</span>
-                                            <span className="text-emerald-400 font-black">${countryDetail.budget || 0}B</span>
-                                        </div>
-                                        <div className="h-1 bg-white/5 rounded-full overflow-hidden">
-                                            <motion.div 
-                                                initial={{ width: 0 }}
-                                                animate={{ width: countryDetail.budget ? '65%' : '0%' }}
-                                                className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" 
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-
-                            {selectedMenu === 'Ekonomi' && (
-                                <div className="space-y-4">
-                                    <h3 className="text-white text-[10px] font-black tracking-widest uppercase border-l-2 border-emerald-500 pl-2">Taxation Rates</h3>
-                                    <div className="space-y-2">
-                                        <ProgressBar label="PPN" value={countryDetail.ppn || 0} max={40} unit="%" />
-                                        <ProgressBar label="Corporate" value={countryDetail.corporate || 0} max={50} unit="%" />
-                                        <ProgressBar label="Income" value={countryDetail.income_tax || 0} max={60} unit="%" />
-                                    </div>
-                                    <h3 className="text-white text-[10px] font-black tracking-widest uppercase border-l-2 border-emerald-500 pl-2 mt-6">Market Prices</h3>
-                                    <div className="grid grid-cols-2 gap-3">
-                                        <StatItem label="Rice" value={`$${countryDetail.price_rice || 'N/A'}`} />
-                                        <StatItem label="Fuel" value={`$${countryDetail.price_fuel || 'N/A'}`} />
-                                    </div>
-                                </div>
-                            )}
-
-                            {selectedMenu === 'Geopolitik' && (
-                                <div className="space-y-4">
-                                    <StatItem label="UN Vote Rank" value={`#${countryDetail.un_vote || 'N/A'}`} />
-                                    <StatItem label="Diplomatic Rep" value={countryDetail.reputation || 'Netral'} />
-                                    <div className="pt-4 border-t border-white/5 space-y-3">
-                                        <ProgressBar label="Soft Power" value={countryDetail.soft_power || 0} max={100} color="bg-blue-500" />
-                                        <ProgressBar label="Hard Power" value={countryDetail.hard_power || 0} max={100} color="bg-red-500" />
-                                        <ProgressBar label="Diplomacy" value={countryDetail.diplomacy || 0} max={100} color="bg-emerald-500" />
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Default Fallback for other menus */}
-                            {!['Profil', 'Ekonomi', 'Geopolitik'].includes(selectedMenu) && (
-                                <div className="flex flex-col items-center justify-center py-8 text-center">
-                                    <div className="w-12 h-12 rounded-full border-2 border-emerald-500/20 flex items-center justify-center mb-4">
-                                        <Search className="w-6 h-6 text-emerald-500/40" />
-                                    </div>
-                                    <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest">Data processing in progress...</p>
-                                </div>
-                            )}
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            className="bg-black/40 backdrop-blur-xl border border-white/5 rounded-2xl p-6"
-                        >
-                            <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest text-center">Select a country to view intelligence report</p>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
-            </div>
-
             {/* Loading Overlay */}
             <AnimatePresence>
                 {isLoading && (
@@ -426,7 +337,7 @@ export default function PilihNegaraPage() {
             </AnimatePresence>
 
             {/* Background Map Engine - Full Color */}
-            <div className="fixed inset-0 z-0">
+            <div className="fixed top-20 inset-x-0 bottom-0 z-0">
                 <canvas 
                     id="map-canvas-bg" 
                     className="w-full h-full block cursor-pointer" 

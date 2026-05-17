@@ -1,10 +1,10 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_profile = {
   "name_en": "Palestine",
-  "capital": "Ramallah",
+  "capital": "Yerusalem",
   "name_id": "Palestina",
-  "lon": 35.2,
-  "lat": 31.9,
+  "lon": 35.21,
+  "lat": 31.77,
   "flag": "ðŸ‡µðŸ‡¸",
   "jumlah_penduduk": 5495000,
   "anggaran": 194,

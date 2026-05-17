@@ -1,10 +1,10 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_profile = {
   "name_en": "Israel",
-  "capital": "Jerusalem",
+  "capital": "Tel Aviv",
   "name_id": "Israel",
-  "lon": 35.21,
-  "lat": 31.76,
+  "lon": 34.78,
+  "lat": 32.08,
   "flag": "ðŸ‡®ðŸ‡±",
   "jumlah_penduduk": 10244000,
   "anggaran": 5056,

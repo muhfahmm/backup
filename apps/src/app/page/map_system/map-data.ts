@@ -2245,9 +2245,9 @@ export const CAPITALS_DATA = [
   },
   {
     "country": "israel",
-    "capital": "Jerusalem",
-    "lat": 31.77,
-    "lng": 35.23,
+    "capital": "Tel Aviv",
+    "lat": 32.08,
+    "lng": 34.78,
     "iso": "il"
   },
   {
@@ -2658,9 +2658,9 @@ export const CAPITALS_DATA = [
   },
   {
     "country": "palestina",
-    "capital": "Ramallah",
-    "lat": 31.9,
-    "lng": 35.2,
+    "capital": "Yerusalem",
+    "lat": 31.77,
+    "lng": 35.21,
     "iso": "ps"
   },
   {
