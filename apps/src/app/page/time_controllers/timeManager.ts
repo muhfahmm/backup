@@ -33,6 +33,12 @@ export class SimulationTimeManager {
         this.onDateChangeCallback(this.getFormattedDate());
     }
 
+    // Reset date to real-life date
+    public resetDate(): void {
+        this.currentDate = new Date();
+        this.triggerCallback();
+    }
+
     // Set play/pause state
     public setPaused(paused: boolean): void {
         this.isPaused = paused;

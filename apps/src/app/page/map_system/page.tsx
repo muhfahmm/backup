@@ -3,12 +3,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
     HelpCircle, MapPin, Users, Landmark, Globe, Home, Scale, 
-    ArrowLeft, Play, Pause, Clock
+    Play, Pause, Clock, RotateCcw
 } from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from './map-data';
 import countryPaths from './country-paths.json';
 import { SimulationTimeManager } from '../time_controllers/timeManager';
+import { handleGameRestart } from '../time_controllers/gameRestart';
 
 interface Country {
     id: number;
@@ -51,6 +52,53 @@ export default function MapPage() {
         return String.fromCodePoint(...codePoints);
     };
 
+    // Reusable function to load stats for a country
+    const loadCountryStats = async (countryName: string, capitalName: string) => {
+        const relPath = Object.entries(countryPaths).find(
+            ([name]) => name.toLowerCase() === countryName.toLowerCase()
+        )?.[1];
+        
+        if (!relPath) return;
+
+        try {
+            const res = await fetch(`/api/country-data?path=${relPath}`);
+            const text = await res.text();
+            
+            let mergedData: any = {};
+            const varNames = Array.from(text.matchAll(/const\s+(\w+)\s*=/g), m => m[1]);
+            
+            if (varNames.length > 0) {
+                const scriptText = text.replace(/const\s+/g, 'var ');
+                const script = `
+                    ${scriptText}
+                    const allData = { ${varNames.join(', ')} };
+                    let merged = {};
+                    for (let key in allData) {
+                        if (typeof allData[key] === 'object' && allData[key] !== null) {
+                            merged = { ...merged, ...allData[key] };
+                        }
+                    }
+                    return merged;
+                `;
+                mergedData = new Function(script)();
+            }
+
+            if (Object.keys(mergedData).length > 0) {
+                setCountryDetail({
+                    ...mergedData,
+                    capital: mergedData.capital || capitalName,
+                    jumlah_penduduk: mergedData.jumlah_penduduk || 0,
+                    anggaran: mergedData.anggaran || 0,
+                    religion: mergedData.religion || '-',
+                    ideology: mergedData.ideology || '-',
+                    un_vote: mergedData.un_vote || 0
+                });
+            }
+        } catch (e) {
+            console.error("Failed to load country data:", e);
+        }
+    };
+
     // Client-side query param extraction & profile fetching
     useEffect(() => {
         if (typeof window !== 'undefined') {
@@ -64,58 +112,23 @@ export default function MapPage() {
                 
                 if (chosen) {
                     setSelectedCountry(chosen);
-                    
-                    // Fetch live stats from API route
-                    const loadStats = async () => {
-                        const relPath = Object.entries(countryPaths).find(
-                            ([name]) => name.toLowerCase() === chosen.country.toLowerCase()
-                        )?.[1];
-                        
-                        if (!relPath) return;
-
-                        try {
-                            const res = await fetch(`/api/country-data?path=${relPath}`);
-                            const text = await res.text();
-                            
-                            let mergedData: any = {};
-                            const varNames = Array.from(text.matchAll(/const\s+(\w+)\s*=/g), m => m[1]);
-                            
-                            if (varNames.length > 0) {
-                                const scriptText = text.replace(/const\s+/g, 'var ');
-                                const script = `
-                                    ${scriptText}
-                                    const allData = { ${varNames.join(', ')} };
-                                    let merged = {};
-                                    for (let key in allData) {
-                                        if (typeof allData[key] === 'object' && allData[key] !== null) {
-                                            merged = { ...merged, ...allData[key] };
-                                        }
-                                    }
-                                    return merged;
-                                `;
-                                mergedData = new Function(script)();
-                            }
-
-                            if (Object.keys(mergedData).length > 0) {
-                                setCountryDetail({
-                                    ...mergedData,
-                                    capital: mergedData.capital || chosen.capital,
-                                    jumlah_penduduk: mergedData.jumlah_penduduk || 0,
-                                    anggaran: mergedData.anggaran || 0,
-                                    religion: mergedData.religion || '-',
-                                    ideology: mergedData.ideology || '-',
-                                    un_vote: mergedData.un_vote || 0
-                                });
-                            }
-                        } catch (e) {
-                            console.error("Failed to load country data directly:", e);
-                        }
-                    };
-                    loadStats();
+                    loadCountryStats(chosen.country, chosen.capital);
                 }
             }
         }
     }, []);
+
+    // Restart game progress handler
+    const handleRestart = () => {
+        if (selectedCountry) {
+            handleGameRestart({
+                timeManager: timeManagerRef.current,
+                setIsPaused,
+                setSpeed,
+                reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital)
+            });
+        }
+    };
 
     // Initial map canvas and WASM initialization hook
     useEffect(() => {
@@ -167,77 +180,8 @@ export default function MapPage() {
             
             {/* Status Bar / Navbar */}
             <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20">
-                <div className="flex items-center gap-8 overflow-x-auto no-scrollbar">
-                    {/* Kembali / Back Button */}
-                    <Link href="/page/map_system/pilih-negara">
-                        <button className="flex items-center justify-center w-8 h-8 rounded-full border border-[#8b7e66]/40 text-[#8b7e66] hover:bg-[#8b7e66]/20 transition-colors shadow-sm">
-                            <ArrowLeft className="w-4 h-4" />
-                        </button>
-                    </Link>
-
-                    {/* Live Stats Items */}
-                    <div className="flex items-center gap-8">
-                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || selectedCountry?.capital || '-'} />
-                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk ? countryDetail.jumlah_penduduk.toLocaleString('id-ID') : '-'} />
-                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'} />
-                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
-                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
-                        
-                        {/* UN Vote Suara PBB */}
-                        <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
-                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
-                            <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-lg font-black text-[12px] shadow-md border border-[#4d8a96]">
-                                {countryDetail?.un_vote || '-'}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Simulation Time & Speed Controls */}
-                <div className="flex items-center gap-4 bg-[#dcc9a3]/40 border border-black/5 px-4 py-2 rounded-xl shadow-sm">
-                    {/* Date */}
-                    <div className="flex items-center gap-2 text-[#3d362a] font-bold text-xs tracking-wide">
-                        <Clock className="w-3.5 h-3.5 text-[#8b7e66]" />
-                        <span ref={dateTextRef}>-</span>
-                    </div>
-
-                    <div className="h-4 w-px bg-black/10" />
-
-                    {/* Play/Pause */}
-                    <button 
-                        onClick={() => {
-                            const nextPaused = !isPaused;
-                            setIsPaused(nextPaused);
-                            if (timeManagerRef.current) {
-                                timeManagerRef.current.setPaused(nextPaused);
-                            }
-                        }}
-                        className={`p-1.5 rounded-lg border text-white shadow-sm transition-all cursor-pointer ${isPaused ? 'bg-[#5ea3b1] border-[#4d8a96] hover:bg-[#4d8a96]' : 'bg-[#e06b5c] border-[#cc5a4c] hover:bg-[#cc5a4c]'}`}
-                    >
-                        {isPaused ? <Play className="w-3.5 h-3.5 fill-white text-white" /> : <Pause className="w-3.5 h-3.5 fill-white text-white" />}
-                    </button>
-
-                    {/* Speed Selector */}
-                    <div className="flex bg-[#e6d8b9] p-0.5 rounded-lg border border-[#c4b49c] gap-0.5">
-                        {[1, 2, 5].map((sp) => (
-                            <button
-                                key={sp}
-                                onClick={() => {
-                                    setSpeed(sp);
-                                    if (timeManagerRef.current) {
-                                        timeManagerRef.current.setSpeed(sp);
-                                    }
-                                }}
-                                className={`px-2 py-1 rounded-md text-[9px] font-black transition-all cursor-pointer ${speed === sp ? 'bg-[#8b7e66] text-[#e6d8b9] shadow-inner' : 'text-[#8b7e66] hover:bg-[#8b7e66]/10'}`}
-                            >
-                                {sp}x
-                            </button>
-                        ))}
-                    </div>
-                </div>
-
-                {/* Player Selected Badge (Right Side) */}
-                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4 min-w-[200px]">
+                {/* 1. Left Side: Player Selected Badge */}
+                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg min-w-[200px] shrink-0">
                     {selectedCountry ? (
                         <img 
                             src={`https://flagcdn.com/w80/${selectedCountry.iso.toLowerCase()}.png`} 
@@ -260,6 +204,80 @@ export default function MapPage() {
                             {selectedCountry ? selectedCountry.capital : 'Global Map'}
                         </span>
                     </div>
+                </div>
+
+                {/* 2. Center: Live Stats Items */}
+                <div className="flex items-center gap-8 overflow-x-auto no-scrollbar mx-8">
+                    <div className="flex items-center gap-8">
+                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || selectedCountry?.capital || '-'} />
+                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk ? countryDetail.jumlah_penduduk.toLocaleString('id-ID') : '-'} />
+                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'} />
+                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
+                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
+                        
+                        {/* UN Vote Suara PBB */}
+                        <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
+                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
+                            <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-lg font-black text-[12px] shadow-md border border-[#4d8a96]">
+                                {countryDetail?.un_vote || '-'}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* 3. Right Side: Time Controls & Restart Button */}
+                <div className="flex items-center gap-4 shrink-0">
+                    {/* Time Controller */}
+                    <div className="flex items-center gap-4 bg-[#dcc9a3]/40 border border-black/5 px-4 py-2 rounded-xl shadow-sm">
+                        {/* Date */}
+                        <div className="flex items-center gap-2 text-[#3d362a] font-bold text-xs tracking-wide">
+                            <Clock className="w-3.5 h-3.5 text-[#8b7e66]" />
+                            <span ref={dateTextRef}>-</span>
+                        </div>
+
+                        <div className="h-4 w-px bg-black/10" />
+
+                        {/* Play/Pause */}
+                        <button 
+                            onClick={() => {
+                                const nextPaused = !isPaused;
+                                setIsPaused(nextPaused);
+                                if (timeManagerRef.current) {
+                                    timeManagerRef.current.setPaused(nextPaused);
+                                }
+                            }}
+                            className={`p-1.5 rounded-lg border text-white shadow-sm transition-all cursor-pointer ${isPaused ? 'bg-[#5ea3b1] border-[#4d8a96] hover:bg-[#4d8a96]' : 'bg-[#e06b5c] border-[#cc5a4c] hover:bg-[#cc5a4c]'}`}
+                        >
+                            {isPaused ? <Play className="w-3.5 h-3.5 fill-white text-white" /> : <Pause className="w-3.5 h-3.5 fill-white text-white" />}
+                        </button>
+
+                        {/* Speed Selector */}
+                        <div className="flex bg-[#e6d8b9] p-0.5 rounded-lg border border-[#c4b49c] gap-0.5">
+                            {[1, 2, 5].map((sp) => (
+                                <button
+                                    key={sp}
+                                    onClick={() => {
+                                        setSpeed(sp);
+                                        if (timeManagerRef.current) {
+                                            timeManagerRef.current.setSpeed(sp);
+                                        }
+                                    }}
+                                    className={`px-2 py-1 rounded-md text-[9px] font-black transition-all cursor-pointer ${speed === sp ? 'bg-[#8b7e66] text-[#e6d8b9] shadow-inner' : 'text-[#8b7e66] hover:bg-[#8b7e66]/10'}`}
+                                >
+                                    {sp}x
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Restart Button */}
+                    <button
+                        onClick={handleRestart}
+                        title="Atur Ulang Game"
+                        className="flex items-center justify-center p-2.5 rounded-xl border border-[#c4b49c] bg-[#e6d8b9] text-[#8b7e66] hover:bg-[#dcc9a3]/60 active:bg-[#dcc9a3] transition-all shadow-sm cursor-pointer hover:scale-105 active:scale-95"
+                    >
+                        <RotateCcw className="w-4 h-4 text-[#8b7e66]" />
+                    </button>
                 </div>
             </nav>
 
