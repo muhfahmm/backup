@@ -2,20 +2,73 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Play, Settings, Save, LogOut, Globe, Shield } from 'lucide-react';
+import { Play, Settings, Save, LogOut, Globe, Shield, Trash2, Calendar, Landmark } from 'lucide-react';
 import Link from 'next/link';
 
 export default function PlayMenuPage() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
+    // Save-related states
+    const [isContinueModalOpen, setIsContinueModalOpen] = useState(false);
+    const [saveFiles, setSaveFiles] = useState<any[]>([]);
+    const [isLoadingSaves, setIsLoadingSaves] = useState(false);
+
     useEffect(() => {
         setIsLoaded(true);
     }, []);
 
+    const fetchSaveFiles = async () => {
+        setIsLoadingSaves(true);
+        try {
+            const response = await fetch('/api/game-save');
+            if (response.ok) {
+                const data = await response.json();
+                setSaveFiles(data);
+            } else {
+                console.error("Gagal memuat save file");
+            }
+        } catch (error) {
+            console.error("Error fetching save files:", error);
+        } finally {
+            setIsLoadingSaves(false);
+        }
+    };
+
+    const openContinueModal = () => {
+        fetchSaveFiles();
+        setIsContinueModalOpen(true);
+    };
+
+    const handleDeleteSave = async (id: number, e: React.MouseEvent) => {
+        e.stopPropagation(); // prevent triggering load row click
+        if (!window.confirm("Apakah Anda yakin ingin menghapus save file ini secara permanen?")) {
+            return;
+        }
+
+        try {
+            const response = await fetch(`/api/game-save?id=${id}`, {
+                method: 'DELETE'
+            });
+            if (response.ok) {
+                setSaveFiles(prev => prev.filter(save => save.id !== id));
+            } else {
+                alert("Gagal menghapus save file");
+            }
+        } catch (error) {
+            console.error("Error deleting save:", error);
+            alert("Terjadi kesalahan saat menghapus");
+        }
+    };
+
+    const handleLoadSave = (save: any) => {
+        localStorage.setItem('presiden_simulator_load_save', JSON.stringify(save));
+        window.location.href = `/page/map_system?country=${encodeURIComponent(save.country_name)}`;
+    };
+
     const menuItems = [
         { id: 'start', label: 'MULAI SIMULASI', icon: Play, color: '#10b981', path: '/page/map_system/pilih-negara' },
-        { id: 'continue', label: 'LANJUTKAN', icon: Save, color: '#3b82f6', path: '/page/map_system' },
+        { id: 'continue', label: 'LANJUTKAN', icon: Save, color: '#3b82f6', path: '#' },
         { id: 'settings', label: 'PENGATURAN', icon: Settings, color: '#f59e0b', path: '#' },
         { id: 'exit', label: 'KELUAR', icon: LogOut, color: '#ef4444', path: '#' },
     ];
@@ -87,14 +140,16 @@ export default function PlayMenuPage() {
                             transition={{ delay: 0.5 + index * 0.1 }}
                             onHoverStart={() => setHoveredIndex(index)}
                             onHoverEnd={() => setHoveredIndex(null)}
+                            className="w-full"
                         >
-                            <Link href={item.path}>
+                            {item.id === 'continue' ? (
                                 <button
+                                    onClick={openContinueModal}
                                     className={`
                                         group relative w-full flex items-center gap-4 p-4 rounded-xl
                                         bg-white/5 border border-white/10 transition-all duration-300
-                                        hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]
-                                        overflow-hidden
+                                        hover:bg-white/10 hover:border-emerald-500/30 hover:scale-[1.02]
+                                        overflow-hidden cursor-pointer text-left
                                     `}
                                 >
                                     {/* Hover Glow */}
@@ -103,8 +158,8 @@ export default function PlayMenuPage() {
                                         style={{ background: `radial-gradient(circle at center, ${item.color}15 0%, transparent 100%)` }}
                                     />
 
-                                    <item.icon className="w-6 h-6 text-slate-400 group-hover:text-white transition-colors" />
-                                    <span className="text-slate-300 group-hover:text-white font-bold tracking-widest text-sm">
+                                    <item.icon className="w-6 h-6 text-slate-400 group-hover:text-white transition-colors shrink-0" />
+                                    <span className="text-slate-300 group-hover:text-white font-bold tracking-widest text-sm uppercase">
                                         {item.label}
                                     </span>
 
@@ -117,7 +172,76 @@ export default function PlayMenuPage() {
                                         />
                                     )}
                                 </button>
-                            </Link>
+                            ) : item.path === '#' ? (
+                                <button
+                                    onClick={() => {
+                                        if (item.id === 'exit') {
+                                            if (window.confirm("Apakah Anda yakin ingin keluar?")) {
+                                                window.close();
+                                            }
+                                        } else {
+                                            alert("Fitur pengaturan segera hadir!");
+                                        }
+                                    }}
+                                    className={`
+                                        group relative w-full flex items-center gap-4 p-4 rounded-xl
+                                        bg-white/5 border border-white/10 transition-all duration-300
+                                        hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]
+                                        overflow-hidden cursor-pointer text-left
+                                    `}
+                                >
+                                    {/* Hover Glow */}
+                                    <div 
+                                        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                        style={{ background: `radial-gradient(circle at center, ${item.color}15 0%, transparent 100%)` }}
+                                    />
+
+                                    <item.icon className="w-6 h-6 text-slate-400 group-hover:text-white transition-colors shrink-0" />
+                                    <span className="text-slate-300 group-hover:text-white font-bold tracking-widest text-sm uppercase">
+                                        {item.label}
+                                    </span>
+
+                                    {/* Active Indicator */}
+                                    {hoveredIndex === index && (
+                                        <motion.div 
+                                            layoutId="active"
+                                            className="absolute right-4 w-1.5 h-1.5 rounded-full"
+                                            style={{ backgroundColor: item.color }}
+                                        />
+                                    )}
+                                </button>
+                            ) : (
+                                <Link href={item.path} className="w-full block">
+                                    <button
+                                        className={`
+                                            group relative w-full flex items-center gap-4 p-4 rounded-xl
+                                            bg-white/5 border border-white/10 transition-all duration-300
+                                            hover:bg-white/10 hover:border-white/20 hover:scale-[1.02]
+                                            overflow-hidden cursor-pointer text-left
+                                        `}
+                                    >
+                                        {/* Hover Glow */}
+                                        <div 
+                                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                            style={{ background: `radial-gradient(circle at center, ${item.color}15 0%, transparent 100%)` }}
+                                        />
+
+                                        <item.icon className="w-6 h-6 text-slate-400 group-hover:text-white transition-colors shrink-0" />
+                                        <span className="text-slate-300 group-hover:text-white font-bold tracking-widest text-sm uppercase">
+                                            {item.label}
+                                        </span>
+
+                                        {/* Active Indicator */}
+                                        {hoveredIndex === index && (
+                                            <motion.div 
+                                                layoutId="active"
+                                                className="absolute right-4 w-1.5 h-1.5 rounded-full"
+                                                style={{ backgroundColor: item.color }}
+                                            />
+                                        )}
+                                    </button>
+                                </Link>
+                            )}
                         </motion.div>
                     ))}
                 </div>
@@ -143,6 +267,114 @@ export default function PlayMenuPage() {
             {/* Corner Accents */}
             <div className="absolute top-8 left-8 p-4 border-l border-t border-white/10 w-24 h-24 pointer-events-none" />
             <div className="absolute bottom-8 right-8 p-4 border-r border-b border-white/10 w-24 h-24 pointer-events-none" />
+
+            {/* Continue Save Glassmorphic Modal */}
+            <AnimatePresence>
+                {isContinueModalOpen && (
+                    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+                        <motion.div 
+                            initial={{ scale: 0.95, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            exit={{ scale: 0.95, opacity: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="bg-slate-950/95 border-2 border-emerald-500/20 rounded-2xl p-8 max-w-2xl w-full shadow-[0_0_50px_rgba(16,185,129,0.1)] relative overflow-hidden flex flex-col font-sans max-h-[85vh] text-left"
+                        >
+                            {/* Decorative Grid and Blur */}
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(16,185,129,0.05)_0%,transparent_60%)] pointer-events-none" />
+
+                            <div className="flex items-center justify-between mb-6 border-b border-white/10 pb-4 z-10">
+                                <div className="flex items-center gap-3">
+                                    <Save className="w-6 h-6 text-emerald-500" />
+                                    <h2 className="text-2xl font-black text-white tracking-widest">LANJUTKAN SIMULASI</h2>
+                                </div>
+                                <button 
+                                    onClick={() => setIsContinueModalOpen(false)}
+                                    className="text-slate-400 hover:text-white font-bold text-lg cursor-pointer transition-colors"
+                                >
+                                    ✕
+                                </button>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto pr-1 space-y-4 no-scrollbar z-10">
+                                {isLoadingSaves ? (
+                                    <div className="flex flex-col items-center justify-center py-12 gap-3 text-slate-400 font-bold">
+                                        <div className="w-8 h-8 rounded-full border-4 border-emerald-500/20 border-t-emerald-500 animate-spin" />
+                                        <span>Memuat save file dari database...</span>
+                                    </div>
+                                ) : saveFiles.length === 0 ? (
+                                    <div className="flex flex-col items-center justify-center py-16 text-center gap-3 border border-white/5 bg-white/2 rounded-xl">
+                                        <Globe className="w-12 h-12 text-slate-600" />
+                                        <span className="text-slate-400 font-bold tracking-wider uppercase text-sm">Tidak Ditemukan Save File</span>
+                                        <p className="text-slate-500 text-xs max-w-xs leading-relaxed">
+                                            Belum ada permainan yang disimpan ke database. Silakan klik "Mulai Simulasi" untuk membuat game baru.
+                                        </p>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-3 font-sans">
+                                        {saveFiles.map((save) => (
+                                            <div 
+                                                key={save.id}
+                                                onClick={() => handleLoadSave(save)}
+                                                className="group relative flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-emerald-500/30 transition-all duration-300 cursor-pointer hover:scale-[1.01]"
+                                            >
+                                                <div className="flex items-start gap-4">
+                                                    <img 
+                                                        src={`https://flagcdn.com/w80/${save.country_iso.toLowerCase()}.png`}
+                                                        className="w-12 h-8 rounded object-cover border border-white/10 shadow-md shrink-0 mt-0.5"
+                                                        alt="flag"
+                                                        onError={(e) => {
+                                                            (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
+                                                        }}
+                                                    />
+                                                    <div className="flex flex-col">
+                                                        <span className="text-base font-black text-white group-hover:text-emerald-400 transition-colors uppercase leading-tight">
+                                                            {save.save_name}
+                                                        </span>
+                                                        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px] text-slate-400 mt-2 font-bold">
+                                                            <span className="flex items-center gap-1.5">
+                                                                <Globe className="w-3.5 h-3.5 text-emerald-500" />
+                                                                {save.country_name}
+                                                            </span>
+                                                            <span className="flex items-center gap-1.5">
+                                                                <Calendar className="w-3.5 h-3.5 text-blue-400" />
+                                                                {new Date(save.game_date).toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' })}
+                                                            </span>
+                                                            <span className="flex items-center gap-1.5">
+                                                                <Landmark className="w-3.5 h-3.5 text-amber-500" />
+                                                                {save.anggaran ? `${save.anggaran.toLocaleString('id-ID')} EM` : '0 EM'}
+                                                            </span>
+                                                            <span className="text-[9px] bg-emerald-500/10 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/20 uppercase tracking-wider font-extrabold shrink-0">
+                                                                {save.ideology || '-'}
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                                <button 
+                                                    onClick={(e) => handleDeleteSave(save.id, e)}
+                                                    title="Hapus Save File"
+                                                    className="p-2.5 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 hover:bg-red-500/20 hover:text-red-300 transition-all cursor-pointer z-20 shrink-0 self-center"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </div>
+                                )}
+                            </div>
+
+                            <div className="mt-6 border-t border-white/10 pt-4 flex justify-end z-10 font-sans">
+                                <button 
+                                    onClick={() => setIsContinueModalOpen(false)}
+                                    className="py-2.5 px-6 rounded-xl border border-white/10 hover:bg-white/5 active:bg-white/10 text-slate-300 font-bold text-xs uppercase transition-all cursor-pointer"
+                                >
+                                    Tutup
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

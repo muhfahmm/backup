@@ -2,14 +2,16 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { 
-    HelpCircle, MapPin, Users, Landmark, Globe, Home, Scale, 
-    Play, Pause, Clock, RotateCcw, Settings, Palmtree, Shield
+    Play, Pause, Settings, Palmtree, Shield
 } from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from './map-data';
 import countryPaths from './country-paths.json';
 import { SimulationTimeManager } from '../time_controllers/timeManager';
 import { handleGameRestart } from '../time_controllers/gameRestart';
+import { GameMenuModal } from '../navbar/GameMenuModal';
+import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
+import { Navbar } from '../navbar/Navbar';
 
 interface Country {
     id: number;
@@ -26,6 +28,13 @@ export default function MapPage() {
     const [countryDetail, setCountryDetail] = useState<any>(null);
     const [isPaused, setIsPaused] = useState(true);
     const [speed, setSpeed] = useState(1);
+
+    const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
+    const [saveNameInput, setSaveNameInput] = useState('');
+    const [isSaving, setIsSaving] = useState(false);
+    const [toastMessage, setToastMessage] = useState<string | null>(null);
+    const [isPresidentMenuOpen, setIsPresidentMenuOpen] = useState(false);
+    const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -46,6 +55,22 @@ export default function MapPage() {
                 }
             }
         );
+
+        // Check if there is a save to load to restore the date
+        if (typeof window !== 'undefined') {
+            const loadSaveStr = localStorage.getItem('presiden_simulator_load_save');
+            if (loadSaveStr) {
+                try {
+                    const savedState = JSON.parse(loadSaveStr);
+                    if (savedState.game_date) {
+                        manager.setCurrentDate(new Date(savedState.game_date));
+                    }
+                } catch (err) {
+                    console.error("Failed to restore date from save:", err);
+                }
+            }
+        }
+
         timeManagerRef.current = manager;
 
         return () => {
@@ -110,6 +135,33 @@ export default function MapPage() {
     // Client-side query param extraction & profile fetching
     useEffect(() => {
         if (typeof window !== 'undefined') {
+            const loadSaveStr = localStorage.getItem('presiden_simulator_load_save');
+            if (loadSaveStr) {
+                try {
+                    const savedState = JSON.parse(loadSaveStr);
+                    const chosen = COUNTRIES_DATA.find(
+                        c => c.country.toLowerCase() === savedState.country_name.toLowerCase()
+                    );
+                    if (chosen) {
+                        setSelectedCountry(chosen);
+                        setCountryDetail({
+                            capital: savedState.capital || chosen.capital,
+                            jumlah_penduduk: Number(savedState.jumlah_penduduk),
+                            anggaran: Number(savedState.anggaran),
+                            ideology: savedState.ideology || '-',
+                            religion: savedState.religion || '-',
+                            un_vote: Number(savedState.un_vote)
+                        });
+                        
+                        // Clean up saved state from localStorage so it doesn't re-apply
+                        localStorage.removeItem('presiden_simulator_load_save');
+                        return; // Done restoring save!
+                    }
+                } catch (e) {
+                    console.error("Failed to parse loaded save state:", e);
+                }
+            }
+
             const params = new URLSearchParams(window.location.search);
             const countryParam = params.get('country');
             
@@ -133,8 +185,61 @@ export default function MapPage() {
                 timeManager: timeManagerRef.current,
                 setIsPaused,
                 setSpeed,
-                reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital)
+                reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital),
+                skipConfirm: true
             });
+        }
+    };
+
+    // Open save dialog with default name suggestions
+    const openSaveModal = () => {
+        if (!selectedCountry) return;
+        const defaultName = `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`;
+        setSaveNameInput(defaultName);
+        setIsSaveModalOpen(true);
+    };
+
+    // Save game progress handler
+    const handleSaveGame = async () => {
+        if (!selectedCountry) return;
+
+        setIsSaving(true);
+        try {
+            const saveName = saveNameInput.trim() || `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`;
+            const gameDate = timeManagerRef.current ? timeManagerRef.current.getCurrentDate().toISOString() : new Date().toISOString();
+
+            const response = await fetch('/api/game-save', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    saveName,
+                    countryName: selectedCountry.country,
+                    countryIso: selectedCountry.iso,
+                    gameDate,
+                    capital: countryDetail?.capital || selectedCountry.capital,
+                    jumlahPenduduk: countryDetail?.jumlah_penduduk || 0,
+                    anggaran: countryDetail?.anggaran || 0,
+                    ideology: countryDetail?.ideology || '-',
+                    religion: countryDetail?.religion || '-',
+                    unVote: countryDetail?.un_vote || 0,
+                }),
+            });
+
+            if (!response.ok) {
+                const errData = await response.json();
+                throw new Error(errData.error || 'Gagal menyimpan permainan');
+            }
+
+            setToastMessage('Permainan berhasil disimpan!');
+            setIsSaveModalOpen(false);
+            setTimeout(() => setToastMessage(null), 3000);
+        } catch (error: any) {
+            console.error('Error saving game:', error);
+            alert(`Terjadi kesalahan: ${error.message || 'Gagal menyimpan permainan.'}`);
+        } finally {
+            setIsSaving(false);
         }
     };
 
@@ -187,63 +292,13 @@ export default function MapPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.02)_0%,transparent_100%)] pointer-events-none" />
             
             {/* Status Bar / Navbar */}
-            <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20">
-                {/* 1. Left Side: Player Selected Badge */}
-                <div className="flex items-center gap-4 bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg min-w-[200px] shrink-0">
-                    {selectedCountry ? (
-                        <img 
-                            src={`https://flagcdn.com/w80/${selectedCountry.iso.toLowerCase()}.png`} 
-                            className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
-                            alt="flag"
-                            onError={(e) => {
-                                (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
-                            }}
-                        />
-                    ) : (
-                        <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center text-xl">
-                            🌐
-                        </div>
-                    )}
-                    <div className="flex flex-col leading-tight">
-                        <span className="text-[12px] font-black text-black tracking-tight uppercase">
-                            {selectedCountry ? selectedCountry.country : 'Main Simulation'}
-                        </span>
-                        <span className="text-[10px] font-bold text-black/60 uppercase tracking-widest">
-                            {selectedCountry ? selectedCountry.capital : 'Global Map'}
-                        </span>
-                    </div>
-                </div>
-
-                {/* 2. Center: Live Stats Items */}
-                <div className="flex items-center gap-8 overflow-x-auto no-scrollbar mx-8">
-                    <div className="flex items-center gap-8">
-                        <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || selectedCountry?.capital || '-'} />
-                        <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk ? countryDetail.jumlah_penduduk.toLocaleString('id-ID') : '-'} />
-                        <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'} />
-                        <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
-                        <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
-                        
-                        {/* UN Vote Suara PBB */}
-                        <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
-                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
-                            <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-lg font-black text-[12px] shadow-md border border-[#4d8a96]">
-                                {countryDetail?.un_vote || '-'}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 3. Right Side: Restart Button */}
-                <div className="flex items-center gap-4 shrink-0">
-                    <button
-                        onClick={handleRestart}
-                        title="Atur Ulang Game"
-                        className="flex items-center justify-center p-2.5 rounded-xl border border-[#c4b49c] bg-[#e6d8b9] text-[#8b7e66] hover:bg-[#dcc9a3]/60 active:bg-[#dcc9a3] transition-all shadow-sm cursor-pointer hover:scale-105 active:scale-95"
-                    >
-                        <RotateCcw className="w-4 h-4 text-[#8b7e66]" />
-                    </button>
-                </div>
-            </nav>
+            <Navbar 
+                selectedCountry={selectedCountry}
+                countryDetail={countryDetail}
+                onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
+                onOpenSaveModal={openSaveModal}
+                onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
+            />
 
             {/* Shifted Canvas Container */}
             <div className="fixed top-20 inset-x-0 bottom-0 z-0">
@@ -356,21 +411,99 @@ export default function MapPage() {
                     </div>
                 </div>
             </div>
-        </main>
-    );
-}
 
-// Visual consistent StatusItem subcomponent
-function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: React.ReactNode, label: string, value: string | number, color?: string }) {
-    return (
-        <div className="flex items-center gap-4 min-w-fit">
-            <div className="p-2 bg-[#dcc9a3]/60 rounded-xl text-[#8b7e66] shadow-sm border border-black/5">
-                {icon}
-            </div>
-            <div className="flex flex-col">
-                <span className="text-[10px] font-black text-[#8b7e66]/80 tracking-widest uppercase leading-none mb-1.5">{label}</span>
-                <span className={`text-[13px] font-black tracking-tighter uppercase leading-none ${color}`}>{value}</span>
-            </div>
-        </div>
+            {/* Custom Premium Save Modal */}
+            {isSaveModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-[#C4B49C] shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
+                        {/* Parchment radial gradient background */}
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                        
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-[#C4B49C]/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-[#8b7e66] tracking-widest uppercase">SIMPAN PERMAINAN</span>
+                            <button 
+                                onClick={() => setIsSaveModalOpen(false)}
+                                className="text-[#8b7e66] hover:text-[#5c3c10] font-black text-sm cursor-pointer"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="flex items-center gap-3 bg-[#e4dac3]/40 border border-[#bfae93]/50 p-3.5 rounded-xl">
+                                {selectedCountry && (
+                                    <img 
+                                        src={`https://flagcdn.com/w80/${selectedCountry.iso.toLowerCase()}.png`} 
+                                        className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
+                                        alt="flag"
+                                    />
+                                )}
+                                <div className="flex flex-col leading-tight">
+                                    <span className="text-[11px] font-black text-[#5c3c10] uppercase">NEGARA SIMULASI</span>
+                                    <span className="text-[13px] font-black text-[#2e261a] uppercase">{selectedCountry?.country}</span>
+                                </div>
+                            </div>
+                            
+                            <div className="flex flex-col gap-1.5">
+                                <label className="text-[10px] font-black text-[#8b7e66] tracking-wider uppercase">NAMA SAVE FILE</label>
+                                <input 
+                                    type="text" 
+                                    value={saveNameInput} 
+                                    onChange={(e) => setSaveNameInput(e.target.value)} 
+                                    className="w-full bg-[#FAF6EE] border-2 border-[#C4B49C] rounded-xl px-4 py-3 text-[#2e261a] font-bold placeholder-[#8b7e66]/50 focus:outline-none focus:border-[#5c3c10] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] text-sm" 
+                                    placeholder="Masukkan nama save..."
+                                    maxLength={100}
+                                />
+                            </div>
+
+                            <div className="flex items-center justify-between text-[11px] text-[#8b7e66] font-bold border-t border-[#C4B49C]/30 pt-3 mt-1">
+                                <span>Kalender: {timeManagerRef.current?.getFormattedDate() || '-'}</span>
+                                <span>Kas: {countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'}</span>
+                            </div>
+
+                            <div className="flex items-center gap-3 mt-4">
+                                <button 
+                                    onClick={() => setIsSaveModalOpen(false)}
+                                    className="flex-1 py-3 px-4 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] font-black text-xs uppercase hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer text-center"
+                                    disabled={isSaving}
+                                >
+                                    Batal
+                                </button>
+                                <button 
+                                    onClick={handleSaveGame}
+                                    className="flex-1 py-3 px-4 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/10 shadow-[0_2px_4px_rgba(0,0,0,0.1)] hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                                    disabled={isSaving}
+                                >
+                                    {isSaving ? 'Menyimpan...' : 'Simpan'}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Custom Toast Alert */}
+            {toastMessage && (
+                <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 px-6 py-3.5 rounded-2xl bg-emerald-500 text-white font-black text-sm shadow-xl border border-emerald-400 flex items-center gap-2 animate-bounce">
+                    <span className="text-base">✓</span>
+                    <span>{toastMessage}</span>
+                </div>
+            )}
+
+            {/* Tropico Game Menu Modal */}
+            <GameMenuModal 
+                isOpen={isPresidentMenuOpen}
+                onClose={() => setIsPresidentMenuOpen(false)}
+                onSaveGameClick={openSaveModal}
+                onRestartClick={() => setIsRestartConfirmOpen(true)}
+            />
+
+            {/* Confirm Restart Modal */}
+            <ConfirmRestartModal 
+                isOpen={isRestartConfirmOpen}
+                onClose={() => setIsRestartConfirmOpen(false)}
+                onConfirm={handleRestart}
+            />
+        </main>
     );
 }

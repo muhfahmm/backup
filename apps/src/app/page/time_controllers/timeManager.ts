@@ -45,6 +45,17 @@ export class SimulationTimeManager {
         this.triggerCallback();
     }
 
+    // Get current simulation date
+    public getCurrentDate(): Date {
+        return this.currentDate;
+    }
+
+    // Set custom simulation date (used for loading saves)
+    public setCurrentDate(date: Date): void {
+        this.currentDate = new Date(date);
+        this.triggerCallback();
+    }
+
     // Set play/pause state
     public setPaused(paused: boolean): void {
         this.isPaused = paused;

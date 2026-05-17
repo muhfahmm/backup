@@ -5,16 +5,19 @@ export interface RestartOptions {
     setIsPaused: (paused: boolean) => void;
     setSpeed: (speed: number) => void;
     reloadStats: () => Promise<void>;
+    skipConfirm?: boolean;
 }
 
 /**
  * Handles resetting the game calendar and country statistics back to their initial values.
  */
 export function handleGameRestart(options: RestartOptions): void {
-    const confirmRestart = window.confirm(
-        "Apakah Anda yakin ingin mengatur ulang progres simulasi? Semua kemajuan waktu dan perubahan data akan dikembalikan ke awal."
-    );
-    if (!confirmRestart) return;
+    if (!options.skipConfirm) {
+        const confirmRestart = window.confirm(
+            "Apakah Anda yakin ingin mengatur ulang progres simulasi? Semua kemajuan waktu dan perubahan data akan dikembalikan ke awal."
+        );
+        if (!confirmRestart) return;
+    }
 
     // 1. Reset Simulation Time Manager (Date, Pause, and Speed)
     if (options.timeManager) {
