@@ -128,6 +128,13 @@ export function set_selected_country_on_map(iso, should_center) {
 }
 
 /**
+ * @param {boolean} val
+ */
+export function set_selection_screen_on_map(val) {
+    wasm.set_selection_screen_on_map(val);
+}
+
+/**
  * @param {string} canvas_id
  * @param {string} world_text
  * @param {any} countries_json

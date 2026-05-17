@@ -92,6 +92,7 @@ export default function PilihNegaraPage() {
                     COUNTRIES_DATA,
                     CAPITALS_DATA
                 );
+                mod.set_selection_screen_on_map(true);
                 setWasmModule(mod);
             } catch (e) {
                 console.error("Failed to start map engine bg:", e);
