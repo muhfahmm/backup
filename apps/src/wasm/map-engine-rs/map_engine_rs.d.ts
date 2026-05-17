@@ -23,8 +23,6 @@ export function get_country_at_on_map(mouse_x: number, mouse_y: number): any;
 
 export function set_selected_country_on_map(iso: string, should_center: boolean): void;
 
-export function set_selection_screen_on_map(val: boolean): void;
-
 export function start_map_engine(canvas_id: string, world_text: string, countries_json: any, capitals_json: any): void;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
@@ -45,7 +43,6 @@ export interface InitOutput {
     readonly mapengine_set_data: (a: number, b: number, c: number) => void;
     readonly mapengine_set_selected_country: (a: number, b: number, c: number, d: number) => void;
     readonly set_selected_country_on_map: (a: number, b: number, c: number) => void;
-    readonly set_selection_screen_on_map: (a: number) => void;
     readonly start_map_engine: (a: number, b: number, c: number, d: number, e: any, f: any) => [number, number];
     readonly get_country_at_on_map: (a: number, b: number) => any;
     readonly wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505: (a: number, b: number, c: any) => void;

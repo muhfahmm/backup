@@ -146,7 +146,6 @@ export default function MapPage() {
                     COUNTRIES_DATA,
                     CAPITALS_DATA
                 );
-                wasmModule.set_selection_screen_on_map(false);
 
                 // Highlight and center player country if present
                 if (typeof window !== 'undefined') {

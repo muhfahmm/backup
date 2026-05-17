@@ -32,7 +32,6 @@ pub struct MapEngine {
     countries: Vec<JsValue>,
     capitals: Vec<JsValue>,
     selected_country_iso: Option<String>,
-    is_selection_screen: bool,
     is_panning: bool,
     last_mouse_x: f64,
     last_mouse_y: f64,
@@ -55,7 +54,6 @@ impl MapEngine {
             countries: Vec::new(),
             capitals: Vec::new(),
             selected_country_iso: None,
-            is_selection_screen: false,
             is_panning: false,
             last_mouse_x: 0.0,
             last_mouse_y: 0.0,
@@ -331,10 +329,7 @@ impl MapEngine {
         let continent = properties.get("CONTINENT").and_then(|v| v.as_str()).unwrap_or("Unknown");
         let is_selected = self.check_selected(properties);
 
-        // Fill style: solid green if is_selected and we are on the selection screen, otherwise continental
-        let color = if is_selected && self.is_selection_screen {
-            "#10b981" // Solid emerald green for selected country in pilih-negara page
-        } else {
+        let color = if is_selected { "#10b981" } else {
             match continent {
                 "Asia" => "#a855f7", "Africa" => "#eab308", "Europe" => "#3b82f6",
                 "North America" => "#22c55e", "South America" => "#f97316",
@@ -343,23 +338,8 @@ impl MapEngine {
         };
 
         self.ctx.set_fill_style(&JsValue::from_str(color));
-        
-        // Stroke style: solid light emerald if on selection screen, otherwise emerald green
-        let stroke_color = if is_selected {
-            if self.is_selection_screen { "#34d399" } else { "#10b981" }
-        } else {
-            "rgba(255, 255, 255, 0.6)"
-        };
-        self.ctx.set_stroke_style(&JsValue::from_str(stroke_color));
-        self.ctx.set_line_width(if is_selected { 2.5 / self.scale } else { 0.7 / self.scale });
-
-        // Apply dotted/dashed line style ONLY if selected AND we are NOT on the selection screen
-        if is_selected && !self.is_selection_screen {
-            let dash_pattern = js_sys::Array::new();
-            dash_pattern.push(&JsValue::from_f64(4.0 / self.scale));
-            dash_pattern.push(&JsValue::from_f64(4.0 / self.scale));
-            let _ = self.ctx.set_line_dash(&dash_pattern);
-        }
+        self.ctx.set_stroke_style(&JsValue::from_str(if is_selected { "#34d399" } else { "rgba(255, 255, 255, 0.6)" }));
+        self.ctx.set_line_width(if is_selected { 2.0 / self.scale } else { 0.7 / self.scale });
 
         if let Some(ref geometry) = feature.geometry {
             self.ctx.begin_path();
@@ -370,12 +350,6 @@ impl MapEngine {
             }
             self.ctx.fill();
             self.ctx.stroke();
-        }
-
-        // Restore standard solid line stroke for other country borders
-        if is_selected && !self.is_selection_screen {
-            let solid_pattern = js_sys::Array::new();
-            let _ = self.ctx.set_line_dash(&solid_pattern);
         }
     }
 
@@ -452,15 +426,6 @@ pub fn set_selected_country_on_map(iso: String, should_center: bool) {
     ACTIVE_ENGINE.with(|global_engine| {
         if let Some(engine) = global_engine.borrow().as_ref() {
             engine.borrow_mut().set_selected_country(Some(iso), should_center);
-        }
-    });
-}
-
-#[wasm_bindgen]
-pub fn set_selection_screen_on_map(val: bool) {
-    ACTIVE_ENGINE.with(|global_engine| {
-        if let Some(engine) = global_engine.borrow().as_ref() {
-            engine.borrow_mut().is_selection_screen = val;
         }
     });
 }

@@ -15,7 +15,6 @@ export const mapengine_set_countries: (a: number, b: number, c: number) => void;
 export const mapengine_set_data: (a: number, b: number, c: number) => void;
 export const mapengine_set_selected_country: (a: number, b: number, c: number, d: number) => void;
 export const set_selected_country_on_map: (a: number, b: number, c: number) => void;
-export const set_selection_screen_on_map: (a: number) => void;
 export const start_map_engine: (a: number, b: number, c: number, d: number, e: any, f: any) => [number, number];
 export const get_country_at_on_map: (a: number, b: number) => any;
 export const wasm_bindgen__convert__closures_____invoke__h9ae7a73f08418505: (a: number, b: number, c: any) => void;
