@@ -9,9 +9,9 @@ export class SimulationTimeManager {
 
     // Mapping speed multipliers to millisecond intervals per day tick
     private speedIntervals: Record<number, number> = {
-        1: 2000, // 1x speed: 1 day every 2 seconds
+        1: 2500, // 1x speed: 1 day every 2.5 seconds
         2: 1000, // 2x speed: 1 day every 1 second
-        5: 400,  // 5x speed: 1 day every 0.4 seconds
+        3: 700,  // 3x speed: 1 day every 0.7 seconds
     };
 
     constructor(onDateChange: (formattedDate: string) => void, onProgress?: (progress: number) => void) {

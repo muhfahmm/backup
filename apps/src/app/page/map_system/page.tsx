@@ -256,7 +256,7 @@ export default function MapPage() {
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
             <div className="fixed bottom-8 right-8 z-30 flex flex-col w-[320px] pointer-events-auto">
                 {/* Upper Parchment Card */}
-                <div className="bg-[#FAF6EE] rounded-t-2xl px-6 pt-5 pb-4 border-t-2 border-x-2 border-[#C4B49C] shadow-lg flex flex-col relative overflow-hidden">
+                <div className="bg-[#FAF6EE] rounded-t-2xl px-6 pt-5 pb-10 border-t-2 border-x-2 border-[#C4B49C] shadow-lg flex flex-col relative overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.01)_0%,transparent_100%)] pointer-events-none" />
                     
                     <div className="flex items-center justify-between mb-3.5">
@@ -316,7 +316,7 @@ export default function MapPage() {
                         {/* 2. Gold Speed Selector button */}
                         <button 
                             onClick={() => {
-                                const nextSpeed = speed === 1 ? 2 : speed === 2 ? 5 : 1;
+                                const nextSpeed = speed === 1 ? 2 : speed === 2 ? 3 : 1;
                                 setSpeed(nextSpeed);
                                 if (timeManagerRef.current) {
                                     timeManagerRef.current.setSpeed(nextSpeed);
@@ -347,12 +347,13 @@ export default function MapPage() {
                         </button>
                     </div>
 
-                    {/* Silver Bottom Frame Bracket Elements */}
-                    <div className="absolute -left-2 bottom-0 w-6 h-4 bg-gradient-to-r from-slate-400 to-slate-200 border-b-2 border-l-2 border-slate-500 rounded-bl-lg transform rotate-6 pointer-events-none" />
-                    <div className="absolute -right-2 bottom-0 w-6 h-4 bg-gradient-to-l from-slate-400 to-slate-200 border-b-2 border-r-2 border-slate-500 rounded-br-lg transform -rotate-6 pointer-events-none" />
-                    
-                    {/* Skeuomorphic silver bottom plate */}
-                    <div className="absolute -bottom-1 inset-x-0 h-2 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 border border-slate-500 rounded-b-full pointer-events-none shadow-md" />
+                    {/* Skeuomorphic silver bottom tray frame */}
+                    <div className="absolute -bottom-2 -inset-x-2.5 h-4 bg-gradient-to-b from-slate-300 via-slate-100 to-slate-400 border border-slate-500 rounded-b-xl pointer-events-none shadow-md flex items-center justify-between px-1">
+                        {/* Left beveled corner accent */}
+                        <div className="w-4 h-3 bg-slate-300 border-r border-slate-500 transform -skew-x-12 rounded-bl-md" />
+                        {/* Right beveled corner accent */}
+                        <div className="w-4 h-3 bg-slate-300 border-l border-slate-500 transform skew-x-12 rounded-br-md" />
+                    </div>
                 </div>
             </div>
         </main>
