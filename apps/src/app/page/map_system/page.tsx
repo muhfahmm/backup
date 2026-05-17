@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
     HelpCircle, MapPin, Users, Landmark, Globe, Home, Scale, 
-    Play, Pause, Clock, RotateCcw
+    Play, Pause, Clock, RotateCcw, Settings, Palmtree, Shield
 } from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from './map-data';
@@ -28,16 +28,24 @@ export default function MapPage() {
     const [speed, setSpeed] = useState(1);
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
+    const progressBarRef = useRef<HTMLDivElement | null>(null);
     const timeManagerRef = useRef<SimulationTimeManager | null>(null);
     const hasInitRef = useRef(false);
 
     // Initialize high-performance simulation clock on mount
     useEffect(() => {
-        const manager = new SimulationTimeManager((formattedDate) => {
-            if (dateTextRef.current) {
-                dateTextRef.current.textContent = formattedDate;
+        const manager = new SimulationTimeManager(
+            (formattedDate) => {
+                if (dateTextRef.current) {
+                    dateTextRef.current.textContent = formattedDate;
+                }
+            },
+            (progress) => {
+                if (progressBarRef.current) {
+                    progressBarRef.current.style.width = `${progress}%`;
+                }
             }
-        });
+        );
         timeManagerRef.current = manager;
 
         return () => {
@@ -225,52 +233,8 @@ export default function MapPage() {
                     </div>
                 </div>
 
-                {/* 3. Right Side: Time Controls & Restart Button */}
+                {/* 3. Right Side: Restart Button */}
                 <div className="flex items-center gap-4 shrink-0">
-                    {/* Time Controller */}
-                    <div className="flex items-center gap-4 bg-[#dcc9a3]/40 border border-black/5 px-4 py-2 rounded-xl shadow-sm">
-                        {/* Date */}
-                        <div className="flex items-center gap-2 text-[#3d362a] font-bold text-xs tracking-wide">
-                            <Clock className="w-3.5 h-3.5 text-[#8b7e66]" />
-                            <span ref={dateTextRef}>-</span>
-                        </div>
-
-                        <div className="h-4 w-px bg-black/10" />
-
-                        {/* Play/Pause */}
-                        <button 
-                            onClick={() => {
-                                const nextPaused = !isPaused;
-                                setIsPaused(nextPaused);
-                                if (timeManagerRef.current) {
-                                    timeManagerRef.current.setPaused(nextPaused);
-                                }
-                            }}
-                            className={`p-1.5 rounded-lg border text-white shadow-sm transition-all cursor-pointer ${isPaused ? 'bg-[#5ea3b1] border-[#4d8a96] hover:bg-[#4d8a96]' : 'bg-[#e06b5c] border-[#cc5a4c] hover:bg-[#cc5a4c]'}`}
-                        >
-                            {isPaused ? <Play className="w-3.5 h-3.5 fill-white text-white" /> : <Pause className="w-3.5 h-3.5 fill-white text-white" />}
-                        </button>
-
-                        {/* Speed Selector */}
-                        <div className="flex bg-[#e6d8b9] p-0.5 rounded-lg border border-[#c4b49c] gap-0.5">
-                            {[1, 2, 5].map((sp) => (
-                                <button
-                                    key={sp}
-                                    onClick={() => {
-                                        setSpeed(sp);
-                                        if (timeManagerRef.current) {
-                                            timeManagerRef.current.setSpeed(sp);
-                                        }
-                                    }}
-                                    className={`px-2 py-1 rounded-md text-[9px] font-black transition-all cursor-pointer ${speed === sp ? 'bg-[#8b7e66] text-[#e6d8b9] shadow-inner' : 'text-[#8b7e66] hover:bg-[#8b7e66]/10'}`}
-                                >
-                                    {sp}x
-                                </button>
-                            ))}
-                        </div>
-                    </div>
-
-                    {/* Restart Button */}
                     <button
                         onClick={handleRestart}
                         title="Atur Ulang Game"
@@ -287,6 +251,109 @@ export default function MapPage() {
 
                 {/* Global FX */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)] vignette-gradient" />
+            </div>
+
+            {/* Premium Floating Skeuomorphic Time Controller Widget */}
+            <div className="fixed bottom-8 right-8 z-30 flex flex-col w-[320px] pointer-events-auto">
+                {/* Upper Parchment Card */}
+                <div className="bg-[#FAF6EE] rounded-t-2xl px-6 pt-5 pb-4 border-t-2 border-x-2 border-[#C4B49C] shadow-lg flex flex-col relative overflow-hidden">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.01)_0%,transparent_100%)] pointer-events-none" />
+                    
+                    <div className="flex items-center justify-between mb-3.5">
+                        {/* Gold gear inside metallic slot */}
+                        <div className="flex items-center gap-2">
+                            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-b from-[#e5d7ba] to-[#c7b79a] border border-[#a8987b] shadow-[0_2px_4px_rgba(0,0,0,0.1)] relative">
+                                <Settings 
+                                    className="w-4.5 h-4.5 text-[#5c3c10]" 
+                                    style={{ animation: 'spin 8s linear infinite' }}
+                                />
+                                <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-slate-400 border border-slate-500 rounded-sm" />
+                                <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-1.5 h-3 bg-slate-400 border border-slate-500 rounded-sm" />
+                            </div>
+                        </div>
+
+                        {/* Calendar date label */}
+                        <div className="flex flex-col items-end leading-none">
+                            <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase mb-1">SIMULATION CALENDAR</span>
+                            <span ref={dateTextRef} className="text-lg font-black text-[#2e261a] tracking-tight">
+                                -
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* Progress Bar slot */}
+                    <div className="w-full h-3 bg-[#e4dac3] rounded-full border border-[#bfae93] shadow-[inset_0_2px_4px_rgba(0,0,0,0.15)] overflow-hidden relative">
+                        <div 
+                            ref={progressBarRef}
+                            className="h-full bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full transition-all duration-75 shadow-[0_0_8px_rgba(59,130,246,0.5)]" 
+                            style={{ width: '0%' }}
+                        />
+                    </div>
+                </div>
+
+                {/* Lower Slate Blue Card with overlapping gold buttons */}
+                <div className="bg-[#1e2f3d] rounded-b-2xl border-b-4 border-x-2 border-[#15202a] shadow-xl h-14 relative flex items-center justify-between">
+                    <div className="absolute inset-x-6 -top-7 flex items-center justify-between">
+                        {/* 1. Large Play/Pause gold button */}
+                        <button 
+                            onClick={() => {
+                                const nextPaused = !isPaused;
+                                setIsPaused(nextPaused);
+                                if (timeManagerRef.current) {
+                                    timeManagerRef.current.setPaused(nextPaused);
+                                }
+                            }}
+                            title={isPaused ? "Mulai Waktu" : "Jeda Waktu"}
+                            className="w-14 h-14 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-4 border-[#1e2f3d] shadow-[0_4px_8px_rgba(0,0,0,0.4)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20 group"
+                        >
+                            {isPaused ? (
+                                <Play className="w-5 h-5 fill-[#5c3c10] text-[#5c3c10] translate-x-0.5 transition-transform group-hover:scale-115" />
+                            ) : (
+                                <Pause className="w-5 h-5 fill-[#5c3c10] text-[#5c3c10] transition-transform group-hover:scale-115" />
+                            )}
+                        </button>
+
+                        {/* 2. Gold Speed Selector button */}
+                        <button 
+                            onClick={() => {
+                                const nextSpeed = speed === 1 ? 2 : speed === 2 ? 5 : 1;
+                                setSpeed(nextSpeed);
+                                if (timeManagerRef.current) {
+                                    timeManagerRef.current.setSpeed(nextSpeed);
+                                }
+                            }}
+                            title={`Ubah Kecepatan: ${speed}x`}
+                            className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20 text-[12px] font-black text-[#5c3c10] uppercase tracking-tighter"
+                        >
+                            ×{speed}
+                        </button>
+
+                        {/* 3. Gold Holiday button */}
+                        <button 
+                            onClick={() => alert("Mode Liburan Presiden diaktifkan! Rakyat menikmati waktu istirahat.")}
+                            title="Liburan Negara"
+                            className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20"
+                        >
+                            <Palmtree className="w-4.5 h-4.5 text-[#5c3c10]" />
+                        </button>
+
+                        {/* 4. Gold Military/General button */}
+                        <button 
+                            onClick={() => alert("Informasi Kepresidenan & Hubungan Militer Aktif.")}
+                            title="Militer & Keamanan Negara"
+                            className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20"
+                        >
+                            <Shield className="w-4.5 h-4.5 text-[#5c3c10]" />
+                        </button>
+                    </div>
+
+                    {/* Silver Bottom Frame Bracket Elements */}
+                    <div className="absolute -left-2 bottom-0 w-6 h-4 bg-gradient-to-r from-slate-400 to-slate-200 border-b-2 border-l-2 border-slate-500 rounded-bl-lg transform rotate-6 pointer-events-none" />
+                    <div className="absolute -right-2 bottom-0 w-6 h-4 bg-gradient-to-l from-slate-400 to-slate-200 border-b-2 border-r-2 border-slate-500 rounded-br-lg transform -rotate-6 pointer-events-none" />
+                    
+                    {/* Skeuomorphic silver bottom plate */}
+                    <div className="absolute -bottom-1 inset-x-0 h-2 bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 border border-slate-500 rounded-b-full pointer-events-none shadow-md" />
+                </div>
             </div>
         </main>
     );

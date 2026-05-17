@@ -5,6 +5,7 @@ export class SimulationTimeManager {
     private lastTickTime: number = 0;
     private animationFrameId: number | null = null;
     private onDateChangeCallback: (formattedDate: string) => void;
+    private onProgressChangeCallback?: (progress: number) => void;
 
     // Mapping speed multipliers to millisecond intervals per day tick
     private speedIntervals: Record<number, number> = {
@@ -13,20 +14,25 @@ export class SimulationTimeManager {
         5: 400,  // 5x speed: 1 day every 0.4 seconds
     };
 
-    constructor(onDateChange: (formattedDate: string) => void) {
+    constructor(onDateChange: (formattedDate: string) => void, onProgress?: (progress: number) => void) {
         this.currentDate = new Date(); // Start with real life date
         this.onDateChangeCallback = onDateChange;
+        this.onProgressChangeCallback = onProgress;
         
         // Trigger initial callback to show today's date instantly
         this.triggerCallback();
     }
 
-    // Format Date helper (DD-MM-YYYY)
+    // Format Date helper (DD Month, YYYY)
     public getFormattedDate(): string {
-        const day = String(this.currentDate.getDate()).padStart(2, '0');
-        const month = String(this.currentDate.getMonth() + 1).padStart(2, '0');
+        const day = this.currentDate.getDate();
+        const monthNames = [
+            "Jan", "Feb", "Mar", "Apr", "Mei", "Jun", 
+            "Jul", "Agt", "Sep", "Okt", "Nov", "Des"
+        ];
+        const month = monthNames[this.currentDate.getMonth()];
         const year = this.currentDate.getFullYear();
-        return `${day}-${month}-${year}`;
+        return `${day} ${month}, ${year}`;
     }
 
     private triggerCallback(): void {
@@ -47,6 +53,9 @@ export class SimulationTimeManager {
             this.startLoop();
         } else {
             this.stopLoop();
+            if (this.onProgressChangeCallback) {
+                this.onProgressChangeCallback(0);
+            }
         }
     }
 
@@ -64,6 +73,9 @@ export class SimulationTimeManager {
         const loop = (now: number) => {
             if (this.isPaused) {
                 this.animationFrameId = null;
+                if (this.onProgressChangeCallback) {
+                    this.onProgressChangeCallback(0);
+                }
                 return;
             }
 
@@ -77,6 +89,13 @@ export class SimulationTimeManager {
                 
                 this.lastTickTime = now - (delta % interval);
                 this.triggerCallback();
+            }
+
+            // Calculate exact sub-tick progress for smooth progress bar rendering (0 to 100)
+            const currentDelta = now - this.lastTickTime;
+            const progress = Math.min((currentDelta / interval) * 100, 100);
+            if (this.onProgressChangeCallback) {
+                this.onProgressChangeCallback(progress);
             }
 
             this.animationFrameId = requestAnimationFrame(loop);
