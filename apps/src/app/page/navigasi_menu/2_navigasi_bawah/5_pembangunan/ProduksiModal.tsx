@@ -1,0 +1,338 @@
+"use client"
+import React, { useState, useEffect } from "react";
+import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield } from "lucide-react";
+
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  countryDetail: any;
+  setCountryDetail: (detail: any) => void;
+}
+
+export default function ProduksiModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+  const [activeTab, setActiveTab] = useState("kelistrikan");
+
+  
+
+  const SECTIONS = [
+    {
+      id: "kelistrikan",
+      label: "Kelistrikan",
+      icon: Zap,
+      keys: [
+        "pembangkit_listrik_tenaga_nuklir",
+        "pembangkit_listrik_tenaga_air",
+        "pembangkit_listrik_tenaga_surya",
+        "pembangkit_listrik_tenaga_uap",
+        "pembangkit_listrik_tenaga_gas",
+        "pembangkit_listrik_tenaga_angin",
+      ]
+    },
+    {
+      id: "mineral",
+      label: "Mineral & Energi",
+      icon: Gem,
+      keys: [
+        "emas",
+        "uranium",
+        "batu_bara",
+        "minyak_bumi",
+        "gas_alam",
+        "garam",
+        "nikel",
+        "litium",
+        "tembaga",
+        "aluminium",
+        "logam_tanah_jarang",
+        "bijih_besi"
+      ]
+    },
+    {
+      id: "manufaktur",
+      label: "Manufaktur",
+      icon: Factory,
+      keys: ["semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk"]
+    },
+    {
+      id: "peternakan",
+      label: "Peternakan",
+      icon: Beef,
+      keys: ["ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing"]
+    },
+    {
+      id: "agrikultur",
+      label: "Agrikultur",
+      icon: Sprout,
+      keys: ["padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau"]
+    },
+    {
+      id: "perikanan",
+      label: "Perikanan",
+      icon: Fish,
+      keys: ["udang", "mutiara", "ikan"]
+    },
+    {
+      id: "olahan pangan",
+      label: "Olahan Pangan",
+      icon: Utensils,
+      keys: ["air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh"]
+    },
+    {
+      id: "farmasi",
+      label: "Farmasi",
+      icon: Pill,
+      keys: ["farmasi", "pabrik_drone_kamikaze", "pabrik_amunisi"]
+    }
+  ];
+
+  const formatLabel = (key: string) => {
+    // Specific maps for better presentation
+    const customLabels: Record<string, string> = {
+
+      pembangkit_listrik_tenaga_nuklir: "PLT Nuklir (PLTN)",
+      pembangkit_listrik_tenaga_air: "PLT Air (PLTA)",
+      pembangkit_listrik_tenaga_surya: "PLT Surya (PLTS)",
+      pembangkit_listrik_tenaga_uap: "PLT Uap (PLTU)",
+      pembangkit_listrik_tenaga_gas: "PLT Gas (PLTG)",
+      pembangkit_listrik_tenaga_angin: "PLT Angin (PLTB)",
+    };
+    if (customLabels[key]) return customLabels[key];
+    return key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
+  };
+
+  const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+  React.useEffect(() => {
+    fetch("/api/building-metadata")
+      .then((res) => res.json())
+      .then((data) => setMetadata(data))
+      .catch((err) => console.error("Failed to load building metadata:", err));
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      console.log('ProduksiModal opened - countryDetail:', countryDetail);
+      console.log('ProduksiModal metadata:', metadata);
+    }
+  }, [isOpen, countryDetail, metadata]);
+if (!isOpen) return null;
+  const handleBuild = (key: string, label: string) => {
+    setSelectedBuilding({ key, label });
+  };
+
+  const confirmBuild = () => {
+    if (!selectedBuilding) return;
+    const { key, label } = selectedBuilding;
+    const bMeta = metadata[key];
+    const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 1000;
+    const anggaran = Number(countryDetail?.anggaran) || 0;
+    
+    if (anggaran < cost) {
+      alert(`Kas negara tidak mencukupi untuk membangun ${label}!`);
+      return;
+    }
+    
+    setCountryDetail({
+      ...countryDetail,
+      anggaran: anggaran - cost,
+      [key]: (Number(countryDetail?.[key]) || 0) + 1,
+    });
+    setSelectedBuilding(null);
+  };
+
+  // Pre-calculate count of all items for each tab (including empty boxes with value 0)
+  const tabData = SECTIONS.map((sec) => {
+    const items = sec.keys.map((k) => ({
+      key: k,
+      label: formatLabel(k),
+      value: Number(countryDetail?.[k]) || 0
+    }));
+    const totalCount = items.length;
+    return {
+      ...sec,
+      items,
+      activeCount: totalCount
+    };
+  });
+
+  const activeSection = tabData.find((sec) => sec.id === activeTab) || tabData[0];
+
+  return (
+    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+
+        {/* Header */}
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+          <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
+                <Hammer className="h-6 w-6 text-[#5c3c10]" />
+              </div>
+              <div>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Produksi & Pembangunan</h2>
+                <p className="text-xs text-[#8b7e66]">Kelola industri, pertanian, dan komoditas negara</p>
+              </div>
+            </div>
+          </div>
+          <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+            <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+            <X className="h-5 w-5" />
+          </button>
+        </div>
+
+        {/* Tabs and Grid content */}
+        <div className="flex-1 flex min-h-0 relative z-10">
+          {/* Sidebar Tabs */}
+          <div className="w-64 border-r-2 border-[#C4B49C]/30 bg-[#FAF6EE] p-4 flex flex-col gap-2 overflow-y-auto">
+            {tabData.map((tab) => {
+              const Icon = tab.icon;
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id
+                      ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
+                      : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
+                    }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className="h-5 w-5" />
+                    <span className="text-xs font-bold uppercase tracking-wider">{tab.label}</span>
+                  </div>
+                  <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${activeTab === tab.id ? "bg-[#FAF6EE] text-[#5c3c10]" : "bg-[#5c3c10]/10 text-[#5c3c10]"
+                    }`}>
+                    {tab.activeCount}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Active Tab Content */}
+          <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40">
+            <div className="flex items-center gap-3 mb-6">
+              <activeSection.icon className="h-6 w-6 text-[#5c3c10]" />
+              <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">{activeSection.label}</h3>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+              {activeSection.items.map((it) => {
+                return (
+                  <div key={it.key} className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                    <div className="p-4 flex flex-col flex-grow justify-between">
+                      <div>
+                        <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
+                        <p className="text-2xl font-black text-[#2e261a] mt-2">{it.value.toLocaleString('id-ID')}</p>
+                      </div>
+                      <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
+                        <button
+                          onClick={() => handleBuild(it.key, it.label)}
+                          className="w-full py-1.5 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] text-[9px] font-black uppercase cursor-pointer hover:bg-[#8b7e66] hover:border-[#8b7e66] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:scale-[0.98]"
+                        >
+                          Bangun
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {activeSection.items.length === 0 && (
+              <div className="rounded-xl border border-[#C4B49C]/30 bg-[#FAF6EE] p-4 text-sm text-[#8b7e66]">
+                Data untuk kategori ini tidak tersedia.
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      {selectedBuilding && (() => {
+        const bMeta = metadata[selectedBuilding.key];
+        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 1000;
+        return (
+          <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
+            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+              
+              <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+                <div className="flex items-center gap-2 text-[#5c3c10]">
+                  <Hammer className="h-5 w-5" />
+                  <h3 className="text-base font-bold uppercase tracking-tight">Konfirmasi Pembangunan</h3>
+                </div>
+                <button onClick={() => setSelectedBuilding(null)} className="text-[#8b7e66] hover:text-[#5c3c10]">
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+
+              <div className="p-6 relative z-10 flex-1 space-y-4">
+                <div>
+                  <h4 className="text-lg font-black text-[#2e261a]">{selectedBuilding.label}</h4>
+                  <p className="text-xs text-[#8b7e66] mt-1">{bMeta?.deskripsi || bMeta?.desc || 'Tidak ada deskripsi tersedia.'}</p>
+                </div>
+
+                <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
+                  <div className="flex justify-between font-bold">
+                    <span>Biaya Pembangunan:</span>
+                    <span className="text-[#2e261a]">Rp {cost.toLocaleString('id-ID')}</span>
+                  </div>
+                  {bMeta?.waktu_pembangunan !== undefined && (
+                    <div className="flex justify-between">
+                      <span>Estimasi Waktu Pembangunan:</span>
+                      <span className="text-[#2e261a] font-semibold">{bMeta.waktu_pembangunan} Hari</span>
+                    </div>
+                  )}
+
+                  {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
+                    <div className="flex justify-between">
+                      <span>Konsumsi Listrik:</span>
+                      <span className="text-[#2e261a] font-semibold">{bMeta.konsumsi_listrik} MW</span>
+                    </div>
+                  )}
+                  {bMeta?.produksi !== undefined && (
+                    <div className="flex justify-between">
+                      <span>Produksi Baru:</span>
+                      <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')} {bMeta.satuan || ''}</span>
+                    </div>
+                  )}
+                  {bMeta?.efek !== undefined && (
+                    <div className="border-t border-[#C4B49C]/20 pt-2 mt-2">
+                      <span className="font-bold">Efek Tambahan:</span>
+                      <p className="text-[#2e261a] mt-0.5 italic">{bMeta.efek}</p>
+                    </div>
+                  )}
+                </div>
+
+                <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
+                  <span>Kas Negara Saat Ini:</span>
+                  <span>Rp {(Number(countryDetail?.anggaran) || 0).toLocaleString('id-ID')}</span>
+                </div>
+              </div>
+
+              <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
+                <button
+                  onClick={() => setSelectedBuilding(null)}
+                  className="flex-1 py-2 rounded-xl border-2 border-[#C4B49C] text-[#8b7e66] text-[10px] font-black uppercase cursor-pointer hover:bg-black/5 transition-all text-center"
+                >
+                  Batal
+                </button>
+                <button
+                  onClick={confirmBuild}
+                  disabled={(Number(countryDetail?.anggaran) || 0) < cost}
+                  className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
+                    (Number(countryDetail?.anggaran) || 0) >= cost
+                      ? "bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]"
+                      : "bg-gray-300 text-gray-500 border border-gray-300 cursor-not-allowed"
+                  }`}
+                >
+                  Mulai Pembangunan
+                </button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+    </div>
+  );
+}

@@ -12,6 +12,8 @@ import { handleGameRestart } from '../time_controllers/gameRestart';
 import { GameMenuModal } from '../navbar/GameMenuModal';
 import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
 import { Navbar } from '../navbar/Navbar';
+import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
+import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
 
 interface Country {
     id: number;
@@ -35,6 +37,7 @@ export default function MapPage() {
     const [toastMessage, setToastMessage] = useState<string | null>(null);
     const [isPresidentMenuOpen, setIsPresidentMenuOpen] = useState(false);
     const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
+    const [activeMenu, setActiveMenu] = useState('Peta Taktis');
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -307,6 +310,19 @@ export default function MapPage() {
                 {/* Global FX */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)] vignette-gradient" />
             </div>
+
+            <BottomNav
+                activeMenu={activeMenu}
+                setActiveMenu={setActiveMenu}
+            />
+
+            <ModalsManager
+                activeMenu={activeMenu}
+                setActiveMenu={setActiveMenu}
+                countryDetail={countryDetail}
+                setCountryDetail={setCountryDetail}
+                selectedCountry={selectedCountry}
+            />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
             <div className="fixed bottom-8 right-8 z-30 flex flex-col w-[320px] pointer-events-auto">
