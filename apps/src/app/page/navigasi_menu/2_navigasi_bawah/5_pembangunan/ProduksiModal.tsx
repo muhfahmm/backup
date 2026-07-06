@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield } from "lucide-react";
+import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 
 interface ModalProps {
@@ -84,7 +84,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
       id: "farmasi",
       label: "Farmasi",
       icon: Pill,
-      keys: ["farmasi", "pabrik_drone_kamikaze", "pabrik_amunisi"]
+      keys: ["farmasi"]
     }
   ];
 
@@ -185,10 +185,26 @@ if (!isOpen) return null;
 
   const activeSection = tabData.find((sec) => sec.id === activeTab) || tabData[0];
 
+  // Calculate total electricity production (kelistrikan)
+  const totalProduction = tabData.find(sec => sec.id === "kelistrikan")?.items.reduce((sum, item) => sum + item.value, 0) || 0;
+  
+  // Calculate estimated consumption based on population
+  const estimatedConsumption = Math.min(
+    totalProduction * 1000, // MW
+    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+  );
+
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+    <>
+      {/* Overlay - tidak menghalangi time controller */}
+      {isOpen && (
+        <div className="fixed inset-0 bg-black/65 z-40 pointer-events-none" />
+      )}
+      
+      {/* Modal - di atas overlay */}
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
 
         {/* Header */}
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
@@ -200,6 +216,24 @@ if (!isOpen) return null;
               <div>
                 <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Produksi & Pembangunan</h2>
                 <p className="text-xs text-[#8b7e66]">Kelola industri, pertanian, dan komoditas negara</p>
+              </div>
+            </div>
+            
+            {/* Electricity Badge - Always show in all tabs */}
+            <div className="flex items-center gap-4 ml-8 pl-8 border-l-2 border-[#C4B49C]/30">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
+                  <TrendingUp className="h-4 w-4 text-emerald-700" />
+                  <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
+                  <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-300 rounded-lg">
+                  <TrendingDown className="h-4 w-4 text-rose-700" />
+                  <span className="text-[11px] font-black text-rose-700 uppercase tracking-wider">Konsumsi</span>
+                  <span className="text-[11px] font-black text-rose-700">{estimatedConsumption.toLocaleString('id-ID')} MW</span>
+                </div>
               </div>
             </div>
           </div>
@@ -265,7 +299,7 @@ if (!isOpen) return null;
                       <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
                         {bMeta?.produksi !== undefined ? (
                           <div className="flex flex-col">
-                            <span className="text-[10px] text-[#8b7e66]">Produksi Baru:</span>
+                            <span className="text-[10px] text-[#8b7e66]">Produksi per hari:</span>
                             <span className="font-black text-sm text-[#2e261a]">
                               +{(bMeta.produksi || 0).toLocaleString('id-ID')} {bMeta.satuan || ''} × {perCount.toLocaleString('id-ID')}
                               <span className="text-emerald-700 font-bold"> = +{(prodInfo.total || 0).toLocaleString('id-ID')} {prodInfo.unit || bMeta.satuan || ''}</span>
@@ -288,13 +322,17 @@ if (!isOpen) return null;
             )}
           </div>
         </div>
-      </div>
+          </div>
+        </div>
+      )}
+      
       {toast && (
         <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>
       )}
+      
       {selectedBuilding && (() => {
         const bMeta = findMeta(selectedBuilding.key);
-        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : null;
+        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
         return (
           <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
             <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150">
@@ -336,7 +374,7 @@ if (!isOpen) return null;
                   )}
                   {bMeta?.produksi !== undefined && (
                     <div className="flex justify-between">
-                      <span>Produksi Baru:</span>
+                      <span>Produksi per hari:</span>
                       <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')} {bMeta.satuan || ''}</span>
                     </div>
                   )}
@@ -363,9 +401,9 @@ if (!isOpen) return null;
                 </button>
                 <button
                   onClick={confirmBuild}
-                  disabled={loadingMetadata || !bMeta ? true : (Number(countryDetail?.anggaran) || 0) < cost}
+                  disabled={loadingMetadata || !bMeta || cost === 0 ? true : (Number(countryDetail?.anggaran) || 0) < cost}
                   className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
-                    (loadingMetadata || !bMeta)
+                    (loadingMetadata || !bMeta || cost === 0)
                       ? "bg-gray-300 text-gray-500 border border-gray-300 cursor-not-allowed"
                       : ((Number(countryDetail?.anggaran) || 0) >= cost
                         ? "bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]"
@@ -379,6 +417,6 @@ if (!isOpen) return null;
           </div>
         );
       })()}
-    </div>
+    </>
   );
 }

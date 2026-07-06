@@ -171,7 +171,8 @@ export default function PilihNegaraPage() {
                             price_rice: mergedData.harga?.harga_beras,
                             price_fuel: mergedData.harga?.harga_bbm,
                             un_vote: mergedData.un_vote,
-                            reputation: mergedData.reputasi_diplomatik
+                            reputation: mergedData.reputasi_diplomatik,
+                            kepuasan: mergedData.kepuasan ?? 50
                         });
                     } else {
                         setCountryDetail(null);

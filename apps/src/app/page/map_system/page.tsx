@@ -127,7 +127,8 @@ export default function MapPage() {
                     anggaran: mergedData.anggaran || 0,
                     religion: mergedData.religion || '-',
                     ideology: mergedData.ideology || '-',
-                    un_vote: mergedData.un_vote || 0
+                    un_vote: mergedData.un_vote || 0,
+                    kepuasan: mergedData.kepuasan ?? 50
                 });
             }
         } catch (e) {
@@ -153,7 +154,8 @@ export default function MapPage() {
                             anggaran: Number(savedState.anggaran),
                             ideology: savedState.ideology || '-',
                             religion: savedState.religion || '-',
-                            un_vote: Number(savedState.un_vote)
+                            un_vote: Number(savedState.un_vote),
+                            kepuasan: Number(savedState.kepuasan) || 50
                         });
                         
                         // Clean up saved state from localStorage so it doesn't re-apply
@@ -227,6 +229,7 @@ export default function MapPage() {
                     ideology: countryDetail?.ideology || '-',
                     religion: countryDetail?.religion || '-',
                     unVote: countryDetail?.un_vote || 0,
+                    kepuasan: countryDetail?.kepuasan ?? 50,
                 }),
             });
 
@@ -301,6 +304,7 @@ export default function MapPage() {
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
+                onOpenKepuasan={() => setActiveMenu("Dashboard:Kepuasan")}
             />
 
             {/* Shifted Canvas Container */}

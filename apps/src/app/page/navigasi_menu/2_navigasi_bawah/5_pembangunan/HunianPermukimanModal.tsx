@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
-import { X, Home } from "lucide-react";
+import { X, Home, TrendingUp, TrendingDown } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -13,6 +13,10 @@ interface ModalProps {
 export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState("rumah_subsidi");
   const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+    fetchBuildingMetadata().then((m) => setMetadata(m || {}));
+  }, []);
 
   if (!isOpen) return null;
 
@@ -32,10 +36,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.5)
     });
   };
-
-  useEffect(() => {
-    fetchBuildingMetadata().then((m) => setMetadata(m || {}));
-  }, []);
 
   const HUNIAN_KEYS = ["rumah_subsidi", "apartemen", "mansion"];
 
@@ -69,6 +69,19 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
 
   const totalValue = items.reduce((sum, item) => sum + item.value, 0);
 
+  // Calculate electricity production and consumption
+  const totalProduction = Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0 +
+    Number(countryDetail?.pembangkit_listrik_tenaga_air) || 0 +
+    Number(countryDetail?.pembangkit_listrik_tenaga_surya) || 0 +
+    Number(countryDetail?.pembangkit_listrik_tenaga_uap) || 0 +
+    Number(countryDetail?.pembangkit_listrik_tenaga_gas) || 0 +
+    Number(countryDetail?.pembangkit_listrik_tenaga_angin) || 0;
+  
+  const estimatedConsumption = Math.min(
+    totalProduction * 1000,
+    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+  );
+
   return (
     <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
@@ -84,6 +97,24 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
               <div>
                 <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Hunian & Permukiman</h2>
                 <p className="text-xs text-[#8b7e66]">Manajemen ketersediaan rumah dan tata kelola pemukiman warga</p>
+              </div>
+            </div>
+            
+            {/* Electricity Badge */}
+            <div className="flex items-center gap-4 pl-8 border-l-2 border-[#C4B49C]/30">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
+                  <TrendingUp className="h-4 w-4 text-emerald-700" />
+                  <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
+                  <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-300 rounded-lg">
+                  <TrendingDown className="h-4 w-4 text-rose-700" />
+                  <span className="text-[11px] font-black text-rose-700 uppercase tracking-wider">Konsumsi</span>
+                  <span className="text-[11px] font-black text-rose-700">{estimatedConsumption.toLocaleString('id-ID')} MW</span>
+                </div>
               </div>
             </div>
           </div>

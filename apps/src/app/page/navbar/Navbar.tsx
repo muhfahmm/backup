@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { 
-    Power, MapPin, Users, Landmark, Scale, Home, Save, RotateCcw 
+    Power, MapPin, Users, Landmark, Scale, Home, Save, RotateCcw, Smile
 } from 'lucide-react';
 
 interface Country {
@@ -21,6 +21,7 @@ interface NavbarProps {
     onOpenGameMenu: () => void;
     onOpenSaveModal: () => void;
     onOpenRestartConfirm: () => void;
+    onOpenKepuasan?: () => void;
 }
 
 export function Navbar({ 
@@ -28,7 +29,8 @@ export function Navbar({
     countryDetail, 
     onOpenGameMenu, 
     onOpenSaveModal, 
-    onOpenRestartConfirm 
+    onOpenRestartConfirm,
+    onOpenKepuasan
 }: NavbarProps) {
     return (
         <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20 select-none">
@@ -85,6 +87,13 @@ export function Navbar({
                     <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'} />
                     <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
                     <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
+                    <button 
+                        onClick={onOpenKepuasan}
+                        className="cursor-pointer hover:opacity-80 transition-opacity"
+                        title="Klik untuk melihat detail kepuasan"
+                    >
+                        <StatusItem icon={<Smile className="w-3.5 h-3.5" />} label="KEPUASAN" value={`${countryDetail?.kepuasan !== undefined ? Math.round(countryDetail.kepuasan) : 50}%`} color={getKepuasanColor(countryDetail?.kepuasan ?? 50)} />
+                    </button>
                     
                     {/* UN Vote Suara PBB */}
                     <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
@@ -133,4 +142,13 @@ function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: Re
             </div>
         </div>
     );
+}
+
+// Function to get color based on kepuasan level
+function getKepuasanColor(kepuasan: number): string {
+    if (kepuasan >= 75) return 'text-green-700 font-black'; // 75-100: Hijau Tebal - Sangat Puas
+    if (kepuasan >= 66) return 'text-green-600';            // 66-74: Hijau Biasa - Puas
+    if (kepuasan >= 41) return 'text-yellow-600';           // 41-65: Kuning - Puas
+    if (kepuasan >= 25) return 'text-red-600';              // 25-40: Merah Biasa - Tidak Puas
+    return 'text-red-700 font-black';                       // 0-24: Merah Tebal - Sangat Tidak Puas
 }

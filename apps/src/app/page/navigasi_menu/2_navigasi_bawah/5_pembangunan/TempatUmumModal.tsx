@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
-import { X, Landmark, AlertTriangle } from "lucide-react";
+import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -157,6 +157,19 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
   const totalItems = groups.reduce((sum, group) => sum + group.items.length, 0);
   const totalValue = groups.reduce((sum, group) => sum + group.items.reduce((inner, item) => inner + (item.value || 0), 0), 0);
 
+  // Calculate electricity production and consumption
+  const totalProduction = Number(data.pembangkit_listrik_tenaga_nuklir) || 0 +
+    Number(data.pembangkit_listrik_tenaga_air) || 0 +
+    Number(data.pembangkit_listrik_tenaga_surya) || 0 +
+    Number(data.pembangkit_listrik_tenaga_uap) || 0 +
+    Number(data.pembangkit_listrik_tenaga_gas) || 0 +
+    Number(data.pembangkit_listrik_tenaga_angin) || 0;
+  
+  const estimatedConsumption = Math.min(
+    totalProduction * 1000,
+    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((data.jumlah_penduduk ?? 0) / 50000)))
+  );
+
   return (
     <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
       {showConfirm && (
@@ -185,6 +198,24 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
               <div>
                 <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Tempat Umum & Layanan Publik</h2>
                 <p className="text-xs text-[#8b7e66]">Fasilitas sosial, kesehatan, pendidikan, and penegakan hukum</p>
+              </div>
+            </div>
+            
+            {/* Electricity Badge */}
+            <div className="flex items-center gap-4 pl-8 border-l-2 border-[#C4B49C]/30">
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
+                  <TrendingUp className="h-4 w-4 text-emerald-700" />
+                  <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
+                  <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-300 rounded-lg">
+                  <TrendingDown className="h-4 w-4 text-rose-700" />
+                  <span className="text-[11px] font-black text-rose-700 uppercase tracking-wider">Konsumsi</span>
+                  <span className="text-[11px] font-black text-rose-700">{estimatedConsumption.toLocaleString('id-ID')} MW</span>
+                </div>
               </div>
             </div>
           </div>
