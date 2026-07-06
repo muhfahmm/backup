@@ -89,7 +89,7 @@ export function Navbar({
                     {/* UN Vote Suara PBB */}
                     <div className="flex items-center gap-3 border-l border-[#c4b49c] pl-6">
                         <span className="text-[9px] font-black text-[#8b7e66] tracking-widest uppercase">SUARA PBB</span>
-                        <div className="bg-[#5ea3b1] text-white px-3 py-1 rounded-lg font-black text-[12px] shadow-md border border-[#4d8a96]">
+                        <div className="bg-[#5ea3b1] text-white px-4 py-1.5 rounded-lg font-black text-[14px] shadow-md border border-[#4d8a96]">
                             {countryDetail?.un_vote || '-'}
                         </div>
                     </div>
