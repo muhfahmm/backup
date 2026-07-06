@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield } from "lucide-react";
+import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,6 +9,8 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
 }
+
+import { computeDisplayedProduction } from '../../../../logic/index';
 
 export default function ProduksiModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState("kelistrikan");
@@ -101,14 +104,31 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   };
 
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
   const [metadata, setMetadata] = useState<Record<string, any>>({});
+  const [loadingMetadata, setLoadingMetadata] = useState(true);
 
   React.useEffect(() => {
-    fetch("/api/building-metadata")
-      .then((res) => res.json())
-      .then((data) => setMetadata(data))
-      .catch((err) => console.error("Failed to load building metadata:", err));
-  }, []);
+    if (!isOpen) return;
+    setLoadingMetadata(true);
+    fetchBuildingMetadata()
+      .then((data) => setMetadata(data || {}))
+      .catch((err) => console.error("Failed to load building metadata:", err))
+      .finally(() => setLoadingMetadata(false));
+  }, [isOpen]);
+
+  const findMeta = (key: string) => {
+    if (!metadata) return undefined;
+    if (metadata[key]) return metadata[key];
+    // try to find by inner dataKey or key suffix
+    for (const k of Object.keys(metadata)) {
+      const entry = metadata[k];
+      if (!entry) continue;
+      if (entry.dataKey === key) return entry;
+      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+    }
+    return undefined;
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -118,21 +138,28 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   }, [isOpen, countryDetail, metadata]);
 if (!isOpen) return null;
   const handleBuild = (key: string, label: string) => {
+    console.log('ProduksiModal.handleBuild', key, label);
     setSelectedBuilding({ key, label });
+    setToast(`${label} dipilih`);
+    setTimeout(() => setToast(null), 1500);
   };
 
   const confirmBuild = () => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
-    const bMeta = metadata[key];
-    const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 1000;
+    const bMeta = findMeta(key);
+    if (loadingMetadata || !bMeta) {
+      alert(`Metadata bangunan masih dimuat. Coba lagi sebentar.`);
+      return;
+    }
+    const cost = Number(bMeta.biaya_pembangunan);
     const anggaran = Number(countryDetail?.anggaran) || 0;
-    
+
     if (anggaran < cost) {
       alert(`Kas negara tidak mencukupi untuk membangun ${label}!`);
       return;
     }
-    
+
     setCountryDetail({
       ...countryDetail,
       anggaran: anggaran - cost,
@@ -191,7 +218,7 @@ if (!isOpen) return null;
               return (
                 <button
                   key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
+                  onClick={() => { console.log('ProduksiModal.setActiveTab', tab.id); setActiveTab(tab.id); }}
                   className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id
                       ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
                       : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
@@ -219,20 +246,34 @@ if (!isOpen) return null;
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
               {activeSection.items.map((it) => {
+                const bMeta = findMeta(it.key) || {};
+                const perCount = Number(countryDetail?.[it.key]) || 0;
+                const prodInfo = computeDisplayedProduction(it.key, countryDetail, metadata, activeSection.id);
                 return (
-                  <div key={it.key} className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+                  <div
+                    key={it.key}
+                    onClick={() => handleBuild(it.key, it.label)}
+                    role="button"
+                    tabIndex={0}
+                    className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                  >
                     <div className="p-4 flex flex-col flex-grow justify-between">
                       <div>
                         <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
-                        <p className="text-2xl font-black text-[#2e261a] mt-2">{it.value.toLocaleString('id-ID')}</p>
+                        <p className="text-2xl font-black text-[#2e261a] mt-2">{perCount.toLocaleString('id-ID')}</p>
                       </div>
-                      <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
-                        <button
-                          onClick={() => handleBuild(it.key, it.label)}
-                          className="w-full py-1.5 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] text-[9px] font-black uppercase cursor-pointer hover:bg-[#8b7e66] hover:border-[#8b7e66] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:scale-[0.98]"
-                        >
-                          Bangun
-                        </button>
+                      <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
+                        {bMeta?.produksi !== undefined ? (
+                          <div className="flex flex-col">
+                            <span className="text-[10px] text-[#8b7e66]">Produksi Baru:</span>
+                            <span className="font-black text-sm text-[#2e261a]">
+                              +{(bMeta.produksi || 0).toLocaleString('id-ID')} {bMeta.satuan || ''} × {perCount.toLocaleString('id-ID')}
+                              <span className="text-emerald-700 font-bold"> = +{(prodInfo.total || 0).toLocaleString('id-ID')} {prodInfo.unit || bMeta.satuan || ''}</span>
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="text-[#8b7e66]">Tidak ada produksi</div>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -248,9 +289,12 @@ if (!isOpen) return null;
           </div>
         </div>
       </div>
+      {toast && (
+        <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>
+      )}
       {selectedBuilding && (() => {
-        const bMeta = metadata[selectedBuilding.key];
-        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 1000;
+        const bMeta = findMeta(selectedBuilding.key);
+        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : null;
         return (
           <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
             <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150">
@@ -275,7 +319,7 @@ if (!isOpen) return null;
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
                   <div className="flex justify-between font-bold">
                     <span>Biaya Pembangunan:</span>
-                    <span className="text-[#2e261a]">Rp {cost.toLocaleString('id-ID')}</span>
+                    <span className="text-[#2e261a]">{(loadingMetadata || !bMeta) ? 'Memuat...' : `Rp ${cost.toLocaleString('id-ID')}`}</span>
                   </div>
                   {bMeta?.waktu_pembangunan !== undefined && (
                     <div className="flex justify-between">
@@ -319,11 +363,13 @@ if (!isOpen) return null;
                 </button>
                 <button
                   onClick={confirmBuild}
-                  disabled={(Number(countryDetail?.anggaran) || 0) < cost}
+                  disabled={loadingMetadata || !bMeta ? true : (Number(countryDetail?.anggaran) || 0) < cost}
                   className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
-                    (Number(countryDetail?.anggaran) || 0) >= cost
-                      ? "bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]"
-                      : "bg-gray-300 text-gray-500 border border-gray-300 cursor-not-allowed"
+                    (loadingMetadata || !bMeta)
+                      ? "bg-gray-300 text-gray-500 border border-gray-300 cursor-not-allowed"
+                      : ((Number(countryDetail?.anggaran) || 0) >= cost
+                        ? "bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]"
+                        : "bg-gray-300 text-gray-500 border border-gray-300 cursor-not-allowed")
                   }`}
                 >
                   Mulai Pembangunan

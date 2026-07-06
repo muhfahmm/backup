@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 import { X, Home } from "lucide-react";
 
 interface ModalProps {
@@ -11,17 +12,19 @@ interface ModalProps {
 
 export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState("rumah_subsidi");
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
 
   if (!isOpen) return null;
 
   const handleBuild = (key: string, label: string) => {
-    const cost = 10000000; // Rp 10.000.000
+    const bMeta = metadata[key] || {};
+    const cost = Number(bMeta.biaya_pembangunan) || 10000000;
     const anggaran = Number(countryDetail?.anggaran) || 0;
     if (anggaran < cost) {
       alert(`Kas negara tidak mencukupi untuk membangun ${label}!`);
       return;
     }
-    
+
     setCountryDetail({
       ...countryDetail,
       anggaran: anggaran - cost,
@@ -29,6 +32,10 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.5)
     });
   };
+
+  useEffect(() => {
+    fetchBuildingMetadata().then((m) => setMetadata(m || {}));
+  }, []);
 
   const HUNIAN_KEYS = ["rumah_subsidi", "apartemen", "mansion"];
 

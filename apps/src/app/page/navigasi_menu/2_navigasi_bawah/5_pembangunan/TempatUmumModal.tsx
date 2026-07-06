@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 import { X, Landmark, AlertTriangle } from "lucide-react";
 
 interface ModalProps {
@@ -99,9 +100,7 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
   const [activeTab, setActiveTab] = useState("Infrastruktur");
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
   const [showConfirm, setShowConfirm] = useState(false);
-
-  if (!isOpen) return null;
-  const data = countryDetail || {};
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
 
   const handleBuild = (key: string, label: string) => {
     setSelectedBuilding({ key, label });
@@ -110,14 +109,16 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
 
   const confirmBuild = () => {
     if (!selectedBuilding) return;
-    const cost = 10000000; // Rp 10.000.000
+    const dataKey = selectedBuilding.key;
+    const bMeta = metadata[dataKey] || {};
+    const cost = Number(bMeta.biaya_pembangunan) || 10000000;
     const anggaran = Number(countryDetail?.anggaran) || 0;
     if (anggaran < cost) {
       alert(`Kas negara tidak mencukupi untuk membangun ${selectedBuilding.label}!`);
       setShowConfirm(false);
       return;
     }
-    
+
     setCountryDetail({
       ...countryDetail,
       anggaran: anggaran - cost,
@@ -127,6 +128,13 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
     setShowConfirm(false);
     setSelectedBuilding(null);
   };
+
+  useEffect(() => {
+    fetchBuildingMetadata().then((m) => setMetadata(m || {}));
+  }, []);
+
+  if (!isOpen) return null;
+  const data = countryDetail || {};
 
   const groups = SERVICE_GROUPS.map((group) => {
     const items = group.keys
@@ -156,7 +164,7 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl">
             <AlertTriangle className="w-12 h-12 text-[#5c3c10] mx-auto mb-4" />
             <h3 className="text-lg font-bold text-[#5c3c10] uppercase">Konfirmasi Pembangunan</h3>
-            <p className="text-xs text-[#8b7e66] my-4">Apakah Anda yakin ingin membangun <span className="font-bold text-[#5c3c10]">{selectedBuilding?.label}</span> dengan biaya Rp 10.000.000?</p>
+            <p className="text-xs text-[#8b7e66] my-4">Apakah Anda yakin ingin membangun <span className="font-bold text-[#5c3c10]">{selectedBuilding?.label}</span> dengan biaya Rp {((metadata[selectedBuilding?.key || '']?.biaya_pembangunan) || 10000000).toLocaleString('id-ID')}?</p>
             <div className="flex gap-3">
               <button onClick={() => setShowConfirm(false)} className="flex-1 py-2 rounded-xl border-2 border-[#C4B49C] text-[#8b7e66] font-bold text-xs uppercase">Batal</button>
               <button onClick={confirmBuild} className="flex-1 py-2 rounded-xl bg-[#5c3c10] text-[#FAF6EE] font-bold text-xs uppercase">Yakin</button>
