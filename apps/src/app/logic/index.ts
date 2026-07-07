@@ -13,7 +13,13 @@ import { computePerikanan } from './logic_perikanan';
 import { computeOlahanPangan } from './logic_olahan_pangan';
 import { computeFarmasi } from './logic_farmasi';
 
-export function computeDisplayedProduction(key: string, countryDetail: any, metadata: Record<string, any>, sectionId: string): ProdResult {
+export function computeDisplayedProduction(
+  key: string,
+  countryDetail: any,
+  metadata: Record<string, any>,
+  sectionId: string,
+  currentDate?: Date
+): ProdResult {
   switch (sectionId) {
     case 'kelistrikan':
       return computeKelistrikan(key, countryDetail, metadata);
@@ -22,9 +28,9 @@ export function computeDisplayedProduction(key: string, countryDetail: any, meta
     case 'manufaktur':
       return computeManufaktur(key, countryDetail, metadata);
     case 'peternakan':
-      return computePeternakan(key, countryDetail, metadata);
+      return computePeternakan(key, countryDetail, metadata, currentDate);
     case 'agrikultur':
-      return computeAgrikultur(key, countryDetail, metadata);
+      return computeAgrikultur(key, countryDetail, metadata, currentDate);
     case 'perikanan':
       return computePerikanan(key, countryDetail, metadata);
     case 'olahan pangan':

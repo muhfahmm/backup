@@ -8,11 +8,13 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  currentDate?: Date;
 }
 
 import { computeDisplayedProduction } from '../../../../logic/index';
+import { updateCountryDetailWithProduction, formatDateForStorage } from '../../../../logic/dailyProductionCalculator';
 
-export default function ProduksiModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function ProduksiModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate }: ModalProps) {
   const [activeTab, setActiveTab] = useState("kelistrikan");
 
   
@@ -116,6 +118,35 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
       .catch((err) => console.error("Failed to load building metadata:", err))
       .finally(() => setLoadingMetadata(false));
   }, [isOpen]);
+
+  // Update countryDetail dengan produksi terakumulasi saat currentDate berubah
+  React.useEffect(() => {
+    if (!currentDate || !countryDetail || !metadata) return;
+
+    const keysToUpdate = ['padi', 'gandum', 'jagung', 'sayur', 'umbi', 'kedelai', 'kelapa_sawit', 'kopi', 'teh', 'kakao', 'tebu', 'karet', 'kapas', 'tembakau', 'ayam_unggas', 'sapi_perah', 'sapi_potong', 'domba_kambing'];
+    
+    let updatedDetail = { ...countryDetail };
+    let hasChanges = false;
+
+    keysToUpdate.forEach(key => {
+      const per = Number(metadata[key]?.produksi) || 0;
+      const count = Number(countryDetail?.[key]) || 0;
+      
+      if (per > 0 && count > 0) {
+        const prodInfo = computeDisplayedProduction(key, countryDetail, metadata, 'agrikultur', currentDate);
+        if (prodInfo.total !== Number(countryDetail?.[key])) {
+          updatedDetail[key] = prodInfo.total;
+          updatedDetail[`accumulated_${key}`] = prodInfo.total;
+          updatedDetail[`last_prod_date_${key}`] = formatDateForStorage(currentDate);
+          hasChanges = true;
+        }
+      }
+    });
+
+    if (hasChanges) {
+      setCountryDetail(updatedDetail);
+    }
+  }, [currentDate, metadata]);
 
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
@@ -282,7 +313,7 @@ if (!isOpen) return null;
               {activeSection.items.map((it) => {
                 const bMeta = findMeta(it.key) || {};
                 const perCount = Number(countryDetail?.[it.key]) || 0;
-                const prodInfo = computeDisplayedProduction(it.key, countryDetail, metadata, activeSection.id);
+                const prodInfo = computeDisplayedProduction(it.key, countryDetail, metadata, activeSection.id, currentDate);
                 return (
                   <div
                     key={it.key}

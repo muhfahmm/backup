@@ -53,6 +53,7 @@ interface ModalsManagerProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   selectedCountry: any;
+  currentDate?: Date;
 }
 
 export default function ModalsManager({
@@ -60,7 +61,8 @@ export default function ModalsManager({
   setActiveMenu,
   countryDetail,
   setCountryDetail,
-  selectedCountry
+  selectedCountry,
+  currentDate
 }: ModalsManagerProps) {
   
   if (!selectedCountry) return null;
@@ -164,6 +166,7 @@ export default function ModalsManager({
         onClose={() => setActiveMenu("Peta Taktis")}
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
+        currentDate={currentDate}
       />
       <TempatUmumModal
         isOpen={activeMenu === "Menu:TempatUmum"}

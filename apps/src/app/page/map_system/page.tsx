@@ -30,6 +30,7 @@ export default function MapPage() {
     const [countryDetail, setCountryDetail] = useState<any>(null);
     const [isPaused, setIsPaused] = useState(true);
     const [speed, setSpeed] = useState(1);
+    const [currentDate, setCurrentDate] = useState<Date>(new Date());
 
     const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
     const [saveNameInput, setSaveNameInput] = useState('');
@@ -51,6 +52,8 @@ export default function MapPage() {
                 if (dateTextRef.current) {
                     dateTextRef.current.textContent = formattedDate;
                 }
+                // Update React state dengan tanggal baru
+                setCurrentDate(manager.getCurrentDate());
             },
             (progress) => {
                 if (progressBarRef.current) {
@@ -75,6 +78,7 @@ export default function MapPage() {
         }
 
         timeManagerRef.current = manager;
+        setCurrentDate(manager.getCurrentDate());
 
         return () => {
             manager.destroy();
@@ -326,6 +330,7 @@ export default function MapPage() {
                 countryDetail={countryDetail}
                 setCountryDetail={setCountryDetail}
                 selectedCountry={selectedCountry}
+                currentDate={currentDate}
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
