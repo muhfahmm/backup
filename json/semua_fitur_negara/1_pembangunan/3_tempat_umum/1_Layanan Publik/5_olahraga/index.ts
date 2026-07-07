@@ -1,4 +1,5 @@
-﻿ "16_kolam_renang": {
+﻿export const olahragaRate = {
+ "16_kolam_renang": {
     key: "16_kolam_renang",
     dataKey: "kolam_renang",
     label: "Kolam Renang",

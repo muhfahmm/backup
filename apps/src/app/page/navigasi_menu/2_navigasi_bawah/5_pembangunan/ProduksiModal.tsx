@@ -432,7 +432,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                         </div>
                       )}
                       
-                      {isAvailable && (
+                      {isAvailable && activeTab === "kelistrikan" && (
                         <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
                           {bMeta?.produksi !== undefined ? (
                             <div className="flex flex-col">
@@ -444,6 +444,14 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                           ) : (
                             <div className="text-[#8b7e66]">Tidak ada produksi</div>
                           )}
+                        </div>
+                      )}
+                      
+                      {isAvailable && activeTab !== "kelistrikan" && (
+                        <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
+                          <div className="text-center">
+                            <span className="font-black text-lg text-[#2e261a]">0</span>
+                          </div>
                         </div>
                       )}
                     </div>
