@@ -1,8 +1,4 @@
-﻿// @ts-nocheck
-// ===================
-// DETAIL TOTAL BANGUNAN: Armada Militer (Total: 22 Unit)
-// ===================
-const armadaMiliterRate = {
+﻿export const armadaMiliterRate = {
   // ARMADA DARAT
   "1_barak": {
     key: "1_barak",
@@ -262,39 +258,7 @@ const armadaMiliterRate = {
   }
 };
 
-  barak: number;
-  darat: {
-    tank_tempur_utama: number;
-    apc_ifv: number;
-    artileri_berat: number;
-    sistem_peluncur_roket: number;
-    pertahanan_udara_mobile: number;
-    kendaraan_taktis: number;
-  };
-  laut: {
-    kapal_induk: number;
-    kapal_induk_nuklir: number;
-    kapal_destroyer: number;
-    kapal_korvet: number;
-    kapal_selam_nuklir: number;
-    kapal_selam_regular: number;
-    kapal_ranjau: number;
-    kapal_logistik: number;
-  };
-  udara: {
-    jet_tempur_siluman: number;
-    jet_tempur_interceptor: number;
-    pesawat_pengebom: number;
-    helikopter_serang: number;
-    pesawat_pengintai: number;
-    drone_intai_uav: number;
-    drone_kamikaze: number;
-    pesawat_angkut: number;
-  };
-}
-
-const armadaMiliterList = [
-  // 2. Armada Tempur (Armada)
+export const armadaMiliterList = [
   { key: "barak", category: "Armada", label: "Barak Militer", deskripsi: "Hunian Tentara", biaya_pembangunan: 26250, waktu_pembangunan: 15, biaya_pemeliharaan: 15 },
   { key: "tank", category: "Armada", label: "Main Battle Tank", deskripsi: "Kavaleri Darat", biaya_pembangunan: 63750, waktu_pembangunan: 30, biaya_pemeliharaan: 10 },
   { key: "apc", category: "Armada", label: "APC / IFV", deskripsi: "Transportasi Taktis", biaya_pembangunan: 26250, waktu_pembangunan: 15, biaya_pemeliharaan: 4 },

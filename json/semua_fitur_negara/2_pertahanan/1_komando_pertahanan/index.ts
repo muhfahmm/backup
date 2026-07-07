@@ -1,26 +1,4 @@
-﻿// @ts-nocheck
-  pusat_komando_strategis: number;
-  bunker_komando: number;
-  pusat_komando_wilayah: number;
-}
-
-    misi_serangan: number;
-    agen_mata_mata: number;
-    misi_sabotase: number;
-    manajemen_wilayah: number;
-    program_nuklir: number;
-    misil_nuklir: number;
-  };
-    sistem_satelit: number;
-    jaringan_radar: number;
-    operasi_siber: number;
-  };
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Komando Pertahanan (Total: 3 Bangunan)
-// ===================
-const komandoPertahananRate = {
+﻿export const komandoPertahananRate = {
   "pusat_komando_strategis": {
     key: "pusat_komando_strategis",
     dataKey: "pusat_komando_strategis",

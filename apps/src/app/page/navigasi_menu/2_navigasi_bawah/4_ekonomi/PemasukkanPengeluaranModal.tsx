@@ -44,26 +44,26 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
             
             <div className="flex justify-between text-xs font-bold text-emerald-700">
               <span>Reveneu Pajak:</span>
-              <span>+ Rp 18,200,000 / bln</span>
+              <span>+ 18.200.000 EM / bln</span>
             </div>
             <div className="flex justify-between text-xs font-bold text-emerald-700 border-b border-[#C4B49C]/30 pb-2">
               <span>Laba Dagang Ekspor:</span>
-              <span>+ Rp 12,400,000 / bln</span>
+              <span>+ 12.400.000 EM / bln</span>
             </div>
 
             <div className="flex justify-between text-xs font-bold text-rose-700">
               <span>Pemeliharaan Militer:</span>
-              <span>- Rp 6,500,000 / bln</span>
+              <span>- 6.500.000 EM / bln</span>
             </div>
             <div className="flex justify-between text-xs font-bold text-rose-700">
               <span>Beban Subsidi Publik:</span>
-              <span>- Rp 12,000,000 / bln</span>
+              <span>- 12.000.000 EM / bln</span>
             </div>
           </div>
 
           <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-2 px-1">
             <span>Total Saldo Kas Negara:</span>
-            <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+            <span>{anggaran.toLocaleString("id-ID")} EM</span>
           </div>
         </div>
       </div>

@@ -173,21 +173,3 @@ const agrikulturRate = {
     konsumsi_listrik: 18
   },
 };
-
-}
-
-  padi: number;
-  gandum: number;
-  jagung: number;
-  sayur: number;
-  umbi: number;
-  kedelai: number;
-  kelapa_sawit: number;
-  teh: number;
-  kopi: number;
-  kakao: number;
-  tebu: number;
-  karet: number;
-  kapas: number;
-  tembakau: number;
-}

@@ -1,9 +1,4 @@
-﻿// @ts-nocheck
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Kesehatan (Total: 3 Bangunan)
-// ===================
+﻿export const kesehatanRate = {
   "11_rumah_sakit_besar": {
     key: "11_rumah_sakit_besar",
     dataKey: "rumah_sakit_besar",

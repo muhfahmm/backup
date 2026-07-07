@@ -64,7 +64,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
                 onClick={() => handleGift(item.power)}
                 className="w-full py-2 mt-4 rounded-lg bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 text-[10px] font-black uppercase cursor-pointer"
               >
-                Kirim Hadiah (Rp 20.000.000)
+                Kirim Hadiah (20.000.000 EM)
               </button>
             </div>
           ))}

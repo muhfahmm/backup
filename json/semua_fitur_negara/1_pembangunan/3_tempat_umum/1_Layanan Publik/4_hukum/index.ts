@@ -1,10 +1,4 @@
-﻿// @ts-nocheck
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Hukum & Keamanan (Total: 2 Bangunan)
-// ===================
-  "14_kejaksaan_court": {
+﻿  "14_kejaksaan_court": {
     key: "14_kejaksaan_court",
     dataKey: "kejaksaan_court",
     label: "Kejaksaan & Peradilan",

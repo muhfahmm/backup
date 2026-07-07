@@ -1,9 +1,4 @@
-﻿// @ts-nocheck
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Komersial (Total: 3 Bangunan)
-// ===================
+﻿// ===================
   "23_pusat_belanja": {
     key: "23_pusat_belanja",
     dataKey: "pusat_belanja",

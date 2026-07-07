@@ -1,25 +1,4 @@
-﻿// @ts-nocheck
-  armada_polisi: {
-    markas_besar_polri: number;
-    akademi_kepolisian: number;
-    pusat_forensik: number;
-    kantor_polisi: number;
-    pos_polisi: number;
-    network_cctv: number;
-    armada_mobil_polisi: number;
-    mobil_patroli_interceptor: number;
-    unit_roda_dua: number;
-    helikopter_polisi: number;
-    unit_k9: number;
-    pasukan_swat: number;
-    samapta: number;
-  };
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Kepolisian Negara (Total: 13 Jenis)
-// ===================
-  // --- PUSAT KOMANDO & PENDIDIKAN ---
+﻿export const armadaPolisiRate = {
   "1_pusat_komando": {
     key: "1_pusat_komando",
     dataKey: "markas_besar_polri",

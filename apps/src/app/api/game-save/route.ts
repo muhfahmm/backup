@@ -7,8 +7,16 @@ import { getDbPool } from '../../../lib/db';
 export async function GET() {
     try {
         const pool = await getDbPool();
-        const [rows] = await pool.query('SELECT * FROM game_saves ORDER BY id DESC');
-        return NextResponse.json(rows);
+        const [rows]: any = await pool.query('SELECT * FROM game_saves ORDER BY id DESC');
+        
+        // Parse country_detail JSON strings back to objects
+        const parsedRows = rows.map((row: any) => ({
+            ...row,
+            country_name: row.country_name, // Keep original for compatibility
+            countryDetail: row.country_detail ? JSON.parse(row.country_detail) : null,
+        }));
+        
+        return NextResponse.json(parsedRows);
     } catch (error: any) {
         console.error('Error fetching game saves:', error);
         return NextResponse.json(
@@ -35,6 +43,7 @@ export async function POST(request: Request) {
             ideology,
             religion,
             unVote,
+            countryDetail, // NOW include full countryDetail which has all accumulated/build_date fields
         } = body;
 
         // Validation for critical simulation state variables
@@ -45,11 +54,14 @@ export async function POST(request: Request) {
             );
         }
 
+        // Serialize full countryDetail for production tracking
+        const countryDetailJson = JSON.stringify(countryDetail || {});
+
         const pool = await getDbPool();
         const [result] = await pool.query(
             `INSERT INTO game_saves 
-            (save_name, country_name, country_iso, game_date, capital, jumlah_penduduk, anggaran, ideology, religion, un_vote) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            (save_name, country_name, country_iso, game_date, capital, jumlah_penduduk, anggaran, ideology, religion, un_vote, country_detail) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
             [
                 saveName,
                 countryName,
@@ -61,6 +73,7 @@ export async function POST(request: Request) {
                 ideology || null,
                 religion || null,
                 unVote ? Number(unVote) : 0,
+                countryDetailJson,
             ]
         );
 

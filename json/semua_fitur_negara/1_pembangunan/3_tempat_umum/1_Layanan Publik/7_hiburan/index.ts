@@ -1,10 +1,4 @@
-﻿// @ts-nocheck
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Hiburan (Total: 2 Bangunan)
-// ===================
-  "26_bioskop": {
+﻿  "26_bioskop": {
     key: "26_bioskop",
     dataKey: "bioskop",
     label: "Bioskop",

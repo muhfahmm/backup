@@ -1,9 +1,4 @@
-﻿// @ts-nocheck
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Pendidikan (Total: 10 Bangunan)
-// ===================
+﻿export const pendidikanRate = {
   "1_prasekolah": {
     key: "1_prasekolah",
     dataKey: "prasekolah",

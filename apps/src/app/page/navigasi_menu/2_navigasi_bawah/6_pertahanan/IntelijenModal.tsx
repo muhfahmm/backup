@@ -51,7 +51,7 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl mb-6">
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
               <span>Kas Anggaran Negara:</span>
-              <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+              <span>{anggaran.toLocaleString("id-ID")}</span>
             </div>
           </div>
 
@@ -59,7 +59,7 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
             onClick={handleIntel}
             className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
           >
-            Luncurkan Misi Intelijen (Rp 10.000.000)
+            Luncurkan Misi Intelijen (10.000.000 EM)
           </button>
         </div>
       </div>

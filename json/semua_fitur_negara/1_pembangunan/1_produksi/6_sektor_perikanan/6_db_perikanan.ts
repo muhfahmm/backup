@@ -40,10 +40,3 @@ const perikananRate = {
     konsumsi_listrik: 45
   }
 };
-
-}
-
-  udang: number;
-  ikan: number;
-  mutiara: number;
-}

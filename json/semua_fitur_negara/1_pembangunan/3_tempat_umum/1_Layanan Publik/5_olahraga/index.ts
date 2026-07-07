@@ -1,14 +1,4 @@
-﻿// @ts-nocheck
-  kolam_renang: number;
-  sirkuit_balap: number;
-  stadion: number;
-  stadion_internasional: number;
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Olahraga & Rekreasi (Total: 7 Bangunan)
-// ===================
-  "16_kolam_renang": {
+﻿ "16_kolam_renang": {
     key: "16_kolam_renang",
     dataKey: "kolam_renang",
     label: "Kolam Renang",

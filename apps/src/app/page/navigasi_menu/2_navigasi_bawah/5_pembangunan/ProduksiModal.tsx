@@ -1,7 +1,8 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown } from "lucide-react";
+import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown, Info } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
+import { isBuildingAvailable } from '../../../../logic';
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,13 +12,31 @@ interface ModalProps {
   currentDate?: Date;
 }
 
-import { computeDisplayedProduction } from '../../../../logic/index';
-import { updateCountryDetailWithProduction, formatDateForStorage } from '../../../../logic/dailyProductionCalculator';
-
 export default function ProduksiModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate }: ModalProps) {
   const [activeTab, setActiveTab] = useState("kelistrikan");
+  const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+  const [loadingMetadata, setLoadingMetadata] = useState(true);
+  const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
 
-  
+  // All useEffects BEFORE any early returns
+  React.useEffect(() => {
+    if (!isOpen) return;
+    setLoadingMetadata(true);
+    fetchBuildingMetadata()
+      .then((data) => setMetadata(data || {}))
+      .catch((err) => console.error("Failed to load building metadata:", err))
+      .finally(() => setLoadingMetadata(false));
+  }, [isOpen]);
+
+  // No production calculation needed - logic folders deleted
+
+  useEffect(() => {
+    if (isOpen) {
+      console.log('ProduksiModal opened - countryDetail:', countryDetail);
+    }
+  }, [isOpen, countryDetail]);
 
   const SECTIONS = [
     {
@@ -105,49 +124,6 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     return key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   };
 
-  const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
-  const [toast, setToast] = useState<string | null>(null);
-  const [metadata, setMetadata] = useState<Record<string, any>>({});
-  const [loadingMetadata, setLoadingMetadata] = useState(true);
-
-  React.useEffect(() => {
-    if (!isOpen) return;
-    setLoadingMetadata(true);
-    fetchBuildingMetadata()
-      .then((data) => setMetadata(data || {}))
-      .catch((err) => console.error("Failed to load building metadata:", err))
-      .finally(() => setLoadingMetadata(false));
-  }, [isOpen]);
-
-  // Update countryDetail dengan produksi terakumulasi saat currentDate berubah
-  React.useEffect(() => {
-    if (!currentDate || !countryDetail || !metadata) return;
-
-    const keysToUpdate = ['padi', 'gandum', 'jagung', 'sayur', 'umbi', 'kedelai', 'kelapa_sawit', 'kopi', 'teh', 'kakao', 'tebu', 'karet', 'kapas', 'tembakau', 'ayam_unggas', 'sapi_perah', 'sapi_potong', 'domba_kambing'];
-    
-    let updatedDetail = { ...countryDetail };
-    let hasChanges = false;
-
-    keysToUpdate.forEach(key => {
-      const per = Number(metadata[key]?.produksi) || 0;
-      const count = Number(countryDetail?.[key]) || 0;
-      
-      if (per > 0 && count > 0) {
-        const prodInfo = computeDisplayedProduction(key, countryDetail, metadata, 'agrikultur', currentDate);
-        if (prodInfo.total !== Number(countryDetail?.[key])) {
-          updatedDetail[key] = prodInfo.total;
-          updatedDetail[`accumulated_${key}`] = prodInfo.total;
-          updatedDetail[`last_prod_date_${key}`] = formatDateForStorage(currentDate);
-          hasChanges = true;
-        }
-      }
-    });
-
-    if (hasChanges) {
-      setCountryDetail(updatedDetail);
-    }
-  }, [currentDate, metadata]);
-
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
     if (metadata[key]) return metadata[key];
@@ -161,14 +137,17 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     return undefined;
   };
 
-  useEffect(() => {
-    if (isOpen) {
-      console.log('ProduksiModal opened - countryDetail:', countryDetail);
-      console.log('ProduksiModal metadata:', metadata);
-    }
-  }, [isOpen, countryDetail, metadata]);
-if (!isOpen) return null;
+  // Early return AFTER all hooks
+  if (!isOpen) return null;
+  
   const handleBuild = (key: string, label: string) => {
+    // Check if building is available for this country
+    if (!isBuildingAvailable(key, countryDetail?.country || '')) {
+      setToast(`❌ ${label} tidak tersedia untuk negara ini`);
+      setTimeout(() => setToast(null), 2000);
+      return;
+    }
+    
     console.log('ProduksiModal.handleBuild', key, label);
     setSelectedBuilding({ key, label });
     setToast(`${label} dipilih`);
@@ -183,6 +162,13 @@ if (!isOpen) return null;
       alert(`Metadata bangunan masih dimuat. Coba lagi sebentar.`);
       return;
     }
+    
+    // Ensure currentDate exists before proceeding
+    if (!currentDate) {
+      alert(`❌ EROR: Tanggal tidak tersedia (currentDate undefined)!`);
+      return;
+    }
+    
     const cost = Number(bMeta.biaya_pembangunan);
     const anggaran = Number(countryDetail?.anggaran) || 0;
 
@@ -191,11 +177,33 @@ if (!isOpen) return null;
       return;
     }
 
-    setCountryDetail({
+    const buildDateKey = `build_date_${key}`;
+    // Format date as YYYY-MM-DD
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const buildDateValue = `${year}-${month}-${day}`;
+    
+    console.log(`[confirmBuild] Building ${key}:`, {
+      buildDateKey,
+      buildDateValue,
+      currentDate: currentDate.toDateString(),
+    });
+    
+    const updatedDetail = {
       ...countryDetail,
       anggaran: anggaran - cost,
       [key]: (Number(countryDetail?.[key]) || 0) + 1,
-    });
+      [buildDateKey]: buildDateValue,
+      [`accumulated_${key}`]: 0,
+      [`last_prod_date_${key}`]: buildDateValue,
+    };
+    
+    console.log(`[confirmBuild] Updated countryDetail:`, updatedDetail);
+    
+    alert(`✅ Berhasil! ${label} dibangun pada ${buildDateValue}. Sekarang ada ${updatedDetail[key]} bangunan.`);
+    
+    setCountryDetail(updatedDetail);
     setSelectedBuilding(null);
   };
 
@@ -206,11 +214,11 @@ if (!isOpen) return null;
       label: formatLabel(k),
       value: Number(countryDetail?.[k]) || 0
     }));
-    const totalCount = items.length;
+    const typeCount = items.length;  // Count of building TYPES/categories, not total buildings
     return {
       ...sec,
       items,
-      activeCount: totalCount
+      activeCount: typeCount
     };
   });
 
@@ -313,33 +321,131 @@ if (!isOpen) return null;
               {activeSection.items.map((it) => {
                 const bMeta = findMeta(it.key) || {};
                 const perCount = Number(countryDetail?.[it.key]) || 0;
-                const prodInfo = computeDisplayedProduction(it.key, countryDetail, metadata, activeSection.id, currentDate);
+                const isAvailable = isBuildingAvailable(it.key, countryDetail?.country || '');
+                const countryName = countryDetail?.country || 'Unknown';
+                const isMaritimeSection = activeSection.id === 'perikanan';
+                const isUnsupported = !isAvailable && isMaritimeSection;
+                
+                // Debug log
+                if (isMaritimeSection) {
+                  console.log(`[Perikanan] ${it.key}: country="${countryName}", isAvailable=${isAvailable}, isUnsupported=${isUnsupported}`);
+                }
+                
                 return (
                   <div
                     key={it.key}
-                    onClick={() => handleBuild(it.key, it.label)}
+                    onClick={() => isAvailable && handleBuild(it.key, it.label)}
                     role="button"
-                    tabIndex={0}
-                    className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow cursor-pointer"
+                    tabIndex={isAvailable ? 0 : -1}
+                    onMouseEnter={() => isAvailable && setHoveredBuildingKey(it.key)}
+                    onMouseLeave={() => setHoveredBuildingKey(null)}
+                    className={`rounded-2xl overflow-visible flex flex-col justify-between transition-all relative ${
+                      isAvailable
+                        ? 'bg-white/90 border border-[#C4B49C]/30 shadow-sm hover:shadow-md cursor-pointer'
+                        : isUnsupported
+                        ? 'bg-red-200/70 border-2 border-red-500 shadow-lg cursor-not-allowed'
+                        : 'bg-gray-200/50 border border-gray-300/50 shadow-none cursor-not-allowed opacity-60'
+                    }`}
                   >
+                    {/* Info Tooltip */}
+                    {hoveredBuildingKey === it.key && isAvailable && (
+                      <div className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150">
+                        <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE] mb-2">ℹ️ Info Bangunan</div>
+                        <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
+                          {activeTab === "kelistrikan" ? (
+                            <>
+                              <div className="flex justify-between">
+                                <span className="text-[#C4B49C]">Produksi Listrik:</span>
+                                <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')} MW</span>
+                              </div>
+                              {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
+                                <div className="flex justify-between">
+                                  <span className="text-[#C4B49C]">Konsumsi Listrik:</span>
+                                  <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik} MW</span>
+                                </div>
+                              )}
+                            </>
+                          ) : (
+                            <>
+                              <div className="flex justify-between">
+                                <span className="text-[#C4B49C]">Produksi Per Hari:</span>
+                                <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')} {bMeta?.satuan || ''}</span>
+                              </div>
+                            </>
+                          )}
+                          <div className="flex justify-between">
+                            <span className="text-[#C4B49C]">Biaya:</span>
+                            <span className="text-amber-300 font-bold">{(Number(bMeta?.biaya_pembangunan) || 0).toLocaleString('id-ID')} EM</span>
+                          </div>
+                          {bMeta?.waktu_pembangunan !== undefined && (
+                            <div className="flex justify-between">
+                              <span className="text-[#C4B49C]">Waktu:</span>
+                              <span className="text-amber-300 font-bold">{bMeta.waktu_pembangunan} hari</span>
+                            </div>
+                          )}
+                        </div>
+                        <div className="text-[9px] text-[#C4B49C] mt-2 pt-2 border-t border-[#8b7e66]/30 italic">Klik untuk mulai pembangunan</div>
+                      </div>
+                    )}
+                    
                     <div className="p-4 flex flex-col flex-grow justify-between">
                       <div>
-                        <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
-                        <p className="text-2xl font-black text-[#2e261a] mt-2">{perCount.toLocaleString('id-ID')}</p>
+                        <div className="flex items-center justify-between gap-2 mb-1">
+                          <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
+                          {isAvailable && (
+                            <button
+                              className="flex items-center justify-center w-5 h-5 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-help"
+                              onMouseEnter={() => setHoveredBuildingKey(it.key)}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setHoveredBuildingKey(it.key);
+                              }}
+                              title="Info bangunan"
+                            >
+                              <Info className="w-3 h-3" />
+                            </button>
+                          )}
+                        </div>
+                        <p className={`text-2xl font-black mt-2 ${
+                          isAvailable ? 'text-[#2e261a]' : isUnsupported ? 'text-red-700 drop-shadow-md' : 'text-gray-500'
+                        }`}>
+                          {isAvailable ? perCount : isUnsupported ? '✗' : '—'}
+                        </p>
+                        <p className={`text-[10px] mt-1 font-bold ${
+                          isAvailable ? 'text-[#8b7e66]' : isUnsupported ? 'text-red-700' : 'text-gray-500'
+                        }`}>
+                          {isAvailable ? `${perCount} bangunan` : isUnsupported ? 'Tidak tersedia' : 'Tidak tersedia'}
+                        </p>
                       </div>
-                      <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
-                        {bMeta?.produksi !== undefined ? (
-                          <div className="flex flex-col">
-                            <span className="text-[10px] text-[#8b7e66]">Produksi per hari:</span>
-                            <span className="font-black text-sm text-[#2e261a]">
-                              +{(bMeta.produksi || 0).toLocaleString('id-ID')} {bMeta.satuan || ''} × {perCount.toLocaleString('id-ID')}
-                              <span className="text-emerald-700 font-bold"> = +{(prodInfo.total || 0).toLocaleString('id-ID')} {prodInfo.unit || bMeta.satuan || ''}</span>
-                            </span>
-                          </div>
-                        ) : (
-                          <div className="text-[#8b7e66]">Tidak ada produksi</div>
-                        )}
-                      </div>
+                      
+                      {isUnsupported && (
+                        <div className="border-t border-red-500/60 mt-4 pt-2 text-[10px]">
+                          <p className="text-red-800 font-black text-xs drop-shadow-sm">⛔ BANGUNAN TIDAK SUPPORT</p>
+                          <p className="text-red-700 text-[9px] mt-1 font-semibold">Negara tidak memiliki laut</p>
+                        </div>
+                      )}
+                      
+                      {!isAvailable && !isUnsupported && (
+                        <div className="border-t border-gray-300/30 mt-4 pt-2 text-[10px]">
+                          <p className="text-gray-600 font-semibold">🌊 Memerlukan akses maritim</p>
+                          <p className="text-gray-500 text-[9px] mt-1">Negara tidak memiliki garis pantai</p>
+                        </div>
+                      )}
+                      
+                      {isAvailable && (
+                        <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
+                          {bMeta?.produksi !== undefined ? (
+                            <div className="flex flex-col">
+                              <span className="text-[10px] text-[#8b7e66]">Produksi per hari:</span>
+                              <span className="font-black text-sm text-[#2e261a]">
+                                +{(bMeta.produksi || 0).toLocaleString('id-ID')} {bMeta.satuan || ''} × {perCount.toLocaleString('id-ID')}
+                              </span>
+                            </div>
+                          ) : (
+                            <div className="text-[#8b7e66]">Tidak ada produksi</div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
                 );
@@ -388,7 +494,7 @@ if (!isOpen) return null;
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
                   <div className="flex justify-between font-bold">
                     <span>Biaya Pembangunan:</span>
-                    <span className="text-[#2e261a]">{(loadingMetadata || !bMeta) ? 'Memuat...' : `Rp ${cost.toLocaleString('id-ID')}`}</span>
+                    <span className="text-[#2e261a]">{(loadingMetadata || !bMeta) ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}</span>
                   </div>
                   {bMeta?.waktu_pembangunan !== undefined && (
                     <div className="flex justify-between">
@@ -419,7 +525,7 @@ if (!isOpen) return null;
 
                 <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
                   <span>Kas Negara Saat Ini:</span>
-                  <span>Rp {(Number(countryDetail?.anggaran) || 0).toLocaleString('id-ID')}</span>
+                  <span>{(Number(countryDetail?.anggaran) || 0).toLocaleString('id-ID')}</span>
                 </div>
               </div>
 

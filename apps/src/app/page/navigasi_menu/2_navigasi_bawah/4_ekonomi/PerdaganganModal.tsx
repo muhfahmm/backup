@@ -18,7 +18,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
       ...countryDetail,
       anggaran: anggaran + amount
     });
-    alert(`Berhasil mengekspor komoditas ${name}! Kas Negara bertambah Rp ${amount.toLocaleString("id-ID")}.`);
+    alert(`Berhasil mengekspor komoditas ${name}! Kas Negara bertambah ${amount.toLocaleString("id-ID")} EM.`);
   };
 
   return (
@@ -61,7 +61,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                   onClick={() => handleExport(item.val, item.res)}
                   className="w-full py-2 rounded-lg bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 text-[10px] font-black uppercase cursor-pointer"
                 >
-                  Ekspor (Rp {item.val.toLocaleString("id-ID")})
+                  Ekspor ({item.val.toLocaleString("id-ID")})
                 </button>
               </div>
             ))}

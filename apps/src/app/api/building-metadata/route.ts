@@ -24,7 +24,7 @@ export async function GET() {
       console.log('[building-metadata] loaded local JSON:', localJsonPath);
       return NextResponse.json(metadata);
     } catch (jsonErr) {
-      console.warn('[building-metadata] local JSON unavailable, falling back to TS parsing:', jsonErr?.message ?? jsonErr);
+      console.warn('[building-metadata] local JSON unavailable, falling back to TS parsing:', (jsonErr as any)?.message ?? jsonErr);
     }
 
     let base = path.join(process.cwd(), 'json', 'semua_fitur_negara');

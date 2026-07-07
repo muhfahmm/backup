@@ -53,7 +53,7 @@ export default function BantuanModal({ isOpen, onClose, countryDetail, setCountr
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl mb-6">
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
               <span>Kas Anggaran Negara:</span>
-              <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+              <span>{anggaran.toLocaleString("id-ID")}</span>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ export default function BantuanModal({ isOpen, onClose, countryDetail, setCountr
             onClick={handleAid}
             className="w-full py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
           >
-            Kirim Bantuan Darurat (Rp 15.000.000)
+            Kirim Bantuan Darurat (15.000.000 EM)
           </button>
         </div>
       </div>

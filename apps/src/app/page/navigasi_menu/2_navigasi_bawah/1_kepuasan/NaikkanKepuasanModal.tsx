@@ -105,7 +105,7 @@ export default function NaikkanKepuasanModal({
     if (anggaran < cost) {
       setFeedback({
         type: "error",
-        message: `Anggaran negara tidak mencukupi untuk mendanai ${title}! Diperlukan Rp ${cost.toLocaleString("id-ID")}.`
+        message: `Anggaran negara tidak mencukupi untuk mendanai ${title}! Diperlukan ${cost.toLocaleString("id-ID")} EM.`
       });
       setTimeout(() => setFeedback(null), 4000);
       return;
@@ -175,7 +175,7 @@ export default function NaikkanKepuasanModal({
               Anggaran Kas Negara saat ini:
             </span>
             <span className="text-sm font-black text-[#2e261a]">
-              Rp {anggaran.toLocaleString("id-ID")}
+              {anggaran.toLocaleString("id-ID")}
             </span>
           </div>
 
@@ -243,7 +243,7 @@ export default function NaikkanKepuasanModal({
                           Biaya Alokasi
                         </p>
                         <p className="text-sm font-black text-[#2e261a] mt-1">
-                          Rp {item.cost.toLocaleString("id-ID")}
+                          {item.cost.toLocaleString("id-ID")}
                         </p>
                       </div>
                       <button

@@ -16,8 +16,3 @@ const farmasiRate = {
     konsumsi_listrik: 250
   }
 };
-
-}
-
-  farmasi: number;
-}

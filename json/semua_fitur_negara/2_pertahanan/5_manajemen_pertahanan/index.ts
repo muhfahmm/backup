@@ -1,9 +1,4 @@
-﻿// @ts-nocheck
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Pertahanan (Total: 9 Bangunan)
-// ===================
-const pertahananRate = {
+﻿export const pertahananRate = {
   "1_penjara": {
     key: "1_penjara",
     dataKey: "penjara",

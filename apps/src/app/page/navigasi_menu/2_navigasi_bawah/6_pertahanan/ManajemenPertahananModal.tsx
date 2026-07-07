@@ -37,11 +37,11 @@ export default function ManajemenPertahananModal({ isOpen, onClose, countryDetai
         <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-3">
           <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
             <span>Anggaran Perawatan Alutsista:</span>
-            <span>Rp 4,500,000 / bln</span>
+            <span>4.500.000 EM / bln</span>
           </div>
           <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
             <span>Gaji Prajurit & Tunjangan:</span>
-            <span>Rp 2,000,000 / bln</span>
+            <span>2.000.000 EM / bln</span>
           </div>
         </div>
       </div>

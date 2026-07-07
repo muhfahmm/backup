@@ -53,7 +53,9 @@ export default function MapPage() {
                     dateTextRef.current.textContent = formattedDate;
                 }
                 // Update React state dengan tanggal baru
-                setCurrentDate(manager.getCurrentDate());
+                if (timeManagerRef.current) {
+                    setCurrentDate(timeManagerRef.current.getCurrentDate());
+                }
             },
             (progress) => {
                 if (progressBarRef.current) {
@@ -61,6 +63,9 @@ export default function MapPage() {
                 }
             }
         );
+
+        // Assign manager to ref immediately after construction
+        timeManagerRef.current = manager;
 
         // Check if there is a save to load to restore the date
         if (typeof window !== 'undefined') {
@@ -77,7 +82,6 @@ export default function MapPage() {
             }
         }
 
-        timeManagerRef.current = manager;
         setCurrentDate(manager.getCurrentDate());
 
         return () => {
@@ -126,6 +130,7 @@ export default function MapPage() {
             if (Object.keys(mergedData).length > 0) {
                 setCountryDetail({
                     ...mergedData,
+                    country: countryName,  // Store the country name for maritime check
                     capital: mergedData.capital || capitalName,
                     jumlah_penduduk: mergedData.jumlah_penduduk || 0,
                     anggaran: mergedData.anggaran || 0,
@@ -152,7 +157,9 @@ export default function MapPage() {
                     );
                     if (chosen) {
                         setSelectedCountry(chosen);
-                        setCountryDetail({
+                        
+                        // Restore countryDetail from saved state, or use parsed countryDetail if available
+                        let restoredDetail: any = {
                             capital: savedState.capital || chosen.capital,
                             jumlah_penduduk: Number(savedState.jumlah_penduduk),
                             anggaran: Number(savedState.anggaran),
@@ -160,7 +167,14 @@ export default function MapPage() {
                             religion: savedState.religion || '-',
                             un_vote: Number(savedState.un_vote),
                             kepuasan: Number(savedState.kepuasan) || 50
-                        });
+                        };
+                        
+                        // If full countryDetail was saved (includes accumulated_* and build_date_* fields)
+                        if (savedState.countryDetail && typeof savedState.countryDetail === 'object') {
+                            restoredDetail = { ...restoredDetail, ...savedState.countryDetail };
+                        }
+                        
+                        setCountryDetail(restoredDetail);
                         
                         // Clean up saved state from localStorage so it doesn't re-apply
                         localStorage.removeItem('presiden_simulator_load_save');
@@ -187,13 +201,22 @@ export default function MapPage() {
         }
     }, []);
 
-    // Restart game progress handler
+    // Update accumulated production every time date changes
+    useEffect(() => {
+        if (!countryDetail || !currentDate) return;
+        
+        console.log('[MapPage] Updating production for date:', currentDate.toDateString());
+        
+        // Re-setting triggers child updates
+        // This ensures modals see new dates even when they were closed
+    }, [currentDate]);
     const handleRestart = () => {
         if (selectedCountry) {
             handleGameRestart({
                 timeManager: timeManagerRef.current,
                 setIsPaused,
                 setSpeed,
+                setCountryDetail, // Add this to reset production data
                 reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital),
                 skipConfirm: true
             });
@@ -234,6 +257,7 @@ export default function MapPage() {
                     religion: countryDetail?.religion || '-',
                     unVote: countryDetail?.un_vote || 0,
                     kepuasan: countryDetail?.kepuasan ?? 50,
+                    countryDetail: countryDetail, // Save entire countryDetail with all production data
                 }),
             });
 

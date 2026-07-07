@@ -1,7 +1,0 @@
-﻿// @ts-nocheck
-
-
-}
-
-const sosialRate = {
-};

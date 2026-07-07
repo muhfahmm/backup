@@ -18,7 +18,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
       ...countryDetail,
       anggaran: anggaran + 100000000
     });
-    alert("Berhasil mencairkan dana bantuan darurat IMF sebesar Rp 100.000.000 ke kas negara!");
+    alert("Berhasil mencairkan dana bantuan darurat IMF sebesar 100.000.000 EM ke kas negara!");
   };
 
   return (
@@ -53,7 +53,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
             </div>
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
               <span>Kas Anggaran Negara:</span>
-              <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+              <span>{anggaran.toLocaleString("id-ID")} EM</span>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
             onClick={handleLoan}
             className="w-full py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
           >
-            Cairkan Kredit IMF (Rp 100.000.000)
+            Cairkan Kredit IMF (100.000.000 EM)
           </button>
         </div>
       </div>

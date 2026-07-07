@@ -1,17 +1,5 @@
-﻿// @ts-nocheck
-  jalur_sepeda: number;
-  jalan_raya: number;
-  terminal_bus: number;
-  stasiun_kereta_api: number;
-  kereta_bawah_tanah: number;
-  pelabuhan: number;
-  bandara: number;
-  helipad: number;
-}
-
-// ===================
-// DETAIL TOTAL BANGUNAN: Infrastruktur (Total: 8 Bangunan)
-// ===================
+﻿// ===================
+export const infrastrukturRate = {
   "1_jalur_sepeda": {
     key: "1_jalur_sepeda",
     dataKey: "jalur_sepeda",

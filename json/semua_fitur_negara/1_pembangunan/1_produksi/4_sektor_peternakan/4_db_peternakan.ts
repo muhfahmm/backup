@@ -52,11 +52,3 @@ const peternakanRate = {
     konsumsi_listrik: 18
   },
 };
-
-}
-
-  ayam_unggas: number;
-  sapi_perah: number;
-  sapi_potong: number;
-  domba_kambing: number;
-}

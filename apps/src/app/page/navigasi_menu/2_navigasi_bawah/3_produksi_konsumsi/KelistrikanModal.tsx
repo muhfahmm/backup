@@ -122,7 +122,7 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
                 </div>
                 <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/30 p-3 rounded-2xl">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Kas Anggaran Negara</p>
-                  <p className="text-2xl font-black text-[#2e261a] mt-3">Rp {anggaran.toLocaleString('id-ID')}</p>
+                  <p className="text-2xl font-black text-[#2e261a] mt-3">{anggaran.toLocaleString('id-ID')}</p>
                 </div>
               </div>
 

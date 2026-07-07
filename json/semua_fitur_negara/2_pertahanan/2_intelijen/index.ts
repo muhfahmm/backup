@@ -1,10 +1,4 @@
-﻿// @ts-nocheck
-  sistem_satelit: number;
-  jaringan_radar: number;
-  operasi_siber: number;
-}
-
-const intelijenRate = {
+﻿export const intelijenRate = {
   "sistem_satelit": {
     key: "sistem_satelit",
     dataKey: "sistem_satelit",

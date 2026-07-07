@@ -47,14 +47,14 @@ export default function UraniumModal({ isOpen, onClose, countryDetail, setCountr
           </div>
           <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
             <span>Kas Anggaran Negara:</span>
-            <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+            <span>{anggaran.toLocaleString("id-ID")}</span>
           </div>
         </div>
         <button
           onClick={handleEnrich}
           className="w-full py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
         >
-          Mulai Pengayaan Uranium (Rp 120.000.000)
+          Mulai Pengayaan Uranium (120.000.000 EM)
         </button>
       </div>
     </div>

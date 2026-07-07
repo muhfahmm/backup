@@ -47,14 +47,14 @@ export default function PerminyakanModal({ isOpen, onClose, countryDetail, setCo
           </div>
           <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
             <span>Kas Anggaran Negara:</span>
-            <span>Rp {anggaran.toLocaleString("id-ID")}</span>
+            <span>{anggaran.toLocaleString("id-ID")}</span>
           </div>
         </div>
         <button
           onClick={handleDrill}
           className="w-full py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
         >
-          Eksplorasi Kilang Lepas Pantai (Rp 60.000.000)
+          Eksplorasi Kilang Lepas Pantai (60.000.000 EM)
         </button>
       </div>
     </div>

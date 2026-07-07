@@ -88,14 +88,3 @@ const manufakturRate = {
     konsumsi_listrik: 320
   },
 };
-
-}
-
-  semikonduktor: number;
-  mobil: number;
-  sepeda_motor: number;
-  smelter: number;
-  semen_beton: number;
-  kayu: number;
-  pupuk: number;
-}
