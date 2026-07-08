@@ -14,6 +14,7 @@ import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
 import { Navbar } from '../navbar/Navbar';
 import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
+import { logger } from '../../../lib/logger';
 
 interface Country {
     id: number;
@@ -205,11 +206,52 @@ export default function MapPage() {
     useEffect(() => {
         if (!countryDetail || !currentDate) return;
         
-        console.log('[MapPage] Updating production for date:', currentDate.toDateString());
+        // Format date inline (can't import formatDate here due to path issues)
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const currentDateStr = `${year}-${month}-${day}`;
+        logger.log('MapPage', 'Date changed to:', currentDateStr);
         
-        // Re-setting triggers child updates
-        // This ensures modals see new dates even when they were closed
-    }, [currentDate]);
+        // Auto-set build dates for buildings that don't have one
+        // Set to TODAY's date so production starts at 0 from now
+        const resourceKeys = [
+            "pembangkit_listrik_tenaga_nuklir", "pembangkit_listrik_tenaga_air", "pembangkit_listrik_tenaga_surya",
+            "pembangkit_listrik_tenaga_uap", "pembangkit_listrik_tenaga_gas", "pembangkit_listrik_tenaga_angin",
+            "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga",
+            "aluminium", "logam_tanah_jarang", "bijih_besi",
+            "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
+            "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
+            "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao",
+            "tebu", "karet", "kapas", "tembakau",
+            "udang", "mutiara", "ikan",
+            "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu",
+            "pakan_ternak", "ikan_kaleng", "kopi_teh",
+            "farmasi"
+        ];
+        
+        let hasChanges = false;
+        const updatedDetail = { ...countryDetail };
+        
+        for (const resourceKey of resourceKeys) {
+            const buildingCount = Number(countryDetail[resourceKey]) || 0;
+            const buildDateKey = `build_date_${resourceKey}`;
+            const buildDate = countryDetail[buildDateKey];
+            
+            // If building exists but no build date, auto-set to TODAY so production = 0
+            // This ensures legacy buildings without build dates start from 0
+            if (buildingCount > 0 && !buildDate) {
+                updatedDetail[buildDateKey] = currentDateStr; // Set to TODAY, not game start
+                hasChanges = true;
+                logger.log('AutoSetBuildDate', `${resourceKey}: Auto-set to today ${currentDateStr}`);
+            }
+        }
+        
+        if (hasChanges) {
+            logger.log('MapPage', 'Auto-setting missing build dates for existing buildings to TODAY');
+            setCountryDetail(updatedDetail);
+        }
+    }, [currentDate, countryDetail]);
     const handleRestart = () => {
         if (selectedCountry) {
             handleGameRestart({

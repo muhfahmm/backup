@@ -1,8 +1,10 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown, Info } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 import { isBuildingAvailable } from '../../../../logic';
+import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../../../logic/production';
+import { logger } from '../../../../../lib/logger';
 
 interface ModalProps {
   isOpen: boolean;
@@ -19,24 +21,100 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
+  const [productionCache, setProductionCache] = useState<Record<string, number>>({});
+  const [lastCalculationDate, setLastCalculationDate] = useState<string>("");
+
+  // ALWAYS calculate production inline
+  const calculateProductionAmount = useMemo(() => {
+    return (resourceKey: string): number => {
+      const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
+      
+      if (buildingCount === 0) {
+        return 0;
+      }
+      
+      if (!metadata || Object.keys(metadata).length === 0) {
+        logger.log('Production', `Metadata not ready for ${resourceKey}`);
+        return 0;
+      }
+      
+      const bMeta = findMeta(resourceKey);
+      if (!bMeta || !bMeta.produksi) {
+        logger.warn('Production', `No metadata found for ${resourceKey}`);
+        return 0;
+      }
+      
+      if (!currentDate) {
+        logger.log('Production', `CurrentDate undefined for ${resourceKey}`);
+        return 0;
+      }
+      
+      const buildDateKey = `build_date_${resourceKey}`;
+      const buildDate = countryDetail?.[buildDateKey];
+      const finalBuildDate = buildDate || "2026-07-08";
+      const currentDateStr = formatDate(currentDate);
+      
+      const production = calculateProductionIncrement(
+        bMeta.produksi,
+        buildingCount,
+        finalBuildDate,
+        currentDateStr
+      );
+      
+      const daysElapsed = Math.ceil((new Date(currentDateStr).getTime() - new Date(finalBuildDate).getTime()) / (1000 * 60 * 60 * 24));
+      logger.log('Production', `${resourceKey}`, { 
+        production: production.toLocaleString('id-ID'), 
+        rate: bMeta.produksi, 
+        buildings: buildingCount, 
+        days: daysElapsed,
+        buildDate: finalBuildDate,
+        currentDate: currentDateStr
+      });
+      return production;
+    };
+  }, [countryDetail, currentDate, metadata]);
+
+  const calculateDaysElapsed = (startDate: string, endDate: string): number => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const timeMs = end.getTime() - start.getTime();
+    return Math.max(0, Math.ceil(timeMs / (1000 * 60 * 60 * 24)));
+  };
 
   // All useEffects BEFORE any early returns
   React.useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
+    logger.log('ProduksiModal', 'Starting metadata fetch...');
     fetchBuildingMetadata()
-      .then((data) => setMetadata(data || {}))
-      .catch((err) => console.error("Failed to load building metadata:", err))
-      .finally(() => setLoadingMetadata(false));
+      .then((data) => {
+        logger.log('ProduksiModal', 'Metadata loaded successfully!', { keys: Object.keys(data || {}).length });
+        setMetadata(data || {});
+        // CRITICAL: Force re-render of calculation after metadata loads
+        setProductionCache(prev => ({ ...prev }));
+      })
+      .catch((err) => {
+        logger.error('ProduksiModal', 'Failed to load metadata', err);
+      })
+      .finally(() => {
+        setLoadingMetadata(false);
+        logger.log('ProduksiModal', 'Metadata load complete');
+      });
   }, [isOpen]);
 
-  // No production calculation needed - logic folders deleted
-
-  useEffect(() => {
-    if (isOpen) {
-      console.log('ProduksiModal opened - countryDetail:', countryDetail);
+  // Define findMeta EARLY - before any hooks that use it
+  const findMeta = (key: string) => {
+    if (!metadata) return undefined;
+    if (metadata[key]) return metadata[key];
+    // try to find by inner dataKey or key suffix
+    for (const k of Object.keys(metadata)) {
+      const entry = metadata[k];
+      if (!entry) continue;
+      if (entry.dataKey === key) return entry;
+      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
     }
-  }, [isOpen, countryDetail]);
+    return undefined;
+  };
 
   const SECTIONS = [
     {
@@ -109,6 +187,76 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     }
   ];
 
+  // Update production when date changes or building added - RUNS ALWAYS, not just when modal open
+  useEffect(() => {
+    // REMOVED: if (!isOpen) return; 
+    // Production should calculate ALWAYS, even when modal closed
+    
+    if (!currentDate) {
+      console.log(`[ProductionUpdate] Skipping - currentDate not ready`);
+      return;
+    }
+    if (!metadata || Object.keys(metadata).length === 0) {
+      console.log(`[ProductionUpdate] Skipping - metadata not loaded yet`);
+      return;
+    }
+
+    const currentDateStr = formatDate(currentDate);
+    
+    // Recalculate ALWAYS when countryDetail changes (new buildings added) OR when date changes
+    console.log(`[ProductionUpdate] Triggered - date=${currentDateStr}`);
+    
+    // Recalculate all production amounts
+    const newCache: Record<string, number> = {};
+    
+    // Get all possible resource keys from all SECTIONS
+    const allKeys = new Set<string>();
+    SECTIONS.forEach(section => {
+      section.keys.forEach(key => allKeys.add(key));
+    });
+
+    // Calculate production for each resource
+    for (const resourceKey of allKeys) {
+      const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
+      const buildDateKey = `build_date_${resourceKey}`;
+      const buildDate = countryDetail?.[buildDateKey];
+      
+      if (buildingCount > 0) {
+        const bMeta = findMeta(resourceKey);
+        
+        if (bMeta && bMeta.produksi) {
+          if (!buildDate) {
+            console.warn(`[CRITICAL] ${resourceKey} has ${buildingCount} buildings but NO build_date_${resourceKey}!`);
+          }
+          
+          const finalBuildDate = buildDate || "2026-07-08";
+          
+          const production = calculateProductionIncrement(
+            bMeta.produksi,
+            buildingCount,
+            finalBuildDate,
+            currentDateStr
+          );
+          
+          newCache[resourceKey] = production;
+          
+          const daysElapsed = calculateDaysElapsed(finalBuildDate, currentDateStr);
+          console.log(`[Production] ${resourceKey}: ${production.toLocaleString('id-ID')} (rate=${bMeta.produksi}/day × count=${buildingCount} × days=${daysElapsed})`);
+        }
+      }
+    }
+
+    console.log(`[ProductionUpdate] Cache updated with ${Object.keys(newCache).length} resources`);
+    setProductionCache(newCache);
+    setLastCalculationDate(currentDateStr);
+  }, [currentDate, metadata, countryDetail]);
+
+  useEffect(() => {
+    if (isOpen) {
+      console.log('ProduksiModal opened - countryDetail:', countryDetail);
+    }
+  }, [isOpen, countryDetail]);
+
   const formatLabel = (key: string) => {
     // Specific maps for better presentation
     const customLabels: Record<string, string> = {
@@ -122,19 +270,6 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     };
     if (customLabels[key]) return customLabels[key];
     return key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
-  };
-
-  const findMeta = (key: string) => {
-    if (!metadata) return undefined;
-    if (metadata[key]) return metadata[key];
-    // try to find by inner dataKey or key suffix
-    for (const k of Object.keys(metadata)) {
-      const entry = metadata[k];
-      if (!entry) continue;
-      if (entry.dataKey === key) return entry;
-      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
-    }
-    return undefined;
   };
 
   // Early return AFTER all hooks
@@ -199,7 +334,25 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
       [`last_prod_date_${key}`]: buildDateValue,
     };
     
-    console.log(`[confirmBuild] Updated countryDetail:`, updatedDetail);
+    console.log(`[confirmBuild] Updated countryDetail:`, {
+      key,
+      buildDateKey,
+      buildDateValue,
+      buildingCount: updatedDetail[key],
+      fullDetail: updatedDetail
+    });
+    
+    console.log(`[confirmBuild] CRITICAL: Verify buildDate key is set:`, {
+      keyExists: buildDateKey in updatedDetail,
+      value: updatedDetail[buildDateKey]
+    });
+    
+    logger.log('ConfirmBuild', 'Building constructed', {
+      key,
+      buildDateKey,
+      buildDateValue,
+      buildingCount: updatedDetail[key]
+    });
     
     alert(`✅ Berhasil! ${label} dibangun pada ${buildDateValue}. Sekarang ada ${updatedDetail[key]} bangunan.`);
     
@@ -450,7 +603,24 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                       {isAvailable && activeTab !== "kelistrikan" && (
                         <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
                           <div className="text-center">
-                            <span className="font-black text-lg text-[#2e261a]">0</span>
+                            {(() => {
+                              const prod = calculateProductionAmount(it.key);
+                              return (
+                                <>
+                                  <span className="font-black text-lg text-[#2e261a]">
+                                    {prod.toLocaleString('id-ID')}
+                                  </span>
+                                  {prod === 0 && countryDetail?.[it.key] > 0 && (
+                                    <p className="text-[9px] text-red-600 mt-1 font-bold">
+                                      ⚠️ Production 0 (Check console for debug)
+                                    </p>
+                                  )}
+                                  <p className="text-[9px] text-[#8b7e66] mt-1">
+                                    {countryDetail?.[`build_date_${it.key}`] ? `Since ${countryDetail[`build_date_${it.key}`]}` : 'No build date'}
+                                  </p>
+                                </>
+                              );
+                            })()}
                           </div>
                         </div>
                       )}
