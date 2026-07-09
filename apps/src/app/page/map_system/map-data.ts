@@ -1737,6 +1737,133 @@ export const COUNTRIES_DATA = [
     "longitude": 23.73,
     "continent": "Unknown"
   }
+  ,
+  {
+    "id": 70001,
+    "country": "Bosnia dan Hercegovina",
+    "capital": "Sarajevo",
+    "iso": "ba",
+    "latitude": 43.8563,
+    "longitude": 18.4131,
+    "continent": "Europe"
+  },
+  {
+    "id": 70002,
+    "country": "Guiana prancis",
+    "capital": "Cayenne",
+    "iso": "gf",
+    "latitude": 4.9224,
+    "longitude": -52.3135,
+    "continent": "South America"
+  },
+  {
+    "id": 70003,
+    "country": "Guinea bissau",
+    "capital": "Bissau",
+    "iso": "gw",
+    "latitude": 11.8597,
+    "longitude": -15.5977,
+    "continent": "Africa"
+  },
+  {
+    "id": 70004,
+    "country": "Makau",
+    "capital": "Macao",
+    "iso": "mo",
+    "latitude": 22.1987,
+    "longitude": 113.5439,
+    "continent": "Asia"
+  },
+  {
+    "id": 70005,
+    "country": "Makedonia utara",
+    "capital": "Skopje",
+    "iso": "mk",
+    "latitude": 41.9981,
+    "longitude": 21.4254,
+    "continent": "Europe"
+  },
+  {
+    "id": 70006,
+    "country": "Marshall",
+    "capital": "Majuro",
+    "iso": "mh",
+    "latitude": 7.1164,
+    "longitude": 171.1856,
+    "continent": "Oceania"
+  },
+  {
+    "id": 70007,
+    "country": "Republik Afrika Tengah",
+    "capital": "Bangui",
+    "iso": "cf",
+    "latitude": 4.3947,
+    "longitude": 18.5582,
+    "continent": "Africa"
+  },
+  {
+    "id": 70008,
+    "country": "Saint Kitts dan Nevis",
+    "capital": "Basseterre",
+    "iso": "kn",
+    "latitude": 17.3026,
+    "longitude": -62.7177,
+    "continent": "North America"
+  },
+  {
+    "id": 70009,
+    "country": "Saint Vincent dan Grenadine",
+    "capital": "Kingstown",
+    "iso": "vc",
+    "latitude": 13.16,
+    "longitude": -61.2248,
+    "continent": "North America"
+  },
+  {
+    "id": 70010,
+    "country": "Sao Tome dan Principe",
+    "capital": "São Tomé",
+    "iso": "st",
+    "latitude": 0.3365,
+    "longitude": 6.7273,
+    "continent": "Africa"
+  },
+  {
+    "id": 70011,
+    "country": "Swiss",
+    "capital": "Bern",
+    "iso": "ch",
+    "latitude": 46.9480,
+    "longitude": 7.4474,
+    "continent": "Europe"
+  },
+  {
+    "id": 70012,
+    "country": "Tahiti",
+    "capital": "Papeete",
+    "iso": "pf",
+    "latitude": -17.5516,
+    "longitude": -149.5585,
+    "continent": "Oceania"
+  },
+  {
+    "id": 70013,
+    "country": "Tanjung verde",
+    "capital": "Praia",
+    "iso": "cv",
+    "latitude": 14.9243,
+    "longitude": -23.5144,
+    "continent": "Africa"
+  },
+  {
+    "id": 70014,
+    "country": "Uni Emirat Arab",
+    "capital": "Abu Dhabi",
+    "iso": "ae",
+    "latitude": 24.4539,
+    "longitude": 54.3773,
+    "continent": "Asia"
+  }
 ];
 export const CAPITALS_DATA = [
   {
@@ -3089,5 +3216,104 @@ export const CAPITALS_DATA = [
     "lat": 37.98,
     "lng": 23.73,
     "iso": "gr"
+  }
+  ,
+  {
+    "country": "bosnia dan hercegovina",
+    "capital": "Sarajevo",
+    "lat": 43.8563,
+    "lng": 18.4131,
+    "iso": "ba"
+  },
+  {
+    "country": "guiana prancis",
+    "capital": "Cayenne",
+    "lat": 4.9224,
+    "lng": -52.3135,
+    "iso": "gf"
+  },
+  {
+    "country": "guinea bissau",
+    "capital": "Bissau",
+    "lat": 11.8597,
+    "lng": -15.5977,
+    "iso": "gw"
+  },
+  {
+    "country": "makau",
+    "capital": "Macao",
+    "lat": 22.1987,
+    "lng": 113.5439,
+    "iso": "mo"
+  },
+  {
+    "country": "makedonia utara",
+    "capital": "Skopje",
+    "lat": 41.9981,
+    "lng": 21.4254,
+    "iso": "mk"
+  },
+  {
+    "country": "marshall",
+    "capital": "Majuro",
+    "lat": 7.1164,
+    "lng": 171.1856,
+    "iso": "mh"
+  },
+  {
+    "country": "republik afrika tengah",
+    "capital": "Bangui",
+    "lat": 4.3947,
+    "lng": 18.5582,
+    "iso": "cf"
+  },
+  {
+    "country": "saint kitts dan nevis",
+    "capital": "Basseterre",
+    "lat": 17.3026,
+    "lng": -62.7177,
+    "iso": "kn"
+  },
+  {
+    "country": "saint vincent dan grenadine",
+    "capital": "Kingstown",
+    "lat": 13.16,
+    "lng": -61.2248,
+    "iso": "vc"
+  },
+  {
+    "country": "sao tome dan principe",
+    "capital": "São Tomé",
+    "lat": 0.3365,
+    "lng": 6.7273,
+    "iso": "st"
+  },
+  {
+    "country": "swiss",
+    "capital": "Bern",
+    "lat": 46.9480,
+    "lng": 7.4474,
+    "iso": "ch"
+  },
+  {
+    "country": "tahiti",
+    "capital": "Papeete",
+    "lat": -17.5516,
+    "lng": -149.5585,
+    "iso": "pf"
+  },
+  {
+    "country": "tanjung verde",
+    "capital": "Praia",
+    "lat": 14.9243,
+    "lng": -23.5144,
+    "iso": "cv"
+  },
+  {
+    "country": "uni emirat arab",
+    "capital": "Abu Dhabi",
+    "lat": 24.4539,
+    "lng": 54.3773,
+    "iso": "ae"
   }
 ];
