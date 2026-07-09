@@ -1,6 +1,12 @@
 "use client"
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { X, FileText } from "lucide-react";
+import { 
+  TAX_CONFIGS, 
+  calculateIncomeAtRate, 
+  calculateSatisfactionFromRates, 
+  getSatisfactionLevel 
+} from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,28 +17,60 @@ interface ModalProps {
 
 export default function PajakModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
+  
+  const [tempRates, setTempRates] = useState<Record<string, number>>({
+    income_tax: countryDetail?.income_tax || 15,
+    corporate_tax: countryDetail?.corporate || 22,
+    vat: countryDetail?.ppn || 10,
+    cigarette_tax: countryDetail?.cigarette_tax || 15,
+    environment_tax: countryDetail?.environment_tax || 5
+  });
+
+  // Initialize satisfaction to 100 if not set or if kepuasan is 0
+  const initialSatisfaction = (countryDetail?.kepuasan !== undefined && countryDetail?.kepuasan !== 0) 
+    ? countryDetail.kepuasan 
+    : 100;
+  
   const anggaran = countryDetail?.anggaran || 0;
-  const kepuasan = countryDetail?.kepuasan || 65.0;
 
-  const ppnRate = countryDetail?.ppn || 10;
-  const corpRate = countryDetail?.corporate || 22;
-  const incomeRate = countryDetail?.income_tax || 15;
+  // Calculate satisfaction in real-time based on current tax rates
+  const currentSatisfaction = calculateSatisfactionFromRates(tempRates, initialSatisfaction);
 
-  const handleTaxChange = (type: "ppn" | "corp" | "income", nextVal: number) => {
-    let diff = nextVal - (type === "ppn" ? ppnRate : type === "corp" ? corpRate : incomeRate);
-    let nextKepuasan = parseFloat(Math.min(100, Math.max(0, kepuasan - diff * 0.8)).toFixed(1));
-    let nextAnggaran = anggaran + diff * 1200000;
+  const totalIncome = TAX_CONFIGS.reduce((sum, config) => {
+    const rate = tempRates[config.id] || config.baseRate;
+    return sum + calculateIncomeAtRate(rate, config.maxIncome);
+  }, 0);
 
+  const handleTaxChange = (taxId: string, nextVal: number) => {
+    const currentRate = tempRates[taxId];
+    const diff = nextVal - currentRate;
+
+    const newSatisfaction = calculateSatisfactionFromRates({ ...tempRates, [taxId]: nextVal }, initialSatisfaction);
+
+    const updatedRates = {
+      ...tempRates,
+      [taxId]: nextVal
+    };
+    
+    setTempRates(updatedRates);
+
+    // Update country detail with new rates in real-time
     setCountryDetail({
       ...countryDetail,
-      [type === "ppn" ? "ppn" : type === "corp" ? "corporate" : "income_tax"]: nextVal,
-      anggaran: nextAnggaran,
-      kepuasan: nextKepuasan
+      income_tax: taxId === "income_tax" ? nextVal : countryDetail.income_tax,
+      corporate: taxId === "corporate_tax" ? nextVal : countryDetail.corporate,
+      ppn: taxId === "vat" ? nextVal : countryDetail.ppn,
+      cigarette_tax: taxId === "cigarette_tax" ? nextVal : countryDetail.cigarette_tax,
+      environment_tax: taxId === "environment_tax" ? nextVal : countryDetail.environment_tax,
+      anggaran: anggaran + diff * 1200000,
+      kepuasan: newSatisfaction
     });
   };
 
+  const satisfactionLevel = getSatisfactionLevel(currentSatisfaction);
+
   return (
-            <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
@@ -56,53 +94,120 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
             Sesuaikan tarif pajak nasional untuk membiayai belanja militer dan infrastruktur publik. Hati-hati, pajak tinggi memicu protes rakyat!
           </p>
 
+          {/* Satisfaction Indicator - Real-time updated */}
+          <div className="mb-6 p-4 rounded-xl border border-[#C4B49C]/30 bg-[#e4dac3]/20">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xs font-bold text-[#5c3c10] uppercase">Kepuasan Rakyat:</span>
+              <span className={`text-xs font-black uppercase ${satisfactionLevel.color}`}>{satisfactionLevel.label}</span>
+            </div>
+            <div className="w-full bg-gray-200 rounded-full h-2 mb-1 overflow-hidden">
+              <div 
+                className={`h-2 rounded-full transition-all duration-200`}
+                style={{ 
+                  width: `${currentSatisfaction}%`,
+                  backgroundColor: satisfactionLevel.bgColor
+                }}
+              />
+            </div>
+            <div className="flex justify-between text-[10px] text-[#8b7e66]">
+              <span>0%</span>
+              <span className="font-bold text-[#5c3c10]">{currentSatisfaction.toFixed(1)}%</span>
+              <span>100%</span>
+            </div>
+          </div>
+
+          {/* Total Income Preview */}
+          <div className="mb-6 p-4 rounded-xl border-2 border-[#5c3c10]/30 bg-[#f0e8d0]/50">
+            <div className="flex justify-between items-center">
+              <span className="text-xs font-bold text-[#5c3c10] uppercase">Estimasi Pemasukkan Pajak</span>
+              <span className="text-xs font-black text-emerald-700">+ {totalIncome.toLocaleString("id-ID")} EM / bln</span>
+            </div>
+          </div>
+
           <div className="space-y-5">
-            {/* PPN */}
+            {/* Pajak Penghasilan Pribadi */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
-                <span>Pajak Pertambahan Nilai (PPN)</span>
-                <span>{ppnRate}%</span>
+                <span>Pajak Penghasilan Pribadi</span>
+                <span>{tempRates.income_tax}%</span>
               </div>
               <input
                 type="range"
-                min="5"
-                max="25"
-                value={ppnRate}
-                onChange={(e) => handleTaxChange("ppn", parseInt(e.target.value))}
+                min="0"
+                max="100"
+                value={tempRates.income_tax}
+                onChange={(e) => handleTaxChange("income_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
             </div>
 
-            {/* Corp Tax */}
+            {/* Pajak Korporasi */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Pajak Korporasi</span>
-                <span>{corpRate}%</span>
+                <span>{tempRates.corporate_tax}%</span>
               </div>
               <input
                 type="range"
-                min="10"
-                max="35"
-                value={corpRate}
-                onChange={(e) => handleTaxChange("corp", parseInt(e.target.value))}
+                min="0"
+                max="100"
+                value={tempRates.corporate_tax}
+                onChange={(e) => handleTaxChange("corporate_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
             </div>
 
-            {/* Income Tax */}
+            {/* Pajak Pertambahan Nilai (PPN) */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
-                <span>Pajak Penghasilan (PPh)</span>
-                <span>{incomeRate}%</span>
+                <span>Pajak Pertambahan Nilai (PPN)</span>
+                <span>{tempRates.vat}%</span>
               </div>
               <input
                 type="range"
-                min="5"
-                max="30"
-                value={incomeRate}
-                onChange={(e) => handleTaxChange("income", parseInt(e.target.value))}
+                min="0"
+                max="100"
+                value={tempRates.vat}
+                onChange={(e) => handleTaxChange("vat", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+            </div>
+
+            {/* Cukai */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
+                <span>Cukai</span>
+                <span>{tempRates.cigarette_tax}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={tempRates.cigarette_tax}
+                onChange={(e) => handleTaxChange("cigarette_tax", parseInt(e.target.value))}
+                className="w-full accent-[#5c3c10] cursor-pointer"
+              />
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+            </div>
+
+            {/* Pajak Lingkungan */}
+            <div className="space-y-2">
+              <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
+                <span>Pajak Lingkungan</span>
+                <span>{tempRates.environment_tax}%</span>
+              </div>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                value={tempRates.environment_tax}
+                onChange={(e) => handleTaxChange("environment_tax", parseInt(e.target.value))}
+                className="w-full accent-[#5c3c10] cursor-pointer"
+              />
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
             </div>
           </div>
         </div>
