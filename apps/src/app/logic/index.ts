@@ -7,7 +7,7 @@
  */
 
 // Re-export fisheries production logic
-export * from './fisheries-production-logic';
+export * from './fisheries_production_logic';
 
 // Re-export production logic
-export * from './production';
+export * from './production_logic';

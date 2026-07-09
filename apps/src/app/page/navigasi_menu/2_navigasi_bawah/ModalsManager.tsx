@@ -15,12 +15,12 @@ import PerminyakanModal from "./3_produksi_konsumsi/PerminyakanModal";
 import UraniumModal from "./3_produksi_konsumsi/UraniumModal";
 
 // 4. Ekonomi
-import PerdaganganModal from "./4_ekonomi/PerdaganganModal";
-import PajakModal from "./4_ekonomi/PajakModal";
-import HutangModal from "./4_ekonomi/HutangModal";
-import PemasukkanPengeluaranModal from "./4_ekonomi/PemasukkanPengeluaranModal";
-import PDBModal from "./4_ekonomi/PDBModal";
-import HargaModal from "./4_ekonomi/HargaModal";
+import PerdaganganModal from "./4_ekonomi/1_perdagangan/PerdaganganModal";
+import PajakModal from "./4_ekonomi/2_manajemen_pajak/PajakModal";
+import HutangModal from "./4_ekonomi/3_peminjaman_hutang/HutangModal";
+import PemasukkanPengeluaranModal from "./4_ekonomi/4_pemasukan_pengeluaran/PemasukkanPengeluaranModal";
+import PDBModal from "./4_ekonomi/5_pdb_nasional_dunia/PDBModal";
+import HargaModal from "./4_ekonomi/6_harga/HargaModal";
 
 // 5. Pembangunan
 import ProduksiModal from "./5_pembangunan/ProduksiModal";
