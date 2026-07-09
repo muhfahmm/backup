@@ -1,0 +1,75 @@
+{
+  "pembangkit_listrik_tenaga_nuklir": {
+    "key": "1_pembangkit_listrik_tenaga_nuklir",
+    "dataKey": "pembangkit_listrik_tenaga_nuklir",
+    "label": "PLTN",
+    "deskripsi": "PLTN (Fisi Nuklir)",
+    "produksi": 10000,
+    "satuan": "MW",
+    "waktu_pembangunan": 360,
+    "biaya_pembangunan": 10000,
+    "lowongan_kerja": 2500,
+    "konsumsi_listrik": 0,
+    "konsumsi_uranium": 5
+  },
+  "pembangkit_listrik_tenaga_air": {
+    "key": "2_pembangkit_listrik_tenaga_air",
+    "dataKey": "pembangkit_listrik_tenaga_air",
+    "label": "PLTA",
+    "deskripsi": "PLTA (Hidroelektrik)",
+    "produksi": 2500,
+    "satuan": "MW",
+    "waktu_pembangunan": 180,
+    "biaya_pembangunan": 5000,
+    "lowongan_kerja": 800,
+    "konsumsi_listrik": 0
+  },
+  "pembangkit_listrik_tenaga_surya": {
+    "key": "3_pembangkit_listrik_tenaga_surya",
+    "dataKey": "pembangkit_listrik_tenaga_surya",
+    "label": "PLTS",
+    "deskripsi": "PLTS (Panel Surya)",
+    "produksi": 500,
+    "satuan": "MW",
+    "waktu_pembangunan": 45,
+    "biaya_pembangunan": 2000,
+    "lowongan_kerja": 200,
+    "konsumsi_listrik": 0
+  },
+  "pembangkit_listrik_tenaga_uap": {
+    "key": "4_pembangkit_listrik_tenaga_uap",
+    "dataKey": "pembangkit_listrik_tenaga_uap",
+    "label": "PLTU",
+    "deskripsi": "PLTU (Tenaga Uap)",
+    "produksi": 5000,
+    "satuan": "MW",
+    "waktu_pembangunan": 120,
+    "biaya_pembangunan": 3000,
+    "lowongan_kerja": 1500,
+    "konsumsi_listrik": 0
+  },
+  "pembangkit_listrik_tenaga_gas": {
+    "key": "5_pembangkit_listrik_tenaga_gas",
+    "dataKey": "pembangkit_listrik_tenaga_gas",
+    "label": "PLTG",
+    "deskripsi": "PLTG (Gas Alam)",
+    "produksi": 3000,
+    "satuan": "MW",
+    "waktu_pembangunan": 90,
+    "biaya_pembangunan": 3000,
+    "lowongan_kerja": 1000,
+    "konsumsi_listrik": 0
+  },
+  "pembangkit_listrik_tenaga_angin": {
+    "key": "6_pembangkit_listrik_tenaga_angin",
+    "dataKey": "pembangkit_listrik_tenaga_angin",
+    "label": "PLTB",
+    "deskripsi": "PLTB (Angin)",
+    "produksi": 250,
+    "satuan": "MW",
+    "waktu_pembangunan": 60,
+    "biaya_pembangunan": 1500,
+    "lowongan_kerja": 150,
+    "konsumsi_listrik": 0
+  }
+}

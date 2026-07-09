@@ -1,0 +1,93 @@
+{
+  "markas_besar_polri": {
+    "biaya_pembangunan": 93750,
+    "waktu_pembangunan": 90,
+    "lowongan_kerja": 45000,
+    "konsumsi_listrik": 850,
+    "satuan": "Unit"
+  },
+  "akademi_kepolisian": {
+    "biaya_pembangunan": 33750,
+    "waktu_pembangunan": 60,
+    "lowongan_kerja": 8500,
+    "konsumsi_listrik": 350,
+    "satuan": "Unit"
+  },
+  "pusat_forensik": {
+    "biaya_pembangunan": 26250,
+    "waktu_pembangunan": 60,
+    "lowongan_kerja": 2500,
+    "konsumsi_listrik": 150,
+    "satuan": "Unit"
+  },
+  "kantor_polisi": {
+    "biaya_pembangunan": 18750,
+    "waktu_pembangunan": 30,
+    "lowongan_kerja": 5500,
+    "konsumsi_listrik": 120,
+    "satuan": "Unit"
+  },
+  "pos_polisi": {
+    "biaya_pembangunan": 7500,
+    "waktu_pembangunan": 30,
+    "lowongan_kerja": 1200,
+    "konsumsi_listrik": 45,
+    "satuan": "Unit"
+  },
+  "network_cctv": {
+    "biaya_pembangunan": 11250,
+    "waktu_pembangunan": 5,
+    "lowongan_kerja": 800,
+    "konsumsi_listrik": 85,
+    "satuan": "Unit"
+  },
+  "armada_mobil_polisi": {
+    "biaya_pembangunan": 3750,
+    "waktu_pembangunan": 15,
+    "lowongan_kerja": 500,
+    "konsumsi_listrik": 10,
+    "satuan": "Unit"
+  },
+  "mobil_patroli_interceptor": {
+    "biaya_pembangunan": 2250,
+    "waktu_pembangunan": 15,
+    "lowongan_kerja": 200,
+    "konsumsi_listrik": 10,
+    "satuan": "Unit"
+  },
+  "unit_roda_dua": {
+    "biaya_pembangunan": 1125,
+    "waktu_pembangunan": 7,
+    "lowongan_kerja": 100,
+    "konsumsi_listrik": 5,
+    "satuan": "Unit"
+  },
+  "helikopter_polisi": {
+    "biaya_pembangunan": 33750,
+    "waktu_pembangunan": 90,
+    "lowongan_kerja": 1500,
+    "konsumsi_listrik": 120,
+    "satuan": "Unit"
+  },
+  "unit_k9": {
+    "biaya_pembangunan": 2250,
+    "waktu_pembangunan": 7,
+    "lowongan_kerja": 800,
+    "konsumsi_listrik": 25,
+    "satuan": "Unit"
+  },
+  "pasukan_swat": {
+    "biaya_pembangunan": 26250,
+    "waktu_pembangunan": 60,
+    "lowongan_kerja": 8500,
+    "konsumsi_listrik": 150,
+    "satuan": "Unit"
+  },
+  "samapta": {
+    "biaya_pembangunan": 15000,
+    "waktu_pembangunan": 30,
+    "lowongan_kerja": 12000,
+    "konsumsi_listrik": 85,
+    "satuan": "Unit"
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "air_mineral": {
+    "key": "1_pabrik_air_mineral",
+    "dataKey": "air_mineral",
+    "label": "Pabrik Air Mineral",
+    "deskripsi": "Pabrik Air Mineral",
+    "produksi": 250000,
+    "satuan": "LITER",
+    "waktu_pembangunan": 7,
+    "biaya_pembangunan": 1500,
+    "lowongan_kerja": 4500,
+    "konsumsi_listrik": 35
+  },
+  "gula": {
+    "key": "2_pabrik_gula",
+    "dataKey": "gula",
+    "label": "Pabrik Gula",
+    "deskripsi": "Pabrik Gula",
+    "produksi": 45000,
+    "satuan": "TON",
+    "waktu_pembangunan": 20,
+    "biaya_pembangunan": 5500,
+    "lowongan_kerja": 8000,
+    "konsumsi_listrik": 95
+  },
+  "roti": {
+    "key": "3_pabrik_roti",
+    "dataKey": "roti",
+    "label": "Pabrik Roti",
+    "deskripsi": "Pabrik Roti",
+    "produksi": 150000,
+    "satuan": "UNIT",
+    "waktu_pembangunan": 7,
+    "biaya_pembangunan": 1400,
+    "lowongan_kerja": 3500,
+    "konsumsi_listrik": 42
+  },
+  "pengolahan_daging": {
+    "key": "4_pabrik_pengolahan_daging",
+    "dataKey": "pengolahan_daging",
+    "label": "Pabrik Pengolahan Daging",
+    "deskripsi": "Pabrik Pengolahan Daging",
+    "produksi": 12000,
+    "satuan": "TON",
+    "waktu_pembangunan": 30,
+    "biaya_pembangunan": 6000,
+    "lowongan_kerja": 6500,
+    "konsumsi_listrik": 120
+  },
+  "mie_instan": {
+    "key": "5_pabrik_mie_instan",
+    "dataKey": "mie_instan",
+    "label": "Pabrik Mie Instan",
+    "deskripsi": "Pabrik Mie Instan",
+    "produksi": 550000,
+    "satuan": "UNIT",
+    "waktu_pembangunan": 15,
+    "biaya_pembangunan": 3500,
+    "lowongan_kerja": 7500,
+    "konsumsi_listrik": 85
+  },
+  "minyak_goreng": {
+    "key": "6_pabrik_minyak_goreng",
+    "dataKey": "minyak_goreng",
+    "label": "Pabrik Minyak Goreng",
+    "deskripsi": "Pabrik Minyak Goreng",
+    "produksi": 95000,
+    "satuan": "TON",
+    "waktu_pembangunan": 20,
+    "biaya_pembangunan": 4500,
+    "lowongan_kerja": 6000,
+    "konsumsi_listrik": 75
+  },
+  "susu": {
+    "key": "7_pabrik_pengolahan_susu",
+    "dataKey": "susu",
+    "label": "Pabrik Pengolahan Susu",
+    "deskripsi": "Pabrik Pengolahan Susu",
+    "produksi": 180000,
+    "satuan": "LITER",
+    "waktu_pembangunan": 10,
+    "biaya_pembangunan": 2800,
+    "lowongan_kerja": 5000,
+    "konsumsi_listrik": 60
+  },
+  "pakan_ternak": {
+    "key": "8_pabrik_pakan_ternak",
+    "dataKey": "pakan_ternak",
+    "label": "Pabrik Pakan Ternak",
+    "deskripsi": "Pabrik Pakan Ternak",
+    "produksi": 85000,
+    "satuan": "TON",
+    "waktu_pembangunan": 10,
+    "biaya_pembangunan": 2000,
+    "lowongan_kerja": 4500,
+    "konsumsi_listrik": 55
+  },
+  "ikan_kaleng": {
+    "key": "9_pabrik_pengalengan_ikan",
+    "dataKey": "ikan_kaleng",
+    "label": "Pabrik Pengalengan Ikan",
+    "deskripsi": "Pabrik Pengalengan Ikan",
+    "produksi": 25000,
+    "satuan": "TON",
+    "waktu_pembangunan": 10,
+    "biaya_pembangunan": 2500,
+    "lowongan_kerja": 5500,
+    "konsumsi_listrik": 65
+  },
+  "kopi_teh": {
+    "key": "10_pabrik_pengolahan_kopi_teh",
+    "dataKey": "kopi_teh",
+    "label": "Pabrik Pengolahan Kopi & Teh",
+    "deskripsi": "Pabrik Pengolahan Kopi & Teh",
+    "produksi": 35000,
+    "satuan": "KG",
+    "waktu_pembangunan": 7,
+    "biaya_pembangunan": 1200,
+    "lowongan_kerja": 4000,
+    "konsumsi_listrik": 45
+  }
+}

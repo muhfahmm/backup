@@ -15,18 +15,54 @@ async function readAllTsFiles(dir: string, files: string[] = []) {
   return files;
 }
 
+async function loadJsonCategoryFiles(baseDir: string): Promise<Record<string, any>> {
+  const metadata: Record<string, any> = {};
+  
+  // Try to load from organized category JSON files first
+  const categoryFiles = [
+    // Produksi (Production)
+    '1_pembangunan/1_produksi/1_sektor_listrik_nasional/1_metadata_listrik.json',
+    '1_pembangunan/1_produksi/2_sektor_mineral_kritis/2_metadata_ekstraksi.json',
+    '1_pembangunan/1_produksi/3_manufaktur/3_metadata_manufaktur.json',
+    '1_pembangunan/1_produksi/4_sektor_peternakan/4_metadata_peternakan.json',
+    '1_pembangunan/1_produksi/5_sektor_agrikultur/5_metadata_agrikultur.json',
+    '1_pembangunan/1_produksi/6_sektor_perikanan/6_metadata_perikanan.json',
+    '1_pembangunan/1_produksi/7_sektor_olahan_pangan/7_metadata_olahan_pangan.json',
+    '1_pembangunan/1_produksi/8_sektor_farmasi/8_metadata_farmasi.json',
+    // Tempat Umum (Public Places)
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/metadata_infrastruktur.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/metadata_pendidikan.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/3_kesehatan/metadata_kesehatan.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/4_hukum/metadata_hukum.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/5_olahraga/metadata_olahraga.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/6_komersial/metadata_komersial.json',
+    '1_pembangunan/3_tempat_umum/1_Layanan Publik/7_hiburan/metadata_hiburan.json',
+    '1_pembangunan/3_tempat_umum/2_hunian_permukiman/metadata_hunian.json',
+    // Pertahanan (Defense)
+    '2_pertahanan/1_komando_pertahanan/metadata_komando.json',
+    '2_pertahanan/2_intelijen/metadata_intelijen.json',
+    '2_pertahanan/3_armada_militer/metadata_armada_militer.json',
+    '2_pertahanan/4_armada_polisi/metadata_armada_polisi.json',
+    '2_pertahanan/5_manajemen_pertahanan/metadata_manajemen.json'
+  ];
+  
+  for (const catFile of categoryFiles) {
+    try {
+      const fullPath = path.join(baseDir, catFile);
+      const content = await fs.readFile(fullPath, 'utf8');
+      const data = JSON.parse(content);
+      Object.assign(metadata, data);
+      console.log('[building-metadata] loaded category file:', catFile);
+    } catch (e) {
+      // silently skip if not found
+    }
+  }
+  
+  return metadata;
+}
+
 export async function GET() {
   try {
-    const localJsonPath = path.join(process.cwd(), 'src', 'lib', 'building-metadata.json');
-    try {
-      const jsonContent = await fs.readFile(localJsonPath, 'utf8');
-      const metadata = JSON.parse(jsonContent);
-      console.log('[building-metadata] loaded local JSON:', localJsonPath);
-      return NextResponse.json(metadata);
-    } catch (jsonErr) {
-      console.warn('[building-metadata] local JSON unavailable, falling back to TS parsing:', (jsonErr as any)?.message ?? jsonErr);
-    }
-
     let base = path.join(process.cwd(), 'json', 'semua_fitur_negara');
     // In dev server process.cwd() may be apps/; try parent folder as fallback
     try {
@@ -40,21 +76,30 @@ export async function GET() {
         throw new Error(`Cannot locate json/semua_fitur_negara at ${base} or ${alt}`);
       }
     }
+    
     console.log('[building-metadata] using base path:', base);
+    
+    // Try to load from organized category JSON files first
+    const metadata = await loadJsonCategoryFiles(base);
+    if (Object.keys(metadata).length > 0) {
+      console.log('[building-metadata] loaded from category files:', Object.keys(metadata).length, 'items');
+      return NextResponse.json(metadata);
+    }
+    
+    // Fallback: parse TS files if category JSON not available
+    console.log('[building-metadata] category files not found, falling back to TS parsing');
     const tsFiles = await readAllTsFiles(base);
-    const metadata: Record<string, any> = {};
-    // More robust parsing: find every dataKey occurrence and extract the surrounding object literal
+    const fallbackMetadata: Record<string, any> = {};
+    
     const dataKeyRegex = /dataKey\s*:\s*"([^\"]+)"/g;
     for (const f of tsFiles) {
       const content = await fs.readFile(f, 'utf8');
       let m: RegExpExecArray | null;
       while ((m = dataKeyRegex.exec(content)) !== null) {
         const dataKey = m[1];
-        // find the nearest opening brace before this match
         const idx = m.index;
         let start = content.lastIndexOf('{', idx);
         if (start === -1) continue;
-        // find matching closing brace for that opening brace
         let depth = 0;
         let end = -1;
         for (let i = start; i < content.length; i++) {
@@ -70,14 +115,14 @@ export async function GET() {
         const biayaMatch = /biaya_pembangunan\s*:\s*([0-9.]+)/.exec(objText);
         const produksiMatch = /produksi\s*:\s*([0-9.]+)/.exec(objText);
         const satuanMatch = /satuan\s*:\s*"([^\"]+)"/.exec(objText);
-        metadata[dataKey] = metadata[dataKey] || {};
-        if (biayaMatch) metadata[dataKey].biaya_pembangunan = Number(biayaMatch[1]);
-        if (produksiMatch) metadata[dataKey].produksi = Number(produksiMatch[1]);
-        if (satuanMatch) metadata[dataKey].satuan = satuanMatch[1];
+        fallbackMetadata[dataKey] = fallbackMetadata[dataKey] || {};
+        if (biayaMatch) fallbackMetadata[dataKey].biaya_pembangunan = Number(biayaMatch[1]);
+        if (produksiMatch) fallbackMetadata[dataKey].produksi = Number(produksiMatch[1]);
+        if (satuanMatch) fallbackMetadata[dataKey].satuan = satuanMatch[1];
       }
     }
 
-    return NextResponse.json(metadata);
+    return NextResponse.json(fallbackMetadata);
   } catch (err) {
     console.error('[building-metadata] error', err);
     return NextResponse.json({ error: String(err) }, { status: 500 });
