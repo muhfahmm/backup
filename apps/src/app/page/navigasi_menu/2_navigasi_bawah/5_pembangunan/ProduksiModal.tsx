@@ -1,5 +1,6 @@
+// detail path: c:\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\5_pembangunan\ProduksiModal.tsx
 "use client"
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo, useRef } from "react";
 import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown, Info } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
 import { isBuildingAvailable } from '../../../../logic';
@@ -23,8 +24,9 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
   const [productionCache, setProductionCache] = useState<Record<string, number>>({});
   const [lastCalculationDate, setLastCalculationDate] = useState<string>("");
+  const lastCalculatedDateRef = useRef<string>("");
 
-  // ALWAYS calculate production inline
+  // Calculate production inline - NO setState here
   const calculateProductionAmount = useMemo(() => {
     return (resourceKey: string): number => {
       const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
@@ -51,8 +53,10 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
       
       const buildDateKey = `build_date_${resourceKey}`;
       const buildDate = countryDetail?.[buildDateKey];
-      const finalBuildDate = buildDate || "2026-07-08";
       const currentDateStr = formatDate(currentDate);
+      // Use current date as fallback, NOT a hardcoded date
+      // This ensures production = 0 on day 1
+      const finalBuildDate = buildDate || currentDateStr;
       
       const production = calculateProductionIncrement(
         bMeta.produksi,
@@ -70,9 +74,81 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
         buildDate: finalBuildDate,
         currentDate: currentDateStr
       });
+      
       return production;
     };
   }, [countryDetail, currentDate, metadata]);
+
+  // Force re-render whenever currentDate changes
+  useEffect(() => {
+    if (!currentDate) return;
+    logger.log('ProduksiModal', 'currentDate prop changed!', {
+      date: currentDate.toDateString(),
+      timestamp: Date.now()
+    });
+  }, [currentDate]);
+
+  // Separate effect to update last_update_date when production changes
+  useEffect(() => {
+    if (!currentDate || !metadata || Object.keys(metadata).length === 0) return;
+    
+    const currentDateStr = formatDate(currentDate);
+    let hasUpdates = false;
+    let updates: Record<string, string> = {};
+    
+    // Check all resources and collect updates
+    const resourceKeys = [
+      "pembangkit_listrik_tenaga_nuklir", "pembangkit_listrik_tenaga_air", "pembangkit_listrik_tenaga_surya",
+      "pembangkit_listrik_tenaga_uap", "pembangkit_listrik_tenaga_gas", "pembangkit_listrik_tenaga_angin",
+      "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga",
+      "aluminium", "logam_tanah_jarang", "bijih_besi",
+      "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
+      "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
+      "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao",
+      "tebu", "karet", "kapas", "tembakau",
+      "udang", "mutiara", "ikan",
+      "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu",
+      "pakan_ternak", "ikan_kaleng", "kopi_teh",
+      "farmasi"
+    ];
+    
+    for (const resourceKey of resourceKeys) {
+      const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
+      if (buildingCount === 0) continue;
+      
+      const bMeta = findMeta(resourceKey);
+      if (!bMeta || !bMeta.produksi) continue;
+      
+      const buildDateKey = `build_date_${resourceKey}`;
+      const buildDate = countryDetail?.[buildDateKey];
+      const finalBuildDate = buildDate || currentDateStr;
+      
+      const production = calculateProductionIncrement(
+        bMeta.produksi,
+        buildingCount,
+        finalBuildDate,
+        currentDateStr
+      );
+      
+      const lastUpdateKey = `last_update_date_${resourceKey}`;
+      
+      // Always update last_update_date to current date if production > 0
+      if (production > 0) {
+        updates[lastUpdateKey] = currentDateStr;
+        hasUpdates = true;
+      }
+    }
+    
+    // Update all at once in a single setState
+    if (hasUpdates) {
+      logger.log('UpdateLastDate', `Updating ${Object.keys(updates).length} resources for date ${currentDateStr}`);
+      setCountryDetail((prev: any) => ({
+        ...prev,
+        ...updates
+      }));
+      lastCalculatedDateRef.current = currentDateStr;
+    }
+  }, [currentDate, metadata]);  // ← FIXED: Removed countryDetail!
 
   const calculateDaysElapsed = (startDate: string, endDate: string): number => {
     const start = new Date(startDate);
@@ -249,7 +325,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     console.log(`[ProductionUpdate] Cache updated with ${Object.keys(newCache).length} resources`);
     setProductionCache(newCache);
     setLastCalculationDate(currentDateStr);
-  }, [currentDate, metadata, countryDetail]);
+  }, [currentDate, metadata]);
 
   useEffect(() => {
     if (isOpen) {
@@ -385,6 +461,8 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     totalProduction * 1000, // MW
     Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
   );
+
+
 
   return (
     <>
@@ -569,6 +647,16 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                         }`}>
                           {isAvailable ? `${perCount} bangunan` : isUnsupported ? 'Tidak tersedia' : 'Tidak tersedia'}
                         </p>
+                        {isAvailable && (
+                          <div className="mt-1">
+                            <p className="text-[9px] text-[#a89968] font-semibold">
+                              produksi per hari
+                            </p>
+                            <p className="text-[11px] font-black text-emerald-600 mt-0.5">
+                              {(bMeta?.produksi || 0).toLocaleString('id-ID')} {bMeta?.satuan || ''}
+                            </p>
+                          </div>
+                        )}
                       </div>
                       
                       {isUnsupported && (
@@ -618,6 +706,15 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                                   <p className="text-[9px] text-[#8b7e66] mt-1">
                                     {countryDetail?.[`build_date_${it.key}`] ? `Since ${countryDetail[`build_date_${it.key}`]}` : 'No build date'}
                                   </p>
+                                  {prod > 0 ? (
+                                    <p className="text-[9px] text-[#a89968] font-semibold mt-0.5">
+                                      Last Update: Since {countryDetail?.[`last_update_date_${it.key}`] || 'updating...'}
+                                    </p>
+                                  ) : (
+                                    <p className="text-[9px] text-[#c4a878] italic mt-0.5">
+                                      belum terupdate
+                                    </p>
+                                  )}
                                 </>
                               );
                             })()}

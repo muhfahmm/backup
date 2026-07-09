@@ -1,3 +1,4 @@
+// detail path: c:\EM\apps\src\app\page\map_system\page.tsx
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -55,7 +56,13 @@ export default function MapPage() {
                 }
                 // Update React state dengan tanggal baru
                 if (timeManagerRef.current) {
-                    setCurrentDate(timeManagerRef.current.getCurrentDate());
+                    const newDate = timeManagerRef.current.getCurrentDate();
+                    console.log('[MapPage Callback] Date changed:', {
+                        formatted: formattedDate,
+                        newDate: newDate.toDateString(),
+                        timestamp: Date.now()
+                    });
+                    setCurrentDate(newDate);
                 }
             },
             (progress) => {

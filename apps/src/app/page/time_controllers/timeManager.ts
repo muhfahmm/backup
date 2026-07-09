@@ -1,3 +1,4 @@
+// detail path: c:\EM\apps\src\app\page\time_controllers\timeManager.ts
 export class SimulationTimeManager {
     private currentDate: Date;
     private isPaused: boolean = true;
@@ -6,6 +7,7 @@ export class SimulationTimeManager {
     private animationFrameId: number | null = null;
     private onDateChangeCallback: (formattedDate: string) => void;
     private onProgressChangeCallback?: (progress: number) => void;
+    private pendingDateChange: boolean = false;  // ← Track pending callback
 
     // Mapping speed multipliers to millisecond intervals per day tick
     private speedIntervals: Record<number, number> = {
@@ -36,7 +38,19 @@ export class SimulationTimeManager {
     }
 
     private triggerCallback(): void {
-        this.onDateChangeCallback(this.getFormattedDate());
+        const formatted = this.getFormattedDate();
+        console.log('[TimeManager] triggerCallback - Date:', {
+            date: this.currentDate.toDateString(),
+            formatted: formatted,
+            timestamp: Date.now()
+        });
+        
+        // ✅ FIX: Schedule callback OUTSIDE requestAnimationFrame
+        // Use setTimeout with 0ms to break out of RAF batch
+        // This ensures React detects the state change immediately
+        setTimeout(() => {
+            this.onDateChangeCallback(formatted);
+        }, 0);
     }
 
     // Reset date to real-life date
@@ -45,9 +59,9 @@ export class SimulationTimeManager {
         this.triggerCallback();
     }
 
-    // Get current simulation date
+    // Get current simulation date (return NEW instance to prevent external mutation)
     public getCurrentDate(): Date {
-        return this.currentDate;
+        return new Date(this.currentDate);
     }
 
     // Set custom simulation date (used for loading saves)
@@ -96,7 +110,11 @@ export class SimulationTimeManager {
             if (delta >= interval) {
                 // Determine how many days to advance (handles cases where tab was backgrounded)
                 const daysToAdvance = Math.floor(delta / interval);
-                this.currentDate.setDate(this.currentDate.getDate() + daysToAdvance);
+                // ✅ FIX: Create NEW Date instance instead of mutating in-place
+                // This ensures React detects the reference change
+                const newDate = new Date(this.currentDate);
+                newDate.setDate(newDate.getDate() + daysToAdvance);
+                this.currentDate = newDate;
                 
                 this.lastTickTime = now - (delta % interval);
                 this.triggerCallback();
