@@ -41,52 +41,52 @@
   },
   "batu_bara": {
     "biaya_pembangunan": 1500,
-    "produksi": 15000,
+    "produksi": 270,
     "satuan": "TON"
   },
   "minyak_bumi": {
     "biaya_pembangunan": 4500,
-    "produksi": 25000,
+    "produksi": 25,
     "satuan": "BARREL"
   },
   "gas_alam": {
     "biaya_pembangunan": 4000,
-    "produksi": 5000,
+    "produksi": 50,
     "satuan": "MMSCFD"
   },
   "garam": {
     "biaya_pembangunan": 500,
-    "produksi": 10000,
+    "produksi": 10,
     "satuan": "TON"
   },
   "nikel": {
     "biaya_pembangunan": 5000,
-    "produksi": 12000,
+    "produksi": 50,
     "satuan": "TON"
   },
   "litium": {
     "biaya_pembangunan": 5500,
-    "produksi": 8000,
+    "produksi": 8,
     "satuan": "TON"
   },
   "tembaga": {
     "biaya_pembangunan": 3500,
-    "produksi": 14000,
+    "produksi": 180,
     "satuan": "TON"
   },
   "aluminium": {
     "biaya_pembangunan": 3000,
-    "produksi": 18000,
+    "produksi": 180,
     "satuan": "TON"
   },
   "logam_tanah_jarang": {
     "biaya_pembangunan": 9000,
-    "produksi": 500,
+    "produksi": 40,
     "satuan": "KG"
   },
-  "bijih_besi": {
+  "bijah_besi": {
     "biaya_pembangunan": 2500,
-    "produksi": 25000,
+    "produksi": 25,
     "satuan": "TON"
   },
   "semikonduktor": {

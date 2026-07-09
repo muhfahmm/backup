@@ -600,7 +600,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                             <>
                               <div className="flex justify-between">
                                 <span className="text-[#C4B49C]">Produksi Per Hari:</span>
-                                <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')} {bMeta?.satuan || ''}</span>
+                                <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
                               </div>
                             </>
                           )}
@@ -653,7 +653,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                               produksi per hari
                             </p>
                             <p className="text-[11px] font-black text-emerald-600 mt-0.5">
-                              {(bMeta?.produksi || 0).toLocaleString('id-ID')} {bMeta?.satuan || ''}
+                              {(bMeta?.produksi || 0).toLocaleString('id-ID')}
                             </p>
                           </div>
                         )}
@@ -679,7 +679,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                             <div className="flex flex-col">
                               <span className="text-[10px] text-[#8b7e66]">Produksi per hari:</span>
                               <span className="font-black text-sm text-[#2e261a]">
-                                +{(bMeta.produksi || 0).toLocaleString('id-ID')} {bMeta.satuan || ''} × {perCount.toLocaleString('id-ID')}
+                                +{(bMeta.produksi || 0).toLocaleString('id-ID')} × {perCount.toLocaleString('id-ID')}
                               </span>
                             </div>
                           ) : (
@@ -787,7 +787,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                   {bMeta?.produksi !== undefined && (
                     <div className="flex justify-between">
                       <span>Produksi per hari:</span>
-                      <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')} {bMeta.satuan || ''}</span>
+                      <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')}</span>
                     </div>
                   )}
                   {bMeta?.efek !== undefined && (
