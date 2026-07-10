@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
+import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
 
 interface ModalProps {
   isOpen: boolean;
@@ -32,67 +33,74 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   );
 };
 
-// Department data - LENGKAP: 15 Kementerian + 5 Keamanan + 2 Layanan = 22 total
-const ALL_DEPARTMENTS = [
-  { id: "infrastruktur", baseIncomeCost: 1920 },
-  { id: "pendidikan", baseIncomeCost: 1818 },
-  { id: "sains", baseIncomeCost: 1800 },
-  { id: "kesehatan", baseIncomeCost: 1700 },
-  { id: "olahraga", baseIncomeCost: 1200 },
-  { id: "kehakiman", baseIncomeCost: 1500 },
-  { id: "pertahanan", baseIncomeCost: 2200 },
-  { id: "luar-negeri", baseIncomeCost: 1600 },
-  { id: "kebudayaan", baseIncomeCost: 900 },
-  { id: "pariwisata", baseIncomeCost: 1100 },
-  { id: "lingkungan", baseIncomeCost: 1000 },
-  { id: "perumahan", baseIncomeCost: 1300 },
-  { id: "pembangunan", baseIncomeCost: 1450 },
-  { id: "perdagangan", baseIncomeCost: 1550 },
-  { id: "keuangan", baseIncomeCost: 2000 },
-  { id: "dinas-keamanan", baseIncomeCost: 1400 },
-  { id: "polisi", baseIncomeCost: 1250 },
-  { id: "garda-nasional", baseIncomeCost: 1600 },
-  { id: "komandan-angkatan-darat", baseIncomeCost: 1900 },
-  { id: "komandan-armada", baseIncomeCost: 2100 },
-  { id: "layanan-darurat", baseIncomeCost: 1350 },
-  { id: "bank-sentral", baseIncomeCost: 2000 }
-];
-
 // Helper: Calculate ministry daily income cost
 const calculateMinistryDailyIncome = (level: number, baseIncomeCost: number) => {
   return Math.round(baseIncomeCost * (1 + (level - 1) * 0.08));
 };
 
-// Helper: Calculate total ministry operational cost per month
-const calculateTotalMinistryCostPerMonth = (countryDetail: any) => {
+// Helper: Calculate total ministry operational cost per DAY
+const calculateTotalMinistryCostPerDay = (countryDetail: any) => {
   let totalCost = 0;
+  const allDepts = [...KEMENTERIAN, ...KEAMANAN, ...LAYANAN];
   
-  for (const dept of ALL_DEPARTMENTS) {
+  for (const dept of allDepts) {
     const level = countryDetail[`level_${dept.id}`] ?? 1;
     const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
     totalCost += dailyCost;
   }
   
-  return totalCost * 30; // Convert to monthly
+  return totalCost; // Daily total (NOT multiplied by 30!)
+};
+
+// Helper: Calculate cost for specific tab (DAILY ONLY)
+const calculateTabCostDaily = (countryDetail: any, departments: Department[]) => {
+  let totalCost = 0;
+  
+  for (const dept of departments) {
+    const level = countryDetail[`level_${dept.id}`] ?? 1;
+    const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
+    totalCost += dailyCost;
+  }
+  
+  return totalCost; // Daily total, NOT monthly
 };
 
 export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
   if (!isOpen) return null;
   const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
+  const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
   // Calculate dynamic tax revenue
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
+
+  // Calculate dynamic ministry cost per DAY
+  const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
   const incomeItems: FinancialItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue }
   ];
 
-  const outcomeItems: FinancialItem[] = [];
+  const outcomeItems: FinancialItem[] = [
+    { label: "Biaya Operasional Dewan Kabinet", amount: ministryCostPerDay }
+  ];
 
   const totalIncome = incomeItems.reduce((sum, item) => sum + item.amount, 0);
   const totalOutcome = outcomeItems.reduce((sum, item) => sum + item.amount, 0);
   const netBalance = totalIncome - totalOutcome;
   const anggaran = countryDetail?.anggaran || 0;
+
+  // Get departments for current outcome subtab
+  const getOutcomeTabDepartments = () => {
+    switch(outcomeSubTab) {
+      case "kementerian": return KEMENTERIAN;
+      case "keamanan": return KEAMANAN;
+      case "layanan": return LAYANAN;
+      default: return KEMENTERIAN;
+    }
+  };
+
+  const currentOutcomeTabDepts = getOutcomeTabDepartments();
+  const outcomeTabCostDaily = calculateTabCostDaily(countryDetail, currentOutcomeTabDepts);
 
   const formatCurrency = (amount: number, isPositive: boolean = true) => {
     const formatted = amount.toLocaleString("id-ID");
@@ -178,15 +186,15 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                       <span className="flex items-center gap-2">
                         <ArrowDownRight className="h-3 w-3" /> Pengeluaran
                       </span>
-                      <span>- {totalOutcome.toLocaleString("id-ID")} EM / bln</span>
+                      <span>- {totalOutcome.toLocaleString("id-ID")} EM / hari</span>
                     </div>
                   </div>
 
                   <div className="mt-4 pt-4 border-t-2 border-[#C4B49C]/30">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
-                      <span>Netto Saldo:</span>
+                      <span>Netto Saldo (Pemasukkan - Pengeluaran):</span>
                       <span className={`${netBalance >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
-                        {netBalance >= 0 ? "+ " : "- "}{Math.abs(netBalance).toLocaleString("id-ID")} EM / bln
+                        {netBalance >= 0 ? "+ " : "- "}{Math.abs(netBalance).toLocaleString("id-ID")} EM / hari
                       </span>
                     </div>
                   </div>
@@ -232,22 +240,78 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
             {/* Outcome Tab */}
             {activeTab === "outcome" && (
               <div className="space-y-4">
+                {/* Outcome Sub-tabs */}
+                <div className="flex gap-2 border-b-2 border-[#C4B49C]/30 pb-2">
+                  <button
+                    onClick={() => setOutcomeSubTab("kementerian")}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                      outcomeSubTab === "kementerian"
+                        ? "bg-[#5c3c10] text-[#FAF6EE]"
+                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                    }`}
+                  >
+                    Kementerian (15)
+                  </button>
+                  <button
+                    onClick={() => setOutcomeSubTab("keamanan")}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                      outcomeSubTab === "keamanan"
+                        ? "bg-[#5c3c10] text-[#FAF6EE]"
+                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                    }`}
+                  >
+                    Keamanan (5)
+                  </button>
+                  <button
+                    onClick={() => setOutcomeSubTab("layanan")}
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                      outcomeSubTab === "layanan"
+                        ? "bg-[#5c3c10] text-[#FAF6EE]"
+                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                    }`}
+                  >
+                    Layanan (2)
+                  </button>
+                </div>
+
+                {/* Outcome details by department */}
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-4">
-                  <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">APBN Estimasi Bulanan</h4>
+                  <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">
+                    {outcomeSubTab === "kementerian" ? "Kementerian" : outcomeSubTab === "keamanan" ? "Keamanan" : "Layanan"}
+                  </h4>
                   
                   <div className="space-y-3">
-                    {outcomeItems.map((item, index) => (
-                      <div key={index} className="flex justify-between items-center text-xs font-bold text-rose-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
-                        <span className="font-semibold">{item.label}</span>
-                        <span>- {item.amount.toLocaleString("id-ID")} EM / bln</span>
-                      </div>
-                    ))}
+                    {currentOutcomeTabDepts.map((dept, index) => {
+                      const level = countryDetail[`level_${dept.id}`] ?? 1;
+                      const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
+                      const Icon = dept.icon;
+                      
+                      return (
+                        <div key={index} className="flex justify-between items-center text-xs font-bold text-rose-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
+                          <div className="flex items-center gap-2">
+                            <Icon className="h-4 w-4 text-[#8b7e66]" />
+                            <span className="font-semibold text-[#5c3c10]">{dept.name}</span>
+                            <span className="text-[10px] text-[#8b7e66]">(Level {level})</span>
+                          </div>
+                          <span>- {dailyCost.toLocaleString("id-ID")} EM / hari</span>
+                        </div>
+                      );
+                    })}
                   </div>
 
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
-                      <span>Total Pengeluaran:</span>
-                      <span className="text-rose-700">- {totalOutcome.toLocaleString("id-ID")} EM / bln</span>
+                      <span>Subtotal {outcomeSubTab === "kementerian" ? "Kementerian" : outcomeSubTab === "keamanan" ? "Keamanan" : "Layanan"}:</span>
+                      <span className="text-rose-700">- {outcomeTabCostDaily.toLocaleString("id-ID")} EM / hari</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-2">
+                  <div className="pt-4 border-t-2 border-[#C4B49C]/30">
+                    <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
+                      <span>Total Pengeluaran Dewan Kabinet:</span>
+                      <span className="text-rose-700">- {totalOutcome.toLocaleString("id-ID")} EM / hari</span>
                     </div>
                   </div>
                 </div>
