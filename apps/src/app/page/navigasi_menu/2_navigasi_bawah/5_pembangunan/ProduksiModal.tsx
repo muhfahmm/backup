@@ -647,16 +647,6 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                         }`}>
                           {isAvailable ? `${perCount} bangunan` : isUnsupported ? 'Tidak tersedia' : 'Tidak tersedia'}
                         </p>
-                        {isAvailable && (
-                          <div className="mt-1">
-                            <p className="text-[9px] text-[#a89968] font-semibold">
-                              produksi per hari
-                            </p>
-                            <p className="text-[11px] font-black text-emerald-600 mt-0.5">
-                              {(bMeta?.produksi || 0).toLocaleString('id-ID')}
-                            </p>
-                          </div>
-                        )}
                       </div>
                       
                       {isUnsupported && (
@@ -694,28 +684,9 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                             {(() => {
                               const prod = calculateProductionAmount(it.key);
                               return (
-                                <>
-                                  <span className="font-black text-lg text-[#2e261a]">
-                                    {prod.toLocaleString('id-ID')}
-                                  </span>
-                                  {prod === 0 && countryDetail?.[it.key] > 0 && (
-                                    <p className="text-[9px] text-red-600 mt-1 font-bold">
-                                      ⚠️ Production 0 (Check console for debug)
-                                    </p>
-                                  )}
-                                  <p className="text-[9px] text-[#8b7e66] mt-1">
-                                    {countryDetail?.[`build_date_${it.key}`] ? `Since ${countryDetail[`build_date_${it.key}`]}` : 'No build date'}
-                                  </p>
-                                  {prod > 0 ? (
-                                    <p className="text-[9px] text-[#a89968] font-semibold mt-0.5">
-                                      Last Update: Since {countryDetail?.[`last_update_date_${it.key}`] || 'updating...'}
-                                    </p>
-                                  ) : (
-                                    <p className="text-[9px] text-[#c4a878] italic mt-0.5">
-                                      belum terupdate
-                                    </p>
-                                  )}
-                                </>
+                                <span className="font-black text-lg text-[#2e261a]">
+                                  {prod.toLocaleString('id-ID')}
+                                </span>
                               );
                             })()}
                           </div>

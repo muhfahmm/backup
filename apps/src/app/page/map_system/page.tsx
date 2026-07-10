@@ -41,6 +41,7 @@ export default function MapPage() {
     const [isPresidentMenuOpen, setIsPresidentMenuOpen] = useState(false);
     const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState('Peta Taktis');
+    const [resetTrigger, setResetTrigger] = useState(false);
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -269,6 +270,8 @@ export default function MapPage() {
                 reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital),
                 skipConfirm: true
             });
+            // Toggle resetTrigger to signal all modals to reset
+            setResetTrigger(prev => !prev);
         }
     };
 
@@ -334,9 +337,12 @@ export default function MapPage() {
 
             try {
                 const wasmModule = await import('../../../wasm/map-engine-rs/map_engine_rs');
-                await wasmModule.default(); // Initialize WASM
+                await wasmModule.default(); // Initialize WASM module first
                 
-                await wasmModule.start_map_engine(
+                // After init, the exported functions are available on the module
+                const { start_map_engine, set_selected_country_on_map } = wasmModule;
+                
+                await start_map_engine(
                     "map-canvas",
                     WORLD_GEOJSON,
                     COUNTRIES_DATA,
@@ -355,7 +361,7 @@ export default function MapPage() {
                             // Delay slightly to ensure map engine is initialized and ready to render
                             setTimeout(() => {
                                 try {
-                                    wasmModule.set_selected_country_on_map(chosen.iso, true);
+                                    set_selected_country_on_map(chosen.iso, true);
                                 } catch (err) {
                                     console.error("Failed to highlight player country:", err);
                                 }
@@ -404,6 +410,7 @@ export default function MapPage() {
                 setCountryDetail={setCountryDetail}
                 selectedCountry={selectedCountry}
                 currentDate={currentDate}
+                resetTrigger={resetTrigger}
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}

@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
+import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 
 interface ModalProps {
   isOpen: boolean;
@@ -14,19 +15,79 @@ interface FinancialItem {
   amount: number;
 }
 
+// Helper function to calculate total tax income
+const calculateTotalTaxIncome = (countryDetail: any) => {
+  const income_tax = countryDetail?.income_tax || 15;
+  const corporate_tax = countryDetail?.corporate || 22;
+  const vat = countryDetail?.ppn || 10;
+  const cigarette_tax = countryDetail?.cigarette_tax || 15;
+  const environment_tax = countryDetail?.environment_tax || 5;
+
+  return (
+    calculateIncomeAtRate(income_tax, 2500) +
+    calculateIncomeAtRate(corporate_tax, 2500) +
+    calculateIncomeAtRate(vat, 2500) +
+    calculateIncomeAtRate(cigarette_tax, 2500) +
+    calculateIncomeAtRate(environment_tax, 2500)
+  );
+};
+
+// Department data - LENGKAP: 15 Kementerian + 5 Keamanan + 2 Layanan = 22 total
+const ALL_DEPARTMENTS = [
+  { id: "infrastruktur", baseIncomeCost: 1920 },
+  { id: "pendidikan", baseIncomeCost: 1818 },
+  { id: "sains", baseIncomeCost: 1800 },
+  { id: "kesehatan", baseIncomeCost: 1700 },
+  { id: "olahraga", baseIncomeCost: 1200 },
+  { id: "kehakiman", baseIncomeCost: 1500 },
+  { id: "pertahanan", baseIncomeCost: 2200 },
+  { id: "luar-negeri", baseIncomeCost: 1600 },
+  { id: "kebudayaan", baseIncomeCost: 900 },
+  { id: "pariwisata", baseIncomeCost: 1100 },
+  { id: "lingkungan", baseIncomeCost: 1000 },
+  { id: "perumahan", baseIncomeCost: 1300 },
+  { id: "pembangunan", baseIncomeCost: 1450 },
+  { id: "perdagangan", baseIncomeCost: 1550 },
+  { id: "keuangan", baseIncomeCost: 2000 },
+  { id: "dinas-keamanan", baseIncomeCost: 1400 },
+  { id: "polisi", baseIncomeCost: 1250 },
+  { id: "garda-nasional", baseIncomeCost: 1600 },
+  { id: "komandan-angkatan-darat", baseIncomeCost: 1900 },
+  { id: "komandan-armada", baseIncomeCost: 2100 },
+  { id: "layanan-darurat", baseIncomeCost: 1350 },
+  { id: "bank-sentral", baseIncomeCost: 2000 }
+];
+
+// Helper: Calculate ministry daily income cost
+const calculateMinistryDailyIncome = (level: number, baseIncomeCost: number) => {
+  return Math.round(baseIncomeCost * (1 + (level - 1) * 0.08));
+};
+
+// Helper: Calculate total ministry operational cost per month
+const calculateTotalMinistryCostPerMonth = (countryDetail: any) => {
+  let totalCost = 0;
+  
+  for (const dept of ALL_DEPARTMENTS) {
+    const level = countryDetail[`level_${dept.id}`] ?? 1;
+    const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
+    totalCost += dailyCost;
+  }
+  
+  return totalCost * 30; // Convert to monthly
+};
+
 export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
   if (!isOpen) return null;
   const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
 
+  // Calculate dynamic tax revenue
+  const taxRevenue = calculateTotalTaxIncome(countryDetail);
+
   const incomeItems: FinancialItem[] = [
-    { label: "Reveneu Pajak", amount: 18200000 },
-    { label: "Laba Dagang Ekspor", amount: 12400000 }
+    { label: "Revenue Pajak", amount: taxRevenue }
   ];
 
-  const outcomeItems: FinancialItem[] = [
-    { label: "Pemeliharaan Militer", amount: 6500000 },
-    { label: "Beban Subsidi Publik", amount: 12000000 }
-  ];
+  const outcomeItems: FinancialItem[] = [];
 
   const totalIncome = incomeItems.reduce((sum, item) => sum + item.amount, 0);
   const totalOutcome = outcomeItems.reduce((sum, item) => sum + item.amount, 0);

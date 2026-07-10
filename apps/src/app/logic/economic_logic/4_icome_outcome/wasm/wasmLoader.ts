@@ -47,6 +47,20 @@ async function initWasmModule(): Promise<any> {
       '../../../../../../../income_outcome_wasm/pkg/income_outcome_wasm'
     );
 
+    // Initialize WASM module
+    // __wbg_init (exported as default) initializes the WebAssembly module
+    if (!mod.default) {
+      throw new Error('WASM module default export not found');
+    }
+
+    // Call the async initialization function
+    const initialized = await mod.default();
+    
+    // Verify initialization was successful
+    if (!initialized) {
+      throw new Error('WASM module initialization returned falsy value');
+    }
+
     // Module is ready
     console.log('[WASM] Income/Outcome module loaded successfully');
 
@@ -55,7 +69,7 @@ async function initWasmModule(): Promise<any> {
     console.error('[WASM] Failed to load income/outcome module:', error);
     wasmInitPromise = null; // Reset so it can retry
     throw new Error(
-      `Failed to initialize WASM module. Make sure to run: wasm-pack build ../income_outcome_wasm --target web`
+      `Failed to initialize WASM module. Make sure to run: wasm-pack build ../income_outcome_wasm --target web. Original error: ${error}`
     );
   }
 }

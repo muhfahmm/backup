@@ -1,11 +1,9 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { X, FileText } from "lucide-react";
 import { 
-  TAX_CONFIGS, 
-  calculateIncomeAtRate, 
-  calculateSatisfactionFromRates, 
-  getSatisfactionLevel 
+  TAX_CONFIGS,
+  calculateIncomeAtRate
 } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 
 interface ModalProps {
@@ -26,27 +24,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
     environment_tax: countryDetail?.environment_tax || 5
   });
 
-  // Initialize satisfaction to 100 if not set or if kepuasan is 0
-  const initialSatisfaction = (countryDetail?.kepuasan !== undefined && countryDetail?.kepuasan !== 0) 
-    ? countryDetail.kepuasan 
-    : 100;
-  
-  const anggaran = countryDetail?.anggaran || 0;
-
-  // Calculate satisfaction in real-time based on current tax rates
-  const currentSatisfaction = calculateSatisfactionFromRates(tempRates, initialSatisfaction);
-
-  const totalIncome = TAX_CONFIGS.reduce((sum, config) => {
-    const rate = tempRates[config.id] || config.baseRate;
-    return sum + calculateIncomeAtRate(rate, config.maxIncome);
-  }, 0);
-
   const handleTaxChange = (taxId: string, nextVal: number) => {
-    const currentRate = tempRates[taxId];
-    const diff = nextVal - currentRate;
-
-    const newSatisfaction = calculateSatisfactionFromRates({ ...tempRates, [taxId]: nextVal }, initialSatisfaction);
-
     const updatedRates = {
       ...tempRates,
       [taxId]: nextVal
@@ -54,20 +32,23 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
     
     setTempRates(updatedRates);
 
-    // Update country detail with new rates in real-time
+    // Update country detail with new rates only
     setCountryDetail({
       ...countryDetail,
       income_tax: taxId === "income_tax" ? nextVal : countryDetail.income_tax,
       corporate: taxId === "corporate_tax" ? nextVal : countryDetail.corporate,
       ppn: taxId === "vat" ? nextVal : countryDetail.ppn,
       cigarette_tax: taxId === "cigarette_tax" ? nextVal : countryDetail.cigarette_tax,
-      environment_tax: taxId === "environment_tax" ? nextVal : countryDetail.environment_tax,
-      anggaran: anggaran + diff * 1200000,
-      kepuasan: newSatisfaction
+      environment_tax: taxId === "environment_tax" ? nextVal : countryDetail.environment_tax
     });
   };
 
-  const satisfactionLevel = getSatisfactionLevel(currentSatisfaction);
+  // Calculate total income from all taxes
+  const totalIncome = calculateIncomeAtRate(tempRates.income_tax, 2500) +
+                     calculateIncomeAtRate(tempRates.corporate_tax, 2500) +
+                     calculateIncomeAtRate(tempRates.vat, 2500) +
+                     calculateIncomeAtRate(tempRates.cigarette_tax, 2500) +
+                     calculateIncomeAtRate(tempRates.environment_tax, 2500);
 
   return (
     <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
@@ -84,52 +65,27 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
               </div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
-            <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
-            <X className="h-5 w-5" />
-          </button>
+          <div className="flex items-center gap-3">
+            <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+              <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+              <X className="h-5 w-5" />
+            </button>
+          </div>
         </div>
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
             Sesuaikan tarif pajak nasional untuk membiayai belanja militer dan infrastruktur publik. Hati-hati, pajak tinggi memicu protes rakyat!
           </p>
 
-          {/* Satisfaction Indicator - Real-time updated */}
-          <div className="mb-6 p-4 rounded-xl border border-[#C4B49C]/30 bg-[#e4dac3]/20">
-            <div className="flex items-center gap-3 mb-2">
-              <span className="text-xs font-bold text-[#5c3c10] uppercase">Kepuasan Rakyat:</span>
-              <span className={`text-xs font-black uppercase ${satisfactionLevel.color}`}>{satisfactionLevel.label}</span>
-            </div>
-            <div className="w-full bg-gray-200 rounded-full h-2 mb-1 overflow-hidden">
-              <div 
-                className={`h-2 rounded-full transition-all duration-200`}
-                style={{ 
-                  width: `${currentSatisfaction}%`,
-                  backgroundColor: satisfactionLevel.bgColor
-                }}
-              />
-            </div>
-            <div className="flex justify-between text-[10px] text-[#8b7e66]">
-              <span>0%</span>
-              <span className="font-bold text-[#5c3c10]">{currentSatisfaction.toFixed(1)}%</span>
-              <span>100%</span>
-            </div>
-          </div>
-
-          {/* Total Income Preview */}
-          <div className="mb-6 p-4 rounded-xl border-2 border-[#5c3c10]/30 bg-[#f0e8d0]/50">
-            <div className="flex justify-between items-center">
-              <span className="text-xs font-bold text-[#5c3c10] uppercase">Estimasi Pemasukkan Pajak</span>
-              <span className="text-xs font-black text-emerald-700">+ {totalIncome.toLocaleString("id-ID")} EM / bln</span>
-            </div>
-          </div>
-
           <div className="space-y-5">
             {/* Pajak Penghasilan Pribadi */}
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Pajak Penghasilan Pribadi</span>
-                <span>{tempRates.income_tax}%</span>
+                <div className="flex items-center gap-2">
+                  <span>{tempRates.income_tax}%</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.income_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -146,7 +102,10 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Pajak Korporasi</span>
-                <span>{tempRates.corporate_tax}%</span>
+                <div className="flex items-center gap-2">
+                  <span>{tempRates.corporate_tax}%</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.corporate_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -163,7 +122,10 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Pajak Pertambahan Nilai (PPN)</span>
-                <span>{tempRates.vat}%</span>
+                <div className="flex items-center gap-2">
+                  <span>{tempRates.vat}%</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.vat, 2500).toLocaleString("id-ID")} EM)</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -180,7 +142,10 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Cukai</span>
-                <span>{tempRates.cigarette_tax}%</span>
+                <div className="flex items-center gap-2">
+                  <span>{tempRates.cigarette_tax}%</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.cigarette_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -197,7 +162,10 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
             <div className="space-y-2">
               <div className="flex justify-between text-xs font-bold text-[#5c3c10] uppercase">
                 <span>Pajak Lingkungan</span>
-                <span>{tempRates.environment_tax}%</span>
+                <div className="flex items-center gap-2">
+                  <span>{tempRates.environment_tax}%</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.environment_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                </div>
               </div>
               <input
                 type="range"
@@ -209,6 +177,15 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
               />
               <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
             </div>
+          </div>
+
+          {/* Total Income Summary */}
+          <div className="mt-8 p-4 rounded-xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-emerald-50 to-emerald-100/50 shadow-md">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">Total Pendapatan Pajak</span>
+              <span className="text-2xl font-black text-emerald-700">{totalIncome.toLocaleString("id-ID")} EM</span>
+            </div>
+            <p className="text-[10px] text-emerald-600 font-bold mt-2">Pendapatan bulanan dari semua pajak nasional</p>
           </div>
         </div>
       </div>

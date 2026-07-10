@@ -85,14 +85,24 @@ export default function PilihNegaraPage() {
 
             try {
                 const mod = await import('../../../../wasm/map-engine-rs/map_engine_rs');
-                await mod.default(); // Initialize WASM
-                await mod.start_map_engine(
+                await mod.default(); // Initialize WASM module
+                
+                // Extract the functions from the module
+                const { start_map_engine, set_selected_country_on_map, get_country_at_on_map } = mod;
+                
+                start_map_engine(
                     "map-canvas-bg",
                     WORLD_GEOJSON,
                     COUNTRIES_DATA,
                     CAPITALS_DATA
                 );
-                setWasmModule(mod);
+                
+                // Store the functions for later use
+                setWasmModule({
+                    start_map_engine,
+                    set_selected_country_on_map,
+                    get_country_at_on_map
+                });
             } catch (e) {
                 console.error("Failed to start map engine bg:", e);
             } finally {
@@ -135,30 +145,42 @@ export default function PilihNegaraPage() {
                     const text = await res.text();
                     
                     let mergedData: any = {};
-                    // Universal Object Parser: Execute the entire file to resolve cross-references
+                    
                     try {
-                        // Find all constant names defined in the file to extract them
-                        const varNames = Array.from(text.matchAll(/const\s+(\w+)\s*=/g), m => m[1]);
+                        // Extract and parse export default object at end of file
+                        const exportMatch = text.match(/export\s+default\s*(\{[\s\S]*?\})\s*;?\s*$/);
                         
-                        if (varNames.length > 0) {
-                            // Replace const with var to avoid Temporal Dead Zone (TDZ) errors
-                            // when constants refer to each other across different bundled files
-                            const scriptText = text.replace(/const\s+/g, 'var ');
-                            const script = `
-                                ${scriptText}
-                                const allData = { ${varNames.join(', ')} };
-                                let merged = {};
-                                for (let key in allData) {
-                                    if (typeof allData[key] === 'object' && allData[key] !== null) {
-                                        merged = { ...merged, ...allData[key] };
+                        if (exportMatch) {
+                            const objStr = exportMatch[1];
+                            
+                            // Clean up the object string for JSON parsing
+                            let jsonStr = objStr
+                                .replace(/\/\/.*$/gm, '')  // Remove line comments
+                                .replace(/\/\*[\s\S]*?\*\//g, '')  // Remove block comments
+                                .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3')  // Quote unquoted keys
+                                .replace(/:\s*([a-zA-Z_]\w*)([,}\]])/g, (match, value, end) => {
+                                    // Don't quote true/false/null
+                                    if (['true', 'false', 'null'].includes(value)) {
+                                        return `: ${value}${end}`;
                                     }
-                                }
-                                return merged;
-                            `;
-                            mergedData = new Function(script)();
+                                    return `: "${value}"${end}`;
+                                })
+                                .replace(/'/g, '"')  // Single to double quotes
+                                .replace(/,(\s*[}\]])/g, '$1')  // Remove trailing commas
+                                .replace(/:\s*undefined/g, ': null');  // Convert undefined to null
+                            
+                            try {
+                                mergedData = JSON.parse(jsonStr);
+                            } catch (jsonErr) {
+                                console.warn("JSON parse failed, attempting fallback:", jsonErr);
+                                // If JSON parse fails, log the problematic string for debugging
+                                console.warn("Problematic string (first 500 chars):", jsonStr.substring(0, 500));
+                            }
+                        } else {
+                            console.warn("No export default found in country data file");
                         }
                     } catch (e) {
-                        console.error("Failed to evaluate country data file:", e);
+                        console.error("Failed to parse country data file:", e);
                     }
 
                     if (Object.keys(mergedData).length > 0) {

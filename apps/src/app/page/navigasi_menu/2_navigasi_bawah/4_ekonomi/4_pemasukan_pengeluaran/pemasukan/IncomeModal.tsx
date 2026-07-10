@@ -1,6 +1,7 @@
 "use client"
 import React from "react";
 import { X, BarChart3, ArrowUpRight } from "lucide-react";
+import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 
 interface IncomeModalProps {
   isOpen: boolean;
@@ -13,12 +14,31 @@ interface IncomeItem {
   amount: number;
 }
 
+// Helper function to calculate total tax income
+const calculateTotalTaxIncome = (countryDetail: any) => {
+  const income_tax = countryDetail?.income_tax || 15;
+  const corporate_tax = countryDetail?.corporate || 22;
+  const vat = countryDetail?.ppn || 10;
+  const cigarette_tax = countryDetail?.cigarette_tax || 15;
+  const environment_tax = countryDetail?.environment_tax || 5;
+
+  return (
+    calculateIncomeAtRate(income_tax, 2500) +
+    calculateIncomeAtRate(corporate_tax, 2500) +
+    calculateIncomeAtRate(vat, 2500) +
+    calculateIncomeAtRate(cigarette_tax, 2500) +
+    calculateIncomeAtRate(environment_tax, 2500)
+  );
+};
+
 export default function IncomeModal({ isOpen, onClose, countryDetail }: IncomeModalProps) {
   if (!isOpen) return null;
 
+  // Calculate dynamic tax revenue
+  const taxRevenue = calculateTotalTaxIncome(countryDetail);
+
   const incomeItems: IncomeItem[] = [
-    { label: "Reveneu Pajak", amount: 18200000 },
-    { label: "Laba Dagang Ekspor", amount: 12400000 }
+    { label: "Revenue Pajak", amount: taxRevenue }
   ];
 
   const totalIncome = incomeItems.reduce((sum, item) => sum + item.amount, 0);
