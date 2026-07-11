@@ -2,7 +2,7 @@
 import React from "react";
 import { X, BarChart3, ArrowUpRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
-import { calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
+import { calculateGoldMiningDailyProduction, calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
 import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
 interface IncomeModalProps {
@@ -15,6 +15,8 @@ interface IncomeModalProps {
 interface IncomeItem {
   label: string;
   amount: number;
+  subtitle?: string;
+  displayAmount?: string;
 }
 
 // Helper function to calculate total tax income
@@ -67,12 +69,25 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
 
   // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-  const goldIncome = calculateGoldMiningIncome(countryDetail);
   const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
+  const goldBuildingCount = Number(countryDetail?.emas) || 0;
+  const goldDailyProduction = calculateGoldMiningDailyProduction(countryDetail);
 
   const incomeItems: IncomeItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },
-    { label: "Produksi Tambang Emas", amount: goldIncome },
+    {
+      label: goldBuildingCount > 0
+        ? `Produksi Tambang Emas (${goldDailyProduction.toLocaleString('id-ID')})`
+        : "Produksi Tambang Emas",
+      amount: goldDailyProduction,
+      displayAmount: goldBuildingCount > 0
+        ? `+ ${goldDailyProduction.toLocaleString('id-ID')}`
+        : undefined,
+      subtitle:
+        goldBuildingCount > 0
+          ? `50 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
+          : undefined
+    },
     { label: "Revenue Pariwisata", amount: tourismIncome }
   ];
 
@@ -107,9 +122,16 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
               
               <div className="space-y-3">
                 {incomeItems.map((item, index) => (
-                  <div key={index} className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
-                    <span className="font-semibold">{item.label}</span>
-                    <span>+ {item.amount.toLocaleString("id-ID")} EM / bln</span>
+                  <div key={index} className="border-b border-[#C4B49C]/20 last:border-0 pb-2">
+                    <div className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2">
+                      <span className="font-semibold">{item.label}</span>
+                          <span>{item.displayAmount ?? `+ ${item.amount.toLocaleString("id-ID")}`}</span>
+                    </div>
+                    {item.subtitle && (
+                      <div className="text-[10px] text-[#5c3c10] pl-1 pb-2">
+                        {item.subtitle}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -117,7 +139,7 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
               <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                 <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                   <span>Total Pemasukkan:</span>
-                  <span className="text-emerald-700">+ {totalIncome.toLocaleString("id-ID")} EM / bln</span>
+                  <span className="text-emerald-700">+ {totalIncome.toLocaleString("id-ID")}</span>
                 </div>
               </div>
             </div>

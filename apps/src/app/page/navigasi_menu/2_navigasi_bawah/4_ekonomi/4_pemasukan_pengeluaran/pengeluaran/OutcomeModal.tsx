@@ -298,7 +298,7 @@ export default function OutcomeModal({ isOpen, onClose, countryDetail, setCountr
                 <p className="text-[10px] text-blue-600 italic">Dihitung otomatis dari level semua kementerian, keamanan, dan layanan. Tidak bisa diatur manual.</p>
                 <div className="bg-white border border-blue-200 rounded p-2">
                   <p className="text-[10px] text-blue-900 font-semibold">
-                    📊 Breakdown: {ministryCostPerMonth} EM/bulan = {(ministryCostPerMonth / 30).toLocaleString("id-ID", { maximumFractionDigits: 0 })} EM/hari × 30 hari
+                    📊 Breakdown: {ministryCostPerMonth.toLocaleString("id-ID")} = {(ministryCostPerMonth / 30).toLocaleString("id-ID", { maximumFractionDigits: 0 })} × 30
                   </p>
                 </div>
               </div>
@@ -322,7 +322,7 @@ export default function OutcomeModal({ isOpen, onClose, countryDetail, setCountr
             <div className="bg-gradient-to-r from-rose-50 to-rose-100/50 border-3 border-[#5c3c10]/40 p-6 rounded-xl space-y-4 mt-8">
               <div className="flex justify-between items-center">
                 <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">Total Pengeluaran</span>
-                <span className="text-2xl font-black text-rose-700">- {totalOutcome.toLocaleString("id-ID")} EM / bln</span>
+                <span className="text-2xl font-black text-rose-700">- {totalOutcome.toLocaleString("id-ID")}</span>
               </div>
               <div className="flex justify-between items-center pt-3 border-t-2 border-[#C4B49C]/30">
                 <span className="text-xs font-black text-[#5c3c10] uppercase">Total Saldo Kas Negara:</span>

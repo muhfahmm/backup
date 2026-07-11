@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
-import { calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
+import { calculateGoldMiningDailyProduction, calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
 import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
@@ -16,6 +16,8 @@ interface ModalProps {
 interface FinancialItem {
   label: string;
   amount: number;
+  subtitle?: string;
+  displayAmount?: string;
 }
 
 // Helper function to calculate total tax income
@@ -104,15 +106,28 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
 
   // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-  const goldIncome = calculateGoldMiningIncome(countryDetail);
   const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
+  const goldBuildingCount = Number(countryDetail?.emas) || 0;
+  const goldDailyProduction = calculateGoldMiningDailyProduction(countryDetail);
 
   // Calculate dynamic ministry cost per DAY
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
   const incomeItems: FinancialItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },
-    { label: "Produksi Tambang Emas", amount: goldIncome },
+    {
+      label: goldBuildingCount > 0
+        ? `Produksi Tambang Emas (${goldDailyProduction.toLocaleString('id-ID')})`
+        : "Produksi Tambang Emas",
+      amount: goldDailyProduction,
+      displayAmount: goldBuildingCount > 0
+        ? `+ ${goldDailyProduction.toLocaleString('id-ID')}`
+        : undefined,
+      subtitle:
+        goldBuildingCount > 0
+          ? `50 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
+          : undefined
+    },
     { label: "Revenue Pariwisata", amount: tourismIncome }
   ];
 
@@ -137,11 +152,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
 
   const currentOutcomeTabDepts = getOutcomeTabDepartments();
   const outcomeTabCostDaily = calculateTabCostDaily(countryDetail, currentOutcomeTabDepts);
-
-  const formatCurrency = (amount: number, isPositive: boolean = true) => {
-    const formatted = amount.toLocaleString("id-ID");
-    return `${isPositive ? "+ " : "- "}${formatted} EM / bln`;
-  };
 
   return (
     <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
@@ -216,13 +226,13 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                       <span className="flex items-center gap-2">
                         <ArrowUpRight className="h-3 w-3" /> Pemasukkan
                       </span>
-                      <span>+ {totalIncome.toLocaleString("id-ID")} EM / bln</span>
+                      <span>+ {totalIncome.toLocaleString("id-ID")}</span>
                     </div>
                     <div className="flex justify-between items-center text-xs font-bold text-rose-700 py-2 border-b border-[#C4B49C]/20">
                       <span className="flex items-center gap-2">
                         <ArrowDownRight className="h-3 w-3" /> Pengeluaran
                       </span>
-                      <span>- {totalOutcome.toLocaleString("id-ID")} EM / hari</span>
+                      <span>- {totalOutcome.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
 
@@ -230,7 +240,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Netto Saldo (Pemasukkan - Pengeluaran):</span>
                       <span className={`${netBalance >= 0 ? "text-emerald-700" : "text-rose-700"}`}>
-                        {netBalance >= 0 ? "+ " : "- "}{Math.abs(netBalance).toLocaleString("id-ID")} EM / hari
+                        {netBalance >= 0 ? "+ " : "- "}{Math.abs(netBalance).toLocaleString("id-ID")}
                       </span>
                     </div>
                   </div>
@@ -251,9 +261,16 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   
                   <div className="space-y-3">
                     {incomeItems.map((item, index) => (
-                      <div key={index} className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
-                        <span className="font-semibold">{item.label}</span>
-                        <span>+ {item.amount.toLocaleString("id-ID")} EM / bln</span>
+                      <div key={index} className="border-b border-[#C4B49C]/20 last:border-0 pb-2">
+                        <div className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2">
+                          <span className="font-semibold">{item.label}</span>
+                          <span>{item.displayAmount ?? `+ ${item.amount.toLocaleString("id-ID")}`}</span>
+                        </div>
+                        {item.subtitle && (
+                          <div className="text-[10px] text-[#5c3c10] pl-1 pb-2">
+                            {item.subtitle}
+                          </div>
+                        )}
                       </div>
                     ))}
                   </div>
@@ -261,7 +278,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Total Pemasukkan:</span>
-                      <span className="text-emerald-700">+ {totalIncome.toLocaleString("id-ID")} EM / bln</span>
+                      <span className="text-emerald-700">+ {totalIncome.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
                 </div>
@@ -329,7 +346,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                             <span className="font-semibold text-[#5c3c10]">{dept.name}</span>
                             <span className="text-[10px] text-[#8b7e66]">(Level {level})</span>
                           </div>
-                          <span>- {dailyCost.toLocaleString("id-ID")} EM / hari</span>
+                          <span>- {dailyCost.toLocaleString("id-ID")}</span>
                         </div>
                       );
                     })}
@@ -338,7 +355,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Subtotal {outcomeSubTab === "kementerian" ? "Kementerian" : outcomeSubTab === "keamanan" ? "Keamanan" : "Layanan"}:</span>
-                      <span className="text-rose-700">- {outcomeTabCostDaily.toLocaleString("id-ID")} EM / hari</span>
+                      <span className="text-rose-700">- {outcomeTabCostDaily.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
                 </div>
@@ -347,7 +364,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Total Pengeluaran Dewan Kabinet:</span>
-                      <span className="text-rose-700">- {totalOutcome.toLocaleString("id-ID")} EM / hari</span>
+                      <span className="text-rose-700">- {totalOutcome.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
                 </div>

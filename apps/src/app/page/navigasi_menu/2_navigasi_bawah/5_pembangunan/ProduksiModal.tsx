@@ -45,6 +45,12 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
         logger.warn('Production', `No metadata found for ${resourceKey}`);
         return 0;
       }
+
+      // Special case for gold: show total production capacity directly
+      // instead of starting from 0 when build dates are missing.
+      if (resourceKey === 'emas') {
+        return bMeta.produksi * buildingCount;
+      }
       
       if (!currentDate) {
         logger.log('Production', `CurrentDate undefined for ${resourceKey}`);
