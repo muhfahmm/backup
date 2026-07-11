@@ -142,65 +142,29 @@ export default function PilihNegaraPage() {
 
                 try {
                     const res = await fetch(`/api/country-data?path=${relPath}`);
-                    const text = await res.text();
-                    
-                    let mergedData: any = {};
-                    
-                    try {
-                        // Extract and parse export default object at end of file
-                        const exportMatch = text.match(/export\s+default\s*(\{[\s\S]*?\})\s*;?\s*$/);
-                        
-                        if (exportMatch) {
-                            const objStr = exportMatch[1];
-                            
-                            // Clean up the object string for JSON parsing
-                            let jsonStr = objStr
-                                .replace(/\/\/.*$/gm, '')  // Remove line comments
-                                .replace(/\/\*[\s\S]*?\*\//g, '')  // Remove block comments
-                                .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3')  // Quote unquoted keys
-                                .replace(/:\s*([a-zA-Z_]\w*)([,}\]])/g, (match, value, end) => {
-                                    // Don't quote true/false/null
-                                    if (['true', 'false', 'null'].includes(value)) {
-                                        return `: ${value}${end}`;
-                                    }
-                                    return `: "${value}"${end}`;
-                                })
-                                .replace(/'/g, '"')  // Single to double quotes
-                                .replace(/,(\s*[}\]])/g, '$1')  // Remove trailing commas
-                                .replace(/:\s*undefined/g, ': null');  // Convert undefined to null
-                            
-                            try {
-                                mergedData = JSON.parse(jsonStr);
-                            } catch (jsonErr) {
-                                console.warn("JSON parse failed, attempting fallback:", jsonErr);
-                                // If JSON parse fails, log the problematic string for debugging
-                                console.warn("Problematic string (first 500 chars):", jsonStr.substring(0, 500));
-                            }
-                        } else {
-                            console.warn("No export default found in country data file");
-                        }
-                    } catch (e) {
-                        console.error("Failed to parse country data file:", e);
+                    const mergedData = await res.json();
+
+                    if (mergedData?.error) {
+                        console.warn(`Country data load error for ${selected.country}:`, mergedData.error);
+                        setCountryDetail(null);
+                        return;
                     }
 
-                    if (Object.keys(mergedData).length > 0) {
-                        setCountryDetail({
-                            ...mergedData,
-                            // Map nested properties to UI keys
-                            ppn: mergedData.pajak?.ppn?.tarif,
-                            corporate: mergedData.pajak?.korporasi?.tarif,
-                            income_tax: mergedData.pajak?.penghasilan?.tarif,
-                            price_rice: mergedData.harga?.harga_beras,
-                            price_fuel: mergedData.harga?.harga_bbm,
-                            un_vote: mergedData.un_vote,
-                            reputation: mergedData.reputasi_diplomatik,
-                            kepuasan: mergedData.kepuasan ?? 50
-                        });
-                    } else {
-                        setCountryDetail(null);
-                    }
+                    setCountryDetail({
+                        ...mergedData,
+                        // Map nested properties to UI keys
+                        ppn: mergedData.pajak?.ppn?.tarif,
+                        corporate: mergedData.pajak?.korporasi?.tarif,
+                        income_tax: mergedData.pajak?.penghasilan?.tarif,
+                        price_rice: mergedData.harga?.harga_beras,
+                        price_fuel: mergedData.harga?.harga_bbm,
+                        un_vote: mergedData.un_vote,
+                        reputation: mergedData.reputasi_diplomatik,
+                        kepuasan: mergedData.kepuasan ?? 50
+                    });
                 } catch (e) {
                     console.error("Failed to load country data directly:", e);
+                    setCountryDetail(null);
                 }
             };
             

@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
+import { calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
 import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
@@ -70,15 +71,7 @@ const calculateTabCostDaily = (countryDetail: any, departments: Department[]) =>
 
 // Helper: Calculate gold mining income
 const calculateGoldMiningIncome = (countryDetail: any) => {
-  if (typeof countryDetail?.gold_income === "number") {
-    return countryDetail.gold_income;
-  }
-
-  if (typeof countryDetail?.emas === "number" && countryDetail.emas > 0) {
-    return Math.round(countryDetail.emas * 150 * 30);
-  }
-
-  return 60000;
+  return calculateGoldMiningMonthlyIncome(countryDetail);
 };
 
 // Helper: Calculate tourism income from tourism database and fallback to infrastructure

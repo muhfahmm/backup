@@ -2,12 +2,14 @@
 import React from "react";
 import { X, BarChart3, ArrowUpRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
+import { calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
 import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
 interface IncomeModalProps {
   isOpen: boolean;
   onClose: () => void;
   countryDetail: any;
+  selectedCountry: any;
 }
 
 interface IncomeItem {
@@ -34,15 +36,7 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
 
 // Helper function to calculate gold mining income per month
 const calculateGoldMiningIncome = (countryDetail: any) => {
-  if (typeof countryDetail?.gold_income === "number") {
-    return countryDetail.gold_income;
-  }
-
-  if (typeof countryDetail?.emas === "number" && countryDetail.emas > 0) {
-    return Math.round(countryDetail.emas * 150 * 30);
-  }
-
-  return 60000;
+  return calculateGoldMiningMonthlyIncome(countryDetail);
 };
 
 // Helper function to calculate tourism income from tourism database and fallback to infrastructure

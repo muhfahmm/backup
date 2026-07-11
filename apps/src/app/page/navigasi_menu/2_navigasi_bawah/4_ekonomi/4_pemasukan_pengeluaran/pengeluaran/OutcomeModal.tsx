@@ -19,32 +19,32 @@ interface OutcomeItem {
 // Department data dari KementerianModal - LENGKAP: 15 Kementerian + 5 Keamanan + 2 Layanan = 22 total
 const ALL_DEPARTMENTS = [
   // KEMENTERIAN (15 total)
-  { id: "infrastruktur", baseIncomeCost: 1920 },
-  { id: "pendidikan", baseIncomeCost: 1818 },
-  { id: "sains", baseIncomeCost: 1800 },
-  { id: "kesehatan", baseIncomeCost: 1700 },
-  { id: "olahraga", baseIncomeCost: 1200 },
-  { id: "kehakiman", baseIncomeCost: 1500 },
-  { id: "pertahanan", baseIncomeCost: 2200 },
-  { id: "luar-negeri", baseIncomeCost: 1600 },
-  { id: "kebudayaan", baseIncomeCost: 900 },
-  { id: "pariwisata", baseIncomeCost: 1100 },
-  { id: "lingkungan", baseIncomeCost: 1000 },
-  { id: "perumahan", baseIncomeCost: 1300 },
-  { id: "pembangunan", baseIncomeCost: 1450 },
-  { id: "perdagangan", baseIncomeCost: 1550 },
-  { id: "keuangan", baseIncomeCost: 2000 },
+  { id: "infrastruktur", baseIncomeCost: 100 },
+  { id: "pendidikan", baseIncomeCost: 100 },
+  { id: "sains", baseIncomeCost: 100 },
+  { id: "kesehatan", baseIncomeCost: 100 },
+  { id: "olahraga", baseIncomeCost: 100 },
+  { id: "kehakiman", baseIncomeCost: 100 },
+  { id: "pertahanan", baseIncomeCost: 100 },
+  { id: "luar-negeri", baseIncomeCost: 100 },
+  { id: "kebudayaan", baseIncomeCost: 100 },
+  { id: "pariwisata", baseIncomeCost: 100 },
+  { id: "lingkungan", baseIncomeCost: 100 },
+  { id: "perumahan", baseIncomeCost: 100 },
+  { id: "pembangunan", baseIncomeCost: 100 },
+  { id: "perdagangan", baseIncomeCost: 100 },
+  { id: "keuangan", baseIncomeCost: 100 },
   
   // KEAMANAN (5 total)
-  { id: "dinas-keamanan", baseIncomeCost: 1400 },
-  { id: "polisi", baseIncomeCost: 1250 },
-  { id: "garda-nasional", baseIncomeCost: 1600 },
-  { id: "komandan-angkatan-darat", baseIncomeCost: 1900 },
-  { id: "komandan-armada", baseIncomeCost: 2100 },
+  { id: "dinas-keamanan", baseIncomeCost: 100 },
+  { id: "polisi", baseIncomeCost: 100 },
+  { id: "garda-nasional", baseIncomeCost: 100 },
+  { id: "komandan-angkatan-darat", baseIncomeCost: 100 },
+  { id: "komandan-armada", baseIncomeCost: 100 },
   
   // LAYANAN (2 total)
-  { id: "layanan-darurat", baseIncomeCost: 1350 },
-  { id: "bank-sentral", baseIncomeCost: 2000 }
+  { id: "layanan-darurat", baseIncomeCost: 100 },
+  { id: "bank-sentral", baseIncomeCost: 100 }
 ];
 
 // Helper: Calculate ministry daily income cost using the same 100..1000 level scale

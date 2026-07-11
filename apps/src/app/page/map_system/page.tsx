@@ -115,40 +115,24 @@ export default function MapPage() {
 
         try {
             const res = await fetch(`/api/country-data?path=${relPath}`);
-            const text = await res.text();
-            
-            let mergedData: any = {};
-            const varNames = Array.from(text.matchAll(/const\s+(\w+)\s*=/g), m => m[1]);
-            
-            if (varNames.length > 0) {
-                const scriptText = text.replace(/const\s+/g, 'var ');
-                const script = `
-                    ${scriptText}
-                    const allData = { ${varNames.join(', ')} };
-                    let merged = {};
-                    for (let key in allData) {
-                        if (typeof allData[key] === 'object' && allData[key] !== null) {
-                            merged = { ...merged, ...allData[key] };
-                        }
-                    }
-                    return merged;
-                `;
-                mergedData = new Function(script)();
+            const mergedData = await res.json();
+
+            if (mergedData?.error) {
+                console.warn(`Country data load error for ${countryName}:`, mergedData.error);
+                return;
             }
 
-            if (Object.keys(mergedData).length > 0) {
-                setCountryDetail({
-                    ...mergedData,
-                    country: countryName,  // Store the country name for maritime check
-                    capital: mergedData.capital || capitalName,
-                    jumlah_penduduk: mergedData.jumlah_penduduk || 0,
-                    anggaran: mergedData.anggaran || 0,
-                    religion: mergedData.religion || '-',
-                    ideology: mergedData.ideology || '-',
-                    un_vote: mergedData.un_vote || 0,
-                    kepuasan: mergedData.kepuasan ?? 50
-                });
-            }
+            setCountryDetail({
+                ...mergedData,
+                country: countryName,  // Store the country name for maritime check
+                capital: mergedData.capital || capitalName,
+                jumlah_penduduk: mergedData.jumlah_penduduk || 0,
+                anggaran: mergedData.anggaran || 0,
+                religion: mergedData.religion || '-',
+                ideology: mergedData.ideology || '-',
+                un_vote: mergedData.un_vote || 0,
+                kepuasan: mergedData.kepuasan ?? 50
+            });
         } catch (e) {
             console.error("Failed to load country data:", e);
         }

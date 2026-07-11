@@ -55,7 +55,7 @@ const KEMENTERIAN: Department[] = [
     id: "infrastruktur",
     name: "Kementerian Infrastruktur",
     icon: Truck,
-    baseIncomeCost: 1920,
+    baseIncomeCost: 100,
     description: "Mengelola pembangunan jalan, jembatan, dan proyek infrastruktur nasional.",
     effects: [
       "Meningkatkan produktivitas ekonomi jangka panjang",
@@ -67,7 +67,7 @@ const KEMENTERIAN: Department[] = [
     id: "pendidikan",
     name: "Kementerian Pendidikan",
     icon: BookOpen,
-    baseIncomeCost: 1818,
+    baseIncomeCost: 100,
     description: "Mengatur kurikulum, sekolah, dan kualitas sumber daya manusia.",
     effects: [
       "Meningkatkan kualitas tenaga kerja",
@@ -79,7 +79,7 @@ const KEMENTERIAN: Department[] = [
     id: "sains",
     name: "Sains dan Penelitian",
     icon: Microscope,
-    baseIncomeCost: 1800,
+    baseIncomeCost: 100,
     description: "Mendanai riset teknologi dan inovasi nasional.",
     effects: [
       "Membuka teknologi/industri baru",
@@ -91,7 +91,7 @@ const KEMENTERIAN: Department[] = [
     id: "kesehatan",
     name: "Kementerian Kesehatan",
     icon: HeartPulse,
-    baseIncomeCost: 1700,
+    baseIncomeCost: 100,
     description: "Mengelola rumah sakit, vaksinasi, dan kebijakan kesehatan publik.",
     effects: [
       "Menurunkan risiko wabah penyakit",
@@ -103,7 +103,7 @@ const KEMENTERIAN: Department[] = [
     id: "olahraga",
     name: "Kementerian Olahraga",
     icon: Trophy,
-    baseIncomeCost: 1200,
+    baseIncomeCost: 100,
     description: "Mengembangkan fasilitas olahraga dan prestasi atlet nasional.",
     effects: [
       "Meningkatkan popularitas & citra negara",
@@ -115,7 +115,7 @@ const KEMENTERIAN: Department[] = [
     id: "kehakiman",
     name: "Kementerian Kehakiman",
     icon: Gavel,
-    baseIncomeCost: 1500,
+    baseIncomeCost: 100,
     description: "Menjaga penegakan hukum dan sistem peradilan negara.",
     effects: [
       "Menurunkan tingkat kriminalitas & korupsi",
@@ -127,7 +127,7 @@ const KEMENTERIAN: Department[] = [
     id: "pertahanan",
     name: "Kementerian Pertahanan",
     icon: Shield,
-    baseIncomeCost: 2200,
+    baseIncomeCost: 100,
     description: "Mengatur kekuatan militer dan pertahanan nasional.",
     effects: [
       "Meningkatkan kekuatan militer",
@@ -139,7 +139,7 @@ const KEMENTERIAN: Department[] = [
     id: "luar-negeri",
     name: "Kementerian Luar Negeri",
     icon: Globe2,
-    baseIncomeCost: 1600,
+    baseIncomeCost: 100,
     description: "Mengatur hubungan diplomatik dengan negara lain.",
     effects: [
       "Meningkatkan peluang kerja sama & hibah",
@@ -151,7 +151,7 @@ const KEMENTERIAN: Department[] = [
     id: "kebudayaan",
     name: "Kementerian Kebudayaan",
     icon: Palette,
-    baseIncomeCost: 900,
+    baseIncomeCost: 100,
     description: "Melestarikan budaya dan identitas nasional.",
     effects: [
       "Meningkatkan kepuasan rakyat",
@@ -162,7 +162,7 @@ const KEMENTERIAN: Department[] = [
     id: "pariwisata",
     name: "Kementerian Pariwisata",
     icon: Plane,
-    baseIncomeCost: 1100,
+    baseIncomeCost: 100,
     description: "Mengembangkan sektor wisata dan promosi destinasi.",
     effects: [
       "Menambah pendapatan devisa negara",
@@ -173,7 +173,7 @@ const KEMENTERIAN: Department[] = [
     id: "lingkungan",
     name: "Kementerian Lingkungan Hidup",
     icon: Leaf,
-    baseIncomeCost: 1000,
+    baseIncomeCost: 100,
     description: "Mengelola kebijakan lingkungan dan sumber daya alam.",
     effects: [
       "Menurunkan risiko bencana alam",
@@ -185,7 +185,7 @@ const KEMENTERIAN: Department[] = [
     id: "perumahan",
     name: "Kementerian Perumahan",
     icon: Home,
-    baseIncomeCost: 1300,
+    baseIncomeCost: 100,
     description: "Mengatur pembangunan perumahan rakyat dan tata kota.",
     effects: [
       "Menurunkan angka backlog perumahan",
@@ -196,7 +196,7 @@ const KEMENTERIAN: Department[] = [
     id: "pembangunan",
     name: "Kementerian Pembangunan",
     icon: Building2,
-    baseIncomeCost: 1450,
+    baseIncomeCost: 100,
     description: "Mengawasi proyek pembangunan nasional skala besar dan tata ruang wilayah.",
     effects: [
       "Mempercepat pembangunan fasilitas umum",
@@ -208,7 +208,7 @@ const KEMENTERIAN: Department[] = [
     id: "perdagangan",
     name: "Kementerian Perdagangan",
     icon: Handshake,
-    baseIncomeCost: 1550,
+    baseIncomeCost: 100,
     description: "Mengatur kebijakan ekspor-impor dan hubungan dagang antar negara.",
     effects: [
       "Meningkatkan pendapatan dari bea cukai",
@@ -220,7 +220,7 @@ const KEMENTERIAN: Department[] = [
     id: "keuangan",
     name: "Kementerian Keuangan",
     icon: Banknote,
-    baseIncomeCost: 2000,
+    baseIncomeCost: 100,
     description: "Mengelola anggaran negara, pajak, dan kebijakan fiskal nasional.",
     effects: [
       "Meningkatkan efisiensi pengumpulan pajak",
@@ -235,7 +235,7 @@ const KEAMANAN: Department[] = [
     id: "dinas-keamanan",
     name: "Dinas Keamanan",
     icon: ShieldCheck,
-    baseIncomeCost: 1400,
+    baseIncomeCost: 100,
     description: "Mengoordinasikan intelijen dan keamanan dalam negeri.",
     effects: [
       "Menurunkan risiko terorisme & sabotase",
@@ -246,7 +246,7 @@ const KEAMANAN: Department[] = [
     id: "polisi",
     name: "Polisi",
     icon: Siren,
-    baseIncomeCost: 1250,
+    baseIncomeCost: 100,
     description: "Menjaga ketertiban umum dan penegakan hukum sehari-hari.",
     effects: [
       "Menurunkan tingkat kriminalitas",
@@ -257,7 +257,7 @@ const KEAMANAN: Department[] = [
     id: "garda-nasional",
     name: "Garda Nasional",
     icon: Shield,
-    baseIncomeCost: 1600,
+    baseIncomeCost: 100,
     description: "Pasukan cadangan untuk keadaan darurat dan bencana.",
     effects: [
       "Mempercepat respons saat krisis internal",
@@ -268,7 +268,7 @@ const KEAMANAN: Department[] = [
     id: "komandan-angkatan-darat",
     name: "Komandan Angkatan Darat",
     icon: ShieldAlert,
-    baseIncomeCost: 1900,
+    baseIncomeCost: 100,
     description: "Memimpin kekuatan militer darat negara dalam pertahanan wilayah.",
     effects: [
       "Meningkatkan kekuatan tempur darat",
@@ -280,7 +280,7 @@ const KEAMANAN: Department[] = [
     id: "komandan-armada",
     name: "Komandan Armada",
     icon: Ship,
-    baseIncomeCost: 2100,
+    baseIncomeCost: 100,
     description: "Memimpin kekuatan angkatan laut dan menjaga perairan negara.",
     effects: [
       "Meningkatkan kekuatan militer laut",
@@ -295,7 +295,7 @@ const LAYANAN: Department[] = [
     id: "layanan-darurat",
     name: "Layanan Darurat",
     icon: Ambulance,
-    baseIncomeCost: 1350,
+    baseIncomeCost: 100,
     description: "Menangani respons cepat bencana, kecelakaan, dan kondisi darurat.",
     effects: [
       "Menurunkan angka korban jiwa saat bencana",
@@ -306,7 +306,7 @@ const LAYANAN: Department[] = [
     id: "bank-sentral",
     name: "Kepala Bank Sentral",
     icon: Coins,
-    baseIncomeCost: 2000,
+    baseIncomeCost: 100,
     description: "Mengendalikan kebijakan moneter, suku bunga, dan stabilitas nilai tukar.",
     effects: [
       "Mengendalikan tingkat inflasi nasional",
@@ -325,11 +325,11 @@ const TABS: { key: TabKey; label: string; data: Department[] }[] = [
 ];
 
 // Menghitung total biaya untuk lompat dari currentLevel ke targetLevel
-// (menjumlahkan biaya setiap level yang dilewati)
-// Contoh: dari level 1 ke level 3 -> LEVEL_UP_COST[2] + LEVEL_UP_COST[3]
+// (menjumlahkan biaya tiap langkah yang dilewati)
+// Contoh: dari level 1 ke level 3 -> 100 + 200 = 300 EM
 const getTotalUpgradeCost = (currentLevel: number, targetLevel: number) => {
   let total = 0;
-  for (let lvl = currentLevel + 1; lvl <= targetLevel; lvl++) {
+  for (let lvl = currentLevel; lvl < targetLevel; lvl++) {
     total += LEVEL_UP_COST[lvl];
   }
   return total;
@@ -358,15 +358,18 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
 
   if (!isOpen) return null;
 
-  const getLevel = (id: string) => levels[id] ?? 1;
+  const getLevel = (id: string) => {
+    const stored = countryDetail?.[`level_${id}`] as number | undefined;
+    return levels[id] ?? stored ?? 1;
+  };
 
   // Biaya upgrade satu langkah saja (dipakai untuk label "Upgrade ke level X: Y EM")
   const getNextStepCost = (level: number) => {
     if (level >= MAX_LEVEL) return null;
-    return LEVEL_UP_COST[level + 1];
+    return LEVEL_UP_COST[level + 1] ?? 100;
   };
 
-  const getDailyIncome = (_base: number, level: number) => {
+  const getDailyCost = (level: number) => {
     return LEVEL_UP_COST[level] ?? 100;
   };
 
@@ -389,11 +392,12 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
 
     const { dept, targetLevel, cost } = confirmUpgrade;
 
-    // Update countryDetail dengan anggaran baru (sinkron dengan navbar)
+    // Update countryDetail dengan anggaran baru dan level kabinet
     const newAnggaran = money - cost;
     setCountryDetail({
       ...countryDetail,
       anggaran: newAnggaran,
+      [`level_${dept.id}`]: targetLevel,
     });
 
     // Level langsung lompat ke targetLevel (bukan +1)
@@ -463,7 +467,7 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
             {activeData.map((dept) => {
               const level = getLevel(dept.id);
               const nextStepCost = getNextStepCost(level);
-              const income = getDailyIncome(dept.baseIncomeCost, level);
+              const income = getDailyCost(level);
               const Icon = dept.icon;
               const maxed = level >= MAX_LEVEL;
 
@@ -543,7 +547,7 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                       title={
                         maxed
                           ? "Level maksimum"
-                          : `Upgrade 1 level: ${nextStepCost?.toLocaleString("id-ID")} EM`
+                          : `Upgrade 1 level: ${LEVEL_UP_COST[level + 1]?.toLocaleString("id-ID")} EM`
                       }
                       className={`h-12 w-12 shrink-0 rounded-lg border-2 flex items-center justify-center ${
                         maxed
@@ -557,7 +561,7 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
 
                   {!maxed && (
                     <div className="px-4 pb-3 -mt-1 text-[10px] font-bold text-[#8b7e66]">
-                      Upgrade ke level {level + 1}: {nextStepCost?.toLocaleString("id-ID")} EM &nbsp;•&nbsp;
+                      Upgrade ke level {level + 1}: {LEVEL_UP_COST[level + 1]?.toLocaleString("id-ID")} EM &nbsp;•&nbsp;
                       Tekan kotak level manapun untuk lompat langsung ke level tersebut
                     </div>
                   )}
@@ -644,12 +648,12 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
               <div className="space-y-1.5 mb-3">
                 {Array.from(
                   { length: confirmUpgrade.targetLevel - confirmUpgrade.fromLevel },
-                  (_, idx) => confirmUpgrade.fromLevel + 1 + idx
-                ).map((lvl) => (
-                  <div key={lvl} className="flex justify-between text-[11px] font-bold text-[#8b7e66]">
-                    <span>Biaya ke level {lvl}:</span>
+                  (_, idx) => confirmUpgrade.fromLevel + idx
+                ).map((stepLevel) => (
+                  <div key={stepLevel} className="flex justify-between text-[11px] font-bold text-[#8b7e66]">
+                    <span>Biaya dari level {stepLevel} ke {stepLevel + 1}:</span>
                     <span className="text-[#5c3c10]">
-                      {LEVEL_UP_COST[lvl].toLocaleString("id-ID")} EM
+                      {LEVEL_UP_COST[stepLevel + 1].toLocaleString("id-ID")} EM
                     </span>
                   </div>
                 ))}
