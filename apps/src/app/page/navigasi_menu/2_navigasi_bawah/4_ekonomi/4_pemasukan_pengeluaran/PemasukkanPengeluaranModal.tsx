@@ -65,6 +65,15 @@ const calculateTabCostDaily = (countryDetail: any, departments: Department[]) =>
   return totalCost; // Daily total, NOT monthly
 };
 
+// Helper: Calculate gold mining income
+// Production per day = 150 × jumlah bangunan tambang emas
+const calculateGoldMiningIncome = (countryDetail: any) => {
+  const goldMines = countryDetail?.emas ?? 0; // Number of gold mining buildings
+  const productionPerDay = 150; // Per building per day
+  
+  return goldMines * productionPerDay; // Total gold produced per day
+};
+
 export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
   if (!isOpen) return null;
   const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
@@ -73,11 +82,15 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   // Calculate dynamic tax revenue
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
 
+  // Calculate gold mining income
+  const goldIncome = calculateGoldMiningIncome(countryDetail);
+
   // Calculate dynamic ministry cost per DAY
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
   const incomeItems: FinancialItem[] = [
-    { label: "Revenue Pajak", amount: taxRevenue }
+    { label: "Revenue Pajak", amount: taxRevenue },
+    { label: "Produksi Tambang Emas", amount: goldIncome }
   ];
 
   const outcomeItems: FinancialItem[] = [
