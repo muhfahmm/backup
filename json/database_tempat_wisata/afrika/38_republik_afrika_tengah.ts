@@ -3,15 +3,15 @@ const republik_afrika_tengah_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Bamingui-Bangoran",
-      "penghasilan": 2400
+      "penghasilan": 37
     },
     {
       "nama": "Sungai Ubangi",
-      "penghasilan": 1900
+      "penghasilan": 24
     },
     {
       "nama": "Gajah Sanctuary",
-      "penghasilan": 1600
+      "penghasilan": 17
     }
   ]
 };

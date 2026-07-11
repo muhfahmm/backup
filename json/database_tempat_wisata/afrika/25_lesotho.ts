@@ -3,15 +3,15 @@ const lesotho_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pegunungan Drakensber",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Air Terjun Maletsunyane",
-      "penghasilan": 2200
+      "penghasilan": 32
     },
     {
       "nama": "Taman Nasional Sehlabathebe",
-      "penghasilan": 1800
+      "penghasilan": 22
     }
   ]
 };

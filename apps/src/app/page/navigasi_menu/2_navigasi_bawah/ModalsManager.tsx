@@ -4,6 +4,7 @@
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
 import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
+import TempWisataModal from "./1_kepuasan/TempWisataModal";
 import { useEffect } from "react";
 
 // 2. Populasi
@@ -75,6 +76,7 @@ export default function ModalsManager({
     const checks: Record<string, any> = {
       StatistikKepuasanModal,
       NaikkanKepuasanModal,
+      TempWisataModal,
       RingkasanPopulasiModal,
       StatistikPopulasiModal,
       KelistrikanModal,
@@ -137,6 +139,13 @@ export default function ModalsManager({
         setActiveMenu={setActiveMenu}
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <TempWisataModal
+        isOpen={activeMenu === "Menu:TempWisata"}
+        onClose={() => setActiveMenu("Peta Taktis")}
+        setActiveMenu={setActiveMenu}
+        countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
 

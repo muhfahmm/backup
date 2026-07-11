@@ -3,23 +3,23 @@ const tanzania_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Gunung Kilimanjaro",
-      "penghasilan": 4600
+      "penghasilan": 95
     },
     {
       "nama": "Kawah Ngorongoro",
-      "penghasilan": 4200
+      "penghasilan": 84
     },
     {
       "nama": "Taman Nasional Serengeti",
-      "penghasilan": 4000
+      "penghasilan": 79
     },
     {
       "nama": "Pantai Zanzibar",
-      "penghasilan": 3400
+      "penghasilan": 64
     },
     {
       "nama": "Danau Tanganyika",
-      "penghasilan": 2800
+      "penghasilan": 48
     }
   ]
 };

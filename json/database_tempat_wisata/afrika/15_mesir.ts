@@ -3,23 +3,23 @@ const mesir_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Piramida Giza",
-      "penghasilan": 4800
+      "penghasilan": 100
     },
     {
       "nama": "Lembah Raja-Raja",
-      "penghasilan": 4200
+      "penghasilan": 84
     },
     {
       "nama": "Kuil Abu Simbel",
-      "penghasilan": 3900
+      "penghasilan": 77
     },
     {
       "nama": "Kairo Kuno",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Laut Merah Dive Sites",
-      "penghasilan": 2800
+      "penghasilan": 48
     }
   ]
 };

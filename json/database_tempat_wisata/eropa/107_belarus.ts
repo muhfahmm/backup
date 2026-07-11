@@ -1,8 +1,8 @@
 // @ts-nocheck
 const belarus_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Istana Mir", "penghasilan": 2200 },
-    { "nama": "Istana Nesvizh", "penghasilan": 2100 },
-    { "nama": "Hutan Belovezhskaya", "penghasilan": 1900 }
+    { "nama": "Istana Mir", "penghasilan": 32 },
+    { "nama": "Istana Nesvizh", "penghasilan": 30 },
+    { "nama": "Hutan Belovezhskaya", "penghasilan": 24 }
   ]
 };

@@ -46,7 +46,8 @@ interface Department {
 }
 
 // Biaya upgrade ke level tersebut (index = level)
-const LEVEL_UP_COST = [0, 100, 250, 450, 700, 1000, 1500, 2100, 2900, 3900, 5000];
+// Level 1 = 100 EM, level 10 = 1000 EM
+const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 const MAX_LEVEL = 10;
 
 const KEMENTERIAN: Department[] = [
@@ -365,8 +366,8 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
     return LEVEL_UP_COST[level + 1];
   };
 
-  const getDailyIncome = (base: number, level: number) => {
-    return Math.round(base * (1 + (level - 1) * 0.08));
+  const getDailyIncome = (_base: number, level: number) => {
+    return LEVEL_UP_COST[level] ?? 100;
   };
 
   // Diklik saat menekan salah satu dari 10 kotak level (index i, level target = i + 1)

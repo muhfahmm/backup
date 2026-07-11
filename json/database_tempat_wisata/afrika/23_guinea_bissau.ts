@@ -3,15 +3,15 @@ const guinea_bissau_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Kepulauan Bijagos",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Taman Nasional Orango",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Pantai Bissau",
-      "penghasilan": 1600
+      "penghasilan": 17
     }
   ]
 };

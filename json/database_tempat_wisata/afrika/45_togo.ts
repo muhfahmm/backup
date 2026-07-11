@@ -3,15 +3,15 @@ const togo_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Danau Volta",
-      "penghasilan": 2200
+      "penghasilan": 32
     },
     {
       "nama": "Monumen Independensi",
-      "penghasilan": 1700
+      "penghasilan": 19
     },
     {
       "nama": "Pantai Lome",
-      "penghasilan": 1500
+      "penghasilan": 14
     }
   ]
 };

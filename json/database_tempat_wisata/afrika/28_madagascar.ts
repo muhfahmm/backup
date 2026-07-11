@@ -3,19 +3,19 @@ const madagascar_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Avenue Baobab",
-      "penghasilan": 3400
+      "penghasilan": 64
     },
     {
       "nama": "Taman Nasional Andasibe",
-      "penghasilan": 2900
+      "penghasilan": 51
     },
     {
       "nama": "Taman Nasional Tsingy",
-      "penghasilan": 2700
+      "penghasilan": 45
     },
     {
       "nama": "Pantai Antananarivo",
-      "penghasilan": 2100
+      "penghasilan": 30
     }
   ]
 };

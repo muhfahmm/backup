@@ -3,15 +3,15 @@ const sudan_selatan_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Sudd",
-      "penghasilan": 1800
+      "penghasilan": 22
     },
     {
       "nama": "Danau Banyol",
-      "penghasilan": 1400
+      "penghasilan": 11
     },
     {
       "nama": "Bianyu Ponds",
-      "penghasilan": 1200
+      "penghasilan": 6
     }
   ]
 };

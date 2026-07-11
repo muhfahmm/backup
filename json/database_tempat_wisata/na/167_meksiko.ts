@@ -1,10 +1,10 @@
 // @ts-nocheck
 const meksiko_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Chichen Itza Mayan", "penghasilan": 4600 },
-    { "nama": "Cancun Beach Paradise", "penghasilan": 4400 },
-    { "nama": "Teotihuacan Pyramid", "penghasilan": 4200 },
-    { "nama": "Palacio Nacional Mexico City", "penghasilan": 4000 },
-    { "nama": "Isla Mujeres", "penghasilan": 3800 }
+    { "nama": "Chichen Itza Mayan", "penghasilan": 95 },
+    { "nama": "Cancun Beach Paradise", "penghasilan": 90 },
+    { "nama": "Teotihuacan Pyramid", "penghasilan": 84 },
+    { "nama": "Palacio Nacional Mexico City", "penghasilan": 79 },
+    { "nama": "Isla Mujeres", "penghasilan": 74 }
   ]
 };

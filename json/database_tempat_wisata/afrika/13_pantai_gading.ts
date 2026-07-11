@@ -3,15 +3,15 @@ const pantai_gading_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Tai",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Kastel St Jago",
-      "penghasilan": 2200
+      "penghasilan": 32
     },
     {
       "nama": "Pantai Grand Bassam",
-      "penghasilan": 1900
+      "penghasilan": 24
     }
   ]
 };

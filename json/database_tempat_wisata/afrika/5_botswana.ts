@@ -3,19 +3,19 @@ const botswana_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Delta Okavango",
-      "penghasilan": 4500
+      "penghasilan": 92
     },
     {
       "nama": "Taman Nasional Chobe",
-      "penghasilan": 3800
+      "penghasilan": 74
     },
     {
       "nama": "Mokolodi Game Reserve",
-      "penghasilan": 2900
+      "penghasilan": 51
     },
     {
       "nama": "Laut Pasir Kalahari",
-      "penghasilan": 2200
+      "penghasilan": 32
     }
   ]
 };

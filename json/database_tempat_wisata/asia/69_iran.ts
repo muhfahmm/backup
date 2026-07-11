@@ -1,9 +1,9 @@
 // @ts-nocheck
 const iran_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Persepolis Palace", "penghasilan": 3400 },
-    { "nama": "Isfahan Blue Mosque", "penghasilan": 3200 },
-    { "nama": "Danau Urmia", "penghasilan": 2700 },
-    { "nama": "Kota Kerman Kuno", "penghasilan": 2400 }
+    { "nama": "Persepolis Palace", "penghasilan": 64 },
+    { "nama": "Isfahan Blue Mosque", "penghasilan": 58 },
+    { "nama": "Danau Urmia", "penghasilan": 45 },
+    { "nama": "Kota Kerman Kuno", "penghasilan": 37 }
   ]
 };

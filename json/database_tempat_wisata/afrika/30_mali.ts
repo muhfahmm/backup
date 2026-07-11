@@ -3,15 +3,15 @@ const mali_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Kota Timbuktu",
-      "penghasilan": 3000
+      "penghasilan": 53
     },
     {
       "nama": "Sungai Niger",
-      "penghasilan": 2400
+      "penghasilan": 37
     },
     {
       "nama": "Danau Araouane",
-      "penghasilan": 1800
+      "penghasilan": 22
     }
   ]
 };

@@ -3,15 +3,15 @@ const malawi_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Danau Malawi",
-      "penghasilan": 3500
+      "penghasilan": 66
     },
     {
       "nama": "Taman Nasional Liwonde",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Pegunungan Mulanje",
-      "penghasilan": 2300
+      "penghasilan": 35
     }
   ]
 };

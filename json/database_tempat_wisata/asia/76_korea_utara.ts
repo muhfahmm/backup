@@ -1,8 +1,8 @@
 // @ts-nocheck
 const korea_utara_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Istana Kumsusan", "penghasilan": 2400 },
-    { "nama": "Monumen Mansudae", "penghasilan": 2700 },
-    { "nama": "Pasar Punggyeong", "penghasilan": 1800 }
+    { "nama": "Istana Kumsusan", "penghasilan": 37 },
+    { "nama": "Monumen Mansudae", "penghasilan": 45 },
+    { "nama": "Pasar Punggyeong", "penghasilan": 22 }
   ]
 };

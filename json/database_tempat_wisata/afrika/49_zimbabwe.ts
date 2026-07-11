@@ -3,19 +3,19 @@ const zimbabwe_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Air Terjun Victoria",
-      "penghasilan": 4400
+      "penghasilan": 90
     },
     {
       "nama": "Taman Nasional Hwange",
-      "penghasilan": 3800
+      "penghasilan": 74
     },
     {
       "nama": "Reruntuhan Besar Zimbabwe",
-      "penghasilan": 3400
+      "penghasilan": 64
     },
     {
       "nama": "Danau Kariba",
-      "penghasilan": 2900
+      "penghasilan": 51
     }
   ]
 };

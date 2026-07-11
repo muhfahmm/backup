@@ -1,9 +1,9 @@
 // @ts-nocheck
 const kostrika_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Arenal Volcano", "penghasilan": 4200 },
-    { "nama": "Manuel Antonio Park", "penghasilan": 3800 },
-    { "nama": "Monteverde Cloud Forest", "penghasilan": 3600 },
-    { "nama": "Nicoya Peninsula", "penghasilan": 3400 }
+    { "nama": "Arenal Volcano", "penghasilan": 84 },
+    { "nama": "Manuel Antonio Park", "penghasilan": 74 },
+    { "nama": "Monteverde Cloud Forest", "penghasilan": 69 },
+    { "nama": "Nicoya Peninsula", "penghasilan": 64 }
   ]
 };

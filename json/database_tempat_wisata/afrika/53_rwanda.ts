@@ -3,15 +3,15 @@ const rwanda_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pegunungan Gorila Volcan",
-      "penghasilan": 4600
+      "penghasilan": 95
     },
     {
       "nama": "Taman Nasional Nyungwe",
-      "penghasilan": 3600
+      "penghasilan": 69
     },
     {
       "nama": "Danau Kivu",
-      "penghasilan": 2900
+      "penghasilan": 51
     }
   ]
 };

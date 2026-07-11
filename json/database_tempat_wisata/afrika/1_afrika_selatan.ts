@@ -3,19 +3,19 @@ const afrika_selatan_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Kruger",
-      "penghasilan": 4200
+      "penghasilan": 84
     },
     {
       "nama": "Cape Point",
-      "penghasilan": 3800
+      "penghasilan": 74
     },
     {
       "nama": "Meja Pegunungan",
-      "penghasilan": 3500
+      "penghasilan": 66
     },
     {
       "nama": "Pantai Batu Karang",
-      "penghasilan": 2800
+      "penghasilan": 48
     }
   ]
 };

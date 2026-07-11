@@ -3,15 +3,15 @@ const mozambik_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Kepulauan Quirimbas",
-      "penghasilan": 3400
+      "penghasilan": 64
     },
     {
       "nama": "Taman Nasional Gorongosa",
-      "penghasilan": 2900
+      "penghasilan": 51
     },
     {
       "nama": "Pantai Beira",
-      "penghasilan": 2300
+      "penghasilan": 35
     }
   ]
 };

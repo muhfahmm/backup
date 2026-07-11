@@ -44,11 +44,11 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
   };
 
   // Calculate total income from all taxes
-  const totalIncome = calculateIncomeAtRate(tempRates.income_tax, 2500) +
-                     calculateIncomeAtRate(tempRates.corporate_tax, 2500) +
-                     calculateIncomeAtRate(tempRates.vat, 2500) +
-                     calculateIncomeAtRate(tempRates.cigarette_tax, 2500) +
-                     calculateIncomeAtRate(tempRates.environment_tax, 2500);
+  const totalIncome = calculateIncomeAtRate(tempRates.income_tax, 1000) +
+                     calculateIncomeAtRate(tempRates.corporate_tax, 1000) +
+                     calculateIncomeAtRate(tempRates.vat, 1000) +
+                     calculateIncomeAtRate(tempRates.cigarette_tax, 1000) +
+                     calculateIncomeAtRate(tempRates.environment_tax, 1000);
 
   return (
     <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
@@ -84,7 +84,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 <span>Pajak Penghasilan Pribadi</span>
                 <div className="flex items-center gap-2">
                   <span>{tempRates.income_tax}%</span>
-                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.income_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.income_tax, 1000).toLocaleString("id-ID")} EM)</span>
                 </div>
               </div>
               <input
@@ -95,7 +95,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 onChange={(e) => handleTaxChange("income_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
-              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 1.000 EM income</p>
             </div>
 
             {/* Pajak Korporasi */}
@@ -104,7 +104,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 <span>Pajak Korporasi</span>
                 <div className="flex items-center gap-2">
                   <span>{tempRates.corporate_tax}%</span>
-                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.corporate_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.corporate_tax, 1000).toLocaleString("id-ID")} EM)</span>
                 </div>
               </div>
               <input
@@ -115,7 +115,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 onChange={(e) => handleTaxChange("corporate_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
-              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 1.000 EM income</p>
             </div>
 
             {/* Pajak Pertambahan Nilai (PPN) */}
@@ -124,7 +124,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 <span>Pajak Pertambahan Nilai (PPN)</span>
                 <div className="flex items-center gap-2">
                   <span>{tempRates.vat}%</span>
-                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.vat, 2500).toLocaleString("id-ID")} EM)</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.vat, 1000).toLocaleString("id-ID")} EM)</span>
                 </div>
               </div>
               <input
@@ -135,7 +135,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 onChange={(e) => handleTaxChange("vat", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
-              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 1.000 EM income</p>
             </div>
 
             {/* Cukai */}
@@ -144,7 +144,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 <span>Cukai</span>
                 <div className="flex items-center gap-2">
                   <span>{tempRates.cigarette_tax}%</span>
-                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.cigarette_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.cigarette_tax, 1000).toLocaleString("id-ID")} EM)</span>
                 </div>
               </div>
               <input
@@ -155,7 +155,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 onChange={(e) => handleTaxChange("cigarette_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
-              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 1.000 EM income</p>
             </div>
 
             {/* Pajak Lingkungan */}
@@ -164,7 +164,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 <span>Pajak Lingkungan</span>
                 <div className="flex items-center gap-2">
                   <span>{tempRates.environment_tax}%</span>
-                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.environment_tax, 2500).toLocaleString("id-ID")} EM)</span>
+                  <span className="text-emerald-700 font-black">({calculateIncomeAtRate(tempRates.environment_tax, 1000).toLocaleString("id-ID")} EM)</span>
                 </div>
               </div>
               <input
@@ -175,7 +175,7 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
                 onChange={(e) => handleTaxChange("environment_tax", parseInt(e.target.value))}
                 className="w-full accent-[#5c3c10] cursor-pointer"
               />
-              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 2.500 EM income</p>
+              <p className="text-[10px] text-[#8b7e66]">0% = 0 EM, 100% = 1.000 EM income</p>
             </div>
           </div>
 

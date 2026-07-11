@@ -3,19 +3,19 @@ const uganda_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Gorila Pegunungan Bwindi",
-      "penghasilan": 4800
+      "penghasilan": 100
     },
     {
       "nama": "Air Terjun Murchison",
-      "penghasilan": 3600
+      "penghasilan": 69
     },
     {
       "nama": "Taman Nasional Queen Elizabeth",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Danau Victoria",
-      "penghasilan": 2700
+      "penghasilan": 45
     }
   ]
 };

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
+import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
 interface ModalProps {
   isOpen: boolean;
@@ -25,17 +26,19 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   const environment_tax = countryDetail?.environment_tax || 5;
 
   return (
-    calculateIncomeAtRate(income_tax, 2500) +
-    calculateIncomeAtRate(corporate_tax, 2500) +
-    calculateIncomeAtRate(vat, 2500) +
-    calculateIncomeAtRate(cigarette_tax, 2500) +
-    calculateIncomeAtRate(environment_tax, 2500)
+    calculateIncomeAtRate(income_tax, 1000) +
+    calculateIncomeAtRate(corporate_tax, 1000) +
+    calculateIncomeAtRate(vat, 1000) +
+    calculateIncomeAtRate(cigarette_tax, 1000) +
+    calculateIncomeAtRate(environment_tax, 1000)
   );
 };
 
-// Helper: Calculate ministry daily income cost
-const calculateMinistryDailyIncome = (level: number, baseIncomeCost: number) => {
-  return Math.round(baseIncomeCost * (1 + (level - 1) * 0.08));
+// Helper: Calculate ministry daily income cost using the same 100..1000 level scale
+const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+const calculateMinistryDailyIncome = (level: number, _baseIncomeCost: number) => {
+  return LEVEL_UP_COST[level] ?? 100;
 };
 
 // Helper: Calculate total ministry operational cost per DAY
@@ -78,8 +81,14 @@ const calculateGoldMiningIncome = (countryDetail: any) => {
   return 60000;
 };
 
-// Helper: Calculate tourism income from hospitality infrastructure
-const calculateTourismIncome = (countryDetail: any) => {
+// Helper: Calculate tourism income from tourism database and fallback to infrastructure
+const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
+  const attractions = getTourismAttractions(selectedCountry?.country || selectedCountry?.name || selectedCountry?.nama, selectedCountry?.id);
+
+  if (attractions.length > 0) {
+    return attractions.reduce((sum: number, attraction: any) => sum + (attraction.penghasilan || 0), 0);
+  }
+
   const hotels = Number(countryDetail?.hotel) || 0;
   const malls = Number(countryDetail?.mall) || 0;
   const tourismBuildings = hotels + malls;
@@ -103,7 +112,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
   const goldIncome = calculateGoldMiningIncome(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail);
+  const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
 
   // Calculate dynamic ministry cost per DAY
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);

@@ -3,19 +3,19 @@ const mauritius_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Black River Gorges",
-      "penghasilan": 3600
+      "penghasilan": 69
     },
     {
       "nama": "Ile aux Cerfs",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Pantai Beau Bassin",
-      "penghasilan": 2700
+      "penghasilan": 45
     },
     {
       "nama": "Pamplemousses Garden",
-      "penghasilan": 2400
+      "penghasilan": 37
     }
   ]
 };

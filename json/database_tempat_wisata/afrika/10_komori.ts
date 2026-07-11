@@ -3,15 +3,15 @@ const komori_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pulau Grande Comore",
-      "penghasilan": 2400
+      "penghasilan": 37
     },
     {
       "nama": "Pantai Mitsoudje",
-      "penghasilan": 1900
+      "penghasilan": 24
     },
     {
       "nama": "Taman Laut Maritime",
-      "penghasilan": 1600
+      "penghasilan": 17
     }
   ]
 };

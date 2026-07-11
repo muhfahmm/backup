@@ -3,15 +3,15 @@ const eswatini_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Mlilwane",
-      "penghasilan": 2600
+      "penghasilan": 43
     },
     {
       "nama": "Gorge Phophonyane",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Taman Malolotja",
-      "penghasilan": 1800
+      "penghasilan": 22
     }
   ]
 };

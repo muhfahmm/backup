@@ -3,15 +3,15 @@ const niger_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Air Gunung Sahara",
-      "penghasilan": 2300
+      "penghasilan": 35
     },
     {
       "nama": "Sungai Niger",
-      "penghasilan": 1900
+      "penghasilan": 24
     },
     {
       "nama": "Taman Nasional W",
-      "penghasilan": 1600
+      "penghasilan": 17
     }
   ]
 };

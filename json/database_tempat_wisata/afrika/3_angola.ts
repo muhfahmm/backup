@@ -3,19 +3,19 @@ const angola_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Mukungwe Falls",
-      "penghasilan": 2200
+      "penghasilan": 32
     },
     {
       "nama": "Taman Iona",
-      "penghasilan": 1800
+      "penghasilan": 22
     },
     {
       "nama": "Pulau Luanda",
-      "penghasilan": 1500
+      "penghasilan": 14
     },
     {
       "nama": "Belas Fortress",
-      "penghasilan": 1200
+      "penghasilan": 6
     }
   ]
 };

@@ -47,9 +47,11 @@ const ALL_DEPARTMENTS = [
   { id: "bank-sentral", baseIncomeCost: 2000 }
 ];
 
-// Helper: Calculate ministry daily income cost
-const calculateMinistryDailyIncome = (level: number, baseIncomeCost: number) => {
-  return Math.round(baseIncomeCost * (1 + (level - 1) * 0.08));
+// Helper: Calculate ministry daily income cost using the same 100..1000 level scale
+const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+
+const calculateMinistryDailyIncome = (level: number, _baseIncomeCost: number) => {
+  return LEVEL_UP_COST[level] ?? 100;
 };
 
 // Helper: Calculate total ministry operational cost per day

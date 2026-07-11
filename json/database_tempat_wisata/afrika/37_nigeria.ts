@@ -3,15 +3,15 @@ const nigeria_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Taman Nasional Cross River",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Pantai Lagos",
-      "penghasilan": 2500
+      "penghasilan": 40
     },
     {
       "nama": "Air Terjun Yankari",
-      "penghasilan": 2100
+      "penghasilan": 30
     }
   ]
 };

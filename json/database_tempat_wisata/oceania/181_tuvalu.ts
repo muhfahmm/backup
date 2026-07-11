@@ -1,8 +1,8 @@
 // @ts-nocheck
 const tuvalu_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Funafuti Atoll", "penghasilan": 1800 },
-    { "nama": "Pulau Nanumea", "penghasilan": 1600 },
-    { "nama": "Lagoon Tuvalu", "penghasilan": 1700 }
+    { "nama": "Funafuti Atoll", "penghasilan": 22 },
+    { "nama": "Pulau Nanumea", "penghasilan": 17 },
+    { "nama": "Lagoon Tuvalu", "penghasilan": 19 }
   ]
 };

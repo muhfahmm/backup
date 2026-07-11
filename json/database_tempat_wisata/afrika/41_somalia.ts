@@ -3,15 +3,15 @@ const somalia_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pantai Mogadishu",
-      "penghasilan": 1400
+      "penghasilan": 11
     },
     {
       "nama": "Air Terjun Hargeisa",
-      "penghasilan": 1100
+      "penghasilan": 4
     },
     {
       "nama": "Gua Laas Geel",
-      "penghasilan": 1000
+      "penghasilan": 1
     }
   ]
 };

@@ -3,15 +3,15 @@ const chad_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Danau Chad",
-      "penghasilan": 1500
+      "penghasilan": 14
     },
     {
       "nama": "Gunung Emi Koussi",
-      "penghasilan": 1200
+      "penghasilan": 6
     },
     {
       "nama": "Taman Nasional Zakouma",
-      "penghasilan": 1100
+      "penghasilan": 4
     }
   ]
 };

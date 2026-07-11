@@ -3,15 +3,15 @@ const djibouti_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Danau Asal",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Gua Day Forest",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Pulau Moucha",
-      "penghasilan": 1700
+      "penghasilan": 19
     }
   ]
 };

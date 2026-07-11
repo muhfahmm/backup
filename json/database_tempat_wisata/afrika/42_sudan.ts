@@ -3,15 +3,15 @@ const sudan_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Piramida Meroe",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Gereja Soleb Kuno",
-      "penghasilan": 2700
+      "penghasilan": 45
     },
     {
       "nama": "Danau Nasser",
-      "penghasilan": 2300
+      "penghasilan": 35
     }
   ]
 };

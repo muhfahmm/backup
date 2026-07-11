@@ -3,19 +3,19 @@ const ghana_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Benteng Cape Coast",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Taman Nasional Kakum",
-      "penghasilan": 2900
+      "penghasilan": 51
     },
     {
       "nama": "Danau Volta",
-      "penghasilan": 2500
+      "penghasilan": 40
     },
     {
       "nama": "Pantai Accra",
-      "penghasilan": 2100
+      "penghasilan": 30
     }
   ]
 };

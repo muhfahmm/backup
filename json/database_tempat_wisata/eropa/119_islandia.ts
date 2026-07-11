@@ -1,8 +1,8 @@
 // @ts-nocheck
 const islandia_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Geysir Strokkur", "penghasilan": 3800 },
-    { "nama": "Waterfall Gullfoss", "penghasilan": 3600 },
-    { "nama": "Golden Circle Route", "penghasilan": 3400 }
+    { "nama": "Geysir Strokkur", "penghasilan": 74 },
+    { "nama": "Waterfall Gullfoss", "penghasilan": 69 },
+    { "nama": "Golden Circle Route", "penghasilan": 64 }
   ]
 };

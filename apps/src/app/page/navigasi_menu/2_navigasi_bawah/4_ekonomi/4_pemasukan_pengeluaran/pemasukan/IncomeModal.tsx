@@ -2,6 +2,7 @@
 import React from "react";
 import { X, BarChart3, ArrowUpRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
+import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
 interface IncomeModalProps {
   isOpen: boolean;
@@ -23,11 +24,11 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   const environment_tax = countryDetail?.environment_tax || 5;
 
   return (
-    calculateIncomeAtRate(income_tax, 2500) +
-    calculateIncomeAtRate(corporate_tax, 2500) +
-    calculateIncomeAtRate(vat, 2500) +
-    calculateIncomeAtRate(cigarette_tax, 2500) +
-    calculateIncomeAtRate(environment_tax, 2500)
+    calculateIncomeAtRate(income_tax, 1000) +
+    calculateIncomeAtRate(corporate_tax, 1000) +
+    calculateIncomeAtRate(vat, 1000) +
+    calculateIncomeAtRate(cigarette_tax, 1000) +
+    calculateIncomeAtRate(environment_tax, 1000)
   );
 };
 
@@ -44,8 +45,14 @@ const calculateGoldMiningIncome = (countryDetail: any) => {
   return 60000;
 };
 
-// Helper function to calculate tourism income from hospitality infrastructure
-const calculateTourismIncome = (countryDetail: any) => {
+// Helper function to calculate tourism income from tourism database and fallback to infrastructure
+const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
+  const attractions = getTourismAttractions(selectedCountry?.country || selectedCountry?.name || selectedCountry?.nama, selectedCountry?.id);
+
+  if (attractions.length > 0) {
+    return attractions.reduce((sum: number, attraction: any) => sum + (attraction.penghasilan || 0), 0);
+  }
+
   const hotels = Number(countryDetail?.hotel) || 0;
   const malls = Number(countryDetail?.mall) || 0;
   const tourismBuildings = hotels + malls;
@@ -61,13 +68,13 @@ const calculateTourismIncome = (countryDetail: any) => {
   return 0;
 };
 
-export default function IncomeModal({ isOpen, onClose, countryDetail }: IncomeModalProps) {
+export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCountry }: IncomeModalProps) {
   if (!isOpen) return null;
 
   // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
   const goldIncome = calculateGoldMiningIncome(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail);
+  const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
 
   const incomeItems: IncomeItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },

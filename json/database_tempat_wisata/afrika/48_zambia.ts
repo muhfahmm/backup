@@ -3,19 +3,19 @@ const zambia_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Air Terjun Victoria",
-      "penghasilan": 4400
+      "penghasilan": 90
     },
     {
       "nama": "Taman Nasional South Luangwa",
-      "penghasilan": 3800
+      "penghasilan": 74
     },
     {
       "nama": "Danau Kariba",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Bangweulu Wetlands",
-      "penghasilan": 2600
+      "penghasilan": 43
     }
   ]
 };

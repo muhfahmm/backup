@@ -1,8 +1,8 @@
 // @ts-nocheck
 const ceko_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Kastil Praga", "penghasilan": 4400 },
-    { "nama": "Jembatan Charles", "penghasilan": 4200 },
-    { "nama": "Jam Astronomi Kuno", "penghasilan": 3800 }
+    { "nama": "Kastil Praga", "penghasilan": 90 },
+    { "nama": "Jembatan Charles", "penghasilan": 84 },
+    { "nama": "Jam Astronomi Kuno", "penghasilan": 74 }
   ]
 };

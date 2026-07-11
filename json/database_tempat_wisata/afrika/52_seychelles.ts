@@ -3,19 +3,19 @@ const seychelles_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pantai Mahe",
-      "penghasilan": 3800
+      "penghasilan": 74
     },
     {
       "nama": "Pulau Praslin",
-      "penghasilan": 3400
+      "penghasilan": 64
     },
     {
       "nama": "Laut Coral Vallée de Mai",
-      "penghasilan": 2900
+      "penghasilan": 51
     },
     {
       "nama": "Pulau La Digue",
-      "penghasilan": 2600
+      "penghasilan": 43
     }
   ]
 };

@@ -3,15 +3,15 @@ const sierra_leone_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pantai Freetown Peninsula",
-      "penghasilan": 2600
+      "penghasilan": 43
     },
     {
       "nama": "Pulau Banana",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Taman Nasional Gola",
-      "penghasilan": 1800
+      "penghasilan": 22
     }
   ]
 };

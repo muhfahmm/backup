@@ -3,15 +3,15 @@ const aljazair_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Kasbah Aljazair",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Tassili n'Ajjer",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Kota Timgad Kuno",
-      "penghasilan": 2500
+      "penghasilan": 40
     }
   ]
 };

@@ -1,10 +1,10 @@
 // @ts-nocheck
 const jerman_tempat_wisata = {
   "tempat_wisata": [
-    { "nama": "Kastil Neuschwanstein", "penghasilan": 4400 },
-    { "nama": "Gerbang Brandenburg", "penghasilan": 4200 },
-    { "nama": "Oktoberfest Munich", "penghasilan": 4600 },
-    { "nama": "Menara Berlin", "penghasilan": 3800 },
-    { "nama": "Rhine Valley", "penghasilan": 3600 }
+    { "nama": "Kastil Neuschwanstein", "penghasilan": 90 },
+    { "nama": "Gerbang Brandenburg", "penghasilan": 84 },
+    { "nama": "Oktoberfest Munich", "penghasilan": 95 },
+    { "nama": "Menara Berlin", "penghasilan": 74 },
+    { "nama": "Rhine Valley", "penghasilan": 69 }
   ]
 };

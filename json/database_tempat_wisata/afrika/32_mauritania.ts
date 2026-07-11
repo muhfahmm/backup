@@ -3,15 +3,15 @@ const mauritania_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Banc d'Arguin National Park",
-      "penghasilan": 2600
+      "penghasilan": 43
     },
     {
       "nama": "Chinguetti Kota Kuno",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Gurun Sahara",
-      "penghasilan": 1800
+      "penghasilan": 22
     }
   ]
 };

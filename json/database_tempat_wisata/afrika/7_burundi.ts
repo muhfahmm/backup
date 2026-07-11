@@ -3,15 +3,15 @@ const burundi_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Danau Tanganyika",
-      "penghasilan": 2600
+      "penghasilan": 43
     },
     {
       "nama": "Taman Nasional Kibira",
-      "penghasilan": 1900
+      "penghasilan": 24
     },
     {
       "nama": "Situs Kompleks Palais",
-      "penghasilan": 1300
+      "penghasilan": 9
     }
   ]
 };

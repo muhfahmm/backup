@@ -3,15 +3,15 @@ const cabo_verde_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pulau Sal",
-      "penghasilan": 3200
+      "penghasilan": 58
     },
     {
       "nama": "Pantai Santa Maria",
-      "penghasilan": 2800
+      "penghasilan": 48
     },
     {
       "nama": "Puncak Pico Telenovela",
-      "penghasilan": 2100
+      "penghasilan": 30
     }
   ]
 };

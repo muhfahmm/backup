@@ -3,15 +3,15 @@ const tanjung_verde_tempat_wisata = {
   "tempat_wisata": [
     {
       "nama": "Pulau Santo Antao",
-      "penghasilan": 2600
+      "penghasilan": 43
     },
     {
       "nama": "Pantai Praia",
-      "penghasilan": 2100
+      "penghasilan": 30
     },
     {
       "nama": "Pulau Maio",
-      "penghasilan": 1700
+      "penghasilan": 19
     }
   ]
 };
