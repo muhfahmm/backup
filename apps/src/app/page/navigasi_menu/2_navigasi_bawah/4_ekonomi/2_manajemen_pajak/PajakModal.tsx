@@ -17,11 +17,11 @@ export default function PajakModal({ isOpen, onClose, countryDetail, setCountryD
   if (!isOpen) return null;
   
   const [tempRates, setTempRates] = useState<Record<string, number>>({
-    income_tax: countryDetail?.income_tax || 15,
-    corporate_tax: countryDetail?.corporate || 22,
-    vat: countryDetail?.ppn || 10,
-    cigarette_tax: countryDetail?.cigarette_tax || 15,
-    environment_tax: countryDetail?.environment_tax || 5
+    income_tax: countryDetail?.income_tax || 45,
+    corporate_tax: countryDetail?.corporate || 27,
+    vat: countryDetail?.ppn || 15,
+    cigarette_tax: countryDetail?.cigarette_tax || 5,
+    environment_tax: countryDetail?.environment_tax || 0
   });
 
   const handleTaxChange = (taxId: string, nextVal: number) => {
