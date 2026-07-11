@@ -8,7 +8,7 @@ const mineralKritisRate = {
     dataKey: "emas",
     label: "Tambang Emas",
     deskripsi: "Tambang Emas",
-    produksi: 150,
+    produksi: 50,
     satuan: "KG",
     waktu_pembangunan: 120,
     biaya_pembangunan: 6000,

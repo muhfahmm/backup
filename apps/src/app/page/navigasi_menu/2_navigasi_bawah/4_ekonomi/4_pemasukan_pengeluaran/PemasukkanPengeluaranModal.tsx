@@ -66,12 +66,33 @@ const calculateTabCostDaily = (countryDetail: any, departments: Department[]) =>
 };
 
 // Helper: Calculate gold mining income
-// Production per day = 150 × jumlah bangunan tambang emas
 const calculateGoldMiningIncome = (countryDetail: any) => {
-  const goldMines = countryDetail?.emas ?? 0; // Number of gold mining buildings
-  const productionPerDay = 150; // Per building per day
-  
-  return goldMines * productionPerDay; // Total gold produced per day
+  if (typeof countryDetail?.gold_income === "number") {
+    return countryDetail.gold_income;
+  }
+
+  if (typeof countryDetail?.emas === "number" && countryDetail.emas > 0) {
+    return Math.round(countryDetail.emas * 150 * 30);
+  }
+
+  return 60000;
+};
+
+// Helper: Calculate tourism income from hospitality infrastructure
+const calculateTourismIncome = (countryDetail: any) => {
+  const hotels = Number(countryDetail?.hotel) || 0;
+  const malls = Number(countryDetail?.mall) || 0;
+  const tourismBuildings = hotels + malls;
+
+  if (tourismBuildings > 0) {
+    return tourismBuildings * 25000;
+  }
+
+  if (typeof countryDetail?.tourism_income === "number") {
+    return countryDetail.tourism_income;
+  }
+
+  return 0;
 };
 
 export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
@@ -79,18 +100,18 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
   const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
-  // Calculate dynamic tax revenue
+  // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-
-  // Calculate gold mining income
   const goldIncome = calculateGoldMiningIncome(countryDetail);
+  const tourismIncome = calculateTourismIncome(countryDetail);
 
   // Calculate dynamic ministry cost per DAY
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
   const incomeItems: FinancialItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },
-    { label: "Produksi Tambang Emas", amount: goldIncome }
+    { label: "Produksi Tambang Emas", amount: goldIncome },
+    { label: "Revenue Pariwisata", amount: tourismIncome }
   ];
 
   const outcomeItems: FinancialItem[] = [

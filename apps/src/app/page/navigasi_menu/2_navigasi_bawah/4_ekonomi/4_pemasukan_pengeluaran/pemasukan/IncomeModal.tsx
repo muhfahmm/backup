@@ -31,14 +31,48 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   );
 };
 
+// Helper function to calculate gold mining income per month
+const calculateGoldMiningIncome = (countryDetail: any) => {
+  if (typeof countryDetail?.gold_income === "number") {
+    return countryDetail.gold_income;
+  }
+
+  if (typeof countryDetail?.emas === "number" && countryDetail.emas > 0) {
+    return Math.round(countryDetail.emas * 150 * 30);
+  }
+
+  return 60000;
+};
+
+// Helper function to calculate tourism income from hospitality infrastructure
+const calculateTourismIncome = (countryDetail: any) => {
+  const hotels = Number(countryDetail?.hotel) || 0;
+  const malls = Number(countryDetail?.mall) || 0;
+  const tourismBuildings = hotels + malls;
+
+  if (tourismBuildings > 0) {
+    return tourismBuildings * 25000;
+  }
+
+  if (typeof countryDetail?.tourism_income === "number") {
+    return countryDetail.tourism_income;
+  }
+
+  return 0;
+};
+
 export default function IncomeModal({ isOpen, onClose, countryDetail }: IncomeModalProps) {
   if (!isOpen) return null;
 
-  // Calculate dynamic tax revenue
+  // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
+  const goldIncome = calculateGoldMiningIncome(countryDetail);
+  const tourismIncome = calculateTourismIncome(countryDetail);
 
   const incomeItems: IncomeItem[] = [
-    { label: "Revenue Pajak", amount: taxRevenue }
+    { label: "Revenue Pajak", amount: taxRevenue },
+    { label: "Produksi Tambang Emas", amount: goldIncome },
+    { label: "Revenue Pariwisata", amount: tourismIncome }
   ];
 
   const totalIncome = incomeItems.reduce((sum, item) => sum + item.amount, 0);
