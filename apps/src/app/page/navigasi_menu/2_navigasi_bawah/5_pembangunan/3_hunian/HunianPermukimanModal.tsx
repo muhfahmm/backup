@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
+import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Home, TrendingUp, TrendingDown } from "lucide-react";
 
 interface ModalProps {

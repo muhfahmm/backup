@@ -24,9 +24,9 @@ import PDBModal from "./4_ekonomi/5_pdb_nasional_dunia/PDBModal";
 import HargaModal from "./4_ekonomi/6_harga/HargaModal";
 
 // 5. Pembangunan
-import ProduksiModal from "./5_pembangunan/ProduksiModal";
-import TempatUmumModal from "./5_pembangunan/TempatUmumModal";
-import HunianPermukimanModal from "./5_pembangunan/HunianPermukimanModal";
+import ProduksiModal from "./5_pembangunan/1_produksi/ProduksiModal";
+import TempatUmumModal from "./5_pembangunan/2_tempat_umum/TempatUmumModal";
+import HunianPermukimanModal from "./5_pembangunan/3_hunian/HunianPermukimanModal";
 
 // 6. Pertahanan
 import PertahananModal from "./6_pertahanan/PertahananModal";

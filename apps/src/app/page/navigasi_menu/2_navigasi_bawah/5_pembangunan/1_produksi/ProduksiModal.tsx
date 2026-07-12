@@ -2,10 +2,10 @@
 "use client"
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { X, Hammer, Zap, Gem, Factory, Beef, Sprout, Fish, Utensils, Pill, Shield, TrendingUp, TrendingDown, Info } from "lucide-react";
-import { fetchBuildingMetadata } from '../../../../../lib/buildingMetadata';
-import { isBuildingAvailable } from '../../../../logic';
-import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../../../logic/production_logic';
-import { logger } from '../../../../../lib/logger';
+import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
+import { isBuildingAvailable } from '../../../../../logic';
+import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../../../../logic/production_logic';
+import { logger } from '../../../../../../lib/logger';
 
 interface ModalProps {
   isOpen: boolean;
