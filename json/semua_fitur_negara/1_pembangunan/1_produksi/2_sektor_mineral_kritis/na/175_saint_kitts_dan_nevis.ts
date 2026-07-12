@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 6,
   minyak_bumi: 0,
@@ -13,3 +13,4 @@ const saint_kitts_dan_nevis_ekstraksi = {
   logam_tanah_jarang: 24,
   bijih_besi: 24,
 };
+

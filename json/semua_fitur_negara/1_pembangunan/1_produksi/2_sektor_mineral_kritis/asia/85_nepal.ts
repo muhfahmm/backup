@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 4,
   minyak_bumi: 36,
@@ -13,3 +13,4 @@ const nepal_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 28,
 };
+

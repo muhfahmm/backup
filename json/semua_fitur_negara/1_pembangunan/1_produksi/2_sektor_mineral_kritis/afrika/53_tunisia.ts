@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tunisia_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 20,
   minyak_bumi: 16,
@@ -13,3 +13,4 @@ const tunisia_ekstraksi = {
   logam_tanah_jarang: 8,
   bijih_besi: 0,
 };
+

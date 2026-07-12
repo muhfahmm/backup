@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malawi_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 16,
   minyak_bumi: 28,
@@ -13,3 +13,4 @@ const malawi_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 8,
 };
+

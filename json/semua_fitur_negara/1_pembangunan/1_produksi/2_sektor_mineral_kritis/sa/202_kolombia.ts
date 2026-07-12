@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 324,
   minyak_bumi: 252,
@@ -13,3 +13,4 @@ const kolombia_ekstraksi = {
   logam_tanah_jarang: 144,
   bijih_besi: 72,
 };
+

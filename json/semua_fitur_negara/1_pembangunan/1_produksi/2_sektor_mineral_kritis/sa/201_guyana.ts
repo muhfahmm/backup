@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 6,
   minyak_bumi: 12,
@@ -13,3 +13,4 @@ const guyana_ekstraksi = {
   logam_tanah_jarang: 4,
   bijih_besi: 6,
 };
+

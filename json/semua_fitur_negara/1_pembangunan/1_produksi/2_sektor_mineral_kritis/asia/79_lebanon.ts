@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 3,
   minyak_bumi: 0,
@@ -13,3 +13,4 @@ const lebanon_ekstraksi = {
   logam_tanah_jarang: 9,
   bijih_besi: 4,
 };
+

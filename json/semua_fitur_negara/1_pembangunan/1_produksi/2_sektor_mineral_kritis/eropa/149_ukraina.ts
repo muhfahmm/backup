@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 185,
   batu_bara: 0,
   minyak_bumi: 0,
@@ -13,3 +13,4 @@ const ukraina_ekstraksi = {
   logam_tanah_jarang: 40,
   bijih_besi: 5,
 };
+

@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 18,
   minyak_bumi: 0,
@@ -13,3 +13,4 @@ const liberia_ekstraksi = {
   logam_tanah_jarang: 21,
   bijih_besi: 0,
 };
+

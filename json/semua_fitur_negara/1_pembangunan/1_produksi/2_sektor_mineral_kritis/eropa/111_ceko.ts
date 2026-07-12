@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 37,
   batu_bara: 0,
   minyak_bumi: 138,
@@ -13,3 +13,4 @@ const ceko_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 69,
 };
+

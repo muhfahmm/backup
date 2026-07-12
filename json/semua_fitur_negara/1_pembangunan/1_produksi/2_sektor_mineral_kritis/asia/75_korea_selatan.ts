@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 1360,
   minyak_bumi: 1360,
@@ -13,3 +13,4 @@ const korea_selatan_ekstraksi = {
   logam_tanah_jarang: 1700,
   bijih_besi: 1700,
 };
+

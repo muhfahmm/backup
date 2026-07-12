@@ -125,7 +125,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
         : undefined,
       subtitle:
         goldBuildingCount > 0
-          ? `50 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
+          ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
           : undefined
     },
     { label: "Revenue Pariwisata", amount: tourismIncome }

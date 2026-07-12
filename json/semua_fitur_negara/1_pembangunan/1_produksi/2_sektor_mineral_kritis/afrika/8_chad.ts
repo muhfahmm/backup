@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 24,
   minyak_bumi: 27,
@@ -13,3 +13,4 @@ const chad_ekstraksi = {
   logam_tanah_jarang: 9,
   bijih_besi: 21,
 };
+

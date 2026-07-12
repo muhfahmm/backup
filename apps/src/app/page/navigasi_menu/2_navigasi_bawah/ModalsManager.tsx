@@ -1,11 +1,10 @@
 // detail path: c:\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\ModalsManager.tsx
-"use client"
+'use client';
 
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
 import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
 import TempWisataModal from "./1_kepuasan/TempWisataModal";
-import { useEffect } from "react";
 
 // 2. Populasi
 import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiModal";
@@ -60,7 +59,7 @@ interface ModalsManagerProps {
   resetTrigger?: boolean;
 }
 
-export default function ModalsManager({
+function ModalsManager({
   activeMenu,
   setActiveMenu,
   countryDetail,
@@ -71,57 +70,6 @@ export default function ModalsManager({
 }: ModalsManagerProps) {
   
   if (!selectedCountry) return null;
-
-  useEffect(() => {
-    const checks: Record<string, any> = {
-      StatistikKepuasanModal,
-      NaikkanKepuasanModal,
-      TempWisataModal,
-      RingkasanPopulasiModal,
-      StatistikPopulasiModal,
-      KelistrikanModal,
-      PerminyakanModal,
-      UraniumModal,
-      PerdaganganModal,
-      PajakModal,
-      HutangModal,
-      PemasukkanPengeluaranModal,
-      PDBModal,
-      HargaModal,
-      ProduksiModal,
-      TempatUmumModal,
-      HunianPermukimanModal,
-      PertahananModal,
-      IntelijenModal,
-      ArmadaMiliterModal,
-      ArmadaPolisiModal,
-      ManajemenPertahananModal,
-      PBBModal,
-      KedutaanBesarModal,
-      OrgIntlModal,
-      TingkatHubunganModal,
-      BantuanModal,
-      AgamaModal,
-      IdeologiModal,
-      KementerianModal,
-    };
-
-    Object.entries(checks).forEach(([name, comp]) => {
-      try {
-        if (!comp) {
-          console.error('[MODAL CHECK] MISSING', name, comp);
-        } else if (typeof comp === 'object' && typeof (comp as any).then === 'function') {
-          console.error('[MODAL CHECK] PROMISE', name, comp);
-        } else if (typeof comp !== 'function') {
-          console.warn('[MODAL CHECK] NOT A FUNCTION', name, typeof comp, comp);
-        } else {
-          console.log('[MODAL CHECK] OK', name);
-        }
-      } catch (err) {
-        console.error('[MODAL CHECK] ERROR', name, err);
-      }
-    });
-  }, []);
 
   return (
     <>
@@ -325,3 +273,5 @@ export default function ModalsManager({
     </>
   );
 }
+
+export default ModalsManager;

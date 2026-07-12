@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 5,
   minyak_bumi: 35,
@@ -13,3 +13,4 @@ const bolivia_ekstraksi = {
   logam_tanah_jarang: 25,
   bijih_besi: 5,
 };
+

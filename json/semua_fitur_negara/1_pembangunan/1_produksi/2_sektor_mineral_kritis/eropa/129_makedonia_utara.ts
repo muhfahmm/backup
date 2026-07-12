@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 15,
@@ -13,3 +13,4 @@ const makedonia_utara_ekstraksi = {
   logam_tanah_jarang: 0,
   bijih_besi: 21,
 };
+

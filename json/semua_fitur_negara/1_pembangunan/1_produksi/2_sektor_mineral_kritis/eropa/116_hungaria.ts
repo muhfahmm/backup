@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 40,
   minyak_bumi: 72,
@@ -13,3 +13,4 @@ const hungaria_ekstraksi = {
   logam_tanah_jarang: 40,
   bijih_besi: 48,
 };
+

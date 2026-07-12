@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 222,
@@ -13,3 +13,4 @@ const swedia_ekstraksi = {
   logam_tanah_jarang: 296,
   bijih_besi: 222,
 };
+

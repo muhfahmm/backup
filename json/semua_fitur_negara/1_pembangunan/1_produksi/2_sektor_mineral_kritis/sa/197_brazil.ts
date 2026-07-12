@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 134,
   batu_bara: 0,
   minyak_bumi: 873,
@@ -13,3 +13,4 @@ const brazil_ekstraksi = {
   logam_tanah_jarang: 1164,
   bijih_besi: 1455,
 };
+

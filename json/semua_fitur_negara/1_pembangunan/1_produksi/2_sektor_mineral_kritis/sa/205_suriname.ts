@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,
@@ -13,3 +13,4 @@ const suriname_ekstraksi = {
   logam_tanah_jarang: 6,
   bijih_besi: 6,
 };
+

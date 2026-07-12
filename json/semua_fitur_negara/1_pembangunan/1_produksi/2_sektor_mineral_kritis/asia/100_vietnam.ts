@@ -1,6 +1,6 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_ekstraksi = {
-  emas: 0,
+  emas: 10,
   uranium: 0,
   batu_bara: 340,
   minyak_bumi: 204,
@@ -13,3 +13,4 @@ const vietnam_ekstraksi = {
   logam_tanah_jarang: 544,
   bijih_besi: 68,
 };
+
