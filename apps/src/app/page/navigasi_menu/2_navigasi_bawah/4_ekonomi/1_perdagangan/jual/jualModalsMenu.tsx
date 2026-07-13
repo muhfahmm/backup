@@ -126,7 +126,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
       const nama = formatLabel(key);
       const stokTersedia = calculateStockpile(key);
       const harga = meta?.biaya_pembangunan ? Math.round(meta.biaya_pembangunan * 2) : 5000000;
-      return { key, nama, harga, satuan: `1x Batch (${BATCH_SIZE.toLocaleString("id-ID")} unit)`, stok: stokTersedia };
+      return { key, nama, harga, satuan: "", stok: stokTersedia };
     });
   };
 
@@ -153,12 +153,12 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
             <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex items-center justify-between">
               <div>
                 <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1">{item.isLoading ? "Memuat..." : item.nama}</h4>
-                <p className="text-[10px] text-[#8b7e66] font-semibold">{item.isLoading ? "" : `Stok Tersedia: ${item.stok?.toLocaleString("id-ID")} unit`} • {item.satuan}</p>
+                {/* PERUBAHAN DI SINI: Bagian Stok dan Batch dihapus total */}
               </div>
               <button
                 disabled={item.isLoading}
                 onClick={() => !item.isLoading && handleJual(item.key, item.nama, item.harga, item.satuan)}
-                className={`px-5 py-2 rounded-lg bg-rose-700 hover:bg-rose-800 active:bg-rose-900 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`px-5 py-2 rounded-lg bg-rose-700 hover:bg-rose-800 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 + {item.isLoading ? '...' : item.harga.toLocaleString("id-ID")}
               </button>

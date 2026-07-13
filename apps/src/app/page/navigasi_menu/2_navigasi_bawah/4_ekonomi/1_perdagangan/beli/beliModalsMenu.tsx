@@ -126,7 +126,7 @@ export default function BeliModalsMenu({ isOpen, onClose, countryDetail, setCoun
               <button
                 disabled={item.isLoading}
                 onClick={() => !item.isLoading && handleBeli(item.key, item.nama, item.harga, item.satuan)}
-                className={`px-5 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`px-5 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap transition-colors duration-200 ease-in-out ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
                 - {item.isLoading ? '...' : item.harga.toLocaleString("id-ID")}
               </button>
