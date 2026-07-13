@@ -139,6 +139,7 @@ function ModalsManager({
         onClose={() => setActiveMenu("Peta Taktis")}
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
+        currentDate={currentDate}
       />
       <PajakModal
         isOpen={activeMenu === "Menu:Pajak"}

@@ -9,6 +9,7 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  currentDate?: Date;
 }
 
 export interface TradeHistoryItem {
@@ -19,7 +20,7 @@ export interface TradeHistoryItem {
   negara: string;
 }
 
-export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate }: ModalProps) {
   if (!isOpen) return null;
 
   const [historyFilter, setHistoryFilter] = useState<"semua" | "ekspor" | "impor">("semua");
@@ -203,6 +204,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
         onConfirm={(biaya, kuantitas) => addHistoryEntry("ekspor", biaya, kuantitas)}
+        currentDate={currentDate}
       />
     </>
   );

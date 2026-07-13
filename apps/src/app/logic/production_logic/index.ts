@@ -29,3 +29,9 @@ export {
 export {
   useCountryProduction
 } from './useProductionCalculator';
+
+export {
+  calculateStockpile,
+  formatStockDisplay,
+  isStockSufficientForExport
+} from './stockpileCalculator';

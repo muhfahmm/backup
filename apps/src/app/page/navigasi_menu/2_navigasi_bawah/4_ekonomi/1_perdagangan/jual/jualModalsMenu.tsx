@@ -26,6 +26,8 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
 
+  console.log("[JualModalsMenu] Props:", { currentDate, countryDetail: countryDetail?.country, isOpen });
+
   useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
@@ -70,33 +72,32 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     return undefined;
   };
 
-  const calculateStockpile = (resourceKey: string): number => {
-    const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
-    if (buildingCount === 0) return 0;
-    const bMeta = findMeta(resourceKey);
-    if (!bMeta || !bMeta.produksi) return 0;
-    if (!currentDate) return 0;
-
-    const buildDateKey = `build_date_${resourceKey}`;
-    const buildDate = countryDetail?.[buildDateKey];
-    const currentDateStr = formatDate(currentDate);
-    const finalBuildDate = buildDate || currentDateStr;
-
-    return calculateProductionIncrement(
-      bMeta.produksi,
-      buildingCount,
-      finalBuildDate,
-      currentDateStr
-    );
-  };
-
   if (!isOpen) return null;
 
   const anggaran = countryDetail?.anggaran || 0;
   const BATCH_SIZE = 1000;
 
   const handleJual = (key: string, nama: string, harga: number, satuan: string) => {
-    const stokTersedia = calculateStockpile(key);
+    // Hitung stok tersedia menggunakan logika yang sama
+    const buildingCount = Number(countryDetail?.[key]) || 0;
+    let stokTersedia = 0;
+    
+    const bMeta = findMeta(key);
+    if (buildingCount > 0 && bMeta && bMeta.produksi && currentDate) {
+      const buildDateKey = `build_date_${key}`;
+      const buildDate = countryDetail?.[buildDateKey];
+      const currentDateStr = formatDate(currentDate);
+      const finalBuildDate = buildDate || currentDateStr;
+      
+      stokTersedia = calculateProductionIncrement(
+        bMeta.produksi,
+        buildingCount,
+        finalBuildDate,
+        currentDateStr
+      );
+    }
+    
+    const BATCH_SIZE = 1000;
     if (stokTersedia < BATCH_SIZE) {
       alert(`Stok ${nama} tidak mencukupi! Minimal ${BATCH_SIZE.toLocaleString("id-ID")} unit harus tersedia untuk diekspor.`);
       return;
@@ -108,7 +109,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
 
     setCountryDetail({
       ...countryDetail,
-      anggaran: anggaran + harga,
+      anggaran: (countryDetail?.anggaran || 0) + harga,
       [accumulatedKey]: newAccumulated
     });
 
@@ -119,14 +120,46 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
 
   const generateCommodities = (): CommodityItem[] => {
     if (loadingMetadata || Object.keys(metadata).length === 0) {
+      console.log("[generateCommodities] Loading metadata...", { loadingMetadata, metadataKeys: Object.keys(metadata) });
       return [{ key: "", nama: "Memuat data komoditas...", harga: 0, satuan: "", isLoading: true }];
     }
+    
     return ALL_EXPORT_KEYS.map((key) => {
-      const meta = metadata[key];
+      // Gunakan findMeta lokal untuk mencari metadata dengan benar
+      const bMeta = findMeta(key);
       const nama = formatLabel(key);
-      const stokTersedia = calculateStockpile(key);
-      const harga = meta?.biaya_pembangunan ? Math.round(meta.biaya_pembangunan * 2) : 5000000;
-      return { key, nama, harga, satuan: "", stok: stokTersedia };
+      
+      // Hitung stok langsung di sini menggunakan logika yang sama
+      const buildingCount = Number(countryDetail?.[key]) || 0;
+      let stokTersedia = 0;
+      
+      if (buildingCount > 0 && bMeta && bMeta.produksi && currentDate) {
+        const buildDateKey = `build_date_${key}`;
+        const buildDate = countryDetail?.[buildDateKey];
+        const currentDateStr = formatDate(currentDate);
+        const finalBuildDate = buildDate || currentDateStr;
+        
+        stokTersedia = calculateProductionIncrement(
+          bMeta.produksi,
+          buildingCount,
+          finalBuildDate,
+          currentDateStr
+        );
+      }
+      
+      const harga = bMeta?.biaya_pembangunan ? Math.round(bMeta.biaya_pembangunan * 2) : 5000000;
+      const unit = bMeta?.satuan || "unit";
+      const stokFormatted = `${stokTersedia.toLocaleString('id-ID')} ${unit}`;
+      
+      console.log(`[Ekspor] ${key}: buildings=${buildingCount}, meta=${bMeta ? 'FOUND' : 'NOT FOUND'}, produksi=${bMeta?.produksi}, stok=${stokTersedia}`);
+      
+      return { 
+        key, 
+        nama, 
+        harga, 
+        satuan: `Stok: ${stokFormatted}`, 
+        stok: stokTersedia 
+      };
     });
   };
 
@@ -151,16 +184,32 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
 
           {komoditasEkspor.map((item, idx) => (
             <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex items-center justify-between">
-              <div>
-                <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1">{item.isLoading ? "Memuat..." : item.nama}</h4>
-                {/* PERUBAHAN DI SINI: Bagian Stok dan Batch dihapus total */}
+              <div className="flex-1">
+                <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-2">{item.isLoading ? "Memuat..." : item.nama}</h4>
+                <div className="flex items-baseline gap-3">
+                  {/* Stok yang dimulai dari 0 dan bertambah */}
+                  <div className="flex flex-col">
+                    <span className="text-[10px] text-[#8b7e66] font-semibold">Stok Tersedia:</span>
+                    <span className="text-lg font-black text-[#2e261a]">
+                      {item.isLoading ? "..." : item.stok?.toLocaleString("id-ID")}
+                    </span>
+                  </div>
+                  {/* Satuan dan info */}
+                  <span className="text-[10px] text-[#8b7e66] font-semibold">
+                    {item.isLoading ? "" : item.satuan}
+                  </span>
+                </div>
               </div>
               <button
-                disabled={item.isLoading}
+                disabled={item.isLoading || (item.stok || 0) < 1000}
                 onClick={() => !item.isLoading && handleJual(item.key, item.nama, item.harga, item.satuan)}
-                className={`px-5 py-2 rounded-lg bg-rose-700 hover:bg-rose-800 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
+                className={`px-5 py-2 rounded-lg text-white text-[10px] font-black uppercase tracking-wide transition-all shadow-sm whitespace-nowrap ${
+                  item.isLoading || (item.stok || 0) < 1000
+                    ? 'bg-gray-400 cursor-not-allowed opacity-60'
+                    : 'bg-rose-700 hover:bg-rose-800 active:bg-rose-900 cursor-pointer'
+                }`}
               >
-                + {item.isLoading ? '...' : item.harga.toLocaleString("id-ID")}
+                + {item.isLoading ? "..." : item.harga.toLocaleString("id-ID")}
               </button>
             </div>
           ))}
