@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const sierra_leoneAgreements = [
+export const sierra_leoneAgreements = [
   { "no": 1, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },

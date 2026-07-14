@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const portugalAgreements = [
+export const portugalAgreements = [
   { "no": 1, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },

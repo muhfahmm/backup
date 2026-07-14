@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const curacaoAgreements = [
+export const curacaoAgreements = [
   { "no": 1, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },

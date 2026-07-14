@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const jermanAgreements = [
+export const jermanAgreements = [
   { "no": 1, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" },

@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const guiana_prancisAgreements = [
+export const guiana_prancisAgreements = [
   { "no": 1, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Brazil", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },

@@ -1,5 +1,5 @@
 ﻿// @ts-nocheck
-const bosnia_dan_hercegovinaAgreements = [
+export const bosnia_dan_hercegovinaAgreements = [
   { "no": 1, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
   { "no": 3, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
