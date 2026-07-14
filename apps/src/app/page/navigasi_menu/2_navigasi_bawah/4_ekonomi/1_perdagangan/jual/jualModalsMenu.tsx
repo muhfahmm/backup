@@ -105,9 +105,9 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
 
   return (
     <>
-      {/* PERBAIKAN: Sembunyikan modal grid jika konfirmasi terbuka, tambahkan max-w-6xl dan h-[84vh] */}
+      {/* PERBAIKAN: Hapus bg-black/70, ganti z-[60] menjadi z-50 agar konsisten */}
       {isOpen && !isConfirmOpen && (
-        <div className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
             
@@ -122,7 +122,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
             <div className="flex-1 overflow-y-auto p-8 relative z-10 space-y-4 no-scrollbar">
               <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4">Pilih komoditas surplus yang ingin dijual. Klik tombol untuk memulai transaksi.</p>
 
-              {/* Grid Daftar Jual (Diperlebar sesuai ukuran modal yang baru) */}
+              {/* Grid Daftar Jual */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {komoditasJual.map((item, idx) => (
                   <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between transition-all">

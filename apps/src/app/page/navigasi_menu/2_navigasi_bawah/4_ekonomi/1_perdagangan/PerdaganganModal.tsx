@@ -3,7 +3,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { X, ArrowRightLeft, Info } from "lucide-react";
 import JualModalsMenu from "./jual/jualModalsMenu";
 import MitraModalsMenu, { TradePartner } from "./mitra/mitraModalsMenu";
-import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli"; // LANGSUNG IMPORT KONFIRMASI
+import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli";
 import { getTradeAgreementsForCountry } from '../../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
 
 interface AgreementData {
@@ -42,10 +42,24 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
   const [historyResetVersion, setHistoryResetVersion] = useState(0);
 
-  // PERUBAHAN: Hapus isBeliOpen, gunakan isConfirmBeliOpen saja
+  // State untuk membuka modal anak
   const [isConfirmBeliOpen, setIsConfirmBeliOpen] = useState(false);
   const [isJualOpen, setIsJualOpen] = useState(false);
   const [isMitraOpen, setIsMitraOpen] = useState(false);
+
+  // Fungsi trigger untuk Beli dari halaman Mitra
+  const openBeliModals = (partner: TradePartner) => {
+    console.log("Membuka modal Beli dari mitra:", partner.nama_negara);
+    setIsMitraOpen(false);
+    setIsConfirmBeliOpen(true);
+  };
+
+  // Fungsi trigger untuk Jual dari halaman Mitra
+  const openJualModals = (partner: TradePartner) => {
+    console.log("Membuka modal Jual dari mitra:", partner.nama_negara);
+    setIsMitraOpen(false);
+    setIsJualOpen(true);
+  };
 
   const getTodayString = () => {
     const d = new Date();
@@ -83,10 +97,8 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
     setHistoryResetVersion((prev) => prev + 1);
   };
 
-  // PERBAIKAN useEffect untuk reset
   useEffect(() => {
     if (!resetTrigger || historyResetVersion >= 1) return;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     handleResetHistory();
   }, [resetTrigger, historyResetVersion]);
 
@@ -111,7 +123,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
 
   return (
     <>
-      <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
@@ -144,7 +156,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
               Kelola aktivitas jual dan beli komoditas nasional untuk mengoptimalkan pendapatan dan kebutuhan anggaran belanja negara.
             </p>
 
-            {/* PERUBAHAN TOMBOL: Beli langsung memicu konfirmasi */}
             <div className="flex flex-wrap gap-3 mb-8">
               <button
                 onClick={() => setIsMitraOpen(true)}
@@ -159,7 +170,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                 Jual
               </button>
               <button
-                onClick={() => setIsConfirmBeliOpen(true)} // <--- Ubah trigger ke sini
+                onClick={() => setIsConfirmBeliOpen(true)}
                 className="flex-1 min-w-[150px] py-3 rounded-lg bg-[#2d6e6e] hover:bg-[#255c5c] active:bg-[#1f4f4f] text-[#FAF6EE] text-xs font-bold uppercase tracking-wide cursor-pointer transition-all shadow-sm"
               >
                 Beli
@@ -172,7 +183,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
               </button>
             </div>
 
-            {/* Filter dan Tabel Riwayat (Tidak Berubah) */}
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-[10px] font-black text-[#5c3c10] uppercase tracking-widest">Riwayat 180 Hari Terakhir</h3>
               <div className="inline-flex rounded-lg overflow-hidden border-2 border-[#C4B49C]/50">
@@ -181,7 +191,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
               </div>
             </div>
 
-            {/* Tabel (Tidak Berubah) */}
             <div className="border-2 border-[#C4B49C]/40 rounded-xl overflow-hidden">
               <table className="w-full text-left">
                 <thead>
@@ -214,7 +223,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         </div>
       </div>
 
-      {/* PERUBAHAN: Hapus BeliModalsMenu, ganti dengan ModalsKonfirmasiBeli */}
       <ModalsKonfirmasiBeli 
         isOpen={isConfirmBeliOpen} 
         onClose={() => setIsConfirmBeliOpen(false)} 
@@ -225,7 +233,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         currentDate={currentDate}
       />
 
-      {/* Jual Modals Menu (Tetap sama) */}
       <JualModalsMenu 
         isOpen={isJualOpen} 
         onClose={() => setIsJualOpen(false)} 
@@ -235,12 +242,13 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         currentDate={currentDate}
         partners={allPartners}
       />
-      
-      {/* Mitra Modals Menu (Tetap sama) */}
+
       <MitraModalsMenu 
         isOpen={isMitraOpen} 
         onClose={() => setIsMitraOpen(false)} 
-        partners={allPartners} 
+        partners={allPartners}
+        onOpenBeli={openBeliModals}
+        onOpenJual={openJualModals}
       />
     </>
   );

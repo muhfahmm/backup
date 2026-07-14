@@ -7,9 +7,7 @@ import { calculateProductionIncrement, formatDate } from '@/app/logic/production
 import { hitungHargaJual } from "../beli/logic/0_harga_barang/harga_jual_logic";
 import countryPaths from '@/app/page/map_system/country-paths.json';
 
-// IMPOR SEMUA LOGIKA DARI INDEX.TS (SAMA SEPERTI BELI)
 import { 
-  // 1. Mineral Kritis
   hasUraniumBuilding, 
   hasBatubaraBuilding, 
   hasMinyakBumiBuilding,
@@ -21,7 +19,6 @@ import {
   hasAluminiumBuilding,
   hasLogamTanahJarangBuilding,
   hasBijihBesiBuilding,
-  // 2. Manufaktur
   hasSemikonduktorBuilding,
   hasMobilBuilding,
   hasSepedaMotorBuilding,
@@ -29,12 +26,10 @@ import {
   hasSemenBetonBuilding,
   hasKayuBuilding,
   hasPupukBuilding,
-  // 3. Peternakan
   hasAyamUnggasBuilding,
   hasSapiPerahBuilding,
   hasSapiPotongBuilding,
   hasDombaKambingBuilding,
-  // 4. Agrikultur
   hasPadiBuilding,
   hasGandumBuilding,
   hasJagungBuilding,
@@ -49,11 +44,9 @@ import {
   hasKaretBuilding,
   hasKapasBuilding,
   hasTembakauBuilding,
-  // 5. Perikanan
   hasUdangBuilding,
   hasIkanBuilding,
   hasMutiaraBuilding,
-  // 6. Olahan Pangan
   hasAirMineralBuilding,
   hasGulaBuilding,
   hasRotiBuilding,
@@ -64,7 +57,6 @@ import {
   hasPakanTernakBuilding,
   hasIkanKalengBuilding,
   hasKopiTehBuilding,
-  // 7. Farmasi
   hasFarmasiBuilding
 } from "../beli/index";
 
@@ -83,20 +75,12 @@ interface MetadataEntry {
 type MetadataMap = Record<string, MetadataEntry>;
 
 const ALL_JUAL_KEYS = [
-  // 1. Mineral Kritis
   "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga", "aluminium", "logam_tanah_jarang", "bijih_besi",
-  // 2. Manufaktur
   "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
-  // 3. Peternakan
   "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
-  // 4. Agrikultur
   "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau",
-  // 5. Perikanan
   "udang", "mutiara", "ikan",
-  // 6. Olahan Pangan
-  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh",
-  // 7. Farmasi
-  "farmasi"
+  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh", "farmasi"
 ];
 
 interface ModalsKonfirmasiJualProps {
@@ -126,13 +110,11 @@ export default function ModalsKonfirmasiJual({
   const [quantity, setQuantity] = useState<number>(1);
   const [partnerData, setPartnerData] = useState<Record<string, any> | null>(null);
 
-  // Load metadata
   useEffect(() => {
     if (!isOpen) return;
     fetchBuildingMetadata().then((data) => setMetadata(data || {}));
   }, [isOpen]);
 
-  // Fetch data negara mitra
   useEffect(() => {
     const name = selectedCountry || partners[0]?.nama_negara;
     if (!name) {
@@ -176,7 +158,6 @@ export default function ModalsKonfirmasiJual({
     return undefined;
   }, [metadata]);
 
-  // LOGIKA STOK USER
   const stockAvailable = useMemo(() => {
     if (!selectedProduct) return 0;
     const buildingCount = Number(countryDetail?.[selectedProduct]) || 0;
@@ -205,7 +186,6 @@ export default function ModalsKonfirmasiJual({
     );
   }, [selectedProduct, currentDate, countryDetail, findMeta]);
 
-  // LOGIKA STOK MITRA
   const partnerProduction = useMemo(() => {
     if (!selectedProduct || !partnerData) return 0;
     const pBuildingCount = Number(partnerData[selectedProduct] || 0);
@@ -234,11 +214,7 @@ export default function ModalsKonfirmasiJual({
     );
   }, [selectedProduct, currentDate, partnerData, findMeta]);
 
-  // ==========================================
-  // PETA FUNGSI (CHECK MAP) UNTUK SEMUA SEKTOR
-  // ==========================================
   const checkMap: Record<string, (data: Record<string, any> | null) => boolean> = {
-    // 1. Mineral Kritis
     uranium: hasUraniumBuilding,
     batu_bara: hasBatubaraBuilding,
     minyak_bumi: hasMinyakBumiBuilding,
@@ -250,7 +226,6 @@ export default function ModalsKonfirmasiJual({
     aluminium: hasAluminiumBuilding,
     logam_tanah_jarang: hasLogamTanahJarangBuilding,
     bijih_besi: hasBijihBesiBuilding,
-    // 2. Manufaktur
     semikonduktor: hasSemikonduktorBuilding,
     mobil: hasMobilBuilding,
     sepeda_motor: hasSepedaMotorBuilding,
@@ -258,12 +233,10 @@ export default function ModalsKonfirmasiJual({
     semen_beton: hasSemenBetonBuilding,
     kayu: hasKayuBuilding,
     pupuk: hasPupukBuilding,
-    // 3. Peternakan
     ayam_unggas: hasAyamUnggasBuilding,
     sapi_perah: hasSapiPerahBuilding,
     sapi_potong: hasSapiPotongBuilding,
     domba_kambing: hasDombaKambingBuilding,
-    // 4. Agrikultur
     padi: hasPadiBuilding,
     gandum: hasGandumBuilding,
     jagung: hasJagungBuilding,
@@ -278,11 +251,9 @@ export default function ModalsKonfirmasiJual({
     karet: hasKaretBuilding,
     kapas: hasKapasBuilding,
     tembakau: hasTembakauBuilding,
-    // 5. Perikanan
     udang: hasUdangBuilding,
     ikan: hasIkanBuilding,
     mutiara: hasMutiaraBuilding,
-    // 6. Olahan Pangan
     air_mineral: hasAirMineralBuilding,
     gula: hasGulaBuilding,
     roti: hasRotiBuilding,
@@ -293,16 +264,11 @@ export default function ModalsKonfirmasiJual({
     pakan_ternak: hasPakanTernakBuilding,
     ikan_kaleng: hasIkanKalengBuilding,
     kopi_teh: hasKopiTehBuilding,
-    // 7. Farmasi
     farmasi: hasFarmasiBuilding,
   };
 
-  // ==========================================
-  // AUTO-SELECT SAAT MODAL TERBUKA
-  // ==========================================
   useEffect(() => {
     if (isOpen) {
-      // Cari produk pertama yang TIDAK disabled
       const firstAvailable = ALL_JUAL_KEYS.find((key) => {
         const checkFn = checkMap[key];
         if (checkFn && !checkFn(partnerData)) {
@@ -349,12 +315,10 @@ export default function ModalsKonfirmasiJual({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-4">
-      {/* PERBAIKAN: Ukuran sama dengan PerdaganganModal */}
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
-        {/* Header */}
         <div className="px-5 py-4 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Penjualan</h2>
           <button onClick={onClose} className="p-1.5 rounded-full bg-[#4a5f5f] hover:bg-[#3a4f4f] text-white transition-colors cursor-pointer shadow-sm">
@@ -362,9 +326,7 @@ export default function ModalsKonfirmasiJual({
           </button>
         </div>
 
-        {/* Body / Content Area dengan Flex-1 agar memenuhi ruang */}
         <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
-          {/* Baris 1: Produk & Negara */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
@@ -411,7 +373,6 @@ export default function ModalsKonfirmasiJual({
             </div>
           </div>
 
-          {/* Stok User */}
           <div className="flex justify-between items-center pt-1 pb-1 border-b border-[#C4B49C]/10">
             <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Stok Tersedia (Anda):</span>
             <span className="text-sm font-black text-[#2e261a]">
@@ -419,7 +380,6 @@ export default function ModalsKonfirmasiJual({
             </span>
           </div>
 
-          {/* Tampilkan jumlah bangunan di negara mitra dan produksinya */}
           <div className="flex flex-col gap-1">
             <div className="flex justify-between items-center pt-1 pb-0">
               <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(selectedProduct)} (Mitra):</span>
@@ -435,7 +395,6 @@ export default function ModalsKonfirmasiJual({
             </div>
           </div>
 
-          {/* Baris 2: Kuantitas */}
           <div className="flex items-center justify-between gap-2">
             <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Kuantitas:</label>
             <div className="flex items-center gap-1.5">
@@ -446,7 +405,6 @@ export default function ModalsKonfirmasiJual({
             </div>
           </div>
 
-          {/* Baris 3: Harga */}
           <div className="flex justify-between items-center pt-3 border-t border-[#C4B49C]/20">
             <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Harga:</span>
             <div className="flex items-center gap-1.5">
@@ -456,7 +414,6 @@ export default function ModalsKonfirmasiJual({
           </div>
         </div>
 
-        {/* Footer Tombol Aksi */}
         <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
           <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
           <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Jual</button>

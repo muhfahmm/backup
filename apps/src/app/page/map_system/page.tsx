@@ -398,7 +398,7 @@ export default function MapPage() {
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
-            <div className="fixed bottom-8 right-8 z-30 flex flex-col w-[320px] pointer-events-auto">
+            <div className="fixed bottom-8 right-8 z-60 flex flex-col w-[320px] pointer-events-auto">
                 {/* Upper Parchment Card */}
                 <div className="bg-[#FAF6EE] rounded-t-2xl px-6 pt-5 pb-10 border-t-2 border-x-2 border-[#C4B49C] shadow-lg flex flex-col relative overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.01)_0%,transparent_100%)] pointer-events-none" />

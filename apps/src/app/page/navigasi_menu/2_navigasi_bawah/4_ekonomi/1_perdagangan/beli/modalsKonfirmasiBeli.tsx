@@ -7,7 +7,6 @@ import { calculateProductionIncrement, formatDate, normalizePartnerBuildDates } 
 import { hitungHargaBeli } from "./logic/0_harga_barang/harga_beli_logic";
 import countryPaths from '@/app/page/map_system/country-paths.json';
 
-// IMPOR SEMUA LOGIKA DARI INDEX.TS
 import { 
   // 1. Mineral Kritis
   hasUraniumBuilding, 
@@ -124,21 +123,17 @@ export default function ModalsKonfirmasiBeli({
   const [quantity, setQuantity] = useState<number>(1);
   
   const [partnerDataRaw, setPartnerDataRaw] = useState<Record<string, any> | null>(null);
-  // PERBAIKAN: Gunakan useRef untuk menyimpan tanggal awal mitra secara persisten
   const partnerStartDateRef = useRef<string | null>(null);
-  const lastCountryRef = useRef<string>(""); // Untuk mendeteksi perubahan negara
-
+  const lastCountryRef = useRef<string>("");
   const isInitialized = useRef(false);
 
   const targetCountry = selectedCountry || partners[0]?.nama_negara || "";
 
-  // Load metadata
   useEffect(() => {
     if (!isOpen) return;
     fetchBuildingMetadata().then((data) => setMetadata(data || {}));
   }, [isOpen]);
 
-  // Fetch data negara mitra dan simpan tanggal awal hanya jika negara berubah
   useEffect(() => {
     if (!isOpen) {
       setPartnerDataRaw(null);
@@ -156,7 +151,6 @@ export default function ModalsKonfirmasiBeli({
       return;
     }
 
-    // Jika negara berubah, reset tanggal awal
     if (lastCountryRef.current !== targetCountry) {
       partnerStartDateRef.current = null;
       lastCountryRef.current = targetCountry;
@@ -171,7 +165,6 @@ export default function ModalsKonfirmasiBeli({
         }
         const json = await res.json();
         setPartnerDataRaw(json || null);
-        // Set tanggal awal hanya jika belum ada
         if (!partnerStartDateRef.current) {
           partnerStartDateRef.current = currentDate ? formatDate(currentDate) : formatDate(new Date());
         }
@@ -182,12 +175,10 @@ export default function ModalsKonfirmasiBeli({
     };
 
     fetchData();
-  }, [isOpen, targetCountry, currentDate]); // currentDate ada di dependensi agar saat hari berganti, jika belum ada tanggal awal, bisa diset ke tanggal baru
+  }, [isOpen, targetCountry, currentDate]);
 
-  // Normalisasi data mitra menggunakan tanggal awal yang stabil
   const partnerData = useMemo(() => {
     if (!partnerDataRaw) return null;
-    // Gunakan tanggal awal yang tersimpan di ref
     const baseDate = partnerStartDateRef.current || formatDate(currentDate || new Date());
     return normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, new Date(baseDate));
   }, [partnerDataRaw]);
@@ -204,11 +195,7 @@ export default function ModalsKonfirmasiBeli({
     return undefined;
   }, [metadata]);
 
-  // ==========================================
-  // PETA FUNGSI (CHECK MAP) UNTUK SEMUA SEKTOR
-  // ==========================================
   const checkMap: Record<string, (data: Record<string, any> | null) => boolean> = {
-    // 1. Mineral Kritis
     uranium: hasUraniumBuilding,
     batu_bara: hasBatubaraBuilding,
     minyak_bumi: hasMinyakBumiBuilding,
@@ -220,7 +207,6 @@ export default function ModalsKonfirmasiBeli({
     aluminium: hasAluminiumBuilding,
     logam_tanah_jarang: hasLogamTanahJarangBuilding,
     bijih_besi: hasBijihBesiBuilding,
-    // 2. Manufaktur
     semikonduktor: hasSemikonduktorBuilding,
     mobil: hasMobilBuilding,
     sepeda_motor: hasSepedaMotorBuilding,
@@ -228,12 +214,10 @@ export default function ModalsKonfirmasiBeli({
     semen_beton: hasSemenBetonBuilding,
     kayu: hasKayuBuilding,
     pupuk: hasPupukBuilding,
-    // 3. Peternakan
     ayam_unggas: hasAyamUnggasBuilding,
     sapi_perah: hasSapiPerahBuilding,
     sapi_potong: hasSapiPotongBuilding,
     domba_kambing: hasDombaKambingBuilding,
-    // 4. Agrikultur
     padi: hasPadiBuilding,
     gandum: hasGandumBuilding,
     jagung: hasJagungBuilding,
@@ -248,11 +232,9 @@ export default function ModalsKonfirmasiBeli({
     karet: hasKaretBuilding,
     kapas: hasKapasBuilding,
     tembakau: hasTembakauBuilding,
-    // 5. Perikanan
     udang: hasUdangBuilding,
     ikan: hasIkanBuilding,
     mutiara: hasMutiaraBuilding,
-    // 6. Olahan Pangan
     air_mineral: hasAirMineralBuilding,
     gula: hasGulaBuilding,
     roti: hasRotiBuilding,
@@ -263,7 +245,6 @@ export default function ModalsKonfirmasiBeli({
     pakan_ternak: hasPakanTernakBuilding,
     ikan_kaleng: hasIkanKalengBuilding,
     kopi_teh: hasKopiTehBuilding,
-    // 7. Farmasi
     farmasi: hasFarmasiBuilding,
   };
 
@@ -289,7 +270,6 @@ export default function ModalsKonfirmasiBeli({
 
   const effectiveSelectedProduct = selectedProduct || (partnerData ? getFirstAvailableProduct() : "");
 
-  // LOGIKA STOK USER
   const stockAvailable = useMemo(() => {
     if (!effectiveSelectedProduct) return 0;
     const buildingCount = Number(countryDetail?.[effectiveSelectedProduct]) || 0;
@@ -318,7 +298,6 @@ export default function ModalsKonfirmasiBeli({
     );
   }, [effectiveSelectedProduct, currentDate, countryDetail, findMeta]);
 
-  // LOGIKA STOK MITRA (Menggunakan partnerData yang sudah dinormalisasi)
   const partnerProduction = useMemo(() => {
     if (!effectiveSelectedProduct || !partnerData) return 0;
     const pBuildingCount = Number(partnerData[effectiveSelectedProduct] || 0);
@@ -340,14 +319,13 @@ export default function ModalsKonfirmasiBeli({
     );
   }, [effectiveSelectedProduct, currentDate, partnerData, findMeta]);
 
-  // AUTO-SELECT SAAT MODAL PERTAMA KALI DIBUKA atau ketika produk yang dipilih tidak tersedia
   useEffect(() => {
     if (!isOpen) {
       isInitialized.current = false;
       return;
     }
 
-    if (!partnerData) return; // tunggu data mitra dulu
+    if (!partnerData) return;
 
     const firstAvailable = getFirstAvailableProduct();
     const selectedAvailable = selectedProduct ? isProductAvailable(selectedProduct) : false;
@@ -357,7 +335,6 @@ export default function ModalsKonfirmasiBeli({
       setQuantity(1);
     }
 
-    // Hanya set negara jika user belum memilihnya secara manual
     if (partners.length > 0 && !selectedCountry) {
       setSelectedCountry(partners[0].nama_negara);
     }
@@ -365,7 +342,6 @@ export default function ModalsKonfirmasiBeli({
     isInitialized.current = true;
   }, [isOpen, partners, partnerData, selectedCountry, selectedProduct]);
 
-  // Penanganan fallback tanggal bangun user (tidak terkait dengan mitra)
   useEffect(() => {
     if (!isOpen || !selectedProduct || !countryDetail) return;
 
@@ -412,11 +388,10 @@ export default function ModalsKonfirmasiBeli({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
-        {/* Header */}
         <div className="px-5 py-4 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Pembelian</h2>
           <button onClick={onClose} className="p-1.5 rounded-full bg-[#4a5f5f] hover:bg-[#3a4f4f] text-white transition-colors cursor-pointer shadow-sm">
@@ -425,7 +400,6 @@ export default function ModalsKonfirmasiBeli({
         </div>
 
         <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
-          {/* Baris 1: Produk & Negara */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
@@ -471,7 +445,6 @@ export default function ModalsKonfirmasiBeli({
             </div>
           </div>
 
-          {/* Stok User */}
           <div className="flex justify-between items-center pt-1 pb-1 border-b border-[#C4B49C]/10">
             <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Stok Tersedia (Anda):</span>
             <span className="text-sm font-black text-[#2e261a]">
@@ -479,7 +452,6 @@ export default function ModalsKonfirmasiBeli({
             </span>
           </div>
 
-          {/* Tampilkan jumlah bangunan di negara mitra dan produksinya */}
           <div className="flex flex-col gap-1">
             <div className="flex justify-between items-center pt-1 pb-0">
               <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(selectedProduct)} (Mitra):</span>
@@ -495,7 +467,6 @@ export default function ModalsKonfirmasiBeli({
             </div>
           </div>
 
-          {/* Baris 2: Kuantitas */}
           <div className="flex items-center justify-between gap-2">
             <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Kuantitas:</label>
             <div className="flex items-center gap-1.5">
@@ -506,7 +477,6 @@ export default function ModalsKonfirmasiBeli({
             </div>
           </div>
 
-          {/* Baris 3: Harga */}
           <div className="flex justify-between items-center pt-3 border-t border-[#C4B49C]/20">
             <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Harga:</span>
             <div className="flex items-center gap-1.5">
@@ -516,7 +486,6 @@ export default function ModalsKonfirmasiBeli({
           </div>
         </div>
 
-        {/* Footer Tombol Aksi */}
         <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
           <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
           <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Beli</button>

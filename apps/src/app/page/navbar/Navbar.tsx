@@ -33,7 +33,7 @@ export function Navbar({
     onOpenKepuasan
 }: NavbarProps) {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-40 bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20 select-none">
+        <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20 select-none backdrop-blur-none">
             
             {/* 1. Left Side: Circular Menu & Selected Badge */}
             <div className="flex items-center gap-3.5 shrink-0">
