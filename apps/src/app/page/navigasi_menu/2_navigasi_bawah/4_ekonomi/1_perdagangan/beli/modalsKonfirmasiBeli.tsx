@@ -4,6 +4,7 @@ import { X, ChevronDown, Plus, Minus } from "lucide-react";
 import { TradePartner } from "../mitra/mitraModalsMenu";
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateProductionIncrement, formatDate } from '@/app/logic/production_logic';
+import { hitungHargaBeli } from "./logic/0_harga_barang/harga_beli_logic";
 import countryPaths from '@/app/page/map_system/country-paths.json';
 
 // IMPOR SEMUA LOGIKA DARI INDEX.TS
@@ -305,8 +306,7 @@ export default function ModalsKonfirmasiBeli({
   const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   const effectiveSelectedCountry = selectedCountry || partners[0]?.nama_negara || "";
   const currentMeta = findMeta(selectedProduct);
-  const unitPrice = currentMeta?.biaya_pembangunan ? Math.round(currentMeta.biaya_pembangunan * 5) : 10000000;
-  const totalPrice = unitPrice * quantity;
+  const totalPrice = hitungHargaBeli(currentMeta?.biaya_pembangunan, quantity);
 
   const handleConfirm = () => {
     const detail = countryDetail ?? {};
@@ -325,19 +325,20 @@ export default function ModalsKonfirmasiBeli({
 
   return (
     <div className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans pb-6">
+      {/* PERBAIKAN: Ubah max-w-md menjadi max-w-6xl dan tambahkan h-[84vh] */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
         {/* Header */}
-        <div className="px-5 py-4 flex items-center justify-between relative z-10 border-b border-[#C4B49C]/30">
+        <div className="px-5 py-4 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Pembelian</h2>
           <button onClick={onClose} className="p-1.5 rounded-full bg-[#4a5f5f] hover:bg-[#3a4f4f] text-white transition-colors cursor-pointer shadow-sm">
             <X className="h-4 w-4" />
           </button>
         </div>
 
-        {/* Body */}
-        <div className="p-5 relative z-10 space-y-4">
+        {/* Body / Content Area dengan Flex-1 agar memenuhi ruang */}
+        <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
           {/* Baris 1: Produk & Negara */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
@@ -428,12 +429,12 @@ export default function ModalsKonfirmasiBeli({
               <span className="text-[10px] text-[#8b7e66] font-bold mt-0.5">EM</span>
             </div>
           </div>
+        </div>
 
-          {/* Tombol Aksi */}
-          <div className="flex gap-3 pt-2">
-            <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
-            <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Beli</button>
-          </div>
+        {/* Footer Tombol Aksi - Di luar content agar tetap di bawah */}
+        <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
+          <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
+          <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Beli</button>
         </div>
       </div>
     </div>
