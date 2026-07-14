@@ -26,9 +26,9 @@ export default function UraniumModal({ isOpen, onClose, countryDetail, setCountr
     alert("Pengayaan Reaktor Uranium Nuklir Berhasil (+7.5% Kepuasan)!");
   };
 
-  return (
-            <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+    <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <button onClick={onClose} className="absolute top-4 right-4 z-10 p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
           <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
           <X className="h-5 w-5" />

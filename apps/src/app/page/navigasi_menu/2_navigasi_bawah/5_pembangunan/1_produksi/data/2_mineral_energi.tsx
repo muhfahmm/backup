@@ -1,6 +1,6 @@
 "use client"
 import { Gem } from "lucide-react";
-import BaseProduksiGrid from "./BaseProduksiGrid";
+import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = [
   "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam",

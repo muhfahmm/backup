@@ -26,8 +26,10 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
   };
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      {/* PERBAIKAN LEBAR: Ubah max-w-xl menjadi max-w-6xl agar sama dengan modal lainnya */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">
@@ -46,31 +48,31 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
           </button>
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-        <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-          Kelola kemitraan dagang dan hubungan timbal balik dengan aliansi negara adidaya global. Kirim hibah diplomatik untuk memperkuat ikatan bilateral.
-        </p>
+          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
+            Kelola kemitraan dagang dan hubungan timbal balik dengan aliansi negara adidaya global. Kirim hibah diplomatik untuk memperkuat ikatan bilateral.
+          </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {[
-            { power: "Amerika Serikat", rel: "Harmonis (75/100)" },
-            { power: "Tiongkok / China", rel: "Sangat Erat (80/100)" }
-          ].map((item, idx) => (
-            <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between">
-              <div>
-                <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1 leading-snug">{item.power}</h4>
-                <span className="text-[10px] bg-blue-500/10 text-blue-700 border border-blue-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">{item.rel}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { power: "Amerika Serikat", rel: "Harmonis (75/100)" },
+              { power: "Tiongkok / China", rel: "Sangat Erat (80/100)" }
+            ].map((item, idx) => (
+              <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between">
+                <div>
+                  <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1 leading-snug">{item.power}</h4>
+                  <span className="text-[10px] bg-blue-500/10 text-blue-700 border border-blue-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">{item.rel}</span>
+                </div>
+                <button
+                  onClick={() => handleGift(item.power)}
+                  className="w-full py-2 mt-4 rounded-lg bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 text-[10px] font-black uppercase cursor-pointer"
+                >
+                  Kirim Hadiah (20.000.000 EM)
+                </button>
               </div>
-              <button
-                onClick={() => handleGift(item.power)}
-                className="w-full py-2 mt-4 rounded-lg bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 text-[10px] font-black uppercase cursor-pointer"
-              >
-                Kirim Hadiah (20.000.000 EM)
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 }

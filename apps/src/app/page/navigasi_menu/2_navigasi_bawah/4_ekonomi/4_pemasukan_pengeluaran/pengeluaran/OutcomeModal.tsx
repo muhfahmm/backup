@@ -47,14 +47,12 @@ const ALL_DEPARTMENTS = [
   { id: "bank-sentral", baseIncomeCost: 100 }
 ];
 
-// Helper: Calculate ministry daily income cost using the same 100..1000 level scale
 const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 const calculateMinistryDailyIncome = (level: number, _baseIncomeCost: number) => {
   return LEVEL_UP_COST[level] ?? 100;
 };
 
-// Helper: Calculate total ministry operational cost per day
 const calculateTotalMinistryCost = (countryDetail: any) => {
   let totalCost = 0;
   
@@ -67,7 +65,6 @@ const calculateTotalMinistryCost = (countryDetail: any) => {
   return totalCost;
 };
 
-// Helper: Calculate specific ministry daily income (untuk UI reference)
 const getMinistryIncomeByName = (name: string, countryDetail: any) => {
   const dept = ALL_DEPARTMENTS.find(d => d.id === name);
   if (!dept) return 0;
@@ -85,7 +82,6 @@ export default function OutcomeModal({ isOpen, onClose, countryDetail, setCountr
   const ministryCostPerMonth = ministryDailyCost * 30;
 
   // Initialize budget sliders - ambil dari countryDetail atau gunakan ministryCostPerMonth sebagai default
-  // PENTING: Jika countryDetail belum punya budget, gunakan ministryCostPerMonth sebagai dasar
   const [budgets, setBudgets] = useState({
     military: countryDetail?.military_budget ?? ministryCostPerMonth,
     subsidy: countryDetail?.subsidy_budget ?? ministryCostPerMonth,
@@ -124,7 +120,6 @@ export default function OutcomeModal({ isOpen, onClose, countryDetail, setCountr
     { label: "Biaya Operasional Dewan Kabinet", amount: ministryCostPerMonth, color: "text-blue-700", description: "Total Pengeluaran Semua Ministry" }
   ];
 
-  // Add debt interest if exists
   if (budgets.debt_interest > 0) {
     outcomeItems.push({
       label: "Cicilan Utang + Bunga",
@@ -138,8 +133,11 @@ export default function OutcomeModal({ isOpen, onClose, countryDetail, setCountr
   const anggaran = countryDetail?.anggaran || 0;
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    // PERBAIKAN: Menghapus bg-black/65, menggunakan bg-transparent pointer-events-none
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      {/* PERBAIKAN: Menambahkan pointer-events-auto agar modal tetap bisa di-klik */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">

@@ -1,6 +1,6 @@
 "use client"
 import { Pill } from "lucide-react";
-import BaseProduksiGrid from "./BaseProduksiGrid";
+import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = ["farmasi"];
 

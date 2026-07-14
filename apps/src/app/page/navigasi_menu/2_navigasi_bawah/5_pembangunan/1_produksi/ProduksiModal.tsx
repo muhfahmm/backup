@@ -7,14 +7,14 @@ import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../
 import { logger } from '../../../../../../lib/logger';
 
 // Import 8 Komponen Tab yang sudah dipisah
-import KelistrikanTab from "./1_kelistrikan";
-import MineralEnergiTab from "./2_mineral_energi";
-import ManufakturTab from "./3_manufaktur";
-import PeternakanTab from "./4_peternakan";
-import AgrikulturTab from "./5_agrikultur";
-import PerikananTab from "./6_perikanan";
-import OlahanPanganTab from "./7_olahan_pangan";
-import FarmasiTab from "./8_farmasi";
+import KelistrikanTab from "./data/1_kelistrikan";
+import MineralEnergiTab from "./data/2_mineral_energi";
+import ManufakturTab from "./data/3_manufaktur";
+import PeternakanTab from "./data/4_peternakan";
+import AgrikulturTab from "./data/5_agrikultur";
+import PerikananTab from "./data/6_perikanan";
+import OlahanPanganTab from "./data/7_olahan_pangan";
+import FarmasiTab from "./data/8_farmasi";
 
 interface ModalProps {
   isOpen: boolean;
@@ -173,11 +173,13 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
 
   return (
     <>
-      {isOpen && <div className="fixed inset-0 bg-black/65 z-40 pointer-events-none" />}
+      {/* PERBAIKAN: Hapus overlay bg-black/65 */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+          
+          {/* PERBAIKAN: Tambahkan pointer-events-auto di lapisan dalam */}
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
-            {/* HEADER - SAMA SEPERTI SEBELUMNYA */}
+            {/* HEADER */}
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-3">
@@ -251,15 +253,15 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
       
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
       
-      {/* POPUP KONFIRMASI - SAMA SEPERTI SEBELUMNYA */}
+      {/* PERBAIKAN POPUP KONFIRMASI: Hapus bg-black/80, gunakan pointer-events */}
       {selectedBuilding && (() => {
         const bMeta = findMeta(selectedBuilding.key);
         const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
         return (
-          <div className="fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
-            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150">
-              {/* ... (Sisanya sama persis dengan kode asli Anda untuk popup konfirmasi) ... */}
-              {/* Karena panjang, saya ringkas: intinya popup di sini tetap sama seperti di file asli Anda */}
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+              
               <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
                 <div className="flex items-center gap-2 text-[#5c3c10]">
                   <Hammer className="h-5 w-5" />

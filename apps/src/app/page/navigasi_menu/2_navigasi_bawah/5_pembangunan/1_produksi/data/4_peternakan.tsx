@@ -1,6 +1,6 @@
 "use client"
 import { Beef } from "lucide-react";
-import BaseProduksiGrid from "./BaseProduksiGrid";
+import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = ["ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing"];
 

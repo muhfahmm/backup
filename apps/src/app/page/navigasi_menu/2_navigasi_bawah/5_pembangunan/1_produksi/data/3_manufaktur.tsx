@@ -1,6 +1,6 @@
 "use client"
 import { Factory } from "lucide-react";
-import BaseProduksiGrid from "./BaseProduksiGrid";
+import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = ["semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk"];
 

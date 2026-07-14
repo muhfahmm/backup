@@ -171,10 +171,13 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
   );
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
+    // PERBAIKAN: Hapus bg-black/65
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      {/* PERBAIKAN POPUP KONFIRMASI: Ubah dari absolute menjadi fixed dan hapus bg-black/80 */}
       {showConfirm && (
-        <div className="absolute inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
-          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl">
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl p-6 max-w-sm w-full text-center shadow-2xl pointer-events-auto">
             <AlertTriangle className="w-12 h-12 text-[#5c3c10] mx-auto mb-4" />
             <h3 className="text-lg font-bold text-[#5c3c10] uppercase">Konfirmasi Pembangunan</h3>
             <p className="text-xs text-[#8b7e66] my-4">Apakah Anda yakin ingin membangun <span className="font-bold text-[#5c3c10]">{selectedBuilding?.label}</span> dengan biaya {((metadata[selectedBuilding?.key || '']?.biaya_pembangunan) || 10000000).toLocaleString('id-ID')}?</p>
@@ -185,7 +188,9 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
           </div>
         </div>
       )}
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+      
+      {/* PERBAIKAN: Tambahkan pointer-events-auto di lapisan dalam modal utama */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         
         {/* Header */}

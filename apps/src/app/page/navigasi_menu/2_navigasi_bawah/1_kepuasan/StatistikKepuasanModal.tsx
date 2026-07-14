@@ -34,7 +34,7 @@ export default function StatistikKepuasanModal({
   ];
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         
         {/* Parchment radial gradient background */}

@@ -12,8 +12,9 @@ export default function ManajemenPertahananModal({ isOpen, onClose, countryDetai
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">
@@ -31,21 +32,21 @@ export default function ManajemenPertahananModal({ isOpen, onClose, countryDetai
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-          Kelola alokasi dana pemeliharaan pangkalan militer, amunisi taktis resimen tempur, serta dana kesejahteraan prajurit aktif.
-        </p>
+            Kelola alokasi dana pemeliharaan pangkalan militer, amunisi taktis resimen tempur, serta dana kesejahteraan prajurit aktif.
+          </p>
 
-        <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-3">
-          <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-            <span>Anggaran Perawatan Alutsista:</span>
-            <span>4.500.000 EM / bln</span>
-          </div>
-          <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-            <span>Gaji Prajurit & Tunjangan:</span>
-            <span>2.000.000 EM / bln</span>
+          <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-3">
+            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
+              <span>Anggaran Perawatan Alutsista:</span>
+              <span>4.500.000 EM / bln</span>
+            </div>
+            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
+              <span>Gaji Prajurit & Tunjangan:</span>
+              <span>2.000.000 EM / bln</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
 }

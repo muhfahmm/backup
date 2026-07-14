@@ -1,6 +1,6 @@
 "use client"
 import { Zap } from "lucide-react";
-import BaseProduksiGrid from "./BaseProduksiGrid";
+import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = [
   "pembangkit_listrik_tenaga_nuklir",

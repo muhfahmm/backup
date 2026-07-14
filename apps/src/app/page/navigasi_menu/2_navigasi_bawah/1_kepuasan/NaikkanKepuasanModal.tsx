@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react";
-import { X, Smile, Coins, Sparkles, AlertCircle, CheckCircle2, HeartHandshake, Utensils, HelpCircle } from "lucide-react";
+import { X, Smile, Coins, Sparkles, AlertCircle, CheckCircle2 } from "lucide-react";
 
 interface NaikkanKepuasanModalProps {
   isOpen: boolean;
@@ -28,6 +28,10 @@ export default function NaikkanKepuasanModal({
   const anggaran = countryDetail?.anggaran || 0;
   const kepuasan = countryDetail?.kepuasan ?? 50.0;
 
+  // ==========================================
+  // PERBAIKAN 1: Hapus JSX <div> yang tercecer di dalam array
+  // PERBAIKAN 2: Perbaiki typo 'bg-amber/800/10' menjadi 'bg-amber-800/10'
+  // ==========================================
   const initiatives = [
     {
       id: "konser",
@@ -65,7 +69,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori turnamen tenis Piala Davis untuk meningkatkan kebanggaan nasional.",
       cost: 400000,
       boost: 300,
-      icon: Sparkles,
+      icon: Sparkles, // PERBAIKAN: Tambahkan icon dan hilangkan JSX yang error
       color: "text-amber-600",
       bg: "bg-amber-800/10",
     },
@@ -77,7 +81,7 @@ export default function NaikkanKepuasanModal({
       boost: 50,
       icon: Sparkles,
       color: "text-amber-600",
-      bg: "bg-amber/800/10",
+      bg: "bg-amber-800/10", // PERBAIKAN: typo
     },
     {
       id: "olimpiade",
@@ -128,8 +132,11 @@ export default function NaikkanKepuasanModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    // PERBAIKAN 3: Hapus bg-black/65, gunakan bg-transparent dan pointer-events-none di lapisan luar
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      {/* PERBAIKAN 4: Tambahkan pointer-events-auto di lapisan dalam agar tombol tetap bisa diklik */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         
         {/* Parchment radial gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />

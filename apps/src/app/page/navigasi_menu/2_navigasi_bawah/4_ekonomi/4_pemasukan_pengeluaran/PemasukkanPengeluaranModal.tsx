@@ -37,14 +37,12 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   );
 };
 
-// Helper: Calculate ministry daily income cost using the same 100..1000 level scale
 const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 const calculateMinistryDailyIncome = (level: number, _baseIncomeCost: number) => {
   return LEVEL_UP_COST[level] ?? 100;
 };
 
-// Helper: Calculate total ministry operational cost per DAY
 const calculateTotalMinistryCostPerDay = (countryDetail: any) => {
   let totalCost = 0;
   const allDepts = [...KEMENTERIAN, ...KEAMANAN, ...LAYANAN];
@@ -55,10 +53,9 @@ const calculateTotalMinistryCostPerDay = (countryDetail: any) => {
     totalCost += dailyCost;
   }
   
-  return totalCost; // Daily total (NOT multiplied by 30!)
+  return totalCost;
 };
 
-// Helper: Calculate cost for specific tab (DAILY ONLY)
 const calculateTabCostDaily = (countryDetail: any, departments: Department[]) => {
   let totalCost = 0;
   
@@ -68,15 +65,13 @@ const calculateTabCostDaily = (countryDetail: any, departments: Department[]) =>
     totalCost += dailyCost;
   }
   
-  return totalCost; // Daily total, NOT monthly
+  return totalCost;
 };
 
-// Helper: Calculate gold mining income
 const calculateGoldMiningIncome = (countryDetail: any) => {
   return calculateGoldMiningMonthlyIncome(countryDetail);
 };
 
-// Helper: Calculate tourism income from tourism database and fallback to infrastructure
 const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
   const attractions = getTourismAttractions(selectedCountry?.country || selectedCountry?.name || selectedCountry?.nama, selectedCountry?.id);
 
@@ -104,13 +99,11 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
   const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
-  // Calculate dynamic income sources
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
   const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
   const goldBuildingCount = Number(countryDetail?.emas) || 0;
   const goldDailyProduction = calculateGoldMiningDailyProduction(countryDetail);
 
-  // Calculate dynamic ministry cost per DAY
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
   const incomeItems: FinancialItem[] = [
@@ -140,7 +133,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const netBalance = totalIncome - totalOutcome;
   const anggaran = countryDetail?.anggaran || 0;
 
-  // Get departments for current outcome subtab
   const getOutcomeTabDepartments = () => {
     switch(outcomeSubTab) {
       case "kementerian": return KEMENTERIAN;
@@ -154,8 +146,11 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const outcomeTabCostDaily = calculateTabCostDaily(countryDetail, currentOutcomeTabDepts);
 
   return (
-    <div className="fixed inset-0 bg-black/65 z-50 flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+    // PERBAIKAN: Menghapus bg-black/65, menggunakan bg-transparent pointer-events-none
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+      
+      {/* PERBAIKAN: Menambahkan pointer-events-auto agar modal tetap bisa di-klik */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">
