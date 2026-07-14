@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const afrika_selatan_ekstraksi = {
   emas: 400,
-  uranium: 291,
+  uranium: 14,
   batu_bara: 0,
   minyak_bumi: 0,
   gas_alam: 400,

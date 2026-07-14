@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const mali_ekstraksi = {
   emas: 9,
-  uranium: 0,
+  uranium: 5,
   batu_bara: 21,
   minyak_bumi: 27,
   gas_alam: 0,

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const argentina_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 18,
   batu_bara: 96,
   minyak_bumi: 480,
   gas_alam: 480,

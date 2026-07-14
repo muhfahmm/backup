@@ -1,7 +1,7 @@
 // @ts-nocheck
 const ceko_ekstraksi = {
   emas: 10,
-  uranium: 37,
+  uranium: 0,
   batu_bara: 0,
   minyak_bumi: 138,
   gas_alam: 115,

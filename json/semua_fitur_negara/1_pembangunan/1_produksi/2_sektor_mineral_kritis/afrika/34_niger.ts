@@ -1,7 +1,7 @@
 // @ts-nocheck
 const niger_ekstraksi = {
   emas: 10,
-  uranium: 515,
+  uranium: 5,
   batu_bara: 7,
   minyak_bumi: 2,
   gas_alam: 7,

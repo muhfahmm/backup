@@ -1,7 +1,7 @@
 // @ts-nocheck
 const inggris_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 15,
   batu_bara: 2100,
   minyak_bumi: 600,
   gas_alam: 2700,

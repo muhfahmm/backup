@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const kongo_ekstraksi = {
   emas: 32,
-  uranium: 0,
+  uranium: 10,
   batu_bara: 24,
   minyak_bumi: 16,
   gas_alam: 4,

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const jepang_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 16,
   batu_bara: 1190,
   minyak_bumi: 0,
   gas_alam: 2380,

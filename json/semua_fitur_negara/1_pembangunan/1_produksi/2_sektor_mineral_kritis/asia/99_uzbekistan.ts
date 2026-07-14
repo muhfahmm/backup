@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const uzbekistan_ekstraksi = {
   emas: 28,
-  uranium: 588,
+  uranium: 15,
   batu_bara: 56,
   minyak_bumi: 0,
   gas_alam: 56,

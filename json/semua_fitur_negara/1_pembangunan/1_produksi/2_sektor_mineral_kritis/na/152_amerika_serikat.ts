@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const amerika_serikat_ekstraksi = {
   emas: 928,
-  uranium: 423,
+  uranium: 21,
   batu_bara: 696,
   minyak_bumi: 0,
   gas_alam: 232,

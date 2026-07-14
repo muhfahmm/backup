@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const gabon_ekstraksi = {
   emas: 1,
-  uranium: 0,
+  uranium: 6,
   batu_bara: 4,
   minyak_bumi: 7,
   gas_alam: 5,

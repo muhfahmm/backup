@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const aljazair_ekstraksi = {
   emas: 77,
-  uranium: 0,
+  uranium: 13,
   batu_bara: 11,
   minyak_bumi: 77,
   gas_alam: 33,

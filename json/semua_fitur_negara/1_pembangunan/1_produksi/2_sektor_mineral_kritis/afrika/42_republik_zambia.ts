@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const republik_zambia_ekstraksi = {
   emas: 12,
-  uranium: 0,
+  uranium: 9,
   batu_bara: 16,
   minyak_bumi: 0,
   gas_alam: 16,

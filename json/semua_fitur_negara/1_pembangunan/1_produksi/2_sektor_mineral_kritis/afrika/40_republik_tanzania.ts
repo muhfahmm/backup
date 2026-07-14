@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const republik_tanzania_ekstraksi = {
   emas: 12,
-  uranium: 0,
+  uranium: 6,
   batu_bara: 0,
   minyak_bumi: 0,
   gas_alam: 0,

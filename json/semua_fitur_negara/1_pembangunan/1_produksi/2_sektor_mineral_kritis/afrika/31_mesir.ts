@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const mesir_ekstraksi = {
   emas: 47,
-  uranium: 0,
+  uranium: 13,
   batu_bara: 141,
   minyak_bumi: 0,
   gas_alam: 188,

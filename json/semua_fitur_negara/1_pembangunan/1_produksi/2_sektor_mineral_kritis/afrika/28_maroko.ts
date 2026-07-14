@@ -1,7 +1,7 @@
 // @ts-nocheck
 const maroko_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 13,
   batu_bara: 0,
   minyak_bumi: 72,
   gas_alam: 216,

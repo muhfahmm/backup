@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const meksiko_ekstraksi = {
   emas: 1089,
-  uranium: 0,
+  uranium: 16,
   batu_bara: 0,
   minyak_bumi: 1210,
   gas_alam: 968,

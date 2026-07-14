@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const polandia_ekstraksi = {
   emas: 371,
-  uranium: 0,
+  uranium: 18,
   batu_bara: 530,
   minyak_bumi: 530,
   gas_alam: 530,

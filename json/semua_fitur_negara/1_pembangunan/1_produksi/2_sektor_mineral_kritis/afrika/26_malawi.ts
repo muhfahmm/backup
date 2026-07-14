@@ -1,7 +1,7 @@
 // @ts-nocheck
 const malawi_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 5,
   batu_bara: 16,
   minyak_bumi: 28,
   gas_alam: 0,

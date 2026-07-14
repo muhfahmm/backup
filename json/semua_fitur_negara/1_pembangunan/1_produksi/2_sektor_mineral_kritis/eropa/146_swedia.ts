@@ -1,7 +1,7 @@
 // @ts-nocheck
 const swedia_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 24,
   batu_bara: 0,
   minyak_bumi: 222,
   gas_alam: 518,

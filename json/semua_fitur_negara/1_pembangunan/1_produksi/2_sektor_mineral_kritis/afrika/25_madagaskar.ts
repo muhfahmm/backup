@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const madagaskar_ekstraksi = {
   emas: 4,
-  uranium: 0,
+  uranium: 7,
   batu_bara: 6,
   minyak_bumi: 2,
   gas_alam: 6,

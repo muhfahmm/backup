@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const australia_ekstraksi = {
   emas: 918,
-  uranium: 2243,
+  uranium: 20,
   batu_bara: 102,
   minyak_bumi: 0,
   gas_alam: 0,

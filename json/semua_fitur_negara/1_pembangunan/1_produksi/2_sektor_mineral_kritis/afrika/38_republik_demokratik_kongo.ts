@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const republik_demokratik_kongo_ekstraksi = {
   emas: 18,
-  uranium: 0,
+  uranium: 6,
   batu_bara: 27,
   minyak_bumi: 21,
   gas_alam: 18,

@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const nigeria_ekstraksi = {
   emas: 448,
-  uranium: 0,
+  uranium: 25,
   batu_bara: 0,
   minyak_bumi: 224,
   gas_alam: 448,

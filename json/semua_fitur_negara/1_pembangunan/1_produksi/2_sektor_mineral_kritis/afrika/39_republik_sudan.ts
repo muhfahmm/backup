@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_sudan_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 10,
   batu_bara: 18,
   minyak_bumi: 27,
   gas_alam: 30,

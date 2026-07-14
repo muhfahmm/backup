@@ -1,7 +1,7 @@
 // @ts-nocheck
 const prancis_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 15,
   batu_bara: 2620,
   minyak_bumi: 524,
   gas_alam: 524,

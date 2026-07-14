@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const china_ekstraksi = {
   emas: 1518,
-  uranium: 1048,
+  uranium: 16,
   batu_bara: 0,
   minyak_bumi: 1518,
   gas_alam: 1012,

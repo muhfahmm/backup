@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const namibia_ekstraksi = {
   emas: 10,
-  uranium: 1403,
+  uranium: 9,
   batu_bara: 3,
   minyak_bumi: 3,
   gas_alam: 0,

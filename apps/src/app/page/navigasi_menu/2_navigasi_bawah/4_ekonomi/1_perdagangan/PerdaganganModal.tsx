@@ -1,9 +1,9 @@
 "use client"
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import { X, ArrowRightLeft, Info } from "lucide-react";
-import BeliModalsMenu from "./beli/beliModalsMenu";
 import JualModalsMenu from "./jual/jualModalsMenu";
 import MitraModalsMenu, { TradePartner } from "./mitra/mitraModalsMenu";
+import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli"; // LANGSUNG IMPORT KONFIRMASI
 import { getTradeAgreementsForCountry } from '../../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
 
 interface AgreementData {
@@ -38,13 +38,12 @@ export interface TradeHistoryItem {
 }
 
 export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate, resetTrigger }: ModalProps) {
-  // PERUBAHAN: Variabel filter menggunakan "jual" dan "beli"
   const [historyFilter, setHistoryFilter] = useState<"semua" | "jual" | "beli">("semua");
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
   const [historyResetVersion, setHistoryResetVersion] = useState(0);
 
-  // PERUBAHAN: State Open/Close diganti menjadi Jual dan Beli
-  const [isBeliOpen, setIsBeliOpen] = useState(false);
+  // PERUBAHAN: Hapus isBeliOpen, gunakan isConfirmBeliOpen saja
+  const [isConfirmBeliOpen, setIsConfirmBeliOpen] = useState(false);
   const [isJualOpen, setIsJualOpen] = useState(false);
   const [isMitraOpen, setIsMitraOpen] = useState(false);
 
@@ -53,7 +52,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
     return `${String(d.getDate()).padStart(2, "0")}.${String(d.getMonth() + 1).padStart(2, "0")}.${d.getFullYear()}`;
   };
 
-  // PERUBAHAN: Param tipe diubah menjadi "jual" | "beli"
   const addHistoryEntry = (tipe: "jual" | "beli", biaya: number, kuantitas: string = "1x") => {
     setHistory((prev) => [
       {
@@ -85,10 +83,12 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
     setHistoryResetVersion((prev) => prev + 1);
   };
 
-  const shouldResetHistory = resetTrigger && historyResetVersion < 1;
-  if (shouldResetHistory) {
+  // PERBAIKAN useEffect untuk reset
+  useEffect(() => {
+    if (!resetTrigger || historyResetVersion >= 1) return;
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     handleResetHistory();
-  }
+  }, [resetTrigger, historyResetVersion]);
 
   const allPartners = useMemo((): TradePartner[] => {
     const agreements = getTradeAgreementsForCountry(countryName);
@@ -140,12 +140,11 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
           </div>
 
           <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-            {/* PERUBAHAN: Teks "ekspor dan impor" menjadi "jual dan beli" */}
             <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
               Kelola aktivitas jual dan beli komoditas nasional untuk mengoptimalkan pendapatan dan kebutuhan anggaran belanja negara.
             </p>
 
-            {/* PERUBAHAN TOMBOL: Ekspor->Jual, Impor->Beli, Ekspor Semuanya->Jual Semuanya */}
+            {/* PERUBAHAN TOMBOL: Beli langsung memicu konfirmasi */}
             <div className="flex flex-wrap gap-3 mb-8">
               <button
                 onClick={() => setIsMitraOpen(true)}
@@ -160,7 +159,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                 Jual
               </button>
               <button
-                onClick={() => setIsBeliOpen(true)}
+                onClick={() => setIsConfirmBeliOpen(true)} // <--- Ubah trigger ke sini
                 className="flex-1 min-w-[150px] py-3 rounded-lg bg-[#2d6e6e] hover:bg-[#255c5c] active:bg-[#1f4f4f] text-[#FAF6EE] text-xs font-bold uppercase tracking-wide cursor-pointer transition-all shadow-sm"
               >
                 Beli
@@ -173,35 +172,16 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
               </button>
             </div>
 
+            {/* Filter dan Tabel Riwayat (Tidak Berubah) */}
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-[10px] font-black text-[#5c3c10] uppercase tracking-widest">Riwayat 180 Hari Terakhir</h3>
-
               <div className="inline-flex rounded-lg overflow-hidden border-2 border-[#C4B49C]/50">
-                {/* PERUBAHAN FILTER: "ekspor" menjadi "jual" */}
-                <button
-                  onClick={() => setHistoryFilter(effectiveFilter === "jual" ? "semua" : "jual")}
-                  className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    effectiveFilter === "jual"
-                      ? "bg-rose-600 text-white"
-                      : "bg-rose-600/15 text-rose-700 hover:bg-rose-600/25"
-                  }`}
-                >
-                  Jual
-                </button>
-                {/* PERUBAHAN FILTER: "impor" menjadi "beli" */}
-                <button
-                  onClick={() => setHistoryFilter(effectiveFilter === "beli" ? "semua" : "beli")}
-                  className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    effectiveFilter === "beli"
-                      ? "bg-emerald-600 text-white"
-                      : "bg-emerald-600/15 text-emerald-700 hover:bg-emerald-600/25"
-                  }`}
-                >
-                  Beli
-                </button>
+                <button onClick={() => setHistoryFilter(effectiveFilter === "jual" ? "semua" : "jual")} className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${effectiveFilter === "jual" ? "bg-rose-600 text-white" : "bg-rose-600/15 text-rose-700 hover:bg-rose-600/25"}`}>Jual</button>
+                <button onClick={() => setHistoryFilter(effectiveFilter === "beli" ? "semua" : "beli")} className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${effectiveFilter === "beli" ? "bg-emerald-600 text-white" : "bg-emerald-600/15 text-emerald-700 hover:bg-emerald-600/25"}`}>Beli</button>
               </div>
             </div>
 
+            {/* Tabel (Tidak Berubah) */}
             <div className="border-2 border-[#C4B49C]/40 rounded-xl overflow-hidden">
               <table className="w-full text-left">
                 <thead>
@@ -220,16 +200,9 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                     filteredHistory.map((item, idx) => (
                       <tr key={idx} className="border-t border-[#C4B49C]/20">
                         <td className="px-4 py-3 text-xs font-semibold text-[#5c3c10]">{item.tanggal}</td>
-                        <td className="px-4 py-3 text-xs font-bold uppercase">
-                          {/* PERUBAHAN LOGIKA: jual = merah, beli = hijau */}
-                          <span className={item.tipe === "jual" ? "text-rose-700" : "text-emerald-700"}>
-                            {item.tipe}
-                          </span>
-                        </td>
+                        <td className="px-4 py-3 text-xs font-bold uppercase"><span className={item.tipe === "jual" ? "text-rose-700" : "text-emerald-700"}>{item.tipe}</span></td>
                         <td className="px-4 py-3 text-xs font-semibold text-[#5c3c10]">{item.kuantitas}</td>
-                        <td className="px-4 py-3 text-xs font-bold text-[#5c3c10]">
-                          {item.tipe === "jual" ? "+" : "-"} {item.biaya.toLocaleString("id-ID")} EM
-                        </td>
+                        <td className="px-4 py-3 text-xs font-bold text-[#5c3c10]">{item.tipe === "jual" ? "+" : "-"} {item.biaya.toLocaleString("id-ID")} EM</td>
                         <td className="px-4 py-3 text-xs font-semibold text-[#5c3c10]">{item.negara}</td>
                       </tr>
                     ))
@@ -241,16 +214,18 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         </div>
       </div>
 
-            {/* PERUBAHAN: Ekspor menjadi Jual, Impor menjadi Beli */}
-      <BeliModalsMenu 
-        isOpen={isBeliOpen} 
-        onClose={() => setIsBeliOpen(false)} 
+      {/* PERUBAHAN: Hapus BeliModalsMenu, ganti dengan ModalsKonfirmasiBeli */}
+      <ModalsKonfirmasiBeli 
+        isOpen={isConfirmBeliOpen} 
+        onClose={() => setIsConfirmBeliOpen(false)} 
         countryDetail={countryDetail} 
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("beli", biaya, kuantitas)} 
-        partners={allPartners} // <--- PERBAIKAN: Tambahkan props partners di sini!
+        partners={allPartners}
+        currentDate={currentDate}
       />
 
+      {/* Jual Modals Menu (Tetap sama) */}
       <JualModalsMenu 
         isOpen={isJualOpen} 
         onClose={() => setIsJualOpen(false)} 
@@ -258,9 +233,10 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("jual", biaya, kuantitas)} 
         currentDate={currentDate}
-        partners={allPartners} // <--- PERBAIKAN: Tambahkan props partners di sini!
+        partners={allPartners}
       />
       
+      {/* Mitra Modals Menu (Tetap sama) */}
       <MitraModalsMenu 
         isOpen={isMitraOpen} 
         onClose={() => setIsMitraOpen(false)} 

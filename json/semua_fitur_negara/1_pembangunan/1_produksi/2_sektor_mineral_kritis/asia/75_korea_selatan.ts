@@ -1,7 +1,7 @@
 // @ts-nocheck
 const korea_selatan_ekstraksi = {
   emas: 10,
-  uranium: 0,
+  uranium: 16,
   batu_bara: 1360,
   minyak_bumi: 1360,
   gas_alam: 850,

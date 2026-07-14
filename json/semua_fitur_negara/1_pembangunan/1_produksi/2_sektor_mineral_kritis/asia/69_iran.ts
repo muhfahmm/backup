@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const iran_ekstraksi = {
   emas: 138,
-  uranium: 0,
+  uranium: 11,
   batu_bara: 184,
   minyak_bumi: 46,
   gas_alam: 460,

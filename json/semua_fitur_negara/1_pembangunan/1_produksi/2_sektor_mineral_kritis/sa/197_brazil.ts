@@ -1,7 +1,7 @@
 // @ts-nocheck
 const brazil_ekstraksi = {
   emas: 10,
-  uranium: 134,
+  uranium: 15,
   batu_bara: 0,
   minyak_bumi: 873,
   gas_alam: 873,

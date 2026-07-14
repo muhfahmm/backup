@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const rusia_ekstraksi = {
   emas: 756,
-  uranium: 934,
+  uranium: 21,
   batu_bara: 1134,
   minyak_bumi: 945,
   gas_alam: 0,

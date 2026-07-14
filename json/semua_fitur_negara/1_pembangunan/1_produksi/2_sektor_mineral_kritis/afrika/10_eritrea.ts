@@ -1,7 +1,7 @@
 ﻿// @ts-nocheck
 const eritrea_ekstraksi = {
   emas: 4,
-  uranium: 0,
+  uranium: 8,
   batu_bara: 5,
   minyak_bumi: 4,
   gas_alam: 9,
