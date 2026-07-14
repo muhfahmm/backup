@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { X, ShoppingCart } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../../../lib/buildingMetadata';
+import ModalsKonfirmasiBeli from "./modalsKonfirmasiBeli";
+import { TradePartner } from "../mitra/mitraModalsMenu";
 
 interface CommodityItem {
   key: string;
@@ -17,24 +19,22 @@ interface BeliModalsMenuProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onConfirm: (biaya: number, kuantitas: string) => void;
+  partners: TradePartner[];
 }
 
-export default function BeliModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm }: BeliModalsMenuProps) {
+export default function BeliModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, partners }: BeliModalsMenuProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
+  const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [selectedKey, setSelectedKey] = useState<string>("");
 
   useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
-    fetchBuildingMetadata()
-      .then((data: any) => setMetadata(data || {}))
-      .catch((err: any) => console.error("Gagal load metadata beli:", err))
-      .finally(() => setLoadingMetadata(false));
+    fetchBuildingMetadata().then((data) => setMetadata(data || {})).catch(err => console.error(err)).finally(() => setLoadingMetadata(false));
   }, [isOpen]);
 
   if (!isOpen) return null;
-
-  const anggaran = countryDetail?.anggaran || 0;
 
   const ALL_IMPORT_KEYS = [
     "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga", "aluminium", "logam_tanah_jarang", "bijih_besi",
@@ -42,37 +42,20 @@ export default function BeliModalsMenu({ isOpen, onClose, countryDetail, setCoun
     "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
     "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau",
     "udang", "mutiara", "ikan",
-    "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh",
-    "farmasi"
+    "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh", "farmasi"
   ];
 
   const formatLabel = (key: string) => {
     const customLabels: Record<string, string> = {
-      pembangkit_listrik_tenaga_nuklir: "PLT Nuklir (PLTN)",
-      pembangkit_listrik_tenaga_air: "PLT Air (PLTA)",
-      pembangkit_listrik_tenaga_surya: "PLT Surya (PLTS)",
-      pembangkit_listrik_tenaga_uap: "PLT Uap (PLTU)",
-      pembangkit_listrik_tenaga_gas: "PLT Gas (PLTG)",
-      pembangkit_listrik_tenaga_angin: "PLT Angin (PLTB)",
+      pembangkit_listrik_tenaga_nuklir: "PLT Nuklir (PLTN)", pembangkit_listrik_tenaga_air: "PLT Air (PLTA)", pembangkit_listrik_tenaga_surya: "PLT Surya (PLTS)", pembangkit_listrik_tenaga_uap: "PLT Uap (PLTU)", pembangkit_listrik_tenaga_gas: "PLT Gas (PLTG)", pembangkit_listrik_tenaga_angin: "PLT Angin (PLTB)",
     };
     if (customLabels[key]) return customLabels[key];
     return key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   };
 
-  const handleBeli = (key: string, nama: string, harga: number, satuan: string) => {
-    if (anggaran < harga) {
-      alert(`Kas Negara tidak mencukupi untuk membeli ${nama}!`);
-      return;
-    }
-
-    setCountryDetail({
-      ...countryDetail,
-      anggaran: anggaran - harga
-    });
-
-    onConfirm(harga, satuan);
-    alert(`Berhasil membeli ${nama}! Kas Negara berkurang ${harga.toLocaleString("id-ID")} EM.`);
-    onClose();
+  const handleGridClick = (key: string) => {
+    setSelectedKey(key);
+    setIsConfirmOpen(true);
   };
 
   const generateCommodities = (): CommodityItem[] => {
@@ -81,50 +64,57 @@ export default function BeliModalsMenu({ isOpen, onClose, countryDetail, setCoun
     }
     return ALL_IMPORT_KEYS.map((key) => {
       const meta = metadata[key];
-      const nama = formatLabel(key);
       const harga = meta?.biaya_pembangunan ? Math.round(meta.biaya_pembangunan * 5) : 10000000;
-      return { key, nama, harga, satuan: "1x Satuan" };
+      return { key, nama: formatLabel(key), harga, satuan: "1x Satuan" };
     });
   };
 
   const komoditasBeli = generateCommodities();
 
   return (
-    <div className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
-        <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-          <div className="flex items-center gap-3">
-            <div className="p-2 bg-emerald-600/10 rounded-xl border border-emerald-600/20">
-              <ShoppingCart className="h-5 w-5 text-emerald-700" />
+    <>
+      <div className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4">
+        <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+          <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-emerald-600/10 rounded-xl border border-emerald-600/20"><ShoppingCart className="h-5 w-5 text-emerald-700" /></div>
+              <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Beli Komoditas</h2>
             </div>
-            {/* PERUBAHAN: Judul dari "Impor" menjadi "Beli" */}
-            <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Beli Komoditas</h2>
+            <button onClick={onClose} className="p-2 rounded-lg border-2 border-[#C4B49C] text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all cursor-pointer"><X className="h-4 w-4" /></button>
           </div>
-          <button onClick={onClose} className="p-2 rounded-lg border-2 border-[#C4B49C] text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all cursor-pointer"><X className="h-4 w-4" /></button>
-        </div>
 
-        <div className="flex-1 overflow-y-auto p-6 relative z-10 space-y-3 no-scrollbar">
-          {/* PERUBAHAN: Deskripsi diubah menjadi "membeli" */}
-          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4">Pilih komoditas yang ingin dibeli dari pasar internasional. Biaya akan langsung dipotong dari Kas Negara.</p>
+          <div className="flex-1 overflow-y-auto p-6 relative z-10 space-y-3 no-scrollbar">
+            <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4">Pilih komoditas yang ingin dibeli. Klik tombol untuk memulai transaksi.</p>
 
-          {komoditasBeli.map((item, idx) => (
-            <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex items-center justify-between">
-              <div>
-                <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1">{item.isLoading ? "Memuat..." : item.nama}</h4>
-                <p className="text-[10px] text-[#8b7e66] font-semibold">{item.satuan}</p>
+            {komoditasBeli.map((item, idx) => (
+              <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex items-center justify-between">
+                <div>
+                  <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1">{item.isLoading ? "Memuat..." : item.nama}</h4>
+                  <p className="text-[10px] text-[#8b7e66] font-semibold">{item.satuan}</p>
+                </div>
+                <button
+                  disabled={item.isLoading}
+                  onClick={() => !item.isLoading && handleGridClick(item.key)}
+                  className={`px-5 py-2 rounded-lg text-white text-[10px] font-black uppercase tracking-wide transition-all shadow-sm whitespace-nowrap transition-colors duration-200 ease-in-out ${item.isLoading ? 'bg-gray-400 cursor-not-allowed opacity-60' : 'bg-emerald-700 hover:bg-emerald-800 cursor-pointer'}`}
+                >
+                  - {item.isLoading ? '...' : item.harga.toLocaleString("id-ID")}
+                </button>
               </div>
-              <button
-                disabled={item.isLoading}
-                onClick={() => !item.isLoading && handleBeli(item.key, item.nama, item.harga, item.satuan)}
-                className={`px-5 py-2 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white text-[10px] font-black uppercase tracking-wide cursor-pointer transition-all shadow-sm whitespace-nowrap transition-colors duration-200 ease-in-out ${item.isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
-              >
-                - {item.isLoading ? '...' : item.harga.toLocaleString("id-ID")}
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+
+      <ModalsKonfirmasiBeli
+        isOpen={isConfirmOpen}
+        onClose={() => setIsConfirmOpen(false)}
+        onConfirm={onConfirm}
+        countryDetail={countryDetail}
+        setCountryDetail={setCountryDetail}
+        partners={partners}
+        initialKey={selectedKey}
+      />
+    </>
   );
 }

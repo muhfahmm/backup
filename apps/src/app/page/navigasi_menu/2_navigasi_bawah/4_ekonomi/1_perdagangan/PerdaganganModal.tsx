@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useMemo } from "react";
+import React, { useMemo, useState } from "react";
 import { X, ArrowRightLeft, Info } from "lucide-react";
 import BeliModalsMenu from "./beli/beliModalsMenu";
 import JualModalsMenu from "./jual/jualModalsMenu";
@@ -26,6 +26,7 @@ interface ModalProps {
   countryDetail: ModalCountryDetail | null;
   setCountryDetail: (detail: ModalCountryDetail | ((prev: ModalCountryDetail) => ModalCountryDetail)) => void;
   currentDate?: Date;
+  resetTrigger?: boolean;
 }
 
 export interface TradeHistoryItem {
@@ -36,10 +37,11 @@ export interface TradeHistoryItem {
   negara: string;
 }
 
-export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate }: ModalProps) {
+export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate, resetTrigger }: ModalProps) {
   // PERUBAHAN: Variabel filter menggunakan "jual" dan "beli"
   const [historyFilter, setHistoryFilter] = useState<"semua" | "jual" | "beli">("semua");
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
+  const [historyResetVersion, setHistoryResetVersion] = useState(0);
 
   // PERUBAHAN: State Open/Close diganti menjadi Jual dan Beli
   const [isBeliOpen, setIsBeliOpen] = useState(false);
@@ -67,6 +69,27 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
 
   const countryName = countryDetail?.country || countryDetail?.nama || "";
 
+  const effectiveHistory = useMemo(() => {
+    if (!resetTrigger) return history;
+    return [];
+  }, [history, resetTrigger]);
+
+  const effectiveFilter = useMemo(() => {
+    if (!resetTrigger) return historyFilter;
+    return "semua" as const;
+  }, [historyFilter, resetTrigger]);
+
+  const handleResetHistory = () => {
+    setHistory([]);
+    setHistoryFilter("semua");
+    setHistoryResetVersion((prev) => prev + 1);
+  };
+
+  const shouldResetHistory = resetTrigger && historyResetVersion < 1;
+  if (shouldResetHistory) {
+    handleResetHistory();
+  }
+
   const allPartners = useMemo((): TradePartner[] => {
     const agreements = getTradeAgreementsForCountry(countryName);
     return agreements.map((item: AgreementData) => ({
@@ -79,9 +102,9 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
     }));
   }, [countryDetail?.region, countryName]);
 
-  const filteredHistory = history.filter((item) => {
-    if (historyFilter === "semua") return true;
-    return item.tipe === historyFilter;
+  const filteredHistory = effectiveHistory.filter((item) => {
+    if (effectiveFilter === "semua") return true;
+    return item.tipe === effectiveFilter;
   });
 
   if (!isOpen) return null;
@@ -156,9 +179,9 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
               <div className="inline-flex rounded-lg overflow-hidden border-2 border-[#C4B49C]/50">
                 {/* PERUBAHAN FILTER: "ekspor" menjadi "jual" */}
                 <button
-                  onClick={() => setHistoryFilter(historyFilter === "jual" ? "semua" : "jual")}
+                  onClick={() => setHistoryFilter(effectiveFilter === "jual" ? "semua" : "jual")}
                   className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    historyFilter === "jual"
+                    effectiveFilter === "jual"
                       ? "bg-rose-600 text-white"
                       : "bg-rose-600/15 text-rose-700 hover:bg-rose-600/25"
                   }`}
@@ -167,9 +190,9 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                 </button>
                 {/* PERUBAHAN FILTER: "impor" menjadi "beli" */}
                 <button
-                  onClick={() => setHistoryFilter(historyFilter === "beli" ? "semua" : "beli")}
+                  onClick={() => setHistoryFilter(effectiveFilter === "beli" ? "semua" : "beli")}
                   className={`px-4 py-1.5 text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer ${
-                    historyFilter === "beli"
+                    effectiveFilter === "beli"
                       ? "bg-emerald-600 text-white"
                       : "bg-emerald-600/15 text-emerald-700 hover:bg-emerald-600/25"
                   }`}
@@ -218,13 +241,14 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         </div>
       </div>
 
-      {/* PERUBAHAN: Ekspor menjadi Jual, Impor menjadi Beli */}
+            {/* PERUBAHAN: Ekspor menjadi Jual, Impor menjadi Beli */}
       <BeliModalsMenu 
         isOpen={isBeliOpen} 
         onClose={() => setIsBeliOpen(false)} 
         countryDetail={countryDetail} 
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("beli", biaya, kuantitas)} 
+        partners={allPartners} // <--- PERBAIKAN: Tambahkan props partners di sini!
       />
 
       <JualModalsMenu 
@@ -233,7 +257,8 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         countryDetail={countryDetail} 
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("jual", biaya, kuantitas)} 
-        currentDate={currentDate} 
+        currentDate={currentDate}
+        partners={allPartners} // <--- PERBAIKAN: Tambahkan props partners di sini!
       />
       
       <MitraModalsMenu 

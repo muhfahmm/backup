@@ -49,12 +49,20 @@ import IdeologiModal from "./8_sosial_budaya/IdeologiModal";
 // 9. Kementerian
 import KementerianModal from "./9_kementrian/KementerianModal";
 
+interface ModalCountryDetail {
+  [key: string]: unknown;
+}
+
 interface ModalsManagerProps {
   activeMenu: string;
   setActiveMenu: (menu: string) => void;
-  countryDetail: any;
-  setCountryDetail: (detail: any) => void;
-  selectedCountry: any;
+  countryDetail: ModalCountryDetail | null;
+  setCountryDetail: (detail: ModalCountryDetail | ((prev: ModalCountryDetail) => ModalCountryDetail)) => void;
+  selectedCountry: {
+    country?: string;
+    capital?: string;
+    iso?: string;
+  } | null;
   currentDate?: Date;
   resetTrigger?: boolean;
 }
@@ -140,6 +148,7 @@ function ModalsManager({
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
         currentDate={currentDate}
+        resetTrigger={resetTrigger}
       />
       <PajakModal
         isOpen={activeMenu === "Menu:Pajak"}
