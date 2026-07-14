@@ -1,5 +1,5 @@
 /**
- * Production Calculator Logic
+ * Production Calculator Logic for User buildings
  * Calculates daily production increments based on:
  * - Building production rate (units per day)
  * - Number of buildings

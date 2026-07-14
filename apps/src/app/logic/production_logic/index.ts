@@ -12,7 +12,7 @@ export {
   updateProduction,
   isProductionUpdateNeeded,
   type ProductionTracker
-} from './productionCalculator';
+} from './productionCalculatorUser';
 
 export {
   initializeCountryProduction,
@@ -35,3 +35,8 @@ export {
   formatStockDisplay,
   isStockSufficientForExport
 } from './stockpileCalculator';
+
+export {
+  calculatePartnerProductionAI,
+  normalizePartnerBuildDates
+} from './productionCalculatorAI';

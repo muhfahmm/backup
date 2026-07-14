@@ -4,7 +4,7 @@
  * sesuai produksi per hari × jumlah bangunan
  */
 
-import { calculateProductionIncrement, formatDate } from './productionCalculator';
+import { calculateProductionIncrement, formatDate } from './productionCalculatorUser';
 
 /**
  * Hitung total stok yang tersedia untuk ekspor

@@ -11,7 +11,7 @@ import {
   formatDate,
   getDaysElapsed,
   isProductionUpdateNeeded
-} from './productionCalculator';
+} from './productionCalculatorUser';
 import {
   initializeCountryProduction,
   registerProductionBuilding,

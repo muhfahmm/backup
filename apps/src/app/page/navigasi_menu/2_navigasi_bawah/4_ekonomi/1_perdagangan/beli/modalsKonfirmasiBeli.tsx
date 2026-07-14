@@ -1,9 +1,9 @@
 "use client"
-import React, { useState, useEffect, useMemo, useCallback } from "react";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
 import { X, ChevronDown, Plus, Minus } from "lucide-react";
 import { TradePartner } from "../mitra/mitraModalsMenu";
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
-import { calculateProductionIncrement, formatDate } from '@/app/logic/production_logic';
+import { calculateProductionIncrement, formatDate, normalizePartnerBuildDates } from '@/app/logic/production_logic';
 import { hitungHargaBeli } from "./logic/0_harga_barang/harga_beli_logic";
 import countryPaths from '@/app/page/map_system/country-paths.json';
 
@@ -122,7 +122,14 @@ export default function ModalsKonfirmasiBeli({
   const [selectedProduct, setSelectedProduct] = useState<string>(ALL_IMPORT_KEYS[0]);
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
+  
+  const [partnerDataRaw, setPartnerDataRaw] = useState<Record<string, any> | null>(null);
+  const [partnerDataLoadDate, setPartnerDataLoadDate] = useState<Date | null>(null);
   const [partnerData, setPartnerData] = useState<Record<string, any> | null>(null);
+  const isInitialized = useRef(false);
+
+  // PERBAIKAN 1: Gunakan targetCountry string agar ukuran useEffect tetap stabil
+  const targetCountry = selectedCountry || partners[0]?.nama_negara || "";
 
   // Load metadata
   useEffect(() => {
@@ -130,17 +137,16 @@ export default function ModalsKonfirmasiBeli({
     fetchBuildingMetadata().then((data) => setMetadata(data || {}));
   }, [isOpen]);
 
-  // Fetch data negara mitra
+  // PERBAIKAN 2: useEffect hanya mengambil data mentah, TANPA currentDate atau partners
   useEffect(() => {
-    const name = selectedCountry || partners[0]?.nama_negara;
-    if (!name) {
-      setPartnerData(null);
+    if (!isOpen || !targetCountry) {
+      setPartnerDataRaw(null);
       return;
     }
 
-    const pathEntry = (countryPaths as Record<string, string>)[name];
+    const pathEntry = (countryPaths as Record<string, string>)[targetCountry];
     if (!pathEntry) {
-      setPartnerData(null);
+      setPartnerDataRaw(null);
       return;
     }
 
@@ -148,19 +154,33 @@ export default function ModalsKonfirmasiBeli({
       try {
         const res = await fetch(`/api/country-data?path=${encodeURIComponent(pathEntry)}`);
         if (!res.ok) {
-          setPartnerData(null);
+          setPartnerDataRaw(null);
+          setPartnerDataLoadDate(null);
           return;
         }
         const json = await res.json();
-        setPartnerData(json || null);
+        setPartnerDataRaw(json || null);
+        setPartnerDataLoadDate(currentDate ? new Date(currentDate) : new Date());
       } catch (e) {
         console.error('Failed to fetch partner country data', e);
-        setPartnerData(null);
+        setPartnerDataRaw(null);
+        setPartnerDataLoadDate(null);
       }
     };
 
     fetchData();
-  }, [selectedCountry, partners]);
+  }, [isOpen, targetCountry]); // Ukuran dependensi selalu 2, tidak akan pernah berubah!
+
+  // PERBAIKAN 3: Normalisasi partner data sekali ketika data mentah baru selesai dimuat
+  useEffect(() => {
+    if (!partnerDataRaw) {
+      setPartnerData(null);
+      return;
+    }
+
+    const baseDate = partnerDataLoadDate || currentDate || new Date();
+    setPartnerData(normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, baseDate));
+  }, [partnerDataRaw, partnerDataLoadDate]);
 
   const findMeta = useCallback((key: string) => {
     if (!metadata) return undefined;
@@ -186,7 +206,14 @@ export default function ModalsKonfirmasiBeli({
     const buildDateKey = `build_date_${selectedProduct}`;
     const buildDateRaw = countryDetail?.[buildDateKey];
     const currentDateStr = formatDate(currentDate);
-    const finalBuildDate = typeof buildDateRaw === 'string' ? buildDateRaw : currentDateStr;
+    let finalBuildDate: string;
+    if (typeof buildDateRaw === 'string' && buildDateRaw) {
+      finalBuildDate = buildDateRaw;
+    } else {
+      const yesterday = new Date(currentDate);
+      yesterday.setDate(yesterday.getDate() - 1);
+      finalBuildDate = formatDate(yesterday);
+    }
 
     return calculateProductionIncrement(
       bMeta.produksi,
@@ -196,7 +223,7 @@ export default function ModalsKonfirmasiBeli({
     );
   }, [selectedProduct, currentDate, countryDetail, findMeta]);
 
-  // LOGIKA STOK MITRA
+  // LOGIKA STOK MITRA (Menggunakan partnerData yang sudah dinormalisasi)
   const partnerProduction = useMemo(() => {
     if (!selectedProduct || !partnerData) return 0;
     const pBuildingCount = Number(partnerData[selectedProduct] || 0);
@@ -208,7 +235,7 @@ export default function ModalsKonfirmasiBeli({
     const pBuildDateKey = `build_date_${selectedProduct}`;
     const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
     const currentDateStr = formatDate(currentDate);
-    const pFinalBuildDate = pBuildDate || currentDateStr;
+    const pFinalBuildDate = typeof pBuildDate === 'string' && pBuildDate ? pBuildDate : currentDateStr;
 
     return calculateProductionIncrement(
       pMeta.produksi,
@@ -281,25 +308,34 @@ export default function ModalsKonfirmasiBeli({
     farmasi: hasFarmasiBuilding,
   };
 
-  // ==========================================
-  // AUTO-SELECT SAAT MODAL TERBUKA
-  // ==========================================
+  // AUTO-SELECT SAAT MODAL PERTAMA KALI DIBUKA
   useEffect(() => {
     if (isOpen) {
-      // Cari produk pertama yang TIDAK disabled
-      const firstAvailable = ALL_IMPORT_KEYS.find((key) => {
-        const checkFn = checkMap[key];
-        if (checkFn && !checkFn(partnerData)) {
-          return false;
-        }
-        return true;
-      }) || ALL_IMPORT_KEYS[0];
+      // Jika belum diinisialisasi, set produk dan negara default
+      if (!isInitialized.current) {
+        const firstAvailable = ALL_IMPORT_KEYS.find((key) => {
+          const checkFn = checkMap[key];
+          if (checkFn && !checkFn(partnerData)) {
+            return false;
+          }
+          return true;
+        }) || ALL_IMPORT_KEYS[0];
 
-      setSelectedProduct(firstAvailable);
-      if (partners.length > 0) setSelectedCountry(partners[0].nama_negara);
-      setQuantity(1);
+        setSelectedProduct(firstAvailable);
+        setQuantity(1);
+        
+        // Hanya set negara jika user belum memilihnya secara manual
+        if (partners.length > 0 && !selectedCountry) {
+          setSelectedCountry(partners[0].nama_negara);
+        }
+        
+        isInitialized.current = true; // Tandai sudah diinisialisasi
+      }
+    } else {
+      // Reset flag saat modal ditutup
+      isInitialized.current = false;
     }
-  }, [isOpen, partners, partnerData]);
+  }, [isOpen, partners, partnerData, selectedCountry]);
 
   if (!isOpen) return null;
 
@@ -325,7 +361,6 @@ export default function ModalsKonfirmasiBeli({
 
   return (
     <div className="fixed inset-0 bg-black/70 z-[70] flex items-center justify-center p-4">
-      {/* PERBAIKAN: Ubah max-w-md menjadi max-w-6xl dan tambahkan h-[84vh] */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
@@ -337,7 +372,6 @@ export default function ModalsKonfirmasiBeli({
           </button>
         </div>
 
-        {/* Body / Content Area dengan Flex-1 agar memenuhi ruang */}
         <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
           {/* Baris 1: Produk & Negara */}
           <div className="grid grid-cols-2 gap-4">
@@ -352,7 +386,6 @@ export default function ModalsKonfirmasiBeli({
                   {ALL_IMPORT_KEYS.map((key) => {
                     const checkFn = checkMap[key];
                     const disabled = checkFn ? !checkFn(partnerData) : false;
-
                     return (
                       <option 
                         key={key} 
@@ -431,7 +464,7 @@ export default function ModalsKonfirmasiBeli({
           </div>
         </div>
 
-        {/* Footer Tombol Aksi - Di luar content agar tetap di bawah */}
+        {/* Footer Tombol Aksi */}
         <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
           <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
           <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Beli</button>

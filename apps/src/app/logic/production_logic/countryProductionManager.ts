@@ -12,7 +12,7 @@ import {
   formatDate,
   getDaysElapsed,
   isProductionUpdateNeeded
-} from './productionCalculator';
+} from './productionCalculatorUser';
 
 /**
  * Country production state

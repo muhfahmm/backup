@@ -188,7 +188,14 @@ export default function ModalsKonfirmasiJual({
     const buildDateKey = `build_date_${selectedProduct}`;
     const buildDateRaw = countryDetail?.[buildDateKey];
     const currentDateStr = formatDate(currentDate);
-    const finalBuildDate = typeof buildDateRaw === 'string' ? buildDateRaw : currentDateStr;
+    let finalBuildDate: string;
+    if (typeof buildDateRaw === 'string' && buildDateRaw) {
+      finalBuildDate = buildDateRaw;
+    } else {
+      const yesterday = new Date(currentDate);
+      yesterday.setDate(yesterday.getDate() - 1);
+      finalBuildDate = formatDate(yesterday);
+    }
 
     return calculateProductionIncrement(
       bMeta.produksi,
@@ -210,7 +217,14 @@ export default function ModalsKonfirmasiJual({
     const pBuildDateKey = `build_date_${selectedProduct}`;
     const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
     const currentDateStr = formatDate(currentDate);
-    const pFinalBuildDate = pBuildDate || currentDateStr;
+    let pFinalBuildDate: string;
+    if (typeof pBuildDate === 'string' && pBuildDate) {
+      pFinalBuildDate = pBuildDate;
+    } else {
+      const yesterday = new Date(currentDate);
+      yesterday.setDate(yesterday.getDate() - 1);
+      pFinalBuildDate = formatDate(yesterday);
+    }
 
     return calculateProductionIncrement(
       pMeta.produksi,
