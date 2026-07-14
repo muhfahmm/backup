@@ -19,25 +19,23 @@ interface JualModalsMenuProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onConfirm: (biaya: number, kuantitas: string) => void;
-  currentDate?: Date; // WAJIB ditambahkan!
+  currentDate?: Date;
 }
 
 export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate }: JualModalsMenuProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
 
-  console.log("[JualModalsMenu] Props:", { currentDate, countryDetail: countryDetail?.country, isOpen });
-
   useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
     fetchBuildingMetadata()
       .then((data: any) => setMetadata(data || {}))
-      .catch((err: any) => console.error("Gagal load metadata ekspor:", err))
+      .catch((err: any) => console.error("Gagal load metadata jual:", err))
       .finally(() => setLoadingMetadata(false));
   }, [isOpen]);
 
-  const ALL_EXPORT_KEYS = [
+  const ALL_JUAL_KEYS = [
     "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga", "aluminium", "logam_tanah_jarang", "bijih_besi",
     "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
     "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
@@ -78,7 +76,6 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
   const BATCH_SIZE = 1000;
 
   const handleJual = (key: string, nama: string, harga: number, satuan: string) => {
-    // Hitung stok tersedia menggunakan logika yang sama
     const buildingCount = Number(countryDetail?.[key]) || 0;
     let stokTersedia = 0;
     
@@ -97,9 +94,8 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
       );
     }
     
-    const BATCH_SIZE = 1000;
     if (stokTersedia < BATCH_SIZE) {
-      alert(`Stok ${nama} tidak mencukupi! Minimal ${BATCH_SIZE.toLocaleString("id-ID")} unit harus tersedia untuk diekspor.`);
+      alert(`Stok ${nama} tidak mencukupi! Minimal ${BATCH_SIZE.toLocaleString("id-ID")} unit harus tersedia untuk dijual.`);
       return;
     }
 
@@ -114,22 +110,19 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     });
 
     onConfirm(harga, satuan);
-    alert(`Berhasil mengekspor 1 batch ${nama}! Kas Negara bertambah ${harga.toLocaleString("id-ID")} EM.`);
+    alert(`Berhasil menjual 1 batch ${nama}! Kas Negara bertambah ${harga.toLocaleString("id-ID")} EM.`);
     onClose();
   };
 
   const generateCommodities = (): CommodityItem[] => {
     if (loadingMetadata || Object.keys(metadata).length === 0) {
-      console.log("[generateCommodities] Loading metadata...", { loadingMetadata, metadataKeys: Object.keys(metadata) });
       return [{ key: "", nama: "Memuat data komoditas...", harga: 0, satuan: "", isLoading: true }];
     }
     
-    return ALL_EXPORT_KEYS.map((key) => {
-      // Gunakan findMeta lokal untuk mencari metadata dengan benar
+    return ALL_JUAL_KEYS.map((key) => {
       const bMeta = findMeta(key);
       const nama = formatLabel(key);
       
-      // Hitung stok langsung di sini menggunakan logika yang sama
       const buildingCount = Number(countryDetail?.[key]) || 0;
       let stokTersedia = 0;
       
@@ -151,8 +144,6 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
       const unit = bMeta?.satuan || "unit";
       const stokFormatted = `${stokTersedia.toLocaleString('id-ID')} ${unit}`;
       
-      console.log(`[Ekspor] ${key}: buildings=${buildingCount}, meta=${bMeta ? 'FOUND' : 'NOT FOUND'}, produksi=${bMeta?.produksi}, stok=${stokTersedia}`);
-      
       return { 
         key, 
         nama, 
@@ -163,7 +154,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     });
   };
 
-  const komoditasEkspor = generateCommodities();
+  const komoditasJual = generateCommodities();
 
   return (
     <div className="fixed inset-0 bg-black/70 z-[60] flex items-center justify-center p-4">
@@ -174,27 +165,27 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
             <div className="p-2 bg-rose-600/10 rounded-xl border border-rose-600/20">
               <Send className="h-5 w-5 text-rose-700" />
             </div>
-            <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Ekspor Komoditas</h2>
+            {/* PERUBAHAN: Judul dari "Ekspor" menjadi "Jual" */}
+            <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Jual Komoditas</h2>
           </div>
           <button onClick={onClose} className="p-2 rounded-lg border-2 border-[#C4B49C] text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all cursor-pointer"><X className="h-4 w-4" /></button>
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 relative z-10 space-y-3 no-scrollbar">
-          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4">Pilih komoditas surplus yang ingin diekspor ke pasar internasional. Hasil penjualan akan langsung masuk ke Kas Negara.</p>
+          {/* PERUBAHAN: Deskripsi diubah menjadi "dijual" */}
+          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4">Pilih komoditas surplus yang ingin dijual ke pasar internasional. Hasil penjualan akan langsung masuk ke Kas Negara.</p>
 
-          {komoditasEkspor.map((item, idx) => (
+          {komoditasJual.map((item, idx) => (
             <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex items-center justify-between">
               <div className="flex-1">
                 <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-2">{item.isLoading ? "Memuat..." : item.nama}</h4>
                 <div className="flex items-baseline gap-3">
-                  {/* Stok yang dimulai dari 0 dan bertambah */}
                   <div className="flex flex-col">
                     <span className="text-[10px] text-[#8b7e66] font-semibold">Stok Tersedia:</span>
                     <span className="text-lg font-black text-[#2e261a]">
                       {item.isLoading ? "..." : item.stok?.toLocaleString("id-ID")}
                     </span>
                   </div>
-                  {/* Satuan dan info */}
                   <span className="text-[10px] text-[#8b7e66] font-semibold">
                     {item.isLoading ? "" : item.satuan}
                   </span>
