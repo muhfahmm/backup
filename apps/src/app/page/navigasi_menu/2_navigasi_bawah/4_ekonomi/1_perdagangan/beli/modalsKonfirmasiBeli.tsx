@@ -308,34 +308,46 @@ export default function ModalsKonfirmasiBeli({
     farmasi: hasFarmasiBuilding,
   };
 
-  // AUTO-SELECT SAAT MODAL PERTAMA KALI DIBUKA
-  useEffect(() => {
-    if (isOpen) {
-      // Jika belum diinisialisasi, set produk dan negara default
-      if (!isInitialized.current) {
-        const firstAvailable = ALL_IMPORT_KEYS.find((key) => {
-          const checkFn = checkMap[key];
-          if (checkFn && !checkFn(partnerData)) {
-            return false;
-          }
-          return true;
-        }) || ALL_IMPORT_KEYS[0];
-
-        setSelectedProduct(firstAvailable);
-        setQuantity(1);
-        
-        // Hanya set negara jika user belum memilihnya secara manual
-        if (partners.length > 0 && !selectedCountry) {
-          setSelectedCountry(partners[0].nama_negara);
-        }
-        
-        isInitialized.current = true; // Tandai sudah diinisialisasi
+  const getFirstAvailableProduct = (): string => {
+    return ALL_IMPORT_KEYS.find((key) => {
+      const checkFn = checkMap[key];
+      if (checkFn) {
+        return checkFn(partnerData);
       }
-    } else {
-      // Reset flag saat modal ditutup
-      isInitialized.current = false;
+      return true;
+    }) || ALL_IMPORT_KEYS[0];
+  };
+
+  const isProductAvailable = (key: string): boolean => {
+    const checkFn = checkMap[key];
+    if (checkFn) {
+      return checkFn(partnerData);
     }
-  }, [isOpen, partners, partnerData, selectedCountry]);
+    return true;
+  };
+
+  // AUTO-SELECT SAAT MODAL PERTAMA KALI DIBUKA atau ketika produk yang dipilih tidak tersedia
+  useEffect(() => {
+    if (!isOpen) {
+      isInitialized.current = false;
+      return;
+    }
+
+    const firstAvailable = getFirstAvailableProduct();
+    const selectedAvailable = selectedProduct ? isProductAvailable(selectedProduct) : false;
+
+    if (!selectedAvailable) {
+      setSelectedProduct(firstAvailable);
+      setQuantity(1);
+    }
+
+    // Hanya set negara jika user belum memilihnya secara manual
+    if (partners.length > 0 && !selectedCountry) {
+      setSelectedCountry(partners[0].nama_negara);
+    }
+
+    isInitialized.current = true;
+  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct]);
 
   if (!isOpen) return null;
 
