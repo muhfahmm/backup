@@ -119,16 +119,17 @@ export default function ModalsKonfirmasiBeli({
   currentDate
 }: ModalsKonfirmasiBeliProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
-  const [selectedProduct, setSelectedProduct] = useState<string>(ALL_IMPORT_KEYS[0]);
+  const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
   
   const [partnerDataRaw, setPartnerDataRaw] = useState<Record<string, any> | null>(null);
-  const [partnerDataLoadDate, setPartnerDataLoadDate] = useState<Date | null>(null);
-  const [partnerData, setPartnerData] = useState<Record<string, any> | null>(null);
+  // PERBAIKAN: Gunakan useRef untuk menyimpan tanggal awal mitra secara persisten
+  const partnerStartDateRef = useRef<string | null>(null);
+  const lastCountryRef = useRef<string>(""); // Untuk mendeteksi perubahan negara
+
   const isInitialized = useRef(false);
 
-  // PERBAIKAN 1: Gunakan targetCountry string agar ukuran useEffect tetap stabil
   const targetCountry = selectedCountry || partners[0]?.nama_negara || "";
 
   // Load metadata
@@ -137,9 +138,14 @@ export default function ModalsKonfirmasiBeli({
     fetchBuildingMetadata().then((data) => setMetadata(data || {}));
   }, [isOpen]);
 
-  // PERBAIKAN 2: useEffect hanya mengambil data mentah, TANPA currentDate atau partners
+  // Fetch data negara mitra dan simpan tanggal awal hanya jika negara berubah
   useEffect(() => {
-    if (!isOpen || !targetCountry) {
+    if (!isOpen) {
+      setPartnerDataRaw(null);
+      return;
+    }
+
+    if (!targetCountry) {
       setPartnerDataRaw(null);
       return;
     }
@@ -150,37 +156,41 @@ export default function ModalsKonfirmasiBeli({
       return;
     }
 
+    // Jika negara berubah, reset tanggal awal
+    if (lastCountryRef.current !== targetCountry) {
+      partnerStartDateRef.current = null;
+      lastCountryRef.current = targetCountry;
+    }
+
     const fetchData = async () => {
       try {
         const res = await fetch(`/api/country-data?path=${encodeURIComponent(pathEntry)}`);
         if (!res.ok) {
           setPartnerDataRaw(null);
-          setPartnerDataLoadDate(null);
           return;
         }
         const json = await res.json();
         setPartnerDataRaw(json || null);
-        setPartnerDataLoadDate(currentDate ? new Date(currentDate) : new Date());
+        // Set tanggal awal hanya jika belum ada
+        if (!partnerStartDateRef.current) {
+          partnerStartDateRef.current = currentDate ? formatDate(currentDate) : formatDate(new Date());
+        }
       } catch (e) {
         console.error('Failed to fetch partner country data', e);
         setPartnerDataRaw(null);
-        setPartnerDataLoadDate(null);
       }
     };
 
     fetchData();
-  }, [isOpen, targetCountry]); // Ukuran dependensi selalu 2, tidak akan pernah berubah!
+  }, [isOpen, targetCountry, currentDate]); // currentDate ada di dependensi agar saat hari berganti, jika belum ada tanggal awal, bisa diset ke tanggal baru
 
-  // PERBAIKAN 3: Normalisasi partner data sekali ketika data mentah baru selesai dimuat
-  useEffect(() => {
-    if (!partnerDataRaw) {
-      setPartnerData(null);
-      return;
-    }
-
-    const baseDate = partnerDataLoadDate || currentDate || new Date();
-    setPartnerData(normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, baseDate));
-  }, [partnerDataRaw, partnerDataLoadDate]);
+  // Normalisasi data mitra menggunakan tanggal awal yang stabil
+  const partnerData = useMemo(() => {
+    if (!partnerDataRaw) return null;
+    // Gunakan tanggal awal yang tersimpan di ref
+    const baseDate = partnerStartDateRef.current || formatDate(currentDate || new Date());
+    return normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, new Date(baseDate));
+  }, [partnerDataRaw]);
 
   const findMeta = useCallback((key: string) => {
     if (!metadata) return undefined;
@@ -193,57 +203,6 @@ export default function ModalsKonfirmasiBeli({
     }
     return undefined;
   }, [metadata]);
-
-  // LOGIKA STOK USER
-  const stockAvailable = useMemo(() => {
-    if (!selectedProduct) return 0;
-    const buildingCount = Number(countryDetail?.[selectedProduct]) || 0;
-    if (buildingCount === 0) return 0;
-
-    const bMeta = findMeta(selectedProduct);
-    if (!bMeta || !bMeta.produksi || !currentDate) return 0;
-
-    const buildDateKey = `build_date_${selectedProduct}`;
-    const buildDateRaw = countryDetail?.[buildDateKey];
-    const currentDateStr = formatDate(currentDate);
-    let finalBuildDate: string;
-    if (typeof buildDateRaw === 'string' && buildDateRaw) {
-      finalBuildDate = buildDateRaw;
-    } else {
-      const yesterday = new Date(currentDate);
-      yesterday.setDate(yesterday.getDate() - 1);
-      finalBuildDate = formatDate(yesterday);
-    }
-
-    return calculateProductionIncrement(
-      bMeta.produksi,
-      buildingCount,
-      finalBuildDate,
-      currentDateStr
-    );
-  }, [selectedProduct, currentDate, countryDetail, findMeta]);
-
-  // LOGIKA STOK MITRA (Menggunakan partnerData yang sudah dinormalisasi)
-  const partnerProduction = useMemo(() => {
-    if (!selectedProduct || !partnerData) return 0;
-    const pBuildingCount = Number(partnerData[selectedProduct] || 0);
-    if (pBuildingCount === 0) return 0;
-
-    const pMeta = findMeta(selectedProduct);
-    if (!pMeta || !pMeta.produksi || !currentDate) return 0;
-
-    const pBuildDateKey = `build_date_${selectedProduct}`;
-    const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
-    const currentDateStr = formatDate(currentDate);
-    const pFinalBuildDate = typeof pBuildDate === 'string' && pBuildDate ? pBuildDate : currentDateStr;
-
-    return calculateProductionIncrement(
-      pMeta.produksi,
-      pBuildingCount,
-      pFinalBuildDate,
-      currentDateStr
-    );
-  }, [selectedProduct, currentDate, partnerData, findMeta]);
 
   // ==========================================
   // PETA FUNGSI (CHECK MAP) UNTUK SEMUA SEKTOR
@@ -309,6 +268,7 @@ export default function ModalsKonfirmasiBeli({
   };
 
   const getFirstAvailableProduct = (): string => {
+    if (!partnerData) return ALL_IMPORT_KEYS[0];
     return ALL_IMPORT_KEYS.find((key) => {
       const checkFn = checkMap[key];
       if (checkFn) {
@@ -319,6 +279,7 @@ export default function ModalsKonfirmasiBeli({
   };
 
   const isProductAvailable = (key: string): boolean => {
+    if (!partnerData) return false;
     const checkFn = checkMap[key];
     if (checkFn) {
       return checkFn(partnerData);
@@ -326,12 +287,67 @@ export default function ModalsKonfirmasiBeli({
     return true;
   };
 
+  const effectiveSelectedProduct = selectedProduct || (partnerData ? getFirstAvailableProduct() : "");
+
+  // LOGIKA STOK USER
+  const stockAvailable = useMemo(() => {
+    if (!effectiveSelectedProduct) return 0;
+    const buildingCount = Number(countryDetail?.[effectiveSelectedProduct]) || 0;
+    if (buildingCount === 0) return 0;
+
+    const bMeta = findMeta(effectiveSelectedProduct);
+    if (!bMeta || !bMeta.produksi || !currentDate) return 0;
+
+    const buildDateKey = `build_date_${effectiveSelectedProduct}`;
+    const buildDateRaw = countryDetail?.[buildDateKey];
+    const currentDateStr = formatDate(currentDate);
+    let finalBuildDate: string;
+    if (typeof buildDateRaw === 'string' && buildDateRaw) {
+      finalBuildDate = buildDateRaw;
+    } else {
+      const yesterday = new Date(currentDate);
+      yesterday.setDate(yesterday.getDate() - 1);
+      finalBuildDate = formatDate(yesterday);
+    }
+
+    return calculateProductionIncrement(
+      bMeta.produksi,
+      buildingCount,
+      finalBuildDate,
+      currentDateStr
+    );
+  }, [effectiveSelectedProduct, currentDate, countryDetail, findMeta]);
+
+  // LOGIKA STOK MITRA (Menggunakan partnerData yang sudah dinormalisasi)
+  const partnerProduction = useMemo(() => {
+    if (!effectiveSelectedProduct || !partnerData) return 0;
+    const pBuildingCount = Number(partnerData[effectiveSelectedProduct] || 0);
+    if (pBuildingCount === 0) return 0;
+
+    const pMeta = findMeta(effectiveSelectedProduct);
+    if (!pMeta || !pMeta.produksi || !currentDate) return 0;
+
+    const pBuildDateKey = `build_date_${effectiveSelectedProduct}`;
+    const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
+    const currentDateStr = formatDate(currentDate);
+    const pFinalBuildDate = typeof pBuildDate === 'string' && pBuildDate ? pBuildDate : currentDateStr;
+
+    return calculateProductionIncrement(
+      pMeta.produksi,
+      pBuildingCount,
+      pFinalBuildDate,
+      currentDateStr
+    );
+  }, [effectiveSelectedProduct, currentDate, partnerData, findMeta]);
+
   // AUTO-SELECT SAAT MODAL PERTAMA KALI DIBUKA atau ketika produk yang dipilih tidak tersedia
   useEffect(() => {
     if (!isOpen) {
       isInitialized.current = false;
       return;
     }
+
+    if (!partnerData) return; // tunggu data mitra dulu
 
     const firstAvailable = getFirstAvailableProduct();
     const selectedAvailable = selectedProduct ? isProductAvailable(selectedProduct) : false;
@@ -349,11 +365,35 @@ export default function ModalsKonfirmasiBeli({
     isInitialized.current = true;
   }, [isOpen, partners, partnerData, selectedCountry, selectedProduct]);
 
+  // Penanganan fallback tanggal bangun user (tidak terkait dengan mitra)
+  useEffect(() => {
+    if (!isOpen || !selectedProduct || !countryDetail) return;
+
+    const buildingCount = Number(countryDetail[selectedProduct] || 0);
+    if (buildingCount <= 0) return;
+
+    const buildDateKey = `build_date_${selectedProduct}`;
+    const existingBuildDate = countryDetail[buildDateKey];
+    if (typeof existingBuildDate === 'string' && existingBuildDate) return;
+
+    const currentDateStr = formatDate(currentDate || new Date());
+    setCountryDetail((prev) => {
+      if (!prev) return prev;
+      if (Number(prev[selectedProduct] || 0) <= 0) return prev;
+      if (typeof prev[buildDateKey] === 'string' && prev[buildDateKey]) return prev;
+      return {
+        ...prev,
+        [buildDateKey]: currentDateStr,
+      };
+    });
+  }, [isOpen, selectedProduct, countryDetail, currentDate, setCountryDetail]);
+
   if (!isOpen) return null;
 
   const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   const effectiveSelectedCountry = selectedCountry || partners[0]?.nama_negara || "";
-  const currentMeta = findMeta(selectedProduct);
+  const effectiveProductToDisplay = selectedProduct || getFirstAvailableProduct();
+  const currentMeta = findMeta(effectiveProductToDisplay);
   const totalPrice = hitungHargaBeli(currentMeta?.biaya_pembangunan, quantity);
 
   const handleConfirm = () => {
@@ -391,7 +431,7 @@ export default function ModalsKonfirmasiBeli({
               <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
               <div className="relative">
                 <select
-                  value={selectedProduct}
+                  value={effectiveSelectedProduct}
                   onChange={(e) => setSelectedProduct(e.target.value)}
                   className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
                 >
