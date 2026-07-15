@@ -1,6 +1,6 @@
 // @ts-nocheck
 const uni_emirat_arab_ekstraksi = {
-  emas: 10,
+  emas: 38,
   uranium: 0,
   batu_bara: 66,
   minyak_bumi: 264,

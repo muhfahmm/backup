@@ -1,6 +1,6 @@
 // @ts-nocheck
 const spanyol_ekstraksi = {
-  emas: 10,
+  emas: 13,
   uranium: 17,
   batu_bara: 0,
   minyak_bumi: 116,

@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const niger_ekstraksi = {
-  emas: 10,
-  uranium: 5,
-  batu_bara: 7,
-  minyak_bumi: 2,
-  gas_alam: 7,
-  garam: 6,
-  nikel: 10,
-  litium: 1,
-  tembaga: 6,
-  aluminium: 1,
-  logam_tanah_jarang: 10,
-  bijih_besi: 6,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
+  uranium: 0,
+  garam: 120,
 };
-

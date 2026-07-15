@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const uruguay_ekstraksi = {
-  emas: 6,
+  emas: 16,
   uranium: 0,
   batu_bara: 12,
   minyak_bumi: 4,

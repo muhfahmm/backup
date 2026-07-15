@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const chad_ekstraksi = {
-  emas: 10,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
   uranium: 0,
-  batu_bara: 24,
-  minyak_bumi: 27,
-  gas_alam: 9,
-  garam: 0,
-  nikel: 15,
-  litium: 0,
-  tembaga: 9,
-  aluminium: 0,
-  logam_tanah_jarang: 9,
-  bijih_besi: 21,
+  garam: 120,
 };
-

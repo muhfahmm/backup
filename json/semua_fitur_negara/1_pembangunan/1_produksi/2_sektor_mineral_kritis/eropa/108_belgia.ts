@@ -1,6 +1,6 @@
 // @ts-nocheck
 const belgia_ekstraksi = {
-  emas: 10,
+  emas: 25,
   uranium: 0,
   batu_bara: 369,
   minyak_bumi: 0,

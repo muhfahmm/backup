@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kanada_ekstraksi = {
-  emas: 3072,
+  emas: 23,
   uranium: 0,
   batu_bara: 1920,
   minyak_bumi: 0,

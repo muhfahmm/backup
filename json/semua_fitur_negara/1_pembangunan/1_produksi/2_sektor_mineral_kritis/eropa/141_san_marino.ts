@@ -1,6 +1,6 @@
 // @ts-nocheck
 const san_marino_ekstraksi = {
-  emas: 10,
+  emas: 36,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 32,

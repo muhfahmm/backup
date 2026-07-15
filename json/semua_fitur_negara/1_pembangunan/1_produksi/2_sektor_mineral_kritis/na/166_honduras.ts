@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const honduras_ekstraksi = {
-  emas: 9,
+  emas: 20,
   uranium: 0,
   batu_bara: 27,
   minyak_bumi: 3,

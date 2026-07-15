@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const denmark_ekstraksi = {
-  emas: 264,
+  emas: 33,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 132,

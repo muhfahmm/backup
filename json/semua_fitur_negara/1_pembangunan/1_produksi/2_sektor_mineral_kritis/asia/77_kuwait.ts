@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kuwait_ekstraksi = {
-  emas: 160,
+  emas: 43,
   uranium: 0,
   batu_bara: 140,
   minyak_bumi: 120,

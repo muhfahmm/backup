@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const monako_ekstraksi = {
-  emas: 3,
+  emas: 19,
   uranium: 0,
   batu_bara: 4,
   minyak_bumi: 0,

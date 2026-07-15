@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const montenegro_ekstraksi = {
-  emas: 3,
+  emas: 19,
   uranium: 0,
   batu_bara: 2,
   minyak_bumi: 2,

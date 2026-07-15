@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const haiti_ekstraksi = {
-  emas: 3,
+  emas: 20,
   uranium: 0,
   batu_bara: 3,
   minyak_bumi: 15,

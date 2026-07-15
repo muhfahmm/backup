@@ -1,6 +1,6 @@
 // @ts-nocheck
 const indonesia_ekstraksi = {
-  emas: 10,
+  emas: 39,
   uranium: 13,
   batu_bara: 237,
   minyak_bumi: 237,

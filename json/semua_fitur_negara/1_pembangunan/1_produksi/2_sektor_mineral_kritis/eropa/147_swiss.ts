@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const swiss_ekstraksi = {
-  emas: 235,
+  emas: 41,
   uranium: 0,
   batu_bara: 282,
   minyak_bumi: 282,

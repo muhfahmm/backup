@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const somalia_ekstraksi = {
-  emas: 10,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
   uranium: 0,
-  batu_bara: 12,
-  minyak_bumi: 24,
-  gas_alam: 27,
-  garam: 0,
-  nikel: 0,
-  litium: 21,
-  tembaga: 30,
-  aluminium: 24,
-  logam_tanah_jarang: 0,
-  bijih_besi: 0,
+  garam: 120,
 };
-

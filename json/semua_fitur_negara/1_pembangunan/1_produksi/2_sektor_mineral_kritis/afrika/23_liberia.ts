@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const liberia_ekstraksi = {
-  emas: 10,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
   uranium: 0,
-  batu_bara: 18,
-  minyak_bumi: 0,
-  gas_alam: 30,
-  garam: 21,
-  nikel: 30,
-  litium: 27,
-  tembaga: 21,
-  aluminium: 0,
-  logam_tanah_jarang: 21,
-  bijih_besi: 0,
+  garam: 120,
 };
-

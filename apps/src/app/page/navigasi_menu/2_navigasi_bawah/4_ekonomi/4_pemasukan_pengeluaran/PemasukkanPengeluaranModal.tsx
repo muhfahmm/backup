@@ -4,7 +4,6 @@ import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
 import { calculateGoldMiningDailyProduction, calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
-import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
 
 interface ModalProps {
   isOpen: boolean;
@@ -68,29 +67,22 @@ const calculateTabCostDaily = (countryDetail: any, departments: Department[]) =>
   return totalCost;
 };
 
+// Gunakan daily production agar konsisten dengan navbar
 const calculateGoldMiningIncome = (countryDetail: any) => {
-  return calculateGoldMiningMonthlyIncome(countryDetail);
+  return calculateGoldMiningDailyProduction(countryDetail);
 };
 
-const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
-  const attractions = getTourismAttractions(selectedCountry?.country || selectedCountry?.name || selectedCountry?.nama, selectedCountry?.id);
-
-  if (attractions.length > 0) {
-    return attractions.reduce((sum: number, attraction: any) => sum + (attraction.penghasilan || 0), 0);
-  }
-
+// PERBAIKAN: Hilangkan panggilan getTourismAttractions, langsung gunakan logika fallback
+const calculateTourismIncome = (countryDetail: any) => {
   const hotels = Number(countryDetail?.hotel) || 0;
   const malls = Number(countryDetail?.mall) || 0;
   const tourismBuildings = hotels + malls;
-
   if (tourismBuildings > 0) {
     return tourismBuildings * 25000;
   }
-
   if (typeof countryDetail?.tourism_income === "number") {
     return countryDetail.tourism_income;
   }
-
   return 0;
 };
 
@@ -100,9 +92,9 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
+  const tourismIncome = calculateTourismIncome(countryDetail);
   const goldBuildingCount = Number(countryDetail?.emas) || 0;
-  const goldDailyProduction = calculateGoldMiningDailyProduction(countryDetail);
+  const goldDailyProduction = calculateGoldMiningIncome(countryDetail);
 
   const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
 
@@ -120,8 +112,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
         goldBuildingCount > 0
           ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
           : undefined
-    },
-    { label: "Revenue Pariwisata", amount: tourismIncome }
+    }
   ];
 
   const outcomeItems: FinancialItem[] = [
@@ -146,10 +137,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const outcomeTabCostDaily = calculateTabCostDaily(countryDetail, currentOutcomeTabDepts);
 
   return (
-    // PERBAIKAN: Menghapus bg-black/65, menggunakan bg-transparent pointer-events-none
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN: Menambahkan pointer-events-auto agar modal tetap bisa di-klik */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">

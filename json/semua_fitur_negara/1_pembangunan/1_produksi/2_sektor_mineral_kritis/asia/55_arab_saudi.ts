@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const arab_saudi_ekstraksi = {
-  emas: 931,
+  emas: 20,
   uranium: 0,
   batu_bara: 399,
   minyak_bumi: 0,

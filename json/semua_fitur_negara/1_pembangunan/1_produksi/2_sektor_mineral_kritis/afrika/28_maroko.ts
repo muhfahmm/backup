@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const maroko_ekstraksi = {
-  emas: 10,
-  uranium: 13,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
   batu_bara: 0,
-  minyak_bumi: 72,
-  gas_alam: 216,
-  garam: 48,
-  nikel: 168,
-  litium: 216,
-  tembaga: 0,
-  aluminium: 0,
-  logam_tanah_jarang: 240,
-  bijih_besi: 120,
+  minyak_bumi: 150,
+  gas_alam: 105,
+  uranium: 0,
+  garam: 120,
 };
-

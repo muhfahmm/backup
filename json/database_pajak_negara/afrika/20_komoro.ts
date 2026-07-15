@@ -1,5 +1,5 @@
 // @ts-nocheck
-const komori_pajak = {
+const komoro_pajak = {
   "pajak": {
     "ppn": { "tarif": 10 },
     "korporasi": { "tarif": 25 },

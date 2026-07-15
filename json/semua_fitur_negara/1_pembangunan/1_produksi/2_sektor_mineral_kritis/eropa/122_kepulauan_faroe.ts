@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kepulauan_faroe_ekstraksi = {
-  emas: 1,
+  emas: 20,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const andorra_ekstraksi = {
-  emas: 2,
+  emas: 20,
   uranium: 0,
   batu_bara: 2,
   minyak_bumi: 4,

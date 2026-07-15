@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const slowakia_ekstraksi = {
-  emas: 117,
+  emas: 15,
   uranium: 0,
   batu_bara: 130,
   minyak_bumi: 0,

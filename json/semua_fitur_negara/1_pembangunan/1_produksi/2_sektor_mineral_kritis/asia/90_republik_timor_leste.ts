@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const republik_timor_leste_ekstraksi = {
-  emas: 9,
+  emas: 18,
   uranium: 0,
   batu_bara: 5,
   minyak_bumi: 7,

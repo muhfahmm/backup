@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const trinidad_dan_tobago_ekstraksi = {
-  emas: 6,
+  emas: 17,
   uranium: 0,
   batu_bara: 12,
   minyak_bumi: 0,

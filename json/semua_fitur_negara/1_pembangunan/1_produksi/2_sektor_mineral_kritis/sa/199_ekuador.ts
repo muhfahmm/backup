@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const ekuador_ekstraksi = {
-  emas: 150,
+  emas: 45,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 150,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const chile_ekstraksi = {
-  emas: 108,
+  emas: 21,
   uranium: 0,
   batu_bara: 54,
   minyak_bumi: 0,

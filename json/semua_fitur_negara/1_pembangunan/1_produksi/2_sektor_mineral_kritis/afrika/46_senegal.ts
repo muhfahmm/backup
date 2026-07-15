@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const senegal_ekstraksi = {
-  emas: 10,
-  uranium: 0,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
   batu_bara: 0,
-  minyak_bumi: 0,
-  gas_alam: 5,
-  garam: 0,
-  nikel: 4,
-  litium: 0,
-  tembaga: 10,
-  aluminium: 0,
-  logam_tanah_jarang: 3,
-  bijih_besi: 3,
+  minyak_bumi: 150,
+  gas_alam: 105,
+  uranium: 0,
+  garam: 120,
 };
-

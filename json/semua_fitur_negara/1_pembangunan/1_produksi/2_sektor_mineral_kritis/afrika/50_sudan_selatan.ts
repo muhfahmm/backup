@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const sudan_selatan_ekstraksi = {
-  emas: 10,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
   uranium: 0,
-  batu_bara: 32,
-  minyak_bumi: 20,
-  gas_alam: 28,
-  garam: 8,
-  nikel: 32,
-  litium: 0,
-  tembaga: 0,
-  aluminium: 20,
-  logam_tanah_jarang: 28,
-  bijih_besi: 0,
+  garam: 120,
 };
-

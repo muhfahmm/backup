@@ -1,6 +1,6 @@
 // @ts-nocheck
 const maldives_ekstraksi = {
-  emas: 10,
+  emas: 20,
   uranium: 0,
   batu_bara: 18,
   minyak_bumi: 18,

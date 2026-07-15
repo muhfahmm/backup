@@ -2,8 +2,7 @@
 import React from "react";
 import { X, BarChart3, ArrowUpRight } from "lucide-react";
 import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
-import { calculateGoldMiningDailyProduction, calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
-import { getTourismAttractions } from "@/app/lib/tourismDatabaseData";
+import { calculateGoldMiningDailyProduction } from "@/app/logic/economic_logic/goldIncome";
 
 interface IncomeModalProps {
   isOpen: boolean;
@@ -19,7 +18,7 @@ interface IncomeItem {
   displayAmount?: string;
 }
 
-// Helper function to calculate total tax income
+// Helper function to calculate total tax income (daily)
 const calculateTotalTaxIncome = (countryDetail: any) => {
   const income_tax = countryDetail?.income_tax || 15;
   const corporate_tax = countryDetail?.corporate || 22;
@@ -36,25 +35,14 @@ const calculateTotalTaxIncome = (countryDetail: any) => {
   );
 };
 
-// Helper function to calculate gold mining income per month
-const calculateGoldMiningIncome = (countryDetail: any) => {
-  return calculateGoldMiningMonthlyIncome(countryDetail);
-};
-
-// Helper function to calculate tourism income from tourism database and fallback to infrastructure
-const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
-  const attractions = getTourismAttractions(selectedCountry?.country || selectedCountry?.name || selectedCountry?.nama, selectedCountry?.id);
-
-  if (attractions.length > 0) {
-    return attractions.reduce((sum: number, attraction: any) => sum + (attraction.penghasilan || 0), 0);
-  }
-
+// Helper function to calculate tourism income (fallback tanpa getTourismAttractions)
+const calculateTourismIncome = (countryDetail: any) => {
   const hotels = Number(countryDetail?.hotel) || 0;
   const malls = Number(countryDetail?.mall) || 0;
   const tourismBuildings = hotels + malls;
 
   if (tourismBuildings > 0) {
-    return tourismBuildings * 25000;
+    return tourismBuildings * 25000; // pendapatan harian per bangunan
   }
 
   if (typeof countryDetail?.tourism_income === "number") {
@@ -64,12 +52,12 @@ const calculateTourismIncome = (countryDetail: any, selectedCountry: any) => {
   return 0;
 };
 
-export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCountry }: IncomeModalProps) {
+export default function IncomeModal({ isOpen, onClose, countryDetail }: IncomeModalProps) {
   if (!isOpen) return null;
 
-  // Calculate dynamic income sources
+  // Hitung pendapatan harian
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail, selectedCountry);
+  const tourismIncome = calculateTourismIncome(countryDetail);
   const goldBuildingCount = Number(countryDetail?.emas) || 0;
   const goldDailyProduction = calculateGoldMiningDailyProduction(countryDetail);
 
@@ -85,10 +73,9 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
         : undefined,
       subtitle:
         goldBuildingCount > 0
-          ? `50 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
+          ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
           : undefined
-    },
-    { label: "Revenue Pariwisata", amount: tourismIncome }
+    }
   ];
 
   const totalIncome = incomeItems.reduce((sum, item) => sum + item.amount, 0);
@@ -118,14 +105,14 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-6 max-w-3xl mx-auto">
             <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-4">
-              <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">APBN Estimasi Bulanan</h4>
+              <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">APBN Estimasi Harian</h4>
               
               <div className="space-y-3">
                 {incomeItems.map((item, index) => (
                   <div key={index} className="border-b border-[#C4B49C]/20 last:border-0 pb-2">
                     <div className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2">
                       <span className="font-semibold">{item.label}</span>
-                          <span>{item.displayAmount ?? `+ ${item.amount.toLocaleString("id-ID")}`}</span>
+                      <span>{item.displayAmount ?? `+ ${item.amount.toLocaleString("id-ID")}`}</span>
                     </div>
                     {item.subtitle && (
                       <div className="text-[10px] text-[#5c3c10] pl-1 pb-2">
@@ -138,7 +125,7 @@ export default function IncomeModal({ isOpen, onClose, countryDetail, selectedCo
 
               <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                 <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
-                  <span>Total Pemasukkan:</span>
+                  <span>Total Pemasukkan Harian:</span>
                   <span className="text-emerald-700">+ {totalIncome.toLocaleString("id-ID")}</span>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const malaysia_ekstraksi = {
-  emas: 144,
+  emas: 34,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

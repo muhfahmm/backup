@@ -4,7 +4,6 @@
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
 import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
-import TempWisataModal from "./1_kepuasan/TempWisataModal";
 
 // 2. Populasi
 import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiModal";
@@ -95,13 +94,6 @@ function ModalsManager({
         setActiveMenu={setActiveMenu}
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <TempWisataModal
-        isOpen={activeMenu === "Menu:TempWisata"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        setActiveMenu={setActiveMenu}
-        countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
 

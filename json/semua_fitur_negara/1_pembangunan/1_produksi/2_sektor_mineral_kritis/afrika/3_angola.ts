@@ -1,16 +1,15 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const angola_ekstraksi = {
-  emas: 10,
+  nikel: 135,
+  bijih_besi: 90,
+  litium: 30,
+  logam_tanah_jarang: 135,
+  aluminium: 105,
+  emas: 45,
+  tembaga: 90,
+  batu_bara: 0,
+  minyak_bumi: 150,
+  gas_alam: 105,
   uranium: 0,
-  batu_bara: 32,
-  minyak_bumi: 56,
-  gas_alam: 0,
-  garam: 72,
-  nikel: 24,
-  litium: 40,
-  tembaga: 0,
-  aluminium: 64,
-  logam_tanah_jarang: 40,
-  bijih_besi: 24,
+  garam: 120,
 };
-

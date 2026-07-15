@@ -55,6 +55,36 @@ const parseObjectLiteral = (literal: string) => {
 
 const extractObjectsFromFile = (fileContent: string) => {
     const cleaned = removeComments(fileContent);
+    
+    try {
+        // Strip export statements as they are not valid inside new Function body
+        const executableCode = cleaned
+            .replace(/\bexport\s+default\b/g, 'const __default_export =')
+            .replace(/\bexport\b/g, '');
+
+        // Find all variables declared in the file
+        const varRegex = /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=/g;
+        const vars: string[] = [];
+        let match: RegExpExecArray | null;
+        while ((match = varRegex.exec(executableCode))) {
+            const varName = match[1];
+            if (!vars.includes(varName)) {
+                vars.push(varName);
+            }
+        }
+
+        // Return a combined object of all defined variables using object literal spread
+        const returnObj = vars.map(v => `...(typeof ${v} !== 'undefined' && typeof ${v} === 'object' && ${v} !== null ? ${v} : {})`).join(', ');
+        const codeExecutor = `"use strict";\n${executableCode}\nreturn { ${returnObj} };`;
+        
+        const parsed = new Function(codeExecutor)();
+        if (parsed && typeof parsed === 'object' && Object.keys(parsed).length > 0) {
+            return parsed;
+        }
+    } catch (e) {
+        console.warn('Failed to parse file with full execution, falling back to individual parsing', e);
+    }
+
     const objects: any[] = [];
 
     const constRegex = /(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{/g;

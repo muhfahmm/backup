@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const india_ekstraksi = {
-  emas: 3930,
+  emas: 41,
   uranium: 25,
   batu_bara: 0,
   minyak_bumi: 1179,

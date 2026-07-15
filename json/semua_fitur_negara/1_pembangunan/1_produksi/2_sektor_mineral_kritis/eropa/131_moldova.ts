@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const moldova_ekstraksi = {
-  emas: 8,
+  emas: 15,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

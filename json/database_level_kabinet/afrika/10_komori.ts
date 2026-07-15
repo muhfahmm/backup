@@ -1,6 +1,6 @@
 // @ts-nocheck
-const komori_level_kabinet = {
-  "nama_negara": "Komori",
+const komoro_level_kabinet = {
+  "nama_negara": "Komoro",
   "kementerian": {
     "infrastruktur": 3,
     "pendidikan": 6,

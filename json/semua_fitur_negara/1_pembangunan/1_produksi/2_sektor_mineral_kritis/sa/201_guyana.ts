@@ -1,6 +1,6 @@
 // @ts-nocheck
 const guyana_ekstraksi = {
-  emas: 10,
+  emas: 42,
   uranium: 0,
   batu_bara: 6,
   minyak_bumi: 12,

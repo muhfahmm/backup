@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kolombia_ekstraksi = {
-  emas: 10,
+  emas: 40,
   uranium: 0,
   batu_bara: 324,
   minyak_bumi: 252,

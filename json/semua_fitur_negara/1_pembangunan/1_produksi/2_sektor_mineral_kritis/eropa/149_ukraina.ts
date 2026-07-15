@@ -1,6 +1,6 @@
 // @ts-nocheck
 const ukraina_ekstraksi = {
-  emas: 10,
+  emas: 39,
   uranium: 10,
   batu_bara: 0,
   minyak_bumi: 0,
