@@ -331,14 +331,6 @@ export default function PilihNegaraPage() {
                 </div>
 
                 <div className="flex items-center gap-4 ml-4 shrink-0">
-                    <button
-                        onClick={() => setIsDebugOpen(true)}
-                        className="p-2 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20 text-[#5c3c10] hover:bg-[#5c3c10]/20 transition-colors shadow-sm"
-                        title="Debug Data Pendapatan 207 Negara"
-                    >
-                        <Bug className="w-4 h-4" />
-                    </button>
-
                     <div className="bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4 min-w-[200px]">
                         {hasInteracted ? (
                             <img
