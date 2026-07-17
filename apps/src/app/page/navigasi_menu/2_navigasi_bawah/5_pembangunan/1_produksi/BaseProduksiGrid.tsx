@@ -13,6 +13,7 @@ interface BaseProduksiGridProps {
   onBuildClick: (key: string, label: string) => void;
   hoveredBuildingKey: string | null;
   setHoveredBuildingKey: (key: string | null) => void;
+  isBuildingAvailable?: (buildingKey: string, countryName: string) => boolean;
   isElectricityTab: boolean;
 }
 
@@ -27,6 +28,7 @@ export default function BaseProduksiGrid({
   onBuildClick,
   hoveredBuildingKey,
   setHoveredBuildingKey,
+  isBuildingAvailable,
   isElectricityTab
 }: BaseProduksiGridProps) {
 
@@ -55,19 +57,18 @@ export default function BaseProduksiGrid({
           const bMeta = findMeta(key) || {};
           const perCount = Number(countryDetail?.[key]) || 0;
           const label = formatLabel(key);
-          // Placeholder availability logic if needed, isBuildingAvailable can be imported here or passed as prop
-          // For simplicity, keeping it generic
-          const isAvailable = true; // Please pass availability logic from parent or import here
+          const isAvailable = isBuildingAvailable ? isBuildingAvailable(key, countryDetail?.country || '') : true;
 
           return (
             <div
               key={key}
-              onClick={() => onBuildClick(key, label)}
+              onClick={() => isAvailable && onBuildClick(key, label)}
               role="button"
               tabIndex={0}
+              aria-disabled={!isAvailable}
               onMouseEnter={() => setHoveredBuildingKey(key)}
               onMouseLeave={() => setHoveredBuildingKey(null)}
-              className="rounded-2xl overflow-visible flex flex-col justify-between transition-all relative bg-white/90 border border-[#C4B49C]/30 shadow-sm hover:shadow-md cursor-pointer"
+              className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'}`}
             >
               {/* Info Tooltip */}
               {hoveredBuildingKey === key && (
