@@ -31,11 +31,8 @@ import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from '../map-data';
 import countryPaths from '../country-paths.json';
 
 // Import logika ekonomi dari folder logic agar kalkulasi sama persis
-import { calculateIncomeAtRate } from '@/app/logic/economic_logic/2_tax_logic/taxLogic';
-import {
-  calculateGoldMiningDailyProduction,
-  calculateGoldMiningMonthlyIncome,
-} from '@/app/logic/economic_logic/goldIncome';
+import { calculateCountryNetBalance, calculateTotalTaxIncome, calculateTotalMinistryCostPerDay } from '@/app/logic/economic_logic/treasuryUpdater';
+import { calculateGoldMiningDailyProduction } from '@/app/logic/economic_logic/goldIncome';
 import { KEMENTERIAN, KEAMANAN, LAYANAN } from '@/app/logic/economic_logic/departments';
 
 // Import Debug Modal
@@ -56,41 +53,6 @@ interface Country {
 // === LOGIKA KALKULASI EKONOMI UNTUK NAVBAR (SAMA PERSIS DENGAN MODAL) ===
 const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
-const calculateTotalTaxIncome = (detail: any) => {
-  const income_tax = detail?.income_tax ?? detail?.pajak?.penghasilan?.tarif ?? 15;
-  const corporate = detail?.corporate ?? detail?.pajak?.korporasi?.tarif ?? 22;
-  const vat = detail?.ppn ?? detail?.pajak?.ppn?.tarif ?? 10;
-  const cigarette_tax = detail?.cigarette_tax ?? detail?.pajak?.bea_cukai?.tarif ?? 15;
-  const environment_tax = detail?.environment_tax ?? detail?.pajak?.lingkungan?.tarif ?? 5;
-
-  return (
-    calculateIncomeAtRate(income_tax, 1000) +
-    calculateIncomeAtRate(corporate, 1000) +
-    calculateIncomeAtRate(vat, 1000) +
-    calculateIncomeAtRate(cigarette_tax, 1000) +
-    calculateIncomeAtRate(environment_tax, 1000)
-  );
-};
-
-const calculateMinistryDailyIncome = (level: number) => {
-  return LEVEL_UP_COST[level] ?? 100;
-};
-
-// PERBAIKAN: Guard clause untuk mencegah null
-const calculateTotalMinistryCostPerDay = (detail: any) => {
-  if (!detail || typeof detail !== 'object') return 0;
-
-  let totalCost = 0;
-  const allDepts = [...KEMENTERIAN, ...KEAMANAN, ...LAYANAN];
-  for (const dept of allDepts) {
-    const level = detail[`level_${dept.id}`] ?? 1;
-    const dailyCost = calculateMinistryDailyIncome(level);
-    totalCost += dailyCost;
-  }
-  return totalCost;
-};
-
-// PERUBAHAN: Gunakan Daily Production (sama dengan modal)
 const calculateGoldMiningIncome = (detail: any) => {
   return calculateGoldMiningDailyProduction(detail);
 };
@@ -313,13 +275,11 @@ export default function PilihNegaraPage() {
 
   const taxIncome = hasInteracted ? calculateTotalTaxIncome(countryDetail) : 0;
   const goldIncome = hasInteracted ? calculateGoldMiningIncome(countryDetail) : 0;
-  // --- PARIWISATA DIHAPUS ---
   const totalIncome = taxIncome + goldIncome;
 
   const ministryCostDaily = hasInteracted ? calculateTotalMinistryCostPerDay(countryDetail) : 0;
 
-  // Hasil Akhir Netto (Sama dengan Net Balance di modal)
-  const netBalance = totalIncome - ministryCostDaily;
+  const netBalance = hasInteracted ? calculateCountryNetBalance(countryDetail) : 0;
 
   return (
     <div className="relative min-h-screen bg-[#070b14] overflow-hidden font-sans">

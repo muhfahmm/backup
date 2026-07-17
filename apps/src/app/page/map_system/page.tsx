@@ -15,6 +15,7 @@ import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
 import { Navbar } from '../navbar/Navbar';
 import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
+import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryUpdater';
 import { logger } from '../../../lib/logger';
 
 interface Country {
@@ -262,6 +263,35 @@ export default function MapPage() {
             logger.log('MapPage', 'Auto-setting missing build dates for existing buildings to TODAY');
             setCountryDetail(updatedDetail);
         }
+    }, [currentDate, countryDetail]);
+
+    const prevBudgetUpdateDateRef = useRef<string | null>(null);
+
+    useEffect(() => {
+        if (!countryDetail || !currentDate) return;
+
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const currentDateStr = `${year}-${month}-${day}`;
+
+        if (prevBudgetUpdateDateRef.current === null) {
+            prevBudgetUpdateDateRef.current = currentDateStr;
+            return;
+        }
+
+        if (prevBudgetUpdateDateRef.current === currentDateStr) return;
+
+        prevBudgetUpdateDateRef.current = currentDateStr;
+
+        const netBalance = calculateCountryNetBalance(countryDetail);
+        setCountryDetail((prev: any) => {
+            if (!prev) return prev;
+            return {
+                ...prev,
+                anggaran: (Number(prev.anggaran) || 0) + netBalance,
+            };
+        });
     }, [currentDate, countryDetail]);
     const handleRestart = () => {
         if (selectedCountry) {

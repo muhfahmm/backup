@@ -5,6 +5,7 @@ import React from 'react';
 import { 
     Power, MapPin, Users, Landmark, Scale, Home, Save, RotateCcw, Smile
 } from 'lucide-react';
+import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
 
 interface Country {
     id: number;
@@ -33,6 +34,11 @@ export function Navbar({
     onOpenRestartConfirm,
     onOpenKepuasan
 }: NavbarProps) {
+    const anggaran = Number(countryDetail?.anggaran) || 0;
+    const netBalance = calculateCountryNetBalance(countryDetail);
+    const netBalanceColor = netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700';
+    const netBalanceLabel = `${netBalance >= 0 ? '+ ' : '- '}${Math.abs(netBalance).toLocaleString('id-ID')}`;
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto bg-[#e6d8b9] border-b border-[#c4b49c] px-8 py-3.5 flex items-center justify-between shadow-md h-20 select-none backdrop-blur-none">
             
@@ -85,7 +91,20 @@ export function Navbar({
                 <div className="flex items-center gap-8">
                     <StatusItem icon={<MapPin className="w-3.5 h-3.5" />} label="IBUKOTA" value={countryDetail?.capital || selectedCountry?.capital || '-'} />
                     <StatusItem icon={<Users className="w-3.5 h-3.5" />} label="POPULASI" value={countryDetail?.jumlah_penduduk ? countryDetail.jumlah_penduduk.toLocaleString('id-ID') : '-'} />
-                    <StatusItem icon={<Landmark className="w-3.5 h-3.5" />} label="KAS NEGARA" value={countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'} />
+                    <StatusItem
+                        icon={<Landmark className="w-3.5 h-3.5" />}
+                        label="KAS NEGARA"
+                        value={countryDetail ? (
+                            <span className="flex items-center gap-2">
+                                <span>{formatCurrencyEM(anggaran)}</span>
+                                <span className={`${netBalanceColor} text-[11px] font-black`}>
+                                    ({netBalanceLabel})
+                                </span>
+                            </span>
+                        ) : (
+                            '-'
+                        )}
+                    />
                     <StatusItem icon={<Scale className="w-3.5 h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
                     <StatusItem icon={<Home className="w-3.5 h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
                     <button 
@@ -131,7 +150,7 @@ export function Navbar({
 }
 
 // Reusable status card
-function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: React.ReactNode, label: string, value: string | number, color?: string }) {
+function StatusItem({ icon, label, value, color = "text-[#3d362a]" }: { icon: React.ReactNode, label: string, value: React.ReactNode, color?: string }) {
     return (
         <div className="flex items-center gap-4 min-w-fit">
             <div className="p-2 bg-[#dcc9a3]/60 rounded-xl text-[#8b7e66] shadow-sm border border-black/5">

@@ -1,9 +1,14 @@
-"use client"
+"use client";
+
 import React, { useState } from "react";
-import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
-import { calculateIncomeAtRate } from "@/app/logic/economic_logic/2_tax_logic/taxLogic";
-import { calculateGoldMiningDailyProduction, calculateGoldMiningMonthlyIncome } from "@/app/logic/economic_logic/goldIncome";
+import { X, BarChart3, ArrowUpRight, ArrowDownRight, Globe } from "lucide-react";
+import {
+  calculateTotalTaxIncome,
+  calculateGoldIncome,
+  calculateMinistryCost,
+} from "@/app/logic/economic_logic/treasuryUpdater";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
+import FinansialGlobal from "./finansial_global/finansialGlobal";
 
 interface ModalProps {
   isOpen: boolean;
@@ -19,109 +24,54 @@ interface FinancialItem {
   displayAmount?: string;
 }
 
-const getTaxValue = (detail: any, fallback: number, path: string[]) => {
-  let current: any = detail;
-  for (const key of path) {
-    if (current == null || typeof current !== "object") return undefined;
-    current = current[key];
-  }
-  return typeof current === "number" ? current : undefined;
-};
-
-// Helper function to calculate total tax income
-const calculateTotalTaxIncome = (countryDetail: any) => {
-  const income_tax = getTaxValue(countryDetail, 15, ["income_tax"]) ?? getTaxValue(countryDetail, 15, ["pajak", "penghasilan", "tarif"]) ?? 15;
-  const corporate_tax = getTaxValue(countryDetail, 22, ["corporate"]) ?? getTaxValue(countryDetail, 22, ["pajak", "korporasi", "tarif"]) ?? 22;
-  const vat = getTaxValue(countryDetail, 10, ["ppn"]) ?? getTaxValue(countryDetail, 10, ["pajak", "ppn", "tarif"]) ?? 10;
-  const cigarette_tax = getTaxValue(countryDetail, 15, ["cigarette_tax"]) ?? getTaxValue(countryDetail, 15, ["pajak", "bea_cukai", "tarif"]) ?? 15;
-  const environment_tax = getTaxValue(countryDetail, 5, ["environment_tax"]) ?? getTaxValue(countryDetail, 5, ["pajak", "lingkungan", "tarif"]) ?? 5;
-
-  return (
-    calculateIncomeAtRate(income_tax, 1000) +
-    calculateIncomeAtRate(corporate_tax, 1000) +
-    calculateIncomeAtRate(vat, 1000) +
-    calculateIncomeAtRate(cigarette_tax, 1000) +
-    calculateIncomeAtRate(environment_tax, 1000)
-  );
-};
-
-const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-
-const calculateMinistryDailyIncome = (level: number, _baseIncomeCost: number) => {
-  return LEVEL_UP_COST[level] ?? 100;
-};
-
-const calculateTotalMinistryCostPerDay = (countryDetail: any) => {
-  let totalCost = 0;
-  const allDepts = [...KEMENTERIAN, ...KEAMANAN, ...LAYANAN];
-  
-  for (const dept of allDepts) {
-    const level = countryDetail[`level_${dept.id}`] ?? 1;
-    const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
-    totalCost += dailyCost;
-  }
-  
-  return totalCost;
-};
-
+// Helper untuk biaya harian per tab departemen
 const calculateTabCostDaily = (countryDetail: any, departments: Department[]) => {
+  const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
   let totalCost = 0;
-  
   for (const dept of departments) {
     const level = countryDetail[`level_${dept.id}`] ?? 1;
-    const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
-    totalCost += dailyCost;
+    totalCost += LEVEL_UP_COST[level] ?? 100;
   }
-  
   return totalCost;
 };
 
-// Gunakan daily production agar konsisten dengan navbar
-const calculateGoldMiningIncome = (countryDetail: any) => {
-  return calculateGoldMiningDailyProduction(countryDetail);
-};
-
-// PERBAIKAN: Hilangkan panggilan getTourismAttractions, langsung gunakan logika fallback
+// Helper untuk pendapatan pariwisata (jika diperlukan)
 const calculateTourismIncome = (countryDetail: any) => {
   const hotels = Number(countryDetail?.hotel) || 0;
   const malls = Number(countryDetail?.mall) || 0;
   const tourismBuildings = hotels + malls;
-  if (tourismBuildings > 0) {
-    return tourismBuildings * 25000;
-  }
-  if (typeof countryDetail?.tourism_income === "number") {
-    return countryDetail.tourism_income;
-  }
+  if (tourismBuildings > 0) return tourismBuildings * 25000;
+  if (typeof countryDetail?.tourism_income === "number") return countryDetail.tourism_income;
   return 0;
 };
 
 export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
   if (!isOpen) return null;
-  const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
+
+  const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome" | "global">("summary");
   const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
+  // Menggunakan helper dari financeHelper
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail);
-  const goldBuildingCount = Number(countryDetail?.emas) || 0;
-  const goldDailyProduction = calculateGoldMiningIncome(countryDetail);
+  const goldIncome = calculateGoldIncome(countryDetail);
+  const ministryCostPerDay = calculateMinistryCost(countryDetail);
+  const tourismIncome = calculateTourismIncome(countryDetail); // opsional
 
-  const ministryCostPerDay = calculateTotalMinistryCostPerDay(countryDetail);
+  const goldBuildingCount = Number(countryDetail?.emas) || 0;
 
   const incomeItems: FinancialItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },
     {
       label: goldBuildingCount > 0
-        ? `Produksi Tambang Emas (${goldDailyProduction.toLocaleString('id-ID')})`
+        ? `Produksi Tambang Emas (${goldIncome.toLocaleString('id-ID')})`
         : "Produksi Tambang Emas",
-      amount: goldDailyProduction,
-      displayAmount: goldBuildingCount > 0
-        ? `+ ${goldDailyProduction.toLocaleString('id-ID')}`
-        : undefined,
-      subtitle:
-        goldBuildingCount > 0
-          ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldDailyProduction.toLocaleString('id-ID')}`
-          : undefined
+      amount: goldIncome,
+      displayAmount: goldBuildingCount > 0 ? `+ ${goldIncome.toLocaleString('id-ID')}` : undefined,
+      subtitle: goldBuildingCount > 0
+        ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldIncome.toLocaleString('id-ID')}`
+        : undefined
     }
+    // Jika ingin memasukkan pariwisata, tambahkan item di sini
   ];
 
   const outcomeItems: FinancialItem[] = [
@@ -134,7 +84,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const anggaran = countryDetail?.anggaran || 0;
 
   const getOutcomeTabDepartments = () => {
-    switch(outcomeSubTab) {
+    switch (outcomeSubTab) {
       case "kementerian": return KEMENTERIAN;
       case "keamanan": return KEAMANAN;
       case "layanan": return LAYANAN;
@@ -201,6 +151,17 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
               <ArrowDownRight className="h-3.5 w-3.5" />
               Pengeluaran
             </button>
+            <button
+              onClick={() => setActiveTab("global")}
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
+                activeTab === "global"
+                  ? "bg-[#5c3c10] text-[#FAF6EE] shadow-lg shadow-[#5c3c10]/20"
+                  : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#5c3c10]/5"
+              }`}
+            >
+              <Globe className="h-3.5 w-3.5" />
+              APBN Semua Negara
+            </button>
           </div>
         </div>
 
@@ -212,7 +173,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
               <div className="space-y-6">
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-4">
                   <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">APBN Estimasi Bulanan</h4>
-                  
                   <div className="space-y-3">
                     <div className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2 border-b border-[#C4B49C]/20">
                       <span className="flex items-center gap-2">
@@ -227,7 +187,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                       <span>- {totalOutcome.toLocaleString("id-ID")}</span>
                     </div>
                   </div>
-
                   <div className="mt-4 pt-4 border-t-2 border-[#C4B49C]/30">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Netto Saldo (Pemasukkan - Pengeluaran):</span>
@@ -237,7 +196,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                     </div>
                   </div>
                 </div>
-
                 <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-2 px-1">
                   <span>Total Saldo Kas Negara:</span>
                   <span>{anggaran.toLocaleString("id-ID")} EM</span>
@@ -250,7 +208,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
               <div className="space-y-4">
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-4">
                   <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">APBN Estimasi Bulanan</h4>
-                  
                   <div className="space-y-3">
                     {incomeItems.map((item, index) => (
                       <div key={index} className="border-b border-[#C4B49C]/20 last:border-0 pb-2">
@@ -266,7 +223,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                       </div>
                     ))}
                   </div>
-
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Total Pemasukkan:</span>
@@ -274,7 +230,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                     </div>
                   </div>
                 </div>
-
                 <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-2 px-1">
                   <span>Total Saldo Kas Negara:</span>
                   <span>{anggaran.toLocaleString("id-ID")} EM</span>
@@ -285,14 +240,11 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
             {/* Outcome Tab */}
             {activeTab === "outcome" && (
               <div className="space-y-4">
-                {/* Outcome Sub-tabs */}
                 <div className="flex gap-2 border-b-2 border-[#C4B49C]/30 pb-2">
                   <button
                     onClick={() => setOutcomeSubTab("kementerian")}
                     className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
-                      outcomeSubTab === "kementerian"
-                        ? "bg-[#5c3c10] text-[#FAF6EE]"
-                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                      outcomeSubTab === "kementerian" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
                     Kementerian (15)
@@ -300,9 +252,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <button
                     onClick={() => setOutcomeSubTab("keamanan")}
                     className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
-                      outcomeSubTab === "keamanan"
-                        ? "bg-[#5c3c10] text-[#FAF6EE]"
-                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                      outcomeSubTab === "keamanan" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
                     Keamanan (5)
@@ -310,27 +260,23 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <button
                     onClick={() => setOutcomeSubTab("layanan")}
                     className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
-                      outcomeSubTab === "layanan"
-                        ? "bg-[#5c3c10] text-[#FAF6EE]"
-                        : "text-[#8b7e66] hover:text-[#5c3c10]"
+                      outcomeSubTab === "layanan" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
                     Layanan (2)
                   </button>
                 </div>
 
-                {/* Outcome details by department */}
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-6 rounded-xl space-y-4">
                   <h4 className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider mb-4">
                     {outcomeSubTab === "kementerian" ? "Kementerian" : outcomeSubTab === "keamanan" ? "Keamanan" : "Layanan"}
                   </h4>
-                  
                   <div className="space-y-3">
                     {currentOutcomeTabDepts.map((dept, index) => {
                       const level = countryDetail[`level_${dept.id}`] ?? 1;
-                      const dailyCost = calculateMinistryDailyIncome(level, dept.baseIncomeCost);
+                      const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
+                      const dailyCost = LEVEL_UP_COST[level] ?? 100;
                       const Icon = dept.icon;
-                      
                       return (
                         <div key={index} className="flex justify-between items-center text-xs font-bold text-rose-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
                           <div className="flex items-center gap-2">
@@ -343,7 +289,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                       );
                     })}
                   </div>
-
                   <div className="pt-4 border-t-2 border-[#C4B49C]/30 mt-4">
                     <div className="flex justify-between items-center text-sm font-black text-[#5c3c10]">
                       <span>Subtotal {outcomeSubTab === "kementerian" ? "Kementerian" : outcomeSubTab === "keamanan" ? "Keamanan" : "Layanan"}:</span>
@@ -366,6 +311,11 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <span>{anggaran.toLocaleString("id-ID")} EM</span>
                 </div>
               </div>
+            )}
+
+            {/* Global APBN Tab */}
+            {activeTab === "global" && (
+              <FinansialGlobal countryDetail={countryDetail} />
             )}
           </div>
         </div>
