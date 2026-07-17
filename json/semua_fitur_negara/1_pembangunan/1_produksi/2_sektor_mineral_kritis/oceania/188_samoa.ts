@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const samoa_ekstraksi = {
-  emas: 16,
+  emas: 25,
   uranium: 0,
   batu_bara: 10,
   minyak_bumi: 14,

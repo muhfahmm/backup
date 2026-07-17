@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const latvia_ekstraksi = {
-  emas: 36,
+  emas: 22,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 36,

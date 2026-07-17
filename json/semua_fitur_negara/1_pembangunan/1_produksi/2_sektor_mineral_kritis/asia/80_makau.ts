@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const makau_ekstraksi = {
-  emas: 40,
+  emas: 27,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 20,

@@ -46,44 +46,30 @@ const findObjectLiteral = (input: string, start: number) => {
 
 const parseObjectLiteral = (literal: string) => {
     try {
+        // First attempt: direct evaluation
         return new Function(`"use strict"; return (${literal});`)();
     } catch (e) {
-        console.warn('Failed to parse object literal', e);
-        return null;
+        // Second attempt: replace bare identifiers (that look like variable references) with null
+        try {
+            let fixedLiteral = literal;
+            // Replace patterns like ": identifier_name" with ": null" where identifier is not a string/number/boolean/null
+            fixedLiteral = fixedLiteral.replace(/:\s*([A-Za-z_$][\w$]*)\s*([,\}])/g, (match, identifier, after) => {
+                // Skip if it's a literal value keyword
+                if (['true', 'false', 'null', 'undefined', 'NaN', 'Infinity'].includes(identifier)) {
+                    return match;
+                }
+                return `: null${after}`;
+            });
+            return new Function(`"use strict"; return (${fixedLiteral});`)();
+        } catch (e2) {
+            console.warn('Failed to parse object literal', e);
+            return null;
+        }
     }
 };
 
 const extractObjectsFromFile = (fileContent: string) => {
     const cleaned = removeComments(fileContent);
-    
-    try {
-        // Strip export statements as they are not valid inside new Function body
-        const executableCode = cleaned
-            .replace(/\bexport\s+default\b/g, 'const __default_export =')
-            .replace(/\bexport\b/g, '');
-
-        // Find all variables declared in the file
-        const varRegex = /(?:const|let|var)\s+([A-Za-z_$][\w$]*)\s*=/g;
-        const vars: string[] = [];
-        let match: RegExpExecArray | null;
-        while ((match = varRegex.exec(executableCode))) {
-            const varName = match[1];
-            if (!vars.includes(varName)) {
-                vars.push(varName);
-            }
-        }
-
-        // Return a combined object of all defined variables using object literal spread
-        const returnObj = vars.map(v => `...(typeof ${v} !== 'undefined' && typeof ${v} === 'object' && ${v} !== null ? ${v} : {})`).join(', ');
-        const codeExecutor = `"use strict";\n${executableCode}\nreturn { ${returnObj} };`;
-        
-        const parsed = new Function(codeExecutor)();
-        if (parsed && typeof parsed === 'object' && Object.keys(parsed).length > 0) {
-            return parsed;
-        }
-    } catch (e) {
-        console.warn('Failed to parse file with full execution, falling back to individual parsing', e);
-    }
 
     const objects: any[] = [];
 
@@ -137,12 +123,35 @@ const getLevelSource = (source: any) => {
     return null;
 };
 
+const extractFileOrder = (fileName: string) => {
+    const match = fileName.match(/^(\d+)/);
+    return match ? Number(match[1]) : NaN;
+};
+
+const getCountryKey = (filePath: string) => {
+    const fileName = path.basename(filePath).replace(/\.(ts|tsx|js|json)$/i, '');
+    const withoutPrefix = fileName.replace(/^\d+_/, '');
+    return withoutPrefix.toLowerCase().replace(/[^a-z0-9]+/g, '_');
+};
+
+const getContinentFromOrder = (order: number) => {
+    if (Number.isNaN(order)) return 'Lainnya';
+    if (order >= 1 && order <= 51) return 'Afrika';
+    if (order >= 54 && order <= 102) return 'Asia';
+    if (order >= 103 && order <= 151) return 'Eropa';
+    if (order >= 152 && order <= 178) return 'Amerika Utara';
+    if (order >= 179 && order <= 194) return 'Oseania';
+    if (order >= 195 && order <= 207) return 'Amerika Selatan';
+    return 'Lainnya';
+};
+
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const countryPath = searchParams.get('path');
+    const requestAll = searchParams.get('all') === 'true';
 
-    if (!countryPath) {
-        return NextResponse.json({ error: 'Path is required' }, { status: 400 });
+    if (!countryPath && !requestAll) {
+        return NextResponse.json({ error: 'Path is required unless all=true is provided' }, { status: 400 });
     }
 
     try {
@@ -150,38 +159,28 @@ export async function GET(request: Request) {
         const projectRoot = currentDir.endsWith('apps') ? path.join(currentDir, '..') : currentDir;
         const jsonRoot = path.join(projectRoot, 'json/semua_fitur_negara');
         const levelRoot = path.join(projectRoot, 'json/database_level_kabinet');
-        const targetFilename = path.basename(countryPath);
+        const taxRoot = path.join(projectRoot, 'json/database_pajak_negara');
 
         const allFiles: string[] = [];
-        const findFiles = (dir: string) => {
+        const findFiles = (dir: string, filename?: string) => {
             const files = fs.readdirSync(dir);
             for (const file of files) {
                 const fullPath = path.join(dir, file);
                 if (fs.statSync(fullPath).isDirectory()) {
-                    findFiles(fullPath);
-                } else if (file === targetFilename) {
+                    findFiles(fullPath, filename);
+                } else if (!filename || file === filename) {
                     allFiles.push(fullPath);
                 }
             }
         };
-        findFiles(jsonRoot);
 
-        const levelCabinetPath = path.join(levelRoot, countryPath);
-        if (fs.existsSync(levelCabinetPath)) {
-            allFiles.push(levelCabinetPath);
-        }
-
-        if (allFiles.length === 0) {
-            return NextResponse.json({ error: 'File not found' }, { status: 404 });
-        }
-
-        let mergedData: any = {};
-        for (const filePath of allFiles) {
+        const loadFileData = (filePath: string) => {
             const fileContents = fs.readFileSync(filePath, 'utf8');
             const parsed = extractObjectsFromFile(fileContents);
+            if (!parsed || typeof parsed !== 'object') return null;
 
             const isLevelFile = path.relative(levelRoot, filePath).startsWith('..') === false;
-            if (isLevelFile && parsed) {
+            if (isLevelFile) {
                 const levelData = getLevelSource(parsed);
                 if (levelData) {
                     const levelFields: Record<string, number> = {};
@@ -196,14 +195,147 @@ export async function GET(request: Request) {
                             });
                         }
                     });
-                    mergedData = { ...mergedData, ...levelFields };
+                    const result: any = { ...levelFields };
                     if (parsed.nama_negara) {
-                        mergedData.nama_negara = parsed.nama_negara;
+                        result.nama_negara = parsed.nama_negara;
                     }
-                    continue;
+                    return result;
                 }
             }
 
+            return parsed;
+        };
+
+        if (requestAll) {
+            const taxFiles: string[] = [];
+            const findTaxFiles = (dir: string) => {
+                const files = fs.readdirSync(dir);
+                for (const file of files) {
+                    const fullPath = path.join(dir, file);
+                    if (fs.statSync(fullPath).isDirectory()) {
+                        findTaxFiles(fullPath);
+                    } else {
+                        taxFiles.push(fullPath);
+                    }
+                }
+            };
+
+            findTaxFiles(taxRoot);
+            const countryKeys = new Set(taxFiles.map((filePath) => getCountryKey(filePath)));
+
+            const collectCountryFiles = (dir: string) => {
+                const files: string[] = [];
+                const walk = (currentDir: string) => {
+                    const entries = fs.readdirSync(currentDir);
+                    for (const entry of entries) {
+                        const fullPath = path.join(currentDir, entry);
+                        if (fs.statSync(fullPath).isDirectory()) {
+                            walk(fullPath);
+                        } else if (countryKeys.has(getCountryKey(fullPath))) {
+                            files.push(fullPath);
+                        }
+                    }
+                };
+                walk(dir);
+                return files;
+            };
+
+            const countryProfileFiles = collectCountryFiles(jsonRoot);
+            const countryLevelFiles = collectCountryFiles(levelRoot);
+            const extractionRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');
+            const extractionFiles: string[] = [];
+            const collectExtractionFiles = (dir: string) => {
+                if (!fs.existsSync(dir)) return;
+                const entries = fs.readdirSync(dir);
+                for (const entry of entries) {
+                    const fullPath = path.join(dir, entry);
+                    if (fs.statSync(fullPath).isDirectory()) {
+                        collectExtractionFiles(fullPath);
+                    } else if (countryKeys.has(getCountryKey(fullPath))) {
+                        extractionFiles.push(fullPath);
+                    }
+                }
+            };
+            collectExtractionFiles(extractionRoot);
+
+            const mergedByCountryKey: Record<string, any> = {};
+            for (const taxFilePath of taxFiles) {
+                const countryKey = getCountryKey(taxFilePath);
+                const countryFilename = path.basename(taxFilePath);
+                const order = extractFileOrder(countryFilename);
+                mergedByCountryKey[countryKey] = {
+                    __fileName: countryFilename,
+                    __fileOrder: order,
+                    __continent: getContinentFromOrder(order),
+                };
+            }
+
+            for (const filePath of [...taxFiles, ...countryProfileFiles, ...countryLevelFiles, ...extractionFiles]) {
+                const fileData = loadFileData(filePath);
+                if (!fileData) continue;
+
+                const countryKey = getCountryKey(filePath);
+                mergedByCountryKey[countryKey] = {
+                    ...(mergedByCountryKey[countryKey] || {}),
+                    ...fileData,
+                };
+            }
+
+            return NextResponse.json(Object.values(mergedByCountryKey));
+        }
+
+        const targetFilename = path.basename(countryPath!);
+        const findTargetFiles = (dir: string) => {
+            const files = fs.readdirSync(dir);
+            for (const file of files) {
+                const fullPath = path.join(dir, file);
+                if (fs.statSync(fullPath).isDirectory()) {
+                    findTargetFiles(fullPath);
+                } else if (file === targetFilename) {
+                    allFiles.push(fullPath);
+                }
+            }
+        };
+
+        findTargetFiles(jsonRoot);
+        findTargetFiles(taxRoot);
+        
+        // Explicitly search for extraction files in 2_sektor_mineral_kritis
+        const ekstraksiRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');
+        if (fs.existsSync(ekstraksiRoot)) {
+            const findEkstraksiFiles = (dir: string) => {
+                if (!fs.existsSync(dir)) return;
+                const files = fs.readdirSync(dir);
+                for (const file of files) {
+                    const fullPath = path.join(dir, file);
+                    if (fs.statSync(fullPath).isDirectory()) {
+                        findEkstraksiFiles(fullPath);
+                    } else if (file === targetFilename) {
+                        allFiles.push(fullPath);
+                    }
+                }
+            };
+            findEkstraksiFiles(ekstraksiRoot);
+        }
+        
+        const levelCabinetPath = path.join(levelRoot, countryPath!);
+        if (fs.existsSync(levelCabinetPath)) {
+            allFiles.push(levelCabinetPath);
+        }
+
+        const explicitTaxPath = path.join(taxRoot, countryPath!);
+        if (fs.existsSync(explicitTaxPath)) {
+            allFiles.push(explicitTaxPath);
+        }
+
+        if (allFiles.length === 0) {
+            return NextResponse.json({ error: 'File not found' }, { status: 404 });
+        }
+
+        let mergedData: any = {};
+        for (const filePath of allFiles) {
+            const parsed = loadFileData(filePath);
+            if (!parsed) continue;
             mergedData = { ...mergedData, ...parsed };
         }
 

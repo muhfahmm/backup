@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kiribati_ekstraksi = {
-  emas: 18,
+  emas: 19,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 18,

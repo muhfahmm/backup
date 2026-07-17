@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const belarus_ekstraksi = {
-  emas: 45,
+  emas: 25,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 45,

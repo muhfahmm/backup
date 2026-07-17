@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const guam_ekstraksi = {
-  emas: 18,
+  emas: 21,
   uranium: 0,
   batu_bara: 2,
   minyak_bumi: 14,

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kirgizstan_ekstraksi = {
-  emas: 31,
+  emas: 19,
   uranium: 0,
   batu_bara: 12,
   minyak_bumi: 0,

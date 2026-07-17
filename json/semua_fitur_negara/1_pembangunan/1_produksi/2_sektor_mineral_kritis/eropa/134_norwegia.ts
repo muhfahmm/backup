@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const norwegia_ekstraksi = {
-  emas: 38,
+  emas: 29,
   uranium: 13,
   batu_bara: 80,
   minyak_bumi: 160,

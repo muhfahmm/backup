@@ -1,6 +1,6 @@
 // @ts-nocheck
 const slovenia_ekstraksi = {
-  emas: 36,
+  emas: 24,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 8,

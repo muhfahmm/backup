@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const marshall_ekstraksi = {
-  emas: 32,
+  emas: 23,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 36,

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const vietnam_ekstraksi = {
-  emas: 22,
+  emas: 21,
   uranium: 0,
   batu_bara: 340,
   minyak_bumi: 204,

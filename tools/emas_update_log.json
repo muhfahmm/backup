@@ -1,0 +1,1244 @@
+{
+  "totalUpdated": 206,
+  "updateLog": [
+    {
+      "file": "asia/100_vietnam.ts",
+      "country": "vietnam",
+      "oldValue": 22,
+      "newValue": 21
+    },
+    {
+      "file": "asia/101_yaman.ts",
+      "country": "yaman",
+      "oldValue": 40,
+      "newValue": 22
+    },
+    {
+      "file": "asia/102_yordania.ts",
+      "country": "yordania",
+      "oldValue": 15,
+      "newValue": 21
+    },
+    {
+      "file": "asia/54_afganistan.ts",
+      "country": "afganistan",
+      "oldValue": 36,
+      "newValue": 17
+    },
+    {
+      "file": "asia/55_arab_saudi.ts",
+      "country": "arab_saudi",
+      "oldValue": 20,
+      "newValue": 27
+    },
+    {
+      "file": "asia/56_armenia.ts",
+      "country": "armenia",
+      "oldValue": 20,
+      "newValue": 23
+    },
+    {
+      "file": "asia/57_azerbaijan.ts",
+      "country": "azerbaijan",
+      "oldValue": 20,
+      "newValue": 26
+    },
+    {
+      "file": "asia/58_bahrain.ts",
+      "country": "bahrain",
+      "oldValue": 72,
+      "newValue": 73
+    },
+    {
+      "file": "asia/59_bangladesh.ts",
+      "country": "bangladesh",
+      "oldValue": 21,
+      "newValue": 22
+    },
+    {
+      "file": "asia/60_bhutan.ts",
+      "country": "bhutan",
+      "oldValue": 18,
+      "newValue": 23
+    },
+    {
+      "file": "asia/61_brunei.ts",
+      "country": "brunei",
+      "oldValue": 17,
+      "newValue": 22
+    },
+    {
+      "file": "asia/62_china.ts",
+      "country": "china",
+      "oldValue": 50,
+      "newValue": 21
+    },
+    {
+      "file": "asia/63_filipina.ts",
+      "country": "filipina",
+      "oldValue": 100,
+      "newValue": 21
+    },
+    {
+      "file": "asia/64_georgia.ts",
+      "country": "georgia",
+      "oldValue": 16,
+      "newValue": 20
+    },
+    {
+      "file": "asia/65_hong_kong.ts",
+      "country": "hong_kong",
+      "oldValue": 38,
+      "newValue": 32
+    },
+    {
+      "file": "asia/66_india.ts",
+      "country": "india",
+      "oldValue": 41,
+      "newValue": 21
+    },
+    {
+      "file": "asia/67_indonesia.ts",
+      "country": "indonesia",
+      "oldValue": 39,
+      "newValue": 21
+    },
+    {
+      "file": "asia/68_irak.ts",
+      "country": "irak",
+      "oldValue": 54,
+      "newValue": 23
+    },
+    {
+      "file": "asia/69_iran.ts",
+      "country": "iran",
+      "oldValue": 16,
+      "newValue": 23
+    },
+    {
+      "file": "asia/70_israel.ts",
+      "country": "israel",
+      "oldValue": 13,
+      "newValue": 25
+    },
+    {
+      "file": "asia/71_jepang.ts",
+      "country": "jepang",
+      "oldValue": 15,
+      "newValue": 30
+    },
+    {
+      "file": "asia/72_kamboja.ts",
+      "country": "kamboja",
+      "oldValue": 25,
+      "newValue": 22
+    },
+    {
+      "file": "asia/73_kazakhstan.ts",
+      "country": "kazakhstan",
+      "oldValue": 48,
+      "newValue": 22
+    },
+    {
+      "file": "asia/74_kirgizstan.ts",
+      "country": "kirgizstan",
+      "oldValue": 31,
+      "newValue": 19
+    },
+    {
+      "file": "asia/75_korea_selatan.ts",
+      "country": "korea_selatan",
+      "oldValue": 19,
+      "newValue": 24
+    },
+    {
+      "file": "asia/76_korea_utara.ts",
+      "country": "korea_utara",
+      "oldValue": 45,
+      "newValue": 23
+    },
+    {
+      "file": "asia/77_kuwait.ts",
+      "country": "kuwait",
+      "oldValue": 43,
+      "newValue": 26
+    },
+    {
+      "file": "asia/78_laos.ts",
+      "country": "laos",
+      "oldValue": 19,
+      "newValue": 18
+    },
+    {
+      "file": "asia/79_lebanon.ts",
+      "country": "lebanon",
+      "oldValue": 24,
+      "newValue": 22
+    },
+    {
+      "file": "asia/80_makau.ts",
+      "country": "makau",
+      "oldValue": 40,
+      "newValue": 27
+    },
+    {
+      "file": "asia/81_malaysia.ts",
+      "country": "malaysia",
+      "oldValue": 34,
+      "newValue": 21
+    },
+    {
+      "file": "asia/82_maldives.ts",
+      "country": "maldives",
+      "oldValue": 20,
+      "newValue": 23
+    },
+    {
+      "file": "asia/83_mongolia.ts",
+      "country": "mongolia",
+      "oldValue": 24,
+      "newValue": 19
+    },
+    {
+      "file": "asia/84_myanmar.ts",
+      "country": "myanmar",
+      "oldValue": 17,
+      "newValue": 21
+    },
+    {
+      "file": "asia/85_nepal.ts",
+      "country": "nepal",
+      "oldValue": 29,
+      "newValue": 20
+    },
+    {
+      "file": "asia/86_oman.ts",
+      "country": "oman",
+      "oldValue": 39,
+      "newValue": 25
+    },
+    {
+      "file": "asia/87_pakistan.ts",
+      "country": "pakistan",
+      "oldValue": 52,
+      "newValue": 20
+    },
+    {
+      "file": "asia/88_palestina.ts",
+      "country": "palestina",
+      "oldValue": 18,
+      "newValue": 21
+    },
+    {
+      "file": "asia/89_qatar.ts",
+      "country": "qatar",
+      "oldValue": 15,
+      "newValue": 29
+    },
+    {
+      "file": "asia/91_singapura.ts",
+      "country": "singapura",
+      "oldValue": 43,
+      "newValue": 28
+    },
+    {
+      "file": "asia/92_sri_lanka.ts",
+      "country": "sri_lanka",
+      "oldValue": 24,
+      "newValue": 21
+    },
+    {
+      "file": "asia/93_suriah.ts",
+      "country": "suriah",
+      "oldValue": 16,
+      "newValue": 23
+    },
+    {
+      "file": "asia/94_taiwan.ts",
+      "country": "taiwan",
+      "oldValue": 28,
+      "newValue": 24
+    },
+    {
+      "file": "asia/95_tajikistan.ts",
+      "country": "tajikistan",
+      "oldValue": 17,
+      "newValue": 20
+    },
+    {
+      "file": "asia/96_thailand.ts",
+      "country": "thailand",
+      "oldValue": 46,
+      "newValue": 20
+    },
+    {
+      "file": "asia/97_turkmenistan.ts",
+      "country": "turkmenistan",
+      "oldValue": 15,
+      "newValue": 23
+    },
+    {
+      "file": "asia/98_uni_emirat_arab.ts",
+      "country": "uni_emirat_arab",
+      "oldValue": 38,
+      "newValue": 26
+    },
+    {
+      "file": "asia/99_uzbekistan.ts",
+      "country": "uzbekistan",
+      "oldValue": 28,
+      "newValue": 21
+    },
+    {
+      "file": "eropa/103_albania.ts",
+      "country": "albania",
+      "oldValue": 20,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/104_andorra.ts",
+      "country": "andorra",
+      "oldValue": 20,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/105_austria.ts",
+      "country": "austria",
+      "oldValue": 50,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/106_belanda.ts",
+      "country": "belanda",
+      "oldValue": 28,
+      "newValue": 32
+    },
+    {
+      "file": "eropa/107_belarus.ts",
+      "country": "belarus",
+      "oldValue": 45,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/108_belgia.ts",
+      "country": "belgia",
+      "oldValue": 25,
+      "newValue": 22
+    },
+    {
+      "file": "eropa/109_bosnia_dan_hercegovina.ts",
+      "country": "bosnia_dan_hercegovina",
+      "oldValue": 16,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/110_bulgaria.ts",
+      "country": "bulgaria",
+      "oldValue": 12,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/111_ceko.ts",
+      "country": "ceko",
+      "oldValue": 38,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/112_denmark.ts",
+      "country": "denmark",
+      "oldValue": 33,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/113_estonia.ts",
+      "country": "estonia",
+      "oldValue": 25,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/114_finlandia.ts",
+      "country": "finlandia",
+      "oldValue": 17,
+      "newValue": 29
+    },
+    {
+      "file": "eropa/115_gibraltar.ts",
+      "country": "gibraltar",
+      "oldValue": 15,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/116_hungaria.ts",
+      "country": "hungaria",
+      "oldValue": 31,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/117_inggris.ts",
+      "country": "inggris",
+      "oldValue": 11,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/118_irlandia.ts",
+      "country": "irlandia",
+      "oldValue": 15,
+      "newValue": 29
+    },
+    {
+      "file": "eropa/119_islandia.ts",
+      "country": "islandia",
+      "oldValue": 16,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/120_italia.ts",
+      "country": "italia",
+      "oldValue": 50,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/121_jerman.ts",
+      "country": "jerman",
+      "oldValue": 32,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/122_kepulauan_faroe.ts",
+      "country": "kepulauan_faroe",
+      "oldValue": 20,
+      "newValue": 28
+    },
+    {
+      "file": "eropa/123_kosovo.ts",
+      "country": "kosovo",
+      "oldValue": 15,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/124_kroasia.ts",
+      "country": "kroasia",
+      "oldValue": 18,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/125_latvia.ts",
+      "country": "latvia",
+      "oldValue": 36,
+      "newValue": 22
+    },
+    {
+      "file": "eropa/126_liechtenstein.ts",
+      "country": "liechtenstein",
+      "oldValue": 12,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/127_lithuania.ts",
+      "country": "lithuania",
+      "oldValue": 20,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/128_luksemburg.ts",
+      "country": "luksemburg",
+      "oldValue": 15,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/129_makedonia_utara.ts",
+      "country": "makedonia_utara",
+      "oldValue": 18,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/130_malta.ts",
+      "country": "malta",
+      "oldValue": 18,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/131_moldova.ts",
+      "country": "moldova",
+      "oldValue": 15,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/132_monako.ts",
+      "country": "monako",
+      "oldValue": 19,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/133_montenegro.ts",
+      "country": "montenegro",
+      "oldValue": 19,
+      "newValue": 22
+    },
+    {
+      "file": "eropa/134_norwegia.ts",
+      "country": "norwegia",
+      "oldValue": 38,
+      "newValue": 29
+    },
+    {
+      "file": "eropa/135_polandia.ts",
+      "country": "polandia",
+      "oldValue": 25,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/136_portugal.ts",
+      "country": "portugal",
+      "oldValue": 23,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/137_prancis.ts",
+      "country": "prancis",
+      "oldValue": 12,
+      "newValue": 27
+    },
+    {
+      "file": "eropa/138_republik_rumania.ts",
+      "country": "republik_rumania",
+      "oldValue": 36,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/139_republik_serbia.ts",
+      "country": "republik_serbia",
+      "oldValue": 50,
+      "newValue": 25
+    },
+    {
+      "file": "eropa/140_rusia.ts",
+      "country": "rusia",
+      "oldValue": 36,
+      "newValue": 22
+    },
+    {
+      "file": "eropa/141_san_marino.ts",
+      "country": "san_marino",
+      "oldValue": 36,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/142_siprus.ts",
+      "country": "siprus",
+      "oldValue": 40,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/143_slovenia.ts",
+      "country": "slovenia",
+      "oldValue": 36,
+      "newValue": 24
+    },
+    {
+      "file": "eropa/144_slowakia.ts",
+      "country": "slowakia",
+      "oldValue": 15,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/145_spanyol.ts",
+      "country": "spanyol",
+      "oldValue": 13,
+      "newValue": 23
+    },
+    {
+      "file": "eropa/146_swedia.ts",
+      "country": "swedia",
+      "oldValue": 17,
+      "newValue": 29
+    },
+    {
+      "file": "eropa/147_swiss.ts",
+      "country": "swiss",
+      "oldValue": 41,
+      "newValue": 30
+    },
+    {
+      "file": "eropa/148_turki.ts",
+      "country": "turki",
+      "oldValue": 32,
+      "newValue": 26
+    },
+    {
+      "file": "eropa/149_ukraina.ts",
+      "country": "ukraina",
+      "oldValue": 39,
+      "newValue": 28
+    },
+    {
+      "file": "eropa/150_vatikan.ts",
+      "country": "vatikan",
+      "oldValue": 40,
+      "newValue": 22
+    },
+    {
+      "file": "eropa/151_yunani.ts",
+      "country": "yunani",
+      "oldValue": 26,
+      "newValue": 28
+    },
+    {
+      "file": "afrika/10_eritrea.ts",
+      "country": "eritrea",
+      "oldValue": 45,
+      "newValue": 8
+    },
+    {
+      "file": "afrika/11_eswatini.ts",
+      "country": "eswatini",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/12_ethiopia.ts",
+      "country": "ethiopia",
+      "oldValue": 45,
+      "newValue": 13
+    },
+    {
+      "file": "afrika/13_gabon.ts",
+      "country": "gabon",
+      "oldValue": 45,
+      "newValue": 22
+    },
+    {
+      "file": "afrika/14_gambia.ts",
+      "country": "gambia",
+      "oldValue": 45,
+      "newValue": 11
+    },
+    {
+      "file": "afrika/15_ghana.ts",
+      "country": "ghana",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/16_guinea.ts",
+      "country": "guinea",
+      "oldValue": 45,
+      "newValue": 11
+    },
+    {
+      "file": "afrika/17_guinea_bissau.ts",
+      "country": "guinea_bissau",
+      "oldValue": 45,
+      "newValue": 11
+    },
+    {
+      "file": "afrika/18_kamerun.ts",
+      "country": "kamerun",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/19_kenya.ts",
+      "country": "kenya",
+      "oldValue": 45,
+      "newValue": 17
+    },
+    {
+      "file": "afrika/1_afrika_selatan.ts",
+      "country": "afrika_selatan",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/20_komoro.ts",
+      "country": "komoro",
+      "oldValue": 45,
+      "newValue": 22
+    },
+    {
+      "file": "afrika/21_kongo.ts",
+      "country": "kongo",
+      "oldValue": 45,
+      "newValue": 15
+    },
+    {
+      "file": "afrika/22_lesotho.ts",
+      "country": "lesotho",
+      "oldValue": 45,
+      "newValue": 12
+    },
+    {
+      "file": "afrika/23_liberia.ts",
+      "country": "liberia",
+      "oldValue": 45,
+      "newValue": 9
+    },
+    {
+      "file": "afrika/24_libya.ts",
+      "country": "libya",
+      "oldValue": 45,
+      "newValue": 20
+    },
+    {
+      "file": "afrika/25_madagaskar.ts",
+      "country": "madagaskar",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/26_malawi.ts",
+      "country": "malawi",
+      "oldValue": 45,
+      "newValue": 10
+    },
+    {
+      "file": "afrika/27_mali.ts",
+      "country": "mali",
+      "oldValue": 45,
+      "newValue": 8
+    },
+    {
+      "file": "afrika/28_maroko.ts",
+      "country": "maroko",
+      "oldValue": 45,
+      "newValue": 21
+    },
+    {
+      "file": "afrika/29_mauritania.ts",
+      "country": "mauritania",
+      "oldValue": 45,
+      "newValue": 15
+    },
+    {
+      "file": "afrika/2_aljazair.ts",
+      "country": "aljazair",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/30_mauritius.ts",
+      "country": "mauritius",
+      "oldValue": 45,
+      "newValue": 28
+    },
+    {
+      "file": "afrika/31_mesir.ts",
+      "country": "mesir",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/32_mozambik.ts",
+      "country": "mozambik",
+      "oldValue": 45,
+      "newValue": 11
+    },
+    {
+      "file": "afrika/33_namibia.ts",
+      "country": "namibia",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/34_niger.ts",
+      "country": "niger",
+      "oldValue": 45,
+      "newValue": 7
+    },
+    {
+      "file": "afrika/35_nigeria.ts",
+      "country": "nigeria",
+      "oldValue": 45,
+      "newValue": 24
+    },
+    {
+      "file": "afrika/36_pantai_gading.ts",
+      "country": "pantai_gading",
+      "oldValue": 45,
+      "newValue": 17
+    },
+    {
+      "file": "afrika/37_republik_afrika_tengah.ts",
+      "country": "republik_afrika_tengah",
+      "oldValue": 45,
+      "newValue": 10
+    },
+    {
+      "file": "afrika/38_republik_demokratik_kongo.ts",
+      "country": "republik_demokratik_kongo",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/39_republik_sudan.ts",
+      "country": "republik_sudan",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/3_angola.ts",
+      "country": "angola",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/40_republik_tanzania.ts",
+      "country": "republik_tanzania",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/41_republik_uganda.ts",
+      "country": "republik_uganda",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/42_republik_zambia.ts",
+      "country": "republik_zambia",
+      "oldValue": 45,
+      "newValue": 17
+    },
+    {
+      "file": "afrika/43_republik_zimbabwe.ts",
+      "country": "republik_zimbabwe",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/44_rwanda.ts",
+      "country": "rwanda",
+      "oldValue": 45,
+      "newValue": 14
+    },
+    {
+      "file": "afrika/45_sao_tome_dan_principe.ts",
+      "country": "sao_tome_dan_principe",
+      "oldValue": 45,
+      "newValue": 14
+    },
+    {
+      "file": "afrika/46_senegal.ts",
+      "country": "senegal",
+      "oldValue": 45,
+      "newValue": 15
+    },
+    {
+      "file": "afrika/47_seychelles.ts",
+      "country": "seychelles",
+      "oldValue": 45,
+      "newValue": 25
+    },
+    {
+      "file": "afrika/48_sierra_leone.ts",
+      "country": "sierra_leone",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/49_somalia.ts",
+      "country": "somalia",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/4_benin.ts",
+      "country": "benin",
+      "oldValue": 45,
+      "newValue": 21
+    },
+    {
+      "file": "afrika/50_sudan_selatan.ts",
+      "country": "sudan_selatan",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/51_tanjung_verde.ts",
+      "country": "tanjung_verde",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "afrika/52_togo.ts",
+      "country": "togo",
+      "oldValue": 45,
+      "newValue": 17
+    },
+    {
+      "file": "afrika/53_tunisia.ts",
+      "country": "tunisia",
+      "oldValue": 45,
+      "newValue": 18
+    },
+    {
+      "file": "afrika/5_botswana.ts",
+      "country": "botswana",
+      "oldValue": 45,
+      "newValue": 17
+    },
+    {
+      "file": "afrika/6_burkina_faso.ts",
+      "country": "burkina_faso",
+      "oldValue": 45,
+      "newValue": 15
+    },
+    {
+      "file": "afrika/7_burundi.ts",
+      "country": "burundi",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "afrika/8_chad.ts",
+      "country": "chad",
+      "oldValue": 45,
+      "newValue": 7
+    },
+    {
+      "file": "afrika/9_djibouti.ts",
+      "country": "djibouti",
+      "oldValue": 45,
+      "newValue": 16
+    },
+    {
+      "file": "na/152_amerika_serikat.ts",
+      "country": "amerika_serikat",
+      "oldValue": 16,
+      "newValue": 31
+    },
+    {
+      "file": "na/153_antigua_dan_barbuda.ts",
+      "country": "antigua_dan_barbuda",
+      "oldValue": 12,
+      "newValue": 27
+    },
+    {
+      "file": "na/154_bahama.ts",
+      "country": "bahama",
+      "oldValue": 24,
+      "newValue": 27
+    },
+    {
+      "file": "na/155_barbados.ts",
+      "country": "barbados",
+      "oldValue": 19,
+      "newValue": 24
+    },
+    {
+      "file": "na/156_belize.ts",
+      "country": "belize",
+      "oldValue": 16,
+      "newValue": 26
+    },
+    {
+      "file": "na/157_bermuda.ts",
+      "country": "bermuda",
+      "oldValue": 18,
+      "newValue": 31
+    },
+    {
+      "file": "na/158_costa_rica.ts",
+      "country": "costa_rica",
+      "oldValue": 24,
+      "newValue": 27
+    },
+    {
+      "file": "na/159_curacao.ts",
+      "country": "curacao",
+      "oldValue": 12,
+      "newValue": 30
+    },
+    {
+      "file": "na/160_dominika.ts",
+      "country": "dominika",
+      "oldValue": 16,
+      "newValue": 24
+    },
+    {
+      "file": "na/161_el_salvador.ts",
+      "country": "el_salvador",
+      "oldValue": 20,
+      "newValue": 27
+    },
+    {
+      "file": "na/162_greenland.ts",
+      "country": "greenland",
+      "oldValue": 16,
+      "newValue": 22
+    },
+    {
+      "file": "na/163_grenada.ts",
+      "country": "grenada",
+      "oldValue": 35,
+      "newValue": 24
+    },
+    {
+      "file": "na/164_guatemala.ts",
+      "country": "guatemala",
+      "oldValue": 24,
+      "newValue": 25
+    },
+    {
+      "file": "na/165_haiti.ts",
+      "country": "haiti",
+      "oldValue": 20,
+      "newValue": 27
+    },
+    {
+      "file": "na/166_honduras.ts",
+      "country": "honduras",
+      "oldValue": 20,
+      "newValue": 26
+    },
+    {
+      "file": "na/167_jamaika.ts",
+      "country": "jamaika",
+      "oldValue": 16,
+      "newValue": 24
+    },
+    {
+      "file": "na/168_kanada.ts",
+      "country": "kanada",
+      "oldValue": 23,
+      "newValue": 30
+    },
+    {
+      "file": "na/169_kuba.ts",
+      "country": "kuba",
+      "oldValue": 29,
+      "newValue": 24
+    },
+    {
+      "file": "na/170_meksiko.ts",
+      "country": "meksiko",
+      "oldValue": 18,
+      "newValue": 25
+    },
+    {
+      "file": "na/171_nikaragua.ts",
+      "country": "nikaragua",
+      "oldValue": 15,
+      "newValue": 27
+    },
+    {
+      "file": "na/172_panama.ts",
+      "country": "panama",
+      "oldValue": 45,
+      "newValue": 24
+    },
+    {
+      "file": "na/173_puerto_rico.ts",
+      "country": "puerto_rico",
+      "oldValue": 12,
+      "newValue": 30
+    },
+    {
+      "file": "na/174_republik_dominika.ts",
+      "country": "republik_dominika",
+      "oldValue": 28,
+      "newValue": 25
+    },
+    {
+      "file": "na/175_saint_kitts_dan_nevis.ts",
+      "country": "saint_kitts_dan_nevis",
+      "oldValue": 44,
+      "newValue": 27
+    },
+    {
+      "file": "na/176_saint_lucia.ts",
+      "country": "saint_lucia",
+      "oldValue": 15,
+      "newValue": 25
+    },
+    {
+      "file": "na/177_saint_vincent_dan_grenadine.ts",
+      "country": "saint_vincent_dan_grenadine",
+      "oldValue": 16,
+      "newValue": 24
+    },
+    {
+      "file": "na/178_trinidad_dan_tobago.ts",
+      "country": "trinidad_dan_tobago",
+      "oldValue": 17,
+      "newValue": 25
+    },
+    {
+      "file": "oceania/179_australia.ts",
+      "country": "australia",
+      "oldValue": 15,
+      "newValue": 26
+    },
+    {
+      "file": "oceania/180_fiji.ts",
+      "country": "fiji",
+      "oldValue": 16,
+      "newValue": 21
+    },
+    {
+      "file": "oceania/181_guam.ts",
+      "country": "guam",
+      "oldValue": 18,
+      "newValue": 21
+    },
+    {
+      "file": "oceania/182_kiribati.ts",
+      "country": "kiribati",
+      "oldValue": 18,
+      "newValue": 19
+    },
+    {
+      "file": "oceania/183_marshall.ts",
+      "country": "marshall",
+      "oldValue": 32,
+      "newValue": 23
+    },
+    {
+      "file": "oceania/184_mikronesia.ts",
+      "country": "mikronesia",
+      "oldValue": 47,
+      "newValue": 23
+    },
+    {
+      "file": "oceania/185_nauru.ts",
+      "country": "nauru",
+      "oldValue": 19,
+      "newValue": 22
+    },
+    {
+      "file": "oceania/186_palau.ts",
+      "country": "palau",
+      "oldValue": 19,
+      "newValue": 21
+    },
+    {
+      "file": "oceania/187_papua_nugini.ts",
+      "country": "papua_nugini",
+      "oldValue": 46,
+      "newValue": 21
+    },
+    {
+      "file": "oceania/188_samoa.ts",
+      "country": "samoa",
+      "oldValue": 16,
+      "newValue": 25
+    },
+    {
+      "file": "oceania/189_samoa_amerika.ts",
+      "country": "samoa_amerika",
+      "oldValue": 20,
+      "newValue": 22
+    },
+    {
+      "file": "oceania/190_selandia_baru.ts",
+      "country": "selandia_baru",
+      "oldValue": 23,
+      "newValue": 26
+    },
+    {
+      "file": "oceania/191_tahiti.ts",
+      "country": "tahiti",
+      "oldValue": 19,
+      "newValue": 21
+    },
+    {
+      "file": "oceania/192_tonga.ts",
+      "country": "tonga",
+      "oldValue": 15,
+      "newValue": 20
+    },
+    {
+      "file": "oceania/193_tuvalu.ts",
+      "country": "tuvalu",
+      "oldValue": 15,
+      "newValue": 24
+    },
+    {
+      "file": "oceania/194_vanuatu.ts",
+      "country": "vanuatu",
+      "oldValue": 16,
+      "newValue": 22
+    },
+    {
+      "file": "sa/195_argentina.ts",
+      "country": "argentina",
+      "oldValue": 34,
+      "newValue": 22
+    },
+    {
+      "file": "sa/196_bolivia.ts",
+      "country": "bolivia",
+      "oldValue": 49,
+      "newValue": 20
+    },
+    {
+      "file": "sa/197_brazil.ts",
+      "country": "brazil",
+      "oldValue": 21,
+      "newValue": 21
+    },
+    {
+      "file": "sa/198_chile.ts",
+      "country": "chile",
+      "oldValue": 21,
+      "newValue": 21
+    },
+    {
+      "file": "sa/199_ekuador.ts",
+      "country": "ekuador",
+      "oldValue": 45,
+      "newValue": 19
+    },
+    {
+      "file": "sa/200_guiana_prancis.ts",
+      "country": "guiana_prancis",
+      "oldValue": 15,
+      "newValue": 17
+    },
+    {
+      "file": "sa/201_guyana.ts",
+      "country": "guyana",
+      "oldValue": 42,
+      "newValue": 23
+    },
+    {
+      "file": "sa/202_kolombia.ts",
+      "country": "kolombia",
+      "oldValue": 40,
+      "newValue": 18
+    },
+    {
+      "file": "sa/203_paraguay.ts",
+      "country": "paraguay",
+      "oldValue": 18,
+      "newValue": 20
+    },
+    {
+      "file": "sa/204_peru.ts",
+      "country": "peru",
+      "oldValue": 11,
+      "newValue": 18
+    },
+    {
+      "file": "sa/205_suriname.ts",
+      "country": "suriname",
+      "oldValue": 50,
+      "newValue": 20
+    },
+    {
+      "file": "sa/206_uruguay.ts",
+      "country": "uruguay",
+      "oldValue": 16,
+      "newValue": 19
+    },
+    {
+      "file": "sa/207_venezuela.ts",
+      "country": "venezuela",
+      "oldValue": 43,
+      "newValue": 15
+    }
+  ],
+  "notFound": [
+    "asia/90_republik_timor_leste.ts (republik_timor_leste)"
+  ]
+}

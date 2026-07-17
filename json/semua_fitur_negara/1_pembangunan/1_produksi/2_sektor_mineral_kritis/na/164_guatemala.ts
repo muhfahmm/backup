@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const guatemala_ekstraksi = {
-  emas: 24,
+  emas: 25,
   uranium: 0,
   batu_bara: 9,
   minyak_bumi: 0,

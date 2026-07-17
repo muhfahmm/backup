@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const saint_vincent_dan_grenadine_ekstraksi = {
-  emas: 16,
+  emas: 24,
   uranium: 0,
   batu_bara: 9,
   minyak_bumi: 4,

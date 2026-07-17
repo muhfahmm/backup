@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const thailand_ekstraksi = {
-  emas: 46,
+  emas: 20,
   uranium: 0,
   batu_bara: 369,
   minyak_bumi: 369,

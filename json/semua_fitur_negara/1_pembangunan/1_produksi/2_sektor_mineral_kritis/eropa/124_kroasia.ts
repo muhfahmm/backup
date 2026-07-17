@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kroasia_ekstraksi = {
-  emas: 18,
+  emas: 25,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const pakistan_ekstraksi = {
-  emas: 52,
+  emas: 20,
   uranium: 13,
   batu_bara: 416,
   minyak_bumi: 0,

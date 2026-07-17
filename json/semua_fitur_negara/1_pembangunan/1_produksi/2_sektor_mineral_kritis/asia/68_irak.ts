@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const irak_ekstraksi = {
-  emas: 54,
+  emas: 23,
   uranium: 0,
   batu_bara: 24,
   minyak_bumi: 0,

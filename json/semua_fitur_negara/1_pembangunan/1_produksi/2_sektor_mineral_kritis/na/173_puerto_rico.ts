@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const puerto_rico_ekstraksi = {
-  emas: 12,
+  emas: 30,
   uranium: 0,
   batu_bara: 40,
   minyak_bumi: 0,

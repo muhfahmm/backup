@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const filipina_ekstraksi = {
-  emas: 100,
+  emas: 21,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 80,

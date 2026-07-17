@@ -1,6 +1,6 @@
 // @ts-nocheck
 const venezuela_ekstraksi = {
-  emas: 43,
+  emas: 15,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 64,

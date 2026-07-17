@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const bangladesh_ekstraksi = {
-  emas: 21,
+  emas: 22,
   uranium: 0,
   batu_bara: 630,
   minyak_bumi: 0,

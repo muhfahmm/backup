@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const el_salvador_ekstraksi = {
-  emas: 20,
+  emas: 27,
   uranium: 0,
   batu_bara: 45,
   minyak_bumi: 35,

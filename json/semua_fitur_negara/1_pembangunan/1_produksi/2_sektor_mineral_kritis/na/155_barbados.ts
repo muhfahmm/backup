@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const barbados_ekstraksi = {
-  emas: 19,
+  emas: 24,
   uranium: 0,
   batu_bara: 9,
   minyak_bumi: 0,

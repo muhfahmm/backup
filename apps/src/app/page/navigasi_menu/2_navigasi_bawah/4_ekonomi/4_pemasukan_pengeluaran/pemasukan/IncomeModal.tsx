@@ -19,12 +19,22 @@ interface IncomeItem {
 }
 
 // Helper function to calculate total tax income (daily)
+// Default values HARUS SAMA dengan PajakModal.tsx untuk konsistensi data
+const getTaxValue = (detail: any, fallback: number, path: string[]) => {
+  let current: any = detail;
+  for (const key of path) {
+    if (current == null || typeof current !== "object") return undefined;
+    current = current[key];
+  }
+  return typeof current === "number" ? current : undefined;
+};
+
 const calculateTotalTaxIncome = (countryDetail: any) => {
-  const income_tax = countryDetail?.income_tax || 15;
-  const corporate_tax = countryDetail?.corporate || 22;
-  const vat = countryDetail?.ppn || 10;
-  const cigarette_tax = countryDetail?.cigarette_tax || 15;
-  const environment_tax = countryDetail?.environment_tax || 5;
+  const income_tax = getTaxValue(countryDetail, 15, ["income_tax"]) ?? getTaxValue(countryDetail, 15, ["pajak", "penghasilan", "tarif"]) ?? 0;
+  const corporate_tax = getTaxValue(countryDetail, 22, ["corporate"]) ?? getTaxValue(countryDetail, 22, ["pajak", "korporasi", "tarif"]) ?? 0;
+  const vat = getTaxValue(countryDetail, 10, ["ppn"]) ?? getTaxValue(countryDetail, 10, ["pajak", "ppn", "tarif"]) ?? 0;
+  const cigarette_tax = getTaxValue(countryDetail, 15, ["cigarette_tax"]) ?? getTaxValue(countryDetail, 15, ["pajak", "bea_cukai", "tarif"]) ?? 0;
+  const environment_tax = getTaxValue(countryDetail, 5, ["environment_tax"]) ?? getTaxValue(countryDetail, 5, ["pajak", "lingkungan", "tarif"]) ?? 0;
 
   return (
     calculateIncomeAtRate(income_tax, 1000) +

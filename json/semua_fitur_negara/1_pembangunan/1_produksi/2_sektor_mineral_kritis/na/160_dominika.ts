@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const dominika_ekstraksi = {
-  emas: 16,
+  emas: 24,
   uranium: 0,
   batu_bara: 32,
   minyak_bumi: 4,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const tahiti_ekstraksi = {
-  emas: 19,
+  emas: 21,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 6,

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const portugal_ekstraksi = {
-  emas: 23,
+  emas: 26,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 170,

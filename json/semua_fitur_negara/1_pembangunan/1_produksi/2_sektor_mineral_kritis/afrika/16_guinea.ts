@@ -5,7 +5,7 @@ const guinea_ekstraksi = {
   litium: 30,
   logam_tanah_jarang: 135,
   aluminium: 105,
-  emas: 45,
+  emas: 11,
   tembaga: 90,
   batu_bara: 0,
   minyak_bumi: 150,

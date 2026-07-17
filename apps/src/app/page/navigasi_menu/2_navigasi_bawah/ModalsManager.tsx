@@ -1,6 +1,8 @@
 // detail path: c:\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\ModalsManager.tsx
 'use client';
 
+import React from 'react';
+
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
 import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
@@ -73,207 +75,301 @@ function ModalsManager({
   setCountryDetail,
   selectedCountry,
   currentDate,
-  resetTrigger
+  resetTrigger,
 }: ModalsManagerProps) {
-  
+  // Jika tidak ada negara yang dipilih, jangan render apapun
   if (!selectedCountry) return null;
 
-  return (
-    <>
-      {/* 1. Kepuasan */}
-      <StatistikKepuasanModal
-        isOpen={activeMenu === "Dashboard:Kepuasan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        setActiveMenu={setActiveMenu}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <NaikkanKepuasanModal
-        isOpen={activeMenu === "Action:NaikkanKepuasan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        setActiveMenu={setActiveMenu}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-        selectedCountry={selectedCountry}
-      />
+  // Fungsi penutup modal yang seragam
+  const onClose = () => setActiveMenu("Peta Taktis");
 
-      {/* 2. Populasi */}
-      <RingkasanPopulasiModal
-        isOpen={activeMenu === "Dashboard:Populasi:Overview"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        setActiveMenu={setActiveMenu}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <StatistikPopulasiModal
-        isOpen={activeMenu === "Dashboard:Populasi"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        setActiveMenu={setActiveMenu}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
+  // Render modal yang sesuai berdasarkan activeMenu
+  switch (activeMenu) {
+    // 1. Kepuasan
+    case "Dashboard:Kepuasan":
+      return (
+        <StatistikKepuasanModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Action:NaikkanKepuasan":
+      return (
+        <NaikkanKepuasanModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
 
-      {/* 3. Produksi & Konsumsi */}
-      <KelistrikanModal
-        isOpen={activeMenu === "Menu:Kelistrikan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <PerminyakanModal
-        isOpen={activeMenu === "Menu:Perminyakan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <UraniumModal
-        isOpen={activeMenu === "Menu:Uranium"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
+    // 2. Populasi
+    case "Dashboard:Populasi:Overview":
+      return (
+        <RingkasanPopulasiModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Dashboard:Populasi":
+      return (
+        <StatistikPopulasiModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
 
-      {/* 4. Ekonomi */}
-      <PerdaganganModal
-        isOpen={activeMenu === "Menu:Perdagangan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-        currentDate={currentDate}
-        resetTrigger={resetTrigger}
-      />
-      <PajakModal
-        isOpen={activeMenu === "Menu:Pajak"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <HutangModal
-        isOpen={activeMenu === "Menu:Hutang"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <PemasukkanPengeluaranModal
-        isOpen={activeMenu === "Menu:Budget"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <PDBModal
-        isOpen={activeMenu === "Menu:PDB"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <HargaModal
-        isOpen={activeMenu === "Menu:Harga"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
+    // 3. Produksi & Konsumsi
+    case "Menu:Kelistrikan":
+      return (
+        <KelistrikanModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:Perminyakan":
+      return (
+        <PerminyakanModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:Uranium":
+      return (
+        <UraniumModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
 
-      {/* 5. Pembangunan */}
-      <ProduksiModal
-        isOpen={activeMenu === "Menu:Produksi"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-        currentDate={currentDate}
-      />
-      <TempatUmumModal
-        isOpen={activeMenu === "Menu:TempatUmum"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <HunianPermukimanModal
-        isOpen={activeMenu === "Menu:HunianPermukiman"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
+    // 4. Ekonomi
+    case "Menu:Perdagangan":
+      return (
+        <PerdaganganModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
+          resetTrigger={resetTrigger}
+        />
+      );
+    case "Menu:Pajak":
+      return (
+        <PajakModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:Hutang":
+      return (
+        <HutangModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:Budget":
+      return (
+        <PemasukkanPengeluaranModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:PDB":
+      return (
+        <PDBModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:Harga":
+      return (
+        <HargaModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
 
-      {/* 6. Pertahanan */}
-      <PertahananModal
-        isOpen={activeMenu === "Komando Pertahanan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <IntelijenModal
-        isOpen={activeMenu === "Menu:Intelijen"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <ArmadaMiliterModal
-        isOpen={activeMenu === "Menu:ArmadaMiliter"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-      />
-      <ArmadaPolisiModal
-        isOpen={activeMenu === "Menu:ArmadaPolisi"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-      />
-      <ManajemenPertahananModal
-        isOpen={activeMenu === "Menu:ManajemenPertahanan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-      />
+    // 5. Pembangunan
+    case "Menu:Produksi":
+      return (
+        <ProduksiModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
+        />
+      );
+    case "Menu:TempatUmum":
+      return (
+        <TempatUmumModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:HunianPermukiman":
+      return (
+        <HunianPermukimanModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
 
-      {/* 7. Geopolitik */}
-      <PBBModal
-        isOpen={activeMenu === "Menu:PBB"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        selectedCountry={selectedCountry}
-      />
-      <KedutaanBesarModal
-        isOpen={activeMenu === "Menu:KedutaanBesar"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
-      <OrgIntlModal
-        isOpen={activeMenu === "Menu:OrganisasiInternasional:organisasi_pbb"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        selectedCountry={selectedCountry}
-      />
-      <TingkatHubunganModal
-        isOpen={activeMenu === "Menu:TingkatHubungan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        selectedCountry={selectedCountry}
-      />
-      <BantuanModal
-        isOpen={activeMenu === "Menu:Bantuan"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-      />
+    // 6. Pertahanan
+    case "Komando Pertahanan":
+      return (
+        <PertahananModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:Intelijen":
+      return (
+        <IntelijenModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:ArmadaMiliter":
+      return (
+        <ArmadaMiliterModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+        />
+      );
+    case "Menu:ArmadaPolisi":
+      return (
+        <ArmadaPolisiModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+        />
+      );
+    case "Menu:ManajemenPertahanan":
+      return (
+        <ManajemenPertahananModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+        />
+      );
 
-      {/* 8. Sosial & Budaya */}
-      <AgamaModal
-        isOpen={activeMenu === "Menu:Agama"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-      />
-      <IdeologiModal
-        isOpen={activeMenu === "Menu:Ideologi"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-      />
+    // 7. Geopolitik
+    case "Menu:PBB":
+      return (
+        <PBBModal
+          isOpen={true}
+          onClose={onClose}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:KedutaanBesar":
+      return (
+        <KedutaanBesarModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
+    case "Menu:OrganisasiInternasional:organisasi_pbb":
+      return (
+        <OrgIntlModal
+          isOpen={true}
+          onClose={onClose}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:TingkatHubungan":
+      return (
+        <TingkatHubunganModal
+          isOpen={true}
+          onClose={onClose}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:Bantuan":
+      return (
+        <BantuanModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+        />
+      );
 
-      {/* 9. Kementerian */}
-      <KementerianModal
-        isOpen={activeMenu === "Dashboard:Kementerian"}
-        onClose={() => setActiveMenu("Peta Taktis")}
-        countryDetail={countryDetail}
-        setCountryDetail={setCountryDetail}
-        resetTrigger={resetTrigger}
-      />
-    </>
-  );
+    // 8. Sosial & Budaya
+    case "Menu:Agama":
+      return (
+        <AgamaModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+        />
+      );
+    case "Menu:Ideologi":
+      return (
+        <IdeologiModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+        />
+      );
+
+    // 9. Kementerian
+    case "Dashboard:Kementerian":
+      return (
+        <KementerianModal
+          isOpen={true}
+          onClose={onClose}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          resetTrigger={resetTrigger}
+        />
+      );
+
+    default:
+      // Jika tidak ada menu yang cocok, tidak render apapun
+      return null;
+  }
 }
 
-export default ModalsManager;
+// Membungkus dengan React.memo untuk menghindari render ulang yang tidak perlu
+export default React.memo(ModalsManager);

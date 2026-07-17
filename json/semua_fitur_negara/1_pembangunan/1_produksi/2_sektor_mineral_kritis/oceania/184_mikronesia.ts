@@ -1,6 +1,6 @@
 // @ts-nocheck
 const mikronesia_ekstraksi = {
-  emas: 47,
+  emas: 23,
   uranium: 0,
   batu_bara: 40,
   minyak_bumi: 0,

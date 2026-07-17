@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const azerbaijan_ekstraksi = {
-  emas: 20,
+  emas: 26,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const grenada_ekstraksi = {
-  emas: 35,
+  emas: 24,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 5,

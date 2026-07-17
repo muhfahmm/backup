@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const finlandia_ekstraksi = {
-  emas: 17,
+  emas: 29,
   uranium: 11,
   batu_bara: 18,
   minyak_bumi: 90,

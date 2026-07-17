@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const gibraltar_ekstraksi = {
-  emas: 15,
+  emas: 26,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 4,

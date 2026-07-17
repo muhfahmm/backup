@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const liechtenstein_ekstraksi = {
-  emas: 12,
+  emas: 23,
   uranium: 0,
   batu_bara: 4,
   minyak_bumi: 16,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kuba_ekstraksi = {
-  emas: 29,
+  emas: 24,
   uranium: 0,
   batu_bara: 38,
   minyak_bumi: 152,

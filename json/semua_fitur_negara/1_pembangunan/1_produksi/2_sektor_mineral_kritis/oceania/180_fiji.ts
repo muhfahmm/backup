@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const fiji_ekstraksi = {
-  emas: 16,
+  emas: 21,
   uranium: 0,
   batu_bara: 14,
   minyak_bumi: 0,

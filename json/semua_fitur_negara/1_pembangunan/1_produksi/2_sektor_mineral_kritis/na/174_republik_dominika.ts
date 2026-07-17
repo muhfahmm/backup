@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const republik_dominika_ekstraksi = {
-  emas: 28,
+  emas: 25,
   uranium: 0,
   batu_bara: 70,
   minyak_bumi: 126,

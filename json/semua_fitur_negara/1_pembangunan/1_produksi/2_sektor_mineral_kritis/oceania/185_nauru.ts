@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const nauru_ekstraksi = {
-  emas: 19,
+  emas: 22,
   uranium: 0,
   batu_bara: 27,
   minyak_bumi: 30,

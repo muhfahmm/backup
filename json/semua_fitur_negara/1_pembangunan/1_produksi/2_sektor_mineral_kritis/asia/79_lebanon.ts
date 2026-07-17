@@ -1,6 +1,6 @@
 // @ts-nocheck
 const lebanon_ekstraksi = {
-  emas: 24,
+  emas: 22,
   uranium: 0,
   batu_bara: 3,
   minyak_bumi: 0,

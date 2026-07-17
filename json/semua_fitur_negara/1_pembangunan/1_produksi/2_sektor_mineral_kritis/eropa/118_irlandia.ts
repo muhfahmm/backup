@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const irlandia_ekstraksi = {
-  emas: 15,
+  emas: 29,
   uranium: 0,
   batu_bara: 441,
   minyak_bumi: 0,

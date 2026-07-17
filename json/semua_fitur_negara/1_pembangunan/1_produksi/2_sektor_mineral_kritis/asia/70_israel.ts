@@ -1,6 +1,6 @@
 // @ts-nocheck
 const israel_ekstraksi = {
-  emas: 13,
+  emas: 25,
   uranium: 0,
   batu_bara: 441,
   minyak_bumi: 0,

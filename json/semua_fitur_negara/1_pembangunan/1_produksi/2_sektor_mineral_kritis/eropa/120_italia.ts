@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const italia_ekstraksi = {
-  emas: 50,
+  emas: 23,
   uranium: 0,
   batu_bara: 463,
   minyak_bumi: 926,

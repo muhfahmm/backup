@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const taiwan_ekstraksi = {
-  emas: 28,
+  emas: 24,
   uranium: 0,
   batu_bara: 72,
   minyak_bumi: 48,

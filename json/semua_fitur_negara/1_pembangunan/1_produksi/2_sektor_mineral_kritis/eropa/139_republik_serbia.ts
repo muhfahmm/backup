@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const republik_serbia_ekstraksi = {
-  emas: 50,
+  emas: 25,
   uranium: 4,
   batu_bara: 0,
   minyak_bumi: 0,

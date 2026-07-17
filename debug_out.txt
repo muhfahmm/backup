@@ -1,0 +1,60 @@
+﻿=== 54_afganistan.ts
+keys [
+  'name_en',
+  'capital',
+  'name_id',
+  'lon',
+  'lat',
+  'flag',
+  'jumlah_penduduk',
+  'anggaran',
+  'pendapatan_nasional',
+  'religion',
+  'ideology',
+  'un_vote',
+  'reputasi_diplomatik',
+  'aliansi_aktif',
+  'pengaruh_global',
+  'peringkat_diplomasi',
+  'sikap',
+  'pengaruh_internasional',
+  'pembangkit_listrik_tenaga_nuklir',
+  'pembangkit_listrik_tenaga_air',
+  'pembangkit_listrik_tenaga_surya',
+  'pembangkit_listrik_tenaga_uap',
+  'pembangkit_listrik_tenaga_gas',
+  'pembangkit_listrik_tenaga_angin',
+  'emas',
+  'uranium',
+  'batu_bara',
+  'minyak_bumi',
+  'gas_alam',
+  'garam',
+  'nikel',
+  'litium',
+  'tembaga',
+  'aluminium',
+  'logam_tanah_jarang',
+  'bijih_besi',
+  'semikonduktor',
+  'mobil',
+  'sepeda_motor',
+  'smelter'
+]
+name_id Afganistan nama_negara Afganistan country undefined country_name undefined
+pajak no pajak
+gold_income undefined tambang_emas_daily undefined
+levels []
+=== 68_indonesia.ts
+Missing country 68_indonesia.ts
+merged country count 293
+sample names [
+  'Eritrea',        'Eswatini',
+  'Ethiopia',       'Gabon',
+  'Gambia',         'Ghana',
+  'Guinea',         'Guinea-bissau',
+  'Kamerun',        'Kenya',
+  'Afrika Selatan', 'Komoro',
+  'Kongo',          'Lesotho',
+  'Liberia'
+]

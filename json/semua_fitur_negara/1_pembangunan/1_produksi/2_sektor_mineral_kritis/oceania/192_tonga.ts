@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const tonga_ekstraksi = {
-  emas: 15,
+  emas: 20,
   uranium: 0,
   batu_bara: 7,
   minyak_bumi: 0,

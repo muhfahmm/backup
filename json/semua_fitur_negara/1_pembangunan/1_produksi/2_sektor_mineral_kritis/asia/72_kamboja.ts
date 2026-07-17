@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kamboja_ekstraksi = {
-  emas: 25,
+  emas: 22,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 9,

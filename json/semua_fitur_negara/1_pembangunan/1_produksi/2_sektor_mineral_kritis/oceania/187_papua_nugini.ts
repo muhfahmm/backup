@@ -1,6 +1,6 @@
 // @ts-nocheck
 const papua_nugini_ekstraksi = {
-  emas: 46,
+  emas: 21,
   uranium: 0,
   batu_bara: 18,
   minyak_bumi: 18,

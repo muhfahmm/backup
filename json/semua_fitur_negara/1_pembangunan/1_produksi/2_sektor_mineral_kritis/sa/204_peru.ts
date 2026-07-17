@@ -1,6 +1,6 @@
 // @ts-nocheck
 const peru_ekstraksi = {
-  emas: 11,
+  emas: 18,
   uranium: 12,
   batu_bara: 0,
   minyak_bumi: 0,

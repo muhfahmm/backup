@@ -1,6 +1,6 @@
 // @ts-nocheck
 const yunani_ekstraksi = {
-  emas: 26,
+  emas: 28,
   uranium: 11,
   batu_bara: 80,
   minyak_bumi: 0,

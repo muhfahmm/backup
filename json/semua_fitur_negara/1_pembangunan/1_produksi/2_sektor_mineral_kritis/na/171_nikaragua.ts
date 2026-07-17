@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const nikaragua_ekstraksi = {
-  emas: 15,
+  emas: 27,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 7,

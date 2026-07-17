@@ -1,6 +1,6 @@
 // @ts-nocheck
 const korea_utara_ekstraksi = {
-  emas: 45,
+  emas: 23,
   uranium: 4,
   batu_bara: 0,
   minyak_bumi: 0,

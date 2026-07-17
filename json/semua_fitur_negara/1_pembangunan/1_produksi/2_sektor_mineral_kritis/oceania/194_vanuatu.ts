@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const vanuatu_ekstraksi = {
-  emas: 16,
+  emas: 22,
   uranium: 0,
   batu_bara: 8,
   minyak_bumi: 0,

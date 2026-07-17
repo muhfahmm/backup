@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const mongolia_ekstraksi = {
-  emas: 24,
+  emas: 19,
   uranium: 15,
   batu_bara: 4,
   minyak_bumi: 24,

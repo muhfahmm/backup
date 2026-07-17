@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const china_ekstraksi = {
-  emas: 50,
+  emas: 21,
   uranium: 16,
   batu_bara: 0,
   minyak_bumi: 1518,

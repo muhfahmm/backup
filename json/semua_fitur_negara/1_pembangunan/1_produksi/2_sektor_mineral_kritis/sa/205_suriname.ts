@@ -1,6 +1,6 @@
 // @ts-nocheck
 const suriname_ekstraksi = {
-  emas: 50,
+  emas: 20,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

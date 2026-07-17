@@ -1,6 +1,6 @@
 // @ts-nocheck
 const turkmenistan_ekstraksi = {
-  emas: 15,
+  emas: 23,
   uranium: 0,
   batu_bara: 18,
   minyak_bumi: 0,

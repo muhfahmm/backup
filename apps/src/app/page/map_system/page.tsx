@@ -124,14 +124,33 @@ export default function MapPage() {
 
             setCountryDetail({
                 ...mergedData,
-                country: countryName,  // Store the country name for maritime check
+                country: countryName,
                 capital: mergedData.capital || capitalName,
                 jumlah_penduduk: mergedData.jumlah_penduduk || 0,
                 anggaran: mergedData.anggaran || 0,
                 religion: mergedData.religion || '-',
                 ideology: mergedData.ideology || '-',
                 un_vote: mergedData.un_vote || 0,
-                kepuasan: mergedData.kepuasan ?? 50
+                kepuasan: mergedData.kepuasan ?? 50,
+                // Tax fields
+                income_tax: mergedData.pajak?.penghasilan?.tarif ?? mergedData.income_tax,
+                corporate: mergedData.pajak?.korporasi?.tarif ?? mergedData.corporate,
+                ppn: mergedData.pajak?.ppn?.tarif ?? mergedData.ppn,
+                cigarette_tax: mergedData.pajak?.bea_cukai?.tarif ?? mergedData.cigarette_tax,
+                environment_tax: mergedData.pajak?.lingkungan?.tarif ?? mergedData.environment_tax,
+                // Production/Extraction fields (ensure they're set from data files)
+                emas: mergedData.emas ?? 0,
+                uranium: mergedData.uranium ?? 0,
+                batu_bara: mergedData.batu_bara ?? 0,
+                minyak_bumi: mergedData.minyak_bumi ?? 0,
+                gas_alam: mergedData.gas_alam ?? 0,
+                garam: mergedData.garam ?? 0,
+                nikel: mergedData.nikel ?? 0,
+                litium: mergedData.litium ?? 0,
+                tembaga: mergedData.tembaga ?? 0,
+                aluminium: mergedData.aluminium ?? 0,
+                logam_tanah_jarang: mergedData.logam_tanah_jarang ?? 0,
+                bijih_besi: mergedData.bijih_besi ?? 0,
             });
         } catch (e) {
             console.error("Failed to load country data:", e);

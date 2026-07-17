@@ -1,6 +1,6 @@
 // @ts-nocheck
 const hong_kong_ekstraksi = {
-  emas: 38,
+  emas: 32,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

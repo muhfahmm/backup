@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const costa_rica_ekstraksi = {
-  emas: 24,
+  emas: 27,
   uranium: 0,
   batu_bara: 6,
   minyak_bumi: 18,

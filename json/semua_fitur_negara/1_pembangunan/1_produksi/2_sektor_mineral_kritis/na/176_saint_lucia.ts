@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const saint_lucia_ekstraksi = {
-  emas: 15,
+  emas: 25,
   uranium: 0,
   batu_bara: 3,
   minyak_bumi: 1,

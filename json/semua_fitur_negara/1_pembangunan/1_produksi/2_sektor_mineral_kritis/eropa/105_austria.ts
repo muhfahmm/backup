@@ -1,6 +1,6 @@
 // @ts-nocheck
 const austria_ekstraksi = {
-  emas: 50,
+  emas: 25,
   uranium: 0,
   batu_bara: 666,
   minyak_bumi: 0,

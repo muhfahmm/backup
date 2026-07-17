@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const antigua_dan_barbuda_ekstraksi = {
-  emas: 12,
+  emas: 27,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 16,

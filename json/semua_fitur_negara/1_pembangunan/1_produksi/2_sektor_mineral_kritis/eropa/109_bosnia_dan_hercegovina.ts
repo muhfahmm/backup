@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const bosnia_dan_hercegovina_ekstraksi = {
-  emas: 16,
+  emas: 24,
   uranium: 0,
   batu_bara: 8,
   minyak_bumi: 8,

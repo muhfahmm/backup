@@ -1,6 +1,6 @@
 // @ts-nocheck
 const jerman_ekstraksi = {
-  emas: 32,
+  emas: 27,
   uranium: 19,
   batu_bara: 0,
   minyak_bumi: 2580,

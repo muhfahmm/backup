@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const selandia_baru_ekstraksi = {
-  emas: 23,
+  emas: 26,
   uranium: 14,
   batu_bara: 0,
   minyak_bumi: 126,

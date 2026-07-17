@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const tajikistan_ekstraksi = {
-  emas: 17,
+  emas: 20,
   uranium: 0,
   batu_bara: 36,
   minyak_bumi: 24,

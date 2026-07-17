@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const brunei_ekstraksi = {
-  emas: 17,
+  emas: 22,
   uranium: 0,
   batu_bara: 6,
   minyak_bumi: 9,

@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const siprus_ekstraksi = {
-  emas: 40,
+  emas: 26,
   uranium: 0,
   batu_bara: 4,
   minyak_bumi: 24,

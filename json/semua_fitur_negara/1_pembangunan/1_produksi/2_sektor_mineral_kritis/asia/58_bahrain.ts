@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const bahrain_ekstraksi = {
-  emas: 72,
+  emas: 26,
   uranium: 0,
   batu_bara: 8,
   minyak_bumi: 40,

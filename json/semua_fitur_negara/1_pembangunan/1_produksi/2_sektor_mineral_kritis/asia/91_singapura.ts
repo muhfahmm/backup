@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const singapura_ekstraksi = {
-  emas: 43,
+  emas: 28,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 352,
