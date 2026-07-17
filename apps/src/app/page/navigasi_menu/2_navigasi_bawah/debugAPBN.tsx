@@ -1,3 +1,4 @@
+// detail path: #[[file:c:\utama\project\project-sendiri\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\debugAPBN.tsx:1-459]]
 "use client";
 
 import React, { useEffect, useState } from 'react';

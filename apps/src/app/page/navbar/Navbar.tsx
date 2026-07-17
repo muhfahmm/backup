@@ -1,3 +1,4 @@
+// detail path: #[[file:c:\utama\project\project-sendiri\EM\apps\src\app\page\navbar\Navbar.tsx:1-156]]
 'use client';
 
 import React from 'react';
