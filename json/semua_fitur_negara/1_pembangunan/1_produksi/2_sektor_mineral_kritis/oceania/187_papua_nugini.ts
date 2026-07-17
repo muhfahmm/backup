@@ -2,15 +2,15 @@
 const papua_nugini_ekstraksi = {
   emas: 21,
   uranium: 0,
-  batu_bara: 18,
-  minyak_bumi: 18,
-  gas_alam: 18,
+  batu_bara: 0,
+  minyak_bumi: 1,
+  gas_alam: 2,
   garam: 0,
-  nikel: 15,
-  litium: 24,
-  tembaga: 30,
-  aluminium: 24,
-  logam_tanah_jarang: 3,
+  nikel: 0,
+  litium: 0,
+  tembaga: 1,
+  aluminium: 0,
+  logam_tanah_jarang: 0,
   bijih_besi: 30,
 };
 

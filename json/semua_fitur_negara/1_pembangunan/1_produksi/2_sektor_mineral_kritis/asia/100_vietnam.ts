@@ -2,15 +2,15 @@
 const vietnam_ekstraksi = {
   emas: 21,
   uranium: 0,
-  batu_bara: 340,
-  minyak_bumi: 204,
-  gas_alam: 544,
-  garam: 0,
-  nikel: 544,
+  batu_bara: 10,
+  minyak_bumi: 5,
+  gas_alam: 5,
+  garam: 5,
+  nikel: 2,
   litium: 0,
-  tembaga: 0,
-  aluminium: 0,
-  logam_tanah_jarang: 544,
+  tembaga: 5,
+  aluminium: 10,
+  logam_tanah_jarang: 22,
   bijih_besi: 68,
 };
 

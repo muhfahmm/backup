@@ -2,15 +2,15 @@
 const afganistan_ekstraksi = {
   emas: 17,
   uranium: 0,
-  batu_bara: 24,
-  minyak_bumi: 20,
-  gas_alam: 32,
-  garam: 20,
+  batu_bara: 0,
+  minyak_bumi: 0,
+  gas_alam: 0,
+  garam: 1,
   nikel: 0,
-  litium: 4,
-  tembaga: 20,
-  aluminium: 24,
-  logam_tanah_jarang: 16,
+  litium: 0,
+  tembaga: 0,
+  aluminium: 0,
+  logam_tanah_jarang: 0,
   bijih_besi: 16,
 };
 

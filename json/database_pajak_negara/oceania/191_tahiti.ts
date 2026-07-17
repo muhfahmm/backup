@@ -1,7 +1,7 @@
 // @ts-nocheck
 const tahiti_pajak = {
   "pajak": {
-    "ppn": { "tarif": 5.5 },
+    "ppn": { "tarif": 6 },
     "korporasi": { "tarif": 27 },
     "penghasilan": { "tarif": 45 },
     "bea_cukai": { "tarif": 0 },

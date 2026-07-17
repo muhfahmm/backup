@@ -2,15 +2,15 @@
 const kolombia_ekstraksi = {
   emas: 18,
   uranium: 0,
-  batu_bara: 324,
-  minyak_bumi: 252,
-  gas_alam: 0,
-  garam: 360,
-  nikel: 0,
+  batu_bara: 10,
+  minyak_bumi: 10,
+  gas_alam: 5,
+  garam: 2,
+  nikel: 15,
   litium: 0,
-  tembaga: 0,
-  aluminium: 144,
-  logam_tanah_jarang: 144,
+  tembaga: 5,
+  aluminium: 0,
+  logam_tanah_jarang: 0,
   bijih_besi: 72,
 };
 

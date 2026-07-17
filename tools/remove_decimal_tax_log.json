@@ -1,0 +1,577 @@
+{
+  "totalUpdated": 49,
+  "updates": [
+    {
+      "file": "102_yordania.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "59_bangladesh.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "65_hong_kong.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "16.5",
+          "rounded": "17"
+        }
+      ]
+    },
+    {
+      "file": "66_india.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "7.5",
+          "rounded": "8"
+        }
+      ]
+    },
+    {
+      "file": "71_jepang.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "30.62",
+          "rounded": "31"
+        }
+      ]
+    },
+    {
+      "file": "79_lebanon.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "22.5",
+          "rounded": "23"
+        }
+      ]
+    },
+    {
+      "file": "81_malaysia.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "93_suriah.ts",
+      "region": "asia",
+      "changes": 1,
+      "details": [
+        {
+          "original": "22.5",
+          "rounded": "23"
+        }
+      ]
+    },
+    {
+      "file": "104_andorra.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "4.5",
+          "rounded": "5"
+        }
+      ]
+    },
+    {
+      "file": "106_belanda.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "49.5",
+          "rounded": "50"
+        }
+      ]
+    },
+    {
+      "file": "111_ceko.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "114_finlandia.ts",
+      "region": "eropa",
+      "changes": 2,
+      "details": [
+        {
+          "original": "20.06",
+          "rounded": "20"
+        },
+        {
+          "original": "51.5",
+          "rounded": "52"
+        }
+      ]
+    },
+    {
+      "file": "122_kepulauan_faroe.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "37.92",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "126_liechtenstein.ts",
+      "region": "eropa",
+      "changes": 2,
+      "details": [
+        {
+          "original": "7.7",
+          "rounded": "8"
+        },
+        {
+          "original": "12.5",
+          "rounded": "13"
+        }
+      ]
+    },
+    {
+      "file": "134_norwegia.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "49.9",
+          "rounded": "50"
+        }
+      ]
+    },
+    {
+      "file": "136_portugal.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "21.5",
+          "rounded": "22"
+        }
+      ]
+    },
+    {
+      "file": "138_republik_rumania.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "37.5",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "142_siprus.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "12.5",
+          "rounded": "13"
+        }
+      ]
+    },
+    {
+      "file": "146_swedia.ts",
+      "region": "eropa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "20.6",
+          "rounded": "21"
+        }
+      ]
+    },
+    {
+      "file": "147_swiss.ts",
+      "region": "eropa",
+      "changes": 2,
+      "details": [
+        {
+          "original": "8.1",
+          "rounded": "8"
+        },
+        {
+          "original": "15.8",
+          "rounded": "16"
+        }
+      ]
+    },
+    {
+      "file": "18_kamerun.ts",
+      "region": "afrika",
+      "changes": 2,
+      "details": [
+        {
+          "original": "19.25",
+          "rounded": "19"
+        },
+        {
+          "original": "37.5",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "19_kenya.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "23_liberia.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "9.5",
+          "rounded": "10"
+        }
+      ]
+    },
+    {
+      "file": "26_malawi.ts",
+      "region": "afrika",
+      "changes": 2,
+      "details": [
+        {
+          "original": "16.5",
+          "rounded": "17"
+        },
+        {
+          "original": "37.5",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "31_mesir.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "34_niger.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "35_nigeria.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "7.5",
+          "rounded": "8"
+        }
+      ]
+    },
+    {
+      "file": "36_pantai_gading.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "26.5",
+          "rounded": "27"
+        }
+      ]
+    },
+    {
+      "file": "42_republik_zambia.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "37.5",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "43_republik_zimbabwe.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "25.75",
+          "rounded": "26"
+        }
+      ]
+    },
+    {
+      "file": "52_togo.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "29.5",
+          "rounded": "30"
+        }
+      ]
+    },
+    {
+      "file": "6_burkina_faso.ts",
+      "region": "afrika",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "152_amerika_serikat.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "2.5",
+          "rounded": "3"
+        }
+      ]
+    },
+    {
+      "file": "154_bahama.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "7.5",
+          "rounded": "8"
+        }
+      ]
+    },
+    {
+      "file": "155_barbados.ts",
+      "region": "na",
+      "changes": 2,
+      "details": [
+        {
+          "original": "17.5",
+          "rounded": "18"
+        },
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "156_belize.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "12.5",
+          "rounded": "13"
+        }
+      ]
+    },
+    {
+      "file": "159_curacao.ts",
+      "region": "na",
+      "changes": 2,
+      "details": [
+        {
+          "original": "34.5",
+          "rounded": "35"
+        },
+        {
+          "original": "49.5",
+          "rounded": "50"
+        }
+      ]
+    },
+    {
+      "file": "162_greenland.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "40.8",
+          "rounded": "41"
+        }
+      ]
+    },
+    {
+      "file": "163_grenada.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "167_jamaika.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "168_kanada.ts",
+      "region": "na",
+      "changes": 2,
+      "details": [
+        {
+          "original": "26.5",
+          "rounded": "27"
+        },
+        {
+          "original": "53.53",
+          "rounded": "54"
+        }
+      ]
+    },
+    {
+      "file": "173_puerto_rico.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "37.5",
+          "rounded": "38"
+        }
+      ]
+    },
+    {
+      "file": "174_republik_dominika.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "176_saint_lucia.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "177_saint_vincent_dan_grenadine.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "32.5",
+          "rounded": "33"
+        }
+      ]
+    },
+    {
+      "file": "178_trinidad_dan_tobago.ts",
+      "region": "na",
+      "changes": 1,
+      "details": [
+        {
+          "original": "12.5",
+          "rounded": "13"
+        }
+      ]
+    },
+    {
+      "file": "191_tahiti.ts",
+      "region": "oceania",
+      "changes": 1,
+      "details": [
+        {
+          "original": "5.5",
+          "rounded": "6"
+        }
+      ]
+    },
+    {
+      "file": "197_brazil.ts",
+      "region": "sa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "27.5",
+          "rounded": "28"
+        }
+      ]
+    },
+    {
+      "file": "201_guyana.ts",
+      "region": "sa",
+      "changes": 1,
+      "details": [
+        {
+          "original": "33.5",
+          "rounded": "34"
+        }
+      ]
+    }
+  ],
+  "timestamp": "2026-07-17T11:06:03.050Z"
+}

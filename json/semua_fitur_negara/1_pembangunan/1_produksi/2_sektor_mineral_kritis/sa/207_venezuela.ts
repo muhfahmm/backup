@@ -2,15 +2,15 @@
 const venezuela_ekstraksi = {
   emas: 15,
   uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 64,
-  gas_alam: 48,
-  garam: 64,
-  nikel: 64,
+  batu_bara: 2,
+  minyak_bumi: 150,
+  gas_alam: 20,
+  garam: 2,
+  nikel: 2,
   litium: 0,
   tembaga: 0,
-  aluminium: 0,
-  logam_tanah_jarang: 80,
+  aluminium: 5,
+  logam_tanah_jarang: 0,
   bijih_besi: 16,
 };
 

@@ -1,16 +1,16 @@
 // @ts-nocheck
 const korea_utara_ekstraksi = {
-  emas: 23,
-  uranium: 4,
-  batu_bara: 0,
+  emas: 21,
+  uranium: 2,
+  batu_bara: 5,
   minyak_bumi: 0,
   gas_alam: 0,
-  garam: 32,
-  nikel: 16,
-  litium: 16,
-  tembaga: 0,
+  garam: 1,
+  nikel: 0,
+  litium: 0,
+  tembaga: 1,
   aluminium: 0,
-  logam_tanah_jarang: 28,
+  logam_tanah_jarang: 1,
   bijih_besi: 4,
 };
 

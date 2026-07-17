@@ -1,15 +1,15 @@
 // @ts-nocheck
 const hong_kong_ekstraksi = {
-  emas: 32,
+  emas: 31,
   uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 0,
-  gas_alam: 0,
-  garam: 7,
-  nikel: 9,
+  batu_bara: 1,
+  minyak_bumi: 1,
+  gas_alam: 1,
+  garam: 1,
+  nikel: 1,
   litium: 0,
-  tembaga: 4,
-  aluminium: 0,
+  tembaga: 1,
+  aluminium: 1,
   logam_tanah_jarang: 0,
   bijih_besi: 2,
 };

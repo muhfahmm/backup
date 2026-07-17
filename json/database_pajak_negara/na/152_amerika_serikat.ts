@@ -4,7 +4,7 @@ const amerika_serikat_pajak = {
     "ppn": { "tarif": 0 },
     "korporasi": { "tarif": 21 },
     "penghasilan": { "tarif": 37 },
-    "bea_cukai": { "tarif": 2.5 },
+    "bea_cukai": { "tarif": 3 },
     "lingkungan": { "tarif": 0 }
   }
 };

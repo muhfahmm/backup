@@ -1,16 +1,16 @@
 // @ts-nocheck
 const jerman_ekstraksi = {
   emas: 27,
-  uranium: 19,
-  batu_bara: 0,
-  minyak_bumi: 2580,
-  gas_alam: 2580,
-  garam: 2322,
+  uranium: 0,
+  batu_bara: 15,
+  minyak_bumi: 2,
+  gas_alam: 3,
+  garam: 80,
   nikel: 0,
-  litium: 1032,
+  litium: 0,
   tembaga: 0,
   aluminium: 0,
-  logam_tanah_jarang: 2580,
+  logam_tanah_jarang: 0,
   bijih_besi: 2580,
 };
 

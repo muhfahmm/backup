@@ -1,7 +1,7 @@
 // @ts-nocheck
 const belize_pajak = {
   "pajak": {
-    "ppn": { "tarif": 12.5 },
+    "ppn": { "tarif": 13 },
     "korporasi": { "tarif": 25 },
     "penghasilan": { "tarif": 25 },
     "bea_cukai": { "tarif": 5 },

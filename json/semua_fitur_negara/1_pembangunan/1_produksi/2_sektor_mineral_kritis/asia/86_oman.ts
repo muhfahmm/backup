@@ -2,15 +2,15 @@
 const oman_ekstraksi = {
   emas: 25,
   uranium: 0,
-  batu_bara: 11,
-  minyak_bumi: 11,
-  gas_alam: 77,
-  garam: 0,
-  nikel: 88,
-  litium: 22,
-  tembaga: 88,
+  batu_bara: 0,
+  minyak_bumi: 15,
+  gas_alam: 10,
+  garam: 1,
+  nikel: 0,
+  litium: 0,
+  tembaga: 2,
   aluminium: 0,
-  logam_tanah_jarang: 11,
+  logam_tanah_jarang: 0,
   bijih_besi: 0,
 };
 

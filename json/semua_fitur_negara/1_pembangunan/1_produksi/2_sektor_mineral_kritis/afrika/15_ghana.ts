@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ghana_ekstraksi = {
-  nikel: 135,
+  nikel: 0,
   bijih_besi: 90,
-  litium: 30,
-  logam_tanah_jarang: 135,
-  aluminium: 105,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  aluminium: 0,
   emas: 19,
-  tembaga: 90,
+  tembaga: 0,
   batu_bara: 0,
-  minyak_bumi: 150,
-  gas_alam: 105,
+  minyak_bumi: 2,
+  gas_alam: 1,
   uranium: 0,
-  garam: 120,
+  garam: 0,
 };

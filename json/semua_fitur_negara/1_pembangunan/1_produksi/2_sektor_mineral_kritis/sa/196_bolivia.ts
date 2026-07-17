@@ -2,15 +2,15 @@
 const bolivia_ekstraksi = {
   emas: 20,
   uranium: 0,
-  batu_bara: 5,
-  minyak_bumi: 35,
-  gas_alam: 40,
-  garam: 15,
-  nikel: 25,
+  batu_bara: 0,
+  minyak_bumi: 1,
+  gas_alam: 5,
+  garam: 2,
+  nikel: 0,
   litium: 5,
-  tembaga: 35,
-  aluminium: 35,
-  logam_tanah_jarang: 25,
+  tembaga: 0,
+  aluminium: 0,
+  logam_tanah_jarang: 0,
   bijih_besi: 5,
 };
 

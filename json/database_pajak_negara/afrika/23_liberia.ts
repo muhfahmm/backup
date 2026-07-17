@@ -1,7 +1,7 @@
 // @ts-nocheck
 const liberia_pajak = {
   "pajak": {
-    "ppn": { "tarif": 9.5 },
+    "ppn": { "tarif": 10 },
     "korporasi": { "tarif": 25 },
     "penghasilan": { "tarif": 30 },
     "bea_cukai": { "tarif": 5 },

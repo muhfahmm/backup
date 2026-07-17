@@ -1,0 +1,9289 @@
+{
+  "totalUpdated": 206,
+  "updateLog": [
+    {
+      "file": "asia/100_vietnam.ts",
+      "country": "vietnam",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 544,
+          "new": 2
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 544,
+          "new": 22
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 10
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 340,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 204,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 544,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/101_yaman.ts",
+      "country": "yaman",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 36,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 28,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/102_yordania.ts",
+      "country": "yordania",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/54_afganistan.ts",
+      "country": "afganistan",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/55_arab_saudi.ts",
+      "country": "arab_saudi",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 133,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1197,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 1197,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1064,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 399,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 130
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 931,
+          "new": 70
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/56_armenia.ts",
+      "country": "armenia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 27,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 15,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/57_azerbaijan.ts",
+      "country": "azerbaijan",
+      "changes": [
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 3
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 18,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/58_bahrain.ts",
+      "country": "bahrain",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 80,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 64,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 40,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/59_bangladesh.ts",
+      "country": "bangladesh",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 490,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 700,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 70,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 630,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 630,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/60_bhutan.ts",
+      "country": "bhutan",
+      "changes": [
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 24,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/61_brunei.ts",
+      "country": "brunei",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 9,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 30,
+          "new": 4
+        },
+        {
+          "mineral": "garam",
+          "old": 15,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/62_china.ts",
+      "country": "china",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 20
+        },
+        {
+          "mineral": "litium",
+          "old": 1518,
+          "new": 20
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 2024,
+          "new": 44
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 100
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 50
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 100
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 1518,
+          "new": 50
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 1012,
+          "new": 65
+        },
+        {
+          "mineral": "uranium",
+          "old": 16,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 759,
+          "new": 120
+        }
+      ]
+    },
+    {
+      "file": "asia/63_filipina.ts",
+      "country": "filipina",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 160,
+          "new": 70
+        },
+        {
+          "mineral": "litium",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 180,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 80,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 120,
+          "new": 20
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 4
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 80,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 180,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "asia/64_georgia.ts",
+      "country": "georgia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 36,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/65_hong_kong.ts",
+      "country": "hong_kong",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 7,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/66_india.ts",
+      "country": "india",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 0,
+          "new": 7
+        },
+        {
+          "mineral": "aluminium",
+          "old": 393,
+          "new": 40
+        },
+        {
+          "mineral": "tembaga",
+          "old": 2751,
+          "new": 10
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 80
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 1179,
+          "new": 20
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2751,
+          "new": 15
+        },
+        {
+          "mineral": "uranium",
+          "old": 25,
+          "new": 3
+        },
+        {
+          "mineral": "garam",
+          "old": 786,
+          "new": 90
+        }
+      ]
+    },
+    {
+      "file": "asia/67_indonesia.ts",
+      "country": "indonesia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 135
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 158,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 632,
+          "new": 50
+        },
+        {
+          "mineral": "tembaga",
+          "old": 79,
+          "new": 35
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 237,
+          "new": 50
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 237,
+          "new": 30
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 20
+        },
+        {
+          "mineral": "uranium",
+          "old": 13,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 10
+        }
+      ]
+    },
+    {
+      "file": "asia/68_irak.ts",
+      "country": "irak",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 42,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 54,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 80
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 30,
+          "new": 40
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/69_iran.ts",
+      "country": "iran",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 230,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 368,
+          "new": 3
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 184,
+          "new": 3
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 46,
+          "new": 100
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 460,
+          "new": 100
+        },
+        {
+          "mineral": "uranium",
+          "old": 11,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 276,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/70_israel.ts",
+      "country": "israel",
+      "changes": [
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 252,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 378,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 567,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 441,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 378,
+          "new": 3
+        },
+        {
+          "mineral": "garam",
+          "old": 567,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "asia/71_jepang.ts",
+      "country": "jepang",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 2142,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 2380,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 1428,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 1190,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2380,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 1904,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/72_kamboja.ts",
+      "country": "kamboja",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 21,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 24,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/73_kazakhstan.ts",
+      "country": "kazakhstan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 26,
+          "new": 5
+        },
+        {
+          "mineral": "litium",
+          "old": 39,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 117,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 26,
+          "new": 5
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 10
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 117,
+          "new": 25
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 130,
+          "new": 50
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 13,
+          "new": 20
+        },
+        {
+          "mineral": "uranium",
+          "old": 13,
+          "new": 40
+        },
+        {
+          "mineral": "garam",
+          "old": 13,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/74_kirgizstan.ts",
+      "country": "kirgizstan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 21,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/75_korea_selatan.ts",
+      "country": "korea_selatan",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 1700,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1700,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 510,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 1360,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 1360,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 850,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 680,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "asia/76_korea_utara.ts",
+      "country": "korea_utara",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "uranium",
+          "old": 4,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 32,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/77_kuwait.ts",
+      "country": "kuwait",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 180,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 120,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 140,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 140,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 120,
+          "new": 60
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 200,
+          "new": 30
+        },
+        {
+          "mineral": "garam",
+          "old": 180,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/78_laos.ts",
+      "country": "laos",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 27,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 24,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/79_lebanon.ts",
+      "country": "lebanon",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 9,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/80_makau.ts",
+      "country": "makau",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 36,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/81_malaysia.ts",
+      "country": "malaysia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 360,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 252,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 288,
+          "new": 5
+        },
+        {
+          "mineral": "tembaga",
+          "old": 108,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 144,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 324,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/82_maldives.ts",
+      "country": "maldives",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/83_mongolia.ts",
+      "country": "mongolia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 36,
+          "new": 10
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 15,
+          "new": 3
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/84_myanmar.ts",
+      "country": "myanmar",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 54,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 36,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 48,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 54,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 48,
+          "new": 3
+        },
+        {
+          "mineral": "garam",
+          "old": 60,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/85_nepal.ts",
+      "country": "nepal",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/86_oman.ts",
+      "country": "oman",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 88,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 22,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 11,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 88,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 11,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 11,
+          "new": 15
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 77,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/87_pakistan.ts",
+      "country": "pakistan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 208,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 104,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 156,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 156,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 416,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 208,
+          "new": 3
+        },
+        {
+          "mineral": "uranium",
+          "old": 13,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 3
+        }
+      ]
+    },
+    {
+      "file": "asia/88_palestina.ts",
+      "country": "palestina",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 14,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/89_qatar.ts",
+      "country": "qatar",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 75,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 75,
+          "new": 15
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 60,
+          "new": 95
+        }
+      ]
+    },
+    {
+      "file": "asia/91_singapura.ts",
+      "country": "singapura",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 264,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 220,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 440,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 396,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 352,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 352,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 352,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/92_sri_lanka.ts",
+      "country": "sri_lanka",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 5,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/93_suriah.ts",
+      "country": "suriah",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 6,
+          "new": 3
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 1,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/94_taiwan.ts",
+      "country": "taiwan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 192,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 144,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 72,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 48,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 192,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 96,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/95_tajikistan.ts",
+      "country": "tajikistan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 36,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 36,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/96_thailand.ts",
+      "country": "thailand",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 246,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 410,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 369,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 369,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 4
+        },
+        {
+          "mineral": "garam",
+          "old": 287,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "asia/97_turkmenistan.ts",
+      "country": "turkmenistan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 10,
+          "new": 80
+        },
+        {
+          "mineral": "garam",
+          "old": 18,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "asia/98_uni_emirat_arab.ts",
+      "country": "uni_emirat_arab",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 660,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 594,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 396,
+          "new": 5
+        },
+        {
+          "mineral": "tembaga",
+          "old": 528,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 66,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 264,
+          "new": 70
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 35
+        },
+        {
+          "mineral": "garam",
+          "old": 660,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "asia/99_uzbekistan.ts",
+      "country": "uzbekistan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 56,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 63,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 70,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 56,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 56,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/103_albania.ts",
+      "country": "albania",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 10,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 2,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 4,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/104_andorra.ts",
+      "country": "andorra",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 16,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/105_austria.ts",
+      "country": "austria",
+      "changes": [
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 444,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 74,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 666,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 444,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 370,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/106_belanda.ts",
+      "country": "belanda",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 1350,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 1350,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1080,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 405,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 540,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 1350,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "eropa/107_belarus.ts",
+      "country": "belarus",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 45,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 10,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/108_belgia.ts",
+      "country": "belgia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 328,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 123,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 328,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 287,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 369,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 164,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 164,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/109_bosnia_dan_hercegovina.ts",
+      "country": "bosnia_dan_hercegovina",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 36,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 8,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 40,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/110_bulgaria.ts",
+      "country": "bulgaria",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 10,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/111_ceko.ts",
+      "country": "ceko",
+      "changes": [
+        {
+          "mineral": "tembaga",
+          "old": 46,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 138,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 115,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 138,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/112_denmark.ts",
+      "country": "denmark",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 264,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 308,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 264,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 220,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 132,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 44,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 352,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/113_estonia.ts",
+      "country": "estonia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/114_finlandia.ts",
+      "country": "finlandia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 72,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 81,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 72,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 11,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/115_gibraltar.ts",
+      "country": "gibraltar",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/116_hungaria.ts",
+      "country": "hungaria",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 56,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 72,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 72,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 72,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 56,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/117_inggris.ts",
+      "country": "inggris",
+      "changes": [
+        {
+          "mineral": "aluminium",
+          "old": 2700,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 600,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2100,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 600,
+          "new": 10
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2700,
+          "new": 10
+        },
+        {
+          "mineral": "uranium",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 300,
+          "new": 30
+        }
+      ]
+    },
+    {
+      "file": "eropa/118_irlandia.ts",
+      "country": "irlandia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 294,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 392,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 441,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 196,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/119_islandia.ts",
+      "country": "islandia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/120_italia.ts",
+      "country": "italia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 3241,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1389,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 463,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4167,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 463,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 926,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 3241,
+          "new": 3
+        },
+        {
+          "mineral": "garam",
+          "old": 4167,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "eropa/121_jerman.ts",
+      "country": "jerman",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 1032,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 2580,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 15
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 2580,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2580,
+          "new": 3
+        },
+        {
+          "mineral": "uranium",
+          "old": 19,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 2322,
+          "new": 80
+        }
+      ]
+    },
+    {
+      "file": "eropa/122_kepulauan_faroe.ts",
+      "country": "kepulauan_faroe",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 3,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/123_kosovo.ts",
+      "country": "kosovo",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 21,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 27,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 12,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/124_kroasia.ts",
+      "country": "kroasia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 21,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 3,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "eropa/125_latvia.ts",
+      "country": "latvia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 4,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/126_liechtenstein.ts",
+      "country": "liechtenstein",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 36,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/127_lithuania.ts",
+      "country": "lithuania",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 5,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 5,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/128_luksemburg.ts",
+      "country": "luksemburg",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/129_makedonia_utara.ts",
+      "country": "makedonia_utara",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 15,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/130_malta.ts",
+      "country": "malta",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 14,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 2,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/131_moldova.ts",
+      "country": "moldova",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/132_monako.ts",
+      "country": "monako",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/133_montenegro.ts",
+      "country": "montenegro",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 9,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/134_norwegia.ts",
+      "country": "norwegia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 140,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 140,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 80,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 160,
+          "new": 20
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 180,
+          "new": 50
+        },
+        {
+          "mineral": "uranium",
+          "old": 13,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "eropa/135_polandia.ts",
+      "country": "polandia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 106,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 159,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 212,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 212,
+          "new": 10
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 530,
+          "new": 20
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 530,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 530,
+          "new": 2
+        },
+        {
+          "mineral": "uranium",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 10
+        }
+      ]
+    },
+    {
+      "file": "eropa/136_portugal.ts",
+      "country": "portugal",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 51,
+          "new": 5
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 34,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 17,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 170,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 170,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 119,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/137_prancis.ts",
+      "country": "prancis",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 2620,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 1834,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 2620,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2620,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 524,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 524,
+          "new": 1
+        },
+        {
+          "mineral": "uranium",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 1310,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "eropa/138_republik_rumania.ts",
+      "country": "republik_rumania",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 240,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 192,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 168,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 72,
+          "new": 2
+        },
+        {
+          "mineral": "uranium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/139_republik_serbia.ts",
+      "country": "republik_serbia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "uranium",
+          "old": 4,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "eropa/140_rusia.ts",
+      "country": "rusia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 1134,
+          "new": 50
+        },
+        {
+          "mineral": "litium",
+          "old": 1512,
+          "new": 5
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 189,
+          "new": 21
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 15
+        },
+        {
+          "mineral": "tembaga",
+          "old": 945,
+          "new": 15
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 1134,
+          "new": 40
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 945,
+          "new": 120
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 105
+        },
+        {
+          "mineral": "uranium",
+          "old": 21,
+          "new": 20
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 40
+        }
+      ]
+    },
+    {
+      "file": "eropa/141_san_marino.ts",
+      "country": "san_marino",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 32,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/142_siprus.ts",
+      "country": "siprus",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 36,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/143_slovenia.ts",
+      "country": "slovenia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 16,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/144_slowakia.ts",
+      "country": "slowakia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 91,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 104,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 117,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 26,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 130,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 65,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/145_spanyol.ts",
+      "country": "spanyol",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 116,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 232,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 812,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 928,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 116,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 116,
+          "new": 1
+        },
+        {
+          "mineral": "uranium",
+          "old": 17,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 3
+        }
+      ]
+    },
+    {
+      "file": "eropa/146_swedia.ts",
+      "country": "swedia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 666,
+          "new": 2
+        },
+        {
+          "mineral": "litium",
+          "old": 222,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 296,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 296,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 444,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 222,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 518,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 296,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/147_swiss.ts",
+      "country": "swiss",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 47,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 188,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 329,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 376,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 376,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 282,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 282,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 235,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 282,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/148_turki.ts",
+      "country": "turki",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 20,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 4,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "uranium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 16,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "eropa/149_ukraina.ts",
+      "country": "ukraina",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 25,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 15,
+          "new": 5
+        },
+        {
+          "mineral": "uranium",
+          "old": 10,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "eropa/150_vatikan.ts",
+      "country": "vatikan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 36,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "eropa/151_yunani.ts",
+      "country": "yunani",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 100,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 50,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 80,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 11,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 40,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/10_eritrea.ts",
+      "country": "eritrea",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/11_eswatini.ts",
+      "country": "eswatini",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/12_ethiopia.ts",
+      "country": "ethiopia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/13_gabon.ts",
+      "country": "gabon",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/14_gambia.ts",
+      "country": "gambia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/15_ghana.ts",
+      "country": "ghana",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/16_guinea.ts",
+      "country": "guinea",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 70
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/17_guinea_bissau.ts",
+      "country": "guinea_bissau",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 70
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/18_kamerun.ts",
+      "country": "kamerun",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/19_kenya.ts",
+      "country": "kenya",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/1_afrika_selatan.ts",
+      "country": "afrika_selatan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 10
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 30
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "afrika/20_komoro.ts",
+      "country": "komoro",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/21_kongo.ts",
+      "country": "kongo",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/22_lesotho.ts",
+      "country": "lesotho",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/23_liberia.ts",
+      "country": "liberia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/24_libya.ts",
+      "country": "libya",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 35
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/25_madagaskar.ts",
+      "country": "madagaskar",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 5
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/26_malawi.ts",
+      "country": "malawi",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/27_mali.ts",
+      "country": "mali",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/28_maroko.ts",
+      "country": "maroko",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "afrika/29_mauritania.ts",
+      "country": "mauritania",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/2_aljazair.ts",
+      "country": "aljazair",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 40
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 30
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "afrika/30_mauritius.ts",
+      "country": "mauritius",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/31_mesir.ts",
+      "country": "mesir",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 10
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 15
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 5
+        }
+      ]
+    },
+    {
+      "file": "afrika/32_mozambik.ts",
+      "country": "mozambik",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/33_namibia.ts",
+      "country": "namibia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 30
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/34_niger.ts",
+      "country": "niger",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 25
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/35_nigeria.ts",
+      "country": "nigeria",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 40
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 30
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/36_pantai_gading.ts",
+      "country": "pantai_gading",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/37_republik_afrika_tengah.ts",
+      "country": "republik_afrika_tengah",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/38_republik_demokratik_kongo.ts",
+      "country": "republik_demokratik_kongo",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 30
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/39_republik_sudan.ts",
+      "country": "republik_sudan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/3_angola.ts",
+      "country": "angola",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 20
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/40_republik_tanzania.ts",
+      "country": "republik_tanzania",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 2
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/41_republik_uganda.ts",
+      "country": "republik_uganda",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/42_republik_zambia.ts",
+      "country": "republik_zambia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 20
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/43_republik_zimbabwe.ts",
+      "country": "republik_zimbabwe",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 10
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/44_rwanda.ts",
+      "country": "rwanda",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/45_sao_tome_dan_principe.ts",
+      "country": "sao_tome_dan_principe",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/46_senegal.ts",
+      "country": "senegal",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/47_seychelles.ts",
+      "country": "seychelles",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/48_sierra_leone.ts",
+      "country": "sierra_leone",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/49_somalia.ts",
+      "country": "somalia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/4_benin.ts",
+      "country": "benin",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/50_sudan_selatan.ts",
+      "country": "sudan_selatan",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/51_tanjung_verde.ts",
+      "country": "tanjung_verde",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/52_togo.ts",
+      "country": "togo",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/53_tunisia.ts",
+      "country": "tunisia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "afrika/5_botswana.ts",
+      "country": "botswana",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 2
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/6_burkina_faso.ts",
+      "country": "burkina_faso",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/7_burundi.ts",
+      "country": "burundi",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/8_chad.ts",
+      "country": "chad",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "afrika/9_djibouti.ts",
+      "country": "djibouti",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "na/152_amerika_serikat.ts",
+      "country": "amerika_serikat",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 696,
+          "new": 5
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 232,
+          "new": 2
+        },
+        {
+          "mineral": "aluminium",
+          "old": 348,
+          "new": 2
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1044,
+          "new": 40
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 696,
+          "new": 70
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 110
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 232,
+          "new": 90
+        },
+        {
+          "mineral": "uranium",
+          "old": 21,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 100
+        }
+      ]
+    },
+    {
+      "file": "na/153_antigua_dan_barbuda.ts",
+      "country": "antigua_dan_barbuda",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/154_bahama.ts",
+      "country": "bahama",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 32,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 12,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 36,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/155_barbados.ts",
+      "country": "barbados",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 7,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 1,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 7,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 9,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/156_belize.ts",
+      "country": "belize",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 12,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 10,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/157_bermuda.ts",
+      "country": "bermuda",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 10,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 6,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/158_costa_rica.ts",
+      "country": "costa_rica",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 27,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 27,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 18,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/159_curacao.ts",
+      "country": "curacao",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 14,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 6,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/160_dominika.ts",
+      "country": "dominika",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 16,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 32,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 32,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/161_el_salvador.ts",
+      "country": "el_salvador",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 25,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 5,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 45,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 35,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/162_greenland.ts",
+      "country": "greenland",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 28,
+          "new": 2
+        },
+        {
+          "mineral": "aluminium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "uranium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 24,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "na/163_grenada.ts",
+      "country": "grenada",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 5,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 5,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 5,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 5,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 9,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/164_guatemala.ts",
+      "country": "guatemala",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 3,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/165_haiti.ts",
+      "country": "haiti",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 30,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 15,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 21,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/166_honduras.ts",
+      "country": "honduras",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 27,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 24,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/167_jamaika.ts",
+      "country": "jamaika",
+      "changes": [
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 30
+        },
+        {
+          "mineral": "tembaga",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 36,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "na/168_kanada.ts",
+      "country": "kanada",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 1152,
+          "new": 25
+        },
+        {
+          "mineral": "litium",
+          "old": 0,
+          "new": 3
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 768,
+          "new": 1
+        },
+        {
+          "mineral": "aluminium",
+          "old": 1920,
+          "new": 5
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 10
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 1920,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 30
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 2304,
+          "new": 60
+        },
+        {
+          "mineral": "uranium",
+          "old": 0,
+          "new": 35
+        },
+        {
+          "mineral": "garam",
+          "old": 1152,
+          "new": 60
+        }
+      ]
+    },
+    {
+      "file": "na/169_kuba.ts",
+      "country": "kuba",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 57,
+          "new": 30
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 190,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 19,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 171,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 38,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 152,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/170_meksiko.ts",
+      "country": "meksiko",
+      "changes": [
+        {
+          "mineral": "aluminium",
+          "old": 121,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1210,
+          "new": 15
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 1210,
+          "new": 25
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 968,
+          "new": 15
+        },
+        {
+          "mineral": "uranium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 121,
+          "new": 45
+        }
+      ]
+    },
+    {
+      "file": "na/171_nikaragua.ts",
+      "country": "nikaragua",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 5,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 2,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 7,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/172_panama.ts",
+      "country": "panama",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 45,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 20,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 45,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 30,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 45,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/173_puerto_rico.ts",
+      "country": "puerto_rico",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 24,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 40,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 32,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/174_republik_dominika.ts",
+      "country": "republik_dominika",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 28,
+          "new": 1
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 126,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 56,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 70,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 126,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 42,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/175_saint_kitts_dan_nevis.ts",
+      "country": "saint_kitts_dan_nevis",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 27,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 21,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/176_saint_lucia.ts",
+      "country": "saint_lucia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 2,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/177_saint_vincent_dan_grenadine.ts",
+      "country": "saint_vincent_dan_grenadine",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 6,
+          "new": 1
+        },
+        {
+          "mineral": "litium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 8,
+          "new": 1
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 9,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 4,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 10,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 7,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "na/178_trinidad_dan_tobago.ts",
+      "country": "trinidad_dan_tobago",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 14,
+          "new": 10
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "oceania/179_australia.ts",
+      "country": "australia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 40
+        },
+        {
+          "mineral": "litium",
+          "old": 816,
+          "new": 30
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1020,
+          "new": 6
+        },
+        {
+          "mineral": "aluminium",
+          "old": 408,
+          "new": 105
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1020,
+          "new": 25
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 102,
+          "new": 60
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 10
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 55
+        },
+        {
+          "mineral": "uranium",
+          "old": 20,
+          "new": 50
+        },
+        {
+          "mineral": "garam",
+          "old": 612,
+          "new": 70
+        }
+      ]
+    },
+    {
+      "file": "oceania/180_fiji.ts",
+      "country": "fiji",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/181_guam.ts",
+      "country": "guam",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/182_kiribati.ts",
+      "country": "kiribati",
+      "changes": [
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 20,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 18,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/183_marshall.ts",
+      "country": "marshall",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 28,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 36,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 28,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/184_mikronesia.ts",
+      "country": "mikronesia",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 32,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/185_nauru.ts",
+      "country": "nauru",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 27,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/186_palau.ts",
+      "country": "palau",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 4,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/187_papua_nugini.ts",
+      "country": "papua_nugini",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 15,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 24,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 30,
+          "new": 1
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 18,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 18,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "oceania/188_samoa.ts",
+      "country": "samoa",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/189_samoa_amerika.ts",
+      "country": "samoa_amerika",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 18,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/190_selandia_baru.ts",
+      "country": "selandia_baru",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 63,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 42,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 63,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 126,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 126,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 210,
+          "new": 2
+        },
+        {
+          "mineral": "uranium",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 63,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/191_tahiti.ts",
+      "country": "tahiti",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/192_tonga.ts",
+      "country": "tonga",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 1,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/193_tuvalu.ts",
+      "country": "tuvalu",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 27,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 9,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 21,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 27,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "oceania/194_vanuatu.ts",
+      "country": "vanuatu",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 3,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 10,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "sa/195_argentina.ts",
+      "country": "argentina",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 336,
+          "new": 20
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 144,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 96,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 480,
+          "new": 10
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 480,
+          "new": 10
+        },
+        {
+          "mineral": "uranium",
+          "old": 18,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 480,
+          "new": 15
+        }
+      ]
+    },
+    {
+      "file": "sa/196_bolivia.ts",
+      "country": "bolivia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 5,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 35,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 40,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 15,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "sa/197_brazil.ts",
+      "country": "brazil",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 2619,
+          "new": 15
+        },
+        {
+          "mineral": "litium",
+          "old": 1455,
+          "new": 15
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1164,
+          "new": 21
+        },
+        {
+          "mineral": "aluminium",
+          "old": 873,
+          "new": 80
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 873,
+          "new": 15
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 873,
+          "new": 10
+        },
+        {
+          "mineral": "uranium",
+          "old": 15,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 0,
+          "new": 50
+        }
+      ]
+    },
+    {
+      "file": "sa/198_chile.ts",
+      "country": "chile",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 540,
+          "new": 25
+        },
+        {
+          "mineral": "aluminium",
+          "old": 216,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 486,
+          "new": 90
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 54,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 378,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 216,
+          "new": 50
+        }
+      ]
+    },
+    {
+      "file": "sa/199_ekuador.ts",
+      "country": "ekuador",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 30,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 135,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 105,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 90,
+          "new": 1
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 150,
+          "new": 5
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 105,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 120,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "sa/200_guiana_prancis.ts",
+      "country": "guiana_prancis",
+      "changes": [
+        {
+          "mineral": "litium",
+          "old": 1,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 1,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 6,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "sa/201_guyana.ts",
+      "country": "guyana",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 2,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 8,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 8,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "sa/202_kolombia.ts",
+      "country": "kolombia",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 0,
+          "new": 15
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 144,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 144,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 324,
+          "new": 10
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 252,
+          "new": 10
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "garam",
+          "old": 360,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "sa/203_paraguay.ts",
+      "country": "paraguay",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 45,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 40,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 25,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 45,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "sa/204_peru.ts",
+      "country": "peru",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 35,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 21,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 7,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 63,
+          "new": 75
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 14,
+          "new": 5
+        },
+        {
+          "mineral": "uranium",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 70,
+          "new": 2
+        }
+      ]
+    },
+    {
+      "file": "sa/205_suriname.ts",
+      "country": "suriname",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 10,
+          "new": 0
+        },
+        {
+          "mineral": "litium",
+          "old": 14,
+          "new": 0
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 20
+        },
+        {
+          "mineral": "tembaga",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 0,
+          "new": 1
+        },
+        {
+          "mineral": "garam",
+          "old": 20,
+          "new": 0
+        }
+      ]
+    },
+    {
+      "file": "sa/206_uruguay.ts",
+      "country": "uruguay",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 16,
+          "new": 0
+        },
+        {
+          "mineral": "tembaga",
+          "old": 6,
+          "new": 0
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 4,
+          "new": 0
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 12,
+          "new": 0
+        },
+        {
+          "mineral": "garam",
+          "old": 16,
+          "new": 1
+        }
+      ]
+    },
+    {
+      "file": "sa/207_venezuela.ts",
+      "country": "venezuela",
+      "changes": [
+        {
+          "mineral": "nikel",
+          "old": 64,
+          "new": 2
+        },
+        {
+          "mineral": "logam_tanah_jarang",
+          "old": 80,
+          "new": 0
+        },
+        {
+          "mineral": "aluminium",
+          "old": 0,
+          "new": 5
+        },
+        {
+          "mineral": "batu_bara",
+          "old": 0,
+          "new": 2
+        },
+        {
+          "mineral": "minyak_bumi",
+          "old": 64,
+          "new": 150
+        },
+        {
+          "mineral": "gas_alam",
+          "old": 48,
+          "new": 20
+        },
+        {
+          "mineral": "garam",
+          "old": 64,
+          "new": 2
+        }
+      ]
+    }
+  ],
+  "notFound": [
+    "asia/90_republik_timor_leste.ts (republik_timor_leste)"
+  ]
+}

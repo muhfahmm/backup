@@ -4,7 +4,7 @@ const india_pajak = {
     "ppn": { "tarif": 18 },
     "korporasi": { "tarif": 25 },
     "penghasilan": { "tarif": 42 },
-    "bea_cukai": { "tarif": 7.5 },
+    "bea_cukai": { "tarif": 8 },
     "lingkungan": { "tarif": 1 }
   }
 };

@@ -2,15 +2,15 @@
 const mikronesia_ekstraksi = {
   emas: 23,
   uranium: 0,
-  batu_bara: 40,
+  batu_bara: 0,
   minyak_bumi: 0,
   gas_alam: 0,
-  garam: 0,
+  garam: 1,
   nikel: 0,
-  litium: 4,
+  litium: 0,
   tembaga: 0,
-  aluminium: 32,
-  logam_tanah_jarang: 8,
+  aluminium: 0,
+  logam_tanah_jarang: 0,
   bijih_besi: 0,
 };
 

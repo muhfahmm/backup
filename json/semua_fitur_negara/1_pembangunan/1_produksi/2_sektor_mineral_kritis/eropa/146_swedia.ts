@@ -1,16 +1,16 @@
 // @ts-nocheck
 const swedia_ekstraksi = {
   emas: 29,
-  uranium: 24,
+  uranium: 0,
   batu_bara: 0,
-  minyak_bumi: 222,
-  gas_alam: 518,
-  garam: 296,
-  nikel: 666,
-  litium: 222,
-  tembaga: 444,
-  aluminium: 296,
-  logam_tanah_jarang: 296,
+  minyak_bumi: 0,
+  gas_alam: 0,
+  garam: 1,
+  nikel: 2,
+  litium: 1,
+  tembaga: 1,
+  aluminium: 0,
+  logam_tanah_jarang: 1,
   bijih_besi: 222,
 };
 

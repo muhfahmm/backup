@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from 'react';
-import { X, Bug } from 'lucide-react';
+import { X, Bug, Search } from 'lucide-react';
 import { calculateGoldMiningDailyProduction } from '@/app/logic/economic_logic/goldIncome';
-// Import data negara untuk mengambil informasi Benua
 import { COUNTRIES_DATA } from '@/app/page/map_system/map-data';
 
 interface DebugAPBNProps {
@@ -36,11 +35,12 @@ export default function DebugAPBN({
   const [loading, setLoading] = useState(false);
   const [displayName, setDisplayName] = useState<string>(countryName || 'Negara');
 
-  // State untuk sorting
+  // State untuk sorting dan search
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' }>({
     key: 'net',
     direction: 'desc',
   });
+  const [searchQuery, setSearchQuery] = useState('');
 
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
@@ -147,6 +147,7 @@ export default function DebugAPBN({
       setSingleCountryDetail(null);
       setAllCountries(null);
       setDisplayName(countryName || 'Negara');
+      setSearchQuery(''); // Reset search saat modal dibuka
       try {
         if (showAllCountries) {
           const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
@@ -251,7 +252,8 @@ export default function DebugAPBN({
       );
     }
 
-    const rows = allCountries.map((country) => {
+    // Ambil data dan filter berdasarkan search
+    let rows = allCountries.map((country) => {
       const tax = computeTaxValue(country);
       const gold = computeGoldValue(country);
       const ministry = computeMinistryCost(country);
@@ -276,6 +278,27 @@ export default function DebugAPBN({
         buildingCount,
       };
     });
+
+    // Filter berdasarkan searchQuery
+    if (searchQuery.trim() !== '') {
+      const q = searchQuery.toLowerCase();
+      rows = rows.filter(
+        (item) =>
+          item.name.toLowerCase().includes(q) ||
+          item.continent.toLowerCase().includes(q)
+      );
+    }
+
+    // Jika hasil kosong setelah filter
+    if (rows.length === 0) {
+      return (
+        <tr>
+          <td className="px-4 py-6 text-center text-sm text-[#333]" colSpan={7}>
+            Tidak ada data yang cocok dengan pencarian "{searchQuery}".
+          </td>
+        </tr>
+      );
+    }
 
     // Sorting berdasarkan konfigurasi
     const sortedRows = [...rows].sort((a, b) => {
@@ -325,12 +348,26 @@ export default function DebugAPBN({
               <p className="text-sm text-black/60">{showAllCountries ? 'Semua 207 negara' : displayName}</p>
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="p-2 rounded-full bg-white/80 hover:bg-white transition text-black"
-          >
-            <X className="w-4 h-4" />
-          </button>
+          <div className="flex items-center gap-3">
+            {/* Search Input */}
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Cari negara / benua..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-8 pr-3 py-1.5 rounded-lg bg-white/80 border border-[#c4b49c] text-sm outline-none focus:ring-2 focus:ring-[#5ea3b1] w-48 transition-all placeholder:text-[#8b7e66]"
+              />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8b7e66]" />
+            </div>
+            {/* Tombol Tutup */}
+            <button
+              onClick={onClose}
+              className="p-2 rounded-full bg-white/80 hover:bg-white transition text-black"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
         {loading ? (
