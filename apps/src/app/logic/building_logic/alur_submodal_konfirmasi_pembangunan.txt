@@ -1,0 +1,165 @@
+ALUR SUB-MODAL KONFIRMASI PEMBANGUNAN
+====================================
+
+Tujuan:
+- Saat user memilih bangunan di modal Produksi, sub-modal "Konfirmasi Pembangunan" akan menampilkan material apa saja yang dibutuhkan untuk pembangunan.
+- Data material diambil dari struktur folder building_logic yang sudah ada.
+
+1. SUMBER DATA UTAMA
+--------------------
+A. requirements.txt per sektor
+- Folder yang dipakai:
+  - apps/src/app/logic/building_logic/1_kelistrikan/requirements.txt
+  - apps/src/app/logic/building_logic/2_mineral_kritis/requirements.txt
+  - apps/src/app/logic/building_logic/3_manufaktur/requirements.txt
+  - apps/src/app/logic/building_logic/4_peternakan/requirements.txt
+  - apps/src/app/logic/building_logic/5_agrikultur/requirements.txt
+  - apps/src/app/logic/building_logic/6_perikanan/requirements.txt
+  - apps/src/app/logic/building_logic/7_olahan_pangan/requirements.txt
+  - apps/src/app/logic/building_logic/8_farmasi/requirements.txt
+
+B. Metadata bangunan
+- Dipakai untuk mengambil info seperti:
+  - biaya pembangunan
+  - produksi per hari
+  - deskripsi bangunan
+  - label bangunan
+
+C. Data produksi negara
+- Dipakai untuk menampilkan status material berdasarkan produksi per hari.
+- Untuk kategori Mineral & Energi, data produksi per hari diambil dari logika produksi yang sudah ada.
+- Untuk kategori lain, tetap memakai struktur yang sama namun sumber datanya bisa disesuaikan per sektor.
+
+D. Data negara saat ini
+- Dipakai untuk cek:
+  - anggaran negara
+  - stok material yang dimiliki negara
+  - jumlah bangunan yang sudah ada
+
+2. CARA MENENTUKAN SEKTOR DAN BANGUNAN
+--------------------------------------
+- Saat user klik bangunan di tab ProduksiModal, sistem harus tahu:
+  1. tab aktif mana yang dipilih
+  2. key bangunan apa yang dipilih
+
+Contoh:
+- tab aktif = "mineral"
+- bangunan yang dipilih = "emas"
+- maka sistem akan cari data di folder:
+  apps/src/app/logic/building_logic/2_mineral_kritis/requirements.txt
+
+3. STRUKTUR DATA YANG AKAN DIBACA DARI requirements.txt
+------------------------------------------------------
+Format yang sudah ada adalah seperti ini:
+
+=> kelistrikan
+1. pembangkit_listrik_tenaga_gas
+ > pembangunan:
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ ...
+ > bahan bakar:
+ gas alam (dari gas_alam)
+
+Logika yang diusulkan:
+- Baca blok bangunan yang dipilih.
+- Ambil semua baris material di bawah bagian "pembangunan" dan "bahan bakar".
+- Untuk setiap material, parsing nama material dan key sumbernya dari bagian "(dari ... )".
+
+Contoh hasil parsing:
+{
+  "buildingKey": "pembangkit_listrik_tenaga_gas",
+  "category": "kelistrikan",
+  "requirements": [
+    { "label": "semen beton", "resourceKey": "semen_beton", "group": "pembangunan" },
+    { "label": "gas alam", "resourceKey": "gas_alam", "group": "bahan bakar" }
+  ]
+}
+
+4. ALUR RUNTIME SUB-MODAL
+-------------------------
+Langkah 1 - User klik bangunan
+- ProduksiModal memanggil handler onBuildClick(key, label)
+- selectedBuilding di-set
+
+Langkah 2 - Sub-modal terbuka
+- Sistem memeriksa bangunan yang dipilih
+- Menentukan folder requirements berdasarkan tab aktif
+
+Langkah 3 - Ambil daftar material
+- Buka file requirements.txt sesuai sektor
+- Cari blok bangunan yang sesuai
+- Ambil semua material kebutuhan pembangunan
+
+Langkah 4 - Mapping material ke data internal
+- Untuk setiap material, gunakan resourceKey hasil parsing
+- Cek apakah resourceKey ada di data negara / metadata / produksi
+
+Langkah 5 - Tampilkan isi sub-modal
+Sub-modal akan menampilkan:
+- nama bangunan
+- deskripsi bangunan
+- daftar material yang dibutuhkan
+- jumlah / kebutuhan per material
+- status ketersediaan material dari negara
+- biaya pembangunan
+- estimasi waktu pembangunan
+- produksi per hari (jika ada)
+
+Langkah 6 - Konfirmasi pembangunan
+- Jika user menekan tombol "Mulai Pembangunan",
+  sistem akan:
+  - mengurangi anggaran negara
+  - menambah jumlah bangunan
+  - menandai tanggal pembangunan
+  - menutup sub-modal
+
+5. LOGIKA KHUSUS MINERAL & ENERGI
+--------------------------------
+Untuk kategori Mineral & Energi, material yang akan ditampilkan perlu dibedakan menjadi dua tipe:
+
+A. Material fisik / sumber daya utama
+- Contoh: emas, uranium, batu_bara, gas_alam, minyak_bumi, nikel, tembaga, aluminium, dll.
+- Data bisa diambil dari produksi per hari dan data negara.
+
+B. Material pendukung pembangunan
+- Contoh: semen beton, kayu, baja, tembaga, aluminium, nikel, besi.
+- Data diambil dari metadata / data negara / resource state.
+
+Jadi untuk kategori ini, sub-modal bisa menampilkan dua bagian:
+- Material utama yang diproduksi per hari
+- Material konstruksi pendukung
+
+6. REKOMENDASI STRUKTUR IMPLEMENTASI
+-----------------------------------
+Untuk memudahkan pengembangan, usulan struktur berikut:
+
+- apps/src/app/logic/building_logic/
+  - index.ts          -> helper pusat untuk memilih sektor berdasarkan tab/bangunan
+  - utils/
+    - parseRequirements.ts
+    - resolveBuildingRequirements.ts
+
+- apps/src/app/page/.../1_produksi/
+  - ProduksiModal.tsx
+  - data/*.tsx
+  - alur_submodal_konfirmasi_pembangunan.txt  (file ini)
+
+7. OUTPUT YANG DIHARAPKAN DI UI
+------------------------------
+Saat sub-modal tampil, user akan melihat tampilan seperti:
+- Nama bangunan
+- Daftar material yang dibutuhkan
+- Setiap material memiliki informasi:
+  - nama material
+  - sumber data internal
+  - status ketersediaan
+  - jumlah kebutuhan
+
+8. CATATAN IMPLEMENTASI SELANJUTNYA
+----------------------------------
+- Tidak perlu langsung mengubah semua logika sekaligus.
+- Prioritas pertama: tampilkan daftar material dari requirements.txt.
+- Prioritas kedua: tambahkan status ketersediaan material dari data negara.
+- Prioritas ketiga: tambahkan integrasi dengan produksi per hari untuk kategori Mineral & Energi.
