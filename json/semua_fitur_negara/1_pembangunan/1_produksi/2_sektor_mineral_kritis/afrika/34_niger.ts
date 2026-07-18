@@ -5,7 +5,7 @@ const niger_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 7,
+  emas: 16,
   tembaga: 0,
   batu_bara: 1,
   minyak_bumi: 1,

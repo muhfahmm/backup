@@ -1,9 +1,12 @@
-// detail path: #[[file:c:\utama\project\project-sendiri\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\debugAPBN.tsx:1-459]]
 "use client";
 
 import React, { useEffect, useState } from 'react';
 import { X, Bug, Search } from 'lucide-react';
-import { calculateGoldMiningDailyProduction } from '@/app/logic/economic_logic/goldIncome';
+import {
+  calculateTotalMinistryCostPerDay,
+  calculateGoldIncome,
+  calculateTotalTaxIncome,
+} from '@/app/logic/economic_logic/treasuryUpdater';
 import { COUNTRIES_DATA } from '@/app/page/map_system/map-data';
 
 interface DebugAPBNProps {
@@ -57,32 +60,19 @@ export default function DebugAPBN({
     detail?.name_id || detail?.nama_negara || detail?.country || detail?.country_name || detail?.__fileName || 'Unknown';
 
   const computeTaxValue = (detail: any) => {
-    const incomeTax = detail?.income_tax ?? detail?.pajak?.penghasilan?.tarif ?? 15;
-    const corporateTax = detail?.corporate ?? detail?.pajak?.korporasi?.tarif ?? 22;
-    const vat = detail?.ppn ?? detail?.pajak?.ppn?.tarif ?? 10;
-    const cigaretteTax = detail?.cigarette_tax ?? detail?.pajak?.bea_cukai?.tarif ?? 15;
-    const environmentTax = detail?.environment_tax ?? detail?.pajak?.lingkungan?.tarif ?? 5;
+    return calculateTotalTaxIncome(detail);
+  };
 
-    return (
-      calcTax(incomeTax) +
-      calcTax(corporateTax) +
-      calcTax(vat) +
-      calcTax(cigaretteTax) +
-      calcTax(environmentTax)
-    );
+  const computeTaxMonthly = (detail: any) => {
+    return computeTaxValue(detail) * 30;
   };
 
   const computeGoldValue = (detail: any) => {
-    if (typeof detail?.emas === 'number') {
-      return calculateGoldMiningDailyProduction(detail);
-    }
-    if (typeof detail?.tambang_emas_daily === 'number') {
-      return detail.tambang_emas_daily;
-    }
-    if (typeof detail?.gold_income === 'number') {
-      return detail.gold_income;
-    }
-    return 0;
+    return calculateGoldIncome(detail);
+  };
+
+  const computeGoldMonthly = (detail: any) => {
+    return computeGoldValue(detail) * 30;
   };
 
   const normalizeContinent = (continent: any) => {
@@ -115,15 +105,7 @@ export default function DebugAPBN({
   };
 
   const computeMinistryCost = (detail: any) => {
-    if (!detail || typeof detail !== 'object') return 0;
-    let computed = 0;
-    for (const key of Object.keys(detail)) {
-      if (key.startsWith('level_')) {
-        const lvl = Number(detail[key]) || 1;
-        computed += LEVEL_UP_COST[lvl] ?? 100;
-      }
-    }
-    return computed;
+    return calculateTotalMinistryCostPerDay(detail);
   };
 
   // Handler sorting
@@ -220,6 +202,7 @@ export default function DebugAPBN({
 
   const detail = singleCountryDetail ?? countryDetail ?? {};
 
+  // Use daily values to match the actual harian values displayed in Neraca Keuangan
   const finalComputedTaxIncome = hasInteracted
     ? (typeof taxIncome === 'number' ? taxIncome : computeTaxValue(detail))
     : computeTaxValue(detail);
@@ -256,7 +239,7 @@ export default function DebugAPBN({
     // Ambil data dan filter berdasarkan search
     let rows = allCountries.map((country) => {
       const tax = computeTaxValue(country);
-      const gold = computeGoldValue(country);
+      const gold = computeGoldValue(country); // EM value
       const ministry = computeMinistryCost(country);
       const net = tax + gold - ministry;
       const continent = normalizeContinent(country.continent || getContinentFromOrder(country.__fileOrder));
@@ -420,7 +403,7 @@ export default function DebugAPBN({
                       className="px-4 py-3 border-b border-[#c4b49c] text-right cursor-pointer hover:bg-[#ddd0b8] transition"
                       onClick={() => handleSort('net')}
                     >
-                      Net Balance Harian{renderSortArrow('net')}
+                      Netto APBN{renderSortArrow('net')}
                     </th>
                   </tr>
                 </thead>

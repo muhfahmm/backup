@@ -29,8 +29,8 @@ export const GOLD_MINING_PRODUCTION_PER_BUILDING = goldMetadata?.produksi ?? 600
 
 // Harga jual per unit TIDAK ada di JSON (JSON cuma data produksi/biaya bangun),
 // jadi tetap dikonfigurasi manual di sini untuk keperluan balance ekonomi.
-export const GOLD_MINING_PRICE_PER_UNIT = 150;
-export const GOLD_MINING_DAYS_PER_MONTH = 30;
+// Harga jual per unit dan asumsi hari sebulan dihapus —
+// semua perhitungan harus mengacu pada produksi (dari JSON).
 
 // ============================================
 // GOLD MINING CALCULATIONS
@@ -50,13 +50,5 @@ export const calculateGoldMiningDailyProduction = (countryDetail: any) => {
  * Menghitung total pendapatan emas BULANAN (dalam EM).
  * Formula: produksi harian × harga per unit × jumlah hari dalam sebulan
  */
-export const calculateGoldMiningMonthlyIncome = (countryDetail: any) => {
-  const dailyProduction = calculateGoldMiningDailyProduction(countryDetail);
-  if (dailyProduction <= 0) {
-    return 0;
-  }
-
-  return Math.round(
-    dailyProduction * GOLD_MINING_PRICE_PER_UNIT * GOLD_MINING_DAYS_PER_MONTH
-  );
-};
+// Monthly income calculation removed — prefer explicit conversion
+// elsewhere if EM conversion is required.

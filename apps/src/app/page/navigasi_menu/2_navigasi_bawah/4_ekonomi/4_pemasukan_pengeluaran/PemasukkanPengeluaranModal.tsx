@@ -7,6 +7,7 @@ import {
   calculateGoldIncome,
   calculateMinistryCost,
 } from "@/app/logic/economic_logic/treasuryUpdater";
+import { calculateGoldMiningDailyProduction, GOLD_MINING_PRODUCTION_PER_BUILDING } from "@/app/logic/economic_logic/goldIncome";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
 import FinansialGlobal from "./finansial_global/finansialGlobal";
 
@@ -21,6 +22,7 @@ interface FinancialItem {
   label: string;
   amount: number;
   subtitle?: string;
+  extra?: string;
   displayAmount?: string;
 }
 
@@ -58,6 +60,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
   const tourismIncome = calculateTourismIncome(countryDetail); // opsional
 
   const goldBuildingCount = Number(countryDetail?.emas) || 0;
+  const goldUnits = calculateGoldMiningDailyProduction(countryDetail);
 
   const incomeItems: FinancialItem[] = [
     { label: "Revenue Pajak", amount: taxRevenue },
@@ -66,10 +69,10 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
         ? `Produksi Tambang Emas (${goldIncome.toLocaleString('id-ID')})`
         : "Produksi Tambang Emas",
       amount: goldIncome,
-      displayAmount: goldBuildingCount > 0 ? `+ ${goldIncome.toLocaleString('id-ID')}` : undefined,
+      displayAmount: goldBuildingCount > 0 ? `+ ${goldUnits.toLocaleString('id-ID')} unit` : undefined,
       subtitle: goldBuildingCount > 0
-        ? `600 × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldIncome.toLocaleString('id-ID')}`
-        : undefined
+        ? `${GOLD_MINING_PRODUCTION_PER_BUILDING} × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldUnits.toLocaleString('id-ID')} unit`
+        : undefined,
     }
     // Jika ingin memasukkan pariwisata, tambahkan item di sini
   ];
@@ -218,6 +221,11 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                         {item.subtitle && (
                           <div className="text-[10px] text-[#5c3c10] pl-1 pb-2">
                             {item.subtitle}
+                          </div>
+                        )}
+                        {item.extra && (
+                          <div className="text-[10px] text-[#5c3c10] pl-1 pb-2 font-semibold">
+                            {item.extra}
                           </div>
                         )}
                       </div>

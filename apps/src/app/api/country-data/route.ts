@@ -207,78 +207,104 @@ export async function GET(request: Request) {
         };
 
         if (requestAll) {
-            const taxFiles: string[] = [];
-            const findTaxFiles = (dir: string) => {
-                const files = fs.readdirSync(dir);
-                for (const file of files) {
-                    const fullPath = path.join(dir, file);
-                    if (fs.statSync(fullPath).isDirectory()) {
-                        findTaxFiles(fullPath);
-                    } else {
-                        taxFiles.push(fullPath);
-                    }
-                }
-            };
+            const countryPathsFilePath = path.join(projectRoot, 'apps/src/app/page/map_system/country-paths.json');
+            let countryPathsList: string[] = [];
+            try {
+                const fileContent = fs.readFileSync(countryPathsFilePath, 'utf8');
+                const countryPathsData = JSON.parse(fileContent.replace(/^\uFEFF/, ''));
+                countryPathsList = Object.values(countryPathsData);
+            } catch (err) {
+                console.error('Failed to read country-paths.json:', err);
+                return NextResponse.json({ error: 'Failed to read country-paths.json' }, { status: 500 });
+            }
 
-            findTaxFiles(taxRoot);
-            const countryKeys = new Set(taxFiles.map((filePath) => getCountryKey(filePath)));
-
-            const collectCountryFiles = (dir: string) => {
-                const files: string[] = [];
-                const walk = (currentDir: string) => {
-                    const entries = fs.readdirSync(currentDir);
-                    for (const entry of entries) {
-                        const fullPath = path.join(currentDir, entry);
+            // Index extraction files recursively once to avoid nested search
+            const extractionFilesByFilename: Record<string, string[]> = {};
+            const ekstraksiRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');
+            if (fs.existsSync(ekstraksiRoot)) {
+                const indexEkstraksi = (dir: string) => {
+                    const files = fs.readdirSync(dir);
+                    for (const file of files) {
+                        const fullPath = path.join(dir, file);
                         if (fs.statSync(fullPath).isDirectory()) {
-                            walk(fullPath);
-                        } else if (countryKeys.has(getCountryKey(fullPath))) {
-                            files.push(fullPath);
+                            indexEkstraksi(fullPath);
+                        } else {
+                            if (!extractionFilesByFilename[file]) {
+                                extractionFilesByFilename[file] = [];
+                            }
+                            extractionFilesByFilename[file].push(fullPath);
                         }
                     }
                 };
-                walk(dir);
-                return files;
-            };
+                indexEkstraksi(ekstraksiRoot);
+            }
 
-            const countryProfileFiles = collectCountryFiles(jsonRoot);
-            const countryLevelFiles = collectCountryFiles(levelRoot);
-            const extractionRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');
-            const extractionFiles: string[] = [];
-            const collectExtractionFiles = (dir: string) => {
-                if (!fs.existsSync(dir)) return;
-                const entries = fs.readdirSync(dir);
-                for (const entry of entries) {
-                    const fullPath = path.join(dir, entry);
-                    if (fs.statSync(fullPath).isDirectory()) {
-                        collectExtractionFiles(fullPath);
-                    } else if (countryKeys.has(getCountryKey(fullPath))) {
-                        extractionFiles.push(fullPath);
+            // Index profile files recursively once
+            const profileFilesByFilename: Record<string, string[]> = {};
+            if (fs.existsSync(jsonRoot)) {
+                const indexProfiles = (dir: string) => {
+                    const files = fs.readdirSync(dir);
+                    for (const file of files) {
+                        const fullPath = path.join(dir, file);
+                        if (fs.statSync(fullPath).isDirectory()) {
+                            indexProfiles(fullPath);
+                        } else {
+                            if (!profileFilesByFilename[file]) {
+                                profileFilesByFilename[file] = [];
+                            }
+                            profileFilesByFilename[file].push(fullPath);
+                        }
                     }
-                }
-            };
-            collectExtractionFiles(extractionRoot);
+                };
+                indexProfiles(jsonRoot);
+            }
 
             const mergedByCountryKey: Record<string, any> = {};
-            for (const taxFilePath of taxFiles) {
-                const countryKey = getCountryKey(taxFilePath);
-                const countryFilename = path.basename(taxFilePath);
-                const order = extractFileOrder(countryFilename);
-                mergedByCountryKey[countryKey] = {
-                    __fileName: countryFilename,
+
+            for (const countryPath of countryPathsList) {
+                const targetFilename = path.basename(countryPath);
+                const countryKey = getCountryKey(countryPath);
+                const order = extractFileOrder(targetFilename);
+
+                let countryMerged: any = {
+                    __fileName: targetFilename,
                     __fileOrder: order,
                     __continent: getContinentFromOrder(order),
                 };
-            }
 
-            for (const filePath of [...taxFiles, ...countryProfileFiles, ...countryLevelFiles, ...extractionFiles]) {
-                const fileData = loadFileData(filePath);
-                if (!fileData) continue;
+                const countryFiles: string[] = [];
 
-                const countryKey = getCountryKey(filePath);
-                mergedByCountryKey[countryKey] = {
-                    ...(mergedByCountryKey[countryKey] || {}),
-                    ...fileData,
-                };
+                // 1. Profile files
+                if (profileFilesByFilename[targetFilename]) {
+                    countryFiles.push(...profileFilesByFilename[targetFilename]);
+                }
+
+                // 2. Level cabinet file
+                const levelCabinetPath = path.join(levelRoot, countryPath);
+                if (fs.existsSync(levelCabinetPath)) {
+                    countryFiles.push(levelCabinetPath);
+                }
+
+                // 3. Tax file
+                const taxPath = path.join(taxRoot, countryPath);
+                if (fs.existsSync(taxPath)) {
+                    countryFiles.push(taxPath);
+                }
+
+                // 4. Extraction files
+                if (extractionFilesByFilename[targetFilename]) {
+                    countryFiles.push(...extractionFilesByFilename[targetFilename]);
+                }
+
+                // Merge all files for this country
+                for (const filePath of countryFiles) {
+                    const parsed = loadFileData(filePath);
+                    if (parsed) {
+                        countryMerged = { ...countryMerged, ...parsed };
+                    }
+                }
+
+                mergedByCountryKey[countryKey] = countryMerged;
             }
 
             return NextResponse.json(Object.values(mergedByCountryKey));

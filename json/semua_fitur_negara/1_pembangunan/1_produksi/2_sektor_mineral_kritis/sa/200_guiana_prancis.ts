@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const guiana_prancis_ekstraksi = {
-  emas: 17,
+  emas: 16,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

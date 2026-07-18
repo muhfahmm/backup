@@ -61,7 +61,8 @@ export const calculateTotalMinistryCostPerDay = (detail: any) => {
 export const calculateCountryNetBalance = (detail: any) => {
   if (!detail || typeof detail !== 'object') return 0;
   const totalTaxIncome = calculateTotalTaxIncome(detail);
-  const goldIncome = calculateGoldMiningDailyProduction(detail);
+  const goldUnits = calculateGoldMiningDailyProduction(detail);
+  const goldIncome = goldUnits; // use production units (from metadata), do not multiply by price
   const ministryCost = calculateTotalMinistryCostPerDay(detail);
   return totalTaxIncome + goldIncome - ministryCost;
 };
