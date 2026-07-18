@@ -1,0 +1,7 @@
+=> sektor farmasi
+1. farmasi
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)

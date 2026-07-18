@@ -1,0 +1,69 @@
+=> sektor olahan pangan
+1. air_mineral
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+
+2. gula
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+3. roti
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+4. pengolahan_daging
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+5. mie_instan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+6. minyak_goreng
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+7. susu
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+8. pakan_ternak
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+9. ikan_kaleng
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)
+
+10. kopi_teh
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ alumunium (dari alumunium)
+ tembaga (dari tembaga)

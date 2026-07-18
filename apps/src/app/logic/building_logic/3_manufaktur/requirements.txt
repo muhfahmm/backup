@@ -1,0 +1,60 @@
+=> manufaktur
+1. semikonduktor
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
+
+2. mobil
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
+
+3. sepeda_motor
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
+
+4. smelter
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
+
+5. semen_beton
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
+
+6. kayu
+ > pembangunan
+ semen beton (dari semen_beton)
+ kayu (dari kayu)
+ baja (dari baja)
+ tembaga (dari tembaga)
+ alumunium (dari alumunium)
+ nikel (dari nikel)
+ besi (dari bijih_besi)
