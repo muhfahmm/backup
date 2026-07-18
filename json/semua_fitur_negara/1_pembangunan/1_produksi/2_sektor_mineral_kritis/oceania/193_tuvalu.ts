@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const tuvalu_ekstraksi = {
-  emas: 24,
+  emas: 3,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

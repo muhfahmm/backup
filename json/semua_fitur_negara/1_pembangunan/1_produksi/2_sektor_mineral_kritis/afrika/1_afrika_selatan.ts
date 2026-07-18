@@ -5,7 +5,7 @@ const afrika_selatan_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 1,
   aluminium: 1,
-  emas: 18,
+  emas: 17,
   tembaga: 5,
   batu_bara: 30,
   minyak_bumi: 1,

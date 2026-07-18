@@ -5,7 +5,7 @@ const republik_zambia_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 17,
+  emas: 16,
   tembaga: 20,
   batu_bara: 0,
   minyak_bumi: 0,

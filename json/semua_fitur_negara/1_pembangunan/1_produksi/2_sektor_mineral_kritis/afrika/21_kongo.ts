@@ -5,7 +5,7 @@ const kongo_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 15,
+  emas: 14,
   tembaga: 1,
   batu_bara: 0,
   minyak_bumi: 5,

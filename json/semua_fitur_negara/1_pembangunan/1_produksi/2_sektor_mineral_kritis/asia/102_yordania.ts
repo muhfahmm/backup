@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const yordania_ekstraksi = {
-  emas: 21,
+  emas: 20,
   uranium: 1,
   batu_bara: 0,
   minyak_bumi: 0,

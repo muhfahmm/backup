@@ -1,6 +1,6 @@
 // @ts-nocheck
 const sri_lanka_ekstraksi = {
-  emas: 21,
+  emas: 20,
   uranium: 0,
   batu_bara: 0,
   minyak_bumi: 0,

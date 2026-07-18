@@ -5,7 +5,7 @@ const seychelles_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 25,
+  emas: 19,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,

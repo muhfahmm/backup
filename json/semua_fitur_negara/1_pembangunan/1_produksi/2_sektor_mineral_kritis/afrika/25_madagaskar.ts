@@ -5,7 +5,7 @@ const madagaskar_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 1,
   aluminium: 0,
-  emas: 18,
+  emas: 17,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,

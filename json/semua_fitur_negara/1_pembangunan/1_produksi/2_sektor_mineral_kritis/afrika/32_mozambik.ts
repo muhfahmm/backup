@@ -5,7 +5,7 @@ const mozambik_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 11,
+  emas: 16,
   tembaga: 0,
   batu_bara: 2,
   minyak_bumi: 0,

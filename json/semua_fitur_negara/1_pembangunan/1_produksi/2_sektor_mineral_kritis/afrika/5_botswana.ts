@@ -5,7 +5,7 @@ const botswana_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 17,
+  emas: 16,
   tembaga: 2,
   batu_bara: 2,
   minyak_bumi: 0,

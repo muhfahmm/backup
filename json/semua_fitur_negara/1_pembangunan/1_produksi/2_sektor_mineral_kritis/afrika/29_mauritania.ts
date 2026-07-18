@@ -5,7 +5,7 @@ const mauritania_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 15,
+  emas: 18,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,

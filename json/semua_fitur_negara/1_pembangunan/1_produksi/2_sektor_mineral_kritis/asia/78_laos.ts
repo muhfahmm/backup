@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const laos_ekstraksi = {
-  emas: 18,
+  emas: 17,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 0,

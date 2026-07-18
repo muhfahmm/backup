@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_rumania_ekstraksi = {
-  emas: 23,
+  emas: 22,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 1,

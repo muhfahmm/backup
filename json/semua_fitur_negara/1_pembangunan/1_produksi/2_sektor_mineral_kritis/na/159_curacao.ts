@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const curacao_ekstraksi = {
-  emas: 30,
+  emas: 29,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 1,

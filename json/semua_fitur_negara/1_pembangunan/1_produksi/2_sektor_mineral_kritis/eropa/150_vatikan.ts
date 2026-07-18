@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const vatikan_ekstraksi = {
-  emas: 22,
+  emas: 21,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 1,

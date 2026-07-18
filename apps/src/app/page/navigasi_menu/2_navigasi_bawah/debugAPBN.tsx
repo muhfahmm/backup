@@ -22,6 +22,11 @@ interface DebugAPBNProps {
   showAllCountries?: boolean;
 }
 
+// Global cache to avoid showing loading state when reopening the modal
+let cachedAllCountries: any[] | null = null;
+const cachedSingleCountries: Record<string, any> = {};
+let cachedDataVersion: number | null = null;
+
 export default function DebugAPBN({
   isOpen,
   onClose,
@@ -35,7 +40,7 @@ export default function DebugAPBN({
   showAllCountries = false,
 }: DebugAPBNProps) {
   const [singleCountryDetail, setSingleCountryDetail] = useState<any | null>(null);
-  const [allCountries, setAllCountries] = useState<any[] | null>(null);
+  const [allCountries, setAllCountries] = useState<any[] | null>(cachedAllCountries);
   const [loading, setLoading] = useState(false);
   const [displayName, setDisplayName] = useState<string>(countryName || 'Negara');
 
@@ -45,6 +50,7 @@ export default function DebugAPBN({
     direction: 'desc',
   });
   const [searchQuery, setSearchQuery] = useState('');
+  const [isRefreshing, setIsRefreshing] = useState(false);
 
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
@@ -122,15 +128,109 @@ export default function DebugAPBN({
     return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
   };
 
+  // Helper to fetch and process all countries data
+  const fetchAndProcessAllCountries = async () => {
+    const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
+    const data = await res.json();
+    if (!Array.isArray(data)) return null;
+    const countryToContinentMap = new Map<string, string>();
+    COUNTRIES_DATA.forEach((c) => {
+      countryToContinentMap.set(c.country.toLowerCase(), c.continent);
+    });
+    return data.map((country) => {
+      const name = getDisplayName(country);
+      const listOrder = extractFileOrder(country.__fileName || country.filename || name);
+      const continent = normalizeContinent(
+        country.__continent ||
+          country.continent ||
+          countryToContinentMap.get(name.toLowerCase()) ||
+          getContinentFromOrder(listOrder)
+      );
+      return { ...country, __displayName: name, continent, __fileOrder: listOrder };
+    });
+  };
+
+  // Prefetch data in background on mount
+  useEffect(() => {
+    const prefetch = async () => {
+      if (cachedAllCountries) return;
+      try {
+        const processed = await fetchAndProcessAllCountries();
+        if (processed) {
+          cachedAllCountries = processed;
+        }
+      } catch (e) {
+        console.warn('Background prefetch failed:', e);
+      }
+    };
+    prefetch();
+  }, []);
+
+  // Polling: detect file changes in 2_sektor_mineral_kritis while modal is open
+  useEffect(() => {
+    if (!isOpen || !showAllCountries) return;
+
+    const poll = async () => {
+      try {
+        const res = await fetch('/api/country-data-version', { cache: 'no-store' });
+        const { version } = await res.json();
+        if (cachedDataVersion !== null && version !== cachedDataVersion) {
+          // File changed — invalidate cache and silently refetch
+          cachedDataVersion = version;
+          cachedAllCountries = null;
+          setIsRefreshing(true);
+          try {
+            const processed = await fetchAndProcessAllCountries();
+            if (processed) {
+              cachedAllCountries = processed;
+              setAllCountries(processed);
+            }
+          } finally {
+            setIsRefreshing(false);
+          }
+        } else {
+          cachedDataVersion = version;
+        }
+      } catch (e) {
+        // silently ignore polling errors
+      }
+    };
+
+    // Poll immediately then every 3 seconds
+    poll();
+    const interval = setInterval(poll, 3000);
+    return () => clearInterval(interval);
+  }, [isOpen, showAllCountries]);
+
   useEffect(() => {
     if (!isOpen) return;
     let mounted = true;
     const load = async () => {
+      setSearchQuery(''); // Reset search saat modal dibuka
+
+      if (showAllCountries) {
+        if (cachedAllCountries) {
+          setAllCountries(cachedAllCountries);
+          setDisplayName('Semua Negara');
+          return;
+        }
+      } else {
+        const countryKey = countryName || 'default';
+        if (countryDetail) {
+          setDisplayName(countryName || 'Negara');
+          return;
+        }
+        if (cachedSingleCountries[countryKey]) {
+          setSingleCountryDetail(cachedSingleCountries[countryKey]);
+          setDisplayName(countryName || 'Negara');
+          return;
+        }
+      }
+
       setLoading(true);
       setSingleCountryDetail(null);
       setAllCountries(null);
       setDisplayName(countryName || 'Negara');
-      setSearchQuery(''); // Reset search saat modal dibuka
       try {
         if (showAllCountries) {
           const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
@@ -140,30 +240,29 @@ export default function DebugAPBN({
             console.warn('Failed loading all-country data:', data.error);
             setAllCountries(null);
           } else if (Array.isArray(data)) {
-            // Buat mapping nama negara -> Benua berdasarkan COUNTRIES_DATA
             const countryToContinentMap = new Map<string, string>();
             COUNTRIES_DATA.forEach((c) => {
               countryToContinentMap.set(c.country.toLowerCase(), c.continent);
             });
 
-            setAllCountries(
-              data.map((country) => {
-                const name = getDisplayName(country);
-                const listOrder = extractFileOrder(country.__fileName || country.filename || name);
-                const continent = normalizeContinent(
-                  country.__continent ||
-                    country.continent ||
-                    countryToContinentMap.get(name.toLowerCase()) ||
-                    getContinentFromOrder(listOrder)
-                );
-                return {
-                  ...country,
-                  __displayName: name,
-                  continent,
-                  __fileOrder: listOrder,
-                };
-              })
-            );
+            const processed = data.map((country) => {
+              const name = getDisplayName(country);
+              const listOrder = extractFileOrder(country.__fileName || country.filename || name);
+              const continent = normalizeContinent(
+                country.__continent ||
+                  country.continent ||
+                  countryToContinentMap.get(name.toLowerCase()) ||
+                  getContinentFromOrder(listOrder)
+              );
+              return {
+                ...country,
+                __displayName: name,
+                continent,
+                __fileOrder: listOrder,
+              };
+            });
+            cachedAllCountries = processed;
+            setAllCountries(processed);
             setDisplayName('Semua Negara');
           } else {
             setAllCountries([]);
@@ -177,6 +276,8 @@ export default function DebugAPBN({
             console.warn('Failed loading country data:', data.error);
             setSingleCountryDetail(null);
           } else {
+            const countryKey = countryName || 'default';
+            cachedSingleCountries[countryKey] = data;
             setSingleCountryDetail(data);
             setDisplayName(countryName || 'Negara');
           }
@@ -196,7 +297,7 @@ export default function DebugAPBN({
     return () => {
       mounted = false;
     };
-  }, [isOpen, countryDetail, showAllCountries]);
+  }, [isOpen, countryDetail, showAllCountries, countryName]);
 
   if (!isOpen) return null;
 
@@ -328,7 +429,17 @@ export default function DebugAPBN({
           <div className="flex items-center gap-3">
             <Bug className="w-5 h-5 text-[#5ea3b1]" />
             <div>
-              <h2 className="text-lg font-bold">Debug APBN</h2>
+              <div className="flex items-center gap-2">
+                <h2 className="text-lg font-bold">Debug APBN</h2>
+                {showAllCountries && (
+                  <span
+                    title={isRefreshing ? 'Memperbarui data...' : 'Live update aktif'}
+                    className={`inline-block w-2 h-2 rounded-full ${
+                      isRefreshing ? 'bg-yellow-500 animate-ping' : 'bg-emerald-500'
+                    }`}
+                  />
+                )}
+              </div>
               <p className="text-sm text-black/60">{showAllCountries ? 'Semua 207 negara' : displayName}</p>
             </div>
           </div>

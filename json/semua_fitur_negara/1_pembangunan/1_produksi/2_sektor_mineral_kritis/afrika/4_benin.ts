@@ -5,7 +5,7 @@ const benin_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 21,
+  emas: 20,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,

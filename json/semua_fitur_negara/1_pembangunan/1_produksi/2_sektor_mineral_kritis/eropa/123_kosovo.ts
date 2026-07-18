@@ -1,6 +1,6 @@
 ﻿// @ts-nocheck
 const kosovo_ekstraksi = {
-  emas: 27,
+  emas: 26,
   uranium: 0,
   batu_bara: 1,
   minyak_bumi: 0,

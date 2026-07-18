@@ -5,7 +5,7 @@ const burundi_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 1,
   aluminium: 0,
-  emas: 16,
+  emas: 15,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,

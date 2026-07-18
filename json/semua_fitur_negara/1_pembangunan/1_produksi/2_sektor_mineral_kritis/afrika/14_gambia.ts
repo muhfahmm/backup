@@ -5,7 +5,7 @@ const gambia_ekstraksi = {
   litium: 0,
   logam_tanah_jarang: 0,
   aluminium: 0,
-  emas: 11,
+  emas: 17,
   tembaga: 0,
   batu_bara: 0,
   minyak_bumi: 0,
