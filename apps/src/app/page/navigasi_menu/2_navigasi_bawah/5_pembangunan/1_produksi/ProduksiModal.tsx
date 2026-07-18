@@ -7,14 +7,14 @@ import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../
 import { logger } from '../../../../../../lib/logger';
 
 // Import 8 Komponen Tab yang sudah dipisah
-import KelistrikanTab from "./data/1_kelistrikan";
-import MineralEnergiTab from "./data/2_mineral_energi";
-import ManufakturTab from "./data/3_manufaktur";
-import PeternakanTab from "./data/4_peternakan";
-import AgrikulturTab from "./data/5_agrikultur";
-import PerikananTab from "./data/6_perikanan";
-import OlahanPanganTab from "./data/7_olahan_pangan";
-import FarmasiTab from "./data/8_farmasi";
+import KelistrikanTab from "./card_data/1_kelistrikan";
+import MineralEnergiTab from "./card_data/2_mineral_energi";
+import ManufakturTab from "./card_data/3_manufaktur";
+import PeternakanTab from "./card_data/4_peternakan";
+import AgrikulturTab from "./card_data/5_agrikultur";
+import PerikananTab from "./card_data/6_perikanan";
+import OlahanPanganTab from "./card_data/7_olahan_pangan";
+import FarmasiTab from "./card_data/8_farmasi";
 
 interface ModalProps {
   isOpen: boolean;
