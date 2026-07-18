@@ -66,14 +66,28 @@ export default function BaseProduksiGrid({
               role="button"
               tabIndex={0}
               aria-disabled={!isAvailable}
-              onMouseEnter={() => setHoveredBuildingKey(key)}
-              onMouseLeave={() => setHoveredBuildingKey(null)}
               className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'}`}
             >
-              {/* Info Tooltip */}
+              {/* Info Tooltip – hanya muncul jika hoveredBuildingKey === key */}
               {hoveredBuildingKey === key && (
                 <div className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150">
-                  <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE] mb-2">ℹ️ Info Bangunan</div>
+                  {/* Header dengan judul dan tombol close (X) */}
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE]">
+                      ℹ️ Info Bangunan
+                    </div>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setHoveredBuildingKey(null);
+                      }}
+                      className="text-[#FAF6EE]/70 hover:text-[#FAF6EE] transition-colors ml-2"
+                      aria-label="Tutup info"
+                    >
+                      ✕
+                    </button>
+                  </div>
+
                   <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
                     {isElectricityTab ? (
                       <>
@@ -117,10 +131,10 @@ export default function BaseProduksiGrid({
                     <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{label}</p>
                     <button
                       className="flex items-center justify-center w-5 h-5 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-help"
-                      onMouseEnter={() => setHoveredBuildingKey(key)}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setHoveredBuildingKey(key);
+                        // Toggle: jika sedang terbuka untuk kartu ini, tutup; jika tidak, buka
+                        setHoveredBuildingKey(hoveredBuildingKey === key ? null : key);
                       }}
                       title="Info bangunan"
                     >
