@@ -66,6 +66,8 @@ interface ModalsManagerProps {
   } | null;
   currentDate?: Date;
   resetTrigger?: boolean;
+  productionDeepLink?: { tab: string; key: string } | null;
+  setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
 }
 
 function ModalsManager({
@@ -76,6 +78,8 @@ function ModalsManager({
   selectedCountry,
   currentDate,
   resetTrigger,
+  productionDeepLink,
+  setProductionDeepLink,
 }: ModalsManagerProps) {
   // Jika tidak ada negara yang dipilih, jangan render apapun
   if (!selectedCountry) return null;
@@ -226,6 +230,9 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           currentDate={currentDate}
+          targetTab={productionDeepLink?.tab}
+          targetHighlightedKey={productionDeepLink?.key}
+          onProductionDeepLinkHandled={() => setProductionDeepLink?.(null)}
         />
       );
     case "Menu:TempatUmum":
@@ -235,6 +242,10 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          onGotoProduction={(tab, key) => {
+            setActiveMenu("Menu:Produksi");
+            setProductionDeepLink?.({ tab, key });
+          }}
         />
       );
     case "Menu:HunianPermukiman":

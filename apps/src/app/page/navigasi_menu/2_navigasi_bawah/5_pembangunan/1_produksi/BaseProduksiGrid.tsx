@@ -15,6 +15,7 @@ interface BaseProduksiGridProps {
   setHoveredBuildingKey: (key: string | null) => void;
   isBuildingAvailable?: (buildingKey: string, countryName: string) => boolean;
   isElectricityTab: boolean;
+  highlightedCardKey?: string | null;
 }
 
 export default function BaseProduksiGrid({
@@ -28,6 +29,7 @@ export default function BaseProduksiGrid({
   onBuildClick,
   hoveredBuildingKey,
   setHoveredBuildingKey,
+  highlightedCardKey,
   isBuildingAvailable,
   isElectricityTab
 }: BaseProduksiGridProps) {
@@ -57,6 +59,7 @@ export default function BaseProduksiGrid({
           const bMeta = findMeta(key) || {};
           const perCount = Number(countryDetail?.[key]) || 0;
           const label = formatLabel(key);
+          const isHighlighted = highlightedCardKey === key;
           const isAvailable = isBuildingAvailable ? isBuildingAvailable(key, countryDetail?.country || '') : true;
 
           return (
@@ -66,7 +69,7 @@ export default function BaseProduksiGrid({
               role="button"
               tabIndex={0}
               aria-disabled={!isAvailable}
-              className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'}`}
+              className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'} ${isHighlighted ? 'border-emerald-500 border-2 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]' : ''}`}
             >
               {/* Info Tooltip – hanya muncul jika hoveredBuildingKey === key */}
               {hoveredBuildingKey === key && (

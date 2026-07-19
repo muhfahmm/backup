@@ -43,6 +43,7 @@ export default function MapPage() {
     const [isRestartConfirmOpen, setIsRestartConfirmOpen] = useState(false);
     const [activeMenu, setActiveMenu] = useState('Peta Taktis');
     const [resetTrigger, setResetTrigger] = useState(false);
+    const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
@@ -444,6 +445,8 @@ export default function MapPage() {
                 selectedCountry={selectedCountry}
                 currentDate={currentDate}
                 resetTrigger={resetTrigger}
+                productionDeepLink={productionDeepLink}
+                setProductionDeepLink={setProductionDeepLink}
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
