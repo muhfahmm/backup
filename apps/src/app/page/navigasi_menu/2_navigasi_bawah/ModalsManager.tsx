@@ -1,7 +1,8 @@
 // detail path: c:\EM\apps\src\app\page\navigasi_menu\2_navigasi_bawah\ModalsManager.tsx
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { fetchBuildingMetadata } from '../../../../lib/buildingMetadata';
 
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
@@ -81,6 +82,14 @@ function ModalsManager({
   productionDeepLink,
   setProductionDeepLink,
 }: ModalsManagerProps) {
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+    fetchBuildingMetadata()
+      .then((data) => setMetadata(data || {}))
+      .catch((err) => console.error('ModalsManager: failed to load building metadata', err));
+  }, []);
+
   // Jika tidak ada negara yang dipilih, jangan render apapun
   if (!selectedCountry) return null;
 
@@ -142,6 +151,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          metadata={metadata}
         />
       );
     case "Menu:Perminyakan":

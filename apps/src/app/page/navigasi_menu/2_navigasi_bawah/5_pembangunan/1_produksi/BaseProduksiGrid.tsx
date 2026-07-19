@@ -225,42 +225,50 @@ export default function BaseProduksiGrid({
                   <p className="text-2xl font-black mt-2 text-[#2e261a]">{perCount}</p>
                   <p className="text-[10px] mt-1 font-bold text-[#8b7e66]">{perCount} bangunan</p>
                   
-                  {/* --- KONSUMSI BAHAN BAKAR PADA PLTU, PLTG, PLTN (TANPA BARIS TOTAL) --- */}
-                  {hasFuelConsumption && (
+                  {/* --- KONSUMSI BAHAN BAKAR (TANPA PERKALIAN, LANGSUNG JUMLAH) --- */}
+                  {hasFuelConsumption && perCount > 0 && (
                     <div className="text-[10px] mt-1 text-[#b02a37] font-semibold space-y-1">
-                      <p>Konsumsi per unit:</p>
-                      {fuelRequirements.map((rule) => (
-                        <p key={rule.resourceKey}>
-                          {rule.label} {rule.amount} × {perCount}
-                        </p>
-                      ))}
+                      {fuelRequirements.map((rule) => {
+                        const totalConsumption = rule.amount * perCount;
+                        return (
+                          <div key={rule.resourceKey} className="flex justify-between">
+                            <span>{rule.label}</span>
+                            <span className="font-black">{totalConsumption.toLocaleString('id-ID')}</span>
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
+                  {/* --------------------------------------------------------- */}
                 </div>
                 
-                {/* --- BAGIAN PRODUKSI PER HARI DI BAWAH KARTU LISTRIK TELAH DIHAPUS --- */}
-
-                {/* --- NET BALANCE PADA KARTU BAHAN BAKAR (TERHITUNG & BISA MINUS) --- */}
+                {/* --- FOOTER KARTU LISTRIK (HANYA ANGKA & LABEL, TANPA x MW) --- */}
+                {isElectricityTab && (
+                  <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
+                    <span className="font-black text-xl text-[#2e261a]">
+                      {(perCount * Number(bMeta?.produksi || 0)).toLocaleString('id-ID')} MW
+                    </span>
+                  </div>
+                )}
+                
+                {/* --- FOOTER KARTU NON-LISTRIK (SEJAJAR DENGAN min-height) --- */}
                 {!isElectricityTab && (
-                  <div className="border-t border-[#C4B49C]/20 mt-4 pt-2 text-xs">
-                    <div className="text-center">
-                      {isFuelResource ? (() => {
-                        const totalProd = calculateProductionAmount(key);
-                        const totalCons = currentFuelConsumption;
-                        const netBalance = totalProd === 0 ? 0 : totalProd - totalCons;
-                        const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
-
-                        return (
-                          <span className={`font-black text-lg ${colorClass}`}>
-                            {netBalance.toLocaleString('id-ID')}
-                          </span>
-                        );
-                      })() : (
-                        <span className="font-black text-lg text-[#2e261a]">
-                          {calculateProductionAmount(key).toLocaleString('id-ID')}
+                  <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
+                    {isFuelResource ? (() => {
+                      const totalProd = calculateProductionAmount(key);
+                      const totalCons = currentFuelConsumption;
+                      const netBalance = totalProd === 0 ? 0 : totalProd - totalCons;
+                      const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
+                      return (
+                        <span className={`font-black text-xl ${colorClass}`}>
+                          {netBalance.toLocaleString('id-ID')}
                         </span>
-                      )}
-                    </div>
+                      );
+                    })() : (
+                      <span className="font-black text-xl text-[#2e261a]">
+                        {calculateProductionAmount(key).toLocaleString('id-ID')}
+                      </span>
+                    )}
                   </div>
                 )}
               </div>
