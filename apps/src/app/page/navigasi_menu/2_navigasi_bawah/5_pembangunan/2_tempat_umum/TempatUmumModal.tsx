@@ -88,6 +88,19 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
 
+  // --- FUNGSI findMeta (SAMA SEPERTI DI ProduksiModal) ---
+  const findMeta = (key: string) => {
+    if (!metadata) return undefined;
+    if (metadata[key]) return metadata[key];
+    for (const k of Object.keys(metadata)) {
+      const entry = metadata[k];
+      if (!entry) continue;
+      if (entry.dataKey === key) return entry;
+      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+    }
+    return undefined;
+  };
+
   const getSelectedBuildingRequirements = (): BuildingRequirements | undefined => {
     if (!selectedBuilding) return undefined;
     const module = REQUIREMENTS_MODULES[activeTabId];
@@ -186,16 +199,28 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
   const activeGroup = groups.find((g) => g.id === activeTabId) || groups[0];
   const totalValue = groups.reduce((sum, group) => sum + group.items.reduce((inner, item) => inner + (item.value || 0), 0), 0);
 
-  const totalProduction = Number(data.pembangkit_listrik_tenaga_nuklir) || 0 +
-    Number(data.pembangkit_listrik_tenaga_air) || 0 +
-    Number(data.pembangkit_listrik_tenaga_surya) || 0 +
-    Number(data.pembangkit_listrik_tenaga_uap) || 0 +
-    Number(data.pembangkit_listrik_tenaga_gas) || 0 +
-    Number(data.pembangkit_listrik_tenaga_angin) || 0;
+  // --- PERBAIKAN LOGIKA PRODUKSI & KONSUMSI (SAMA SEPERTI PRODUKSI MODAL) ---
+  const ELECTRICITY_BUILDINGS_LIST = [
+    'pembangkit_listrik_tenaga_nuklir',
+    'pembangkit_listrik_tenaga_air',
+    'pembangkit_listrik_tenaga_surya',
+    'pembangkit_listrik_tenaga_uap',
+    'pembangkit_listrik_tenaga_gas',
+    'pembangkit_listrik_tenaga_angin',
+  ];
+
+  const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
+    const count = Number(countryDetail?.[bKey]) || 0;
+    const bMeta = findMeta(bKey);
+    const perUnit = Number(bMeta?.produksi || 0);
+    return sum + perUnit * count;
+  }, 0);
+
   const estimatedConsumption = Math.min(
-    totalProduction * 1000,
-    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((data.jumlah_penduduk ?? 0) / 50000)))
+    totalProductionMW,
+    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
   );
+  // ------------------------------------------------------------------------
 
   return (
     <>
@@ -222,7 +247,7 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
                     <TrendingUp className="h-4 w-4 text-emerald-700" />
                     <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
-                    <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                    <span className="text-[11px] font-black text-emerald-700">{totalProductionMW.toLocaleString('id-ID')} MW</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">

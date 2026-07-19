@@ -1,7 +1,7 @@
 "use client"
 import React, { useMemo, useState, useEffect } from "react";
 import { X, ArrowRightLeft, Info } from "lucide-react";
-import JualModalsMenu from "./jual/jualModalsMenu";
+import JualModalsMenu from "./jual/modalsKonfirmasiJual";
 import MitraModalsMenu, { TradePartner } from "./mitra/mitraModalsMenu";
 import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli";
 import { getTradeAgreementsForCountry } from '../../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';

@@ -1,10 +1,10 @@
 "use client"
-import React, { useState, useEffect, useMemo, useCallback } from "react";
-import { X, ChevronDown, Plus, Minus } from "lucide-react";
-import { TradePartner } from "../mitra/mitraModalsMenu";
+import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
+import { X, Send, ChevronDown, Plus, Minus } from "lucide-react";
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateProductionIncrement, formatDate } from '@/app/logic/production_logic';
 import { hitungHargaJual } from "../beli/logic/0_harga_barang/harga_jual_logic";
+import { TradePartner } from "../mitra/mitraModalsMenu";
 import countryPaths from '@/app/page/map_system/country-paths.json';
 
 import { 
@@ -83,36 +83,29 @@ const ALL_JUAL_KEYS = [
   "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh", "farmasi"
 ];
 
-interface ModalsKonfirmasiJualProps {
+interface JualModalsMenuProps {
   isOpen: boolean;
   onClose: () => void;
+  countryDetail: any;
+  setCountryDetail: (detail: any) => void;
   onConfirm: (biaya: number, kuantitas: string) => void;
-  countryDetail: CountryDetail | null;
-  setCountryDetail: (detail: CountryDetail | ((prev: CountryDetail) => CountryDetail)) => void;
-  partners: TradePartner[];
   currentDate?: Date;
-  initialKey: string;
+  partners: TradePartner[];
 }
 
-export default function ModalsKonfirmasiJual({ 
-  isOpen, 
-  onClose, 
-  onConfirm, 
-  countryDetail, 
-  setCountryDetail, 
-  partners,
-  currentDate,
-  initialKey
-}: ModalsKonfirmasiJualProps) {
+export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate, partners }: JualModalsMenuProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
-  const [selectedProduct, setSelectedProduct] = useState<string>(initialKey);
+  const [loadingMetadata, setLoadingMetadata] = useState(true);
+  const [selectedProduct, setSelectedProduct] = useState<string>("");
   const [selectedCountry, setSelectedCountry] = useState<string>("");
   const [quantity, setQuantity] = useState<number>(1);
   const [partnerData, setPartnerData] = useState<Record<string, any> | null>(null);
+  const partnerStartDateRef = useRef<string | null>(null);
 
   useEffect(() => {
     if (!isOpen) return;
-    fetchBuildingMetadata().then((data) => setMetadata(data || {}));
+    setLoadingMetadata(true);
+    fetchBuildingMetadata().then((data) => setMetadata(data || {})).catch(err => console.error(err)).finally(() => setLoadingMetadata(false));
   }, [isOpen]);
 
   useEffect(() => {
@@ -137,6 +130,10 @@ export default function ModalsKonfirmasiJual({
         }
         const json = await res.json();
         setPartnerData(json || null);
+        // Simpan tanggal pertama kali data mitra diambil
+        if (!partnerStartDateRef.current) {
+          partnerStartDateRef.current = currentDate ? formatDate(currentDate) : formatDate(new Date());
+        }
       } catch (e) {
         console.error('Failed to fetch partner country data', e);
         setPartnerData(null);
@@ -144,7 +141,7 @@ export default function ModalsKonfirmasiJual({
     };
 
     fetchData();
-  }, [selectedCountry, partners]);
+  }, [selectedCountry, partners, currentDate]);
 
   const findMeta = useCallback((key: string) => {
     if (!metadata) return undefined;
@@ -157,6 +154,8 @@ export default function ModalsKonfirmasiJual({
     }
     return undefined;
   }, [metadata]);
+
+  const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
 
   const stockAvailable = useMemo(() => {
     if (!selectedProduct) return 0;
@@ -198,12 +197,18 @@ export default function ModalsKonfirmasiJual({
     const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
     const currentDateStr = formatDate(currentDate);
     let pFinalBuildDate: string;
+
     if (typeof pBuildDate === 'string' && pBuildDate) {
       pFinalBuildDate = pBuildDate;
     } else {
-      const yesterday = new Date(currentDate);
-      yesterday.setDate(yesterday.getDate() - 1);
-      pFinalBuildDate = formatDate(yesterday);
+      // Jika tidak ada tanggal, gunakan tanggal pertama kali data mitra diambil, atau 30 hari yang lalu
+      if (partnerStartDateRef.current) {
+        pFinalBuildDate = partnerStartDateRef.current;
+      } else {
+        const thirtyDaysAgo = new Date(currentDate);
+        thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+        pFinalBuildDate = formatDate(thirtyDaysAgo);
+      }
     }
 
     return calculateProductionIncrement(
@@ -267,16 +272,20 @@ export default function ModalsKonfirmasiJual({
     farmasi: hasFarmasiBuilding,
   };
 
+  const getFirstAvailableProduct = (): string => {
+    if (!partnerData) return ALL_JUAL_KEYS[0];
+    return ALL_JUAL_KEYS.find((key) => {
+      const checkFn = checkMap[key];
+      if (checkFn) {
+        return checkFn(partnerData);
+      }
+      return true;
+    }) || ALL_JUAL_KEYS[0];
+  };
+
   useEffect(() => {
     if (isOpen) {
-      const firstAvailable = ALL_JUAL_KEYS.find((key) => {
-        const checkFn = checkMap[key];
-        if (checkFn && !checkFn(partnerData)) {
-          return false;
-        }
-        return true;
-      }) || ALL_JUAL_KEYS[0];
-
+      const firstAvailable = getFirstAvailableProduct();
       setSelectedProduct(firstAvailable);
       if (partners.length > 0) setSelectedCountry(partners[0].nama_negara);
       setQuantity(1);
@@ -285,7 +294,6 @@ export default function ModalsKonfirmasiJual({
 
   if (!isOpen) return null;
 
-  const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   const effectiveSelectedCountry = selectedCountry || partners[0]?.nama_negara || "";
   const currentMeta = findMeta(selectedProduct);
   const totalPrice = hitungHargaJual(currentMeta?.biaya_pembangunan) * quantity;
@@ -315,110 +323,133 @@ export default function ModalsKonfirmasiJual({
   };
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
-        
-        <div className="px-5 py-4 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-          <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Penjualan</h2>
-          <button onClick={onClose} className="p-1.5 rounded-full bg-[#4a5f5f] hover:bg-[#3a4f4f] text-white transition-colors cursor-pointer shadow-sm">
-            <X className="h-4 w-4" />
-          </button>
-        </div>
+    <>
+      {isOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+            
+            {/* HEADER */}
+            <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-rose-600/10 rounded-xl border border-rose-600/20">
+                  <Send className="h-5 w-5 text-rose-700" />
+                </div>
+                <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Jual Komoditas</h2>
+              </div>
+              <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                <X className="h-5 w-5" />
+              </button>
+            </div>
 
-        <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
-          <div className="grid grid-cols-2 gap-4">
-            <div className="flex flex-col gap-1">
-              <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
-              <div className="relative">
-                <select
-                  value={selectedProduct}
-                  onChange={(e) => setSelectedProduct(e.target.value)}
-                  className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
-                >
-                  {ALL_JUAL_KEYS.map((key) => {
-                    const checkFn = checkMap[key];
-                    const disabled = checkFn ? !checkFn(partnerData) : false;
+            {/* BODY - LAYOUT SEPERTI BELI */}
+            <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex flex-col gap-1">
+                  <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
+                  <div className="relative">
+                    <select
+                      value={selectedProduct}
+                      onChange={(e) => setSelectedProduct(e.target.value)}
+                      className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
+                    >
+                      {ALL_JUAL_KEYS.map((key) => {
+                        const checkFn = checkMap[key];
+                        const disabled = checkFn ? !checkFn(partnerData) : false;
+                        return (
+                          <option 
+                            key={key} 
+                            value={key} 
+                            disabled={disabled}
+                            className={disabled ? 'text-red-500 font-bold' : ''}
+                          >
+                            {formatLabel(key)}
+                          </option>
+                        );
+                      })}
+                    </select>
+                    <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
+                  </div>
+                </div>
 
-                    return (
-                      <option 
-                        key={key} 
-                        value={key} 
-                        disabled={disabled}
-                        className={disabled ? 'text-red-500 font-bold' : ''}
-                      >
-                        {formatLabel(key)}
-                      </option>
-                    );
-                  })}
-                </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
+                <div className="flex flex-col gap-1">
+                  <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Negara:</label>
+                  <div className="relative">
+                    <select
+                      value={effectiveSelectedCountry}
+                      onChange={(e) => setSelectedCountry(e.target.value)}
+                      className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
+                    >
+                      {partners.map((p) => (
+                        <option key={p.id} value={p.nama_negara}>{p.nama_negara}</option>
+                      ))}
+                    </select>
+                    <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center pt-1 pb-1 border-b border-[#C4B49C]/10">
+                <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Stok Tersedia (Anda):</span>
+                <span className="text-sm font-black text-[#2e261a]">
+                  {stockAvailable.toLocaleString("id-ID")} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                </span>
+              </div>
+
+              <div className="flex flex-col gap-1">
+                <div className="flex justify-between items-center pt-1 pb-0">
+                  <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(selectedProduct)} (Mitra):</span>
+                  <span className="text-sm font-black text-[#2e261a]">
+                    {Number(partnerData?.[selectedProduct] || 0).toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                  </span>
+                </div>
+                <div className="flex justify-between items-center pt-0 pb-1">
+                  <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Produksi Mitra (Total):</span>
+                  <span className="text-sm font-black text-[#2e261a]">
+                    {stockAvailable > 0 ? partnerProduction.toLocaleString('id-ID') : '0'} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-2">
+                <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Kuantitas:</label>
+                <div className="flex items-center gap-1.5">
+                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-1.5 rounded bg-[#3b7d7d] text-white hover:bg-[#2e6363] shadow-sm">
+                    <Minus className="h-3.5 w-3.5" />
+                  </button>
+                  <input 
+                    type="number" 
+                    min={1} 
+                    max={stockAvailable} 
+                    value={quantity} 
+                    onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))} 
+                    className="w-16 px-2 py-1.5 text-center rounded bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00]" 
+                  />
+                  <button onClick={() => setQuantity(quantity + 1)} className="p-1.5 rounded bg-[#3b7d7d] text-white hover:bg-[#2e6363] shadow-sm">
+                    <Plus className="h-3.5 w-3.5" />
+                  </button>
+                  <button onClick={() => setQuantity(quantity + 1000)} className="px-2.5 py-1.5 rounded bg-[#3b7d7d] text-white text-[10px] font-bold hover:bg-[#2e6363] shadow-sm uppercase tracking-wide">+1k</button>
+                </div>
+              </div>
+
+              <div className="flex justify-between items-center pt-3 border-t border-[#C4B49C]/20">
+                <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Harga:</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-lg font-black text-[#2e261a]">{totalPrice.toLocaleString("id-ID")}</span>
+                  <span className="text-[10px] text-[#8b7e66] font-bold mt-0.5">EM</span>
+                </div>
               </div>
             </div>
 
-            <div className="flex flex-col gap-1">
-              <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Negara:</label>
-              <div className="relative">
-                <select
-                  value={effectiveSelectedCountry}
-                  onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
-                >
-                  {partners.map((p) => (
-                    <option key={p.id} value={p.nama_negara}>{p.nama_negara}</option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
-              </div>
-            </div>
-          </div>
-
-          <div className="flex justify-between items-center pt-1 pb-1 border-b border-[#C4B49C]/10">
-            <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Stok Tersedia (Anda):</span>
-            <span className="text-sm font-black text-[#2e261a]">
-              {stockAvailable.toLocaleString("id-ID")} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
-            </span>
-          </div>
-
-          <div className="flex flex-col gap-1">
-            <div className="flex justify-between items-center pt-1 pb-0">
-              <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(selectedProduct)} (Mitra):</span>
-              <span className="text-sm font-black text-[#2e261a]">
-                {Number(partnerData?.[selectedProduct] || 0).toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
-              </span>
-            </div>
-            <div className="flex justify-between items-center pt-0 pb-1">
-              <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Produksi Mitra (Total):</span>
-              <span className="text-sm font-black text-[#2e261a]">
-                {partnerProduction.toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between gap-2">
-            <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Kuantitas:</label>
-            <div className="flex items-center gap-1.5">
-              <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="p-1.5 rounded bg-[#3b7d7d] text-white hover:bg-[#2e6363] shadow-sm"><Minus className="h-3.5 w-3.5" /></button>
-              <input type="number" min={1} max={stockAvailable} value={quantity} onChange={(e) => setQuantity(Math.max(1, Number(e.target.value)))} className="w-16 px-2 py-1.5 text-center rounded bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00]" />
-              <button onClick={() => setQuantity(quantity + 1)} className="p-1.5 rounded bg-[#3b7d7d] text-white hover:bg-[#2e6363] shadow-sm"><Plus className="h-3.5 w-3.5" /></button>
-              <button onClick={() => setQuantity(quantity + 1000)} className="px-2.5 py-1.5 rounded bg-[#3b7d7d] text-white text-[10px] font-bold hover:bg-[#2e6363] shadow-sm uppercase tracking-wide">+1k</button>
-            </div>
-          </div>
-
-          <div className="flex justify-between items-center pt-3 border-t border-[#C4B49C]/20">
-            <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Harga:</span>
-            <div className="flex items-center gap-1.5">
-              <span className="text-lg font-black text-[#2e261a]">{totalPrice.toLocaleString("id-ID")}</span>
-              <span className="text-[10px] text-[#8b7e66] font-bold mt-0.5">EM</span>
+            {/* FOOTER */}
+            <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
+              <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
+              <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Jual</button>
             </div>
           </div>
         </div>
-
-        <div className="px-5 py-4 border-t-2 border-[#C4B49C]/20 flex gap-3 bg-[#FAF6EE] relative z-10">
-          <button onClick={onClose} className="flex-1 py-2.5 rounded-lg bg-[#c49e6c] hover:bg-[#b08d5d] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Batal</button>
-          <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Jual</button>
-        </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 }

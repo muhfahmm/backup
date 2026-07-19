@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { X, ChevronDown, Plus, Minus } from "lucide-react";
+import { X, ChevronDown, Plus, Minus, ShoppingCart } from "lucide-react";
 import { TradePartner } from "../mitra/mitraModalsMenu";
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateProductionIncrement, formatDate, normalizePartnerBuildDates } from '@/app/logic/production_logic';
@@ -392,12 +392,23 @@ export default function ModalsKonfirmasiBeli({
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
-        <div className="px-5 py-4 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-          <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Pembelian</h2>
-          <button onClick={onClose} className="p-1.5 rounded-full bg-[#4a5f5f] hover:bg-[#3a4f4f] text-white transition-colors cursor-pointer shadow-sm">
-            <X className="h-4 w-4" />
+        {/* ===== HEADER YANG DIPERBAIKI ===== */}
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-rose-600/10 rounded-xl border border-rose-600/20">
+              <ShoppingCart className="h-5 w-5 text-rose-700" />
+            </div>
+            <h2 className="text-lg font-bold text-[#5c3c10] tracking-tight uppercase">Konfirmasi Pembelian</h2>
+          </div>
+          <button 
+            onClick={onClose} 
+            className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+          >
+            <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+            <X className="h-5 w-5" />
           </button>
         </div>
+        {/* ================================= */}
 
         <div className="flex-1 overflow-y-auto p-5 relative z-10 space-y-4">
           <div className="grid grid-cols-2 gap-4">

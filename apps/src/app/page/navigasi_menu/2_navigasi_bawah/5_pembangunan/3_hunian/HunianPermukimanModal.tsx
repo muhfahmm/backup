@@ -8,6 +8,7 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
 // --- TIPE DATA MATERIAL ---
@@ -21,8 +22,7 @@ interface BuildingRequirements {
   requirements: MaterialRequirement[];
 }
 
-// --- DUMMY REQUIREMENTS MATERIAL (GANTI DENGAN IMPOR MODUL FOLDER SAAT SUDAH SIAP) ---
-// Jika sudah ada folder: import * as hunianRequirements from "./requirements_logic/3_hunian/requirements";
+// --- DUMMY REQUIREMENTS MATERIAL ---
 const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
   rumah_subsidi: {
     requirements: [
@@ -49,12 +49,11 @@ const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
   }
 };
 
-// --- PEMETAAN TAB MATERIAL KE TAB PRODUKSI (Untuk Navigasi) ---
+// --- PEMETAAN TAB MATERIAL KE TAB PRODUKSI ---
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
   tembaga: 'mineral',
-  aluminium: 'mineral',
   aluminium: 'mineral',
   nikel: 'mineral',
   bijih_besi: 'mineral',
@@ -79,12 +78,9 @@ const RESOURCE_KEY_ALIASES: Record<string, string> = {
 
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 
-export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
-  // --- STATE LAMA ---
+export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction }: ModalProps) {
   const [activeTab, setActiveTab] = useState("rumah_subsidi");
   const [metadata, setMetadata] = useState<Record<string, any>>({});
-
-  // --- STATE BARU UNTUK MODAL KONFIRMASI ---
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
   const [showConfirm, setShowConfirm] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
@@ -92,7 +88,19 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
 
-  // --- AMBIL METADATA BANGUNAN ---
+  // --- FUNGSI findMeta (SAMA SEPERTI DI ProduksiModal) ---
+  const findMeta = (key: string) => {
+    if (!metadata) return undefined;
+    if (metadata[key]) return metadata[key];
+    for (const k of Object.keys(metadata)) {
+      const entry = metadata[k];
+      if (!entry) continue;
+      if (entry.dataKey === key) return entry;
+      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+    }
+    return undefined;
+  };
+
   useEffect(() => {
     if (!isOpen) return;
     fetchBuildingMetadata().then((m) => setMetadata(m || {}));
@@ -100,11 +108,8 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
 
   if (!isOpen) return null;
 
-  // --- FUNGSI HELPER LOGIKA MATERIAL ---
   const getSelectedBuildingRequirements = (): BuildingRequirements | undefined => {
     if (!selectedBuilding) return undefined;
-    // Ganti dengan: const module = hunianRequirements; return module?.findRequirements?.(selectedBuilding.key);
-    // Jika sudah memiliki file requirements di folder:
     return DUMMY_HUNIAN_REQUIREMENTS[selectedBuilding.key];
   };
 
@@ -121,13 +126,11 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       setTimeout(() => setToast(null), 2000);
       return;
     }
-    // Kembali ke halaman produksi (pindah tab). Ini hanya simulasi.
     setToast(`🔗 ${label} diproduksi di tab ${tabId.toUpperCase()}.`);
     setTimeout(() => setToast(null), 2500);
-    // Jika Anda memiliki fungsi navigasi global, panggil di sini.
+    onGotoProduction?.(tabId, normalizedKey);
   };
 
-  // --- HANDLE BUILD ---
   const handleBuild = (key: string, label: string) => {
     setShowMaterialWarningModal(false);
     setInsufficientMaterials([]);
@@ -140,7 +143,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
     const { key, label } = selectedBuilding;
     const bMeta = metadata[key] || {};
 
-    // --- CEK MATERIAL YANG KURANG (STOK 0) ---
     const buildingReq = getSelectedBuildingRequirements();
     const missingMaterials = buildingReq?.requirements?.filter(
       (material) => getMaterialStock(material.resourceKey) <= 0
@@ -149,9 +151,8 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
     if (missingMaterials.length > 0) {
       setInsufficientMaterials(missingMaterials);
       setShowMaterialWarningModal(true);
-      return; // BATAL: Pembangunan tidak dilanjutkan
+      return;
     }
-    // ------------------------------------------
 
     const cost = Number(bMeta.biaya_pembangunan) || 0;
     const anggaran = Number(countryDetail?.anggaran) || 0;
@@ -161,7 +162,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       return;
     }
 
-    // Eksekusi Pembangunan
     setCountryDetail({
       ...countryDetail,
       anggaran: anggaran - cost,
@@ -175,7 +175,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
     setTimeout(() => setToast(null), 2500);
   };
 
-  // --- DATA DAFTAR HUNIAN ---
   const HUNIAN_KEYS = ["rumah_subsidi", "apartemen", "mansion"];
   const labels: Record<string, { label: string; desc: string; detailDesc: string }> = {
     rumah_subsidi: {
@@ -206,18 +205,28 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
   const activeItem = items.find((it) => it.key === activeTab) || items[0];
   const totalValue = items.reduce((sum, item) => sum + item.value, 0);
 
-  // --- ELEKTRISITAS (HEADER) ---
-  const totalProduction = Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0 +
-    Number(countryDetail?.pembangkit_listrik_tenaga_air) || 0 +
-    Number(countryDetail?.pembangkit_listrik_tenaga_surya) || 0 +
-    Number(countryDetail?.pembangkit_listrik_tenaga_uap) || 0 +
-    Number(countryDetail?.pembangkit_listrik_tenaga_gas) || 0 +
-    Number(countryDetail?.pembangkit_listrik_tenaga_angin) || 0;
-  
+  // --- PERBAIKAN LOGIKA PRODUKSI & KONSUMSI (SAMA SEPERTI PRODUKSI MODAL) ---
+  const ELECTRICITY_BUILDINGS_LIST = [
+    'pembangkit_listrik_tenaga_nuklir',
+    'pembangkit_listrik_tenaga_air',
+    'pembangkit_listrik_tenaga_surya',
+    'pembangkit_listrik_tenaga_uap',
+    'pembangkit_listrik_tenaga_gas',
+    'pembangkit_listrik_tenaga_angin',
+  ];
+
+  const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
+    const count = Number(countryDetail?.[bKey]) || 0;
+    const bMeta = findMeta(bKey);
+    const perUnit = Number(bMeta?.produksi || 0);
+    return sum + perUnit * count;
+  }, 0);
+
   const estimatedConsumption = Math.min(
-    totalProduction * 1000,
-    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+    totalProductionMW,
+    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
   );
+  // ------------------------------------------------------------------------
 
   return (
     <>
@@ -244,7 +253,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
                     <TrendingUp className="h-4 w-4 text-emerald-700" />
                     <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
-                    <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                    <span className="text-[11px] font-black text-emerald-700">{totalProductionMW.toLocaleString('id-ID')} MW</span>
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
@@ -333,7 +342,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       {/* TOAST GLOBAL */}
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
       
-      {/* --- MODAL KONFIRMASI PEMBANGUNAN --- */}
+      {/* MODAL KONFIRMASI PEMBANGUNAN */}
       {showConfirm && selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
@@ -461,7 +470,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
         );
       })()}
 
-      {/* --- MODAL PERINGATAN MATERIAL KURANG --- */}
+      {/* MODAL PERINGATAN MATERIAL KURANG */}
       {showMaterialWarningModal && insufficientMaterials.length > 0 && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
