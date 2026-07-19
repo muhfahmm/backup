@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskarVehicles = {
   sepeda_motor: 3939355,
   mobil: 2100989,

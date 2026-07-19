@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 24,

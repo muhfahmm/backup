@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_peternakan = {
   ayam_unggas: 42,
   sapi_perah: 70,

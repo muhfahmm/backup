@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_peternakan = {
   ayam_unggas: 164,
   sapi_perah: 140,

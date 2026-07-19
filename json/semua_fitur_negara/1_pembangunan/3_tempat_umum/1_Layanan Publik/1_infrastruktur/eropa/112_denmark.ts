@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_infrastruktur = {
   jalur_sepeda: 24,
   jalan_raya: 65,

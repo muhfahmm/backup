@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_intelijen = {
   sistem_satelit: 6,
   jaringan_radar: 11,

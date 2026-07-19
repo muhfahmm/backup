@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 5,

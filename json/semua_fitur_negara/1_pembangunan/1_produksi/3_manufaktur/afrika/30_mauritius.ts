@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_manufaktur = {
   mobil: 5,
   semen_beton: 8,

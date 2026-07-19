@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_profile = {
   "name_en": "Cuba",
   "capital": "Havana",
   "name_id": "Kuba",
   "lon": -80,
   "lat": 21.5,
-  "flag": "ðŸ‡¨ðŸ‡º",
+  "flag": "🇨🇺",
   "jumlah_penduduk": 9748007,
   "anggaran": 1021,
   "pendapatan_nasional": "2917",
@@ -26,7 +26,8 @@ const kuba_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kuba_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kuba_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kuba_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

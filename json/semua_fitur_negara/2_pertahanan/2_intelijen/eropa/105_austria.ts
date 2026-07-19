@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_intelijen = {
   sistem_satelit: 7,
   jaringan_radar: 13,

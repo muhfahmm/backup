@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_agrikultur = {
   padi: 132,
   gandum: 142,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_uganda_profile = {
   "name_en": "Uganda",
   "capital": "Kampala",
   "name_id": "Republik uganda",
   "lon": 32,
   "lat": 1,
-  "flag": "ðŸ‡ºðŸ‡¬",
+  "flag": "🇺🇬",
   "jumlah_penduduk": 45905417,
   "anggaran": 486,
   "pendapatan_nasional": "1389",
@@ -26,7 +26,8 @@ const republik_uganda_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const republik_uganda_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const republik_uganda_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_uganda_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 28,

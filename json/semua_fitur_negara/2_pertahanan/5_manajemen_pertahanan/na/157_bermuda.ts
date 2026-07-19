@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_pertahanan = {
     "penjara": 12,
     "gudang_senjata": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 13,

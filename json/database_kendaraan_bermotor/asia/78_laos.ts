@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laosVehicles = {
   sepeda_motor: 1059226,
   mobil: 564920,

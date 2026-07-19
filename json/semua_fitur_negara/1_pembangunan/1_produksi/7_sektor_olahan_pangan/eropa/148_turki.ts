@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_olahan_pangan = {
   air_mineral: 152,
   gula: 188,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const jepang_strategis = {
     "waktu_respon": 15,

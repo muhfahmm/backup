@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_kesehatan = {
       "rumah_sakit_besar": 11,
       "rumah_sakit_kecil": 33,

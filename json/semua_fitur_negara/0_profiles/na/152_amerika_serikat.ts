@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_profile = {
   "name_en": "United States",
   "capital": "Washington, D.C.",
   "name_id": "Amerika Serikat",
   "lon": -77.03,
   "lat": 38.9,
-  "flag": "ðŸ‡ºðŸ‡¸",
+  "flag": "🇺🇸",
   "jumlah_penduduk": 341784857,
   "anggaran": 280022,
   "pendapatan_nasional": "800064",
@@ -26,7 +26,8 @@ const amerika_serikat_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const amerika_serikat_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const amerika_serikat_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": amerika_serikat_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

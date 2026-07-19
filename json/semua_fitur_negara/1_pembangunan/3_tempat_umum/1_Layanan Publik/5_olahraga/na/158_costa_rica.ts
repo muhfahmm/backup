@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_olahraga = {
   "kolam_renang": 17,
   "sirkuit_balap": 1,

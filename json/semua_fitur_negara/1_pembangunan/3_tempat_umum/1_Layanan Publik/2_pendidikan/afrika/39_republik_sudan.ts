@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_sudan_pendidikan = {
       "prasekolah": 27,
       "dasar": 130,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_infrastruktur = {
   jalur_sepeda: 37,
   jalan_raya: 49,

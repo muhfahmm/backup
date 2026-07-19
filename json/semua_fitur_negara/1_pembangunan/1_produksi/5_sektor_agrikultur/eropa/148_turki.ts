@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_agrikultur = {
   padi: 268,
   gandum: 92,

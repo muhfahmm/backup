@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_olahraga = {
   "kolam_renang": 50,
   "sirkuit_balap": 8,

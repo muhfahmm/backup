@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_pendidikan = {
       "prasekolah": 53,
       "dasar": 37,

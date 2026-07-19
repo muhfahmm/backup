@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tanjung_verde_hunian = {
   rumah_subsidi: 135000,

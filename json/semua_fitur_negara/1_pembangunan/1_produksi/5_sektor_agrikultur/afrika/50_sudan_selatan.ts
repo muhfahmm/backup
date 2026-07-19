@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_agrikultur = {
   padi: 56,
   gandum: 276,

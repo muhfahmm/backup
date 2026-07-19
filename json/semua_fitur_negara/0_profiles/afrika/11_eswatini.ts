@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_profile = {
   "name_en": "Eswatini",
   "capital": "Lobamba",
   "name_id": "Eswatini",
   "lon": 31.5,
   "lat": -26.5,
-  "flag": "ðŸ‡¸ðŸ‡¿",
+  "flag": "🇸🇿",
   "jumlah_penduduk": 1242822,
   "anggaran": 44,
   "pendapatan_nasional": "125",
@@ -26,7 +26,8 @@ const eswatini_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const eswatini_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const eswatini_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": eswatini_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 29,

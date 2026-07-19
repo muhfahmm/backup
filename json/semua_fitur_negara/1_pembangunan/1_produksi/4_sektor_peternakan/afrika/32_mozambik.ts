@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_peternakan = {
   ayam_unggas: 17,
   sapi_perah: 36,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tunisiaVehicles = {
   sepeda_motor: 1734780,
   mobil: 925216,

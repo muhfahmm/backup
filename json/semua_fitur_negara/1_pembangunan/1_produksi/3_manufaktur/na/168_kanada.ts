@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_manufaktur = {
   semikonduktor: 1920,
   mobil: 2304,

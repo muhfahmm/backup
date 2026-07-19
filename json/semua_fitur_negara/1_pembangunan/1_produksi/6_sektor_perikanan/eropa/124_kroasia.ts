@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_perikanan = {
   udang: 63,
   mutiara: 15,

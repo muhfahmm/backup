@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_infrastruktur = {
   jalur_sepeda: 41,
   jalan_raya: 29,

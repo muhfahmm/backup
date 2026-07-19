@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 14,

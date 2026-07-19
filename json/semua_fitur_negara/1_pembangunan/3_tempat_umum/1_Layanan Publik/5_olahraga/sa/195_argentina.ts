@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_olahraga = {
   "kolam_renang": 24,
   "sirkuit_balap": 8,

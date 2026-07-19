@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_infrastruktur = {
   jalur_sepeda: 2,
   jalan_raya: 12,

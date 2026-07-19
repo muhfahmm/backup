@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_peternakan = {
   ayam_unggas: 192,
   sapi_perah: 68,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatarVehicles = {
   sepeda_motor: 417251,
   mobil: 222534,

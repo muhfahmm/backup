@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slowakia_ekstraksi = {
   emas: 23,
   uranium: 0,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const swiss_strategis = {
     "waktu_respon": 2,

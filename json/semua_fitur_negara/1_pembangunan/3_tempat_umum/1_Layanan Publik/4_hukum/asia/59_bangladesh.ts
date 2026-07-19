@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_hukum = {
       "pusat_bantuan_hukum": 39,
       "pengadilan": 49,

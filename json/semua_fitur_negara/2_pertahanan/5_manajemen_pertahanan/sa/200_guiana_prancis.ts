@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 27,

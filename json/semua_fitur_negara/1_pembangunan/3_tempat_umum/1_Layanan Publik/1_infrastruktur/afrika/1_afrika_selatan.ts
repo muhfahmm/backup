@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_infrastruktur = {
   jalur_sepeda: 25,
   jalan_raya: 73,

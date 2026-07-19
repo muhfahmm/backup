@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_komersial = {
   "mall": 2,
   "hotel": 6,

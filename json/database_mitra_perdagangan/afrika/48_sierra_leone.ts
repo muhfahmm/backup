@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 export const sierra_leoneAgreements = [
   { "no": 1, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },

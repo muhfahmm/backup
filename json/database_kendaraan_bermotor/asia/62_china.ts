@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chinaVehicles = {
   sepeda_motor: 208909500,
   mobil: 111418400,

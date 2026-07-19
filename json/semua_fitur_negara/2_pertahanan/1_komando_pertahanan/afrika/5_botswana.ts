@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const botswana_strategis = {
     "waktu_respon": 19,

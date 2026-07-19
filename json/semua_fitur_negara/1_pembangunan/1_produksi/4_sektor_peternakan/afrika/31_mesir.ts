@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_peternakan = {
   ayam_unggas: 1034,
   sapi_perah: 1974,

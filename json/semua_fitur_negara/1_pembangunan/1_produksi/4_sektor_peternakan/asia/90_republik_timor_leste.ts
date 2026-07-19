@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_peternakan = {
   ayam_unggas: 49,
   sapi_perah: 50,

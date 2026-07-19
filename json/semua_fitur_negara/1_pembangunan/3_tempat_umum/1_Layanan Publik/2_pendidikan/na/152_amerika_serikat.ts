@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_pendidikan = {
       "prasekolah": 6825,
       "dasar": 6564,

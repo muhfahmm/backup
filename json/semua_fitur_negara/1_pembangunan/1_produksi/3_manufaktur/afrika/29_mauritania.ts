@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritania_manufaktur = {
   mobil: 18,
   semen_beton: 20,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const makedonia_utara_hunian = {
   rumah_subsidi: 28138,

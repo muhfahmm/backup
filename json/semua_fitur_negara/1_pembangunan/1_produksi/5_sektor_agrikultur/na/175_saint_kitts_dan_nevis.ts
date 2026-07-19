@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_agrikultur = {
   padi: 240,
   gandum: 186,

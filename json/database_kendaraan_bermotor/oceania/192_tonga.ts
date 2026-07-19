@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tongaVehicles = {
   sepeda_motor: 15479,
   mobil: 8255,

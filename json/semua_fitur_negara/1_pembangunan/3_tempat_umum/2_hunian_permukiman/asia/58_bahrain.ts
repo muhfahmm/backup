@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bahrain_hunian = {
   rumah_subsidi: 21187,

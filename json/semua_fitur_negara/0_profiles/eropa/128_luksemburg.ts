@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const luksemburg_profile = {
   "name_en": "Luxembourg",
   "capital": "Luxembourg",
   "name_id": "Luksemburg",
   "lon": 6.07,
   "lat": 49.36,
-  "flag": "ðŸ‡±ðŸ‡º",
+  "flag": "🇱🇺",
   "jumlah_penduduk": 681973,
   "anggaran": 846,
   "pendapatan_nasional": "2417",
@@ -26,7 +26,8 @@ const luksemburg_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const luksemburg_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const luksemburg_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": luksemburg_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

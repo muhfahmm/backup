@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_profile = {
   "name_en": "Cyprus",
   "capital": "Nicosia",
   "name_id": "Siprus",
   "lon": 33,
   "lat": 35,
-  "flag": "ðŸ‡¨ðŸ‡¾",
+  "flag": "🇨🇾",
   "jumlah_penduduk": 983000,
   "anggaran": 292,
   "pendapatan_nasional": "833",
@@ -26,7 +26,8 @@ const siprus_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const siprus_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const siprus_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": siprus_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 24,

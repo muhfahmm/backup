@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_perikanan = {
   udang: 10,
   mutiara: 68,

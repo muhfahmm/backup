@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 13,

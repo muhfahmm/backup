@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_olahan_pangan = {
   air_mineral: 13,
   gula: 50,

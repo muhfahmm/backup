@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_olahraga = {
   "kolam_renang": 7,
   "sirkuit_balap": 2,

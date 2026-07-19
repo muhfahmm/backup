@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_peternakan = {
   ayam_unggas: 114,
   sapi_perah: 81,

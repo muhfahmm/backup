@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_ekstraksi = {
   emas: 25,
   uranium: 0,

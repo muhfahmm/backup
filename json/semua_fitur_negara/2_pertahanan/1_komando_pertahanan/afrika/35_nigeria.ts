@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nigeria_strategis = {
     "waktu_respon": 12,

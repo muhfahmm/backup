@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_peternakan = {
   ayam_unggas: 900,
   sapi_perah: 1512,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const albania_pendidikan = {
       "prasekolah": 69,
       "dasar": 37,

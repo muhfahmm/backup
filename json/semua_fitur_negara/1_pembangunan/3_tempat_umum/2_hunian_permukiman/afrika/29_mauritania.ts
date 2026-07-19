@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mauritania_hunian = {
   rumah_subsidi: 59444,

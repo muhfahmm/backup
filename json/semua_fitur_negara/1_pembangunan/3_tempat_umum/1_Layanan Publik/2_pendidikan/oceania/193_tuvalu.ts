@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvalu_pendidikan = {
       "prasekolah": 48,
       "dasar": 104,

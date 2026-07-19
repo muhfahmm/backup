@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_manufaktur = {
   mobil: 288,
   semen_beton: 336,

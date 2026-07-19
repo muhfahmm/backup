@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_olahan_pangan = {
   air_mineral: 37,
   gula: 47,

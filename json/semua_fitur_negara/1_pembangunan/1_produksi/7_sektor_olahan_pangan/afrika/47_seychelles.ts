@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_olahan_pangan = {
   air_mineral: 36,
   gula: 24,

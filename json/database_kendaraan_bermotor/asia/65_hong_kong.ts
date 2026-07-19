@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hongKongVehicles = {
   sepeda_motor: 1117650,
   mobil: 596080,

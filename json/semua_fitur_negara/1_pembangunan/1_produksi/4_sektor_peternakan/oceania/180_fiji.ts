@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_peternakan = {
   ayam_unggas: 50,
   sapi_perah: 30,

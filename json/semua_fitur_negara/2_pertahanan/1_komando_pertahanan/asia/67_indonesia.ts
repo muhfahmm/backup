@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const indonesia_strategis = {
     "waktu_respon": 1,

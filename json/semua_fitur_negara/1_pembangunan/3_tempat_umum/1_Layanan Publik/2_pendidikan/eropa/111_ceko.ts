@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_pendidikan = {
       "prasekolah": 139,
       "dasar": 443,

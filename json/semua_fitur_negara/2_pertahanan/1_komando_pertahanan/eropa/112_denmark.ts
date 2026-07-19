@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const denmark_strategis = {
     "waktu_respon": 22,

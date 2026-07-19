@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_peternakan = {
   ayam_unggas: 120,
   sapi_perah: 48,

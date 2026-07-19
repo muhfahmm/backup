@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_agrikultur = {
   padi: 72,
   gandum: 144,

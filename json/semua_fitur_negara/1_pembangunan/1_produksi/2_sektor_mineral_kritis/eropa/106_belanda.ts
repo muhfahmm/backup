@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_ekstraksi = {
   emas: 31,
   uranium: 0,

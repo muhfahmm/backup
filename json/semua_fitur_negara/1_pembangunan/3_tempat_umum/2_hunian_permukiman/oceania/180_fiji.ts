@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const fiji_hunian = {
   rumah_subsidi: 11927,

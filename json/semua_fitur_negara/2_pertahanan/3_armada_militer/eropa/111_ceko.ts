@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_armada = {
     "barak": 2,
     "darat": {

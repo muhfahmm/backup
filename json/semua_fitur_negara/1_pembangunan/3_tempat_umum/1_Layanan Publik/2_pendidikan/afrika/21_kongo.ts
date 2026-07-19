@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kongo_pendidikan = {
       "prasekolah": 77,
       "dasar": 122,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_manufaktur = {
   semikonduktor: 143,
   mobil: 110,

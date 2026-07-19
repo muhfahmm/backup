@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_peternakan = {
   ayam_unggas: 16,
   sapi_perah: 29,

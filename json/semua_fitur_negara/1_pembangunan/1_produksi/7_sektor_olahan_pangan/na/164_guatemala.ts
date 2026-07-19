@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_olahan_pangan = {
   air_mineral: 90,
   gula: 129,

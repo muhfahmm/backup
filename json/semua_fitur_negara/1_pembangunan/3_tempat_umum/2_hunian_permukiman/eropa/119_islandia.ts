@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const islandia_hunian = {
   rumah_subsidi: 4761,

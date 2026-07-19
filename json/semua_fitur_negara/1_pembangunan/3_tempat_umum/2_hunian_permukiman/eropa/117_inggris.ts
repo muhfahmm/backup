@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const inggris_hunian = {
   rumah_subsidi: 897214,

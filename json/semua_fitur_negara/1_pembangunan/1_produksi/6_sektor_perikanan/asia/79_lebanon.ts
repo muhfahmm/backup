@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_perikanan = {
   udang: 16,
   mutiara: 20,

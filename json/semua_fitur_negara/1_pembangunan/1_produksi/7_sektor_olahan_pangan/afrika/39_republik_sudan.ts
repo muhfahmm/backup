@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_sudan_olahan_pangan = {
   air_mineral: 90,
   gula: 117,

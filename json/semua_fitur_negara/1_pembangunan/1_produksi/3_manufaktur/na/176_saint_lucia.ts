@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_manufaktur = {
   semikonduktor: 7,
   mobil: 12,

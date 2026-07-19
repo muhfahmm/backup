@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rwanda_agrikultur = {
   padi: 62,
   gandum: 10,

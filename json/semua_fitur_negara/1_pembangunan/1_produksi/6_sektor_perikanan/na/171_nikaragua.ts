@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_perikanan = {
   udang: 7,
   mutiara: 23,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_peternakan = {
   ayam_unggas: 5313,
   sapi_perah: 4554,

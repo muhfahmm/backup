@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_olahan_pangan = {
   air_mineral: 29,
   gula: 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const senegal_strategis = {
     "waktu_respon": 4,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_pendidikan = {
       "prasekolah": 217,
       "dasar": 451,

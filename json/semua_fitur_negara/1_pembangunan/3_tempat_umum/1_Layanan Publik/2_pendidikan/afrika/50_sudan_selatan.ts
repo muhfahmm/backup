@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_pendidikan = {
       "prasekolah": 84,
       "dasar": 114,

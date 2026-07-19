@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_olahan_pangan = {
   air_mineral: 9956,
   gula: 13100,

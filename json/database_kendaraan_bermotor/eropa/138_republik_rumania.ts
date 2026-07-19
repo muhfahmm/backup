@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikRumaniaVehicles = {
   sepeda_motor: 2919921,
   mobil: 1557291,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_manufaktur = {
   semikonduktor: 285,
   mobil: 76,

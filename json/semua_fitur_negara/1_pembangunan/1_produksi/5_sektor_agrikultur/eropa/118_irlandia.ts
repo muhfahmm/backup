@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_agrikultur = {
   padi: 1127,
   gandum: 2156,

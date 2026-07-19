@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_agrikultur = {
   padi: 76,
   gandum: 66,

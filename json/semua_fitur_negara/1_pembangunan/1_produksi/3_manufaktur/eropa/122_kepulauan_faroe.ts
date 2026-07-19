@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_manufaktur = {
   semikonduktor: 10,
   mobil: 6,

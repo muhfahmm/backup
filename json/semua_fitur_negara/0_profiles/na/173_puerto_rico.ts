@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_profile = {
   "name_en": "Puerto Rico",
   "capital": "San Juan",
   "name_id": "Puerto rico",
   "lon": -66.5,
   "lat": 18.25,
-  "flag": "ðŸ‡µðŸ‡·",
+  "flag": "🇵🇷",
   "jumlah_penduduk": 3184195,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const puerto_rico_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const puerto_rico_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const puerto_rico_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": puerto_rico_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_listrik = {
   pembangkit_listrik_tenaga_nuklir: 57,
   pembangkit_listrik_tenaga_air: 15,

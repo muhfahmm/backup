@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palau_agrikultur = {
   padi: 110,
   gandum: 110,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_pertahanan = {
     "penjara": 5,
     "gudang_senjata": 6,

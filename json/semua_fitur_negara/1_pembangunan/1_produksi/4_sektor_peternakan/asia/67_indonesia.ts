@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_peternakan = {
   ayam_unggas: 1975,
   sapi_perah: 3160,

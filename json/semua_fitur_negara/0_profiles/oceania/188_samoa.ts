@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_profile = {
   "name_en": "Samoa",
   "capital": "Apia",
   "name_id": "Samoa",
   "lon": -172.33333333,
   "lat": -13.58333333,
-  "flag": "ðŸ‡¼ðŸ‡¸",
+  "flag": "🇼🇸",
   "jumlah_penduduk": 205557,
   "anggaran": 10,
   "pendapatan_nasional": "25",
@@ -26,7 +26,8 @@ const samoa_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const samoa_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const samoa_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": samoa_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 14,

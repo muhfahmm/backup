@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_olahraga = {
   "kolam_renang": 57,
   "sirkuit_balap": 5,

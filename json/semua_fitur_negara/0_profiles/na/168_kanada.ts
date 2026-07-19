@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_profile = {
   "name_en": "Canada",
   "capital": "Ottawa",
   "name_id": "Kanada",
   "lon": -75.69,
   "lat": 45.42,
-  "flag": "ðŸ‡¨ðŸ‡¦",
+  "flag": "🇨🇦",
   "jumlah_penduduk": 41472081,
   "anggaran": 21780,
   "pendapatan_nasional": "62227",
@@ -26,7 +26,8 @@ const kanada_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kanada_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kanada_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kanada_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,

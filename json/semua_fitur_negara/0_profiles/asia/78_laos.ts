@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_profile = {
   "name_en": "Laos",
   "capital": "Vientiane",
   "name_id": "Laos",
   "lon": 102.63,
   "lat": 17.97,
-  "flag": "ðŸ‡±ðŸ‡¦",
+  "flag": "🇱🇦",
   "jumlah_penduduk": 6961210,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const laos_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const laos_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const laos_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": laos_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,

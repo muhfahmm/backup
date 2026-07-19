@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_olahan_pangan = {
   air_mineral: 1836,
   gula: 3128,

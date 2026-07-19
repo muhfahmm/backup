@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const jerman_strategis = {
     "waktu_respon": 25,

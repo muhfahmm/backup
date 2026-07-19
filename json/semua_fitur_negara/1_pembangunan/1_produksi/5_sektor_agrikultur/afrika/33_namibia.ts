@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const namibia_agrikultur = {
   padi: 51,
   gandum: 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_pendidikan = {
       "prasekolah": 51,
       "dasar": 148,

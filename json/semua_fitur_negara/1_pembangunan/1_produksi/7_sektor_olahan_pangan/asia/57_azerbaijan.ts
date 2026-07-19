@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const azerbaijan_olahan_pangan = {
   air_mineral: 96,
   gula: 96,

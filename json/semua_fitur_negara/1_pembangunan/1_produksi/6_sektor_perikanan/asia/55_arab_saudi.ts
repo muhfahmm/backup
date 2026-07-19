@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_perikanan = {
   udang: 1995,
   mutiara: 1995,

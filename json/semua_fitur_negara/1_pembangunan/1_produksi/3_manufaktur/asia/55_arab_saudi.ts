@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_manufaktur = {
   semikonduktor: 1995,
   mobil: 931,

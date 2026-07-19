@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const uzbekistan_hunian = {
   rumah_subsidi: 444897,

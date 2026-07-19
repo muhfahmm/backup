@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_pendidikan = {
       "prasekolah": 87,
       "dasar": 78,

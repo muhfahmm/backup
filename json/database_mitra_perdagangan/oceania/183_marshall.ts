@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 export const marshallAgreements = [
   { "no": 1, "mitra": "Fiji", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Papua Nugini", "type": "Perdagangan", "status": "Aktif" },

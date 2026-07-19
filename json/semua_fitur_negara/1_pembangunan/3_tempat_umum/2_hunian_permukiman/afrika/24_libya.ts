@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const libya_hunian = {
   rumah_subsidi: 90160,

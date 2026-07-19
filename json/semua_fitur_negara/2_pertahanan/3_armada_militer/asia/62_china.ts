@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_armada = {
     "barak": 203,
     "darat": {

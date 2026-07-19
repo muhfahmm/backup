@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_pertahanan = {
     "penjara": 33,
     "gudang_senjata": 7,

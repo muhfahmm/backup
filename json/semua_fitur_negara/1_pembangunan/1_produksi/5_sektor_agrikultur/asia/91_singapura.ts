@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_agrikultur = {
   padi: 1276,
   gandum: 1232,

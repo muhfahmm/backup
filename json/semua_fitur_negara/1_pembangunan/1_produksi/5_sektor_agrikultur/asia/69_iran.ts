@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_agrikultur = {
   padi: 966,
   gandum: 2254,

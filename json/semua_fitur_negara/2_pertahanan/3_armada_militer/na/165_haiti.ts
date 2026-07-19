@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_armada = {
     "barak": 2,
     "darat": {

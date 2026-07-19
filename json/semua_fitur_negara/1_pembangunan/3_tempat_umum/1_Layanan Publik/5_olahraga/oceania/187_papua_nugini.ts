@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_olahraga = {
   "kolam_renang": 4,
   "sirkuit_balap": 3,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrikaSelatanVehicles = {
   sepeda_motor: 8666943,
   mobil: 4622369,

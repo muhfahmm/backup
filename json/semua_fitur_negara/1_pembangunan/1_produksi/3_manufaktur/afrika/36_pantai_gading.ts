@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_manufaktur = {
   mobil: 25,
   semen_beton: 70,

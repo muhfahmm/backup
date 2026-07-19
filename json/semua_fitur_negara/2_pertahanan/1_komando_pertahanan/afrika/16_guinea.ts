@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const guinea_strategis = {
     "waktu_respon": 39,

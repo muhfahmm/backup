@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikDemokratikKongoVehicles = {
   sepeda_motor: 786654,
   mobil: 419549,

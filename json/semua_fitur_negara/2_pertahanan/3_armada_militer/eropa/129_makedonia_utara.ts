@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_armada = {
     "barak": 2,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_manufaktur = {
   semikonduktor: 33,
   mobil: 15,

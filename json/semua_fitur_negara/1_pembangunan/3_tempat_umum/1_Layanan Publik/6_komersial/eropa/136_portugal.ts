@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_komersial = {
   "mall": 23,
   "hotel": 53,

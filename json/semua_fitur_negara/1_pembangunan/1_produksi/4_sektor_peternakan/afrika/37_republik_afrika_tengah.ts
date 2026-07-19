@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_peternakan = {
   ayam_unggas: 69,
   sapi_perah: 39,

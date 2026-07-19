@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_timor_leste_strategis = {
     "waktu_respon": 18,

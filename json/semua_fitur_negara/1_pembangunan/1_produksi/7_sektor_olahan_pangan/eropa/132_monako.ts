@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_olahan_pangan = {
   air_mineral: 48,
   gula: 29,

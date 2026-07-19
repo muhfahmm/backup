@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_perikanan = {
   udang: 32,
   mutiara: 15,

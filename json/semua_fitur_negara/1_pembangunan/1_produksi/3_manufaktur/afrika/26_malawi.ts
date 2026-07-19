@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malawi_manufaktur = {
   mobil: 28,
   semen_beton: 40,

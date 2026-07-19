@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_peternakan = {
   ayam_unggas: 33,
   sapi_perah: 49,

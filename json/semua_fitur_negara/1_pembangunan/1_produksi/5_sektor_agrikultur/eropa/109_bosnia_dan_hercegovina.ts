@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_agrikultur = {
   padi: 208,
   gandum: 276,

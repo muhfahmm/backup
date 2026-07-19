@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_perikanan = {
   udang: 81,
   mutiara: 105,

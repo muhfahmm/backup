@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_pendidikan = {
       "prasekolah": 380,
       "dasar": 201,

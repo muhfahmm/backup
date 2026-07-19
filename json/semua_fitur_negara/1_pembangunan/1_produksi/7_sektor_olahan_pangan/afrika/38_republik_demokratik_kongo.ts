@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_olahan_pangan = {
   air_mineral: 51,
   gula: 90,

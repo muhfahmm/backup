@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_profile = {
   "name_en": "Nepal",
   "capital": "Kathmandu",
   "name_id": "Nepal",
   "lon": 84,
   "lat": 28,
-  "flag": "ðŸ‡³ðŸ‡µ",
+  "flag": "🇳🇵",
   "jumlah_penduduk": 29164578,
   "anggaran": 389,
   "pendapatan_nasional": "1111",
@@ -26,7 +26,8 @@ const nepal_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const nepal_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const nepal_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": nepal_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,

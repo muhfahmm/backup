@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_komersial = {
   "mall": 6,
   "hotel": 7,

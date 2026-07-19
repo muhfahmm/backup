@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 13,

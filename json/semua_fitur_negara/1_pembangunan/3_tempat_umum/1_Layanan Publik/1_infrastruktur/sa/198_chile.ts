@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_infrastruktur = {
   jalur_sepeda: 49,
   jalan_raya: 73,

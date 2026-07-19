@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazairVehicles = {
   sepeda_motor: 6334264,
   mobil: 3378274,

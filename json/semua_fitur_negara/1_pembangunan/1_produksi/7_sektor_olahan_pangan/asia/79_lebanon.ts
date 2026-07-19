@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_olahan_pangan = {
   air_mineral: 19,
   gula: 32,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_pertahanan = {
     "penjara": 21,
     "gudang_senjata": 35,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bolivia_hunian = {
   rumah_subsidi: 153267,

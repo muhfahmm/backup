@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const sudan_selatan_strategis = {
     "waktu_respon": 29,

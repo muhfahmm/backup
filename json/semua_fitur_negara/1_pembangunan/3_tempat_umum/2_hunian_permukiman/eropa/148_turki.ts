@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const turki_hunian = {
   rumah_subsidi: 135000,

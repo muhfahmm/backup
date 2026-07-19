@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_olahan_pangan = {
   air_mineral: 17,
   gula: 15,

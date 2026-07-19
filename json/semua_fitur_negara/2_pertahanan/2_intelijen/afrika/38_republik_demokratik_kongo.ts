@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 5,

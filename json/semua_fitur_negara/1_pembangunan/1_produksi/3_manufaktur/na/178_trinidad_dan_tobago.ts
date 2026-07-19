@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_manufaktur = {
   semikonduktor: 18,
   mobil: 8,

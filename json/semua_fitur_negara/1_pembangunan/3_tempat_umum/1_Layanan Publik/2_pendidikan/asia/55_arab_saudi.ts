@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_pendidikan = {
       "prasekolah": 1115,
       "dasar": 1617,

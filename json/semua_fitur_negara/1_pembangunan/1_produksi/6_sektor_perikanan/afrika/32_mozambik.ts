@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_perikanan = {
   udang: 9,
   mutiara: 19,

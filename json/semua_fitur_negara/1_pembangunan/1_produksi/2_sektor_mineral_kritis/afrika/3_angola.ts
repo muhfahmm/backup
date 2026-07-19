@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_hukum = {
       "pusat_bantuan_hukum": 35,
       "pengadilan": 43,

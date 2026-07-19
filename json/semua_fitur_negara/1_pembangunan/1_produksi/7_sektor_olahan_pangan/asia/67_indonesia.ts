@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_olahan_pangan = {
   air_mineral: 2370,
   gula: 3002,

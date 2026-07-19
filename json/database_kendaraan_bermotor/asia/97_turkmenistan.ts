@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistanVehicles = {
   sepeda_motor: 877636,
   mobil: 468072,

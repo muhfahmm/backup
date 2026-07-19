@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_profile = {
   "name_en": "Sao Tome and Principe",
-  "capital": "SÃ£o TomÃ©",
+  "capital": "São Tomé",
   "name_id": "Sao tome dan principe",
   "lon": 7,
   "lat": 1,
-  "flag": "ðŸ‡¸ðŸ‡¹",
+  "flag": "🇸🇹",
   "jumlah_penduduk": 235536,
   "anggaran": 10,
   "pendapatan_nasional": "17",
@@ -26,7 +26,8 @@ const sao_tome_dan_principe_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const sao_tome_dan_principe_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const sao_tome_dan_principe_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": sao_tome_dan_principe_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 3,

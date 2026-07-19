@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_serbia_pendidikan = {
       "prasekolah": 68,
       "dasar": 24,

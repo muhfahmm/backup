@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_peternakan = {
   ayam_unggas: 135,
   sapi_perah: 66,

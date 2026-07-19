@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_profile = {
   "name_en": "Zambia",
   "capital": "Lusaka",
   "name_id": "Republik zambia",
   "lon": 30,
   "lat": -15,
-  "flag": "ðŸ‡¿ðŸ‡²",
+  "flag": "🇿🇲",
   "jumlah_penduduk": 19693423,
   "anggaran": 272,
   "pendapatan_nasional": "778",
@@ -26,7 +26,8 @@ const republik_zambia_geopolitik = {
       "kekuatan_keras": 13,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const republik_zambia_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const republik_zambia_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_zambia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 38,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_infrastruktur = {
   jalur_sepeda: 124,
   jalan_raya: 229,

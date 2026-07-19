@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_infrastruktur = {
   jalur_sepeda: 83,
   jalan_raya: 106,

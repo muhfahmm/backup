@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_manufaktur = {
   semikonduktor: 50,
   mobil: 50,

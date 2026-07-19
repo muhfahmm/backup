@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_pendidikan = {
       "prasekolah": 199,
       "dasar": 719,

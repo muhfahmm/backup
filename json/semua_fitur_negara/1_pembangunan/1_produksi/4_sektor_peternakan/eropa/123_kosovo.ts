@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_peternakan = {
   ayam_unggas: 51,
   sapi_perah: 144,

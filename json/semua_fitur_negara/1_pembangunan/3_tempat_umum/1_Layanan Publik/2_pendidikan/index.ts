@@ -1,4 +1,4 @@
-﻿export const pendidikanRate = {
+export const pendidikanRate = {
   "1_prasekolah": {
     key: "1_prasekolah",
     dataKey: "prasekolah",

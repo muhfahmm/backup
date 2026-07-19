@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_armada = {
     "barak": 2,
     "darat": {

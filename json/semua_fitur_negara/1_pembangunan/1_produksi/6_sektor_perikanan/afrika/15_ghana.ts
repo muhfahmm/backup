@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_perikanan = {
   udang: 203,
   mutiara: 196,

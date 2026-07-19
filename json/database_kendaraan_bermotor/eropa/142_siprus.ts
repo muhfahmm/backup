@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprusVehicles = {
   sepeda_motor: 178389,
   mobil: 95141,

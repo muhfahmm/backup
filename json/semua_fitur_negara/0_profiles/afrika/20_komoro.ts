@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_profile = {
   "name_en": "Comoros",
   "capital": "Moroni",
   "name_id": "Komoro",
   "lon": 44.25,
   "lat": -12.16666666,
-  "flag": "ðŸ‡°ðŸ‡²",
+  "flag": "🇰🇲",
   "jumlah_penduduk": 866628,
   "anggaran": 13,
   "pendapatan_nasional": "36",
@@ -26,7 +26,8 @@ const komoro_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const komoro_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const komoro_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": komoro_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,

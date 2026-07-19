@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_bissau_manufaktur = {
   mobil: 18,
   semen_beton: 8,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_manufaktur = {
   semikonduktor: 30,
   mobil: 16,

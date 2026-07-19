@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 8,

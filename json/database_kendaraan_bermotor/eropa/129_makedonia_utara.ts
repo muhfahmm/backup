@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedoniaUtaraVehicles = {
   sepeda_motor: 312655,
   mobil: 166749,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_perikanan = {
   udang: 5060,
   mutiara: 4048,

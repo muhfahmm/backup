@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const dominika_hunian = {
   rumah_subsidi: 966,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_agrikultur = {
   padi: 208,
   gandum: 176,

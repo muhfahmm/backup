@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const jerman_hunian = {
   rumah_subsidi: 1119228,

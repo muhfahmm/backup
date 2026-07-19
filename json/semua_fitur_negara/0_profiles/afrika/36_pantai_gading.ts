@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_profile = {
   "name_en": "Ivory Coast",
   "capital": "Yamoussoukro",
   "name_id": "Pantai gading",
   "lon": -5,
   "lat": 8,
-  "flag": "ðŸ‡¨ðŸ‡®",
+  "flag": "🇨🇮",
   "jumlah_penduduk": 28357022,
   "anggaran": 681,
   "pendapatan_nasional": "1945",
@@ -26,7 +26,8 @@ const pantai_gading_geopolitik = {
       "kekuatan_keras": 1,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const pantai_gading_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const pantai_gading_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": pantai_gading_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const haiti_hunian = {
   rumah_subsidi: 150162,

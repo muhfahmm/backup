@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const peru_hunian = {
   rumah_subsidi: 431854,

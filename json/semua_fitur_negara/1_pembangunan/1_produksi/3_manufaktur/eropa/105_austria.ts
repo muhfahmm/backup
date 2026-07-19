@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_manufaktur = {
   semikonduktor: 666,
   mobil: 444,

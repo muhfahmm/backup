@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const malta_strategis = {
     "waktu_respon": 3,

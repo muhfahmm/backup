@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const togo_hunian = {
   rumah_subsidi: 106502,

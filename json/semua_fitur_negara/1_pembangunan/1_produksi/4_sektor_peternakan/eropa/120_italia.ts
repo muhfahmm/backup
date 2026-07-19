@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_peternakan = {
   ayam_unggas: 11575,
   sapi_perah: 18057,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const korea_utara_strategis = {
     "waktu_respon": 21,

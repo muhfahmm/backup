@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_kesehatan = {
       "rumah_sakit_besar": 163,
       "rumah_sakit_kecil": 682,

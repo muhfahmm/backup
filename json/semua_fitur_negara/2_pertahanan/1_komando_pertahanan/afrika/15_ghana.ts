@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const ghana_strategis = {
     "waktu_respon": 7,

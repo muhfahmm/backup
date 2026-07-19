@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const armenia_agrikultur = {
   padi: 114,
   gandum: 123,

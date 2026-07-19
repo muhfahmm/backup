@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 13,

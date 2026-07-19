@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_agrikultur = {
   padi: 6426,
   gandum: 14742,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const fiji_strategis = {
     "waktu_respon": 13,

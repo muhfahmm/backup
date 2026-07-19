@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const selandia_baru_strategis = {
     "waktu_respon": 29,

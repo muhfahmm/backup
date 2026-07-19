@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_komersial = {
   "mall": 19,
   "hotel": 68,

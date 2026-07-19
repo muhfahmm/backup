@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const guinea_hunian = {
   rumah_subsidi: 167593,

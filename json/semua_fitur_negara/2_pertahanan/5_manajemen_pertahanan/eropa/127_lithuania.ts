@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_pertahanan = {
     "penjara": 8,
     "gudang_senjata": 25,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_olahraga = {
   "kolam_renang": 34,
   "sirkuit_balap": 8,

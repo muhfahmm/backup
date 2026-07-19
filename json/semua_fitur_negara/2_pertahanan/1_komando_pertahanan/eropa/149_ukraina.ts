@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const ukraina_strategis = {
     "waktu_respon": 33,

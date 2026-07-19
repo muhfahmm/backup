@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const qatar_hunian = {
   rumah_subsidi: 37552,

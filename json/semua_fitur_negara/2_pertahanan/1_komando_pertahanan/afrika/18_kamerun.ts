@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kamerun_strategis = {
     "waktu_respon": 29,

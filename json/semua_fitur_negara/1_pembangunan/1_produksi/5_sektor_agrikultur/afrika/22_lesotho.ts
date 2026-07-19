@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_agrikultur = {
   padi: 171,
   gandum: 129,

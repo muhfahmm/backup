@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_hukum = {
       "pusat_bantuan_hukum": 62,
       "pengadilan": 195,

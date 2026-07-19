@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 12,

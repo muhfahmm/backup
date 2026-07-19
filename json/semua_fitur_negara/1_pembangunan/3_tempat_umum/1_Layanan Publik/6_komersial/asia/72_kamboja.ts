@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_komersial = {
   "mall": 5,
   "hotel": 14,

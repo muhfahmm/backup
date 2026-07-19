@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_pendidikan = {
       "prasekolah": 37,
       "dasar": 96,

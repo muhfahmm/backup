@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const taiwan_hunian = {
   rumah_subsidi: 135000,

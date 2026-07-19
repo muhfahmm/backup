@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikTimorLesteVehicles = {
   sepeda_motor: 0,
   mobil: 0,

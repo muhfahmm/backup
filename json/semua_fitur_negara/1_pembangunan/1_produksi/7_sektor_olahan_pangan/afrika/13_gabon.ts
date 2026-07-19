@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_olahan_pangan = {
   air_mineral: 38,
   gula: 15,

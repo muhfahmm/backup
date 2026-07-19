@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_pertahanan = {
     "penjara": 37,
     "gudang_senjata": 19,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_pertahanan = {
     "penjara": 1,
     "gudang_senjata": 28,

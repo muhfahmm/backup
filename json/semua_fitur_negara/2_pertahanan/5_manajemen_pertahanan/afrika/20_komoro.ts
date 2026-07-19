@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 39,

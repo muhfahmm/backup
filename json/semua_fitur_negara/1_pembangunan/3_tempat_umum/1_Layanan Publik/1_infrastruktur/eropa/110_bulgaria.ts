@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 14,

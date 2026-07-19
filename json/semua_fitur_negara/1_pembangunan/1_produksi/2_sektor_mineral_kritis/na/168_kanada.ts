@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_ekstraksi = {
   emas: 30,
   uranium: 35,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_profile = {
   "name_en": "Philippines",
   "capital": "Manila",
   "name_id": "Filipina",
   "lon": 120.98,
   "lat": 14.59,
-  "flag": "ðŸ‡µðŸ‡­",
+  "flag": "🇵🇭",
   "jumlah_penduduk": 114123600,
   "anggaran": 4230,
   "pendapatan_nasional": "12084",
@@ -26,7 +26,8 @@ const filipina_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const filipina_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const filipina_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": filipina_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 13,

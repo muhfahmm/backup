@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_perikanan = {
   udang: 600,
   mutiara: 150,

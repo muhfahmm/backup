@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopiaVehicles = {
   sepeda_motor: 16383683,
   mobil: 8737964,

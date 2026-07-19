@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_profile = {
   "name_en": "Argentina",
   "capital": "Buenos Aires",
   "name_id": "Argentina",
   "lon": -58.38,
   "lat": -34.6,
-  "flag": "ðŸ‡¦ðŸ‡·",
+  "flag": "🇦🇷",
   "jumlah_penduduk": 46387098,
   "anggaran": 6223,
   "pendapatan_nasional": "17779",
@@ -26,7 +26,8 @@ const argentina_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const argentina_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const argentina_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": argentina_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

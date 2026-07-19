@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_pertahanan = {
     "penjara": 9,
     "gudang_senjata": 29,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_olahan_pangan = {
   air_mineral: 40,
   gula: 64,

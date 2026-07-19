@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_komersial = {
   "mall": 5,
   "hotel": 13,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const rusia_strategis = {
     "waktu_respon": 6,

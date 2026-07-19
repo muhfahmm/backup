@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const siprus_strategis = {
     "waktu_respon": 2,

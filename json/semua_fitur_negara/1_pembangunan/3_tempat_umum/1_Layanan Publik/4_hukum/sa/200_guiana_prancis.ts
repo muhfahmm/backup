@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 11,

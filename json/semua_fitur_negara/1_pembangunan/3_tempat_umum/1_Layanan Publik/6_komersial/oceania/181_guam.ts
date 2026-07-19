@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_komersial = {
   "mall": 5,
   "hotel": 7,

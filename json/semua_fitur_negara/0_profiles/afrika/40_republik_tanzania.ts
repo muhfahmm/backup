@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_profile = {
   "name_en": "Tanzania",
   "capital": "Dodoma",
   "name_id": "Republik tanzania",
   "lon": 35,
   "lat": -6,
-  "flag": "ðŸ‡¹ðŸ‡¿",
+  "flag": "🇹🇿",
   "jumlah_penduduk": 68153004,
   "anggaran": 729,
   "pendapatan_nasional": "2084",
@@ -26,7 +26,8 @@ const republik_tanzania_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const republik_tanzania_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const republik_tanzania_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_tanzania_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

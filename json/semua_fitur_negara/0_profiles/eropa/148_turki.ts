@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_profile = {
   "name_en": "Turkiye",
   "capital": "Ankara",
   "name_id": "Turki",
   "lon": 32.85,
   "lat": 39.93,
-  "flag": "ðŸ‡¹ðŸ‡·",
+  "flag": "🇹🇷",
   "jumlah_penduduk": "10M",
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const turki_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const turki_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const turki_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": turki_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_profile = {
   "name_en": "United Arab Emirates",
   "capital": "Abu Dhabi",
   "name_id": "Uni emirat arab",
   "lon": 54.37,
   "lat": 24.45,
-  "flag": "ðŸ‡¦ðŸ‡ª",
+  "flag": "🇦🇪",
   "jumlah_penduduk": 9541615,
   "anggaran": 4959,
   "pendapatan_nasional": "14168",
@@ -26,7 +26,8 @@ const uni_emirat_arab_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const uni_emirat_arab_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const uni_emirat_arab_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": uni_emirat_arab_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

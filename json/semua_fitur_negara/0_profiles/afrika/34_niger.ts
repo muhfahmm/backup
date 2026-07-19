@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_profile = {
   "name_en": "Niger",
   "capital": "Niamey",
   "name_id": "Niger",
   "lon": 8,
   "lat": 16,
-  "flag": "ðŸ‡³ðŸ‡ª",
+  "flag": "🇳🇪",
   "jumlah_penduduk": 26333333,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const niger_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const niger_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const niger_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": niger_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 23,

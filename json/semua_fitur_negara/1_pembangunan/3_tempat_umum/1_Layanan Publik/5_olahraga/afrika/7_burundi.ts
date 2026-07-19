@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundi_olahraga = {
   "kolam_renang": 19,
   "sirkuit_balap": 1,

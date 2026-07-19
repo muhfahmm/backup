@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_ekstraksi = {
   emas: 19,
   uranium: 10,

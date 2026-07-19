@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_olahraga = {
   "kolam_renang": 15,
   "sirkuit_balap": 1,

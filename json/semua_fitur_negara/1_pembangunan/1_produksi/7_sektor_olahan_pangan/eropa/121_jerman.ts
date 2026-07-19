@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_olahan_pangan = {
   air_mineral: 9030,
   gula: 5160,

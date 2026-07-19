@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_agrikultur = {
   padi: 192,
   gandum: 156,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_peternakan = {
   ayam_unggas: 52,
   sapi_perah: 32,

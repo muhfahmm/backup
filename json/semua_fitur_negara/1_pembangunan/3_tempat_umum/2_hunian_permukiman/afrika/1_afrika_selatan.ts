@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const afrika_selatan_hunian = {
   rumah_subsidi: 780024,

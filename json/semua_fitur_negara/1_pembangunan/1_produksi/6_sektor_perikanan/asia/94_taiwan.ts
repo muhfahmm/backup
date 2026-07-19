@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_perikanan = {
   udang: 264,
   mutiara: 312,

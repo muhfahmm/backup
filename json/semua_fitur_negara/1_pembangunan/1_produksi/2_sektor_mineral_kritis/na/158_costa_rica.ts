@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_ekstraksi = {
   emas: 26,
   uranium: 0,

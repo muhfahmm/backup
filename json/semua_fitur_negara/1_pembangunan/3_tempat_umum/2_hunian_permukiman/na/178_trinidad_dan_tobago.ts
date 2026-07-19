@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const trinidad_dan_tobago_hunian = {
   rumah_subsidi: 18763,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahama_olahan_pangan = {
   air_mineral: 156,
   gula: 196,

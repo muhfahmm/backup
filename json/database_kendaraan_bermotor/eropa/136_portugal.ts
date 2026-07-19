@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugalVehicles = {
   sepeda_motor: 1542573,
   mobil: 822705,

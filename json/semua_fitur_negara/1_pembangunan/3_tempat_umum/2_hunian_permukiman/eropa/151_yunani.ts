@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const yunani_hunian = {
   rumah_subsidi: 144878,

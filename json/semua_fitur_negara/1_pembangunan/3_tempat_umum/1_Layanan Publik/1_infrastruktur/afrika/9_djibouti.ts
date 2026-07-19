@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const djibouti_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 16,

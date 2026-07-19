@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_pendidikan = {
       "prasekolah": 45,
       "dasar": 42,

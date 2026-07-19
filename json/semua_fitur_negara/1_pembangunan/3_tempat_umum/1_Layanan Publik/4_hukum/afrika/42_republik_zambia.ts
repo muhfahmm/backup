@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 5,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 9,

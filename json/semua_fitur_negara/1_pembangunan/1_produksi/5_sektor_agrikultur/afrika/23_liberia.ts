@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_agrikultur = {
   padi: 195,
   gandum: 138,

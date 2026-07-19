@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_profile = {
   "name_en": "Kiribati",
   "capital": "South Tarawa",
   "name_id": "Kiribati",
   "lon": 173,
   "lat": 1.41666666,
-  "flag": "ðŸ‡°ðŸ‡®",
+  "flag": "🇰🇮",
   "jumlah_penduduk": 134518,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const kiribati_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kiribati_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kiribati_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kiribati_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,

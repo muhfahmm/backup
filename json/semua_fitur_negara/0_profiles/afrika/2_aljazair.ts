@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_profile = {
   "name_en": "Algeria",
   "capital": "Algiers",
   "name_id": "Aljazair",
   "lon": 3.08,
   "lat": 36.73,
-  "flag": "ðŸ‡©ðŸ‡¿",
+  "flag": "🇩🇿",
   "jumlah_penduduk": 47400000,
   "anggaran": 2334,
   "pendapatan_nasional": "6667",
@@ -26,7 +26,8 @@ const aljazair_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const aljazair_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const aljazair_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": aljazair_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

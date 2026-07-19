@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_pendidikan = {
       "prasekolah": 17,
       "dasar": 146,

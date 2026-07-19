@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_perikanan = {
   udang: 2142,
   mutiara: 2346,

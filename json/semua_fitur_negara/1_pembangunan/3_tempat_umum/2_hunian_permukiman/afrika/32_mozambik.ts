@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mozambik_hunian = {
   rumah_subsidi: 398195,

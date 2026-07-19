@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_profile = {
   "name_en": "Venezuela",
   "capital": "Caracas",
   "name_id": "Venezuela",
   "lon": -66,
   "lat": 8,
-  "flag": "ðŸ‡»ðŸ‡ª",
+  "flag": "🇻🇪",
   "jumlah_penduduk": 28300000,
   "anggaran": 924,
   "pendapatan_nasional": "2639",
@@ -26,7 +26,8 @@ const venezuela_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const venezuela_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const venezuela_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": venezuela_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 28,

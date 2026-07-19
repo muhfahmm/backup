@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_agrikultur = {
   padi: 21761,
   gandum: 30558,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_olahan_pangan = {
   air_mineral: 38,
   gula: 76,

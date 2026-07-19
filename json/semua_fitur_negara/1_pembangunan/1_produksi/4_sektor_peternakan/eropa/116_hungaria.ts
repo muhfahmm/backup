@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_peternakan = {
   ayam_unggas: 248,
   sapi_perah: 264,

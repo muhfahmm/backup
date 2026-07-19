@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slowakia_agrikultur = {
   padi: 910,
   gandum: 832,

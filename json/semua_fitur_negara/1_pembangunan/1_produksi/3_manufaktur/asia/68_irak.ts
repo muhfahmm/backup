@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_manufaktur = {
   semikonduktor: 42,
   mobil: 60,

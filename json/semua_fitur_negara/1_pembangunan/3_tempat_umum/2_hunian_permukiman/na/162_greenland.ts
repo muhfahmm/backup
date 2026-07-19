@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const greenland_hunian = {
   rumah_subsidi: 756,

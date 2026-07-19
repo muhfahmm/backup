@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_pendidikan = {
       "prasekolah": 176,
       "dasar": 722,

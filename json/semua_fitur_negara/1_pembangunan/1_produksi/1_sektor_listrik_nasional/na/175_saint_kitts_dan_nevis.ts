@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_listrik = {
   pembangkit_listrik_tenaga_nuklir: 0,
   pembangkit_listrik_tenaga_air: 10,

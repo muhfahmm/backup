@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 5,

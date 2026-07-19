@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_komersial = {
   "mall": 6,
   "hotel": 7,

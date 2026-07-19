@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_olahan_pangan = {
   air_mineral: 756,
   gula: 396,

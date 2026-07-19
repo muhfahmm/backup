@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_agrikultur = {
   padi: 1440,
   gandum: 1040,

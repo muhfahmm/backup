@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kamboja_hunian = {
   rumah_subsidi: 219372,

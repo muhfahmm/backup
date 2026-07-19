@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_pendidikan = {
       "prasekolah": 88,
       "dasar": 140,

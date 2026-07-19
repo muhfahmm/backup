@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_komersial = {
   "mall": 5,
   "hotel": 4,

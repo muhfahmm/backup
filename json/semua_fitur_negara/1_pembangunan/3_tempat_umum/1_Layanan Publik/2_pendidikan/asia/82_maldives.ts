@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_pendidikan = {
       "prasekolah": 96,
       "dasar": 58,

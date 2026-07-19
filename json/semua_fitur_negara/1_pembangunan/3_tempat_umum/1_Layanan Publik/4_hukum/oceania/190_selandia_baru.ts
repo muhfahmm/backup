@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_hukum = {
       "pusat_bantuan_hukum": 35,
       "pengadilan": 41,

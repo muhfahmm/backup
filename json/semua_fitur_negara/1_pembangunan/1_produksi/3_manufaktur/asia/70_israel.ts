@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_manufaktur = {
   semikonduktor: 567,
   mobil: 945,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_kesehatan = {
       "rumah_sakit_besar": 149,
       "rumah_sakit_kecil": 419,

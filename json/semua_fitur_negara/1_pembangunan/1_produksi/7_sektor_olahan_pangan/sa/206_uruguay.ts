@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_olahan_pangan = {
   air_mineral: 46,
   gula: 92,

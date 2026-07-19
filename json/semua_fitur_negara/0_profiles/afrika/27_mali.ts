@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_profile = {
   "name_en": "Mali",
   "capital": "Bamako",
   "name_id": "Mali",
   "lon": -8,
   "lat": 12.39,
-  "flag": "ðŸ‡²ðŸ‡±",
+  "flag": "🇲🇱",
   "jumlah_penduduk": 22395489,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const mali_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const mali_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const mali_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mali_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 9,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentinaVehicles = {
   sepeda_motor: 6674175,
   mobil: 3559560,

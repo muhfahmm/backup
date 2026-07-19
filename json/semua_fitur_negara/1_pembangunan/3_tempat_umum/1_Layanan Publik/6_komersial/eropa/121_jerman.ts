@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_komersial = {
   "mall": 154,
   "hotel": 233,

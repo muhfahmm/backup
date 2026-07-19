@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_komersial = {
   "mall": 31,
   "hotel": 43,

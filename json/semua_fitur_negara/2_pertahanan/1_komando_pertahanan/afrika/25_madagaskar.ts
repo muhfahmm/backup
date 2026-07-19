@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const madagaskar_strategis = {
     "waktu_respon": 15,

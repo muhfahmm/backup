@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_peternakan = {
   ayam_unggas: 48,
   sapi_perah: 39,

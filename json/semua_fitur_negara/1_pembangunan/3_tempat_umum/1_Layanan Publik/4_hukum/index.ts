@@ -1,4 +1,4 @@
-﻿export const hukumRate = {
+export const hukumRate = {
   "14_kejaksaan_court": {
     key: "14_kejaksaan_court",
     dataKey: "kejaksaan_court",

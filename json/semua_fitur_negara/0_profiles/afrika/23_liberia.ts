@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_profile = {
   "name_en": "Liberia",
   "capital": "Monrovia",
   "name_id": "Liberia",
   "lon": -9.5,
   "lat": 6.5,
-  "flag": "ðŸ‡±ðŸ‡·",
+  "flag": "🇱🇷",
   "jumlah_penduduk": 5612817,
   "anggaran": 39,
   "pendapatan_nasional": "111",
@@ -26,7 +26,8 @@ const liberia_geopolitik = {
       "kekuatan_keras": 8,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const liberia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const liberia_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": liberia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,

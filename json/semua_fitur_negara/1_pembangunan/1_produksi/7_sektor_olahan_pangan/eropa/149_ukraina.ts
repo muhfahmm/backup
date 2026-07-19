@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_olahan_pangan = {
   air_mineral: 150,
   gula: 185,

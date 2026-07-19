@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_olahraga = {
   "kolam_renang": 4,
   "sirkuit_balap": 2,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_perikanan = {
   udang: 136,
   mutiara: 152,

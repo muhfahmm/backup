@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_agrikultur = {
   padi: 5609,
   gandum: 1501,

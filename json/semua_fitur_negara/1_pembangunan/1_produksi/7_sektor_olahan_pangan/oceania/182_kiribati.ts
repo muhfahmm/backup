@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_olahan_pangan = {
   air_mineral: 50,
   gula: 26,

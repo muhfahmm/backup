@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_pendidikan = {
       "prasekolah": 10,
       "dasar": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 14,

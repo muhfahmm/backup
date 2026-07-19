@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_uganda_komersial = {
   "mall": 2,
   "hotel": 2,

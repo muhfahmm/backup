@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_pendidikan = {
       "prasekolah": 336,
       "dasar": 547,

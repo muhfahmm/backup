@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_pendidikan = {
       "prasekolah": 75,
       "dasar": 58,

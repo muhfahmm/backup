@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kepulauan_faroe_hunian = {
   rumah_subsidi: 654,

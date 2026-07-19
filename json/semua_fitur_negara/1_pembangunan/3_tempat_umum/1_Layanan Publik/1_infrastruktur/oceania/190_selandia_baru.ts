@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_infrastruktur = {
   jalur_sepeda: 12,
   jalan_raya: 47,

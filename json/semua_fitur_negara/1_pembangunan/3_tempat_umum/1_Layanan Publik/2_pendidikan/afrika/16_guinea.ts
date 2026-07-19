@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_pendidikan = {
       "prasekolah": 52,
       "dasar": 58,

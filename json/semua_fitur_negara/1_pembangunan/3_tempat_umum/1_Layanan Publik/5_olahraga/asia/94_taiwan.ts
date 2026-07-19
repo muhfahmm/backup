@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_olahraga = {
   "kolam_renang": 29,
   "sirkuit_balap": 4,

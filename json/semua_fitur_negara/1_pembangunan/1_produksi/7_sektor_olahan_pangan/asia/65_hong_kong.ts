@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_olahan_pangan = {
   air_mineral: 49,
   gula: 17,

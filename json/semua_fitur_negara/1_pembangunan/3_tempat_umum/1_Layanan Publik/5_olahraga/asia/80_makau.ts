@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_olahraga = {
   "kolam_renang": 11,
   "sirkuit_balap": 3,

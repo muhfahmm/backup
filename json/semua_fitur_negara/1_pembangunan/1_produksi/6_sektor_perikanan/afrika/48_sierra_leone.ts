@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_perikanan = {
   udang: 40,
   mutiara: 84,

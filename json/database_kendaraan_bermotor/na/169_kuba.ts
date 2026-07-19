@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kubaVehicles = {
   sepeda_motor: 1700720,
   mobil: 907051,

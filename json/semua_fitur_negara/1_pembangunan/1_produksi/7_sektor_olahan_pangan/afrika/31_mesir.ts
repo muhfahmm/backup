@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_olahan_pangan = {
   air_mineral: 987,
   gula: 517,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_kesehatan = {
       "rumah_sakit_besar": 43,
       "rumah_sakit_kecil": 284,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerun_agrikultur = {
   padi: 328,
   gandum: 160,

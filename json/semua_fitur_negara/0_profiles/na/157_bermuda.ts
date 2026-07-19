@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_profile = {
   "name_en": "Bermuda",
   "capital": "Hamilton",
   "name_id": "Bermuda",
   "lon": -64.75,
   "lat": 32.33333333,
-  "flag": "ðŸ‡§ðŸ‡²",
+  "flag": "🇧🇲",
   "jumlah_penduduk": 64636,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const bermuda_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const bermuda_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const bermuda_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bermuda_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

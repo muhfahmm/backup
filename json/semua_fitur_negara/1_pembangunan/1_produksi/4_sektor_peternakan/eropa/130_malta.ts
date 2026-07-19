@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_peternakan = {
   ayam_unggas: 94,
   sapi_perah: 100,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_agrikultur = {
   padi: 38,
   gandum: 14,

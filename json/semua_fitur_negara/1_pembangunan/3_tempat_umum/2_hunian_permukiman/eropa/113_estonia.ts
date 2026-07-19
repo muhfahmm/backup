@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const estonia_hunian = {
   rumah_subsidi: 17846,

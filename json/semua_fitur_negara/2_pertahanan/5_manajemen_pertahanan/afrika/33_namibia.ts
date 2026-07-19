@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const namibia_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 22,

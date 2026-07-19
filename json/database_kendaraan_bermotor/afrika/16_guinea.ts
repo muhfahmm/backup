@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guineaVehicles = {
   sepeda_motor: 1862147,
   mobil: 993145,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const djibouti_olahan_pangan = {
   air_mineral: 23,
   gula: 31,

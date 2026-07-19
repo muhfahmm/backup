@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_kesehatan = {
       "rumah_sakit_besar": 40,
       "rumah_sakit_kecil": 84,

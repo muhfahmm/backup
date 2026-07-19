@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_olahan_pangan = {
   air_mineral: 144,
   gula: 116,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_profile = {
   "name_en": "Cape Verde",
   "capital": "Praia",
   "name_id": "Tanjung verde",
   "lon": -24,
   "lat": 16,
-  "flag": "ðŸ‡¨ðŸ‡»",
+  "flag": "🇨🇻",
   "jumlah_penduduk": "10M",
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const tanjung_verde_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const tanjung_verde_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const tanjung_verde_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tanjung_verde_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

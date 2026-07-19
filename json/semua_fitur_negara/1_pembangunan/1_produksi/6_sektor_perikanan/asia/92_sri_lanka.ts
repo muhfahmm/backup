@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_perikanan = {
   udang: 75,
   mutiara: 40,

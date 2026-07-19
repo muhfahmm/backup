@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_profile = {
   "name_en": "Kuwait",
   "capital": "Kuwait City",
   "name_id": "Kuwait",
   "lon": 47.97,
   "lat": 29.37,
-  "flag": "ðŸ‡°ðŸ‡¼",
+  "flag": "🇰🇼",
   "jumlah_penduduk": 4881254,
   "anggaran": 1507,
   "pendapatan_nasional": "4306",
@@ -26,7 +26,8 @@ const kuwait_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kuwait_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kuwait_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kuwait_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

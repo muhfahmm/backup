@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_intelijen = {
   sistem_satelit: 4,
   jaringan_radar: 10,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_komersial = {
   "mall": 7,
   "hotel": 7,

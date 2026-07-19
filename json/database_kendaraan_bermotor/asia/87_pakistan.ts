@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistanVehicles = {
   sepeda_motor: 31832254,
   mobil: 16977202,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_perikanan = {
   udang: 104,
   mutiara: 100,

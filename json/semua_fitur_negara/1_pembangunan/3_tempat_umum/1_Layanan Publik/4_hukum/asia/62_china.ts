@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_hukum = {
       "pusat_bantuan_hukum": 906,
       "pengadilan": 513,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_komersial = {
   "mall": 10,
   "hotel": 8,

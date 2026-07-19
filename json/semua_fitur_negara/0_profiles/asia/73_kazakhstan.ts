@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_profile = {
   "name_en": "Kazakhstan",
   "capital": "Astana",
   "name_id": "Kazakhstan",
   "lon": 68,
   "lat": 48,
-  "flag": "ðŸ‡°ðŸ‡¿",
+  "flag": "🇰🇿",
   "jumlah_penduduk": 20532240,
   "anggaran": 2528,
   "pendapatan_nasional": "7223",
@@ -26,7 +26,8 @@ const kazakhstan_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kazakhstan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kazakhstan_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kazakhstan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

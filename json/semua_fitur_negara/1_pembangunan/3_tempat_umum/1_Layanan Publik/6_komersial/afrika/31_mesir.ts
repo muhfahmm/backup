@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_komersial = {
   "mall": 44,
   "hotel": 15,

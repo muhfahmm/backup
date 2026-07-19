@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_kesehatan = {
       "rumah_sakit_besar": 6,
       "rumah_sakit_kecil": 46,

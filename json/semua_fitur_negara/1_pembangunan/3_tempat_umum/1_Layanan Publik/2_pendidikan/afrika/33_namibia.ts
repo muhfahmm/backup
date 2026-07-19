@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const namibia_pendidikan = {
       "prasekolah": 38,
       "dasar": 148,

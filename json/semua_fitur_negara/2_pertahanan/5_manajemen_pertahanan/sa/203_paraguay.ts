@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguay_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 7,

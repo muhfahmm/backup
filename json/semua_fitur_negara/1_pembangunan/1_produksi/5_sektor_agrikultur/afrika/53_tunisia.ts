@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tunisia_agrikultur = {
   padi: 118,
   gandum: 28,

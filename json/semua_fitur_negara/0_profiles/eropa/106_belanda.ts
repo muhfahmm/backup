@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_profile = {
   "name_en": "Netherlands",
   "capital": "Amsterdam",
   "name_id": "Belanda",
   "lon": 4.9,
   "lat": 52.36,
-  "flag": "ðŸ‡³ðŸ‡±",
+  "flag": "🇳🇱",
   "jumlah_penduduk": 18137265,
   "anggaran": 10598,
   "pendapatan_nasional": "30280",
@@ -26,7 +26,8 @@ const belanda_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const belanda_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const belanda_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": belanda_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 23,

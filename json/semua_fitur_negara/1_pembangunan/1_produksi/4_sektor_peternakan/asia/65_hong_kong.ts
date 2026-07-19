@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_peternakan = {
   ayam_unggas: 22,
   sapi_perah: 27,

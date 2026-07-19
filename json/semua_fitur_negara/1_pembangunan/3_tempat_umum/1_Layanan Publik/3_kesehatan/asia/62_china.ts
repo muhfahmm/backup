@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_kesehatan = {
       "rumah_sakit_besar": 1112,
       "rumah_sakit_kecil": 4177,

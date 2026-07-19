@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_intelijen = {
   sistem_satelit: 3,
   jaringan_radar: 19,

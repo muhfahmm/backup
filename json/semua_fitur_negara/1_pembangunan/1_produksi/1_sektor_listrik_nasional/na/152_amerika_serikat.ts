@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_listrik = {
   pembangkit_listrik_tenaga_nuklir: 917,
   pembangkit_listrik_tenaga_air: 6,

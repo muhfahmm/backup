@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palauVehicles = {
   sepeda_motor: 2686,
   mobil: 1432,

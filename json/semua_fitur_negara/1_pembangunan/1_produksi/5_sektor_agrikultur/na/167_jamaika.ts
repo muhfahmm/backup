@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_agrikultur = {
   padi: 48,
   gandum: 252,

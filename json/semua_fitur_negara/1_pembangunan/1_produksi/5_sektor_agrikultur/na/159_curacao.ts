@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_agrikultur = {
   padi: 78,
   gandum: 142,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_pendidikan = {
       "prasekolah": 98,
       "dasar": 42,

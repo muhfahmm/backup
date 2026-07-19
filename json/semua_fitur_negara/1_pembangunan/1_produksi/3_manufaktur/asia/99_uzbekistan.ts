@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_manufaktur = {
   semikonduktor: 84,
   mobil: 98,

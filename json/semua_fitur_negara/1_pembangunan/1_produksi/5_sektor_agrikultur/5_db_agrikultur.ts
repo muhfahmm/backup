@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Agrikultur (Total: 14 Bangunan)
 // ===================

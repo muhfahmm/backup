@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_profile = {
   "name_en": "Tonga",
   "capital": "Nuku'alofa",
   "name_id": "Tonga",
   "lon": -175,
   "lat": -20,
-  "flag": "ðŸ‡¹ðŸ‡´",
+  "flag": "🇹🇴",
   "jumlah_penduduk": 100179,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const tonga_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const tonga_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const tonga_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tonga_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

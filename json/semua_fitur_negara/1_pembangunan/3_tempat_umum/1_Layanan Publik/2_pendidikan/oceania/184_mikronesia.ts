@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_pendidikan = {
       "prasekolah": 100,
       "dasar": 27,

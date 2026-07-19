@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_armada = {
     "barak": 2,
     "darat": {

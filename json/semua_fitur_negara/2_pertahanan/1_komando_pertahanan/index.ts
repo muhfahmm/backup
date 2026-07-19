@@ -1,4 +1,4 @@
-﻿export const komandoPertahananRate = {
+export const komandoPertahananRate = {
   "pusat_komando_strategis": {
     key: "pusat_komando_strategis",
     dataKey: "pusat_komando_strategis",

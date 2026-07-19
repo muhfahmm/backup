@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_pertahanan = {
     "penjara": 9,
     "gudang_senjata": 2,

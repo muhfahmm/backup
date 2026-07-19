@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const grenada_strategis = {
     "waktu_respon": 34,

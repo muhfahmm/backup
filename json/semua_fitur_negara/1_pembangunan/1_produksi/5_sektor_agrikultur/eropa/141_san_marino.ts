@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_agrikultur = {
   padi: 40,
   gandum: 148,

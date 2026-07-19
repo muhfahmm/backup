@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 18,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_pertahanan = {
     "penjara": 36,
     "gudang_senjata": 11,

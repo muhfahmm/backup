@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_pendidikan = {
       "prasekolah": 83,
       "dasar": 49,

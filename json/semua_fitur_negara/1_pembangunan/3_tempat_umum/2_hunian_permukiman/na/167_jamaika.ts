@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const jamaika_hunian = {
   rumah_subsidi: 39620,

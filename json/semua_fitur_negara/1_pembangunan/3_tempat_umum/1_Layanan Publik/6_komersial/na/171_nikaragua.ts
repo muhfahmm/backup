@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_komersial = {
   "mall": 1,
   "hotel": 11,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_agrikultur = {
   padi: 136,
   gandum: 240,

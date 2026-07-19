@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_olahan_pangan = {
   air_mineral: 616,
   gula: 748,

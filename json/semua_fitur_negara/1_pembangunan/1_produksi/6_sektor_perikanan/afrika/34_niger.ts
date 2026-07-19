@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_perikanan = {
   udang: 0,
   mutiara: 0,

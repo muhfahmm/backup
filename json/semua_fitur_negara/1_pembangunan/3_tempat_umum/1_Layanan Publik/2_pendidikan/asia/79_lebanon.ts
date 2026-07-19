@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_pendidikan = {
       "prasekolah": 64,
       "dasar": 27,

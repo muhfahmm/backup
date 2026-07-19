@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuadorVehicles = {
   sepeda_motor: 2562653,
   mobil: 1366748,

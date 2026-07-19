@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bosnia_dan_hercegovina_strategis = {
     "waktu_respon": 29,

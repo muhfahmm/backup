@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_perikanan = {
   udang: 68,
   mutiara: 34,

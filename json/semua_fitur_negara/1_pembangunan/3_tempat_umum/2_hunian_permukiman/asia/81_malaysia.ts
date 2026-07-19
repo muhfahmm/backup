@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const malaysia_hunian = {
   rumah_subsidi: 425635,

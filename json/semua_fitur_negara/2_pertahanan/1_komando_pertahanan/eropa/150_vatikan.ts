@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const vatikan_strategis = {
     "waktu_respon": 37,

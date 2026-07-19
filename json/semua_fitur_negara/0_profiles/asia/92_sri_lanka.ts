@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_profile = {
   "name_en": "Sri Lanka",
   "capital": "Colombo",
   "name_id": "Sri lanka",
   "lon": 81,
   "lat": 7,
-  "flag": "ðŸ‡±ðŸ‡°",
+  "flag": "🇱🇰",
   "jumlah_penduduk": 21781800,
   "anggaran": 729,
   "pendapatan_nasional": "2084",
@@ -26,7 +26,8 @@ const sri_lanka_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const sri_lanka_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const sri_lanka_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": sri_lanka_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,

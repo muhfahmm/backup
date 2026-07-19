@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_pendidikan = {
       "prasekolah": 40,
       "dasar": 104,

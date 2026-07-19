@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const australia_strategis = {
     "waktu_respon": 21,

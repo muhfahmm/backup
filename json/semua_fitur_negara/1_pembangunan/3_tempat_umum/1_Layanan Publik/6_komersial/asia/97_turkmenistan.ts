@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_komersial = {
   "mall": 9,
   "hotel": 12,

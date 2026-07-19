@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const namibia_profile = {
   "name_en": "Namibia",
   "capital": "Windhoek",
   "name_id": "Namibia",
   "lon": 17,
   "lat": -22,
-  "flag": "ðŸ‡³ðŸ‡¦",
+  "flag": "🇳🇦",
   "jumlah_penduduk": 3022401,
   "anggaran": 126,
   "pendapatan_nasional": "361",
@@ -26,7 +26,8 @@ const namibia_geopolitik = {
       "kekuatan_keras": 25,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const namibia_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const namibia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": namibia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,

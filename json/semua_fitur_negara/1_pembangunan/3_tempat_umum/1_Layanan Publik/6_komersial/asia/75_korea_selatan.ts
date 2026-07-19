@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_komersial = {
   "mall": 89,
   "hotel": 112,

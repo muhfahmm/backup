@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 37,

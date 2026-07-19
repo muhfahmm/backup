@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_infrastruktur = {
   jalur_sepeda: 68,
   jalan_raya: 92,

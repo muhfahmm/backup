@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const andorra_pendidikan = {
       "prasekolah": 20,
       "dasar": 23,

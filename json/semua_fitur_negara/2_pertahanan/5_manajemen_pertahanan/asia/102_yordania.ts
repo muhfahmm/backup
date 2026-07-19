@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_pertahanan = {
     "penjara": 23,
     "gudang_senjata": 15,

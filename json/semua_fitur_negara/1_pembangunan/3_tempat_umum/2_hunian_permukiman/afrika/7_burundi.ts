@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const burundi_hunian = {
   rumah_subsidi: 150867,

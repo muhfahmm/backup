@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_pendidikan = {
       "prasekolah": 178,
       "dasar": 276,

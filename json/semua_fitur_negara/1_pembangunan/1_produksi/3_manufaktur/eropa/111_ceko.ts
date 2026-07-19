@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_manufaktur = {
   semikonduktor: 207,
   mobil: 253,

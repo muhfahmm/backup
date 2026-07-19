@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_pendidikan = {
       "prasekolah": 48,
       "dasar": 117,

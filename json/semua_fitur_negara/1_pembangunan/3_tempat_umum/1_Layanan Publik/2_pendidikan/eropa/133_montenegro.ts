@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const montenegro_pendidikan = {
       "prasekolah": 50,
       "dasar": 143,

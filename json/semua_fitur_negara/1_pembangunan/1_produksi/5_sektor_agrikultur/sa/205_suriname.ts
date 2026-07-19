@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_agrikultur = {
   padi: 36,
   gandum: 154,

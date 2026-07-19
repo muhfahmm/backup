@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const marshall_strategis = {
     "waktu_respon": 11,

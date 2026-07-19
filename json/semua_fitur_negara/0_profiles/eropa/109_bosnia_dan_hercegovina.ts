@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_profile = {
   "name_en": "Bosnia and Herzegovina",
   "capital": "Sarajevo",
   "name_id": "Bosnia dan hercegovina",
   "lon": 18,
   "lat": 44,
-  "flag": "ðŸ‡§ðŸ‡¦",
+  "flag": "🇧🇦",
   "jumlah_penduduk": 3210847,
   "anggaran": 233,
   "pendapatan_nasional": "667",
@@ -26,7 +26,8 @@ const bosnia_dan_hercegovina_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const bosnia_dan_hercegovina_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const bosnia_dan_hercegovina_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bosnia_dan_hercegovina_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

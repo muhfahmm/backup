@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_armada = {
     "barak": 2,
     "darat": {

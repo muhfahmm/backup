@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_ekstraksi = {
   emas: 18,
   uranium: 0,

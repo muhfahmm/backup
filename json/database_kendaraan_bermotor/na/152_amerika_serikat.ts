@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerikaSerikatVehicles = {
   sepeda_motor: 49003125,
   mobil: 26135000,

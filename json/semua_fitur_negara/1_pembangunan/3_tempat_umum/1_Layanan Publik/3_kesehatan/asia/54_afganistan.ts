@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afganistan_kesehatan = {
       "rumah_sakit_besar": 13,
       "rumah_sakit_kecil": 71,

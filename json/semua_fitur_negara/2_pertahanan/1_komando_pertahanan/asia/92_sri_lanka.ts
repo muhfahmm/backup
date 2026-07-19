@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const sri_lanka_strategis = {
     "waktu_respon": 19,

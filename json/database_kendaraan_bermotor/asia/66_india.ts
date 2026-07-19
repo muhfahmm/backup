@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indiaVehicles = {
   sepeda_motor: 202892599,
   mobil: 108209386,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_serbia_strategis = {
     "waktu_respon": 28,

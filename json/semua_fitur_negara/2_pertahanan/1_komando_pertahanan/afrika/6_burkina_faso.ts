@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const burkina_faso_strategis = {
     "waktu_respon": 11,

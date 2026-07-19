@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_komersial = {
   "mall": 5,
   "hotel": 8,

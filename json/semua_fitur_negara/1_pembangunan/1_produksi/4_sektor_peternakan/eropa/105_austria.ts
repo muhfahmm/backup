@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_peternakan = {
   ayam_unggas: 1998,
   sapi_perah: 2072,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_pendidikan = {
       "prasekolah": 75,
       "dasar": 39,

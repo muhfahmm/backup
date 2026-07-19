@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_pendidikan = {
       "prasekolah": 878,
       "dasar": 1590,

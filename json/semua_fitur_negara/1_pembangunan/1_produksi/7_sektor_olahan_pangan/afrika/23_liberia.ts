@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_olahan_pangan = {
   air_mineral: 93,
   gula: 81,

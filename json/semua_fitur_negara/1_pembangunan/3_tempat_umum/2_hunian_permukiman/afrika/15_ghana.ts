@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const ghana_hunian = {
   rumah_subsidi: 401855,

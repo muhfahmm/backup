@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nigeria_hunian = {
   rumah_subsidi: 2644308,

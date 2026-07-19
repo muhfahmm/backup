@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_agrikultur = {
   padi: 92,
   gandum: 160,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_perikanan = {
   udang: 576,
   mutiara: 900,

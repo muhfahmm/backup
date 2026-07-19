@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_ekstraksi = {
   emas: 27,
   uranium: 0,

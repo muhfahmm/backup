@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_olahan_pangan = {
   air_mineral: 32,
   gula: 98,

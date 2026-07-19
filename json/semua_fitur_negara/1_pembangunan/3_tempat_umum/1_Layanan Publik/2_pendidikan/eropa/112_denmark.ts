@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_pendidikan = {
       "prasekolah": 102,
       "dasar": 655,

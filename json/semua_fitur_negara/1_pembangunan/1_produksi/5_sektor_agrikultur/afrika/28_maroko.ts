@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_agrikultur = {
   padi: 312,
   gandum: 960,

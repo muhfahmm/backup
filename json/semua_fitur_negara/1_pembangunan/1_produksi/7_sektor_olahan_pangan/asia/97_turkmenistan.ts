@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_olahan_pangan = {
   air_mineral: 54,
   gula: 76,

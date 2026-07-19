@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saintLuciaVehicles = {
   sepeda_motor: 27283,
   mobil: 14551,

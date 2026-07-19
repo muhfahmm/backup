@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const montenegro_peternakan = {
   ayam_unggas: 25,
   sapi_perah: 31,

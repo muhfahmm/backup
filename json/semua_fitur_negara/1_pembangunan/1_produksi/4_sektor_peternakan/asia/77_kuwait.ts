@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_peternakan = {
   ayam_unggas: 420,
   sapi_perah: 300,

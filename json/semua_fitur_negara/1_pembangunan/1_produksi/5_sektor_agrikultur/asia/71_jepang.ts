@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_agrikultur = {
   padi: 6902,
   gandum: 11186,

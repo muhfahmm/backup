@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_pendidikan = {
       "prasekolah": 93,
       "dasar": 51,

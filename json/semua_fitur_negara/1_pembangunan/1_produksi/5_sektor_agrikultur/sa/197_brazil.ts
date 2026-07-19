@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_agrikultur = {
   padi: 6693,
   gandum: 8439,

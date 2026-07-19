@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 19,

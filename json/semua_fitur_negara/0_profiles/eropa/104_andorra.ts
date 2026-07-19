@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const andorra_profile = {
   "name_en": "Andorra",
   "capital": "Andorra la Vella",
   "name_id": "Andorra",
   "lon": 1.52,
   "lat": 42.5,
-  "flag": "ðŸ‡¦ðŸ‡©",
+  "flag": "🇦🇩",
   "jumlah_penduduk": 85101,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const andorra_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const andorra_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const andorra_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": andorra_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 4,

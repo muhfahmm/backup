@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_ekstraksi = {
   emas: 26 ,
   uranium: 0,

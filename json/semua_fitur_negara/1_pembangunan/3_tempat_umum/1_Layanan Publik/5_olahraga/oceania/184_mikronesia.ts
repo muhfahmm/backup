@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_olahraga = {
   "kolam_renang": 10,
   "sirkuit_balap": 2,

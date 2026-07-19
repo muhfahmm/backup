@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_hukum = {
       "pusat_bantuan_hukum": 53,
       "pengadilan": 136,

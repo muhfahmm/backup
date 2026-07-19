@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_armada = {
     "barak": 2,
     "darat": {

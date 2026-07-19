@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_pendidikan = {
       "prasekolah": 691,
       "dasar": 1278,

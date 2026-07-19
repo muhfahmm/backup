@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const uruguay_hunian = {
   rumah_subsidi: 46565,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvalu_profile = {
   "name_en": "Tuvalu",
   "capital": "Funafuti",
   "name_id": "Tuvalu",
   "lon": 178,
   "lat": -8,
-  "flag": "ðŸ‡¹ðŸ‡»",
+  "flag": "🇹🇻",
   "jumlah_penduduk": 10643,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const tuvalu_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const tuvalu_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const tuvalu_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tuvalu_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

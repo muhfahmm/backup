@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_agrikultur = {
   padi: 2484,
   gandum: 2646,

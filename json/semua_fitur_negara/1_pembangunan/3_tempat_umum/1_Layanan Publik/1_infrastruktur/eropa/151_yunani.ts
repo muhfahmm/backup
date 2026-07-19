@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_infrastruktur = {
   jalur_sepeda: 35,
   jalan_raya: 42,

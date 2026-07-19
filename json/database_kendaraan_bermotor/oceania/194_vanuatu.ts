@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatuVehicles = {
   sepeda_motor: 43902,
   mobil: 23414,

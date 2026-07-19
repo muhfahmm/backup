@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_kesehatan = {
       "rumah_sakit_besar": 115,
       "rumah_sakit_kecil": 527,

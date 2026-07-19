@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

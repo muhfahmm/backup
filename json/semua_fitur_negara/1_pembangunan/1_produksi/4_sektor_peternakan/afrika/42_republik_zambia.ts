@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_peternakan = {
   ayam_unggas: 78,
   sapi_perah: 50,

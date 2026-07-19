@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_pendidikan = {
       "prasekolah": 30,
       "dasar": 34,

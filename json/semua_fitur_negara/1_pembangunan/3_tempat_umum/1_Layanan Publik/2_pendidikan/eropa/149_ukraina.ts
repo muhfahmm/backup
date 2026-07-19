@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_pendidikan = {
       "prasekolah": 70,
       "dasar": 123,

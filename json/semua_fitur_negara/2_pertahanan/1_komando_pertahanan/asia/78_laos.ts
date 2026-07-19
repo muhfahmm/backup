@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const laos_strategis = {
     "waktu_respon": 4,

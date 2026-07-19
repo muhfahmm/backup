@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_agrikultur = {
   padi: 400,
   gandum: 336,

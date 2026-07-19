@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_pendidikan = {
       "prasekolah": 75,
       "dasar": 65,

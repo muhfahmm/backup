@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_agrikultur = {
   padi: 222,
   gandum: 195,

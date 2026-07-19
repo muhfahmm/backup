@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_listrik = {
   pembangkit_listrik_tenaga_nuklir: 2009,
   pembangkit_listrik_tenaga_air: 3,

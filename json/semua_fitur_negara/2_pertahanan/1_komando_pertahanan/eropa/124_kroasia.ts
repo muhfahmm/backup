@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kroasia_strategis = {
     "waktu_respon": 27,

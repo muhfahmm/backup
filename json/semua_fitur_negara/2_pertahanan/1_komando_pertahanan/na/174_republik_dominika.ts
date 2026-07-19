@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_dominika_strategis = {
     "waktu_respon": 31,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_infrastruktur = {
   jalur_sepeda: 5,
   jalan_raya: 10,

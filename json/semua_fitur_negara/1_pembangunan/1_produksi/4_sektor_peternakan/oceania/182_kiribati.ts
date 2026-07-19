@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_peternakan = {
   ayam_unggas: 30,
   sapi_perah: 50,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_agrikultur = {
   padi: 82,
   gandum: 106,

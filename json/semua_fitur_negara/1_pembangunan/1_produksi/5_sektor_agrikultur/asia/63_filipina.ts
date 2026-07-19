@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_agrikultur = {
   padi: 600,
   gandum: 720,

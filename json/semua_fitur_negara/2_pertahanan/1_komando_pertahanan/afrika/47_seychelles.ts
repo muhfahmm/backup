@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const seychelles_strategis = {
     "waktu_respon": 1,

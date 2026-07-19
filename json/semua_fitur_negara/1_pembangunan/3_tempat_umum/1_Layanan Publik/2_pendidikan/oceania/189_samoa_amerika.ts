@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_amerika_pendidikan = {
       "prasekolah": 70,
       "dasar": 50,

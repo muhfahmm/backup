@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_profile = {
   "name_en": "Jamaica",
   "capital": "Kingston",
   "name_id": "Jamaika",
   "lon": -77.5,
   "lat": 18.25,
-  "flag": "ðŸ‡¯ðŸ‡²",
+  "flag": "🇯🇲",
   "jumlah_penduduk": 2774538,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const jamaika_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const jamaika_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const jamaika_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": jamaika_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

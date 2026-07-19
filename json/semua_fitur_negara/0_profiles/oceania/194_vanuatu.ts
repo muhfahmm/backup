@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_profile = {
   "name_en": "Vanuatu",
   "capital": "Port Vila",
   "name_id": "Vanuatu",
   "lon": 167,
   "lat": -16,
-  "flag": "ðŸ‡»ðŸ‡º",
+  "flag": "🇻🇺",
   "jumlah_penduduk": 321409,
   "anggaran": 10,
   "pendapatan_nasional": "28",
@@ -26,7 +26,8 @@ const vanuatu_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const vanuatu_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const vanuatu_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": vanuatu_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,

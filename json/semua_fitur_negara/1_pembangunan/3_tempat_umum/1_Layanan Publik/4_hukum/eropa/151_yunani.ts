@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_hukum = {
       "pusat_bantuan_hukum": 24,
       "pengadilan": 41,

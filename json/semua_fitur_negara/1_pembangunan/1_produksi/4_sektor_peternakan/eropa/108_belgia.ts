@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_peternakan = {
   ayam_unggas: 1845,
   sapi_perah: 1886,

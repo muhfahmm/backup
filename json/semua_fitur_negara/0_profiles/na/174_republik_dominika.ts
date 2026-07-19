@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_profile = {
   "name_en": "Dominican Republic",
   "capital": "Santo Domingo",
   "name_id": "Republik dominika",
   "lon": -70.66666666,
   "lat": 19,
-  "flag": "ðŸ‡©ðŸ‡´",
+  "flag": "🇩🇴",
   "jumlah_penduduk": 11427557,
   "anggaran": 1070,
   "pendapatan_nasional": "3056",
@@ -26,7 +26,8 @@ const republik_dominika_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const republik_dominika_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const republik_dominika_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_dominika_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritania_armada = {
     "barak": 2,
     "darat": {

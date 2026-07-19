@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_manufaktur = {
   semikonduktor: 1548,
   mobil: 3096,

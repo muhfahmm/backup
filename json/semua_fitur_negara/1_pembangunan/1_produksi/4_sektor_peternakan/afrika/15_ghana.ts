@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_peternakan = {
   ayam_unggas: 245,
   sapi_perah: 329,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const liberia_strategis = {
     "waktu_respon": 13,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_agrikultur = {
   padi: 71,
   gandum: 56,

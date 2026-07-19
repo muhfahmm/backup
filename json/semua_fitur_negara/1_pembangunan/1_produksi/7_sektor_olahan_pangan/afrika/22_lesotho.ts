@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_olahan_pangan = {
   air_mineral: 42,
   gula: 72,

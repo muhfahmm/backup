@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_armada = {
     "barak": 20,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_olahan_pangan = {
   air_mineral: 76,
   gula: 66,

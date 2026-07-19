@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const palau_hunian = {
   rumah_subsidi: 241,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_peternakan = {
   ayam_unggas: 198,
   sapi_perah: 154,

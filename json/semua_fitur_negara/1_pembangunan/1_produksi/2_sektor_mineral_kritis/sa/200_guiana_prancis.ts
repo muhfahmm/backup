@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_ekstraksi = {
   emas: 16,
   uranium: 0,

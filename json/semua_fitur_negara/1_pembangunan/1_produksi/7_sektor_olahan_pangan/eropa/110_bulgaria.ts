@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_olahan_pangan = {
   air_mineral: 220,
   gula: 430,

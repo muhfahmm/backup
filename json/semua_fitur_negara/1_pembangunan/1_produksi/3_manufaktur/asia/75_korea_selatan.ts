@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_manufaktur = {
   semikonduktor: 2210,
   mobil: 850,

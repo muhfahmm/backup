@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_pertahanan = {
     "penjara": 29,
     "gudang_senjata": 6,

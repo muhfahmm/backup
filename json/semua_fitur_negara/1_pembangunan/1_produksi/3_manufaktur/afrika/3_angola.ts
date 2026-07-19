@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_manufaktur = {
   mobil: 64,
   semen_beton: 56,

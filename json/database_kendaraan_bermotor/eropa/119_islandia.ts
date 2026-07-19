@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandiaVehicles = {
   sepeda_motor: 52908,
   mobil: 28217,

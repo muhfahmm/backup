@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_olahraga = {
   "kolam_renang": 268,
   "sirkuit_balap": 16,

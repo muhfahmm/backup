@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_profile = {
   "name_en": "Spain",
   "capital": "Madrid",
   "name_id": "Spanyol",
   "lon": -3.7,
   "lat": 40.41,
-  "flag": "ðŸ‡ªðŸ‡¸",
+  "flag": "🇪🇸",
   "jumlah_penduduk": 49570725,
   "anggaran": 15362,
   "pendapatan_nasional": "43892",
@@ -26,7 +26,8 @@ const spanyol_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const spanyol_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const spanyol_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": spanyol_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

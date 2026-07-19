@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_perikanan = {
   udang: 120,
   mutiara: 130,

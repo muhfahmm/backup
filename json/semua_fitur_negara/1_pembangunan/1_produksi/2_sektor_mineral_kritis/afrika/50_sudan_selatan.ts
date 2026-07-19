@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_olahan_pangan = {
   air_mineral: 13677,
   gula: 11058,

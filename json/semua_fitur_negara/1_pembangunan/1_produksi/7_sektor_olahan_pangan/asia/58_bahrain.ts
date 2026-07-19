@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_olahan_pangan = {
   air_mineral: 392,
   gula: 376,

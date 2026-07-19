@@ -1,1 +1,1 @@
-﻿// @ts-nocheck
+// @ts-nocheck

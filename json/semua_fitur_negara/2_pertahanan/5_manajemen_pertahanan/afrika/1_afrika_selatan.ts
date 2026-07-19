@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 16,

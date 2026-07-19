@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_peternakan = {
   ayam_unggas: 10948,
   sapi_perah: 11662,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_pendidikan = {
       "prasekolah": 1436,
       "dasar": 1044,

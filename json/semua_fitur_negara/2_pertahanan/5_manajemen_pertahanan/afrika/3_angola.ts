@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_pertahanan = {
     "penjara": 10,
     "gudang_senjata": 38,

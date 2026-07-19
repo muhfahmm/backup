@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_perikanan = {
   udang: 66,
   mutiara: 14,

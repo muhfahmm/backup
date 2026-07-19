@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_pendidikan = {
       "prasekolah": 65,
       "dasar": 79,

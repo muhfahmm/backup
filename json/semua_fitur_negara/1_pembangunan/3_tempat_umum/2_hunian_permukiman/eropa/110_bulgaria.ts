@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bulgaria_hunian = {
   rumah_subsidi: 94837,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_agrikultur = {
   padi: 375,
   gandum: 465,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_profile = {
   "name_en": "Vatican City",
   "capital": "Vatican City",
   "name_id": "Vatikan",
   "lon": 12.45,
   "lat": 41.9,
-  "flag": "ðŸ‡»ðŸ‡¦",
+  "flag": "🇻🇦",
   "jumlah_penduduk": 882,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const vatikan_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const vatikan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const vatikan_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": vatikan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

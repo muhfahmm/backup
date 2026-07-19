@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 32,

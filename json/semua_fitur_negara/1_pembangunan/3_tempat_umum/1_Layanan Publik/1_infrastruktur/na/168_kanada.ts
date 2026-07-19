@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_infrastruktur = {
   jalur_sepeda: 158,
   jalan_raya: 140,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_olahraga = {
   "kolam_renang": 18,
   "sirkuit_balap": 3,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_peternakan = {
   ayam_unggas: 128,
   sapi_perah: 56,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_kesehatan = {
       "rumah_sakit_besar": 15,
       "rumah_sakit_kecil": 27,

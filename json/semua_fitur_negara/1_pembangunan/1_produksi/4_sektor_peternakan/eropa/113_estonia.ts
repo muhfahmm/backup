@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estonia_peternakan = {
   ayam_unggas: 95,
   sapi_perah: 65,

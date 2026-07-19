@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const botswana_olahan_pangan = {
   air_mineral: 88,
   gula: 44,

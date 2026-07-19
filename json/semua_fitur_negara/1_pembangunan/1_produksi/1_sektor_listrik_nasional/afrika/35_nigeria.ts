@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_listrik = {
   pembangkit_listrik_tenaga_gas: 1611,
   pembangkit_listrik_tenaga_air: 20,

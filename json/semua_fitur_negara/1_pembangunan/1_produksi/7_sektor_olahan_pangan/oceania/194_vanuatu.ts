@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_olahan_pangan = {
   air_mineral: 48,
   gula: 17,

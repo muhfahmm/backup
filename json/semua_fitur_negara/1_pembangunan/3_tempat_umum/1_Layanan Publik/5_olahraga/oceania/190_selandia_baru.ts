@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_olahraga = {
   "kolam_renang": 68,
   "sirkuit_balap": 8,

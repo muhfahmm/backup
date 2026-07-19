@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estonia_agrikultur = {
   padi: 180,
   gandum: 115,

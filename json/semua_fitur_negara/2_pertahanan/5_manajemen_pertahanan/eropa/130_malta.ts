@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 11,

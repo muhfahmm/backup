@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_agrikultur = {
   padi: 22,
   gandum: 11,

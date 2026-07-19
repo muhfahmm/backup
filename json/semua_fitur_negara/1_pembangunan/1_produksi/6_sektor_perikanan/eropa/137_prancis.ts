@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_perikanan = {
   udang: 7074,
   mutiara: 2882,

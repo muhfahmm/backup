@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_ekstraksi = {
   nikel: 10,
   bijih_besi: 90,

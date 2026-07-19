@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_olahan_pangan = {
   air_mineral: 205,
   gula: 50,

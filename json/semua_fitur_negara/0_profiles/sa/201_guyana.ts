@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_profile = {
   "name_en": "Guyana",
   "capital": "Georgetown",
   "name_id": "Guyana",
   "lon": -59,
   "lat": 5,
-  "flag": "ðŸ‡¬ðŸ‡¾",
+  "flag": "🇬🇾",
   "jumlah_penduduk": 956044,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const guyana_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const guyana_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const guyana_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guyana_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

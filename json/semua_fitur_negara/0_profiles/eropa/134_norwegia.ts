@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_profile = {
   "name_en": "Norway",
   "capital": "Oslo",
   "name_id": "Norwegia",
   "lon": 10.75,
   "lat": 59.91,
-  "flag": "ðŸ‡³ðŸ‡´",
+  "flag": "🇳🇴",
   "jumlah_penduduk": 5627400,
   "anggaran": 5639,
   "pendapatan_nasional": "16112",
@@ -26,7 +26,8 @@ const norwegia_geopolitik = {
       "kekuatan_keras": 31,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const norwegia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const norwegia_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": norwegia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,

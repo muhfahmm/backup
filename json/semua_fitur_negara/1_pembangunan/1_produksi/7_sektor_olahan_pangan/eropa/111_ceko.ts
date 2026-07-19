@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_olahan_pangan = {
   air_mineral: 943,
   gula: 828,

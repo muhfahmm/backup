@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Listrik (Total: 6 Bangunan)
 // ===================

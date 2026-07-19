@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 27,

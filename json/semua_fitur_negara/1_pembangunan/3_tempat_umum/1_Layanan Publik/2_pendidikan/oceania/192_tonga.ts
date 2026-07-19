@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_pendidikan = {
       "prasekolah": 17,
       "dasar": 54,

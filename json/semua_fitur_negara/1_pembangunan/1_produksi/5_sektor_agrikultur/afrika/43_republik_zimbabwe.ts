@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_agrikultur = {
   padi: 134,
   gandum: 30,

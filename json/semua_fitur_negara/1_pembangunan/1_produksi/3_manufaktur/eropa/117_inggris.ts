@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_manufaktur = {
   semikonduktor: 2100,
   mobil: 2400,

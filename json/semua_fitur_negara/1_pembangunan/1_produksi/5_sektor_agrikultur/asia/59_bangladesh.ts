@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_agrikultur = {
   padi: 2030,
   gandum: 3570,

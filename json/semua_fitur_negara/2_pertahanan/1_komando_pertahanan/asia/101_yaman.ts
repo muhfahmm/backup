@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const yaman_strategis = {
     "waktu_respon": 30,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandiaVehicles = {
   sepeda_motor: 730096,
   mobil: 389384,

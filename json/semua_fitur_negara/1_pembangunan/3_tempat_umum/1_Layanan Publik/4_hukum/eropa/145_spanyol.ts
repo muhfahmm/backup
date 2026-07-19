@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_hukum = {
       "pusat_bantuan_hukum": 140,
       "pengadilan": 110,

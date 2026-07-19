@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kazakhstan_hunian = {
   rumah_subsidi: 246677,

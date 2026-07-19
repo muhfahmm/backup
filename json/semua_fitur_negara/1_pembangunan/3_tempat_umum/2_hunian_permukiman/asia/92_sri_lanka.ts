@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const sri_lanka_hunian = {
   rumah_subsidi: 292545,

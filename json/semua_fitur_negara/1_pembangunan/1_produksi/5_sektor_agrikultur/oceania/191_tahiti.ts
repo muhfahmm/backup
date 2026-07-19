@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_agrikultur = {
   padi: 33,
   gandum: 53,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_pertahanan = {
     "penjara": 12,
     "gudang_senjata": 2,

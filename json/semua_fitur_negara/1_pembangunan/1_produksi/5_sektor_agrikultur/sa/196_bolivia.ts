@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_agrikultur = {
   padi: 190,
   gandum: 135,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_olahan_pangan = {
   air_mineral: 1681,
   gula: 1681,

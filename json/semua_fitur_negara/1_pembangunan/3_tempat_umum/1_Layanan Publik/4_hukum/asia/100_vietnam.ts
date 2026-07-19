@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 36,

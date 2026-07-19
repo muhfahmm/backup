@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 30,

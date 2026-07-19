@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_agrikultur = {
   padi: 219,
   gandum: 63,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_olahraga = {
   "kolam_renang": 90,
   "sirkuit_balap": 2,

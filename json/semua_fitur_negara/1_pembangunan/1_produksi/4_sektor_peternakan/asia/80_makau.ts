@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_peternakan = {
   ayam_unggas: 76,
   sapi_perah: 48,

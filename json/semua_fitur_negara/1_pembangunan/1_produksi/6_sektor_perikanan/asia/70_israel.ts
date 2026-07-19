@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_perikanan = {
   udang: 2331,
   mutiara: 945,

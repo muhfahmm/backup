@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_intelijen = {
   sistem_satelit: 17,
   jaringan_radar: 43,

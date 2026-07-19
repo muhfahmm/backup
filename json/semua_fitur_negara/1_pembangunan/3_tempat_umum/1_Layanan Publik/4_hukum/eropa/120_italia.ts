@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_hukum = {
       "pusat_bantuan_hukum": 100,
       "pengadilan": 197,

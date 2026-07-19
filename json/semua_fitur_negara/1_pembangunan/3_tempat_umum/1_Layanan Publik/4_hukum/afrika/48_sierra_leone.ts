@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_hukum = {
       "pusat_bantuan_hukum": 2,
       "pengadilan": 6,

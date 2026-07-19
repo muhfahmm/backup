@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_agrikultur = {
   padi: 55,
   gandum: 50,

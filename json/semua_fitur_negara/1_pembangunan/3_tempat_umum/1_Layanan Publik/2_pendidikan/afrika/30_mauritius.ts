@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_pendidikan = {
       "prasekolah": 87,
       "dasar": 100,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 32,

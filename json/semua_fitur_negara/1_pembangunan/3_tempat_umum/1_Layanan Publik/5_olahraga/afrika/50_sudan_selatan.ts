@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_olahraga = {
   "kolam_renang": 13,
   "sirkuit_balap": 2,

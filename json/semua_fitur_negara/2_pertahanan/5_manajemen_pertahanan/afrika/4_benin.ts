@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 27,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const somalia_pendidikan = {
       "prasekolah": 36,
       "dasar": 29,

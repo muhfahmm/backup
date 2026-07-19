@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const iran_strategis = {
     "waktu_respon": 39,

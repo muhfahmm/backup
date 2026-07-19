@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tuvalu_strategis = {
     "waktu_respon": 36,

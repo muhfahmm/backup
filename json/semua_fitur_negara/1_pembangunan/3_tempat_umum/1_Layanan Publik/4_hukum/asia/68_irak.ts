@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_hukum = {
       "pusat_bantuan_hukum": 32,
       "pengadilan": 15,

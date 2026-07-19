@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_profile = {
   "name_en": "Suriname",
   "capital": "Paramaribo",
   "name_id": "Suriname",
   "lon": -56,
   "lat": 4,
-  "flag": "ðŸ‡¸ðŸ‡·",
+  "flag": "🇸🇷",
   "jumlah_penduduk": 616500,
   "anggaran": 34,
   "pendapatan_nasional": "97",
@@ -26,7 +26,8 @@ const suriname_geopolitik = {
       "kekuatan_keras": 4,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const suriname_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const suriname_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": suriname_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 4,

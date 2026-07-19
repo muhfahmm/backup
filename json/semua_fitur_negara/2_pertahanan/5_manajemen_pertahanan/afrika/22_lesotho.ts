@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_pertahanan = {
     "penjara": 6,
     "gudang_senjata": 28,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_perikanan = {
   udang: 28,
   mutiara: 27,

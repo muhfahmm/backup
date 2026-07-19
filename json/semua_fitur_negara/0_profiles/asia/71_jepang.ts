@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_profile = {
   "name_en": "Japan",
   "capital": "Tokyo",
   "name_id": "Jepang",
   "lon": 139.65,
   "lat": 35.67,
-  "flag": "ðŸ‡¯ðŸ‡µ",
+  "flag": "🇯🇵",
   "jumlah_penduduk": 122860000,
   "anggaran": 39962,
   "pendapatan_nasional": "114176",
@@ -26,7 +26,8 @@ const jepang_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const jepang_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const jepang_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": jepang_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

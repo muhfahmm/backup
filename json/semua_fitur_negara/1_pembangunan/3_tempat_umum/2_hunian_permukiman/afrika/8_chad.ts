@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const chad_hunian = {
   rumah_subsidi: 208949,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_manufaktur = {
   semikonduktor: 60,
   mobil: 60,

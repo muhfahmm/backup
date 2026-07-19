@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_peternakan = {
   ayam_unggas: 368,
   sapi_perah: 920,

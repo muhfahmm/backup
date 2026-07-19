@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_profile = {
   "name_en": "Malaysia",
   "capital": "Kuala Lumpur",
   "name_id": "Malaysia",
   "lon": 101.68,
   "lat": 3.13,
-  "flag": "ðŸ‡²ðŸ‡¾",
+  "flag": "🇲🇾",
   "jumlah_penduduk": 32776194,
   "anggaran": 3889,
   "pendapatan_nasional": "11112",
@@ -26,7 +26,8 @@ const malaysia_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const malaysia_extra = {
 "harga": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const malaysia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. ÃƒÂ°Ã…Â¸Ã…â€™Ã‚Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": malaysia_geopolitik,
   // =============================================================
-  // 16. ÃƒÂ°Ã…Â¸Ã‚ÂÃ¢â‚¬ÂºÃƒÂ¯Ã‚Â¸Ã‚Â KEMENTERIAN NEGARA
+  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,

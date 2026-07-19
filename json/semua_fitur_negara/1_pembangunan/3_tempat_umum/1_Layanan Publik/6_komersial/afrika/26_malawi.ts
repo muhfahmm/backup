@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malawi_komersial = {
   "mall": 2,
   "hotel": 9,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Farmasi (Total: 1 Bangunan)
 // ===================

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_peternakan = {
   ayam_unggas: 470,
   sapi_perah: 340,

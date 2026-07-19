@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const barbados_strategis = {
     "waktu_respon": 15,

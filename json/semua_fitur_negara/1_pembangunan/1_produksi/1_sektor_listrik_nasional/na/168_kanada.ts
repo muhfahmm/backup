@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_listrik = {
   pembangkit_listrik_tenaga_nuklir: 2822,
   pembangkit_listrik_tenaga_air: 10,

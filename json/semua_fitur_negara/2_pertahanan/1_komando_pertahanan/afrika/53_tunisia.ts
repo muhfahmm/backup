@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tunisia_strategis = {
     "waktu_respon": 31,

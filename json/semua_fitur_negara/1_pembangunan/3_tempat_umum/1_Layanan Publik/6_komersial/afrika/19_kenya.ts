@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_komersial = {
   "mall": 1,
   "hotel": 14,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_agrikultur = {
   padi: 205,
   gandum: 175,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapuraVehicles = {
   sepeda_motor: 845801,
   mobil: 451094,

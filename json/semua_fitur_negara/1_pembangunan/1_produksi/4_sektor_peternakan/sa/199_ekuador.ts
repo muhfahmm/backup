@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_peternakan = {
   ayam_unggas: 600,
   sapi_perah: 285,

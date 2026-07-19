@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_manufaktur = {
   semikonduktor: 10,
   mobil: 28,

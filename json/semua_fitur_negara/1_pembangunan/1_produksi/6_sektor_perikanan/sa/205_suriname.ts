@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_perikanan = {
   udang: 68,
   mutiara: 62,

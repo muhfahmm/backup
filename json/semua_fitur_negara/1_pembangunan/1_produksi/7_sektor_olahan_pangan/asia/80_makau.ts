@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_olahan_pangan = {
   air_mineral: 64,
   gula: 48,

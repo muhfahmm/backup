@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_profile = {
   "name_en": "France",
   "capital": "Paris",
   "name_id": "Prancis",
   "lon": 2,
   "lat": 46,
-  "flag": "ðŸ‡«ðŸ‡·",
+  "flag": "🇫🇷",
   "jumlah_penduduk": 69081996,
   "anggaran": 30433,
   "pendapatan_nasional": "86951",
@@ -26,7 +26,8 @@ const prancis_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const prancis_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const prancis_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": prancis_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 10,

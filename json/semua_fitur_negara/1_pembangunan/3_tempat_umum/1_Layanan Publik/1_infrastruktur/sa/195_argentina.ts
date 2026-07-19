@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_infrastruktur = {
   jalur_sepeda: 28,
   jalan_raya: 24,

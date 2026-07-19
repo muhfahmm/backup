@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_pendidikan = {
       "prasekolah": 10,
       "dasar": 117,

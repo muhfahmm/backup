@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const filipina_hunian = {
   rumah_subsidi: 1439800,

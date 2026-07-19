@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghanaVehicles = {
   sepeda_motor: 4465066,
   mobil: 2381368,

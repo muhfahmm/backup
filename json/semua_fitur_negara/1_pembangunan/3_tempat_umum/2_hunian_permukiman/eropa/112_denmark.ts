@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const denmark_hunian = {
   rumah_subsidi: 78214,

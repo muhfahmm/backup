@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_agrikultur = {
   padi: 300,
   gandum: 212,

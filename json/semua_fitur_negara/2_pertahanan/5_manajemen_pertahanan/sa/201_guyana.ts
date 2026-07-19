@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_pertahanan = {
     "penjara": 1,
     "gudang_senjata": 22,

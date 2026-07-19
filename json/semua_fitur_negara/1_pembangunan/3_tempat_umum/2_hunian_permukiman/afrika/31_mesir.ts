@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mesir_hunian = {
   rumah_subsidi: 1328718,

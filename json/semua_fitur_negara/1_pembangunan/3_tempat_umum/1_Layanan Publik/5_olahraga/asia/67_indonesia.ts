@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_olahraga = {
   "kolam_renang": 221,
   "sirkuit_balap": 28,

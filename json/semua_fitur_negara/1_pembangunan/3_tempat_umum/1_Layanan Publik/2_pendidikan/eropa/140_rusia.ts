@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_pendidikan = {
       "prasekolah": 1181,
       "dasar": 1996,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_komersial = {
   "mall": 9,
   "hotel": 13,

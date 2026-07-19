@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritania_olahan_pangan = {
   air_mineral: 74,
   gula: 74,

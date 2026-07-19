@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_pendidikan = {
       "prasekolah": 63,
       "dasar": 128,

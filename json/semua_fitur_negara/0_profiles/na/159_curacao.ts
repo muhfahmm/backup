@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_profile = {
-  "name_en": "CuraÃ§ao",
+  "name_en": "Curaçao",
   "capital": "Willemstad",
   "name_id": "Curacao",
   "lon": -68.933333,
   "lat": 12.116667,
-  "flag": "ðŸ‡¨ðŸ‡¼",
+  "flag": "🇨🇼",
   "jumlah_penduduk": 185482,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const curacao_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const curacao_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const curacao_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": curacao_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

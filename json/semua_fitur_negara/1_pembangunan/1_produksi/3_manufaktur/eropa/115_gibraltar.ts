@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gibraltar_manufaktur = {
   semikonduktor: 14,
   mobil: 16,

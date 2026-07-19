@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 10,

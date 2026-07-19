@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_agrikultur = {
   padi: 360,
   gandum: 780,

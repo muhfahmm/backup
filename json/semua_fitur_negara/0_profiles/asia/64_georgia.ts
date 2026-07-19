@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_profile = {
   "name_en": "Georgia",
   "capital": "Tbilisi",
   "name_id": "Georgia",
   "lon": 43.5,
   "lat": 42,
-  "flag": "ðŸ‡¬ðŸ‡ª",
+  "flag": "🇬🇪",
   "jumlah_penduduk": 3704500,
   "anggaran": 243,
   "pendapatan_nasional": "694",
@@ -26,7 +26,8 @@ const georgia_geopolitik = {
       "kekuatan_keras": 32,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const georgia_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const georgia_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": georgia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

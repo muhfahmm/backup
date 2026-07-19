@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_agrikultur = {
   padi: 146,
   gandum: 80,

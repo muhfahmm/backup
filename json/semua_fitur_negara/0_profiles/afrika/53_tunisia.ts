@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tunisia_profile = {
   "name_en": "Tunisia",
   "capital": "Tunis",
   "name_id": "Tunisia",
   "lon": 9,
   "lat": 34,
-  "flag": "ðŸ‡¹ðŸ‡³",
+  "flag": "🇹🇳",
   "jumlah_penduduk": 11972169,
   "anggaran": 457,
   "pendapatan_nasional": "1306",
@@ -26,7 +26,8 @@ const tunisia_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const tunisia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const tunisia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tunisia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

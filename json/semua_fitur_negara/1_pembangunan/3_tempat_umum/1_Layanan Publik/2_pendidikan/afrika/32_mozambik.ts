@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_pendidikan = {
       "prasekolah": 39,
       "dasar": 145,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_pendidikan = {
       "prasekolah": 76,
       "dasar": 97,

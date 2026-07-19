@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_manufaktur = {
   mobil: 8,
   semen_beton: 16,

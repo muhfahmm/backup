@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_peternakan = {
   ayam_unggas: 1056,
   sapi_perah: 912,

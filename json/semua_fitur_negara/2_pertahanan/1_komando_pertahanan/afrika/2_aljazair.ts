@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const aljazair_strategis = {
     "waktu_respon": 15,

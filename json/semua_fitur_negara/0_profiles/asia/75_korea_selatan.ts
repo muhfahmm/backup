@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_profile = {
   "name_en": "South Korea",
   "capital": "Seoul",
   "name_id": "Korea Selatan",
   "lon": 126.97,
   "lat": 37.56,
-  "flag": "ðŸ‡°ðŸ‡·",
+  "flag": "🇰🇷",
   "jumlah_penduduk": "10M",
   "anggaran": 17112,
   "pendapatan_nasional": "48893",
@@ -26,7 +26,8 @@ const korea_selatan_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const korea_selatan_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const korea_selatan_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": korea_selatan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_olahan_pangan = {
   air_mineral: 344,
   gula: 88,

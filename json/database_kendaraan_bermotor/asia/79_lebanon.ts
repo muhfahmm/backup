@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanonVehicles = {
   sepeda_motor: 1027338,
   mobil: 547914,

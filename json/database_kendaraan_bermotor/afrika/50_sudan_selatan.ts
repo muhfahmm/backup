@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudanSelatanVehicles = {
   sepeda_motor: 1646388,
   mobil: 878073,

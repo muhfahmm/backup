@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_zambia_hunian = {
   rumah_subsidi: 234249,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_profile = {
   "name_en": "South Sudan",
   "capital": "Juba",
   "name_id": "Sudan selatan",
   "lon": 30,
   "lat": 7,
-  "flag": "ðŸ‡¸ðŸ‡¸",
+  "flag": "🇸🇸",
   "jumlah_penduduk": 11088796,
   "anggaran": 49,
   "pendapatan_nasional": "139",
@@ -26,7 +26,8 @@ const sudan_selatan_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const sudan_selatan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const sudan_selatan_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": sudan_selatan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 6,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistan_pendidikan = {
       "prasekolah": 102,
       "dasar": 703,

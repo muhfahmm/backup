@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_infrastruktur = {
   jalur_sepeda: 7,
   jalan_raya: 19,

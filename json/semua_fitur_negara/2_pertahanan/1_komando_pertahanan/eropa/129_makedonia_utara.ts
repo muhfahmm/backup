@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const makedonia_utara_strategis = {
     "waktu_respon": 2,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const gabon_strategis = {
     "waktu_respon": 33,

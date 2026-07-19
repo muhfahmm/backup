@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_komersial = {
   "mall": 1,
   "hotel": 9,

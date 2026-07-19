@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_listrik = {
   pembangkit_listrik_tenaga_nuklir: 2852,
   pembangkit_listrik_tenaga_air: 12,

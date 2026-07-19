@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukrainaVehicles = {
   sepeda_motor: 6693377,
   mobil: 3569801,

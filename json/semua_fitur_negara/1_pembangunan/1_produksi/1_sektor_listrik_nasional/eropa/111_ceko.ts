@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_listrik = {
   pembangkit_listrik_tenaga_nuklir: 144,
   pembangkit_listrik_tenaga_air: 15,

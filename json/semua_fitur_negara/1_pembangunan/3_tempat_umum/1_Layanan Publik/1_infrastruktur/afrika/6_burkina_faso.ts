@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_infrastruktur = {
   jalur_sepeda: 2,
   jalan_raya: 16,

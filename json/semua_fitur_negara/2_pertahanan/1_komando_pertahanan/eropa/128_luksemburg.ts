@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const luksemburg_strategis = {
     "waktu_respon": 17,

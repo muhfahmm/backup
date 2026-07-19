@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_manufaktur = {
   mobil: 35,
   semen_beton: 77,

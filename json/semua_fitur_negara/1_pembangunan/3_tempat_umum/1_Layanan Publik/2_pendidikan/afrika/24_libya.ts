@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_pendidikan = {
       "prasekolah": 68,
       "dasar": 20,

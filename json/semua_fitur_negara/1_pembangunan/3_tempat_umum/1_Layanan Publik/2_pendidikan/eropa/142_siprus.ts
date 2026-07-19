@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_pendidikan = {
       "prasekolah": 82,
       "dasar": 141,

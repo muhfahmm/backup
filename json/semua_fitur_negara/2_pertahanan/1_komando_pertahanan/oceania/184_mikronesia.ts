@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mikronesia_strategis = {
     "waktu_respon": 25,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const albania_profile = {
   "name_en": "Albania",
   "capital": "Tirana",
   "name_id": "Albania",
   "lon": 19.81,
   "lat": 41.32,
-  "flag": "ðŸ‡¦ðŸ‡±",
+  "flag": "🇦🇱",
   "jumlah_penduduk": 2791765,
   "anggaran": 214,
   "pendapatan_nasional": "611",
@@ -26,7 +26,8 @@ const albania_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const albania_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const albania_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": albania_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,

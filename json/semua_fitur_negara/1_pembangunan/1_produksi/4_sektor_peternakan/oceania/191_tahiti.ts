@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_peternakan = {
   ayam_unggas: 24,
   sapi_perah: 11,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_peternakan = {
   ayam_unggas: 41,
   sapi_perah: 16,

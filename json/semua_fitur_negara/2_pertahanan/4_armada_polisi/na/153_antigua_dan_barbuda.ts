@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,

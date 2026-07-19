@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_profile = {
   "name_en": "Guatemala",
   "capital": "Guatemala City",
   "name_id": "Guatemala",
   "lon": -90.25,
   "lat": 15.5,
-  "flag": "ðŸ‡¬ðŸ‡¹",
+  "flag": "🇬🇹",
   "jumlah_penduduk": 18312373,
   "anggaran": 924,
   "pendapatan_nasional": "2639",
@@ -26,7 +26,8 @@ const guatemala_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const guatemala_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const guatemala_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guatemala_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

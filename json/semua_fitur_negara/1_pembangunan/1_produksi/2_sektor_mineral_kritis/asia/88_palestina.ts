@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_ekstraksi = {
   emas: 21,
   uranium: 0,

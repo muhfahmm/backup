@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_peternakan = {
   ayam_unggas: 66,
   sapi_perah: 62,

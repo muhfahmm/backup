@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_agrikultur = {
   padi: 195,
   gandum: 290,

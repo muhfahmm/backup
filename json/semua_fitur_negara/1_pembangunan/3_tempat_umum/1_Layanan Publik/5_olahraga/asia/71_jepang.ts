@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_olahraga = {
   "kolam_renang": 289,
   "sirkuit_balap": 14,

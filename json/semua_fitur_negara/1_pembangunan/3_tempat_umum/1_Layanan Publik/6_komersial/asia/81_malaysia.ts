@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_komersial = {
   "mall": 15,
   "hotel": 38,

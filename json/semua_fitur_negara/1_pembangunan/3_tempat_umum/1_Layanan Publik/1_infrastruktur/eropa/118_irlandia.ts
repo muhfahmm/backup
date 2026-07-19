@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_infrastruktur = {
   jalur_sepeda: 39,
   jalan_raya: 27,

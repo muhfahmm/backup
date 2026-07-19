@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_olahan_pangan = {
   air_mineral: 200,
   gula: 164,

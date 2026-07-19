@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_pendidikan = {
       "prasekolah": 387,
       "dasar": 583,

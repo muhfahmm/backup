@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const djibouti_manufaktur = {
   mobil: 9,
   semen_beton: 6,

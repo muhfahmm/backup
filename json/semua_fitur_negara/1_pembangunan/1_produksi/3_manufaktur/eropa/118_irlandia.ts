@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_manufaktur = {
   semikonduktor: 735,
   mobil: 588,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_agrikultur = {
   padi: 138,
   gandum: 88,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kongo_olahan_pangan = {
   air_mineral: 112,
   gula: 168,

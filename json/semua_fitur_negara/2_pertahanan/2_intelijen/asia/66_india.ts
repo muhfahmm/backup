@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_intelijen = {
   sistem_satelit: 10,
   jaringan_radar: 43,

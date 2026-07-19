@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_infrastruktur = {
   jalur_sepeda: 1491,
   jalan_raya: 1252,

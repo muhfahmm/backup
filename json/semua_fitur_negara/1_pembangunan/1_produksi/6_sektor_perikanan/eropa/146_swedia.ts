@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_perikanan = {
   udang: 666,
   mutiara: 2590,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 9,

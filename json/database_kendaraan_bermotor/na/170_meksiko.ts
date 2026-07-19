@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksikoVehicles = {
   sepeda_motor: 18928618,
   mobil: 10095263,

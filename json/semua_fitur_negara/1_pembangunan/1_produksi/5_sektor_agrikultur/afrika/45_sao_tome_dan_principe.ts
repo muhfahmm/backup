@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_agrikultur = {
   padi: 244,
   gandum: 172,

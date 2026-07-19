@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigerVehicles = {
   sepeda_motor: 3366442,
   mobil: 1795435,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_olahan_pangan = {
   air_mineral: 4554,
   gula: 8096,

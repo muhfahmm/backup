@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afganistan_profile = {
   "name_en": "Afghanistan",
   "capital": "Kabul",
   "name_id": "Afganistan",
   "lon": 69.16,
   "lat": 34.54,
-  "flag": "ðŸ‡¦ðŸ‡«",
+  "flag": "🇦🇫",
   "jumlah_penduduk": 43844000,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const afganistan_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const afganistan_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const afganistan_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": afganistan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

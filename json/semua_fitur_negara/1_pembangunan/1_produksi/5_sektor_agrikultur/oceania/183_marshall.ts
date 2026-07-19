@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_agrikultur = {
   padi: 188,
   gandum: 212,

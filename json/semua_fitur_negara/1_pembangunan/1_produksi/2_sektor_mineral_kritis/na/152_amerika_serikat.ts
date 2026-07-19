@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_ekstraksi = {
   emas: 32,
   uranium: 10,

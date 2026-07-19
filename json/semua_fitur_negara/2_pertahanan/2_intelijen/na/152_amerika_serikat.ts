@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_intelijen = {
   sistem_satelit: 80,
   jaringan_radar: 198,

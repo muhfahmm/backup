@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_manufaktur = {
   semikonduktor: 3094,
   mobil: 1428,

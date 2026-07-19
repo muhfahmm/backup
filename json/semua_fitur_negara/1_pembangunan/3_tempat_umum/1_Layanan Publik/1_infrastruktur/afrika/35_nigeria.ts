@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_infrastruktur = {
   jalur_sepeda: 13,
   jalan_raya: 46,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_peternakan = {
   ayam_unggas: 40,
   sapi_perah: 40,

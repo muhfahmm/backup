@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_peternakan = {
   ayam_unggas: 768,
   sapi_perah: 1488,

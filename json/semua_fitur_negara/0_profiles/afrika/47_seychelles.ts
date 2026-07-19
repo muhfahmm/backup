@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_profile = {
   "name_en": "Seychelles",
   "capital": "Victoria",
   "name_id": "Seychelles",
   "lon": 55.66666666,
   "lat": -4.58333333,
-  "flag": "ðŸ‡¸ðŸ‡¨",
+  "flag": "🇸🇨",
   "jumlah_penduduk": 100447,
   "anggaran": 19,
   "pendapatan_nasional": "56",
@@ -26,7 +26,8 @@ const seychelles_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const seychelles_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const seychelles_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": seychelles_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,

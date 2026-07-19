@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kroasia_hunian = {
   rumah_subsidi: 55185,

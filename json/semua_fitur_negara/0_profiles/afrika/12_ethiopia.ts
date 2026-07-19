@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_profile = {
   "name_en": "Ethiopia",
   "capital": "Addis Ababa",
   "name_id": "Ethiopia",
   "lon": 38,
   "lat": 8,
-  "flag": "ðŸ‡ªðŸ‡¹",
+  "flag": "🇪🇹",
   "jumlah_penduduk": 111652998,
   "anggaran": 1507,
   "pendapatan_nasional": "4306",
@@ -26,7 +26,8 @@ const ethiopia_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const ethiopia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const ethiopia_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ethiopia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

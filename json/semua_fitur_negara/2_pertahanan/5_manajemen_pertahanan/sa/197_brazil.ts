@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 3,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandia_profile = {
   "name_en": "Iceland",
   "capital": "Reykjavik",
   "name_id": "Islandia",
   "lon": -18,
   "lat": 65,
-  "flag": "ðŸ‡®ðŸ‡¸",
+  "flag": "🇮🇸",
   "jumlah_penduduk": 394530,
   "anggaran": 292,
   "pendapatan_nasional": "833",
@@ -26,7 +26,8 @@ const islandia_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const islandia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const islandia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": islandia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,

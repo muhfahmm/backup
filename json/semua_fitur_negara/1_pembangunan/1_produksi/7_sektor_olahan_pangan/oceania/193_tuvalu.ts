@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvalu_olahan_pangan = {
   air_mineral: 111,
   gula: 135,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const costa_rica_hunian = {
   rumah_subsidi: 67492,

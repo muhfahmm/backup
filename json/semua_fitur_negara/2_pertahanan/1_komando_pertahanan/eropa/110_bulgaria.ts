@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bulgaria_strategis = {
     "waktu_respon": 35,

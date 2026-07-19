@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_manufaktur = {
   semikonduktor: 24,
   mobil: 21,

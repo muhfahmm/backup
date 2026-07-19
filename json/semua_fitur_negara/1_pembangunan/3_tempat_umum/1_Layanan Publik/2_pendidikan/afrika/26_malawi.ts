@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malawi_pendidikan = {
       "prasekolah": 23,
       "dasar": 106,

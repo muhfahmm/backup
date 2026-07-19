@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_sudan_profile = {
   "name_en": "Sudan",
   "capital": "Khartoum",
   "name_id": "Republik sudan",
   "lon": 30,
   "lat": 15,
-  "flag": "ðŸ‡¸ðŸ‡©",
+  "flag": "🇸🇩",
   "jumlah_penduduk": 51662000,
   "anggaran": 243,
   "pendapatan_nasional": "694",
@@ -26,7 +26,8 @@ const republik_sudan_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const republik_sudan_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const republik_sudan_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_sudan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,

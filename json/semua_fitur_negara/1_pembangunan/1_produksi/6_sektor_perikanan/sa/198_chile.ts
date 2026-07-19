@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_perikanan = {
   udang: 864,
   mutiara: 1134,

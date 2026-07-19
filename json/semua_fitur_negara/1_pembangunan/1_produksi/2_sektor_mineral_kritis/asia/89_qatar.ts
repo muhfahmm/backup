@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_ekstraksi = {
   emas: 30,
   uranium: 0,

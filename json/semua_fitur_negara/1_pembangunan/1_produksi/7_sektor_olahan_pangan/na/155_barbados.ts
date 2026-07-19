@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_olahan_pangan = {
   air_mineral: 35,
   gula: 42,

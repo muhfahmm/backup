@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_pendidikan = {
       "prasekolah": 88,
       "dasar": 100,

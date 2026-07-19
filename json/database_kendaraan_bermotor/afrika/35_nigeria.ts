@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeriaVehicles = {
   sepeda_motor: 29381211,
   mobil: 15669979,

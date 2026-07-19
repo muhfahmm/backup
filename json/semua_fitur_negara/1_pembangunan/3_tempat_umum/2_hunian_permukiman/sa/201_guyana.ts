@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const guyana_hunian = {
   rumah_subsidi: 10516,

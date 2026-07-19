@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritania_agrikultur = {
   padi: 20,
   gandum: 132,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahama_agrikultur = {
   padi: 292,
   gandum: 76,

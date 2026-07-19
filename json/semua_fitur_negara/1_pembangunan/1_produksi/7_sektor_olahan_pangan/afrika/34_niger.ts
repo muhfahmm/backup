@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_olahan_pangan = {
   air_mineral: 25,
   gula: 16,

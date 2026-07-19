@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_agrikultur = {
   padi: 592,
   gandum: 408,

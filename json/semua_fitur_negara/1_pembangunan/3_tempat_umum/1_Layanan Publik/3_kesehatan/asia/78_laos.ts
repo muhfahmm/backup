@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_kesehatan = {
       "rumah_sakit_besar": 3,
       "rumah_sakit_kecil": 56,

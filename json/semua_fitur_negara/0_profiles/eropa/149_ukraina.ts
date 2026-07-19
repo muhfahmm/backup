@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_profile = {
   "name_en": "Ukraine",
   "capital": "Kyiv",
   "name_id": "Ukraina",
   "lon": 30.52,
   "lat": 50.45,
-  "flag": "ðŸ‡ºðŸ‡¦",
+  "flag": "🇺🇦",
   "jumlah_penduduk": 36700000,
   "anggaran": 1556,
   "pendapatan_nasional": "4445",
@@ -26,7 +26,8 @@ const ukraina_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const ukraina_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const ukraina_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ukraina_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

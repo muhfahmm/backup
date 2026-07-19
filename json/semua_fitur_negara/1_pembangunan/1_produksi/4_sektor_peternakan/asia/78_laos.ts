@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_peternakan = {
   ayam_unggas: 144,
   sapi_perah: 54,

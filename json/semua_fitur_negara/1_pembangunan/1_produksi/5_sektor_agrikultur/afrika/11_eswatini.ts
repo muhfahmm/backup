@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_agrikultur = {
   padi: 58,
   gandum: 73,

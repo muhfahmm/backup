@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_profile = {
   "name_en": "Gambia",
   "capital": "Banjul",
   "name_id": "Gambia",
   "lon": -16.56666666,
   "lat": 13.46666666,
-  "flag": "ðŸ‡¬ðŸ‡²",
+  "flag": "🇬🇲",
   "jumlah_penduduk": 2422754,
   "anggaran": 21,
   "pendapatan_nasional": "61",
@@ -26,7 +26,8 @@ const gambia_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const gambia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const gambia_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": gambia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

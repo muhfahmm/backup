@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_agrikultur = {
   padi: 296,
   gandum: 328,

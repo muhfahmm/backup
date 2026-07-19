@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palau_peternakan = {
   ayam_unggas: 68,
   sapi_perah: 60,

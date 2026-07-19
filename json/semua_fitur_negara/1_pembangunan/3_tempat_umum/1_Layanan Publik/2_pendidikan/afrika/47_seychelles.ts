@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_pendidikan = {
       "prasekolah": 25,
       "dasar": 97,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_infrastruktur = {
   jalur_sepeda: 67,
   jalan_raya: 162,

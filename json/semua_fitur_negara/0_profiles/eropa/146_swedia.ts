@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_profile = {
   "name_en": "Sweden",
   "capital": "Stockholm",
   "name_id": "Swedia",
   "lon": 18.06,
   "lat": 59.32,
-  "flag": "ðŸ‡¸ðŸ‡ª",
+  "flag": "🇸🇪",
   "jumlah_penduduk": 10604061,
   "anggaran": 5834,
   "pendapatan_nasional": "16668",
@@ -26,7 +26,8 @@ const swedia_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const swedia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const swedia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": swedia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 13,

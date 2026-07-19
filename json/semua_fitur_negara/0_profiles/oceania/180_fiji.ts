@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_profile = {
   "name_en": "Fiji",
   "capital": "Suva",
   "name_id": "Fiji",
   "lon": 175,
   "lat": -18,
-  "flag": "ðŸ‡«ðŸ‡¯",
+  "flag": "🇫🇯",
   "jumlah_penduduk": 902623,
   "anggaran": 49,
   "pendapatan_nasional": "139",
@@ -26,7 +26,8 @@ const fiji_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const fiji_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const fiji_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": fiji_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

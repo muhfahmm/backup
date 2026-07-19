@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_infrastruktur = {
   jalur_sepeda: 23,
   jalan_raya: 67,

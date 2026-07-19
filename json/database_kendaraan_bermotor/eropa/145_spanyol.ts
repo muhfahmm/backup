@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyolVehicles = {
   sepeda_motor: 7019481,
   mobil: 3743723,

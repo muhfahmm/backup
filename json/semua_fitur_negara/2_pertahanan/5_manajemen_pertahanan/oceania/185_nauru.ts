@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 37,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_komersial = {
   "mall": 8,
   "hotel": 9,

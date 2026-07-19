@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_perikanan = {
   udang: 222,
   mutiara: 108,

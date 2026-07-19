@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_pertahanan = {
     "penjara": 17,
     "gudang_senjata": 16,

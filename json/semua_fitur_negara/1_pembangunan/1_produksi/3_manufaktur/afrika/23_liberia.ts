@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_manufaktur = {
   mobil: 21,
   semen_beton: 21,

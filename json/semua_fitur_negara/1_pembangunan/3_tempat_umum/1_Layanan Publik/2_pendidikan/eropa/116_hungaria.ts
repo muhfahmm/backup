@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_pendidikan = {
       "prasekolah": 113,
       "dasar": 462,

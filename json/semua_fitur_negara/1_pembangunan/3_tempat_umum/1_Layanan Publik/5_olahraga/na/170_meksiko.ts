@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_olahraga = {
   "kolam_renang": 297,
   "sirkuit_balap": 13,

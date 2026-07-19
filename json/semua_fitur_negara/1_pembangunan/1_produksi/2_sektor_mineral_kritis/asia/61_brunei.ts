@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_ekstraksi = {
   emas: 22,
   uranium: 0,

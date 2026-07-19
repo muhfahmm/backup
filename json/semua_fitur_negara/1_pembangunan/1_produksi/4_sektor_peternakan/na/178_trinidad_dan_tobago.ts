@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_peternakan = {
   ayam_unggas: 100,
   sapi_perah: 48,

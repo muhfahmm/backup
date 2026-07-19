@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_manufaktur = {
   semikonduktor: 36,
   mobil: 135,

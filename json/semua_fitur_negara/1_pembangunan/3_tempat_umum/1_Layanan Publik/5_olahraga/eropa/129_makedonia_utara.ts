@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_olahraga = {
   "kolam_renang": 6,
   "sirkuit_balap": 1,

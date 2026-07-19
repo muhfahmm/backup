@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const antigua_dan_barbuda_hunian = {
   rumah_subsidi: 1299,

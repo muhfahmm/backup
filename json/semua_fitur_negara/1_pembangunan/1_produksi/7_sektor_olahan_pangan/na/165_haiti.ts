@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_olahan_pangan = {
   air_mineral: 114,
   gula: 33,

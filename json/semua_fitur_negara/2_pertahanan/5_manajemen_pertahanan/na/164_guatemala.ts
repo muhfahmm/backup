@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_pertahanan = {
     "penjara": 4,
     "gudang_senjata": 5,

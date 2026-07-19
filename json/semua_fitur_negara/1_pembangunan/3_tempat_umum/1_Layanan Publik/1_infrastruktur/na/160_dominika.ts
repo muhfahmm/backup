@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const dominika_infrastruktur = {
   jalur_sepeda: 8,
   jalan_raya: 9,

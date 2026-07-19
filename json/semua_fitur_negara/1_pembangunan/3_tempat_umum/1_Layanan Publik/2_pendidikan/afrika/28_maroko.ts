@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_pendidikan = {
       "prasekolah": 55,
       "dasar": 26,

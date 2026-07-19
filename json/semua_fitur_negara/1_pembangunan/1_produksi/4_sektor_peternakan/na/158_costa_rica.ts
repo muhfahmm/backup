@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_peternakan = {
   ayam_unggas: 105,
   sapi_perah: 87,

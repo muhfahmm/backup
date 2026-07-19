@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const pantai_gading_hunian = {
   rumah_subsidi: 338434,

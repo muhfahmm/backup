@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const suriah_strategis = {
     "waktu_respon": 25,

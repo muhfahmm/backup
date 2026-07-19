@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_infrastruktur = {
   jalur_sepeda: 159,
   jalan_raya: 207,

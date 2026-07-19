@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritreaVehicles = {
   sepeda_motor: 932095,
   mobil: 497117,

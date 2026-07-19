@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 4,

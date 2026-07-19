@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rwanda_pertahanan = {
     "penjara": 3,
     "gudang_senjata": 27,

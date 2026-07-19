@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundi_agrikultur = {
   padi: 120,
   gandum: 134,

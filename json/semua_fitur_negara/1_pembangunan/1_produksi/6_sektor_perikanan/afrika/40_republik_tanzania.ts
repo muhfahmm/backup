@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_perikanan = {
   udang: 96,
   mutiara: 57,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_infrastruktur = {
   jalur_sepeda: 29,
   jalan_raya: 85,

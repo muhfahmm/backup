@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_pertahanan = {
     "penjara": 37,
     "gudang_senjata": 38,

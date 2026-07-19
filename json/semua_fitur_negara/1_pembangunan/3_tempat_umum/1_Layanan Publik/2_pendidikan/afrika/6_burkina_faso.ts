@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_pendidikan = {
       "prasekolah": 44,
       "dasar": 100,

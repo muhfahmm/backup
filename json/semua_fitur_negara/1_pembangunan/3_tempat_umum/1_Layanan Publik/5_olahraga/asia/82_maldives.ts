@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_olahraga = {
   "kolam_renang": 2,
   "sirkuit_balap": 3,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_kesehatan = {
       "rumah_sakit_besar": 14,
       "rumah_sakit_kecil": 70,

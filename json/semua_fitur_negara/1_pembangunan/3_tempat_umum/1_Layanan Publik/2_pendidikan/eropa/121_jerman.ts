@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_pendidikan = {
       "prasekolah": 731,
       "dasar": 819,

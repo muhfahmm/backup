@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_kesehatan = {
       "rumah_sakit_besar": 185,
       "rumah_sakit_kecil": 987,

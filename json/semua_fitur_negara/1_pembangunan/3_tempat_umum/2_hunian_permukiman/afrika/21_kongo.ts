@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kongo_hunian = {
   rumah_subsidi: 70798,

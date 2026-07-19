@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_agrikultur = {
   padi: 41,
   gandum: 24,

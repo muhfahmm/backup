@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_manufaktur = {
   semikonduktor: 14,
   mobil: 7,

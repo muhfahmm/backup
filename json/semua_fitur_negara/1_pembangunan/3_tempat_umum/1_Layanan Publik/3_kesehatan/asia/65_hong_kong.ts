@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_kesehatan = {
       "rumah_sakit_besar": 2,
       "rumah_sakit_kecil": 48,

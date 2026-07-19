@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const marshall_hunian = {
   rumah_subsidi: 788,

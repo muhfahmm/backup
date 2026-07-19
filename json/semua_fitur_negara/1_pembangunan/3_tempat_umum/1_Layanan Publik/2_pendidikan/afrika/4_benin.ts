@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_pendidikan = {
       "prasekolah": 25,
       "dasar": 147,

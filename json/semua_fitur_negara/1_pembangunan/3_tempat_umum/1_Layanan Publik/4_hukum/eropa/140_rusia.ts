@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_hukum = {
       "pusat_bantuan_hukum": 124,
       "pengadilan": 66,

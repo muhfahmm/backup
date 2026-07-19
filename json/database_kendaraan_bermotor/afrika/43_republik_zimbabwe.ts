@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikZimbabweVehicles = {
   sepeda_motor: 2165852,
   mobil: 1155121,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_manufaktur = {
   semikonduktor: 52,
   mobil: 60,

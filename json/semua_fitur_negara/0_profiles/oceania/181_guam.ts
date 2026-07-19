@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_profile = {
   "name_en": "Guam",
-  "capital": "HagÃ¥tÃ±a",
+  "capital": "Hagåtña",
   "name_id": "Guam",
   "lon": 144.78333333,
   "lat": 13.46666666,
-  "flag": "ðŸ‡¬ðŸ‡º",
+  "flag": "🇬🇺",
   "jumlah_penduduk": 167777,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const guam_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const guam_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const guam_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guam_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

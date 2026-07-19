@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 16,

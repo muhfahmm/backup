@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_peternakan = {
   ayam_unggas: 32,
   sapi_perah: 11,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_agrikultur = {
   padi: 124,
   gandum: 80,

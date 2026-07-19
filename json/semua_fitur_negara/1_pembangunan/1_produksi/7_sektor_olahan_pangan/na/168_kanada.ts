@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_olahan_pangan = {
   air_mineral: 10752,
   gula: 7296,

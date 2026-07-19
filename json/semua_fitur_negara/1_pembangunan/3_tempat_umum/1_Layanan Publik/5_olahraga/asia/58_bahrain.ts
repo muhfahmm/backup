@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_olahraga = {
   "kolam_renang": 6,
   "sirkuit_balap": 2,

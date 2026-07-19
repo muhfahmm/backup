@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_pendidikan = {
       "prasekolah": 32,
       "dasar": 28,

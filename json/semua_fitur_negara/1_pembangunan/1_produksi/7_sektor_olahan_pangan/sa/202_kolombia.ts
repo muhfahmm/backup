@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_olahan_pangan = {
   air_mineral: 1476,
   gula: 540,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_profile = {
   "name_en": "Zimbabwe",
   "capital": "Harare",
   "name_id": "Republik zimbabwe",
   "lon": 30,
   "lat": -20,
-  "flag": "ðŸ‡¿ðŸ‡¼",
+  "flag": "🇿🇼",
   "jumlah_penduduk": 17073087,
   "anggaran": 194,
   "pendapatan_nasional": "556",
@@ -26,7 +26,8 @@ const republik_zimbabwe_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const republik_zimbabwe_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const republik_zimbabwe_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_zimbabwe_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 9,

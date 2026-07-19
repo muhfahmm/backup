@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_agrikultur = {
   padi: 168,
   gandum: 284,

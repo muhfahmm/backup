@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_agrikultur = {
   padi: 43,
   gandum: 51,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_komersial = {
   "mall": 5,
   "hotel": 3,

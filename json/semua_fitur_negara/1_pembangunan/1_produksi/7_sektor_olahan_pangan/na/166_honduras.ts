@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const honduras_olahan_pangan = {
   air_mineral: 54,
   gula: 147,

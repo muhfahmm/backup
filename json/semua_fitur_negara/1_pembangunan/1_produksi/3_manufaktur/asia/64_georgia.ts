@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_manufaktur = {
   semikonduktor: 56,
   mobil: 28,

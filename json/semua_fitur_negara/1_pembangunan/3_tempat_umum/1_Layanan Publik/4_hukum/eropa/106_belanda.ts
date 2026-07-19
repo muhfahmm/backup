@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_hukum = {
       "pusat_bantuan_hukum": 136,
       "pengadilan": 120,

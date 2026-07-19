@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_perikanan = {
   udang: 220,
   mutiara: 231,

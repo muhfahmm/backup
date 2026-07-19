@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_manufaktur = {
   semikonduktor: 32,
   mobil: 40,

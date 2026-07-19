@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_olahan_pangan = {
   air_mineral: 572,
   gula: 1100,

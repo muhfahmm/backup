@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bhutan_strategis = {
     "waktu_respon": 6,

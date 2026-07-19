@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_profile = {
   "name_en": "Nicaragua",
   "capital": "Managua",
   "name_id": "Nikaragua",
   "lon": -85,
   "lat": 13,
-  "flag": "ðŸ‡³ðŸ‡®",
+  "flag": "🇳🇮",
   "jumlah_penduduk": 6916140,
   "anggaran": 165,
   "pendapatan_nasional": "472",
@@ -26,7 +26,8 @@ const nikaragua_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const nikaragua_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const nikaragua_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": nikaragua_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 39,

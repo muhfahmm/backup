@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_infrastruktur = {
   jalur_sepeda: 194,
   jalan_raya: 177,

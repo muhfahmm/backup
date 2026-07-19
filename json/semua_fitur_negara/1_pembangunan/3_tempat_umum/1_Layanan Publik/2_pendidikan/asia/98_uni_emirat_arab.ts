@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_pendidikan = {
       "prasekolah": 371,
       "dasar": 649,

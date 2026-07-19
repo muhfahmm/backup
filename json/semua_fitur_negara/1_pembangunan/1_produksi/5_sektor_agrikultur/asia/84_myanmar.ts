@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const myanmar_agrikultur = {
   padi: 234,
   gandum: 168,

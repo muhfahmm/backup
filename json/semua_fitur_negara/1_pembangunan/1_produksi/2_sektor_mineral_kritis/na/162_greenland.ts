@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_ekstraksi = {
   emas: 21,
   uranium: 0,

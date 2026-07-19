@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bahama_strategis = {
     "waktu_respon": 10,

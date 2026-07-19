@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_perikanan = {
   udang: 165,
   mutiara: 55,

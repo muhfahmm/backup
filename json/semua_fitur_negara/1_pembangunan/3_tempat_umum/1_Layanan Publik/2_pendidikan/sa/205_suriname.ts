@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_pendidikan = {
       "prasekolah": 29,
       "dasar": 109,

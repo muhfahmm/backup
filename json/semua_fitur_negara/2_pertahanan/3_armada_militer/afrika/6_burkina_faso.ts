@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_armada = {
     "barak": 2,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_infrastruktur = {
   jalur_sepeda: 17,
   jalan_raya: 56,

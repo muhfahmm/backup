@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambiaVehicles = {
   sepeda_motor: 342015,
   mobil: 182408,

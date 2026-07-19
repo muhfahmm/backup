@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 9,

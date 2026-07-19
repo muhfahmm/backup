@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestinaVehicles = {
   sepeda_motor: 685363,
   mobil: 365526,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_pertahanan = {
     "penjara": 29,
     "gudang_senjata": 33,

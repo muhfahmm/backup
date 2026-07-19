@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_pendidikan = {
       "prasekolah": 183,
       "dasar": 278,

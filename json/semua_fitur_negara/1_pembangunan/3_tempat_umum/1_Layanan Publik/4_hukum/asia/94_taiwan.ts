@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_hukum = {
       "pusat_bantuan_hukum": 35,
       "pengadilan": 37,

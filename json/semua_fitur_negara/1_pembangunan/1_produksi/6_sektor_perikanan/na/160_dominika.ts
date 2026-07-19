@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const dominika_perikanan = {
   udang: 48,
   mutiara: 68,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_agrikultur = {
   padi: 96,
   gandum: 90,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_agrikultur = {
   padi: 26,
   gandum: 71,

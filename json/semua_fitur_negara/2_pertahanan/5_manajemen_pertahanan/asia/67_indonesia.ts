@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_pertahanan = {
     "penjara": 9,
     "gudang_senjata": 39,

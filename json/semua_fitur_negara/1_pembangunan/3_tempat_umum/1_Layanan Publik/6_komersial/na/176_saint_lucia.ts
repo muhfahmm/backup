@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_komersial = {
   "mall": 8,
   "hotel": 15,

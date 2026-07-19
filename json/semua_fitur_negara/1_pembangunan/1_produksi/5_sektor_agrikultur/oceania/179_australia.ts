@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_agrikultur = {
   padi: 5202,
   gandum: 1836,

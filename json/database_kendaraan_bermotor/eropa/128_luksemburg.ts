@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const luksemburgVehicles = {
   sepeda_motor: 91192,
   mobil: 48636,

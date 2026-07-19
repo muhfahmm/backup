@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const puerto_rico_hunian = {
   rumah_subsidi: 43134,

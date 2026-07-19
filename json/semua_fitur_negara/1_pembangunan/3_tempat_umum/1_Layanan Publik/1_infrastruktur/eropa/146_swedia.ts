@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_infrastruktur = {
   jalur_sepeda: 50,
   jalan_raya: 94,

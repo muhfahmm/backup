@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_peternakan = {
   ayam_unggas: 15,
   sapi_perah: 12,

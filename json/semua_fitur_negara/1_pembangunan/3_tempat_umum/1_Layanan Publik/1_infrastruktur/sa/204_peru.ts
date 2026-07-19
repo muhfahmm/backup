@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_infrastruktur = {
   jalur_sepeda: 27,
   jalan_raya: 45,

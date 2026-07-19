@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_profile = {
   "name_en": "India",
   "capital": "New Delhi",
   "name_id": "India",
   "lon": 77.2,
   "lat": 28.61,
-  "flag": "ðŸ‡®ðŸ‡³",
+  "flag": "🇮🇳",
   "jumlah_penduduk": 1417492000,
   "anggaran": 38309,
   "pendapatan_nasional": "109453",
@@ -26,7 +26,8 @@ const india_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const india_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const india_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": india_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandiaVehicles = {
   sepeda_motor: 5696212,
   mobil: 3037980,

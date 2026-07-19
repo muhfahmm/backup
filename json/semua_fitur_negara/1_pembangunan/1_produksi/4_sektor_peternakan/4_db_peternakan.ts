@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Peternakan (Total: 4 Bangunan)
 // ===================

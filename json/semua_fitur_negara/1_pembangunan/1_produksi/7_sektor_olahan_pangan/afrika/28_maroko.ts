@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_olahan_pangan = {
   air_mineral: 1176,
   gula: 648,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_komersial = {
   "mall": 26,
   "hotel": 38,

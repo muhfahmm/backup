@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_pendidikan = {
       "prasekolah": 23,
       "dasar": 104,

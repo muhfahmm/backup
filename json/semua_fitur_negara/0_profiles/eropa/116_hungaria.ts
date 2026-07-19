@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_profile = {
   "name_en": "Hungary",
   "capital": "Budapest",
   "name_id": "Hungaria",
   "lon": 20,
   "lat": 47,
-  "flag": "ðŸ‡­ðŸ‡º",
+  "flag": "🇭🇺",
   "jumlah_penduduk": 9489000,
   "anggaran": 2042,
   "pendapatan_nasional": "5834",
@@ -26,7 +26,8 @@ const hungaria_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const hungaria_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const hungaria_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": hungaria_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,

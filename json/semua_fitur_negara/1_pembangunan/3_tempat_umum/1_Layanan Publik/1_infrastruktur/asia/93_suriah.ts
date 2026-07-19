@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 19,

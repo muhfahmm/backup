@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_listrik = {
   pembangkit_listrik_tenaga_gas: 0,
   pembangkit_listrik_tenaga_air: 95,

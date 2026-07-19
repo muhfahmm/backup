@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_agrikultur = {
   padi: 276,
   gandum: 188,

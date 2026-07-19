@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_manufaktur = {
   semikonduktor: 20,
   mobil: 20,

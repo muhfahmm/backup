@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nepal_strategis = {
     "waktu_respon": 23,

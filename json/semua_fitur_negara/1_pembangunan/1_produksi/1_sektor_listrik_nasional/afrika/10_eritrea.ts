@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_listrik = {
   pembangkit_listrik_tenaga_gas: 30,
   pembangkit_listrik_tenaga_air: 20,

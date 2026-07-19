@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 38,

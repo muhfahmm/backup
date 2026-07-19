@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_olahraga = {
   "kolam_renang": 12,
   "sirkuit_balap": 1,

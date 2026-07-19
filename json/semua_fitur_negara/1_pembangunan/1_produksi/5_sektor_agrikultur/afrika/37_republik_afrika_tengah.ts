@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_agrikultur = {
   padi: 75,
   gandum: 213,

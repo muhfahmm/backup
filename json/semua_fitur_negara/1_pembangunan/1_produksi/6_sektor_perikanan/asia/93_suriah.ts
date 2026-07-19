@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_perikanan = {
   udang: 8,
   mutiara: 23,

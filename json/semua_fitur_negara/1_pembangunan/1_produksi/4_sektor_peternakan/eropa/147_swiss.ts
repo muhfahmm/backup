@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_peternakan = {
   ayam_unggas: 1645,
   sapi_perah: 846,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_kesehatan = {
       "rumah_sakit_besar": 20,
       "rumah_sakit_kecil": 257,

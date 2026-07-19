@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_ekstraksi = {
   emas: 29,
   uranium: 0,

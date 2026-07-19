@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sanMarinoVehicles = {
   sepeda_motor: 5067,
   mobil: 2702,

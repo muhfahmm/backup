@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_agrikultur = {
   padi: 420,
   gandum: 91,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_kesehatan = {
       "rumah_sakit_besar": 6,
       "rumah_sakit_kecil": 42,

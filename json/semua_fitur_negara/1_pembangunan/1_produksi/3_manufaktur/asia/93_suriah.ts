@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_manufaktur = {
   semikonduktor: 9,
   mobil: 4,

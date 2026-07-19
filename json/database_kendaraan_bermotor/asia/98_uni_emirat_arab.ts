@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uniEmiratArabVehicles = {
   sepeda_motor: 1444643,
   mobil: 770476,

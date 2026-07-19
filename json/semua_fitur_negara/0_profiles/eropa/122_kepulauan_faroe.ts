@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_profile = {
   "name_en": "Faroe Islands",
-  "capital": "TÃ³rshavn",
+  "capital": "Tórshavn",
   "name_id": "Kepulauan faroe",
   "lon": -7,
   "lat": 62,
-  "flag": "ðŸ‡«ðŸ‡´",
+  "flag": "🇫🇴",
   "jumlah_penduduk": 53429,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const kepulauan_faroe_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kepulauan_faroe_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const kepulauan_faroe_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kepulauan_faroe_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,

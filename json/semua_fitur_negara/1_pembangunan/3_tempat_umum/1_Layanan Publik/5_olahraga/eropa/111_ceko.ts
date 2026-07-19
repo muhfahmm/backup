@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_olahraga = {
   "kolam_renang": 40,
   "sirkuit_balap": 10,

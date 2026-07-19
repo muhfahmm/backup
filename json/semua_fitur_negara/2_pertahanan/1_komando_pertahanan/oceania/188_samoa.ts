@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const samoa_strategis = {
     "waktu_respon": 27,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mongolia_olahan_pangan = {
   air_mineral: 120,
   gula: 124,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_agrikultur = {
   padi: 377,
   gandum: 195,

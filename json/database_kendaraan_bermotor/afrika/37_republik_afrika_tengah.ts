@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikAfrikaTengahVehicles = {
   sepeda_motor: 699956,
   mobil: 373310,

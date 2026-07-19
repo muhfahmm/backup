@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_peternakan = {
   ayam_unggas: 42,
   sapi_perah: 86,

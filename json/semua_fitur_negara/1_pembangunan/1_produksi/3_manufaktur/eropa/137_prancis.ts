@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_manufaktur = {
   semikonduktor: 1834,
   mobil: 3406,

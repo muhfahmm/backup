@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chileVehicles = {
   sepeda_motor: 2809374,
   mobil: 1498332,

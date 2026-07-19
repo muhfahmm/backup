@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_manufaktur = {
   semikonduktor: 96,
   mobil: 48,

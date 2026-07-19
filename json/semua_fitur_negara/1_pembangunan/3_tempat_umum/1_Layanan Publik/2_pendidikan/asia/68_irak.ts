@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_pendidikan = {
       "prasekolah": 165,
       "dasar": 305,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peruVehicles = {
   sepeda_motor: 4798388,
   mobil: 2559140,

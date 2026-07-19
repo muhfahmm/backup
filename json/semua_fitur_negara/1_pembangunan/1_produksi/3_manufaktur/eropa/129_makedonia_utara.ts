@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_manufaktur = {
   semikonduktor: 21,
   mobil: 42,

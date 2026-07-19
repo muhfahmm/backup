@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const suriname_strategis = {
     "waktu_respon": 7,

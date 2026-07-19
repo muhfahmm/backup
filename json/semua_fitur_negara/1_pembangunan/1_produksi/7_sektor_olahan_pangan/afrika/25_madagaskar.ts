@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_olahan_pangan = {
   air_mineral: 84,
   gula: 42,

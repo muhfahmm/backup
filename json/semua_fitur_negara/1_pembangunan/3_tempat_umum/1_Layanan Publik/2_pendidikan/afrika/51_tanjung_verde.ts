@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_pendidikan = {
       "prasekolah": 41,
       "dasar": 68,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_manufaktur = {
   semikonduktor: 22,
   mobil: 14,

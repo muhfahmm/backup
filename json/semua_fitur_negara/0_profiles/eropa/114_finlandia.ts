@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_profile = {
   "name_en": "Finland",
   "capital": "Helsinki",
   "name_id": "Finlandia",
   "lon": 24.93,
   "lat": 60.16,
-  "flag": "ðŸ‡«ðŸ‡®",
+  "flag": "🇫🇮",
   "jumlah_penduduk": 5650933,
   "anggaran": 2917,
   "pendapatan_nasional": "8334",
@@ -26,7 +26,8 @@ const finlandia_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const finlandia_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const finlandia_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": finlandia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 13,

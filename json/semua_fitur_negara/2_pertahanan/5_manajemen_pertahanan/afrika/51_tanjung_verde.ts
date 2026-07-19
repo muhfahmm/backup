@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauanFaroeVehicles = {
   sepeda_motor: 7274,
   mobil: 3879,

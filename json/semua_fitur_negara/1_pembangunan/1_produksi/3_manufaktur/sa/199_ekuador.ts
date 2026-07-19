@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_manufaktur = {
   semikonduktor: 90,
   mobil: 60,

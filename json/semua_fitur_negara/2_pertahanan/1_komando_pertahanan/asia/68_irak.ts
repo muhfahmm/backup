@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const irak_strategis = {
     "waktu_respon": 12,

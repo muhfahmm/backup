@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_peternakan = {
   ayam_unggas: 2448,
   sapi_perah: 2788,

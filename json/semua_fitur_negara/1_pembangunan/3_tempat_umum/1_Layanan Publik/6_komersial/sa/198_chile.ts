@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_komersial = {
   "mall": 34,
   "hotel": 37,

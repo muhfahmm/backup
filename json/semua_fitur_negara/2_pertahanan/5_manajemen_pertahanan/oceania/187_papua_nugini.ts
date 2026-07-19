@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_pertahanan = {
     "penjara": 25,
     "gudang_senjata": 30,

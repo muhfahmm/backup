@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_komersial = {
   "mall": 1222,
   "hotel": 910,

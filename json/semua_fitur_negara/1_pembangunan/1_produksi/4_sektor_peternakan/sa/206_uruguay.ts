@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_peternakan = {
   ayam_unggas: 96,
   sapi_perah: 90,

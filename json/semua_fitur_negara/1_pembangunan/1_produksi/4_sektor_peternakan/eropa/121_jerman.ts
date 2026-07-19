@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_peternakan = {
   ayam_unggas: 3612,
   sapi_perah: 6192,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_hukum = {
       "pusat_bantuan_hukum": 34,
       "pengadilan": 38,

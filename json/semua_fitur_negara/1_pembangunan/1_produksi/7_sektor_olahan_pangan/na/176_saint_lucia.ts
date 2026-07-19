@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_olahan_pangan = {
   air_mineral: 39,
   gula: 42,

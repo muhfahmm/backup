@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_profile = {
   "name_en": "Italy",
   "capital": "Rome",
   "name_id": "Italia",
   "lon": 12.49,
   "lat": 41.9,
-  "flag": "ðŸ‡®ðŸ‡¹",
+  "flag": "🇮🇹",
   "jumlah_penduduk": 58931425,
   "anggaran": 22655,
   "pendapatan_nasional": "64727",
@@ -26,7 +26,8 @@ const italia_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const italia_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const italia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": italia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 36,

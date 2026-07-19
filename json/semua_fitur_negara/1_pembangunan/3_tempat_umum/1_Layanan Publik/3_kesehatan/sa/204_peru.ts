@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_kesehatan = {
       "rumah_sakit_besar": 37,
       "rumah_sakit_kecil": 108,

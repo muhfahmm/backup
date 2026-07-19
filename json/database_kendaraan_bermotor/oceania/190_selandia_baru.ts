@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandiaBaruVehicles = {
   sepeda_motor: 726150,
   mobil: 387280,

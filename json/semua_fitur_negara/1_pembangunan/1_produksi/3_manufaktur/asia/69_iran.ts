@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_manufaktur = {
   semikonduktor: 690,
   mobil: 414,

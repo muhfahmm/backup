@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_profile = {
   "name_en": "Kosovo",
   "capital": "Pristina",
   "name_id": "Kosovo",
   "lon": 21.166667,
   "lat": 42.666667,
-  "flag": "ðŸ‡½ðŸ‡°",
+  "flag": "🇽🇰",
   "jumlah_penduduk": "10M",
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const kosovo_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kosovo_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const kosovo_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kosovo_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 39,

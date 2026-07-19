@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yamanVehicles = {
   sepeda_motor: 4274803,
   mobil: 2279894,

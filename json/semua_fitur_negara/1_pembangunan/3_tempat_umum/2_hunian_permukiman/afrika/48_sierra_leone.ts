@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const sierra_leone_hunian = {
   rumah_subsidi: 103277,

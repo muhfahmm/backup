@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_agrikultur = {
   padi: 237,
   gandum: 153,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const myanmar_pendidikan = {
       "prasekolah": 63,
       "dasar": 84,

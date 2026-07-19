@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_perikanan = {
   udang: 553,
   mutiara: 948,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_olahraga = {
   "kolam_renang": 1573,
   "sirkuit_balap": 180,

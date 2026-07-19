@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_olahan_pangan = {
   air_mineral: 261,
   gula: 441,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_pendidikan = {
       "prasekolah": 44,
       "dasar": 26,

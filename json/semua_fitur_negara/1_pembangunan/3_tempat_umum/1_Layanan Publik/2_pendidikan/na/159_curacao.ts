@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_pendidikan = {
       "prasekolah": 68,
       "dasar": 57,

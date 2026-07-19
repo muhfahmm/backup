@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_manufaktur = {
   mobil: 180,
   semen_beton: 126,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const slowakia_strategis = {
     "waktu_respon": 4,

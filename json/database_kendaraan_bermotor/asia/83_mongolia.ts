@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mongoliaVehicles = {
   sepeda_motor: 475531,
   mobil: 253616,

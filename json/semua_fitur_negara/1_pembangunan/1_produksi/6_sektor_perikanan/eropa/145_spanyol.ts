@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_perikanan = {
   udang: 2552,
   mutiara: 3828,

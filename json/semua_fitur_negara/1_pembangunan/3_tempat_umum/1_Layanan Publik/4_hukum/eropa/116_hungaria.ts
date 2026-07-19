@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_hukum = {
       "pusat_bantuan_hukum": 16,
       "pengadilan": 41,

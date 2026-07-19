@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_manufaktur = {
   semikonduktor: 10,
   mobil: 9,

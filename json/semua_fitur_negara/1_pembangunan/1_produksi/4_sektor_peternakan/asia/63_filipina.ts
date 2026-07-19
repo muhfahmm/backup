@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_peternakan = {
   ayam_unggas: 380,
   sapi_perah: 420,

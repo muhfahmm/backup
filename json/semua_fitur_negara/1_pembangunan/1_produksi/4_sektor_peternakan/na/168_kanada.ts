@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_peternakan = {
   ayam_unggas: 9216,
   sapi_perah: 12288,

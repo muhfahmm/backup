@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierraLeoneVehicles = {
   sepeda_motor: 1147523,
   mobil: 612012,

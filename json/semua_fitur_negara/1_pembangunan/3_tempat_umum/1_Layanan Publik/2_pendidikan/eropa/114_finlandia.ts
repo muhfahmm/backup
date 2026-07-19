@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_pendidikan = {
       "prasekolah": 320,
       "dasar": 593,

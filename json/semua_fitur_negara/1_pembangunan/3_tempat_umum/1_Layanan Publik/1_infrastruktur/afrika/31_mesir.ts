@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_infrastruktur = {
   jalur_sepeda: 40,
   jalan_raya: 51,

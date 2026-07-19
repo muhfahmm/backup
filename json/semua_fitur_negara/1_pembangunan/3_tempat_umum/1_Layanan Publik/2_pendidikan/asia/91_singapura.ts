@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_pendidikan = {
       "prasekolah": 401,
       "dasar": 479,

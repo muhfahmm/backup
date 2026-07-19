@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_profile = {
   "name_en": "Barbados",
   "capital": "Bridgetown",
   "name_id": "Barbados",
   "lon": -59.53333333,
   "lat": 13.16666666,
-  "flag": "ðŸ‡§ðŸ‡§",
+  "flag": "🇧🇧",
   "jumlah_penduduk": 267800,
   "anggaran": 53,
   "pendapatan_nasional": "153",
@@ -26,7 +26,8 @@ const barbados_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const barbados_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const barbados_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": barbados_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

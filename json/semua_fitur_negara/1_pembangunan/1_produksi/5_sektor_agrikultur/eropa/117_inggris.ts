@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_agrikultur = {
   padi: 4500,
   gandum: 12300,

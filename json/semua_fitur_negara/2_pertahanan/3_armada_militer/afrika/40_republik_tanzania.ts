@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_armada = {
     "barak": 2,
     "darat": {

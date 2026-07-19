@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const islandia_strategis = {
     "waktu_respon": 37,

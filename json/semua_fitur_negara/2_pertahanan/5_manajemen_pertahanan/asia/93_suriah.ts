@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 34,

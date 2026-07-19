@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palau_pendidikan = {
       "prasekolah": 62,
       "dasar": 103,

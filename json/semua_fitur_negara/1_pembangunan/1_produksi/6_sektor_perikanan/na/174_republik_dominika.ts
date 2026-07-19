@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_perikanan = {
   udang: 294,
   mutiara: 434,

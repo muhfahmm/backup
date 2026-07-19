@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_agrikultur = {
   padi: 56,
   gandum: 28,

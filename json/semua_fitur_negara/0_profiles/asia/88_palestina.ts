@@ -26,7 +26,8 @@ const palestina_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const palestina_extra = {
 "": {
     "harga_beras": 32,

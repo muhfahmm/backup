@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tonga_strategis = {
     "waktu_respon": 11,

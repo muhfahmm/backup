@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_profile = {
   "name_en": "Kyrgyzstan",
   "capital": "Bishkek",
   "name_id": "Kirgizstan",
   "lon": 75,
   "lat": 41,
-  "flag": "ðŸ‡°ðŸ‡¬",
+  "flag": "🇰🇬",
   "jumlah_penduduk": 6132932,
   "anggaran": 117,
   "pendapatan_nasional": "333",
@@ -26,7 +26,8 @@ const kirgizstan_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kirgizstan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kirgizstan_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kirgizstan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

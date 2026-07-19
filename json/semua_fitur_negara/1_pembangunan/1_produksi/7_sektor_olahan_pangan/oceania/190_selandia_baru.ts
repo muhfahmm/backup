@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_olahan_pangan = {
   air_mineral: 630,
   gula: 483,

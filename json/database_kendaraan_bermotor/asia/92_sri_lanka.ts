@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sriLankaVehicles = {
   sepeda_motor: 3250500,
   mobil: 1733600,

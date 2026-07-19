@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_komersial = {
   "mall": 2,
   "hotel": 13,

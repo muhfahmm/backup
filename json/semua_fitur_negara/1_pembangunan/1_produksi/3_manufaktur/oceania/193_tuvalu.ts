@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvalu_manufaktur = {
   semikonduktor: 15,
   mobil: 12,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Olahan Pangan (Total: 10 Bangunan)
 // ===================

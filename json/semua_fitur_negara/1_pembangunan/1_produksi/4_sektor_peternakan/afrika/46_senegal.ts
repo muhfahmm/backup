@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const senegal_peternakan = {
   ayam_unggas: 32,
   sapi_perah: 18,

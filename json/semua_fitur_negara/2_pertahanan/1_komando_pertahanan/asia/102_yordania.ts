@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const yordania_strategis = {
     "waktu_respon": 35,

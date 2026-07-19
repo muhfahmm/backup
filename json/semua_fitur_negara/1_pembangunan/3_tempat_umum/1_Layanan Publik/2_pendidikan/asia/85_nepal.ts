@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_pendidikan = {
       "prasekolah": 92,
       "dasar": 72,

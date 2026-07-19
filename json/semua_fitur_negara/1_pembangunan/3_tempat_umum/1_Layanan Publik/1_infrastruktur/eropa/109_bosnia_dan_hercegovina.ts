@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 10,

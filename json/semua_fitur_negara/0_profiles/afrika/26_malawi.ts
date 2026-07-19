@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malawi_profile = {
   "name_en": "Malawi",
   "capital": "Lilongwe",
   "name_id": "Malawi",
   "lon": 33.47,
   "lat": -13.59,
-  "flag": "ðŸ‡²ðŸ‡¼",
+  "flag": "🇲🇼",
   "jumlah_penduduk": 20734262,
   "anggaran": 117,
   "pendapatan_nasional": "333",
@@ -26,7 +26,8 @@ const malawi_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const malawi_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const malawi_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": malawi_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,

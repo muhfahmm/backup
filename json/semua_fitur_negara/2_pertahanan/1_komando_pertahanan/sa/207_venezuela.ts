@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const venezuela_strategis = {
     "waktu_respon": 28,

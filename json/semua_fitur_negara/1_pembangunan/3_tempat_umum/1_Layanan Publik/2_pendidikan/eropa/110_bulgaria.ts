@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_pendidikan = {
       "prasekolah": 67,
       "dasar": 136,

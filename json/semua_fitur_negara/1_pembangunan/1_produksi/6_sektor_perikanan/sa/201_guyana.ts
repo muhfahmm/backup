@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_perikanan = {
   udang: 70,
   mutiara: 34,

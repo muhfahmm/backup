@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_manufaktur = {
   semikonduktor: 5,
   mobil: 10,

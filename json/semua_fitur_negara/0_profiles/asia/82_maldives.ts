@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_profile = {
   "name_en": "Maldives",
-  "capital": "MalÃ©",
+  "capital": "Malé",
   "name_id": "Maldives",
   "lon": 73.3,
   "lat": 4.1,
-  "flag": "ðŸ‡²ðŸ‡»",
+  "flag": "🇲🇻",
   "jumlah_penduduk": 527799,
   "anggaran": 63,
   "pendapatan_nasional": "181",
@@ -26,7 +26,8 @@ const maldives_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const maldives_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const maldives_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": maldives_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_pendidikan = {
       "prasekolah": 22,
       "dasar": 49,

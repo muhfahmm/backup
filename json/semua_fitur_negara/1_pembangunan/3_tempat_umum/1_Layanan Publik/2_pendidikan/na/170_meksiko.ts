@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_pendidikan = {
       "prasekolah": 973,
       "dasar": 1963,

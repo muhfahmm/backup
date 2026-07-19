@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_armada = {
     "barak": 2,
     "darat": {

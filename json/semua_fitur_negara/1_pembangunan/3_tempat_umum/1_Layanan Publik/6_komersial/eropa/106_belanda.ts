@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_komersial = {
   "mall": 83,
   "hotel": 188,

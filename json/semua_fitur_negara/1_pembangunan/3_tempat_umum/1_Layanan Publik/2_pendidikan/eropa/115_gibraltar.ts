@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gibraltar_pendidikan = {
       "prasekolah": 75,
       "dasar": 76,

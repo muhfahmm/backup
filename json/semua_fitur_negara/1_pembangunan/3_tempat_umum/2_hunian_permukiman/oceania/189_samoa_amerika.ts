@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const samoa_amerika_hunian = {
   rumah_subsidi: 748,

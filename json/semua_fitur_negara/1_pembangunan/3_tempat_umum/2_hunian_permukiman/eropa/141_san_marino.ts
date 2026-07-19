@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const san_marino_hunian = {
   rumah_subsidi: 456,

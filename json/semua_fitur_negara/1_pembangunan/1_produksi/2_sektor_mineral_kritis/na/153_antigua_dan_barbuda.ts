@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_ekstraksi = {
   emas: 27,
   uranium: 0,

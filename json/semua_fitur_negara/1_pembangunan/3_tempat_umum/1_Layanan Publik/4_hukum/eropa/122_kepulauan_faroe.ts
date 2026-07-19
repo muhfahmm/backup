@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_hukum = {
       "pusat_bantuan_hukum": 4,
       "pengadilan": 5,

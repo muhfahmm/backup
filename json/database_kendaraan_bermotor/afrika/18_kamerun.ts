@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerunVehicles = {
   sepeda_motor: 3782435,
   mobil: 2017298,

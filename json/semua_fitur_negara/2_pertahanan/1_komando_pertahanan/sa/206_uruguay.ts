@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const uruguay_strategis = {
     "waktu_respon": 1,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_peternakan = {
   ayam_unggas: 143,
   sapi_perah: 495,

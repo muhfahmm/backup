@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_peternakan = {
   ayam_unggas: 240,
   sapi_perah: 440,

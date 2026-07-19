@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_olahan_pangan = {
   air_mineral: 2046,
   gula: 1782,

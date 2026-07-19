@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_infrastruktur = {
   jalur_sepeda: 48,
   jalan_raya: 76,

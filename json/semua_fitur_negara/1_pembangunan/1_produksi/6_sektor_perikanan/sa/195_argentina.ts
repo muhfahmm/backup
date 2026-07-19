@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_perikanan = {
   udang: 1584,
   mutiara: 912,

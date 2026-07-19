@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const amerika_serikat_hunian = {
   rumah_subsidi: 4410281,

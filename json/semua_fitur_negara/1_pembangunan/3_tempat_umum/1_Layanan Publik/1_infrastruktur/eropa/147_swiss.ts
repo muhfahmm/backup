@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_infrastruktur = {
   jalur_sepeda: 22,
   jalan_raya: 89,

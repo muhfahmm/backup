@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_kesehatan = {
       "rumah_sakit_besar": 33,
       "rumah_sakit_kecil": 295,

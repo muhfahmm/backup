@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_pendidikan = {
       "prasekolah": 34,
       "dasar": 106,

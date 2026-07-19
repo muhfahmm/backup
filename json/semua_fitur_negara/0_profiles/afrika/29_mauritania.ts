@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritania_profile = {
   "name_en": "Mauritania",
   "capital": "Nouakchott",
   "name_id": "Mauritania",
   "lon": -12,
   "lat": 20,
-  "flag": "ðŸ‡²ðŸ‡·",
+  "flag": "🇲🇷",
   "jumlah_penduduk": 5169395,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const mauritania_geopolitik = {
       "kekuatan_keras": 40,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const mauritania_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const mauritania_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mauritania_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 24,

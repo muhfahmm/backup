@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_infrastruktur = {
   jalur_sepeda: 5,
   jalan_raya: 6,

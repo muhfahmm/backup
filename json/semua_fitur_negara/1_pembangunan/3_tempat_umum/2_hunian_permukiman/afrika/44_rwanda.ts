@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const rwanda_hunian = {
   rumah_subsidi: 166076,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mongolia_strategis = {
     "waktu_respon": 31,

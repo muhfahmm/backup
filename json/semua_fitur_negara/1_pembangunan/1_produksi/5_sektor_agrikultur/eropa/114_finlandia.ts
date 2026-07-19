@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_agrikultur = {
   padi: 342,
   gandum: 189,

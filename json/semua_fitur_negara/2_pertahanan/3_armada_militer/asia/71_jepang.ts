@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_armada = {
     "barak": 25,
     "darat": {

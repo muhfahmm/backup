@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const burkina_faso_hunian = {
   rumah_subsidi: 266645,

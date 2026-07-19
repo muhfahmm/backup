@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_infrastruktur = {
   jalur_sepeda: 43,
   jalan_raya: 58,

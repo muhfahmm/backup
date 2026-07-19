@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_profile = {
   "name_en": "Tajikistan",
   "capital": "Dushanbe",
   "name_id": "Tajikistan",
   "lon": 71,
   "lat": 39,
-  "flag": "ðŸ‡¹ðŸ‡¯",
+  "flag": "🇹🇯",
   "jumlah_penduduk": 9806453,
   "anggaran": 117,
   "pendapatan_nasional": "333",
@@ -26,7 +26,8 @@ const tajikistan_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const tajikistan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const tajikistan_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tajikistan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

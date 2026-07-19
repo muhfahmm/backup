@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_olahan_pangan = {
   air_mineral: 52,
   gula: 156,

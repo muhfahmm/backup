@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_profile = {
   "name_en": "Madagascar",
   "capital": "Antananarivo",
   "name_id": "Madagaskar",
   "lon": 47.31,
   "lat": -18.55,
-  "flag": "ðŸ‡²ðŸ‡¬",
+  "flag": "🇲🇬",
   "jumlah_penduduk": 28915653,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const madagaskar_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const madagaskar_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const madagaskar_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": madagaskar_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,

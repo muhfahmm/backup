@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_intelijen = {
   sistem_satelit: 8,
   jaringan_radar: 15,

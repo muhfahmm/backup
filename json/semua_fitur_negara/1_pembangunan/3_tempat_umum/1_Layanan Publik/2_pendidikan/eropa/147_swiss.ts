@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_pendidikan = {
       "prasekolah": 480,
       "dasar": 614,

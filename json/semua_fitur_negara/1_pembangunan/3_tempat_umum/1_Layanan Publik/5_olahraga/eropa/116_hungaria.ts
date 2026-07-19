@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_olahraga = {
   "kolam_renang": 80,
   "sirkuit_balap": 7,

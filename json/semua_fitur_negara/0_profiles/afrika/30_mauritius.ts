@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_profile = {
   "name_en": "Mauritius",
   "capital": "Port Louis",
   "name_id": "Mauritius",
   "lon": 57.55,
   "lat": -20.28333333,
-  "flag": "ðŸ‡²ðŸ‡º",
+  "flag": "🇲🇺",
   "jumlah_penduduk": 1241856,
   "anggaran": 136,
   "pendapatan_nasional": "389",
@@ -26,7 +26,8 @@ const mauritius_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const mauritius_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const mauritius_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mauritius_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 14,

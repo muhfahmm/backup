@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_pendidikan = {
       "prasekolah": 18,
       "dasar": 129,

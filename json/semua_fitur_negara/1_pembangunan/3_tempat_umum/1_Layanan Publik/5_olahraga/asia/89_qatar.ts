@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_olahraga = {
   "kolam_renang": 26,
   "sirkuit_balap": 5,

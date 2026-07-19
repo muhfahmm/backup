@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_pertahanan = {
     "penjara": 38,
     "gudang_senjata": 14,

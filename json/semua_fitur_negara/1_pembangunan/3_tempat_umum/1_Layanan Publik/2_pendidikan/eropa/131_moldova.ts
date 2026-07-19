@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_pendidikan = {
       "prasekolah": 74,
       "dasar": 100,

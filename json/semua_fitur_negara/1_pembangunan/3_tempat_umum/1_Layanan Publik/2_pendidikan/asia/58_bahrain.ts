@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_pendidikan = {
       "prasekolah": 80,
       "dasar": 35,

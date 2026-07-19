@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_armada = {
     "barak": 19,
     "darat": {

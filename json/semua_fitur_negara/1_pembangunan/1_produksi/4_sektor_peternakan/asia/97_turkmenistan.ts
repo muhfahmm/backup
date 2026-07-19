@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_peternakan = {
   ayam_unggas: 60,
   sapi_perah: 66,

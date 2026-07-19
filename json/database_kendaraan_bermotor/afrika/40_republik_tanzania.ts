@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republikTanzaniaVehicles = {
   sepeda_motor: 8447752,
   mobil: 4505467,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_agrikultur = {
   padi: 26,
   gandum: 148,

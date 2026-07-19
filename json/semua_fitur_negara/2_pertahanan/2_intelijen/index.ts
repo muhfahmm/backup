@@ -1,4 +1,4 @@
-﻿export const intelijenRate = {
+export const intelijenRate = {
   "sistem_satelit": {
     key: "sistem_satelit",
     dataKey: "sistem_satelit",

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 export const ekuadorAgreements = [
   { "no": 1, "mitra": "Kolombia", "type": "Perdagangan", "status": "Aktif" },
   { "no": 2, "mitra": "Brazil", "type": "Perdagangan", "status": "Aktif" },

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_armada = {
     "barak": 133,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const somalia_olahan_pangan = {
   air_mineral: 66,
   gula: 48,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_ekstraksi = {
   emas: 31,
   uranium: 0,

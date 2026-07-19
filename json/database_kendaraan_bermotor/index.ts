@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
   sepeda_motor: number;
   mobil: number;
   bus: number;

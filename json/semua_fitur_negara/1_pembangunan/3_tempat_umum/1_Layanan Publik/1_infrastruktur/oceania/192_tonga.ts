@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_infrastruktur = {
   jalur_sepeda: 3,
   jalan_raya: 7,

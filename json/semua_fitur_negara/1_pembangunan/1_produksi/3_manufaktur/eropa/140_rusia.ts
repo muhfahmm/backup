@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_manufaktur = {
   semikonduktor: 2268,
   mobil: 1890,

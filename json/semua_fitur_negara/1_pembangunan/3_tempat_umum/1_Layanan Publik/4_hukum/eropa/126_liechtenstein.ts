@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 10,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_agrikultur = {
   padi: 630,
   gandum: 546,

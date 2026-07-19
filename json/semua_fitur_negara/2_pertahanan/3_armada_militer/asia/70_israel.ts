@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_armada = {
     "barak": 17,
     "darat": {

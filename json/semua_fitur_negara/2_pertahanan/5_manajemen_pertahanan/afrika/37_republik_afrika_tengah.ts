@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 6,

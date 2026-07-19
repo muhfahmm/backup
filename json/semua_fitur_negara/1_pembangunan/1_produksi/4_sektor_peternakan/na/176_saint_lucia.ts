@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_peternakan = {
   ayam_unggas: 14,
   sapi_perah: 41,

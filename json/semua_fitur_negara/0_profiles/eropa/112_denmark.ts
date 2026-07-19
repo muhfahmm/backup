@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_profile = {
   "name_en": "Denmark",
   "capital": "Copenhagen",
   "name_id": "Denmark",
   "lon": 12.56,
   "lat": 55.67,
-  "flag": "ðŸ‡©ðŸ‡°",
+  "flag": "🇩🇰",
   "jumlah_penduduk": 6029607,
   "anggaran": 3986,
   "pendapatan_nasional": "11390",
@@ -26,7 +26,8 @@ const denmark_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const denmark_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const denmark_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": denmark_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

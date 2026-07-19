@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribatiVehicles = {
   sepeda_motor: 17377,
   mobil: 9267,

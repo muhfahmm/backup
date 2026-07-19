@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const azerbaijan_strategis = {
     "waktu_respon": 2,

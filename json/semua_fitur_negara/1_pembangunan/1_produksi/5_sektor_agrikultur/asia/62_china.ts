@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_agrikultur = {
   padi: 19987,
   gandum: 15686,

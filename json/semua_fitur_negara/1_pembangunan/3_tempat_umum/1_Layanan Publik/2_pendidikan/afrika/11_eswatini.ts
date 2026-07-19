@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_pendidikan = {
       "prasekolah": 24,
       "dasar": 101,

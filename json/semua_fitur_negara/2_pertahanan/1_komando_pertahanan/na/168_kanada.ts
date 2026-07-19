@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kanada_strategis = {
     "waktu_respon": 18,

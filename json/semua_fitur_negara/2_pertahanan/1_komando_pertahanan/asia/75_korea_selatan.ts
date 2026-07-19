@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const korea_selatan_strategis = {
     "waktu_respon": 6,

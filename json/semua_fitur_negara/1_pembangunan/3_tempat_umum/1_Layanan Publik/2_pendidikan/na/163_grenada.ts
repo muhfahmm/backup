@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_pendidikan = {
       "prasekolah": 80,
       "dasar": 115,

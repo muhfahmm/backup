@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_profile = {
   "name_en": "Chad",
   "capital": "N'Djamena",
   "name_id": "Chad",
   "lon": 19,
   "lat": 15,
-  "flag": "ðŸ‡¹ðŸ‡©",
+  "flag": "🇹🇩",
   "jumlah_penduduk": 19340757,
   "anggaran": 117,
   "pendapatan_nasional": "333",
@@ -26,7 +26,8 @@ const chad_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const chad_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const chad_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": chad_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 34,

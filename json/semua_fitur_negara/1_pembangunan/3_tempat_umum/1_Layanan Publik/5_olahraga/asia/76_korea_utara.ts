@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_olahraga = {
   "kolam_renang": 14,
   "sirkuit_balap": 1,

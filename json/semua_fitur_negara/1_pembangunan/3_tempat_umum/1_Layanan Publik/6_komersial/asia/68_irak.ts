@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_komersial = {
   "mall": 35,
   "hotel": 38,

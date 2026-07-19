@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_komersial = {
   "mall": 42,
   "hotel": 16,

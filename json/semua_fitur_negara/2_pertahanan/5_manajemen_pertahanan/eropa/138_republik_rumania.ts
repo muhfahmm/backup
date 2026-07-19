@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_pertahanan = {
     "penjara": 3,
     "gudang_senjata": 4,

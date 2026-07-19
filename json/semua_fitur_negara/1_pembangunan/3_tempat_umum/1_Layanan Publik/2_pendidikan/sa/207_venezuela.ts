@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_pendidikan = {
       "prasekolah": 41,
       "dasar": 31,

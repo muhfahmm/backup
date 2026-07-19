@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_pendidikan = {
       "prasekolah": 95,
       "dasar": 51,

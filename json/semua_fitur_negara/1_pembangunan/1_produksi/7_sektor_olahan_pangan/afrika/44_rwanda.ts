@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rwanda_olahan_pangan = {
   air_mineral: 40,
   gula: 38,

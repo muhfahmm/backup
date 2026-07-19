@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jermanVehicles = {
   sepeda_motor: 12435867,
   mobil: 6632462,

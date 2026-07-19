@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_agrikultur = {
   padi: 102,
   gandum: 126,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_peternakan = {
   ayam_unggas: 200,
   sapi_perah: 230,

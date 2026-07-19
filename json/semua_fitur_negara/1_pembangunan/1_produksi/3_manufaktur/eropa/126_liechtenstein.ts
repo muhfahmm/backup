@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_manufaktur = {
   semikonduktor: 28,
   mobil: 24,

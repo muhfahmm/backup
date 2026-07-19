@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_pertahanan = {
     "penjara": 18,
     "gudang_senjata": 17,

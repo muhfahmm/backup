@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_komersial = {
   "mall": 4,
   "hotel": 9,

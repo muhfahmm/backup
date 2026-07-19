@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_olahraga = {
   "kolam_renang": 18,
   "sirkuit_balap": 1,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_listrik = {
   pembangkit_listrik_tenaga_nuklir: 946,
   pembangkit_listrik_tenaga_air: 15,

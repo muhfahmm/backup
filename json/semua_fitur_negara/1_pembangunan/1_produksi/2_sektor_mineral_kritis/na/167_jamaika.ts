@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_ekstraksi = {
   emas: 23,
   uranium: 0,

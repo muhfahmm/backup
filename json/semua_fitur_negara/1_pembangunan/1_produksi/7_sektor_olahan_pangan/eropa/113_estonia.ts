@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estonia_olahan_pangan = {
   air_mineral: 70,
   gula: 140,

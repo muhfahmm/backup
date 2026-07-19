@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_peternakan = {
   ayam_unggas: 280,
   sapi_perah: 296,

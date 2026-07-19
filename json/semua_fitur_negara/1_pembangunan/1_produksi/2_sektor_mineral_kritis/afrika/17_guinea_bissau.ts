@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_bissau_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_profile = {
   "name_en": "Saudi Arabia",
   "capital": "Riyadh",
   "name_id": "Arab Saudi",
   "lon": 46.67,
   "lat": 24.71,
-  "flag": "ðŸ‡¸ðŸ‡¦",
+  "flag": "🇸🇦",
   "jumlah_penduduk": 34110821,
   "anggaran": 10793,
   "pendapatan_nasional": "30836",
@@ -26,7 +26,8 @@ const arab_saudi_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const arab_saudi_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const arab_saudi_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": arab_saudi_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 33,

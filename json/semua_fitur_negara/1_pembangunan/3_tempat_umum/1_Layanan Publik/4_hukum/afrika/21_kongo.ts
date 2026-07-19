@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kongo_hukum = {
       "pusat_bantuan_hukum": 9,
       "pengadilan": 10,

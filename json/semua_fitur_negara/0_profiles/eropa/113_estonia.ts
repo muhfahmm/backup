@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estonia_profile = {
   "name_en": "Estonia",
   "capital": "Tallinn",
   "name_id": "Estonia",
   "lon": 26,
   "lat": 59,
-  "flag": "ðŸ‡ªðŸ‡ª",
+  "flag": "🇪🇪",
   "jumlah_penduduk": 1374687,
   "anggaran": 389,
   "pendapatan_nasional": "1111",
@@ -26,7 +26,8 @@ const estonia_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const estonia_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const estonia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": estonia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,

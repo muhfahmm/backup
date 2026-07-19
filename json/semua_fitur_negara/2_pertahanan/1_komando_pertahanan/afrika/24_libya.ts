@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const libya_strategis = {
     "waktu_respon": 21,

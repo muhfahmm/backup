@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_agrikultur = {
   padi: 646,
   gandum: 1406,

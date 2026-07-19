@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_profile = {
   "name_en": "Iran",
   "capital": "Tehran",
   "name_id": "Iran",
   "lon": 51.38,
   "lat": 35.68,
-  "flag": "ðŸ‡®ðŸ‡·",
+  "flag": "🇮🇷",
   "jumlah_penduduk": 86563000,
   "anggaran": 3598,
   "pendapatan_nasional": "10279",
@@ -26,7 +26,8 @@ const iran_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const iran_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const iran_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": iran_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,

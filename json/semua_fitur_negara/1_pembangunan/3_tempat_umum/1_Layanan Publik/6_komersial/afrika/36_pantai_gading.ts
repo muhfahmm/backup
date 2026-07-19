@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_komersial = {
   "mall": 7,
   "hotel": 13,

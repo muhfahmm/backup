@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_komersial = {
   "mall": 5,
   "hotel": 13,

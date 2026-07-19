@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_agrikultur = {
   padi: 68,
   gandum: 43,

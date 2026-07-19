@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_agrikultur = {
   padi: 2016,
   gandum: 2142,

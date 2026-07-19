@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_olahan_pangan = {
   air_mineral: 180,
   gula: 210,

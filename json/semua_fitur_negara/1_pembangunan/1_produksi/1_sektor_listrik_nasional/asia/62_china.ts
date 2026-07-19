@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_listrik = {
   pembangkit_listrik_tenaga_nuklir: 2247,
   pembangkit_listrik_tenaga_air: 13,

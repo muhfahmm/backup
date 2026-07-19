@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_profile = {
   "name_en": "Bolivia",
   "capital": "Sucre",
   "name_id": "Bolivia",
   "lon": -65,
   "lat": -17,
-  "flag": "ðŸ‡§ðŸ‡´",
+  "flag": "🇧🇴",
   "jumlah_penduduk": 11365333,
   "anggaran": 428,
   "pendapatan_nasional": "1222",
@@ -26,7 +26,8 @@ const bolivia_geopolitik = {
       "kekuatan_keras": 9,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const bolivia_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const bolivia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bolivia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

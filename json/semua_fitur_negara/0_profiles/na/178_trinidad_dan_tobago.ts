@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_profile = {
   "name_en": "Trinidad and Tobago",
   "capital": "Port of Spain",
   "name_id": "Trinidad dan tobago",
   "lon": -61,
   "lat": 11,
-  "flag": "ðŸ‡¹ðŸ‡¹",
+  "flag": "🇹🇹",
   "jumlah_penduduk": 1507782,
   "anggaran": 243,
   "pendapatan_nasional": "694",
@@ -26,7 +26,8 @@ const trinidad_dan_tobago_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const trinidad_dan_tobago_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const trinidad_dan_tobago_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": trinidad_dan_tobago_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

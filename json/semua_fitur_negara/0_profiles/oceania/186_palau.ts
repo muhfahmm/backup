@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palau_profile = {
   "name_en": "Palau",
   "capital": "Ngerulmud",
   "name_id": "Palau",
   "lon": 134.5,
   "lat": 7.5,
-  "flag": "ðŸ‡µðŸ‡¼",
+  "flag": "🇵🇼",
   "jumlah_penduduk": 16733,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const palau_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const palau_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const palau_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": palau_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

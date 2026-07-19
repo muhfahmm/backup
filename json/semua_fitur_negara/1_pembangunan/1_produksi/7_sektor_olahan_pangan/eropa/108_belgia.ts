@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_olahan_pangan = {
   air_mineral: 533,
   gula: 779,

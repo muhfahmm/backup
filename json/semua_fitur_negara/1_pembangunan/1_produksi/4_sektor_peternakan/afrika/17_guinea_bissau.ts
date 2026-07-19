@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_bissau_peternakan = {
   ayam_unggas: 46,
   sapi_perah: 100,

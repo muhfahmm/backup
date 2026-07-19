@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_infrastruktur = {
   jalur_sepeda: 21,
   jalan_raya: 44,

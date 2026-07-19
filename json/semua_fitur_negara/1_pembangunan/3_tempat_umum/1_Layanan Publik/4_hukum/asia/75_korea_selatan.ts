@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_hukum = {
       "pusat_bantuan_hukum": 131,
       "pengadilan": 60,

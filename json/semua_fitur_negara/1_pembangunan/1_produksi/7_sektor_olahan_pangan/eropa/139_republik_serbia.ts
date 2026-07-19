@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_serbia_olahan_pangan = {
   air_mineral: 160,
   gula: 190,

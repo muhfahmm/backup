@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_perikanan = {
   udang: 45,
   mutiara: 153,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_ekstraksi = {
   emas: 19,
   uranium: 0,

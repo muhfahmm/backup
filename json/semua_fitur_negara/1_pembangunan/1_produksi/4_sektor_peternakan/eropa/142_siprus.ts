@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_peternakan = {
   ayam_unggas: 112,
   sapi_perah: 124,

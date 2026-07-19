@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_manufaktur = {
   semikonduktor: 32,
   mobil: 88,

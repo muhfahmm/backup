@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_manufaktur = {
   semikonduktor: 1746,
   mobil: 3783,

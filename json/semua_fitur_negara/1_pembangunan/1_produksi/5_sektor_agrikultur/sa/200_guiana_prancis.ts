@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_agrikultur = {
   padi: 51,
   gandum: 23,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_profile = {
   "name_en": "Turkmenistan",
   "capital": "Ashgabat",
   "name_id": "Turkmenistan",
   "lon": 60,
   "lat": 40,
-  "flag": "ðŸ‡¹ðŸ‡²",
+  "flag": "🇹🇲",
   "jumlah_penduduk": 6500000,
   "anggaran": 438,
   "pendapatan_nasional": "1250",
@@ -26,7 +26,8 @@ const turkmenistan_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const turkmenistan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const turkmenistan_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": turkmenistan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 26,

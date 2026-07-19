@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_olahraga = {
   "kolam_renang": 11,
   "sirkuit_balap": 1,

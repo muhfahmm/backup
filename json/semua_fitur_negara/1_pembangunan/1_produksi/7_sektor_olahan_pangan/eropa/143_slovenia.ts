@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_olahan_pangan = {
   air_mineral: 28,
   gula: 74,

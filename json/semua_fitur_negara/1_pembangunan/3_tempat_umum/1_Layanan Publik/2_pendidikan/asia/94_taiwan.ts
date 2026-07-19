@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_pendidikan = {
       "prasekolah": 276,
       "dasar": 488,

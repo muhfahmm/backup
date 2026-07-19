@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bruneiVehicles = {
   sepeda_motor: 64344,
   mobil: 34316,

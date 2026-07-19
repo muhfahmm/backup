@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_agrikultur = {
   padi: 6460,
   gandum: 3740,

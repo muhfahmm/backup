@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_olahan_pangan = {
   air_mineral: 540,
   gula: 460,

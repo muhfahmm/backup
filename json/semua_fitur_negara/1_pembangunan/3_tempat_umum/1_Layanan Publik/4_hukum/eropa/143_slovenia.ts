@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 6,

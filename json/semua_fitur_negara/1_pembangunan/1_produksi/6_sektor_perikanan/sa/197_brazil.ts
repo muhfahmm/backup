@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_perikanan = {
   udang: 3201,
   mutiara: 7275,

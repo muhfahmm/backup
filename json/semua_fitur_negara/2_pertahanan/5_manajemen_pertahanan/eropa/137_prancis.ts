@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_pertahanan = {
     "penjara": 3,
     "gudang_senjata": 33,

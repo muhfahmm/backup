@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const azerbaijanVehicles = {
   sepeda_motor: 1490970,
   mobil: 795184,

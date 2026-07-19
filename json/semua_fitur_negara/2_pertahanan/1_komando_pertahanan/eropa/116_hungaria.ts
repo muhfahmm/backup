@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const hungaria_strategis = {
     "waktu_respon": 27,

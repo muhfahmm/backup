@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_olahan_pangan = {
   air_mineral: 80,
   gula: 34,

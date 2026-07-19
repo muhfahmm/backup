@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 34,

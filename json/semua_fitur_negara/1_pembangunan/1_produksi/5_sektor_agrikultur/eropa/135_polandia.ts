@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_agrikultur = {
   padi: 1272,
   gandum: 3233,

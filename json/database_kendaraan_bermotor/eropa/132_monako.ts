@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monakoVehicles = {
   sepeda_motor: 5802,
   mobil: 3094,

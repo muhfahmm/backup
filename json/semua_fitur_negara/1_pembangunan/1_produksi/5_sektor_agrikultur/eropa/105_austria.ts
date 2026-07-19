@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_agrikultur = {
   padi: 1258,
   gandum: 3330,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_pendidikan = {
       "prasekolah": 88,
       "dasar": 108,

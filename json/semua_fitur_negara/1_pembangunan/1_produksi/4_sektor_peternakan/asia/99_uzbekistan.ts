@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_peternakan = {
   ayam_unggas: 140,
   sapi_perah: 70,

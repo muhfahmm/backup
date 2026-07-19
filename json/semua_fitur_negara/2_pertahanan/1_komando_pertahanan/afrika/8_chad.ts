@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const chad_strategis = {
     "waktu_respon": 27,

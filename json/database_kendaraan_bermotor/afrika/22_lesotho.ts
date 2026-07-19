@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesothoVehicles = {
   sepeda_motor: 316219,
   mobil: 168650,

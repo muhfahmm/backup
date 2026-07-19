@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const senegal_pendidikan = {
       "prasekolah": 56,
       "dasar": 86,

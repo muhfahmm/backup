@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_pertahanan = {
     "penjara": 26,
     "gudang_senjata": 17,

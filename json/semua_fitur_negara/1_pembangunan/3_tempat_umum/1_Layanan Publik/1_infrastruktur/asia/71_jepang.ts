@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_infrastruktur = {
   jalur_sepeda: 84,
   jalan_raya: 138,

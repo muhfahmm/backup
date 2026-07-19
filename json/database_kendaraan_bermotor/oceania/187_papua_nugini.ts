@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papuaNuginiVehicles = {
   sepeda_motor: 1290947,
   mobil: 688505,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estoniaVehicles = {
   sepeda_motor: 198296,
   mobil: 105758,

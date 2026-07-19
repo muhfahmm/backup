@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_olahraga = {
   "kolam_renang": 25,
   "sirkuit_balap": 2,

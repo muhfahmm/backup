@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const andorraVehicles = {
   sepeda_motor: 11550,
   mobil: 6160,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_olahan_pangan = {
   air_mineral: 645,
   gula: 615,

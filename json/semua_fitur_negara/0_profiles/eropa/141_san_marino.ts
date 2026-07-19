@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_profile = {
   "name_en": "San Marino",
   "capital": "City of San Marino",
   "name_id": "San marino",
   "lon": 12.41666666,
   "lat": 43.76666666,
-  "flag": "ðŸ‡¸ðŸ‡²",
+  "flag": "🇸🇲",
   "jumlah_penduduk": 34156,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const san_marino_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const san_marino_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const san_marino_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": san_marino_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

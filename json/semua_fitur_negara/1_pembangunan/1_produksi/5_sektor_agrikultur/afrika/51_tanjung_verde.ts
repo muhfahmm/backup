@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_agrikultur = {
   padi: 87,
   gandum: 129,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const georgia_hunian = {
   rumah_subsidi: 50308,

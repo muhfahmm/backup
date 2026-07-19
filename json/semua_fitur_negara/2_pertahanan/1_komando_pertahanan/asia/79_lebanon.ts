@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const lebanon_strategis = {
     "waktu_respon": 16,

@@ -5,7 +5,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -15,7 +15,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -25,7 +25,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -35,7 +35,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -45,7 +45,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -55,6 +55,6 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)

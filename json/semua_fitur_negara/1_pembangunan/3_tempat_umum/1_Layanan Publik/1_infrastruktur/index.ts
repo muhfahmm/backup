@@ -1,4 +1,4 @@
-﻿// ===================
+// ===================
 export const infrastrukturRate = {
   "1_jalur_sepeda": {
     key: "1_jalur_sepeda",

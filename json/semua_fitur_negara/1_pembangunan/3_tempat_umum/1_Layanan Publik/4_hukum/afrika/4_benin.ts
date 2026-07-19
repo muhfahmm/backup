@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 10,

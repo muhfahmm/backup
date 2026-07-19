@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_profile = {
   "name_en": "Morocco",
   "capital": "Rabat",
   "name_id": "Maroko",
   "lon": -5,
   "lat": 32,
-  "flag": "ðŸ‡²ðŸ‡¦",
+  "flag": "🇲🇦",
   "jumlah_penduduk": 36828330,
   "anggaran": 1313,
   "pendapatan_nasional": "3750",
@@ -26,7 +26,8 @@ const maroko_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const maroko_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const maroko_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": maroko_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

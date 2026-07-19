@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_profile = {
   "name_en": "Jordan",
   "capital": "Amman",
   "name_id": "Yordania",
   "lon": 36,
   "lat": 31,
-  "flag": "ðŸ‡¯ðŸ‡´",
+  "flag": "🇯🇴",
   "jumlah_penduduk": 11937000,
   "anggaran": 457,
   "pendapatan_nasional": "1306",
@@ -26,7 +26,8 @@ const yordania_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const yordania_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const yordania_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": yordania_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

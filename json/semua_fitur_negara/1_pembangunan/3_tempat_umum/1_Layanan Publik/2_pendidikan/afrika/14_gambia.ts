@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_pendidikan = {
       "prasekolah": 40,
       "dasar": 73,

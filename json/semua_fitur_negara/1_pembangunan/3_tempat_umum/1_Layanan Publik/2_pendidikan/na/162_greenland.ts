@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_pendidikan = {
       "prasekolah": 33,
       "dasar": 24,

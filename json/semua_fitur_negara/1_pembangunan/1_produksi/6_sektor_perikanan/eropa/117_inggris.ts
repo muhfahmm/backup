@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_perikanan = {
   udang: 2700,
   mutiara: 5100,

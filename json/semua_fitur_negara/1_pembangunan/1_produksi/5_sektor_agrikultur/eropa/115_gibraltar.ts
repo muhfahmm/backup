@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gibraltar_agrikultur = {
   padi: 140,
   gandum: 152,

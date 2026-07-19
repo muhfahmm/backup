@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const somalia_perikanan = {
   udang: 72,
   mutiara: 87,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_komersial = {
   "mall": 3,
   "hotel": 13,

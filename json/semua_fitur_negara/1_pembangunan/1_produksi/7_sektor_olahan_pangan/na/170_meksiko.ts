@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_olahan_pangan = {
   air_mineral: 2420,
   gula: 3630,

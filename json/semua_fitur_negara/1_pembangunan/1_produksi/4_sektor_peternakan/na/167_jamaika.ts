@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_peternakan = {
   ayam_unggas: 56,
   sapi_perah: 72,

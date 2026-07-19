@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_komersial = {
   "mall": 35,
   "hotel": 24,

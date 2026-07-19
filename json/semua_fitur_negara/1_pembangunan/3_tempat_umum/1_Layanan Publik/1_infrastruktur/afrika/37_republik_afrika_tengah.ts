@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 6,

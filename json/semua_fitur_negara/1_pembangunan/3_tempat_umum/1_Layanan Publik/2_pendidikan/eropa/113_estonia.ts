@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const estonia_pendidikan = {
       "prasekolah": 54,
       "dasar": 58,

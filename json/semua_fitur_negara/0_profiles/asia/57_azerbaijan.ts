@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const azerbaijan_profile = {
   "name_en": "Azerbaijan",
   "capital": "Baku",
   "name_id": "Azerbaijan",
   "lon": 47.5,
   "lat": 40.5,
-  "flag": "ðŸ‡¦ðŸ‡¿",
+  "flag": "🇦🇿",
   "jumlah_penduduk": 10259701,
   "anggaran": 535,
   "pendapatan_nasional": "1528",
@@ -26,7 +26,8 @@ const azerbaijan_geopolitik = {
       "kekuatan_keras": 40,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const azerbaijan_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const azerbaijan_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": azerbaijan_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

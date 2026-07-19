@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_olahraga = {
   "kolam_renang": 15,
   "sirkuit_balap": 3,

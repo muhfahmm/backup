@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_kesehatan = {
       "rumah_sakit_besar": 110,
       "rumah_sakit_kecil": 965,

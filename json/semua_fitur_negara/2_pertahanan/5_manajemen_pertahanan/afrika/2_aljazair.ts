@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_pertahanan = {
     "penjara": 3,
     "gudang_senjata": 16,

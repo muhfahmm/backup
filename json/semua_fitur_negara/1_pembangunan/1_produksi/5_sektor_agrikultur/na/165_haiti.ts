@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_agrikultur = {
   padi: 138,
   gandum: 210,

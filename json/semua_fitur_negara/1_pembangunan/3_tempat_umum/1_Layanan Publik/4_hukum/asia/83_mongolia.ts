@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mongolia_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 2,

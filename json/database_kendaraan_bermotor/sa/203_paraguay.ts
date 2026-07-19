@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguayVehicles = {
   sepeda_motor: 1043410,
   mobil: 556485,

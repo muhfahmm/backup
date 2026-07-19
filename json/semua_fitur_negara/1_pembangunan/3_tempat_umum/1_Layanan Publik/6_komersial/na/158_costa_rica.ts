@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_komersial = {
   "mall": 2,
   "hotel": 6,

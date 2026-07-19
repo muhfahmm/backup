@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_olahan_pangan = {
   air_mineral: 3016,
   gula: 4872,

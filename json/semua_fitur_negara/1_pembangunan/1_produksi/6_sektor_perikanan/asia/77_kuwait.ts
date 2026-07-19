@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_perikanan = {
   udang: 380,
   mutiara: 680,

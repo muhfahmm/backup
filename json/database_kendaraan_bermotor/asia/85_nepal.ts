@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepalVehicles = {
   sepeda_motor: 4213180,
   mobil: 2247029,

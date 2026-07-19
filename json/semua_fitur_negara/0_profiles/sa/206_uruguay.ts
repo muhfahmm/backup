@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_profile = {
   "name_en": "Uruguay",
   "capital": "Montevideo",
   "name_id": "Uruguay",
   "lon": -56,
   "lat": -33,
-  "flag": "ðŸ‡ºðŸ‡¾",
+  "flag": "🇺🇾",
   "jumlah_penduduk": 3485931,
   "anggaran": 700,
   "pendapatan_nasional": "2000",
@@ -26,7 +26,8 @@ const uruguay_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const uruguay_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const uruguay_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": uruguay_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

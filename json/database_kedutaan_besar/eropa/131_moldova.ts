@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kedubes_moldova = [
   { "no": 1, "mitra": "Angola", "type": "Kedutaan Besar", "status": "Aktif" },
   { "no": 2, "mitra": "Armenia", "type": "Kedutaan Besar", "status": "Aktif" },

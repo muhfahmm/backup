@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_kesehatan = {
       "rumah_sakit_besar": 172,
       "rumah_sakit_kecil": 911,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_agrikultur = {
   padi: 5180,
   gandum: 1554,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_olahraga = {
   "kolam_renang": 13,
   "sirkuit_balap": 1,

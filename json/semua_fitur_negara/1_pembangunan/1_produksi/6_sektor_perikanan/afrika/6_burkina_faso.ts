@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_perikanan = {
   udang: 0,
   mutiara: 0,

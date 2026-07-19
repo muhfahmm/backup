@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const somalia_hunian = {
   rumah_subsidi: 202610,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_peternakan = {
   ayam_unggas: 1836,
   sapi_perah: 1566,

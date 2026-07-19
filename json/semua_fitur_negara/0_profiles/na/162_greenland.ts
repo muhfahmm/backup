@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_profile = {
   "name_en": "Greenland",
   "capital": "Nuuk",
   "name_id": "Greenland",
   "lon": -40,
   "lat": 72,
-  "flag": "ðŸ‡¬ðŸ‡±",
+  "flag": "🇬🇱",
   "jumlah_penduduk": 55840,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const greenland_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const greenland_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const greenland_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": greenland_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,

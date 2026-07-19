@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_komersial = {
   "mall": 3,
   "hotel": 7,

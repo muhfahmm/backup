@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_agrikultur = {
   padi: 99,
   gandum: 198,

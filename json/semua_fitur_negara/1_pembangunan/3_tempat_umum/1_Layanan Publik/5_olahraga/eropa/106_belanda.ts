@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_olahraga = {
   "kolam_renang": 323,
   "sirkuit_balap": 12,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lebanon_agrikultur = {
   padi: 32,
   gandum: 19,

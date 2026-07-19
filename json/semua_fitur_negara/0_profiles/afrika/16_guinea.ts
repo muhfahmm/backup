@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_profile = {
   "name_en": "Guinea",
   "capital": "Conakry",
   "name_id": "Guinea",
   "lon": -10,
   "lat": 11,
-  "flag": "ðŸ‡¬ðŸ‡³",
+  "flag": "🇬🇳",
   "jumlah_penduduk": 17521167,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const guinea_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const guinea_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const guinea_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guinea_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 4,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_armada = {
     "barak": 40,
     "darat": {

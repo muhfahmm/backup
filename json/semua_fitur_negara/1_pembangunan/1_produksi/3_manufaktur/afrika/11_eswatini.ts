@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_manufaktur = {
   mobil: 11,
   semen_beton: 7,

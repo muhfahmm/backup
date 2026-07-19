@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_olahan_pangan = {
   air_mineral: 75,
   gula: 141,

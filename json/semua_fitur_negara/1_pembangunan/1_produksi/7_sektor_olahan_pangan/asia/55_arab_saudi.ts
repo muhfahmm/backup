@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_olahan_pangan = {
   air_mineral: 5985,
   gula: 4123,

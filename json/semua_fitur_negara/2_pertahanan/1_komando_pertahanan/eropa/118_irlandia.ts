@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const irlandia_strategis = {
     "waktu_respon": 36,

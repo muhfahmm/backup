@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 4,

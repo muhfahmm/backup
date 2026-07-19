@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerun_manufaktur = {
   mobil: 80,
   semen_beton: 112,

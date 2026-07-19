@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_peternakan = {
   ayam_unggas: 663,
   sapi_perah: 714,

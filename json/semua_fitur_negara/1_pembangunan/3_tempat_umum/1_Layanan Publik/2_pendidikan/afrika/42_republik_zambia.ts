@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_pendidikan = {
       "prasekolah": 41,
       "dasar": 87,

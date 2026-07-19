@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_komersial = {
   "mall": 92,
   "hotel": 267,

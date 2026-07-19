@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_pertahanan = {
     "penjara": 37,
     "gudang_senjata": 33,

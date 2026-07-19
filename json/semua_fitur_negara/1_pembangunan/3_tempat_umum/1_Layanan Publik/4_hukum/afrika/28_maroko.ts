@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_hukum = {
       "pusat_bantuan_hukum": 7,
       "pengadilan": 5,

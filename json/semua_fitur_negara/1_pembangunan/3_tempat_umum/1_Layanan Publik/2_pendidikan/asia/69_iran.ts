@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_pendidikan = {
       "prasekolah": 421,
       "dasar": 672,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_hukum = {
       "pusat_bantuan_hukum": 22,
       "pengadilan": 31,

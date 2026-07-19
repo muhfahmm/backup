@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 11,

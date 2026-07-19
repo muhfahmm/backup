@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_manufaktur = {
   semikonduktor: 15,
   mobil: 42,

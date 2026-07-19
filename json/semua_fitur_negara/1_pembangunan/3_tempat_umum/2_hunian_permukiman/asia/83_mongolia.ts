@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mongolia_hunian = {
   rumah_subsidi: 42797,

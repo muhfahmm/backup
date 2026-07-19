@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_pertahanan = {
     "penjara": 24,
     "gudang_senjata": 20,

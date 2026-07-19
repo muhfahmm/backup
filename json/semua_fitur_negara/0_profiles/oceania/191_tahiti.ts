@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_profile = {
   "name_en": "French Polynesia",
-  "capital": "PapeetÄ“",
+  "capital": "Papeetē",
   "name_id": "Tahiti",
   "lon": -140,
   "lat": -15,
-  "flag": "ðŸ‡µðŸ‡«",
+  "flag": "🇵🇫",
   "jumlah_penduduk": 308872,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const tahiti_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const tahiti_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const tahiti_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": tahiti_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 38,

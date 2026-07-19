@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_ekstraksi = {
   emas: 24,
   uranium: 0,

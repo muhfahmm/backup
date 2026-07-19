@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_perikanan = {
   udang: 144,
   mutiara: 80,

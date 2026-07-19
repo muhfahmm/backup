@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mozambik_strategis = {
     "waktu_respon": 12,

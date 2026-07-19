@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_komersial = {
   "mall": 9,
   "hotel": 11,

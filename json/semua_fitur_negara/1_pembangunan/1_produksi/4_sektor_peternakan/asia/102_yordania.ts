@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_peternakan = {
   ayam_unggas: 58,
   sapi_perah: 46,

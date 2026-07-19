@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_manufaktur = {
   semikonduktor: 1080,
   mobil: 540,

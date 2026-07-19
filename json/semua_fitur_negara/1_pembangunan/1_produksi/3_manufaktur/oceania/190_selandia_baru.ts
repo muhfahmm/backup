@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_manufaktur = {
   semikonduktor: 252,
   mobil: 252,

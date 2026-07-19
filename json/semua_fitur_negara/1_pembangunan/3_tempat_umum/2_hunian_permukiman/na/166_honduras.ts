@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const honduras_hunian = {
   rumah_subsidi: 129431,

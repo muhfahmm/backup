@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_olahraga = {
   "kolam_renang": 81,
   "sirkuit_balap": 5,

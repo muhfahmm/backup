@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_agrikultur = {
   padi: 4978,
   gandum: 19126,

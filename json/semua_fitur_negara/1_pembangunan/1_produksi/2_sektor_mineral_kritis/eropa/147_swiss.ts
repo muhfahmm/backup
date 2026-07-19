@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_ekstraksi = {
   emas: 30,
   uranium: 0,

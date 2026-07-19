@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bhutan_manufaktur = {
   semikonduktor: 21,
   mobil: 39,

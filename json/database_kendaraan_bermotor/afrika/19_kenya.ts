@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenyaVehicles = {
   sepeda_motor: 7708951,
   mobil: 4111440,

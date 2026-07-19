@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const botswana_profile = {
   "name_en": "Botswana",
   "capital": "Gaborone",
   "name_id": "Botswana",
   "lon": 24,
   "lat": -22,
-  "flag": "ðŸ‡§ðŸ‡¼",
+  "flag": "🇧🇼",
   "jumlah_penduduk": 2675063,
   "anggaran": 194,
   "pendapatan_nasional": "556",
@@ -26,7 +26,8 @@ const botswana_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const botswana_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const botswana_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": botswana_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

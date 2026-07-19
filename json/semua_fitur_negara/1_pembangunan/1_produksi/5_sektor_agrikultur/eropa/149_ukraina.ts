@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_agrikultur = {
   padi: 300,
   gandum: 160,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_infrastruktur = {
   jalur_sepeda: 16,
   jalan_raya: 52,

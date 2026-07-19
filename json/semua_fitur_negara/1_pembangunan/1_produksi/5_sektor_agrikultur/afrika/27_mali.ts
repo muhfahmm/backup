@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_agrikultur = {
   padi: 159,
   gandum: 213,

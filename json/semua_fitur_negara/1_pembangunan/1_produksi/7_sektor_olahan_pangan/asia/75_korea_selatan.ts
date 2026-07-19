@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_olahan_pangan = {
   air_mineral: 5270,
   gula: 2380,

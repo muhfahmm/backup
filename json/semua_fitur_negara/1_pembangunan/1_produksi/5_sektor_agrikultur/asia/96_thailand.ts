@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_agrikultur = {
   padi: 3075,
   gandum: 2542,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_profile = {
   "name_en": "Belgium",
   "capital": "Brussels",
   "name_id": "Belgia",
   "lon": 4.35,
   "lat": 50.85,
-  "flag": "ðŸ‡§ðŸ‡ª",
+  "flag": "🇧🇪",
   "jumlah_penduduk": 11930567,
   "anggaran": 6077,
   "pendapatan_nasional": "17362",
@@ -26,7 +26,8 @@ const belgia_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const belgia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const belgia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": belgia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

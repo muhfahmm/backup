@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_agrikultur = {
   padi: 1817,
   gandum: 529,

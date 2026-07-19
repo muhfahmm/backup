@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_pendidikan = {
       "prasekolah": 78,
       "dasar": 46,

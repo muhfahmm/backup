@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermudaVehicles = {
   sepeda_motor: 9595,
   mobil: 5117,

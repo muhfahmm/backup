@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_pendidikan = {
       "prasekolah": 61,
       "dasar": 50,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_olahan_pangan = {
   air_mineral: 1782,
   gula: 864,

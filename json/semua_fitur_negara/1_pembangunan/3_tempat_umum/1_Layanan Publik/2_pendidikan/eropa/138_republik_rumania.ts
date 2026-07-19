@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_pendidikan = {
       "prasekolah": 259,
       "dasar": 731,

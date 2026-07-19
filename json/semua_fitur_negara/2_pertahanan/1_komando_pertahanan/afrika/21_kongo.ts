@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kongo_strategis = {
     "waktu_respon": 19,

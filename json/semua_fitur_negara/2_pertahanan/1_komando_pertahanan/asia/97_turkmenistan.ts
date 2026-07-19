@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const turkmenistan_strategis = {
     "waktu_respon": 15,

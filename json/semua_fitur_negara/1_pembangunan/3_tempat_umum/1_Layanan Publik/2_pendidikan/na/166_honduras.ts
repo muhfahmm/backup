@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const honduras_pendidikan = {
       "prasekolah": 69,
       "dasar": 128,

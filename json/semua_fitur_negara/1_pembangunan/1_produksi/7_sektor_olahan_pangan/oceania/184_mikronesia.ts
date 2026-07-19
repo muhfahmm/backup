@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_olahan_pangan = {
   air_mineral: 144,
   gula: 176,

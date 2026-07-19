@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_infrastruktur = {
   jalur_sepeda: 5,
   jalan_raya: 15,

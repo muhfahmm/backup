@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 18,

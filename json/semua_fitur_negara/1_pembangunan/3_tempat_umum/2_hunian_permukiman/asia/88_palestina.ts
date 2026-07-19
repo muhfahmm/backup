@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const palestina_hunian = {
   rumah_subsidi: 61682,

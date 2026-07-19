@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gabon_profile = {
   "name_en": "Gabon",
   "capital": "Libreville",
   "name_id": "Gabon",
   "lon": 11.75,
   "lat": -1,
-  "flag": "ðŸ‡¬ðŸ‡¦",
+  "flag": "🇬🇦",
   "jumlah_penduduk": 2233272,
   "anggaran": 194,
   "pendapatan_nasional": "556",
@@ -26,7 +26,8 @@ const gabon_geopolitik = {
       "kekuatan_keras": 13,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const gabon_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const gabon_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": gabon_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

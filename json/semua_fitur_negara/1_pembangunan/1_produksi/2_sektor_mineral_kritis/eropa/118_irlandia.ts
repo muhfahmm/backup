@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_ekstraksi = {
   emas: 28,
   uranium: 0,

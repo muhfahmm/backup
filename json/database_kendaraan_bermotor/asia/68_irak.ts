@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irakVehicles = {
   sepeda_motor: 5765040,
   mobil: 3074688,

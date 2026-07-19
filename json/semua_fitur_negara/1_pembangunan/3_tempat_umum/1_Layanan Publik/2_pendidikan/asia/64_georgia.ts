@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_pendidikan = {
       "prasekolah": 64,
       "dasar": 115,

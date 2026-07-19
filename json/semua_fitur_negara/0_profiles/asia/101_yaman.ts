@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yaman_profile = {
   "name_en": "Yemen",
   "capital": "Sana'a",
   "name_id": "Yaman",
   "lon": 48,
   "lat": 15,
-  "flag": "ðŸ‡¾ðŸ‡ª",
+  "flag": "🇾🇪",
   "jumlah_penduduk": 33697000,
   "anggaran": 214,
   "pendapatan_nasional": "611",
@@ -26,7 +26,8 @@ const yaman_geopolitik = {
       "kekuatan_keras": 8,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const yaman_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const yaman_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": yaman_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 20,

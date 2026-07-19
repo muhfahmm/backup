@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_infrastruktur = {
   jalur_sepeda: 32,
   jalan_raya: 95,

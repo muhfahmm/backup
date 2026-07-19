@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_ekstraksi = {
   nikel: 1,
   bijih_besi: 90,

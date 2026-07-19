@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_agrikultur = {
   padi: 715,
   gandum: 616,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tunisia_pendidikan = {
       "prasekolah": 41,
       "dasar": 92,

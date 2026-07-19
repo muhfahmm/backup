@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_olahan_pangan = {
   air_mineral: 72,
   gula: 84,

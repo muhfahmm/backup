@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_pertahanan = {
     "penjara": 10,
     "gudang_senjata": 19,

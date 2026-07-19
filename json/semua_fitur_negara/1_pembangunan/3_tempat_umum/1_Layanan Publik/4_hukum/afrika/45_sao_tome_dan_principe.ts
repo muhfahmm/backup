@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 2,

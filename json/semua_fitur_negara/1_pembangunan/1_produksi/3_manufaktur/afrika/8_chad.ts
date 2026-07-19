@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_manufaktur = {
   mobil: 15,
   semen_beton: 45,

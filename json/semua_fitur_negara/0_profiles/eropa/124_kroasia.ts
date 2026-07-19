@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_profile = {
   "name_en": "Croatia",
   "capital": "Zagreb",
   "name_id": "Kroasia",
   "lon": 15.5,
   "lat": 45.16666666,
-  "flag": "ðŸ‡­ðŸ‡·",
+  "flag": "🇭🇷",
   "jumlah_penduduk": 3866233,
   "anggaran": 758,
   "pendapatan_nasional": "2167",
@@ -26,7 +26,8 @@ const kroasia_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kroasia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const kroasia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kroasia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 36,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_pendidikan = {
       "prasekolah": 734,
       "dasar": 1759,

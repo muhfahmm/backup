@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const yordania_hunian = {
   rumah_subsidi: 134406,

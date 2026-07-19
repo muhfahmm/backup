@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const siprus_komersial = {
   "mall": 7,
   "hotel": 8,

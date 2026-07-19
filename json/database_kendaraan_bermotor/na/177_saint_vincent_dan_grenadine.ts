@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saintVincentDanGrenadineVehicles = {
   sepeda_motor: 16531,
   mobil: 8816,

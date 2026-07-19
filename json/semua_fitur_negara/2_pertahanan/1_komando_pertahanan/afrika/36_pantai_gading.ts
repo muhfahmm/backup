@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const pantai_gading_strategis = {
     "waktu_respon": 4,

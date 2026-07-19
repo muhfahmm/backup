@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_amerika_armada = {
     "barak": 2,
     "darat": {

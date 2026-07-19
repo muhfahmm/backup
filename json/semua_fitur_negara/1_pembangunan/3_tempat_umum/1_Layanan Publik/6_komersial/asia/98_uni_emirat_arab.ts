@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_komersial = {
   "mall": 27,
   "hotel": 29,

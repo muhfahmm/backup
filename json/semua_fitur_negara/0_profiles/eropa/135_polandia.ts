@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_profile = {
   "name_en": "Poland",
   "capital": "Warsaw",
   "name_id": "Polandia",
   "lon": 21.01,
   "lat": 52.22,
-  "flag": "ðŸ‡µðŸ‡±",
+  "flag": "🇵🇱",
   "jumlah_penduduk": 37296000,
   "anggaran": 8167,
   "pendapatan_nasional": "23335",
@@ -26,7 +26,8 @@ const polandia_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const polandia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const polandia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": polandia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,

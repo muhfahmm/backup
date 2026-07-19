@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_perikanan = {
   udang: 5760,
   mutiara: 12288,

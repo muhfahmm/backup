@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkinaFasoVehicles = {
   sepeda_motor: 2962730,
   mobil: 1580122,

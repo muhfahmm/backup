@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const aljazair_hunian = {
   rumah_subsidi: 570083,

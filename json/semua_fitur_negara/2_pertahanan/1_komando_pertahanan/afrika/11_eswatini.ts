@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const eswatini_strategis = {
     "waktu_respon": 38,

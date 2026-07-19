@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_pendidikan = {
       "prasekolah": 1293,
       "dasar": 1368,

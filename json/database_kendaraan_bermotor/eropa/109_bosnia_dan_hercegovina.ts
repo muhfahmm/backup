@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosniaDanHercegovinaVehicles = {
   sepeda_motor: 498589,
   mobil: 265914,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_peternakan = {
   ayam_unggas: 105,
   sapi_perah: 60,

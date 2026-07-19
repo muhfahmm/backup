@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_infrastruktur = {
   jalur_sepeda: 37,
   jalan_raya: 43,

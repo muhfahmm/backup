@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slowakia_profile = {
   "name_en": "Slovakia",
   "capital": "Bratislava",
   "name_id": "Slowakia",
   "lon": 19.5,
   "lat": 48.66666666,
-  "flag": "ðŸ‡¸ðŸ‡°",
+  "flag": "🇸🇰",
   "jumlah_penduduk": 5423229,
   "anggaran": 1264,
   "pendapatan_nasional": "3611",
@@ -26,7 +26,8 @@ const slowakia_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const slowakia_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const slowakia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": slowakia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

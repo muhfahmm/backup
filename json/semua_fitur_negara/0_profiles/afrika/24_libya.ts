@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_profile = {
   "name_en": "Libya",
   "capital": "Tripoli",
   "name_id": "Libya",
   "lon": 13.1,
   "lat": 32.53,
-  "flag": "ðŸ‡±ðŸ‡¾",
+  "flag": "🇱🇾",
   "jumlah_penduduk": 7381023,
   "anggaran": 408,
   "pendapatan_nasional": "1167",
@@ -26,7 +26,8 @@ const libya_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const libya_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const libya_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": libya_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

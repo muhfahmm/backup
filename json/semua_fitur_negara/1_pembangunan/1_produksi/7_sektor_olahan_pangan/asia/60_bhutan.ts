@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bhutan_olahan_pangan = {
   air_mineral: 102,
   gula: 93,

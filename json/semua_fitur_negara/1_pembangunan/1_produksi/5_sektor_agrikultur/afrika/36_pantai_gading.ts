@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_agrikultur = {
   padi: 250,
   gandum: 330,

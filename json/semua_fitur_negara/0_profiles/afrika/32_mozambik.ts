@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_profile = {
   "name_en": "Mozambique",
   "capital": "Maputo",
   "name_id": "Mozambik",
   "lon": 35,
   "lat": -18.25,
-  "flag": "ðŸ‡²ðŸ‡¿",
+  "flag": "🇲🇿",
   "jumlah_penduduk": 30066648,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const mozambik_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const mozambik_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const mozambik_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mozambik_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_selatan_peternakan = {
   ayam_unggas: 6800,
   sapi_perah: 4760,

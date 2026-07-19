@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_infrastruktur = {
   jalur_sepeda: 1543,
   jalan_raya: 2447,

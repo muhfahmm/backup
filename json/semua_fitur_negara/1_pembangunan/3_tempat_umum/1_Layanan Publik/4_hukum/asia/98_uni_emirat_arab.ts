@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_hukum = {
       "pusat_bantuan_hukum": 34,
       "pengadilan": 34,

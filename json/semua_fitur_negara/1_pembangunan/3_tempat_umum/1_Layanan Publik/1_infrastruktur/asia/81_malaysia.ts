@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_infrastruktur = {
   jalur_sepeda: 30,
   jalan_raya: 44,

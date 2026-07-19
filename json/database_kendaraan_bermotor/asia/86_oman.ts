@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const omanVehicles = {
   sepeda_motor: 724422,
   mobil: 386358,

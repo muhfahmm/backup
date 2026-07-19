@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_profile = {
   "name_en": "Angola",
   "capital": "Luanda",
   "name_id": "Angola",
   "lon": 13.23,
   "lat": -8.83,
-  "flag": "ðŸ‡¦ðŸ‡´",
+  "flag": "🇦🇴",
   "jumlah_penduduk": 38778554,
   "anggaran": 826,
   "pendapatan_nasional": "2361",
@@ -26,7 +26,8 @@ const angola_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const angola_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const angola_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": angola_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

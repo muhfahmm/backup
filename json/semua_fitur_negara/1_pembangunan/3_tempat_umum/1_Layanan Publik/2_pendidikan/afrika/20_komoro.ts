@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_pendidikan = {
       "prasekolah": 27,
       "dasar": 86,

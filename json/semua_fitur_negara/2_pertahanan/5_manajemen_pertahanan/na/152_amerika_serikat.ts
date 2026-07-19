@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 29,

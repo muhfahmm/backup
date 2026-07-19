@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bermuda_strategis = {
     "waktu_respon": 5,

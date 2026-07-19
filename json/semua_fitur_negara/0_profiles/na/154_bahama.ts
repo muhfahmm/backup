@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahama_profile = {
   "name_en": "Bahamas",
   "capital": "Nassau",
   "name_id": "Bahama",
   "lon": -76,
   "lat": 24.25,
-  "flag": "ðŸ‡§ðŸ‡¸",
+  "flag": "🇧🇸",
   "jumlah_penduduk": 398165,
   "anggaran": 136,
   "pendapatan_nasional": "389",
@@ -26,7 +26,8 @@ const bahama_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const bahama_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const bahama_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bahama_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

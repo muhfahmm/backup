@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_agrikultur = {
   padi: 17664,
   gandum: 24192,

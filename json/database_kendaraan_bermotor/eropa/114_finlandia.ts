@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandiaVehicles = {
   sepeda_motor: 827328,
   mobil: 441242,

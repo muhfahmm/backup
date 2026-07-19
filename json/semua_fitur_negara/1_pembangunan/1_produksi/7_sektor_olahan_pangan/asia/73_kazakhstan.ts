@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_olahan_pangan = {
   air_mineral: 143,
   gula: 533,

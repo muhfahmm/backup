@@ -1,4 +1,4 @@
-﻿export const hunianRate = {
+export const hunianRate = {
   rumah_subsidi: {
     biaya_pembangunan: 500,
     waktu_pembangunan: 4,

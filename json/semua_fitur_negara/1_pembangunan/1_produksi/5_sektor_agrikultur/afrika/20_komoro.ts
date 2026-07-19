@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_agrikultur = {
   padi: 60,
   gandum: 280,

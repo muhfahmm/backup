@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 30,

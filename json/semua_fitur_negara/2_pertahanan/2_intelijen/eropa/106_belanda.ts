@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_intelijen = {
   sistem_satelit: 20,
   jaringan_radar: 31,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const djibouti_strategis = {
     "waktu_respon": 14,

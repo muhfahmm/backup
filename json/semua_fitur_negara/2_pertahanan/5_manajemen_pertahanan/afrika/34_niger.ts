@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const niger_pertahanan = {
     "penjara": 32,
     "gudang_senjata": 18,

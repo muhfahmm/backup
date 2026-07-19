@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const el_salvador_strategis = {
     "waktu_respon": 3,

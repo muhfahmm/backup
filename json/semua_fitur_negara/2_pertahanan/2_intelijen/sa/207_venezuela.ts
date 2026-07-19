@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 4,

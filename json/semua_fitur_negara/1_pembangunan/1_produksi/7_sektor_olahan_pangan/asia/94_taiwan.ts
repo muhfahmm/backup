@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_olahan_pangan = {
   air_mineral: 336,
   gula: 432,

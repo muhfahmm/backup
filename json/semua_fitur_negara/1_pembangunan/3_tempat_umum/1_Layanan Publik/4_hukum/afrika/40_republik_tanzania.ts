@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 13,

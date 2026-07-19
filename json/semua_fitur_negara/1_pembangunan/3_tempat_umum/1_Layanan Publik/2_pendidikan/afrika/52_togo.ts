@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const togo_pendidikan = {
       "prasekolah": 71,
       "dasar": 96,

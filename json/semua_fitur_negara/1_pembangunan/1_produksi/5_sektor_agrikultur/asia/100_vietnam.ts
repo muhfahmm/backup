@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_agrikultur = {
   padi: 4488,
   gandum: 2040,

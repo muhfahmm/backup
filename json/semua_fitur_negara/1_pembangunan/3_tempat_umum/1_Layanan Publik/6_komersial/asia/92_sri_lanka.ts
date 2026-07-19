@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_komersial = {
   "mall": 7,
   "hotel": 4,

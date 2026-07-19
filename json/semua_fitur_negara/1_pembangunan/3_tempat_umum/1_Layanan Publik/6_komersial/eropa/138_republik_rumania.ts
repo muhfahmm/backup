@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_komersial = {
   "mall": 28,
   "hotel": 43,

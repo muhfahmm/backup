@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_olahan_pangan = {
   air_mineral: 20,
   gula: 30,

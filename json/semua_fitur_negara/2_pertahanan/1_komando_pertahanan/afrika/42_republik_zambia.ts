@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_zambia_strategis = {
     "waktu_respon": 16,

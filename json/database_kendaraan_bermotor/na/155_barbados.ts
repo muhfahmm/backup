@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbadosVehicles = {
   sepeda_motor: 42996,
   mobil: 22931,

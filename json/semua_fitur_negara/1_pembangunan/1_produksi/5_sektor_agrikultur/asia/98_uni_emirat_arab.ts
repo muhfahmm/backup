@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_agrikultur = {
   padi: 4356,
   gandum: 2244,

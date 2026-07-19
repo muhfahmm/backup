@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_pertahanan = {
     "penjara": 40,
     "gudang_senjata": 6,

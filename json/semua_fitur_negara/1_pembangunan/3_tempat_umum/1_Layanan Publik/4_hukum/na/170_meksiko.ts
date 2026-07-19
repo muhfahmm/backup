@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_hukum = {
       "pusat_bantuan_hukum": 97,
       "pengadilan": 134,

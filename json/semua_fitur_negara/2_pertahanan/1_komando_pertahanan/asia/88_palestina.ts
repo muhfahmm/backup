@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const palestina_strategis = {
     "waktu_respon": 26,

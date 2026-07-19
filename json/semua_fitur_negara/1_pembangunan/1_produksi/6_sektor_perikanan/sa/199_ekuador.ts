@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_perikanan = {
   udang: 90,
   mutiara: 480,

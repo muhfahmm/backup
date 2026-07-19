@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_hukum = {
       "pusat_bantuan_hukum": 37,
       "pengadilan": 30,

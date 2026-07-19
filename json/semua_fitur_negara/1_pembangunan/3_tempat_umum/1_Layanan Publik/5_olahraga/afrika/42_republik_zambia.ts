@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_olahraga = {
   "kolam_renang": 4,
   "sirkuit_balap": 1,

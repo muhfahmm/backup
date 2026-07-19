@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_profile = {
   "name_en": "Eritrea",
   "capital": "Asmara",
   "name_id": "Eritrea",
   "lon": 39,
   "lat": 15,
-  "flag": "ðŸ‡ªðŸ‡·",
+  "flag": "🇪🇷",
   "jumlah_penduduk": 3535603,
   "anggaran": 24,
   "pendapatan_nasional": "69",
@@ -26,7 +26,8 @@ const eritrea_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const eritrea_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const eritrea_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": eritrea_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

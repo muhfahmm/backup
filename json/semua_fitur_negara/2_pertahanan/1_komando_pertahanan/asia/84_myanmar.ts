@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const myanmar_strategis = {
     "waktu_respon": 7,

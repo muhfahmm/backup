@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const swiss_hunian = {
   rumah_subsidi: 114928,

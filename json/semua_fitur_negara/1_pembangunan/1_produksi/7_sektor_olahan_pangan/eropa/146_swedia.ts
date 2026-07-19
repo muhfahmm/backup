@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_olahan_pangan = {
   air_mineral: 1776,
   gula: 3552,

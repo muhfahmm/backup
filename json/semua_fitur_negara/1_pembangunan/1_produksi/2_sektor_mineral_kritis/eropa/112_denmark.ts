@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmark_ekstraksi = {
   emas: 23,
   uranium: 0,

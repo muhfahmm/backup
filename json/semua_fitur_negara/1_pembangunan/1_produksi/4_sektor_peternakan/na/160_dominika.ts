@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const dominika_peternakan = {
   ayam_unggas: 156,
   sapi_perah: 84,

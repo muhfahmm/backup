@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_agrikultur = {
   padi: 124,
   gandum: 296,

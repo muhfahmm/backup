@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_olahan_pangan = {
   air_mineral: 44,
   gula: 72,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_manufaktur = {
   semikonduktor: 32,
   mobil: 44,

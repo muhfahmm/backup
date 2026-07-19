@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_infrastruktur = {
   jalur_sepeda: 17,
   jalan_raya: 44,

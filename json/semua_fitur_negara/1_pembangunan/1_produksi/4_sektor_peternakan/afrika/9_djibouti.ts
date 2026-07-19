@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const djibouti_peternakan = {
   ayam_unggas: 13,
   sapi_perah: 20,

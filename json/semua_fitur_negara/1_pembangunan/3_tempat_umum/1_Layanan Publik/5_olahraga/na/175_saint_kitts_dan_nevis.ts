@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_olahraga = {
   "kolam_renang": 16,
   "sirkuit_balap": 1,

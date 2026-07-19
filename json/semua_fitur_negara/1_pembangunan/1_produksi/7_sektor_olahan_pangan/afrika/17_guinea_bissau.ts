@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_bissau_olahan_pangan = {
   air_mineral: 60,
   gula: 52,

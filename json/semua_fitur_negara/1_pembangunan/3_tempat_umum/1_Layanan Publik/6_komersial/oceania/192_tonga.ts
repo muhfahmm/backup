@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_komersial = {
   "mall": 7,
   "hotel": 10,

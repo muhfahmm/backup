@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_profile = {
   "name_en": "North Macedonia",
   "capital": "Skopje",
   "name_id": "Makedonia utara",
   "lon": 22,
   "lat": 41.83333333,
-  "flag": "ðŸ‡²ðŸ‡°",
+  "flag": "🇲🇰",
   "jumlah_penduduk": 1836713,
   "anggaran": 136,
   "pendapatan_nasional": "389",
@@ -26,7 +26,8 @@ const makedonia_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const makedonia_utara_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const makedonia_utara_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": makedonia_utara_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 14,

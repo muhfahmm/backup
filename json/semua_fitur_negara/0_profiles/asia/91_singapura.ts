@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_profile = {
   "name_en": "Singapore",
   "capital": "Singapore",
   "name_id": "Singapura",
   "lon": 103.81,
   "lat": 1.35,
-  "flag": "ðŸ‡¸ðŸ‡¬",
+  "flag": "🇸🇬",
   "jumlah_penduduk": 6110200,
   "anggaran": 4862,
   "pendapatan_nasional": "13890",
@@ -26,7 +26,8 @@ const singapura_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const singapura_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const singapura_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": singapura_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

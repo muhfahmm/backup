@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_olahraga = {
   "kolam_renang": 8,
   "sirkuit_balap": 2,

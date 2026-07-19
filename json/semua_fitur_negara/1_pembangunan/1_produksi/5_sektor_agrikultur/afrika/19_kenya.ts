@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_agrikultur = {
   padi: 560,
   gandum: 518,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_intelijen = {
   sistem_satelit: 4,
   jaringan_radar: 18,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyanaVehicles = {
   sepeda_motor: 116850,
   mobil: 62320,

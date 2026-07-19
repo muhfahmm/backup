@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_agrikultur = {
   padi: 782,
   gandum: 884,

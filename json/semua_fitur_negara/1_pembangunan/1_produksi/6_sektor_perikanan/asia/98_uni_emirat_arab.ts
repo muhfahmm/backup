@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_perikanan = {
   udang: 1848,
   mutiara: 1782,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldovaVehicles = {
   sepeda_motor: 405907,
   mobil: 216483,

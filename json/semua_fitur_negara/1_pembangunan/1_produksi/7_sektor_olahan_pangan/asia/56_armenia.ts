@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const armenia_olahan_pangan = {
   air_mineral: 141,
   gula: 138,

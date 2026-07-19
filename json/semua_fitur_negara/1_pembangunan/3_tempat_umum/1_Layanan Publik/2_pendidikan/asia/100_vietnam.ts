@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_pendidikan = {
       "prasekolah": 255,
       "dasar": 634,

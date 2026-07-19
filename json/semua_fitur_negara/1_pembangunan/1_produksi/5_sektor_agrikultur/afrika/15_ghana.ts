@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_agrikultur = {
   padi: 77,
   gandum: 182,

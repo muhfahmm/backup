@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afganistanVehicles = {
   sepeda_motor: 5575857,
   mobil: 2973790,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_perikanan = {
   udang: 3537,
   mutiara: 9039,

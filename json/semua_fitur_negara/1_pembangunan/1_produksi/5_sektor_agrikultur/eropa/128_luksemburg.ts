@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const luksemburg_agrikultur = {
   padi: 66,
   gandum: 57,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const botswanaVehicles = {
   sepeda_motor: 338118,
   mobil: 180330,

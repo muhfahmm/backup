@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const amerika_serikat_strategis = {
     "waktu_respon": 16,

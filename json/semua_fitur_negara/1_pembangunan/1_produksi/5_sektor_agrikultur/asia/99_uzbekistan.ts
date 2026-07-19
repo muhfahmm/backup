@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_agrikultur = {
   padi: 525,
   gandum: 112,

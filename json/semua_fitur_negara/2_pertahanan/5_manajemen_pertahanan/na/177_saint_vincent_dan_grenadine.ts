@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_pertahanan = {
     "penjara": 25,
     "gudang_senjata": 21,

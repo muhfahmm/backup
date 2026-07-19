@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_agrikultur = {
   padi: 2408,
   gandum: 896,

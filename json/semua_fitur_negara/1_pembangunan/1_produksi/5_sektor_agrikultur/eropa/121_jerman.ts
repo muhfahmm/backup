@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_agrikultur = {
   padi: 9030,
   gandum: 17028,

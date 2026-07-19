@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const armenia_hunian = {
   rumah_subsidi: 39848,

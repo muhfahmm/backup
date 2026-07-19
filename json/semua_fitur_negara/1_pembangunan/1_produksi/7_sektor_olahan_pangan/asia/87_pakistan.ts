@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistan_olahan_pangan = {
   air_mineral: 2288,
   gula: 1716,

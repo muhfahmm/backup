@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_olahan_pangan = {
   air_mineral: 2380,
   gula: 8806,

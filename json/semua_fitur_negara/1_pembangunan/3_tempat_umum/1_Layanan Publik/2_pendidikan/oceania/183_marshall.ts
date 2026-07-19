@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_pendidikan = {
       "prasekolah": 20,
       "dasar": 89,

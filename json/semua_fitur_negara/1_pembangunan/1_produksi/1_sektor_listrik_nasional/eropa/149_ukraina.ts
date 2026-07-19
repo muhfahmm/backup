@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ukraina_listrik = {
   pembangkit_listrik_tenaga_nuklir: 34,
   pembangkit_listrik_tenaga_air: 5,

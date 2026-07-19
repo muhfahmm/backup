@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const grenada_hunian = {
   rumah_subsidi: 1504,

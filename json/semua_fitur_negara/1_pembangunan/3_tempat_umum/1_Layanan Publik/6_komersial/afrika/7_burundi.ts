@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundi_komersial = {
   "mall": 8,
   "hotel": 12,

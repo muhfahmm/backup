@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_profile = {
   "name_en": "New Zealand",
   "capital": "Wellington",
   "name_id": "Selandia baru",
   "lon": 174.77,
   "lat": -41.28,
-  "flag": "ðŸ‡³ðŸ‡¿",
+  "flag": "🇳🇿",
   "jumlah_penduduk": 5342000,
   "anggaran": 2431,
   "pendapatan_nasional": "6945",
@@ -26,7 +26,8 @@ const selandia_baru_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const selandia_baru_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const selandia_baru_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": selandia_baru_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,

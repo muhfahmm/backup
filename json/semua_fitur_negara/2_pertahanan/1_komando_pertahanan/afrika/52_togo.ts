@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const togo_strategis = {
     "waktu_respon": 11,

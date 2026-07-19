@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_peternakan = {
   ayam_unggas: 138,
   sapi_perah: 69,

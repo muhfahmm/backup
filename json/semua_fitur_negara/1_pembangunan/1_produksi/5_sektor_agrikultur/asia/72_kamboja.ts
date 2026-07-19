@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_agrikultur = {
   padi: 135,
   gandum: 36,

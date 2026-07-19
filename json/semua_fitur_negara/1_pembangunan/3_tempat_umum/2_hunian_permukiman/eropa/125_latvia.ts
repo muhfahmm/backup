@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const latvia_hunian = {
   rumah_subsidi: 26016,

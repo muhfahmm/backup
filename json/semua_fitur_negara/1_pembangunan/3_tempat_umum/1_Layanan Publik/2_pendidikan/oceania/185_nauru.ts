@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_pendidikan = {
       "prasekolah": 46,
       "dasar": 76,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bhutan_agrikultur = {
   padi: 57,
   gandum: 228,

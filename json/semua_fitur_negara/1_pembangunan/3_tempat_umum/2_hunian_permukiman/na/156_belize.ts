@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const belize_hunian = {
   rumah_subsidi: 5171,

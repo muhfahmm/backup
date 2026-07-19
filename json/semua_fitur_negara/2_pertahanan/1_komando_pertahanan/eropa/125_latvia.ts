@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const latvia_strategis = {
     "waktu_respon": 8,

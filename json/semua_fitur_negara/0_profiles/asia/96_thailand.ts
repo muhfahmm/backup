@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_profile = {
   "name_en": "Thailand",
   "capital": "Bangkok",
   "name_id": "Thailand",
   "lon": 100.5,
   "lat": 13.75,
-  "flag": "ðŸ‡¹ðŸ‡­",
+  "flag": "🇹🇭",
   "jumlah_penduduk": 65826149,
   "anggaran": 4959,
   "pendapatan_nasional": "14168",
@@ -26,7 +26,8 @@ const thailand_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const thailand_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const thailand_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": thailand_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

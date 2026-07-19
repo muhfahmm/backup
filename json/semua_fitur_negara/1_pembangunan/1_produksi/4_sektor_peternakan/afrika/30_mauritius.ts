@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_peternakan = {
   ayam_unggas: 11,
   sapi_perah: 37,

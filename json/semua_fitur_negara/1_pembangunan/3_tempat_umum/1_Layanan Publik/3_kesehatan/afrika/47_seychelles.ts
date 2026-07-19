@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_kesehatan = {
       "rumah_sakit_besar": 11,
       "rumah_sakit_kecil": 36,

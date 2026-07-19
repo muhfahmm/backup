@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_manufaktur = {
   semikonduktor: 2778,
   mobil: 1852,

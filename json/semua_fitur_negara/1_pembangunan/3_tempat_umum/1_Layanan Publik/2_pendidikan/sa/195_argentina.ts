@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_pendidikan = {
       "prasekolah": 175,
       "dasar": 798,

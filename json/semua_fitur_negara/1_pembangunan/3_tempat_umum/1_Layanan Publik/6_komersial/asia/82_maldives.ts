@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_komersial = {
   "mall": 6,
   "hotel": 12,

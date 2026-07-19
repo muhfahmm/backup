@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_profile = {
   "name_en": "Vietnam",
   "capital": "Hanoi",
   "name_id": "Vietnam",
   "lon": 105.83,
   "lat": 21.02,
-  "flag": "ðŸ‡»ðŸ‡³",
+  "flag": "🇻🇳",
   "jumlah_penduduk": 102300000,
   "anggaran": 4181,
   "pendapatan_nasional": "11945",
@@ -26,7 +26,8 @@ const vietnam_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const vietnam_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const vietnam_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": vietnam_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 28,

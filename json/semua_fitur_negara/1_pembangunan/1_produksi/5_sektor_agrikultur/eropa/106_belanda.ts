@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_agrikultur = {
   padi: 5265,
   gandum: 4455,

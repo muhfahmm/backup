@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const brunei_hunian = {
   rumah_subsidi: 5790,

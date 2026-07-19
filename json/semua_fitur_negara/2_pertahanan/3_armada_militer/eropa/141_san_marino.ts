@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_armada = {
     "barak": 2,
     "darat": {

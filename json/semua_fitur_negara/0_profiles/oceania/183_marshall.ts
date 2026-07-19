@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marshall_profile = {
   "name_en": "Marshall Islands",
   "capital": "Majuro",
   "name_id": "Marshall",
   "lon": 168,
   "lat": 9,
-  "flag": "ðŸ‡²ðŸ‡­",
+  "flag": "🇲🇭",
   "jumlah_penduduk": 41996,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const marshall_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const marshall_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const marshall_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": marshall_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

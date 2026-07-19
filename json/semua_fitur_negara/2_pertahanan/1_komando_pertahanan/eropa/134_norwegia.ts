@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const norwegia_strategis = {
     "waktu_respon": 31,

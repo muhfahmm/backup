@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const vanuatu_strategis = {
     "waktu_respon": 12,

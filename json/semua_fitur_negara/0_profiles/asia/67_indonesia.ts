@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_profile = {
   "name_en": "Indonesia",
   "capital": "Jakarta",
   "name_id": "Indonesia",
   "lon": 106.84,
   "lat": -6.2,
-  "flag": "ðŸ‡®ðŸ‡©",
+  "flag": "🇮🇩",
   "jumlah_penduduk": 288315089,
   "anggaran": 13807,
   "pendapatan_nasional": "39448",

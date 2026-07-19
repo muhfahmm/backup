@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_agrikultur = {
   padi: 320,
   gandum: 244,

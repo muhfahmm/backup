@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_peternakan = {
   ayam_unggas: 987,
   sapi_perah: 609,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lithuania_profile = {
   "name_en": "Lithuania",
   "capital": "Vilnius",
   "name_id": "Lithuania",
   "lon": 25.19,
   "lat": 54.41,
-  "flag": "ðŸ‡±ðŸ‡¹",
+  "flag": "🇱🇹",
   "jumlah_penduduk": 2884359,
   "anggaran": 739,
   "pendapatan_nasional": "2111",
@@ -26,7 +26,8 @@ const lithuania_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const lithuania_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const lithuania_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": lithuania_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,

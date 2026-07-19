@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_manufaktur = {
   semikonduktor: 378,
   mobil: 378,

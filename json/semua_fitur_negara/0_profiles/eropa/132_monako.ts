@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_profile = {
   "name_en": "Monaco",
   "capital": "Monaco",
   "name_id": "Monako",
   "lon": 7.4,
   "lat": 43.73333333,
-  "flag": "ðŸ‡²ðŸ‡¨",
+  "flag": "🇲🇨",
   "jumlah_penduduk": 38857,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const monako_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const monako_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const monako_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": monako_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

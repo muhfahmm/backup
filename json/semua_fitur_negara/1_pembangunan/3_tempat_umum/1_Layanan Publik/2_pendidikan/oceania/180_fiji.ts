@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_pendidikan = {
       "prasekolah": 47,
       "dasar": 94,

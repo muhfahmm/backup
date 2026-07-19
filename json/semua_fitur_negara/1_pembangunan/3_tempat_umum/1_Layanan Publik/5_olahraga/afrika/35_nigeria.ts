@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_olahraga = {
   "kolam_renang": 100,
   "sirkuit_balap": 9,

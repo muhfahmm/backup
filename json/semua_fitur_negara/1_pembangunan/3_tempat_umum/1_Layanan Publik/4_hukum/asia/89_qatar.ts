@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_hukum = {
       "pusat_bantuan_hukum": 37,
       "pengadilan": 31,

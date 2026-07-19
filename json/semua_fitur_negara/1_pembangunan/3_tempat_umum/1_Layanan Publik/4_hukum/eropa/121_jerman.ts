@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_hukum = {
       "pusat_bantuan_hukum": 82,
       "pengadilan": 120,

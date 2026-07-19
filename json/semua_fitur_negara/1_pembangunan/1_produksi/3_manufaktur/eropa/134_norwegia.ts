@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_manufaktur = {
   semikonduktor: 240,
   mobil: 140,

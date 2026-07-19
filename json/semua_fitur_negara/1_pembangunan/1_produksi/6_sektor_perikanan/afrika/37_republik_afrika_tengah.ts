@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_perikanan = {
   udang: 39,
   mutiara: 108,

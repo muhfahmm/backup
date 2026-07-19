@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afganistan_relations = [
   { id: 1, name: "afganistan", relation: 100 },
   { id: 2, name: "afrika selatan", relation: 50 },

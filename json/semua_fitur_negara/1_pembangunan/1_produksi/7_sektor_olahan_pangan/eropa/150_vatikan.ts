@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_olahan_pangan = {
   air_mineral: 164,
   gula: 148,

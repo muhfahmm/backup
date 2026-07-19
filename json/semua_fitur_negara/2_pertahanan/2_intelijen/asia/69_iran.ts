@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_intelijen = {
   sistem_satelit: 8,
   jaringan_radar: 19,

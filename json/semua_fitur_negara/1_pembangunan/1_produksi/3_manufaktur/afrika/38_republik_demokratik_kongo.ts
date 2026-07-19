@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_manufaktur = {
   mobil: 24,
   semen_beton: 42,

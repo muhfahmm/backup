@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_listrik = {
   pembangkit_listrik_tenaga_gas: 584,
   pembangkit_listrik_tenaga_air: 20,

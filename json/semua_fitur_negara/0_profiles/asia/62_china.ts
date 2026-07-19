@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_profile = {
   "name_en": "China",
   "capital": "Beijing",
   "name_id": "China",
   "lon": 116.4,
   "lat": 39.9,
-  "flag": "ðŸ‡¨ðŸ‡³",
+  "flag": "🇨🇳",
   "jumlah_penduduk": 1404890000,
   "anggaran": 180167,
   "pendapatan_nasional": "514763",
@@ -26,7 +26,8 @@ const china_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const china_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const china_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": china_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 6,

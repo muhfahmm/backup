@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_pertahanan = {
     "penjara": 25,
     "gudang_senjata": 32,

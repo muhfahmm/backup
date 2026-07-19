@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const dominika_pendidikan = {
       "prasekolah": 60,
       "dasar": 75,

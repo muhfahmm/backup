@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_agrikultur = {
   padi: 44,
   gandum: 160,

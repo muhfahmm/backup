@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saintKittsDanNevisVehicles = {
   sepeda_motor: 7866,
   mobil: 4195,

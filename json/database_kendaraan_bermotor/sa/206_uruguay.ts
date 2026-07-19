@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguayVehicles = {
   sepeda_motor: 517394,
   mobil: 275943,

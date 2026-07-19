@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_peternakan = {
   ayam_unggas: 72,
   sapi_perah: 60,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_profile = {
   "name_en": "French Guiana",
   "capital": "Cayenne",
   "name_id": "Guiana prancis",
   "lon": -53,
   "lat": 4,
-  "flag": "ðŸ‡¬ðŸ‡«",
+  "flag": "🇬🇫",
   "jumlah_penduduk": 316604,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const guiana_prancis_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const guiana_prancis_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const guiana_prancis_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guiana_prancis_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 25,

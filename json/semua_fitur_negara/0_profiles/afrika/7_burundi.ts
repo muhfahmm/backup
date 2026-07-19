@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundi_profile = {
   "name_en": "Burundi",
   "capital": "Gitega",
   "name_id": "Burundi",
   "lon": 30,
   "lat": -3.5,
-  "flag": "ðŸ‡§ðŸ‡®",
+  "flag": "🇧🇮",
   "jumlah_penduduk": 12332788,
   "anggaran": 34,
   "pendapatan_nasional": "97",
@@ -26,7 +26,8 @@ const burundi_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const burundi_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const burundi_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": burundi_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_agrikultur = {
   padi: 28,
   gandum: 22,

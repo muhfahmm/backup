@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_olahan_pangan = {
   air_mineral: 2597,
   gula: 1166,

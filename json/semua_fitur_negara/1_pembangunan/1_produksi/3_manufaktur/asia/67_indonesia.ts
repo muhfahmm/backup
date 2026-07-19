@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_manufaktur = {
   semikonduktor: 553,
   mobil: 869,

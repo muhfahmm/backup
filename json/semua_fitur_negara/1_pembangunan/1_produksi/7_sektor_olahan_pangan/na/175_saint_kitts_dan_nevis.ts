@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_olahan_pangan = {
   air_mineral: 111,
   gula: 105,

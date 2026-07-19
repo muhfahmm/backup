@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const eswatini_hunian = {
   rumah_subsidi: 15338,

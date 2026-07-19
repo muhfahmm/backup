@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvalu_perikanan = {
   udang: 39,
   mutiara: 66,

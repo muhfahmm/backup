@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_ekstraksi = {
   emas: 24,
   uranium: 0,

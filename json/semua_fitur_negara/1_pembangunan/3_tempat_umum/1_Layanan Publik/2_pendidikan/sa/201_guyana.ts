@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_pendidikan = {
       "prasekolah": 15,
       "dasar": 113,

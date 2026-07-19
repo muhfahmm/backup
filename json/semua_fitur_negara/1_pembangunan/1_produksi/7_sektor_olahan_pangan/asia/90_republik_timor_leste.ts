@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_olahan_pangan = {
   air_mineral: 36,
   gula: 27,

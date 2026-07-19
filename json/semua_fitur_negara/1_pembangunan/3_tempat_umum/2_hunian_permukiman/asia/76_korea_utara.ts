@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const korea_utara_hunian = {
   rumah_subsidi: 135000,

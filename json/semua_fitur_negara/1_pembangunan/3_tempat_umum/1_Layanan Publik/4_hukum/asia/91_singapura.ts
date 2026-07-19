@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 41,

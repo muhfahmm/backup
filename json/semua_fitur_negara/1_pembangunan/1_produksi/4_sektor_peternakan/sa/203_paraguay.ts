@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguay_peternakan = {
   ayam_unggas: 180,
   sapi_perah: 150,

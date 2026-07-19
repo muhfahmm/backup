@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const montenegro_strategis = {
     "waktu_respon": 20,

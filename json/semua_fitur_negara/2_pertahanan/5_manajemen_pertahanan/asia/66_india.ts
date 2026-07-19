@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_pertahanan = {
     "penjara": 31,
     "gudang_senjata": 32,

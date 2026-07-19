@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_hukum = {
       "pusat_bantuan_hukum": 643,
       "pengadilan": 1382,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_olahan_pangan = {
   air_mineral: 1386,
   gula: 1134,

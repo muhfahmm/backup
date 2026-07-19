@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtensteinVehicles = {
   sepeda_motor: 5686,
   mobil: 3032,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_intelijen = {
   sistem_satelit: 96,
   jaringan_radar: 162,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_peternakan = {
   ayam_unggas: 6812,
   sapi_perah: 7598,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const israel_peternakan = {
   ayam_unggas: 1827,
   sapi_perah: 2835,

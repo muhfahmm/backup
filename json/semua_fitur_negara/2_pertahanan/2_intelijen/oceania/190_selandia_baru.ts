@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_intelijen = {
   sistem_satelit: 3,
   jaringan_radar: 16,

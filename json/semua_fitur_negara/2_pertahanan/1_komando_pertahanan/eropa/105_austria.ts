@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const austria_strategis = {
     "waktu_respon": 35,

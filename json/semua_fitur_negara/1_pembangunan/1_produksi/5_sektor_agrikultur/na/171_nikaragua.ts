@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_agrikultur = {
   padi: 52,
   gandum: 34,

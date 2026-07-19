@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_peternakan = {
   ayam_unggas: 84,
   sapi_perah: 88,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_perikanan = {
   udang: 1558,
   mutiara: 738,

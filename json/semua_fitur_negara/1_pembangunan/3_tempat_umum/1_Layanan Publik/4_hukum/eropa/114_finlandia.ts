@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_hukum = {
       "pusat_bantuan_hukum": 19,
       "pengadilan": 25,

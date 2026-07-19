@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liberia_pendidikan = {
       "prasekolah": 27,
       "dasar": 138,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunaniVehicles = {
   sepeda_motor: 1609758,
   mobil: 858538,

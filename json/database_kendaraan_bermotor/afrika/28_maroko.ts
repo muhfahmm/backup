@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const marokoVehicles = {
   sepeda_motor: 5404370,
   mobil: 2882331,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const uzbekistan_strategis = {
     "waktu_respon": 18,

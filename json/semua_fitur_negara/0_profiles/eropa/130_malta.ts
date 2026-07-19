@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_profile = {
   "name_en": "Malta",
   "capital": "Valletta",
   "name_id": "Malta",
   "lon": 14.3,
   "lat": 35.53,
-  "flag": "ðŸ‡²ðŸ‡¹",
+  "flag": "🇲🇹",
   "jumlah_penduduk": 574250,
   "anggaran": 194,
   "pendapatan_nasional": "556",
@@ -26,7 +26,8 @@ const malta_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const malta_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const malta_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": malta_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_manufaktur = {
   mobil: 560,
   semen_beton: 320,

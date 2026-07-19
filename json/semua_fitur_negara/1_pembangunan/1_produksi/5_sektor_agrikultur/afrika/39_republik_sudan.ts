@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_sudan_agrikultur = {
   padi: 168,
   gandum: 231,

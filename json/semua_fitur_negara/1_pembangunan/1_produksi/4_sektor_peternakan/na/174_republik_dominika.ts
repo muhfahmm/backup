@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_peternakan = {
   ayam_unggas: 364,
   sapi_perah: 154,

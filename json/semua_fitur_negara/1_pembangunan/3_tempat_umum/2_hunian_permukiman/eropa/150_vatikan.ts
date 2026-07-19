@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const vatikan_hunian = {
   rumah_subsidi: 11,

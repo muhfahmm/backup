@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_manufaktur = {
   semikonduktor: 20,
   mobil: 22,

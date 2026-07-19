@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_profile = {
   "name_en": "Saint Vincent and the Grenadines",
   "capital": "Kingstown",
   "name_id": "Saint vincent dan grenadine",
   "lon": -61.2,
   "lat": 13.25,
-  "flag": "ðŸ‡»ðŸ‡¨",
+  "flag": "🇻🇨",
   "jumlah_penduduk": 100616,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const saint_vincent_dan_grenadine_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const saint_vincent_dan_grenadine_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const saint_vincent_dan_grenadine_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": saint_vincent_dan_grenadine_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

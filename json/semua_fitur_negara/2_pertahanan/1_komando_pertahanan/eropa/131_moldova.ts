@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const moldova_strategis = {
     "waktu_respon": 40,

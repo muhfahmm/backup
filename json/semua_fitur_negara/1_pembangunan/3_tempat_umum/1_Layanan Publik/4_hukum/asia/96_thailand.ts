@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_hukum = {
       "pusat_bantuan_hukum": 27,
       "pengadilan": 24,

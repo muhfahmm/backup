@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_pendidikan = {
       "prasekolah": 398,
       "dasar": 591,

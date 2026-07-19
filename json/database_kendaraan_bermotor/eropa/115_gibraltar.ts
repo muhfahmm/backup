@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gibraltarVehicles = {
   sepeda_motor: 5057,
   mobil: 2697,

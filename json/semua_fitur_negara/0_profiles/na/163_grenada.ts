@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_profile = {
   "name_en": "Grenada",
   "capital": "St. George's",
   "name_id": "Grenada",
   "lon": -61.66666666,
   "lat": 12.11666666,
-  "flag": "ðŸ‡¬ðŸ‡©",
+  "flag": "🇬🇩",
   "jumlah_penduduk": 112579,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const grenada_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const grenada_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const grenada_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": grenada_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

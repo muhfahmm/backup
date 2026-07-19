@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_pendidikan = {
       "prasekolah": 98,
       "dasar": 36,

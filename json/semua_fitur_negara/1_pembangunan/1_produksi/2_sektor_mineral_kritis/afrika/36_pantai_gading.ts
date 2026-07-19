@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_olahan_pangan = {
   air_mineral: 874,
   gula: 1058,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_profile = {
   "name_en": "Hong Kong",
   "capital": "City of Victoria",
   "name_id": "Hong kong",
   "lon": 114.188,
   "lat": 22.267,
-  "flag": "ðŸ‡­ðŸ‡°",
+  "flag": "🇭🇰",
   "jumlah_penduduk": 7414909,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const hong_kong_geopolitik = {
       "kekuatan_keras": 20,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const hong_kong_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const hong_kong_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": hong_kong_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 14,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swedia_pendidikan = {
       "prasekolah": 161,
       "dasar": 271,

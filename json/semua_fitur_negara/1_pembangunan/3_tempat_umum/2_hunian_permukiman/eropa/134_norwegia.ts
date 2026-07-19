@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const norwegia_hunian = {
   rumah_subsidi: 71710,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_manufaktur = {
   semikonduktor: 196,
   mobil: 140,

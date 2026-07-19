@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_perikanan = {
   udang: 2552,
   mutiara: 4640,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_armada = {
     "barak": 2,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_pendidikan = {
       "prasekolah": 585,
       "dasar": 1224,

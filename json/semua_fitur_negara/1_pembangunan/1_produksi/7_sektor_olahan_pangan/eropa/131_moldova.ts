@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_olahan_pangan = {
   air_mineral: 180,
   gula: 148,

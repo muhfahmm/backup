@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_hukum = {
       "pusat_bantuan_hukum": 38,
       "pengadilan": 44,

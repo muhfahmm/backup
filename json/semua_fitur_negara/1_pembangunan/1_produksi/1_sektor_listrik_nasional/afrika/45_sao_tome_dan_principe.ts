@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_listrik = {
   pembangkit_listrik_tenaga_gas: 30,
   pembangkit_listrik_tenaga_air: 20,

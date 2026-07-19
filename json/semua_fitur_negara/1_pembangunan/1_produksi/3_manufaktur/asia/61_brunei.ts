@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_manufaktur = {
   semikonduktor: 15,
   mobil: 30,

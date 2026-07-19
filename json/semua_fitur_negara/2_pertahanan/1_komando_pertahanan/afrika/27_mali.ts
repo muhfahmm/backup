@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mali_strategis = {
     "waktu_respon": 26,

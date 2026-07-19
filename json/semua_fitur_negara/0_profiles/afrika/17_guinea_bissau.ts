@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guinea_bissau_profile = {
   "name_en": "Guinea-Bissau",
   "capital": "Bissau",
   "name_id": "Guinea-bissau",
   "lon": -15,
   "lat": 12,
-  "flag": "ðŸ‡¬ðŸ‡¼",
+  "flag": "🇬🇼",
   "jumlah_penduduk": 2201310,
   "anggaran": 18,
   "pendapatan_nasional": "50",
@@ -26,7 +26,8 @@ const guinea_bissau_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const guinea_bissau_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const guinea_bissau_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": guinea_bissau_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerun_olahan_pangan = {
   air_mineral: 80,
   gula: 264,

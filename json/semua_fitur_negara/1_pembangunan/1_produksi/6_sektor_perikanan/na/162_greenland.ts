@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_perikanan = {
   udang: 116,
   mutiara: 64,

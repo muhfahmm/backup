@@ -26,7 +26,8 @@ const israel_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const israel_extra = {
 "": {
     "harga_beras": 22.4,

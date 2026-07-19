@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const afrika_selatan_strategis = {
     "waktu_respon": 36,

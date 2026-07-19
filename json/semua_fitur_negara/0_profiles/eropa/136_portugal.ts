@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_profile = {
   "name_en": "Portugal",
   "capital": "Lisbon",
   "name_id": "Portugal",
   "lon": -9.13,
   "lat": 38.72,
-  "flag": "ðŸ‡µðŸ‡¹",
+  "flag": "🇵🇹",
   "jumlah_penduduk": 10749635,
   "anggaran": 2722,
   "pendapatan_nasional": "7778",
@@ -26,7 +26,8 @@ const portugal_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const portugal_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const portugal_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": portugal_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

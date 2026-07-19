@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandia_manufaktur = {
   semikonduktor: 32,
   mobil: 36,

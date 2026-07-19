@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_komersial = {
   "mall": 143,
   "hotel": 113,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_profile = {
   "name_en": "Nigeria",
   "capital": "Abuja",
   "name_id": "Nigeria",
   "lon": 8,
   "lat": 10,
-  "flag": "ðŸ‡³ðŸ‡¬",
+  "flag": "🇳🇬",
   "jumlah_penduduk": 223800000,
   "anggaran": 4618,
   "pendapatan_nasional": "13196",
@@ -26,7 +26,8 @@ const nigeria_geopolitik = {
       "kekuatan_keras": 1,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const nigeria_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const nigeria_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": nigeria_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 34,

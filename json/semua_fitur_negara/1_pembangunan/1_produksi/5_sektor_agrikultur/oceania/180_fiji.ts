@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_agrikultur = {
   padi: 156,
   gandum: 58,

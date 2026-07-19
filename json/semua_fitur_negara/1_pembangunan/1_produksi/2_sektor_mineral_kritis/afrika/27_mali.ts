@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

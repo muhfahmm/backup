@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanadaVehicles = {
   sepeda_motor: 5558664,
   mobil: 2964621,

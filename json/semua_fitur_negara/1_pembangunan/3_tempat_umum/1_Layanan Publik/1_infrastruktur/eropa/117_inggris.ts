@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_infrastruktur = {
   jalur_sepeda: 121,
   jalan_raya: 270,

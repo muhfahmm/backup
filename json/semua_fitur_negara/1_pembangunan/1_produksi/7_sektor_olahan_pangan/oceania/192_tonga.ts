@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_olahan_pangan = {
   air_mineral: 41,
   gula: 26,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kirgizstan_hunian = {
   rumah_subsidi: 85357,

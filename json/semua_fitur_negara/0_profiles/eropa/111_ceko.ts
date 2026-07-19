@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_profile = {
   "name_en": "Czechia",
   "capital": "Prague",
   "name_id": "Ceko",
   "lon": 15.5,
   "lat": 49.75,
-  "flag": "ðŸ‡¨ðŸ‡¿",
+  "flag": "🇨🇿",
   "jumlah_penduduk": "10M",
   "anggaran": 3209,
   "pendapatan_nasional": "9167",
@@ -26,7 +26,8 @@ const ceko_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const ceko_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const ceko_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ceko_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

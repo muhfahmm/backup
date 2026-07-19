@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_manufaktur = {
   semikonduktor: 15,
   mobil: 15,

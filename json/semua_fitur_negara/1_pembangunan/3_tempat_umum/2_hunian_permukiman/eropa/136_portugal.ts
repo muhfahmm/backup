@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const portugal_hunian = {
   rumah_subsidi: 138831,

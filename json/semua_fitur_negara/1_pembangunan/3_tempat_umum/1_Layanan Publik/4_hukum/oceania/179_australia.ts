@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_hukum = {
       "pusat_bantuan_hukum": 50,
       "pengadilan": 170,

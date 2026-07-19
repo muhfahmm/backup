@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_pendidikan = {
       "prasekolah": 99,
       "dasar": 149,

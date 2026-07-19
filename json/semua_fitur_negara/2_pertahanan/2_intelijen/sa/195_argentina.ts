@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_intelijen = {
   sistem_satelit: 5,
   jaringan_radar: 16,

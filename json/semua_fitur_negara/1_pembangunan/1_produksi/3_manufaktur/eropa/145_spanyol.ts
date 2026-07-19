@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_manufaktur = {
   semikonduktor: 580,
   mobil: 1392,

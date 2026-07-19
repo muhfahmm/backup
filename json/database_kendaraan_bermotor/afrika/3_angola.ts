@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angolaVehicles = {
   sepeda_motor: 4621464,
   mobil: 2464780,

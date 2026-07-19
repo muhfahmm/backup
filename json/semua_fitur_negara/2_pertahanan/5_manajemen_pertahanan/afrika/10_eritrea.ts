@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 13,

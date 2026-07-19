@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const guiana_prancis_hunian = {
   rumah_subsidi: 3924,

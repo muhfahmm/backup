@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_olahan_pangan = {
   air_mineral: 15720,
   gula: 12183,

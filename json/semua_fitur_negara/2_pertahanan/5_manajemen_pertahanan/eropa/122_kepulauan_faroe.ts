@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 18,

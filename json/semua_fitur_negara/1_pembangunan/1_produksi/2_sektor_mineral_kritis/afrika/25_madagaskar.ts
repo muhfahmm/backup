@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_ekstraksi = {
   nikel: 5,
   bijih_besi: 90,

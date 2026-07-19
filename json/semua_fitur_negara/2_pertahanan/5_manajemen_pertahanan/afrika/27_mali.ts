@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 17,

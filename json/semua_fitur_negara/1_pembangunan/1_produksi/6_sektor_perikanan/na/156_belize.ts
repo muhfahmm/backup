@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_perikanan = {
   udang: 40,
   mutiara: 56,

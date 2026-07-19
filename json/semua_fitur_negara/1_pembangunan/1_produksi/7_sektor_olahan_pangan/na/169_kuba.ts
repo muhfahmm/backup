@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuba_olahan_pangan = {
   air_mineral: 741,
   gula: 399,

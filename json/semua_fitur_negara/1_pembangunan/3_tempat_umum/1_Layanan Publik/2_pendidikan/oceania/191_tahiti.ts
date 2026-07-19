@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahiti_pendidikan = {
       "prasekolah": 42,
       "dasar": 37,

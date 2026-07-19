@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_profile = {
   "name_en": "Benin",
   "capital": "Porto-Novo",
   "name_id": "Benin",
   "lon": 2.25,
   "lat": 9.5,
-  "flag": "ðŸ‡§ðŸ‡¯",
+  "flag": "🇧🇯",
   "jumlah_penduduk": 13224860,
   "anggaran": 185,
   "pendapatan_nasional": "528",
@@ -26,7 +26,8 @@ const benin_geopolitik = {
       "kekuatan_keras": 31,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const benin_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const benin_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": benin_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

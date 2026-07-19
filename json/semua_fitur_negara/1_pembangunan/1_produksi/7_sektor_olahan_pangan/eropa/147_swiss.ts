@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_olahan_pangan = {
   air_mineral: 2303,
   gula: 1551,

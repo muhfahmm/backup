@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const senegalVehicles = {
   sepeda_motor: 2378154,
   mobil: 1268348,

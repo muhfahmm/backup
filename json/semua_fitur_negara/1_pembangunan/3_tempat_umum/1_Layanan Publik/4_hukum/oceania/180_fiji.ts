@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 9,

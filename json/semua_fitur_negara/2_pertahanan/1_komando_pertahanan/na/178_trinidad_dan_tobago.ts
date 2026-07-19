@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const trinidad_dan_tobago_strategis = {
     "waktu_respon": 9,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maroko_perikanan = {
   udang: 624,
   mutiara: 960,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_pendidikan = {
       "prasekolah": 935,
       "dasar": 1402,

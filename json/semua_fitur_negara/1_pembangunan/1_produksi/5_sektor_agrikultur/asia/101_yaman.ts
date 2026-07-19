@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yaman_agrikultur = {
   padi: 152,
   gandum: 228,

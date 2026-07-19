@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_peternakan = {
   ayam_unggas: 225,
   sapi_perah: 234,

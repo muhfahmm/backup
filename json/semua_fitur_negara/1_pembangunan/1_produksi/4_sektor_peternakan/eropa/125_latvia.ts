@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const latvia_peternakan = {
   ayam_unggas: 152,
   sapi_perah: 116,

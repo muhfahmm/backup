@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_infrastruktur = {
   jalur_sepeda: 46,
   jalan_raya: 44,

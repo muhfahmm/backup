@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 15,

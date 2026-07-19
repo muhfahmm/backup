@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_agrikultur = {
   padi: 180,
   gandum: 580,

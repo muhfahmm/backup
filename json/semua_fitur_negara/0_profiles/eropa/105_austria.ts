@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_profile = {
   "name_en": "Austria",
   "capital": "Vienna",
   "name_id": "Austria",
   "lon": 16.37,
   "lat": 48.2,
-  "flag": "ðŸ‡¦ðŸ‡¹",
+  "flag": "🇦🇹",
   "jumlah_penduduk": 9159950,
   "anggaran": 4959,
   "pendapatan_nasional": "14168",
@@ -26,7 +26,8 @@ const austria_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const austria_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const austria_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": austria_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 18,

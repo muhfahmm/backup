@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_peternakan = {
   ayam_unggas: 93,
   sapi_perah: 39,

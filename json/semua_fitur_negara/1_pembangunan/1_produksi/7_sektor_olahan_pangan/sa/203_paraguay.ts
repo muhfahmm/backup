@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguay_olahan_pangan = {
   air_mineral: 165,
   gula: 155,

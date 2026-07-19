@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const somalia_strategis = {
     "waktu_respon": 35,

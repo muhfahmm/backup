@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_manufaktur = {
   semikonduktor: 16,
   mobil: 40,

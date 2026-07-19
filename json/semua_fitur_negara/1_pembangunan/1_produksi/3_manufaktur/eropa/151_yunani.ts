@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_manufaktur = {
   semikonduktor: 60,
   mobil: 110,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 20,

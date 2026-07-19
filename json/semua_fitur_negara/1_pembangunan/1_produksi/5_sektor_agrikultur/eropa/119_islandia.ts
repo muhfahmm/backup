@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandia_agrikultur = {
   padi: 52,
   gandum: 288,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_ekstraksi = {
   emas: 21,
   uranium: 3,

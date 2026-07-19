@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_pertahanan = {
     "penjara": 32,
     "gudang_senjata": 27,

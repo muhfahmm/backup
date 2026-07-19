@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_agrikultur = {
   padi: 51,
   gandum: 207,

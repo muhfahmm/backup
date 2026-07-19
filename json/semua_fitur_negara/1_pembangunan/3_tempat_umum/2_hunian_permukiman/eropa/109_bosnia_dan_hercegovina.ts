@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bosnia_dan_hercegovina_hunian = {
   rumah_subsidi: 44873,

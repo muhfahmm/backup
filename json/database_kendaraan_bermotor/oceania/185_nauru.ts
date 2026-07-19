@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauruVehicles = {
   sepeda_motor: 1905,
   mobil: 1016,

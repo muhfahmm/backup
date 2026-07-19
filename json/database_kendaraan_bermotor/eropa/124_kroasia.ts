@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasiaVehicles = {
   sepeda_motor: 613176,
   mobil: 327027,

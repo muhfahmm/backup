@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_profile = {
   "name_en": "Bulgaria",
   "capital": "Sofia",
   "name_id": "Bulgaria",
   "lon": 25,
   "lat": 43,
-  "flag": "ðŸ‡§ðŸ‡¬",
+  "flag": "🇧🇬",
   "jumlah_penduduk": 6687717,
   "anggaran": 1021,
   "pendapatan_nasional": "2917",
@@ -26,7 +26,8 @@ const bulgaria_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const bulgaria_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const bulgaria_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": bulgaria_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 1,

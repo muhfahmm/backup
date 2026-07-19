@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const belarus_hunian = {
   rumah_subsidi: 128027,

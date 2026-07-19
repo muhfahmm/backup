@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_perikanan = {
   udang: 111,
   mutiara: 36,

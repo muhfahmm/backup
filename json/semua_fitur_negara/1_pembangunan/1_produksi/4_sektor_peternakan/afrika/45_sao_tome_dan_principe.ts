@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_peternakan = {
   ayam_unggas: 184,
   sapi_perah: 120,

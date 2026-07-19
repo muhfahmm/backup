@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_olahan_pangan = {
   air_mineral: 168,
   gula: 322,

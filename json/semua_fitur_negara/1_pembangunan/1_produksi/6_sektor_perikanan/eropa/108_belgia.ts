@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_perikanan = {
   udang: 533,
   mutiara: 369,

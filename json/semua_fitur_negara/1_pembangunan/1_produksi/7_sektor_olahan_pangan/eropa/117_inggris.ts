@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_olahan_pangan = {
   air_mineral: 12900,
   gula: 7800,

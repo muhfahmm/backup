@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const malawi_hunian = {
   rumah_subsidi: 244934,

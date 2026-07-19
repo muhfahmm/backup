@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnam_kesehatan = {
       "rumah_sakit_besar": 35,
       "rumah_sakit_kecil": 256,

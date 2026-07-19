@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_olahan_pangan = {
   air_mineral: 1904,
   gula: 2296,

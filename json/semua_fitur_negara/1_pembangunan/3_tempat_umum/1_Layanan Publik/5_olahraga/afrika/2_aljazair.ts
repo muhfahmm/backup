@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_olahraga = {
   "kolam_renang": 99,
   "sirkuit_balap": 7,

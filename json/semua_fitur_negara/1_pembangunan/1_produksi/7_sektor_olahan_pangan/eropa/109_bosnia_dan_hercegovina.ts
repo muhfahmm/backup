@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_olahan_pangan = {
   air_mineral: 128,
   gula: 188,

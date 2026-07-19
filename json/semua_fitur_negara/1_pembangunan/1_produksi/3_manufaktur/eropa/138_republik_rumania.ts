@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_manufaktur = {
   semikonduktor: 192,
   mobil: 360,

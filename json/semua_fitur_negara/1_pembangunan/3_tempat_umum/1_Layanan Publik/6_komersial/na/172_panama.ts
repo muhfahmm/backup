@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_komersial = {
   "mall": 5,
   "hotel": 2,

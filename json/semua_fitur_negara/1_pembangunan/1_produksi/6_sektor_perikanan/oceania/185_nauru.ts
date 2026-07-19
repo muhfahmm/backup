@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_perikanan = {
   udang: 114,
   mutiara: 39,

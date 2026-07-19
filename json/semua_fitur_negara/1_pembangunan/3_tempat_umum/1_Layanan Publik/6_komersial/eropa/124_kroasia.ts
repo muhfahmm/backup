@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_komersial = {
   "mall": 1,
   "hotel": 2,

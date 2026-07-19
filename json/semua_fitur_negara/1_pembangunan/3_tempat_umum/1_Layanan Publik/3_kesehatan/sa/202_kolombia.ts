@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_kesehatan = {
       "rumah_sakit_besar": 40,
       "rumah_sakit_kecil": 231,

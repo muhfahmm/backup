@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_peternakan = {
   ayam_unggas: 120,
   sapi_perah: 108,

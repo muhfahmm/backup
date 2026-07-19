@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_hukum = {
       "pusat_bantuan_hukum": 8,
       "pengadilan": 5,

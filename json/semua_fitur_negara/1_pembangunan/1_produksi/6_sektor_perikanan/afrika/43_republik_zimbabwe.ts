@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zimbabwe_perikanan = {
   udang: 64,
   mutiara: 32,

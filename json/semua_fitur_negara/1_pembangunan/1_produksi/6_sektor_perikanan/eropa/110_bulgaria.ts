@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_perikanan = {
   udang: 180,
   mutiara: 220,

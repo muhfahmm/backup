@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_olahraga = {
   "kolam_renang": 36,
   "sirkuit_balap": 10,

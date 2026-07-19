@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puertoRicoVehicles = {
   sepeda_motor: 479272,
   mobil: 255612,

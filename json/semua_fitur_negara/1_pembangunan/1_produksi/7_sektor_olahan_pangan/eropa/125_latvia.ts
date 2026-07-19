@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const latvia_olahan_pangan = {
   air_mineral: 128,
   gula: 112,

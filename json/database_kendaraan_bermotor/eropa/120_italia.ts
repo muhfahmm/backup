@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italiaVehicles = {
   sepeda_motor: 9063264,
   mobil: 4833740,

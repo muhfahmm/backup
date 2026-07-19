@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nauru_hunian = {
   rumah_subsidi: 171,

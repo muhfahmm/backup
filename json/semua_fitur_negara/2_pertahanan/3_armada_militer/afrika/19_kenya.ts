@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_armada = {
     "barak": 2,
     "darat": {

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nauru_strategis = {
     "waktu_respon": 3,

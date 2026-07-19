@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_ekstraksi = {
   emas: 26,
   uranium: 0,

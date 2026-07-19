@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_listrik = {
   pembangkit_listrik_tenaga_gas: 30,
   pembangkit_listrik_tenaga_air: 20,

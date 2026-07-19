@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_olahraga = {
   "kolam_renang": 157,
   "sirkuit_balap": 27,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_peternakan = {
   ayam_unggas: 30,
   sapi_perah: 135,

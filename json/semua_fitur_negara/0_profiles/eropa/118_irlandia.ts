@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_profile = {
   "name_en": "Ireland",
   "capital": "Dublin",
   "name_id": "Irlandia",
   "lon": -8,
   "lat": 53,
-  "flag": "ðŸ‡®ðŸ‡ª",
+  "flag": "🇮🇪",
   "jumlah_penduduk": 5458600,
   "anggaran": 5153,
   "pendapatan_nasional": "14723",
@@ -26,7 +26,8 @@ const irlandia_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const irlandia_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const irlandia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": irlandia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

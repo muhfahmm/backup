@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_olahraga = {
   "kolam_renang": 52,
   "sirkuit_balap": 7,

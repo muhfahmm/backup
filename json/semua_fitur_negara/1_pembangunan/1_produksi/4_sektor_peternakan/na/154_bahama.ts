@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahama_peternakan = {
   ayam_unggas: 60,
   sapi_perah: 120,

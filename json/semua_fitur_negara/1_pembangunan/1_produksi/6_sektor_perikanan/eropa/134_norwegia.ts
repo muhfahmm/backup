@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_perikanan = {
   udang: 580,
   mutiara: 360,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const selandia_baru_ekstraksi = {
   emas: 25,
   uranium: 0,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_olahan_pangan = {
   air_mineral: 58,
   gula: 36,

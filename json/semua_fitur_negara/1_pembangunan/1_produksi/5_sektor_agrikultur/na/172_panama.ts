@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const panama_agrikultur = {
   padi: 80,
   gandum: 290,

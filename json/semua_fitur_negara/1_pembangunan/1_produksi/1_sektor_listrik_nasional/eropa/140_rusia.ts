@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_listrik = {
   pembangkit_listrik_tenaga_nuklir: 1681,
   pembangkit_listrik_tenaga_air: 18,

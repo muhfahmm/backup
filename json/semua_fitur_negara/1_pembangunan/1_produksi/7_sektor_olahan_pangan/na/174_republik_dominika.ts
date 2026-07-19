@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_olahan_pangan = {
   air_mineral: 490,
   gula: 504,

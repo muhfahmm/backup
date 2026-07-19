@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const denmarkVehicles = {
   sepeda_motor: 869045,
   mobil: 463490,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_olahan_pangan = {
   air_mineral: 136,
   gula: 100,

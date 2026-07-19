@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_olahan_pangan = {
   air_mineral: 94,
   gula: 90,

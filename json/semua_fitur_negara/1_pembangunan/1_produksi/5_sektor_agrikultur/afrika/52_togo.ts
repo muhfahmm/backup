@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const togo_agrikultur = {
   padi: 22,
   gandum: 64,

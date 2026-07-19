@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const san_marino_strategis = {
     "waktu_respon": 28,

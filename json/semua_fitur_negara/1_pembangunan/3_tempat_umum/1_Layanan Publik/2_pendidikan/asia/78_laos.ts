@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_pendidikan = {
       "prasekolah": 14,
       "dasar": 54,

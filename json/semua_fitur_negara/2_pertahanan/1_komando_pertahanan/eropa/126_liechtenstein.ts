@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const liechtenstein_strategis = {
     "waktu_respon": 8,

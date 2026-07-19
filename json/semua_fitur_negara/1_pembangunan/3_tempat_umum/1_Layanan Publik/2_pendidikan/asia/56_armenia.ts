@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const armenia_pendidikan = {
       "prasekolah": 10,
       "dasar": 106,

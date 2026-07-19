@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_olahraga = {
   "kolam_renang": 261,
   "sirkuit_balap": 21,

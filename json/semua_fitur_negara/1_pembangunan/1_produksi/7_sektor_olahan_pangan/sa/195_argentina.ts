@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_olahan_pangan = {
   air_mineral: 1344,
   gula: 1872,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_peternakan = {
   ayam_unggas: 1056,
   sapi_perah: 1254,

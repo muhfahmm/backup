@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kongo_manufaktur = {
   mobil: 20,
   semen_beton: 24,

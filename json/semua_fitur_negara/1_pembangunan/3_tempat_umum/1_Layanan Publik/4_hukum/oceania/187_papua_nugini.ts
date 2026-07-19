@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_hukum = {
       "pusat_bantuan_hukum": 5,
       "pengadilan": 2,

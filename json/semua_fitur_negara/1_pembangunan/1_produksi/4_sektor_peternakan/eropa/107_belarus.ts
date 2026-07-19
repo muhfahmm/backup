@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_peternakan = {
   ayam_unggas: 155,
   sapi_perah: 65,

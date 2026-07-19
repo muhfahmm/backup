@@ -51,7 +51,6 @@ const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
   tembaga: 'mineral',
-  alumunium: 'mineral',
   aluminium: 'mineral',
   nikel: 'mineral',
   bijih_besi: 'mineral',
@@ -71,7 +70,7 @@ const CARD_TAB_MAP: Record<string, string> = {
 };
 
 const RESOURCE_KEY_ALIASES: Record<string, string> = {
-  alumunium: 'aluminium',
+  aluminium: 'aluminium',
 };
 
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;

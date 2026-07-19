@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const vanuatu_hunian = {
   rumah_subsidi: 3951,

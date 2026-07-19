@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_olahan_pangan = {
   air_mineral: 85,
   gula: 105,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_agrikultur = {
   padi: 140,
   gandum: 60,

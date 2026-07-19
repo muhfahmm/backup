@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_peternakan = {
   ayam_unggas: 336,
   sapi_perah: 105,

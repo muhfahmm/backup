@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const singapura_hunian = {
   rumah_subsidi: 76122,

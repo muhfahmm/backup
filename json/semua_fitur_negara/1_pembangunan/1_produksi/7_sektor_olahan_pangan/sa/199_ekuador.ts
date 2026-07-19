@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_olahan_pangan = {
   air_mineral: 690,
   gula: 540,

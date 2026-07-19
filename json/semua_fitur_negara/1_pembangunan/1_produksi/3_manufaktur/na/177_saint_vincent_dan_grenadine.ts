@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_manufaktur = {
   semikonduktor: 8,
   mobil: 13,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_hukum = {
       "pusat_bantuan_hukum": 10,
       "pengadilan": 4,

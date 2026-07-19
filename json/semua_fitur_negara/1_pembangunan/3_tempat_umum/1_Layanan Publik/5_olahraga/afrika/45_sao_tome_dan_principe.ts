@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_olahraga = {
   "kolam_renang": 9,
   "sirkuit_balap": 3,

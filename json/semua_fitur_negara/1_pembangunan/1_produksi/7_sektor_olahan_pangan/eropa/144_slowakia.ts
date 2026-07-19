@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slowakia_olahan_pangan = {
   air_mineral: 299,
   gula: 429,

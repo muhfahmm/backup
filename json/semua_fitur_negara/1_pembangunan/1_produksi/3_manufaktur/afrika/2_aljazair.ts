@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_manufaktur = {
   mobil: 88,
   semen_beton: 77,

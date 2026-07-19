@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordania_pendidikan = {
       "prasekolah": 20,
       "dasar": 122,

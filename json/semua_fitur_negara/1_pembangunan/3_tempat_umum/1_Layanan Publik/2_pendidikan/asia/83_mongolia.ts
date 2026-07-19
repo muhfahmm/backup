@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mongolia_pendidikan = {
       "prasekolah": 82,
       "dasar": 115,

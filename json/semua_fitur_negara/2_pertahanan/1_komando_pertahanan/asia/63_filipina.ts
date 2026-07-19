@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const filipina_strategis = {
     "waktu_respon": 40,

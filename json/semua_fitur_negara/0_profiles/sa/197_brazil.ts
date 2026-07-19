@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_profile = {
   "name_en": "Brazil",
-  "capital": "BrasÃ­lia",
+  "capital": "Brasília",
   "name_id": "Brazil",
   "lon": -47.88,
   "lat": -15.79,
-  "flag": "ðŸ‡§ðŸ‡·",
+  "flag": "🇧🇷",
   "jumlah_penduduk": 213421037,
   "anggaran": 22655,
   "pendapatan_nasional": "64727",
@@ -26,7 +26,8 @@ const brazil_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const brazil_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const brazil_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": brazil_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 10,

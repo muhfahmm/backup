@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_perikanan = {
   udang: 63,
   mutiara: 78,

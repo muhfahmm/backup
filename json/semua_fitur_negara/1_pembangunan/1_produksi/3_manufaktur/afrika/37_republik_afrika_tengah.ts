@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_manufaktur = {
   mobil: 33,
   semen_beton: 45,

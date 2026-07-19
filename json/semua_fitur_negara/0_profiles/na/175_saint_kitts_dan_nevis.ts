@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_profile = {
   "name_en": "Saint Kitts and Nevis",
   "capital": "Basseterre",
   "name_id": "Saint kitts dan nevis",
   "lon": -62.75,
   "lat": 17.33333333,
-  "flag": "ðŸ‡°ðŸ‡³",
+  "flag": "🇰🇳",
   "jumlah_penduduk": 51320,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const saint_kitts_dan_nevis_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const saint_kitts_dan_nevis_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const saint_kitts_dan_nevis_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": saint_kitts_dan_nevis_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

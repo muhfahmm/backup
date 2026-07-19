@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_agrikultur = {
   padi: 1692,
   gandum: 2209,

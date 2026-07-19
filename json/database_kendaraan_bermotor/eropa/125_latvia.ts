@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const latviaVehicles = {
   sepeda_motor: 289076,
   mobil: 154173,

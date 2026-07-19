@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const ekuador_strategis = {
     "waktu_respon": 39,

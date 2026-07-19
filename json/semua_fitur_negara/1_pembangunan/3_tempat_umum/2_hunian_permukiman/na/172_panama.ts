@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const panama_hunian = {
   rumah_subsidi: 56387,

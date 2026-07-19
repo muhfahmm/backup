@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const bolivia_strategis = {
     "waktu_respon": 18,

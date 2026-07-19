@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_pendidikan = {
       "prasekolah": 79,
       "dasar": 39,

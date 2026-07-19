@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_agrikultur = {
   padi: 882,
   gandum: 700,

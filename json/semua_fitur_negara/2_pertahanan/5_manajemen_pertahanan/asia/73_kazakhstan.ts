@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_pertahanan = {
     "penjara": 7,
     "gudang_senjata": 32,

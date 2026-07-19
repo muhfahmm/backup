@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_pendidikan = {
       "prasekolah": 60,
       "dasar": 93,

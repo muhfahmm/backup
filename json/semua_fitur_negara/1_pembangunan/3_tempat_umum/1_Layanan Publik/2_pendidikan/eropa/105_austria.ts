@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_pendidikan = {
       "prasekolah": 141,
       "dasar": 608,

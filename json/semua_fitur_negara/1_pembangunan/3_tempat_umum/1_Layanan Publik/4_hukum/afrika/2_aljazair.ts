@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_hukum = {
       "pusat_bantuan_hukum": 39,
       "pengadilan": 42,

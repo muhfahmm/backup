@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_olahan_pangan = {
   air_mineral: 48,
   gula: 128,

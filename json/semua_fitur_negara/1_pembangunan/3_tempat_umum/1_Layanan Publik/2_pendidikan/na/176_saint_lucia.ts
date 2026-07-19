@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_pendidikan = {
       "prasekolah": 100,
       "dasar": 64,

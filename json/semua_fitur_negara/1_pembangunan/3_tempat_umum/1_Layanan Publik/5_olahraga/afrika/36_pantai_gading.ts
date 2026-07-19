@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_olahraga = {
   "kolam_renang": 14,
   "sirkuit_balap": 3,

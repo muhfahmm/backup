@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaraguaVehicles = {
   sepeda_motor: 969826,
   mobil: 517241,

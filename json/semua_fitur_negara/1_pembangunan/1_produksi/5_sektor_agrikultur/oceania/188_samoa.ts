@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_agrikultur = {
   padi: 142,
   gandum: 28,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tanjung_verde_strategis = {
     "waktu_respon": 23,

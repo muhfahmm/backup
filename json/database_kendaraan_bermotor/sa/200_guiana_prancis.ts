@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guianaPrancisVehicles = {
   sepeda_motor: 43603,
   mobil: 23255,

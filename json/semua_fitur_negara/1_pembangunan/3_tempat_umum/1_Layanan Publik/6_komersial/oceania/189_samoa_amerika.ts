@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_amerika_komersial = {
   "mall": 7,
   "hotel": 5,

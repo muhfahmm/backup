@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const papua_nugini_hunian = {
   rumah_subsidi: 116185,

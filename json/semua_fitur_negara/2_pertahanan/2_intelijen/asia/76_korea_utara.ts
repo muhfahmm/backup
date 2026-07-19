@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 5,

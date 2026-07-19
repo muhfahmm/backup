@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_perikanan = {
   udang: 27,
   mutiara: 8,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_profile = {
   "name_en": "Antigua and Barbuda",
   "capital": "Saint John's",
   "name_id": "Antigua dan Barbuda",
   "lon": -61.84,
   "lat": 17.11,
-  "flag": "ðŸ‡¦ðŸ‡¬",
+  "flag": "🇦🇬",
   "jumlah_penduduk": 100772,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const antigua_dan_barbuda_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const antigua_dan_barbuda_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const antigua_dan_barbuda_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": antigua_dan_barbuda_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,

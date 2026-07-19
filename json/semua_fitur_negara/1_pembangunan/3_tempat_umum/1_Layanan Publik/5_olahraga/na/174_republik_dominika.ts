@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_olahraga = {
   "kolam_renang": 5,
   "sirkuit_balap": 2,

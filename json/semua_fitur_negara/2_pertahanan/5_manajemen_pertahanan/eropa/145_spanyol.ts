@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_pertahanan = {
     "penjara": 4,
     "gudang_senjata": 31,

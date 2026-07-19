@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_pendidikan = {
       "prasekolah": 190,
       "dasar": 416,

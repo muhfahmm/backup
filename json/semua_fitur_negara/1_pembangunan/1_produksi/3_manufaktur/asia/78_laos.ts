@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_manufaktur = {
   semikonduktor: 42,
   mobil: 15,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_pendidikan = {
       "prasekolah": 11,
       "dasar": 51,

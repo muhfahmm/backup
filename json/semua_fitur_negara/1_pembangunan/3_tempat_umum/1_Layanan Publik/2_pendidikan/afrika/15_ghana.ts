@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_pendidikan = {
       "prasekolah": 63,
       "dasar": 65,

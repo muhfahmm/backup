@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 8,

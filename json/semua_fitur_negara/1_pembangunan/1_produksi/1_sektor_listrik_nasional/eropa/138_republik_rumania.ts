@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_listrik = {
   pembangkit_listrik_tenaga_nuklir: 195,
   pembangkit_listrik_tenaga_air: 15,

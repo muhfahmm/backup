@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const palau_strategis = {
     "waktu_respon": 14,

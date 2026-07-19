@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hungaria_infrastruktur = {
   jalur_sepeda: 17,
   jalan_raya: 72,

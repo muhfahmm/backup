@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_olahraga = {
   "kolam_renang": 14,
   "sirkuit_balap": 2,

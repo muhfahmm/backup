@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const georgia_strategis = {
     "waktu_respon": 35,

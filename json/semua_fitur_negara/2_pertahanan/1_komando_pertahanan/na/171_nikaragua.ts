@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const nikaragua_strategis = {
     "waktu_respon": 36,

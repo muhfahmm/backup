@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_hukum = {
       "pusat_bantuan_hukum": 112,
       "pengadilan": 140,

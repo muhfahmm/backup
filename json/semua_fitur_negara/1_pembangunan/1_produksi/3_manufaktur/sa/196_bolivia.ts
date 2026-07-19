@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_manufaktur = {
   semikonduktor: 75,
   mobil: 65,

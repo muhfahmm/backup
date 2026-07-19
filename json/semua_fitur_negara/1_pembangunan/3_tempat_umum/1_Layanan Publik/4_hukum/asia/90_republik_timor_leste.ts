@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 11,

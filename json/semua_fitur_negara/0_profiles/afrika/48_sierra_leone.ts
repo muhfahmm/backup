@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_profile = {
   "name_en": "Sierra Leone",
   "capital": "Freetown",
   "name_id": "Sierra leone",
   "lon": -11.5,
   "lat": 8.5,
-  "flag": "ðŸ‡¸ðŸ‡±",
+  "flag": "🇸🇱",
   "jumlah_penduduk": 8642022,
   "anggaran": 39,
   "pendapatan_nasional": "111",
@@ -26,7 +26,8 @@ const sierra_leone_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const sierra_leone_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const sierra_leone_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": sierra_leone_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,

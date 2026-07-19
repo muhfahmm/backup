@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_agrikultur = {
   padi: 116,
   gandum: 72,

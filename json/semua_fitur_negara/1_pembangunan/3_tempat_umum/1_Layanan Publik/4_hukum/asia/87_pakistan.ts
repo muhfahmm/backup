@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistan_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 19,

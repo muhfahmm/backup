@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesirVehicles = {
   sepeda_motor: 14763539,
   mobil: 7873887,

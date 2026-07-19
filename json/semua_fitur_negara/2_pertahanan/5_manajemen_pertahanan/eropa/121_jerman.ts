@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_pertahanan = {
     "penjara": 32,
     "gudang_senjata": 17,

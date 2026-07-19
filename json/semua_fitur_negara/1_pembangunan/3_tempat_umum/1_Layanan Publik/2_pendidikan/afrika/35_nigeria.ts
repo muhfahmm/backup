@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_pendidikan = {
       "prasekolah": 121,
       "dasar": 380,

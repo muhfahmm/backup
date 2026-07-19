@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_pendidikan = {
       "prasekolah": 81,
       "dasar": 30,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_uganda_pendidikan = {
       "prasekolah": 32,
       "dasar": 83,

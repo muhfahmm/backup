@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_olahan_pangan = {
   air_mineral: 78,
   gula: 126,

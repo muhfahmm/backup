@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_peternakan = {
   ayam_unggas: 203,
   sapi_perah: 343,

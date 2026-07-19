@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_manufaktur = {
   mobil: 32,
   semen_beton: 24,

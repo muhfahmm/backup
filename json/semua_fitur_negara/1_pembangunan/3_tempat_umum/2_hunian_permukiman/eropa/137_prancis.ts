@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const prancis_hunian = {
   rumah_subsidi: 904190,

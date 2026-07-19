@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_komersial = {
   "mall": 14,
   "hotel": 46,

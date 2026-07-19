@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 4,

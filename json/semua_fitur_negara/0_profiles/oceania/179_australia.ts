@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_profile = {
   "name_en": "Australia",
   "capital": "Canberra",
   "name_id": "Australia",
   "lon": 149.13,
   "lat": -35.28,
-  "flag": "ðŸ‡¦ðŸ‡º",
+  "flag": "🇦🇺",
   "jumlah_penduduk": 26177413,
   "anggaran": 16724,
   "pendapatan_nasional": "47782",
@@ -26,7 +26,8 @@ const australia_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const australia_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const australia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": australia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

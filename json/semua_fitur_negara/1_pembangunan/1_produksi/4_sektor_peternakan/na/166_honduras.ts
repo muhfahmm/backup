@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const honduras_peternakan = {
   ayam_unggas: 102,
   sapi_perah: 72,

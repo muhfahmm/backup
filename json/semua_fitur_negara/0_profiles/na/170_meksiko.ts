@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_profile = {
   "name_en": "Mexico",
   "capital": "Mexico City",
   "name_id": "Meksiko",
   "lon": -102,
   "lat": 23,
-  "flag": "ðŸ‡²ðŸ‡½",
+  "flag": "🇲🇽",
   "jumlah_penduduk": 131001723,
   "anggaran": 17404,
   "pendapatan_nasional": "49726",
@@ -26,7 +26,8 @@ const meksiko_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const meksiko_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const meksiko_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": meksiko_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 4,

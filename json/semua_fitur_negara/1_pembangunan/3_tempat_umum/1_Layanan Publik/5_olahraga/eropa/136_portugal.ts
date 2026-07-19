@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_olahraga = {
   "kolam_renang": 79,
   "sirkuit_balap": 5,

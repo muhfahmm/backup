@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const albaniaVehicles = {
   sepeda_motor: 429956,
   mobil: 229310,

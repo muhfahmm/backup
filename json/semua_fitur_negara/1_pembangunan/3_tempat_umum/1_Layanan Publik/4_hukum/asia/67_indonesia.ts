@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const indonesia_hukum = {
       "pusat_bantuan_hukum": 60,
       "pengadilan": 158,

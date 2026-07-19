@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const somalia_profile = {
   "name_en": "Somalia",
   "capital": "Mogadishu",
   "name_id": "Somalia",
   "lon": 49,
   "lat": 10,
-  "flag": "ðŸ‡¸ðŸ‡´",
+  "flag": "🇸🇴",
   "jumlah_penduduk": 19655000,
   "anggaran": 78,
   "pendapatan_nasional": "222",
@@ -26,7 +26,8 @@ const somalia_geopolitik = {
       "kekuatan_keras": 10,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const somalia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const somalia_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": somalia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 8,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const india_strategis = {
     "waktu_respon": 11,

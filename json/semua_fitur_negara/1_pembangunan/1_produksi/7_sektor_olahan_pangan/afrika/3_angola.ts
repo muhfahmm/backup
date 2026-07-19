@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_olahan_pangan = {
   air_mineral: 240,
   gula: 384,

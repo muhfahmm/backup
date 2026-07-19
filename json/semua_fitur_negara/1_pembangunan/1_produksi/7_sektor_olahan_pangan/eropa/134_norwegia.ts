@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_olahan_pangan = {
   air_mineral: 980,
   gula: 460,

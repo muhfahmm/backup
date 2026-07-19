@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tuvaluVehicles = {
   sepeda_motor: 1726,
   mobil: 920,

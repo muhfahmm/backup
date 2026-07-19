@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_perikanan = {
   udang: 56,
   mutiara: 46,

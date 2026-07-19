@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_armada = {
     "barak": 2,
     "darat": {

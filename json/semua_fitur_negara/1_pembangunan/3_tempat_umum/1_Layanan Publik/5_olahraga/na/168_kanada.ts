@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_olahraga = {
   "kolam_renang": 306,
   "sirkuit_balap": 24,

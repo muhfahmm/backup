@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritaniaVehicles = {
   sepeda_motor: 660497,
   mobil: 352265,

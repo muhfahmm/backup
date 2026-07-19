@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_hukum = {
       "pusat_bantuan_hukum": 6,
       "pengadilan": 7,

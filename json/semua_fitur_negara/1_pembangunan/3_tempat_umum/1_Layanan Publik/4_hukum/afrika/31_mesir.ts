@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_hukum = {
       "pusat_bantuan_hukum": 31,
       "pengadilan": 38,

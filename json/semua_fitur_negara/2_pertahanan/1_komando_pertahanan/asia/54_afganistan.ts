@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const afganistan_strategis = {
     "waktu_respon": 24,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguay_agrikultur = {
   padi: 280,
   gandum: 175,

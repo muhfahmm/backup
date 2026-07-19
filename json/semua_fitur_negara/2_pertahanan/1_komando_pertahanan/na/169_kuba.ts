@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kuba_strategis = {
     "waktu_respon": 34,

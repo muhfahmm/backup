@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_agrikultur = {
   padi: 380,
   gandum: 60,

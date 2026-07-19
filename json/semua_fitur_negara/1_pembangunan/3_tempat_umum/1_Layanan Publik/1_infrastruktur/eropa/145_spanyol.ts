@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_infrastruktur = {
   jalur_sepeda: 51,
   jalan_raya: 114,

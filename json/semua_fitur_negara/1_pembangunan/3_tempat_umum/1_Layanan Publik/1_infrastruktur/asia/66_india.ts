@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_infrastruktur = {
   jalur_sepeda: 138,
   jalan_raya: 149,

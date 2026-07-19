@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_agrikultur = {
   padi: 231,
   gandum: 469,

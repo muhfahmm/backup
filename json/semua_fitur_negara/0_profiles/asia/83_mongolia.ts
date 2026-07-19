@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mongolia_profile = {
   "name_en": "Mongolia",
   "capital": "Ulan Bator",
   "name_id": "Mongolia",
   "lon": 105,
   "lat": 46,
-  "flag": "ðŸ‡²ðŸ‡³",
+  "flag": "🇲🇳",
   "jumlah_penduduk": 3544835,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const mongolia_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const mongolia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const mongolia_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mongolia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 31,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_pendidikan = {
       "prasekolah": 87,
       "dasar": 112,

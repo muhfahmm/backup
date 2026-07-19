@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_infrastruktur = {
   jalur_sepeda: 2,
   jalan_raya: 5,

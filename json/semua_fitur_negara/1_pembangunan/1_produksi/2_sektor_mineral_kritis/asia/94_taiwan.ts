@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_ekstraksi = {
   emas: 24,
   uranium: 0,

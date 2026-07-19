@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_infrastruktur = {
   jalur_sepeda: 13,
   jalan_raya: 81,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_afrika_tengah_olahan_pangan = {
   air_mineral: 141,
   gula: 144,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const lebanon_hunian = {
   rumah_subsidi: 92460,

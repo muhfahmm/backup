@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const malaysia_strategis = {
     "waktu_respon": 16,

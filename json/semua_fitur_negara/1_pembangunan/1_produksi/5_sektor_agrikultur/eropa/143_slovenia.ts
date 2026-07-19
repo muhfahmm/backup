@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_agrikultur = {
   padi: 130,
   gandum: 110,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const australia_hunian = {
   rumah_subsidi: 337266,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const andorra_agrikultur = {
   padi: 68,
   gandum: 92,

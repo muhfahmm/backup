@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kiribati_pendidikan = {
       "prasekolah": 14,
       "dasar": 56,

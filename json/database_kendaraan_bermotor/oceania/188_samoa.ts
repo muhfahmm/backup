@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoaVehicles = {
   sepeda_motor: 29419,
   mobil: 15690,

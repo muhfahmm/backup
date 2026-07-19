@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_peternakan = {
   ayam_unggas: 136,
   sapi_perah: 136,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_manufaktur = {
   semikonduktor: 5109,
   mobil: 5502,

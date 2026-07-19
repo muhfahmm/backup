@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_olahan_pangan = {
   air_mineral: 30,
   gula: 26,

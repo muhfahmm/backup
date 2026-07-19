@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turkmenistan_agrikultur = {
   padi: 124,
   gandum: 158,

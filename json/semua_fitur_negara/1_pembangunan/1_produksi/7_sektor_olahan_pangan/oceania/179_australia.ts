@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australia_olahan_pangan = {
   air_mineral: 4998,
   gula: 3672,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const sudan_selatan_hunian = {
   rumah_subsidi: 148174,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const liberia_hunian = {
   rumah_subsidi: 65056,

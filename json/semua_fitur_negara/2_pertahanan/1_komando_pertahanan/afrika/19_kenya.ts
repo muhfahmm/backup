@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kenya_strategis = {
     "waktu_respon": 16,

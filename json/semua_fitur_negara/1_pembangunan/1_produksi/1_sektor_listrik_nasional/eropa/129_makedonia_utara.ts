@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_listrik = {
   pembangkit_listrik_tenaga_nuklir: 0,
   pembangkit_listrik_tenaga_air: 15,

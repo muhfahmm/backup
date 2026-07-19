@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_sudan_perikanan = {
   udang: 117,
   mutiara: 69,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_hukum = {
       "pusat_bantuan_hukum": 15,
       "pengadilan": 26,

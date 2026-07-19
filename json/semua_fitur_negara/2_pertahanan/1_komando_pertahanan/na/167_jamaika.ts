@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const jamaika_strategis = {
     "waktu_respon": 32,

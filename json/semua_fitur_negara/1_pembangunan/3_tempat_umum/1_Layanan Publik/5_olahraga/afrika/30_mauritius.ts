@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mauritius_olahraga = {
   "kolam_renang": 7,
   "sirkuit_balap": 3,

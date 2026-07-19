@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_manufaktur = {
   semikonduktor: 540,
   mobil: 360,

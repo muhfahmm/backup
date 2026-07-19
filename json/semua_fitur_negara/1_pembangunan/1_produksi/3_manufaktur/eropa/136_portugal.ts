@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_manufaktur = {
   semikonduktor: 255,
   mobil: 153,

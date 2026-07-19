@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const djiboutiVehicles = {
   sepeda_motor: 143838,
   mobil: 76713,

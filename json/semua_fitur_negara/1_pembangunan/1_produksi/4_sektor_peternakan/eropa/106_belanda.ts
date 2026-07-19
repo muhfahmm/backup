@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belanda_peternakan = {
   ayam_unggas: 1350,
   sapi_perah: 2430,

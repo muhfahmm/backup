@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_olahan_pangan = {
   air_mineral: 2784,
   gula: 4988,

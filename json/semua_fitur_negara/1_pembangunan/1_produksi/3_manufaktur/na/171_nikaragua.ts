@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_manufaktur = {
   semikonduktor: 4,
   mobil: 4,

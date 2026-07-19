@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const curacao_komersial = {
   "mall": 7,
   "hotel": 6,

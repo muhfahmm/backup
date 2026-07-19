@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_pertahanan = {
     "penjara": 16,
     "gudang_senjata": 9,

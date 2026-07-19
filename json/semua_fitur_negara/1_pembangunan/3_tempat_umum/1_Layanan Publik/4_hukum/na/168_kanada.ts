@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_hukum = {
       "pusat_bantuan_hukum": 60,
       "pengadilan": 182,

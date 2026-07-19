@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const surinameVehicles = {
   sepeda_motor: 86398,
   mobil: 46079,

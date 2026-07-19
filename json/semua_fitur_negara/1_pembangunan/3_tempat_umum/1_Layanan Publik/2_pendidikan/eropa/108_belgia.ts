@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_pendidikan = {
       "prasekolah": 445,
       "dasar": 325,

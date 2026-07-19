@@ -1,4 +1,4 @@
-﻿export const hiburanRate = {
+export const hiburanRate = {
   "26_bioskop": {
     key: "26_bioskop",
     dataKey: "bioskop",

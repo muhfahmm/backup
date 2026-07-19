@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mozambik_agrikultur = {
   padi: 55,
   gandum: 47,

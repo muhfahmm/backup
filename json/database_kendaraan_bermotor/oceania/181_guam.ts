@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guamVehicles = {
   sepeda_motor: 24865,
   mobil: 13261,

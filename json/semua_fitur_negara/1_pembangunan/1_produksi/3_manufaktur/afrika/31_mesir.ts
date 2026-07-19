@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_manufaktur = {
   mobil: 188,
   semen_beton: 188,

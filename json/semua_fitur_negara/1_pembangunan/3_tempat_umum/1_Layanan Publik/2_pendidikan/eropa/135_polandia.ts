@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_pendidikan = {
       "prasekolah": 254,
       "dasar": 178,

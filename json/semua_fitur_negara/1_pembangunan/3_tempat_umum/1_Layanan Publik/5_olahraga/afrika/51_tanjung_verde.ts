@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_olahraga = {
   "kolam_renang": 7,
   "sirkuit_balap": 1,

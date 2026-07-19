@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vatikan_komersial = {
   "mall": 10,
   "hotel": 10,

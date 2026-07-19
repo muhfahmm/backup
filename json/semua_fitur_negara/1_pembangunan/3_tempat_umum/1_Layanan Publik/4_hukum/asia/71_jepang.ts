@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_hukum = {
       "pusat_bantuan_hukum": 43,
       "pengadilan": 131,

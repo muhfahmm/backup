@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const antigua_dan_barbuda_infrastruktur = {
   jalur_sepeda: 4,
   jalan_raya: 17,

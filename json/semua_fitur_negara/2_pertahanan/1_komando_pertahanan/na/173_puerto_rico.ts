@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const puerto_rico_strategis = {
     "waktu_respon": 28,

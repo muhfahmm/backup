@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_olahan_pangan = {
   air_mineral: 1960,
   gula: 3150,

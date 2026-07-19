@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_infrastruktur = {
   jalur_sepeda: 125,
   jalan_raya: 174,

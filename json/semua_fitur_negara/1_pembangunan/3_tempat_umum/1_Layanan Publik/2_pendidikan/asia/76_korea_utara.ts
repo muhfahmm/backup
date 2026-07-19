@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_pendidikan = {
       "prasekolah": 40,
       "dasar": 57,

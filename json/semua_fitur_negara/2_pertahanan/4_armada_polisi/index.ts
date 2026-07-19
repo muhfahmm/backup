@@ -1,4 +1,4 @@
-﻿export const armadaPolisiRate = {
+export const armadaPolisiRate = {
   "1_pusat_komando": {
     key: "1_pusat_komando",
     dataKey: "markas_besar_polri",

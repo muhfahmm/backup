@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipina_ekstraksi = {
   emas: 20,
   uranium: 0,

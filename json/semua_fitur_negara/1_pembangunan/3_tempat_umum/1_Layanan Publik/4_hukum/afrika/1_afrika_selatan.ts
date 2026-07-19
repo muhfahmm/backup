@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 23,

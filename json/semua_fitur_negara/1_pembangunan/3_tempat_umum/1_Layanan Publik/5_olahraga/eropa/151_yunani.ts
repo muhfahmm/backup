@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_olahraga = {
   "kolam_renang": 49,
   "sirkuit_balap": 6,

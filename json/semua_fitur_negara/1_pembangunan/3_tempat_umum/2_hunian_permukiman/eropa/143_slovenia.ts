@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const slovenia_hunian = {
   rumah_subsidi: 27997,

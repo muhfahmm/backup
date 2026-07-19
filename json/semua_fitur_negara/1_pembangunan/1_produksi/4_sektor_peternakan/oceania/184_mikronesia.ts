@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_peternakan = {
   ayam_unggas: 188,
   sapi_perah: 140,

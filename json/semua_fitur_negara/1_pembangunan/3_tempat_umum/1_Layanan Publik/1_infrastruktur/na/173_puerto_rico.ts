@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_infrastruktur = {
   jalur_sepeda: 8,
   jalan_raya: 16,

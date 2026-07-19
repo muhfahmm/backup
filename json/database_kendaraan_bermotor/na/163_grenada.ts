@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenadaVehicles = {
   sepeda_motor: 16718,
   mobil: 8916,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vietnamVehicles = {
   sepeda_motor: 14331059,
   mobil: 7643231,

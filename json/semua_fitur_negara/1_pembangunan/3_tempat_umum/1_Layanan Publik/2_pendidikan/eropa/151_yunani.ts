@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_pendidikan = {
       "prasekolah": 259,
       "dasar": 565,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_pendidikan = {
       "prasekolah": 81,
       "dasar": 105,

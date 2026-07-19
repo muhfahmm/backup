@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_komersial = {
   "mall": 57,
   "hotel": 245,

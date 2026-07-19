@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yaman_manufaktur = {
   semikonduktor: 56,
   mobil: 32,

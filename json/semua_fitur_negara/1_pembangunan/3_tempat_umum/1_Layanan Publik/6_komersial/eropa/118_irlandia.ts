@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_komersial = {
   "mall": 30,
   "hotel": 19,

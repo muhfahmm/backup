@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tonga_hunian = {
   rumah_subsidi: 1393,

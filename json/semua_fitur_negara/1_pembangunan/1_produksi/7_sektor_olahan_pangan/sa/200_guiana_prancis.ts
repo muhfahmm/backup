@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_olahan_pangan = {
   air_mineral: 22,
   gula: 30,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusiaVehicles = {
   sepeda_motor: 21671707,
   mobil: 11558244,

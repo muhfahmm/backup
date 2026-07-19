@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_kesehatan = {
       "rumah_sakit_besar": 9,
       "rumah_sakit_kecil": 39,

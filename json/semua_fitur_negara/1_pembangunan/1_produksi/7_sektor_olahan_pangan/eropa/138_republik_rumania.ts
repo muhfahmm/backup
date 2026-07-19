@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_olahan_pangan = {
   air_mineral: 744,
   gula: 888,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const guiana_prancis_strategis = {
     "waktu_respon": 4,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rwanda_profile = {
   "name_en": "Rwanda",
   "capital": "Kigali",
   "name_id": "Rwanda",
   "lon": 30,
   "lat": -2,
-  "flag": "ðŸ‡·ðŸ‡¼",
+  "flag": "🇷🇼",
   "jumlah_penduduk": 14104969,
   "anggaran": 126,
   "pendapatan_nasional": "361",
@@ -26,7 +26,8 @@ const rwanda_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const rwanda_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const rwanda_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": rwanda_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,

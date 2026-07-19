@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_olahraga = {
   "kolam_renang": 49,
   "sirkuit_balap": 8,

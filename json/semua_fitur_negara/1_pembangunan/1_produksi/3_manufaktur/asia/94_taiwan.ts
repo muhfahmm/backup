@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_manufaktur = {
   semikonduktor: 216,
   mobil: 96,

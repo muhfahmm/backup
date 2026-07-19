@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tanjung_verde_olahan_pangan = {
   air_mineral: 108,
   gula: 69,

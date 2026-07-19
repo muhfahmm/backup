@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerun_peternakan = {
   ayam_unggas: 392,
   sapi_perah: 376,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nigeria_peternakan = {
   ayam_unggas: 840,
   sapi_perah: 1288,

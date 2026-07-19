@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_profile = {
   "name_en": "Russia",
   "capital": "Moscow",
   "name_id": "Rusia",
   "lon": 37.61,
   "lat": 55.75,
-  "flag": "ðŸ‡·ðŸ‡º",
+  "flag": "🇷🇺",
   "jumlah_penduduk": 146028325,
   "anggaran": 19640,
   "pendapatan_nasional": "56116",
@@ -26,7 +26,8 @@ const rusia_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const rusia_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const rusia_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": rusia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 7,

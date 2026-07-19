@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_agrikultur = {
   padi: 300,
   gandum: 108,

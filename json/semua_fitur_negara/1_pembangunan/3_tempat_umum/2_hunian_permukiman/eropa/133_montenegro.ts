@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const montenegro_hunian = {
   rumah_subsidi: 8521,

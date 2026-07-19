@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_infrastruktur = {
   jalur_sepeda: 52,
   jalan_raya: 213,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kirgizstan_pendidikan = {
       "prasekolah": 84,
       "dasar": 78,

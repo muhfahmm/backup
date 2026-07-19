@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_komersial = {
   "mall": 1,
   "hotel": 4,

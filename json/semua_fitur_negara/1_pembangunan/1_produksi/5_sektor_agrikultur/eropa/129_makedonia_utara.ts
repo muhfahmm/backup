@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_agrikultur = {
   padi: 99,
   gandum: 162,

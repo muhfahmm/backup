@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_pendidikan = {
       "prasekolah": 205,
       "dasar": 576,

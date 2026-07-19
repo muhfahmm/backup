@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kanada_pendidikan = {
       "prasekolah": 1438,
       "dasar": 1454,

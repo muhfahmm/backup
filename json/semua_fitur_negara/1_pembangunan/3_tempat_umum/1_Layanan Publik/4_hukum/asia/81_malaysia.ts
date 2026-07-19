@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_hukum = {
       "pusat_bantuan_hukum": 31,
       "pengadilan": 44,

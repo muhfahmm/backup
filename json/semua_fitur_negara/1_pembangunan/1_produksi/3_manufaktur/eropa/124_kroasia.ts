@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_manufaktur = {
   semikonduktor: 45,
   mobil: 30,

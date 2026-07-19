@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const togo_profile = {
   "name_en": "Togo",
-  "capital": "LomÃ©",
+  "capital": "Lomé",
   "name_id": "Togo",
   "lon": 1.16666666,
   "lat": 8,
-  "flag": "ðŸ‡¹ðŸ‡¬",
+  "flag": "🇹🇬",
   "jumlah_penduduk": 9053799,
   "anggaran": 88,
   "pendapatan_nasional": "250",
@@ -26,7 +26,8 @@ const togo_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const togo_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const togo_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": togo_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

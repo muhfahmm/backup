@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_olahan_pangan = {
   air_mineral: 68,
   gula: 76,

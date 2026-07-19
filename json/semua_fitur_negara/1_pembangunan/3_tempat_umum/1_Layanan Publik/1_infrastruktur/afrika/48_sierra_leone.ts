@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sierra_leone_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 14,

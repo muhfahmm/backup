@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_profile = {
   "name_en": "El Salvador",
   "capital": "San Salvador",
   "name_id": "El salvador",
   "lon": -88.91666666,
   "lat": 13.83333333,
-  "flag": "ðŸ‡¸ðŸ‡»",
+  "flag": "🇸🇻",
   "jumlah_penduduk": 6338193,
   "anggaran": 311,
   "pendapatan_nasional": "889",
@@ -26,7 +26,8 @@ const el_salvador_geopolitik = {
       "kekuatan_keras": 5,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const el_salvador_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const el_salvador_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": el_salvador_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 34,

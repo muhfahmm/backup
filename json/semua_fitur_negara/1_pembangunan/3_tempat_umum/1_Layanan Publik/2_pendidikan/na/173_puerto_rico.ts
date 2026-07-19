@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_pendidikan = {
       "prasekolah": 84,
       "dasar": 54,

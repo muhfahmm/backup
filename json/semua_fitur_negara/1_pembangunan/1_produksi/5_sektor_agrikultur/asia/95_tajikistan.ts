@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_agrikultur = {
   padi: 168,
   gandum: 304,

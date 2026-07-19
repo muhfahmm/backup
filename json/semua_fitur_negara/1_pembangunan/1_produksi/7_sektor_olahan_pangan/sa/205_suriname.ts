@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriname_olahan_pangan = {
   air_mineral: 98,
   gula: 26,

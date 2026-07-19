@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_pertahanan = {
     "penjara": 28,
     "gudang_senjata": 36,

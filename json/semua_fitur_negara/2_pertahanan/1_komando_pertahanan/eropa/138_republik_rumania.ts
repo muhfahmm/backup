@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_rumania_strategis = {
     "waktu_respon": 30,

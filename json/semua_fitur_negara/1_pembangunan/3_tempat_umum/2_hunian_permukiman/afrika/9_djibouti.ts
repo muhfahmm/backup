@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const djibouti_hunian = {
   rumah_subsidi: 12945,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandia_pendidikan = {
       "prasekolah": 19,
       "dasar": 129,

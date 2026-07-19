@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_olahan_pangan = {
   air_mineral: 287,
   gula: 147,

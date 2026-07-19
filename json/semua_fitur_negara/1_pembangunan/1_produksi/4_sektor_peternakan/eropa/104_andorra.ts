@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const andorra_peternakan = {
   ayam_unggas: 62,
   sapi_perah: 76,

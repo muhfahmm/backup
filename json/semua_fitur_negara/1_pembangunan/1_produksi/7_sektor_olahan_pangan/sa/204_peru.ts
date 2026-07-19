@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_olahan_pangan = {
   air_mineral: 105,
   gula: 308,

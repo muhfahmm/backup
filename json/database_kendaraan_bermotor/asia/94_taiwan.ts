@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwanVehicles = {
   sepeda_motor: 0,
   mobil: 0,

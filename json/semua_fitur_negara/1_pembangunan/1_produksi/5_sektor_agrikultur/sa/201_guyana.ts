@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guyana_agrikultur = {
   padi: 104,
   gandum: 28,

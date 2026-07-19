@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const dominika_olahan_pangan = {
   air_mineral: 72,
   gula: 96,

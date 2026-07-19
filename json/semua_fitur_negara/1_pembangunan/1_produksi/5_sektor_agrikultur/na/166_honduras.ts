@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const honduras_agrikultur = {
   padi: 192,
   gandum: 138,

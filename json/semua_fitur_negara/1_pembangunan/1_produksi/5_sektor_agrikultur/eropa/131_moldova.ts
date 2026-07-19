@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_agrikultur = {
   padi: 68,
   gandum: 276,

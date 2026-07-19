@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const armenia_profile = {
   "name_en": "Armenia",
   "capital": "Yerevan",
   "name_id": "Armenia",
   "lon": 44.51,
   "lat": 40.19,
-  "flag": "ðŸ‡¦ðŸ‡²",
+  "flag": "🇦🇲",
   "jumlah_penduduk": 3076200,
   "anggaran": 214,
   "pendapatan_nasional": "611",
@@ -26,7 +26,8 @@ const armenia_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const armenia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const armenia_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": armenia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,

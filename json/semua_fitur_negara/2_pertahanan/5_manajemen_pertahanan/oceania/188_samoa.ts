@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_pertahanan = {
     "penjara": 37,
     "gudang_senjata": 2,

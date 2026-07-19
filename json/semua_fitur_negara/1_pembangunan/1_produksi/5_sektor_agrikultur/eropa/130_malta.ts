@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_agrikultur = {
   padi: 122,
   gandum: 132,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_agrikultur = {
   padi: 1656,
   gandum: 1980,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const botswana_pendidikan = {
       "prasekolah": 66,
       "dasar": 95,

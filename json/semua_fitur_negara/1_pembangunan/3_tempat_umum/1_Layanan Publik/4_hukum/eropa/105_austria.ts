@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const austria_hukum = {
       "pusat_bantuan_hukum": 23,
       "pengadilan": 28,

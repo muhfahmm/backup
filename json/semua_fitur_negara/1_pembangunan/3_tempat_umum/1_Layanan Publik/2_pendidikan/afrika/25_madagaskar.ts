@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const madagaskar_pendidikan = {
       "prasekolah": 76,
       "dasar": 26,

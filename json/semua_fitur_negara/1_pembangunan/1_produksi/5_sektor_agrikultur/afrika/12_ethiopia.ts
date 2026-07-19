@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_agrikultur = {
   padi: 1422,
   gandum: 1224,

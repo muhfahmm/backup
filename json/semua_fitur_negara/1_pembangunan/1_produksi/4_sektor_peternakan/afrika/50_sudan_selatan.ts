@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_peternakan = {
   ayam_unggas: 144,
   sapi_perah: 44,

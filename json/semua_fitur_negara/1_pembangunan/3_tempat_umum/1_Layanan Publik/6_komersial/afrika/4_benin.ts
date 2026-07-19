@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_komersial = {
   "mall": 3,
   "hotel": 11,

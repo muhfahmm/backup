@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const montenegro_profile = {
   "name_en": "Montenegro",
   "capital": "Podgorica",
   "name_id": "Montenegro",
   "lon": 19.3,
   "lat": 42.5,
-  "flag": "ðŸ‡²ðŸ‡ª",
+  "flag": "🇲🇪",
   "jumlah_penduduk": 626485,
   "anggaran": 68,
   "pendapatan_nasional": "194",
@@ -26,7 +26,8 @@ const montenegro_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const montenegro_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const montenegro_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": montenegro_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 4,

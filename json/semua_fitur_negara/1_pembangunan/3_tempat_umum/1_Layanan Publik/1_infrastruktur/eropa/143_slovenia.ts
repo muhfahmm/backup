@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_infrastruktur = {
   jalur_sepeda: 6,
   jalan_raya: 17,

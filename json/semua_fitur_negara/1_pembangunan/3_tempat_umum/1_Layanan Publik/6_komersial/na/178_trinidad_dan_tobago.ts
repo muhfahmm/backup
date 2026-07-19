@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_komersial = {
   "mall": 4,
   "hotel": 14,

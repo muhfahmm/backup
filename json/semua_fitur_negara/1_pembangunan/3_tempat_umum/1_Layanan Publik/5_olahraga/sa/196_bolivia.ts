@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_olahraga = {
   "kolam_renang": 16,
   "sirkuit_balap": 3,

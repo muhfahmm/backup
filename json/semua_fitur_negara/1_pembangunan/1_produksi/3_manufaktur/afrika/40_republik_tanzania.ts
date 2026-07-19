@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_manufaktur = {
   mobil: 15,
   semen_beton: 42,

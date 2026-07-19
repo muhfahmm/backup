@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_agrikultur = {
   padi: 171,
   gandum: 57,

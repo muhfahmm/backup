@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const china_strategis = {
     "waktu_respon": 32,

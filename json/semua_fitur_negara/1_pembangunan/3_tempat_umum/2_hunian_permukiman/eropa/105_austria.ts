@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const austria_hunian = {
   rumah_subsidi: 119347,

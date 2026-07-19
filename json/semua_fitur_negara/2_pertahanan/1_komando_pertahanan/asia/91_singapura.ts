@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const singapura_strategis = {
     "waktu_respon": 23,

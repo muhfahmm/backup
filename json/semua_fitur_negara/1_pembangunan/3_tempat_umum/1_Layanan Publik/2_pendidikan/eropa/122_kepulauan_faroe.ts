@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_pendidikan = {
       "prasekolah": 100,
       "dasar": 43,

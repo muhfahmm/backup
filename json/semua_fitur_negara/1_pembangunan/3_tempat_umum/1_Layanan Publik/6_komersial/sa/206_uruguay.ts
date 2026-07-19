@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uruguay_komersial = {
   "mall": 10,
   "hotel": 14,

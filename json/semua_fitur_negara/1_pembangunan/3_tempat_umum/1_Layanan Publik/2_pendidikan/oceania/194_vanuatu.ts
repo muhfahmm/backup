@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_pendidikan = {
       "prasekolah": 89,
       "dasar": 20,

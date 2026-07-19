@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const benin_peternakan = {
   ayam_unggas: 28,
   sapi_perah: 78,

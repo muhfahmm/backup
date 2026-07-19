@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_peternakan = {
   ayam_unggas: 686,
   sapi_perah: 931,

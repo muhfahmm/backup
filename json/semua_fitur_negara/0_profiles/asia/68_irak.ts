@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_profile = {
   "name_en": "Iraq",
   "capital": "Baghdad",
   "name_id": "Irak",
   "lon": 44.36,
   "lat": 33.31,
-  "flag": "ðŸ‡®ðŸ‡¶",
+  "flag": "🇮🇶",
   "jumlah_penduduk": 46118793,
   "anggaran": 2606,
   "pendapatan_nasional": "7445",
@@ -26,7 +26,8 @@ const irak_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const irak_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const irak_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": irak_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,

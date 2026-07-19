@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chile_kesehatan = {
       "rumah_sakit_besar": 25,
       "rumah_sakit_kecil": 204,

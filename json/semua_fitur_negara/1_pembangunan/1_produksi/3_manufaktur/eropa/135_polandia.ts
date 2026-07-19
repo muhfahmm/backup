@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_manufaktur = {
   semikonduktor: 583,
   mobil: 265,

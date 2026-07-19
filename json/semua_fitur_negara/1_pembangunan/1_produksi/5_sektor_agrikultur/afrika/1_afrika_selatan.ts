@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_agrikultur = {
   padi: 1280,
   gandum: 1480,

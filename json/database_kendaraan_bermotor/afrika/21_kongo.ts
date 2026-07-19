@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kongoVehicles = {
   sepeda_motor: 786654,
   mobil: 419549,

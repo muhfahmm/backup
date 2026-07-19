@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_pendidikan = {
       "prasekolah": 36,
       "dasar": 129,

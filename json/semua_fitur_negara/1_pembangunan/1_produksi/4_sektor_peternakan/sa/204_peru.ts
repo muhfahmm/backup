@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_peternakan = {
   ayam_unggas: 231,
   sapi_perah: 252,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_olahan_pangan = {
   air_mineral: 330,
   gula: 231,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantai_gading_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,

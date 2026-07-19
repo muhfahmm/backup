@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const taiwan_peternakan = {
   ayam_unggas: 744,
   sapi_perah: 984,

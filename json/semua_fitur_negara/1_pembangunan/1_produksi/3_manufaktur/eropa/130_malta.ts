@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malta_manufaktur = {
   semikonduktor: 28,
   mobil: 14,

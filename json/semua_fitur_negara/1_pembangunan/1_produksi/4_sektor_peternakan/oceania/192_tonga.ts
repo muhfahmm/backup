@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_peternakan = {
   ayam_unggas: 42,
   sapi_perah: 39,

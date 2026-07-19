@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundiVehicles = {
   sepeda_motor: 1676306,
   mobil: 894030,

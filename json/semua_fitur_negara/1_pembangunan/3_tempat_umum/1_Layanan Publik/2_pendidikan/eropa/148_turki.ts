@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const turki_pendidikan = {
       "prasekolah": 68,
       "dasar": 144,

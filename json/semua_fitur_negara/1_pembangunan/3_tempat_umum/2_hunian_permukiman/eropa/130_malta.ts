@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const malta_hunian = {
   rumah_subsidi: 6542,

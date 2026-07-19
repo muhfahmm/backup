@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenlandVehicles = {
   sepeda_motor: 8403,
   mobil: 4482,

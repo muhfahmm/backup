@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bosnia_dan_hercegovina_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 9,

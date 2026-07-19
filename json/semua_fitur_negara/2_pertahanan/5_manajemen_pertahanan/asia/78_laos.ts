@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_pertahanan = {
     "penjara": 5,
     "gudang_senjata": 10,

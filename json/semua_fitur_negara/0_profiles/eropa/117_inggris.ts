@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_profile = {
   "name_en": "United Kingdom",
   "capital": "London",
   "name_id": "Inggris",
   "lon": -0.12,
   "lat": 51.5,
-  "flag": "ðŸ‡¬ðŸ‡§",
+  "flag": "🇬🇧",
   "jumlah_penduduk": 69487000,
   "anggaran": 34030,
   "pendapatan_nasional": "97230",
@@ -26,7 +26,8 @@ const inggris_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const inggris_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const inggris_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": inggris_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 32,

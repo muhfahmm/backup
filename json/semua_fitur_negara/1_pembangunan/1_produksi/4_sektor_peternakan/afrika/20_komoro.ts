@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_peternakan = {
   ayam_unggas: 84,
   sapi_perah: 132,

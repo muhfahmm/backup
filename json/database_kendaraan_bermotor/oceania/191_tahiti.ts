@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tahitiVehicles = {
   sepeda_motor: 41651,
   mobil: 22214,

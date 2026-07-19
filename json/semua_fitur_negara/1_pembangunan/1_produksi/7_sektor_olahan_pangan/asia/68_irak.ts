@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irak_olahan_pangan = {
   air_mineral: 252,
   gula: 210,

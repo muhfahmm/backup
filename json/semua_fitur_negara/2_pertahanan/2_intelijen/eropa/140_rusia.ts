@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_intelijen = {
   sistem_satelit: 22,
   jaringan_radar: 51,

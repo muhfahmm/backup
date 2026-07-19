@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jamaika_manufaktur = {
   semikonduktor: 44,
   mobil: 16,

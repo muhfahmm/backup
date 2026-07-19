@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_ekstraksi = {
   emas: 22,
   uranium: 0,

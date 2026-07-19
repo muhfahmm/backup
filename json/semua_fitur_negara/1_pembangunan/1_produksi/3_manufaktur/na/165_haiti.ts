@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const haiti_manufaktur = {
   semikonduktor: 12,
   mobil: 39,

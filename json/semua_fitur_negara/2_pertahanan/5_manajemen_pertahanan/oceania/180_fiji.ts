@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_pertahanan = {
     "penjara": 18,
     "gudang_senjata": 32,

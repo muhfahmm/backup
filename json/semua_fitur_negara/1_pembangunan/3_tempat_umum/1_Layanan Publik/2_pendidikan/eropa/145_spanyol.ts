@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_pendidikan = {
       "prasekolah": 1247,
       "dasar": 995,

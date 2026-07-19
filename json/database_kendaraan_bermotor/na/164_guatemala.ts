@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemalaVehicles = {
   sepeda_motor: 2587171,
   mobil: 1379824,

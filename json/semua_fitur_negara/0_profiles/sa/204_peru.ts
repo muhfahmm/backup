@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_profile = {
   "name_en": "Peru",
   "capital": "Lima",
   "name_id": "Peru",
   "lon": -76,
   "lat": -10,
-  "flag": "ðŸ‡µðŸ‡ª",
+  "flag": "🇵🇪",
   "jumlah_penduduk": 33396698,
   "anggaran": 2528,
   "pendapatan_nasional": "7223",
@@ -26,7 +26,8 @@ const peru_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const peru_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const peru_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": peru_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 19,

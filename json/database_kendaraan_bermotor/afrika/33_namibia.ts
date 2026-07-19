@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const namibiaVehicles = {
   sepeda_motor: 367238,
   mobil: 195860,

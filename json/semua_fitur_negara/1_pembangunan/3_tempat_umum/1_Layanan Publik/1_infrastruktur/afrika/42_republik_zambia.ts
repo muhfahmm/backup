@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_zambia_infrastruktur = {
   jalur_sepeda: 8,
   jalan_raya: 16,

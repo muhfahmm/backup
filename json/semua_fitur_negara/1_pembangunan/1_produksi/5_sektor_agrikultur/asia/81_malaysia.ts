@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const malaysia_agrikultur = {
   padi: 1800,
   gandum: 2700,

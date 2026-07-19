@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_manufaktur = {
   semikonduktor: 264,
   mobil: 308,

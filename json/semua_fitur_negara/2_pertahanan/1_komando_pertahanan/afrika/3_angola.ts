@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const angola_strategis = {
     "waktu_respon": 5,

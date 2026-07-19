@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const arab_saudi_komersial = {
   "mall": 141,
   "hotel": 97,

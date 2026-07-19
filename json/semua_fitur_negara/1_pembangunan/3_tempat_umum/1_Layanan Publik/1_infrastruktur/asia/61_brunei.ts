@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_infrastruktur = {
   jalur_sepeda: 10,
   jalan_raya: 5,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_pendidikan = {
       "prasekolah": 859,
       "dasar": 1604,

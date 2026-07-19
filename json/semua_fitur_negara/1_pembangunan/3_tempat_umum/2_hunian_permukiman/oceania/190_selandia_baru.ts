@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const selandia_baru_hunian = {
   rumah_subsidi: 65353,

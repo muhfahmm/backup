@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_olahan_pangan = {
   air_mineral: 200,
   gula: 240,

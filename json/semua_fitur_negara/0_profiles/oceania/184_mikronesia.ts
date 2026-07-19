@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_profile = {
   "name_en": "Micronesia",
   "capital": "Palikir",
   "name_id": "Mikronesia",
   "lon": 158.25,
   "lat": 6.91666666,
-  "flag": "ðŸ‡«ðŸ‡²",
+  "flag": "🇫🇲",
   "jumlah_penduduk": 115107,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const mikronesia_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const mikronesia_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const mikronesia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mikronesia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 5,

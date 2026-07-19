@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_manufaktur = {
   semikonduktor: 16,
   mobil: 60,

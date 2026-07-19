@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_olahraga = {
   "kolam_renang": 54,
   "sirkuit_balap": 6,

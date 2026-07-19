@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_peternakan = {
   ayam_unggas: 1452,
   sapi_perah: 528,

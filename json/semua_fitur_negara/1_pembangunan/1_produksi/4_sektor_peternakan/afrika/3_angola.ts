@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const angola_peternakan = {
   ayam_unggas: 224,
   sapi_perah: 264,

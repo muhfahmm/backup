@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_pendidikan = {
       "prasekolah": 68,
       "dasar": 95,

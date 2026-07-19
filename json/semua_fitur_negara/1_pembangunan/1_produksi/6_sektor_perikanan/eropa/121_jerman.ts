@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jerman_perikanan = {
   udang: 3096,
   mutiara: 3870,

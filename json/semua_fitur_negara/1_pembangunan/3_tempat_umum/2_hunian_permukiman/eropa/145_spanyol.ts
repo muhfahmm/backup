@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const spanyol_hunian = {
   rumah_subsidi: 631753,

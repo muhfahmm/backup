@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_listrik = {
   pembangkit_listrik_tenaga_nuklir: 234,
   pembangkit_listrik_tenaga_air: 15,

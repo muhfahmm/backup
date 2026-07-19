@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kambojaVehicles = {
   sepeda_motor: 2437469,
   mobil: 1299983,

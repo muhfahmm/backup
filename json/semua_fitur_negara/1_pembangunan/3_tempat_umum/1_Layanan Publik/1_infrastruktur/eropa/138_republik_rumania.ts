@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_infrastruktur = {
   jalur_sepeda: 17,
   jalan_raya: 82,

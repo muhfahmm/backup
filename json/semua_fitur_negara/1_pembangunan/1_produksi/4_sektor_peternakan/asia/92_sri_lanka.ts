@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_peternakan = {
   ayam_unggas: 175,
   sapi_perah: 245,

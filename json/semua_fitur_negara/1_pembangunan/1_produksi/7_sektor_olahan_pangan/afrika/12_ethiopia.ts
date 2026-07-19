@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_olahan_pangan = {
   air_mineral: 720,
   gula: 468,

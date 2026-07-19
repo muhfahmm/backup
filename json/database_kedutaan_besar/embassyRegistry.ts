@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // Combine all kedutaan into a single registry from the central index
 
   

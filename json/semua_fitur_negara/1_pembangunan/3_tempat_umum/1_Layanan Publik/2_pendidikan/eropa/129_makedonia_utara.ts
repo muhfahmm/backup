@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_pendidikan = {
       "prasekolah": 80,
       "dasar": 135,

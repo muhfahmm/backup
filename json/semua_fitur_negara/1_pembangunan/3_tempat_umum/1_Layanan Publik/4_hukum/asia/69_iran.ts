@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_hukum = {
       "pusat_bantuan_hukum": 38,
       "pengadilan": 32,

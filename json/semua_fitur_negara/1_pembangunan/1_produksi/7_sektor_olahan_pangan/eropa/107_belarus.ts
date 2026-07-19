@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_olahan_pangan = {
   air_mineral: 135,
   gula: 250,

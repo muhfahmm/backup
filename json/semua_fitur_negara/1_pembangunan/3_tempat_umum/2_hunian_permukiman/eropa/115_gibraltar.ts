@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const gibraltar_hunian = {
   rumah_subsidi: 455,

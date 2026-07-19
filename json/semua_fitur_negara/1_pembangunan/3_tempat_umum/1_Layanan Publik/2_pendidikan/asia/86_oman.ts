@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_pendidikan = {
       "prasekolah": 84,
       "dasar": 97,

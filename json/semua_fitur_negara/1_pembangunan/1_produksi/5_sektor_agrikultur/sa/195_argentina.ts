@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_agrikultur = {
   padi: 2544,
   gandum: 3840,

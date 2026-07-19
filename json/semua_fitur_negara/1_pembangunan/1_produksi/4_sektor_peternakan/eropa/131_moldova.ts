@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const moldova_peternakan = {
   ayam_unggas: 168,
   sapi_perah: 40,

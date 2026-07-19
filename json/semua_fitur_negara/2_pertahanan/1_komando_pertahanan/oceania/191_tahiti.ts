@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tahiti_strategis = {
     "waktu_respon": 14,

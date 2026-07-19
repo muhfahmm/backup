@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const barbados_pertahanan = {
     "penjara": 15,
     "gudang_senjata": 40,

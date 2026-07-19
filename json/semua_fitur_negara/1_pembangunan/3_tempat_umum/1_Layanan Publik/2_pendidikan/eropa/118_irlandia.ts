@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_pendidikan = {
       "prasekolah": 206,
       "dasar": 223,

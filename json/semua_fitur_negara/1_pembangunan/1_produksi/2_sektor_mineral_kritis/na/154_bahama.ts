@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahama_ekstraksi = {
   emas: 28,
   uranium: 0,

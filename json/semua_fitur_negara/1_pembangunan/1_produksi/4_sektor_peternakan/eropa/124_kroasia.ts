@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_peternakan = {
   ayam_unggas: 117,
   sapi_perah: 45,

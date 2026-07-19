@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_olahraga = {
   "kolam_renang": 39,
   "sirkuit_balap": 4,

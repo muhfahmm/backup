@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kenya_profile = {
   "name_en": "Kenya",
   "capital": "Nairobi",
   "name_id": "Kenya",
   "lon": 38,
   "lat": 1,
-  "flag": "ðŸ‡°ðŸ‡ª",
+  "flag": "🇰🇪",
   "jumlah_penduduk": 53330978,
   "anggaran": 1070,
   "pendapatan_nasional": "3056",
@@ -26,7 +26,8 @@ const kenya_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const kenya_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kenya_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kenya_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 27,

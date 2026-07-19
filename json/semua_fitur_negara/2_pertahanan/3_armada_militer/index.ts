@@ -1,4 +1,4 @@
-﻿export const armadaMiliterRate = {
+export const armadaMiliterRate = {
   // ARMADA DARAT
   "1_barak": {
     key: "1_barak",

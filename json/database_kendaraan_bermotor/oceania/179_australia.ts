@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const australiaVehicles = {
   sepeda_motor: 3747403,
   mobil: 1998615,

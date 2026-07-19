@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const iran_peternakan = {
   ayam_unggas: 2024,
   sapi_perah: 460,

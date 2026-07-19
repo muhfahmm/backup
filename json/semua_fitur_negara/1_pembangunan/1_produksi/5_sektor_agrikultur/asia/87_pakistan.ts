@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistan_agrikultur = {
   padi: 2704,
   gandum: 2704,

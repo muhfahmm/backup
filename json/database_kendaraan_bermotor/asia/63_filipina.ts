@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const filipinaVehicles = {
   sepeda_motor: 15997788,
   mobil: 8532153,

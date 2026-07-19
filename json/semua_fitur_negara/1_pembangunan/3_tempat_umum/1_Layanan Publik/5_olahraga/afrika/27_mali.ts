@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mali_olahraga = {
   "kolam_renang": 3,
   "sirkuit_balap": 2,

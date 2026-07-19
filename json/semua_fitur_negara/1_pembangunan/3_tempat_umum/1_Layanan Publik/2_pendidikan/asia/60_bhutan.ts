@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bhutan_pendidikan = {
       "prasekolah": 61,
       "dasar": 64,

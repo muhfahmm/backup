@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const papua_nugini_manufaktur = {
   semikonduktor: 18,
   mobil: 42,

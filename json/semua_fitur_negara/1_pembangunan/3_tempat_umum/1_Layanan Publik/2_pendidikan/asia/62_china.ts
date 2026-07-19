@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const china_pendidikan = {
       "prasekolah": 5493,
       "dasar": 9642,

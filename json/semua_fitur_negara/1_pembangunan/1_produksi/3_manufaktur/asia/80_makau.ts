@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makau_manufaktur = {
   semikonduktor: 56,
   mobil: 44,

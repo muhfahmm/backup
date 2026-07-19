@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guiana_prancis_manufaktur = {
   semikonduktor: 14,
   mobil: 10,

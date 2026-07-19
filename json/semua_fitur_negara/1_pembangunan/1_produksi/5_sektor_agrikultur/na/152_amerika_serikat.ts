@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_agrikultur = {
   padi: 5684,
   gandum: 7076,

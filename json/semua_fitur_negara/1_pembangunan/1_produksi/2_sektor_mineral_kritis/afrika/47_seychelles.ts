@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const seychelles_ekstraksi = {
   nikel: 0,
   bijih_besi: 90,

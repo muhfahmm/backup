@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const laos_olahraga = {
   "kolam_renang": 18,
   "sirkuit_balap": 3,

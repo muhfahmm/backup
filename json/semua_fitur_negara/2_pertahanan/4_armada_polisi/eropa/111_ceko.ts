@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_kepolisian = {
     "armada_polisi": {
       "markas_besar_polri": 0,

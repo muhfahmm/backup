@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_lucia_perikanan = {
   udang: 16,
   mutiara: 9,

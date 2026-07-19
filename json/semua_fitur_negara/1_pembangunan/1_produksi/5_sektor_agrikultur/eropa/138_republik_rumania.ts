@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_agrikultur = {
   padi: 576,
   gandum: 912,

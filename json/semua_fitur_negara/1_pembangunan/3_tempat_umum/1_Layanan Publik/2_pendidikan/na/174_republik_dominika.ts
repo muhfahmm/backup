@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_dominika_pendidikan = {
       "prasekolah": 42,
       "dasar": 108,

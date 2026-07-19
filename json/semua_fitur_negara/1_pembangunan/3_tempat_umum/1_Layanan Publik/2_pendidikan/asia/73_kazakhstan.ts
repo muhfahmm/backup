@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_pendidikan = {
       "prasekolah": 102,
       "dasar": 469,

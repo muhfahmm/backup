@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const india_agrikultur = {
   padi: 27117,
   gandum: 8646,

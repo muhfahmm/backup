@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_manufaktur = {
   semikonduktor: 484,
   mobil: 1452,

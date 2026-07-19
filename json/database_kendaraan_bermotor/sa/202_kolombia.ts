@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombiaVehicles = {
   sepeda_motor: 7447302,
   mobil: 3971894,

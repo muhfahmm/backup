@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kolombia_profile = {
   "name_en": "Colombia",
-  "capital": "BogotÃ¡",
+  "capital": "Bogotá",
   "name_id": "Kolombia",
   "lon": -72,
   "lat": 4,
-  "flag": "ðŸ‡¨ðŸ‡´",
+  "flag": "🇨🇴",
   "jumlah_penduduk": 53057212,
   "anggaran": 3306,
   "pendapatan_nasional": "9445",
@@ -26,7 +26,8 @@ const kolombia_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kolombia_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const kolombia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kolombia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 22,

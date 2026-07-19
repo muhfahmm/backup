@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const portugal_perikanan = {
   udang: 646,
   mutiara: 680,

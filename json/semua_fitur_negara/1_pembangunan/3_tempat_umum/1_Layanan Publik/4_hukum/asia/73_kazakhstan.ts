@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kazakhstan_hukum = {
       "pusat_bantuan_hukum": 29,
       "pengadilan": 39,

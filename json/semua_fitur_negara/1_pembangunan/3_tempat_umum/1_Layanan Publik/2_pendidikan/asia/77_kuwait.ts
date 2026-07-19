@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_pendidikan = {
       "prasekolah": 50,
       "dasar": 22,

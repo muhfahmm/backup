@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_peternakan = {
   ayam_unggas: 36,
   sapi_perah: 76,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const afganistan_hunian = {
   rumah_subsidi: 501827,

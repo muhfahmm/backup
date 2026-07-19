@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_profile = {
   "name_en": "Slovenia",
   "capital": "Ljubljana",
   "name_id": "Slovenia",
   "lon": 14.81666666,
   "lat": 46.11666666,
-  "flag": "ðŸ‡¸ðŸ‡®",
+  "flag": "🇸🇮",
   "jumlah_penduduk": 2123949,
   "anggaran": 632,
   "pendapatan_nasional": "1806",
@@ -26,7 +26,8 @@ const slovenia_geopolitik = {
       "kekuatan_keras": 31,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const slovenia_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const slovenia_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": slovenia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 2,

@@ -1,4 +1,4 @@
-﻿export const kesehatanRate = {
+export const kesehatanRate = {
   "11_rumah_sakit_besar": {
     key: "11_rumah_sakit_besar",
     dataKey: "rumah_sakit_besar",

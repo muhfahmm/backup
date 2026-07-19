@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gambia_manufaktur = {
   mobil: 30,
   semen_beton: 24,

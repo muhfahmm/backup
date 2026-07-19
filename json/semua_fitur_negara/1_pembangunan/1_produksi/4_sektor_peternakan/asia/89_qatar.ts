@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_peternakan = {
   ayam_unggas: 435,
   sapi_perah: 255,

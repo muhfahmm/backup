@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_manufaktur = {
   semikonduktor: 705,
   mobil: 564,

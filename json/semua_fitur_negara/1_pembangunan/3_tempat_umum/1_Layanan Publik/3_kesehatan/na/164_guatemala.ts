@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_kesehatan = {
       "rumah_sakit_besar": 13,
       "rumah_sakit_kecil": 47,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const togo_manufaktur = {
   mobil: 24,
   semen_beton: 12,

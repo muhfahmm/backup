@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_ekstraksi = {
   emas: 24,
   uranium: 0,

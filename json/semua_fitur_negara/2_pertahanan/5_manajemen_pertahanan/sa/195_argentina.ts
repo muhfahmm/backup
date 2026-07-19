@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const argentina_pertahanan = {
     "penjara": 35,
     "gudang_senjata": 27,

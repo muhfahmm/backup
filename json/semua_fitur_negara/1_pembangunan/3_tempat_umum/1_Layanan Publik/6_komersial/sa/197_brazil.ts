@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_komersial = {
   "mall": 70,
   "hotel": 280,

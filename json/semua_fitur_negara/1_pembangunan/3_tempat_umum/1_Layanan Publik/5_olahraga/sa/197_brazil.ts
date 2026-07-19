@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_olahraga = {
   "kolam_renang": 274,
   "sirkuit_balap": 30,

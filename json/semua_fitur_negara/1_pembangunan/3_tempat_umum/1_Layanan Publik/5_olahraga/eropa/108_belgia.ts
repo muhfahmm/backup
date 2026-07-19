@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belgia_olahraga = {
   "kolam_renang": 23,
   "sirkuit_balap": 9,

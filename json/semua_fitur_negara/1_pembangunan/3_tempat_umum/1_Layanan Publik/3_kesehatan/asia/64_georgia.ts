@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_kesehatan = {
       "rumah_sakit_besar": 8,
       "rumah_sakit_kecil": 50,

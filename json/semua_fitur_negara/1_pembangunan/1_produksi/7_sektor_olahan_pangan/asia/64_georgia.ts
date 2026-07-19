@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgia_olahan_pangan = {
   air_mineral: 140,
   gula: 100,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_olahraga = {
   "kolam_renang": 71,
   "sirkuit_balap": 5,

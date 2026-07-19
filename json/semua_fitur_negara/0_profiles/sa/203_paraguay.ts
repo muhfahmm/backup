@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const paraguay_profile = {
   "name_en": "Paraguay",
-  "capital": "AsunciÃ³n",
+  "capital": "Asunción",
   "name_id": "Paraguay",
   "lon": -58,
   "lat": -23,
-  "flag": "ðŸ‡µðŸ‡¾",
+  "flag": "🇵🇾",
   "jumlah_penduduk": 6142180,
   "anggaran": 428,
   "pendapatan_nasional": "1222",
@@ -26,7 +26,8 @@ const paraguay_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const paraguay_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const paraguay_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": paraguay_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 40,

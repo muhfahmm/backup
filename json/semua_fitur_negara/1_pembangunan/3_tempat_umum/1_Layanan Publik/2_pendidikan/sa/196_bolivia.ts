@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bolivia_pendidikan = {
       "prasekolah": 42,
       "dasar": 84,

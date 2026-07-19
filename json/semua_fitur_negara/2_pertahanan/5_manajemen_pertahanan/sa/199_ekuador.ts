@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 10,

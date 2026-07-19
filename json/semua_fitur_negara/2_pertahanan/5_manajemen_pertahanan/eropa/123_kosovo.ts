@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kosovo_pertahanan = {
     "penjara": 39,
     "gudang_senjata": 13,

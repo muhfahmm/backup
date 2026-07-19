@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_tanzania_agrikultur = {
   padi: 216,
   gandum: 33,

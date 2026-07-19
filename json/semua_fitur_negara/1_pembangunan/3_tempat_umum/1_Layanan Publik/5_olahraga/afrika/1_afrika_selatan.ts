@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_olahraga = {
   "kolam_renang": 72,
   "sirkuit_balap": 4,

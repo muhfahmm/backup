@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uzbekistan_perikanan = {
   udang: 0,
   mutiara: 0,

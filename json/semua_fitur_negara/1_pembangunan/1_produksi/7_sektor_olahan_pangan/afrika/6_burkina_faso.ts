@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_olahan_pangan = {
   air_mineral: 34,
   gula: 58,

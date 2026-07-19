@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const italia_intelijen = {
   sistem_satelit: 21,
   jaringan_radar: 57,

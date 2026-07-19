@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pantaiGadingVehicles = {
   sepeda_motor: 3760384,
   mobil: 2005538,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const luksemburg_hunian = {
   rumah_subsidi: 8207,

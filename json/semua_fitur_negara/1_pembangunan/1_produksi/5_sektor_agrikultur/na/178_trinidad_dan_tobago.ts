@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_agrikultur = {
   padi: 140,
   gandum: 32,

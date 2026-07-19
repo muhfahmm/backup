@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const hong_kong_agrikultur = {
   padi: 33,
   gandum: 13,

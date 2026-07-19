@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const komoro_manufaktur = {
   mobil: 56,
   semen_beton: 24,

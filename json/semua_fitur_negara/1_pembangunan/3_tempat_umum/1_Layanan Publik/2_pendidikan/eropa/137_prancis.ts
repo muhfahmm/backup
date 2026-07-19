@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_pendidikan = {
       "prasekolah": 747,
       "dasar": 1622,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const gibraltar_profile = {
   "name_en": "Gibraltar",
   "capital": "Gibraltar",
   "name_id": "Gibraltar",
   "lon": -5.35,
   "lat": 36.13333333,
-  "flag": "ðŸ‡¬ðŸ‡®",
+  "flag": "🇬🇮",
   "jumlah_penduduk": 32688,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const gibraltar_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const gibraltar_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const gibraltar_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": gibraltar_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 36,

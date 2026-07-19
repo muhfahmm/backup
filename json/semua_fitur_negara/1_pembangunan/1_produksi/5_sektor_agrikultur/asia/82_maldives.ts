@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_agrikultur = {
   padi: 110,
   gandum: 34,

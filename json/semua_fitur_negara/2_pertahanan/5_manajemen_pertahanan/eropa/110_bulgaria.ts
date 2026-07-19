@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bulgaria_pertahanan = {
     "penjara": 30,
     "gudang_senjata": 21,

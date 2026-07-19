@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_kesehatan = {
       "rumah_sakit_besar": 3,
       "rumah_sakit_kecil": 21,

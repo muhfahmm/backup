@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const vanuatu_olahraga = {
   "kolam_renang": 16,
   "sirkuit_balap": 2,

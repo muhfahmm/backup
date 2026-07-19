@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_intelijen = {
   sistem_satelit: 18,
   jaringan_radar: 39,

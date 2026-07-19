@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const honduras_strategis = {
     "waktu_respon": 19,

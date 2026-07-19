@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_agrikultur = {
   padi: 2303,
   gandum: 2538,

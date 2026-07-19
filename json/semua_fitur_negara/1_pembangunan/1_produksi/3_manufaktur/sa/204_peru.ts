@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const peru_manufaktur = {
   semikonduktor: 91,
   mobil: 77,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_infrastruktur = {
   jalur_sepeda: 20,
   jalan_raya: 91,

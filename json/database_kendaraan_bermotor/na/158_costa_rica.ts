@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costaRicaVehicles = {
   sepeda_motor: 749916,
   mobil: 399955,

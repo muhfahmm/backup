@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const mikronesia_hunian = {
   rumah_subsidi: 1520,

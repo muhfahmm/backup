@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const honduras_profile = {
   "name_en": "Honduras",
   "capital": "Tegucigalpa",
   "name_id": "Honduras",
   "lon": -86.5,
   "lat": 15,
-  "flag": "ðŸ‡­ðŸ‡³",
+  "flag": "🇭🇳",
   "jumlah_penduduk": 10825703,
   "anggaran": 311,
   "pendapatan_nasional": "889",
@@ -26,7 +26,8 @@ const honduras_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const honduras_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const honduras_extra = {
     "harga_pendidikan": 241.95
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": honduras_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_kitts_dan_nevis_hukum = {
       "pusat_bantuan_hukum": 3,
       "pengadilan": 4,

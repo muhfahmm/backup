@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_infrastruktur = {
   jalur_sepeda: 9,
   jalan_raya: 19,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_olahraga = {
   "kolam_renang": 2039,
   "sirkuit_balap": 208,

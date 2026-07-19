@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guam_ekstraksi = {
   emas: 20,
   uranium: 0,

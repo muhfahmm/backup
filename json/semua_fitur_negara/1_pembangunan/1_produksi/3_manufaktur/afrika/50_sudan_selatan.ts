@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sudan_selatan_manufaktur = {
   mobil: 40,
   semen_beton: 56,

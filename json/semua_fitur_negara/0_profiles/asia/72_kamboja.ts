@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamboja_profile = {
   "name_en": "Cambodia",
   "capital": "Phnom Penh",
   "name_id": "Kamboja",
   "lon": 104.91,
   "lat": 11.55,
-  "flag": "ðŸ‡°ðŸ‡­",
+  "flag": "🇰🇭",
   "jumlah_penduduk": 17577760,
   "anggaran": 292,
   "pendapatan_nasional": "833",
@@ -26,7 +26,8 @@ const kamboja_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const kamboja_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const kamboja_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kamboja_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const monako_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 21,

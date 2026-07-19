@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kamerun_profile = {
   "name_en": "Cameroon",
-  "capital": "YaoundÃ©",
+  "capital": "Yaoundé",
   "name_id": "Kamerun",
   "lon": 12,
   "lat": 6,
-  "flag": "ðŸ‡¨ðŸ‡²",
+  "flag": "🇨🇲",
   "jumlah_penduduk": 28088845,
   "anggaran": 438,
   "pendapatan_nasional": "1250",
@@ -26,7 +26,8 @@ const kamerun_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const kamerun_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const kamerun_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": kamerun_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

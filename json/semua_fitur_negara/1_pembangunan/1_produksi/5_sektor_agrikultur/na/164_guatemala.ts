@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_agrikultur = {
   padi: 162,
   gandum: 93,

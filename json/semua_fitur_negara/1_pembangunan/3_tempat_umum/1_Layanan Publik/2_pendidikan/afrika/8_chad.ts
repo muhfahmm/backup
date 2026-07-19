@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const chad_pendidikan = {
       "prasekolah": 71,
       "dasar": 94,

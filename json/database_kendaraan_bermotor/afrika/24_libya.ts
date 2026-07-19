@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libyaVehicles = {
   sepeda_motor: 1001785,
   mobil: 534285,

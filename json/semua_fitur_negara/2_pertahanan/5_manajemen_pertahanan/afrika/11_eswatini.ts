@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eswatini_pertahanan = {
     "penjara": 20,
     "gudang_senjata": 38,

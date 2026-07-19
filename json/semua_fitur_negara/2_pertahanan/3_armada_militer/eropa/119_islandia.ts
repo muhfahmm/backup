@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const islandia_armada = {
     "barak": 2,
     "darat": {

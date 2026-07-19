@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const uni_emirat_arab_pertahanan = {
     "penjara": 34,
     "gudang_senjata": 16,

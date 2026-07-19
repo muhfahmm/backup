@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const saint_vincent_dan_grenadine_olahraga = {
   "kolam_renang": 14,
   "sirkuit_balap": 1,

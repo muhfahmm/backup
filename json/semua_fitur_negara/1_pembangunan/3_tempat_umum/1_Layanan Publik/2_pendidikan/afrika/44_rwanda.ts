@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rwanda_pendidikan = {
       "prasekolah": 10,
       "dasar": 58,

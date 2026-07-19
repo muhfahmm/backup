@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kepulauan_faroe_strategis = {
     "waktu_respon": 31,

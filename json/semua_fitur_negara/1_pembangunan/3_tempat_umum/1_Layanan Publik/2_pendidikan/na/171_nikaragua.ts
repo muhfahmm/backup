@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nikaragua_pendidikan = {
       "prasekolah": 95,
       "dasar": 35,

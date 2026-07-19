@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_olahan_pangan = {
   air_mineral: 40,
   gula: 44,

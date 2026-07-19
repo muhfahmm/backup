@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const hong_kong_strategis = {
     "waktu_respon": 1,

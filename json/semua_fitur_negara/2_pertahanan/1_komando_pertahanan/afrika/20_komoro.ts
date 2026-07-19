@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const komoro_strategis = {
     "waktu_respon": 27,

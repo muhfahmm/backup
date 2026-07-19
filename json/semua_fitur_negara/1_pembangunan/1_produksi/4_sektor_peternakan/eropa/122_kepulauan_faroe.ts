@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_peternakan = {
   ayam_unggas: 29,
   sapi_perah: 18,

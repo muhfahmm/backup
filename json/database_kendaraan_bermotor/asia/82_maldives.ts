@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldivesVehicles = {
   sepeda_motor: 77354,
   mobil: 41255,

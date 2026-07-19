@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_profile = {
   "name_en": "Syria",
   "capital": "Damascus",
   "name_id": "Suriah",
   "lon": 38,
   "lat": 35,
-  "flag": "ðŸ‡¸ðŸ‡¾",
+  "flag": "🇸🇾",
   "jumlah_penduduk": 22125000,
   "anggaran": 117,
   "pendapatan_nasional": "333",
@@ -26,7 +26,8 @@ const suriah_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const suriah_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const suriah_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": suriah_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 38,

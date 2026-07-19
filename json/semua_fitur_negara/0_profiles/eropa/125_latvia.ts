@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const latvia_profile = {
   "name_en": "Latvia",
   "capital": "Riga",
   "name_id": "Latvia",
   "lon": 25,
   "lat": 57,
-  "flag": "ðŸ‡±ðŸ‡»",
+  "flag": "🇱🇻",
   "jumlah_penduduk": 1857400,
   "anggaran": 418,
   "pendapatan_nasional": "1195",
@@ -26,7 +26,8 @@ const latvia_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const latvia_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const latvia_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": latvia_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 16,

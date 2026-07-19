@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burundi_olahan_pangan = {
   air_mineral: 32,
   gula: 30,

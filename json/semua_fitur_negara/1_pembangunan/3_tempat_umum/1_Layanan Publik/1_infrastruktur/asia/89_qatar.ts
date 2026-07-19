@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const qatar_infrastruktur = {
   jalur_sepeda: 45,
   jalan_raya: 26,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const kosovo_hunian = {
   rumah_subsidi: 135000,

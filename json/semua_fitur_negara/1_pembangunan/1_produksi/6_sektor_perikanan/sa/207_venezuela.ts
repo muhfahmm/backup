@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuela_perikanan = {
   udang: 64,
   mutiara: 56,

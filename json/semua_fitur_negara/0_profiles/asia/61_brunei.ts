@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_profile = {
   "name_en": "Brunei",
   "capital": "Bandar Seri Begawan",
   "name_id": "Brunei",
   "lon": 114.94,
   "lat": 4.89,
-  "flag": "ðŸ‡§ðŸ‡³",
+  "flag": "🇧🇳",
   "jumlah_penduduk": 458600,
   "anggaran": 146,
   "pendapatan_nasional": "417",
@@ -26,7 +26,8 @@ const brunei_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const brunei_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const brunei_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": brunei_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 9,

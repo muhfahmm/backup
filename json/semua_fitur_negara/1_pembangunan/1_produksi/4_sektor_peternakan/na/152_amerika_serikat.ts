@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_peternakan = {
   ayam_unggas: 3944,
   sapi_perah: 3944,

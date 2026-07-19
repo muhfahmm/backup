@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const venezuelaVehicles = {
   sepeda_motor: 4330529,
   mobil: 2309615,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const tajikistan_hunian = {
   rumah_subsidi: 122861,

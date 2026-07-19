@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yordaniaVehicles = {
   sepeda_motor: 1493401,
   mobil: 796480,

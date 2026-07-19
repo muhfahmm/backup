@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const pakistan_manufaktur = {
   semikonduktor: 728,
   mobil: 728,

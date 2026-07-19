@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const eritrea_agrikultur = {
   padi: 59,
   gandum: 22,

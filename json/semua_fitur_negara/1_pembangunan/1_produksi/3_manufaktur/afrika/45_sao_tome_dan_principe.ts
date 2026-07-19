@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sao_tome_dan_principe_manufaktur = {
   mobil: 24,
   semen_beton: 52,

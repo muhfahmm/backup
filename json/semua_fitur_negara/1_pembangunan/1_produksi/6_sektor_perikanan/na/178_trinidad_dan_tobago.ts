@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const trinidad_dan_tobago_perikanan = {
   udang: 74,
   mutiara: 16,

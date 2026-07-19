@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ghana_profile = {
   "name_en": "Ghana",
   "capital": "Accra",
   "name_id": "Ghana",
   "lon": -2,
   "lat": 8,
-  "flag": "ðŸ‡¬ðŸ‡­",
+  "flag": "🇬🇭",
   "jumlah_penduduk": 30832019,
   "anggaran": 739,
   "pendapatan_nasional": "2111",
@@ -26,7 +26,8 @@ const ghana_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const ghana_extra = {
 "": {
     "harga_beras": 32,
@@ -42,11 +43,11 @@ const ghana_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ghana_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 11,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fijiVehicles = {
   sepeda_motor: 132522,
   mobil: 70678,

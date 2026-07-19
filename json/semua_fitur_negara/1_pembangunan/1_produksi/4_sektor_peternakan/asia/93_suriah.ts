@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const suriah_peternakan = {
   ayam_unggas: 44,
   sapi_perah: 25,

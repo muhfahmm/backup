@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const rusia_olahan_pangan = {
   air_mineral: 9450,
   gula: 5670,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const republik_dominika_hunian = {
   rumah_subsidi: 143466,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const brazil_strategis = {
     "waktu_respon": 39,

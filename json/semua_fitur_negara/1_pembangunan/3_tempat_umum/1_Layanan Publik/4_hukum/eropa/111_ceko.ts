@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ceko_hukum = {
       "pusat_bantuan_hukum": 30,
       "pengadilan": 37,

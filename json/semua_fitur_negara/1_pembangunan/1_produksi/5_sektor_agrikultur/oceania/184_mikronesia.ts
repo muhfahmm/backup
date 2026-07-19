@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mikronesia_agrikultur = {
   padi: 132,
   gandum: 96,

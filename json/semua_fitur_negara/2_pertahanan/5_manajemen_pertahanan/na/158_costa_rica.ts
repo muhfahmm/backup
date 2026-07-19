@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_pertahanan = {
     "penjara": 22,
     "gudang_senjata": 4,

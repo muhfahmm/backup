@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_agrikultur = {
   padi: 65,
   gandum: 315,

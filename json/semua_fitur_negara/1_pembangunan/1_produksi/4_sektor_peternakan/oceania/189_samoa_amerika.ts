@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_amerika_peternakan = {
   ayam_unggas: 46,
   sapi_perah: 86,

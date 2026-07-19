@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_manufaktur = {
   semikonduktor: 28,
   mobil: 22,

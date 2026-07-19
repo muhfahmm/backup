@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const mesir_profile = {
   "name_en": "Egypt",
   "capital": "Cairo",
   "name_id": "Mesir",
   "lon": 31.23,
   "lat": 30.04,
-  "flag": "ðŸ‡ªðŸ‡¬",
+  "flag": "🇪🇬",
   "jumlah_penduduk": 107868296,
   "anggaran": 3841,
   "pendapatan_nasional": "10973",
@@ -26,7 +26,8 @@ const mesir_geopolitik = {
       "kekuatan_keras": 34,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const mesir_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const mesir_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": mesir_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 30,

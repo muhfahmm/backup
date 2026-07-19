@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const greenland_strategis = {
     "waktu_respon": 18,

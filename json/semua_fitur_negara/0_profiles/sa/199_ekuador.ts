@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ekuador_profile = {
   "name_en": "Ecuador",
   "capital": "Quito",
   "name_id": "Ekuador",
   "lon": -77.5,
   "lat": -2,
-  "flag": "ðŸ‡ªðŸ‡¨",
+  "flag": "🇪🇨",
   "jumlah_penduduk": 18103660,
   "anggaran": 1118,
   "pendapatan_nasional": "3195",
@@ -26,7 +26,8 @@ const ekuador_geopolitik = {
       "kekuatan_keras": 4,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const ekuador_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const ekuador_extra = {
     "harga_pendidikan": 677.46
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": ekuador_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 17,

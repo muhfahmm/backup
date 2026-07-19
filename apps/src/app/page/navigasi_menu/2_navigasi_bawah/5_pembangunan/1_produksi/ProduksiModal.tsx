@@ -29,6 +29,7 @@ interface MaterialRequirement {
   resourceKey: string;
   label: string;
   group: string;
+  amount?: number;
 }
 
 interface BuildingRequirements {
@@ -65,7 +66,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
 
   const RESOURCE_KEY_ALIASES: Record<string, string> = {
-    alumunium: 'aluminium',
+    aluminium: 'aluminium',
   };
 
   const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
@@ -121,7 +122,49 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const selectedBuildingProduction = getSelectedBuildingProduction();
 
   const getMaterialStock = (resourceKey: string): number => {
-    return Number(countryDetail?.[resourceKey]) || 0;
+    const normalizedKey = normalizeResourceKey(resourceKey);
+    return Number(countryDetail?.[normalizedKey]) || 0;
+  };
+
+  const ELECTRICITY_FUEL_BUILDINGS = [
+    'pembangkit_listrik_tenaga_gas',
+    'pembangkit_listrik_tenaga_nuklir',
+    'pembangkit_listrik_tenaga_uap',
+  ];
+
+  const ELECTRICITY_FUEL_LABELS: Record<string, string> = {
+    gas_alam: 'Gas Alam',
+    uranium: 'Uranium',
+    batu_bara: 'Batu Bara',
+    minyak_bumi: 'Minyak Bumi',
+  };
+
+  const getTotalElectricityFuelConsumption = (): Record<string, number> => {
+    const totals: Record<string, number> = {
+      gas_alam: 0,
+      uranium: 0,
+      batu_bara: 0,
+      minyak_bumi: 0,
+    };
+
+    ELECTRICITY_FUEL_BUILDINGS.forEach((buildingKey) => {
+      const count = Number(countryDetail?.[buildingKey]) || 0;
+      if (count === 0) return;
+      switch (buildingKey) {
+        case 'pembangkit_listrik_tenaga_gas':
+          totals.gas_alam += 2 * count;
+          break;
+        case 'pembangkit_listrik_tenaga_nuklir':
+          totals.uranium += 1 * count;
+          break;
+        case 'pembangkit_listrik_tenaga_uap':
+          totals.batu_bara += 50 * count;
+          totals.minyak_bumi += 5 * count;
+          break;
+      }
+    });
+
+    return totals;
   };
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
@@ -295,10 +338,25 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const activeSection = TABS.find(tab => tab.id === activeTab) || TABS[0];
   const ComponentToRender = activeSection.component;
 
-  const totalProduction = countryDetail?.pembangkit_listrik_tenaga_nuklir || 0;
+  const ELECTRICITY_BUILDINGS_LIST = [
+    'pembangkit_listrik_tenaga_nuklir',
+    'pembangkit_listrik_tenaga_air',
+    'pembangkit_listrik_tenaga_surya',
+    'pembangkit_listrik_tenaga_uap',
+    'pembangkit_listrik_tenaga_gas',
+    'pembangkit_listrik_tenaga_angin',
+  ];
+
+  const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
+    const count = Number(countryDetail?.[bKey]) || 0;
+    const bMeta = findMeta(bKey);
+    const perUnit = Number(bMeta?.produksi || 0);
+    return sum + perUnit * count;
+  }, 0);
+
   const estimatedConsumption = Math.min(
-    (totalProduction * 1000),
-    Math.max(0, Math.round((totalProduction * 1000) * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+    totalProductionMW,
+    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
   );
 
   return (
@@ -322,7 +380,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
                     <TrendingUp className="h-4 w-4 text-emerald-700" />
                     <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
-                    <span className="text-[11px] font-black text-emerald-700">{(totalProduction * 1000).toLocaleString('id-ID')} MW</span>
+                    <span className="text-[11px] font-black text-emerald-700">{totalProductionMW.toLocaleString('id-ID')} MW</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-300 rounded-lg">
                     <TrendingDown className="h-4 w-4 text-rose-700" />
@@ -428,6 +486,19 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                     <span>Total Produksi (semua unit):</span>
                     <span className="text-[#2e261a] font-semibold">{selectedBuildingProduction.toLocaleString('id-ID')}</span>
                   </div>
+                  {ELECTRICITY_FUEL_BUILDINGS.includes(selectedBuilding.key) && (
+                    <div className="mt-3 rounded-xl bg-[#f7f3e8]/80 border border-[#C4B49C]/30 p-3 text-xs text-[#5c3c10]">
+                      <div className="mb-2 font-black uppercase tracking-[0.2em]">Total Konsumsi</div>
+                      <div className="space-y-1">
+                        {Object.entries(getTotalElectricityFuelConsumption()).map(([resourceKey, amount]) => (
+                          <div key={resourceKey} className="flex justify-between">
+                            <span>{ELECTRICITY_FUEL_LABELS[resourceKey] || resourceKey}</span>
+                            <span className="font-black">{amount.toLocaleString('id-ID')}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                   
                   {/* SECTION MATERIAL DENGAN TOMBOL SHOW/HIDE */}
                   {selectedBuildingRequirements?.requirements && selectedBuildingRequirements.requirements.length > 0 ? (
@@ -472,6 +543,11 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                               }`}
                             >
                               <div className="font-bold text-[10px] text-center">{material.label}</div>
+                              {material.amount !== undefined && (
+                                <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
+                                  x{material.amount}
+                                </div>
+                              )}
                               <div className={`text-[10px] font-black mt-0.5 ${stock <= 0 ? 'text-red-600' : 'text-[#8b7e66]'}`}>
                                 {stock.toLocaleString('id-ID')}
                               </div>

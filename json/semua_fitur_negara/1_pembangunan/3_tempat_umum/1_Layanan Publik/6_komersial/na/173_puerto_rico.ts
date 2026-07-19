@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const puerto_rico_komersial = {
   "mall": 3,
   "hotel": 4,

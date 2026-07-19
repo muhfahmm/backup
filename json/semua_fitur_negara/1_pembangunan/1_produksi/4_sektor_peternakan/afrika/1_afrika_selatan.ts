@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_peternakan = {
   ayam_unggas: 720,
   sapi_perah: 1400,

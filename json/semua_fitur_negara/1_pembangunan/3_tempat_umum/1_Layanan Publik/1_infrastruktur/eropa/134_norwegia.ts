@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const norwegia_infrastruktur = {
   jalur_sepeda: 48,
   jalan_raya: 59,

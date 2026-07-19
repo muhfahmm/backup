@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slovenia_pendidikan = {
       "prasekolah": 77,
       "dasar": 29,

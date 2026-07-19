@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const swiss_pertahanan = {
     "penjara": 19,
     "gudang_senjata": 5,

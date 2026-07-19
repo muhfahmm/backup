@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nepal_pertahanan = {
     "penjara": 27,
     "gudang_senjata": 2,

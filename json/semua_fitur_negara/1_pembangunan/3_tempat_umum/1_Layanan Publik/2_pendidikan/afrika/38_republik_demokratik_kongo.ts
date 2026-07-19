@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_demokratik_kongo_pendidikan = {
       "prasekolah": 60,
       "dasar": 127,

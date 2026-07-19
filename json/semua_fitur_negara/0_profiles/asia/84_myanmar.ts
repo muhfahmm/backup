@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const myanmar_profile = {
   "name_en": "Myanmar",
   "capital": "Naypyidaw",
   "name_id": "Myanmar",
   "lon": 96.07,
   "lat": 19.76,
-  "flag": "ðŸ‡²ðŸ‡²",
+  "flag": "🇲🇲",
   "jumlah_penduduk": 51375327,
   "anggaran": 583,
   "pendapatan_nasional": "1667",
@@ -26,7 +26,8 @@ const myanmar_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const myanmar_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const myanmar_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": myanmar_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 15,

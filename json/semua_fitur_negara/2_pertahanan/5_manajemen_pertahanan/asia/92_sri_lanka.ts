@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const sri_lanka_pertahanan = {
     "penjara": 18,
     "gudang_senjata": 4,

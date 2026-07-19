@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistanVehicles = {
   sepeda_motor: 1365125,
   mobil: 728066,

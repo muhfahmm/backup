@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const slowakiaVehicles = {
   sepeda_motor: 817015,
   mobil: 435741,

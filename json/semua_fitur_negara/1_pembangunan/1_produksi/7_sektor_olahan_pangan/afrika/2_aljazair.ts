@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const aljazair_olahan_pangan = {
   air_mineral: 319,
   gula: 231,

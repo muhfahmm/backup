@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const greenland_pertahanan = {
     "penjara": 2,
     "gudang_senjata": 6,

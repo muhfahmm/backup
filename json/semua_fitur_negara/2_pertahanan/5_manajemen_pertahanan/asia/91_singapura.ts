@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const singapura_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 31,

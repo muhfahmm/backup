@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const belgia_strategis = {
     "waktu_respon": 7,

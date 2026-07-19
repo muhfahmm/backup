@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_pertahanan = {
     "penjara": 8,
     "gudang_senjata": 40,

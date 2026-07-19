@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bermuda_agrikultur = {
   padi: 108,
   gandum: 108,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const meksiko_strategis = {
     "waktu_respon": 27,

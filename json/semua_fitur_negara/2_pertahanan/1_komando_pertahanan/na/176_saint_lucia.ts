@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const saint_lucia_strategis = {
     "waktu_respon": 16,

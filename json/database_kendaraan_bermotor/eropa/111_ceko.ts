@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const cekoVehicles = {
   sepeda_motor: 0,
   mobil: 0,

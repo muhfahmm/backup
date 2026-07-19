@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kroasia_agrikultur = {
   padi: 120,
   gandum: 153,

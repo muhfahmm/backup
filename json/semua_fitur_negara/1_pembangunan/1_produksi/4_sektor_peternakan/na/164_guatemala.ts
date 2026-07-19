@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const guatemala_peternakan = {
   ayam_unggas: 90,
   sapi_perah: 147,

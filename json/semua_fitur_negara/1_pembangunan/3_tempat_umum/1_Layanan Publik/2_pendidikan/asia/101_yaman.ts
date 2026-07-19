@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yaman_pendidikan = {
       "prasekolah": 59,
       "dasar": 146,

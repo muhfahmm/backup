@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bangladesh_pendidikan = {
       "prasekolah": 105,
       "dasar": 737,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const georgiaVehicles = {
   sepeda_motor: 558982,
   mobil: 298123,

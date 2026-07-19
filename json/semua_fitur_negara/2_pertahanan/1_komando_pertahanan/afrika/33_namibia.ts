@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const namibia_strategis = {
     "waktu_respon": 25,

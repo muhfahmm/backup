@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_kesehatan = {
       "rumah_sakit_besar": 6,
       "rumah_sakit_kecil": 74,

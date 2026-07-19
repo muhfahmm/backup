@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const prancis_hukum = {
       "pusat_bantuan_hukum": 57,
       "pengadilan": 66,

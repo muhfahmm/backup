@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const fiji_perikanan = {
   udang: 38,
   mutiara: 24,

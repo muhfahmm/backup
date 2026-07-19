@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_hukum = {
       "pusat_bantuan_hukum": 99,
       "pengadilan": 167,

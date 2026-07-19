@@ -1,4 +1,4 @@
-﻿export const komersialRate = {
+export const komersialRate = {
 // ===================
   "23_pusat_belanja": {
     key: "23_pusat_belanja",

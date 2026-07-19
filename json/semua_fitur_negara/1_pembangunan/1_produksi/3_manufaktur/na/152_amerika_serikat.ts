@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const amerika_serikat_manufaktur = {
   semikonduktor: 1624,
   mobil: 1740,

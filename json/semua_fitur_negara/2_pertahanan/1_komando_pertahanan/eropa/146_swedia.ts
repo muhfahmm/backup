@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const swedia_strategis = {
     "waktu_respon": 40,

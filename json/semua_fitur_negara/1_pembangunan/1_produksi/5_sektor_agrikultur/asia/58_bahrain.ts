@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahrain_agrikultur = {
   padi: 480,
   gandum: 512,

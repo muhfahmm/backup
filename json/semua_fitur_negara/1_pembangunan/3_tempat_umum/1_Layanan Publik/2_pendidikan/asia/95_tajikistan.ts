@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_pendidikan = {
       "prasekolah": 44,
       "dasar": 145,

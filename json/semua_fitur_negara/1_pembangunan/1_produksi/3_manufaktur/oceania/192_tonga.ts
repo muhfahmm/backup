@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tonga_manufaktur = {
   semikonduktor: 4,
   mobil: 11,

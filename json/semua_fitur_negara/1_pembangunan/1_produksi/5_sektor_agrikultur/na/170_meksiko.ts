@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const meksiko_agrikultur = {
   padi: 5203,
   gandum: 9196,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_amerika_profile = {
   "name_en": "American Samoa",
   "capital": "Pago Pago",
   "name_id": "Samoa amerika",
   "lon": -170,
   "lat": -14.33333333,
-  "flag": "ðŸ‡¦ðŸ‡¸",
+  "flag": "🇦🇸",
   "jumlah_penduduk": 43886,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const samoa_amerika_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const samoa_amerika_extra = {
 "": {
     "harga_beras": 22.4,
@@ -42,11 +43,11 @@ const samoa_amerika_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": samoa_amerika_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

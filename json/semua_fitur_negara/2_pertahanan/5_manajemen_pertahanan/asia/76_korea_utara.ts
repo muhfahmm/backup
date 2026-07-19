@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const korea_utara_pertahanan = {
     "penjara": 2,
     "gudang_senjata": 40,

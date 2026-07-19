@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 3,

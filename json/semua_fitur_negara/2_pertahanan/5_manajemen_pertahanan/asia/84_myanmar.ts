@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const myanmar_pertahanan = {
     "penjara": 14,
     "gudang_senjata": 28,

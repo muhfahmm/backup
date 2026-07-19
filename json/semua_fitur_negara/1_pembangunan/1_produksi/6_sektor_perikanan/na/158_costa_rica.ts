@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const costa_rica_perikanan = {
   udang: 42,
   mutiara: 45,

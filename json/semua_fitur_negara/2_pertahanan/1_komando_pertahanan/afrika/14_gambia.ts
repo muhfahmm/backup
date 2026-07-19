@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const gambia_strategis = {
     "waktu_respon": 2,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const paraguay_strategis = {
     "waktu_respon": 14,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepangVehicles = {
   sepeda_motor: 18979365,
   mobil: 10122328,

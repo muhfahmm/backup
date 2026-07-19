@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const yunani_agrikultur = {
   padi: 150,
   gandum: 320,

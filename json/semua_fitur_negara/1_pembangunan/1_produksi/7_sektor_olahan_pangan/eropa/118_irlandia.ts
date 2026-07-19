@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_olahan_pangan = {
   air_mineral: 1029,
   gula: 833,

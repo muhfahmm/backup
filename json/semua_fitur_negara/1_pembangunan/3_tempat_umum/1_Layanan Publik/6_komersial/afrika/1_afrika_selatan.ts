@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const afrika_selatan_komersial = {
   "mall": 15,
   "hotel": 28,

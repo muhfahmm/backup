@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_timor_leste_profile = {
   "name_en": "Timor-Leste",
   "capital": "Dili",
   "name_id": "Republik timor-leste",
   "lon": 125.91666666,
   "lat": -8.83333333,
-  "flag": "ðŸ‡¹ðŸ‡±",
+  "flag": "🇹🇱",
   "jumlah_penduduk": "10M",
   "anggaran": 19,
   "pendapatan_nasional": "56",
@@ -26,7 +26,8 @@ const republik_timor_leste_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const republik_timor_leste_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const republik_timor_leste_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": republik_timor_leste_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 35,

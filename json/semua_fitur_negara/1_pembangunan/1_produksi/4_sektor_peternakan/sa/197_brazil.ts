@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brazil_peternakan = {
   ayam_unggas: 3201,
   sapi_perah: 9894,

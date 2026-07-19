@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_intelijen = {
   sistem_satelit: 1,
   jaringan_radar: 4,

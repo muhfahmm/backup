@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const republik_rumania_hukum = {
       "pusat_bantuan_hukum": 24,
       "pengadilan": 40,

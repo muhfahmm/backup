@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const togoVehicles = {
   sepeda_motor: 1183364,
   mobil: 631127,

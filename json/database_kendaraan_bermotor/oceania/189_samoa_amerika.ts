@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoaAmerikaVehicles = {
   sepeda_motor: 8319,
   mobil: 4437,

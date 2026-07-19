@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const polandia_olahraga = {
   "kolam_renang": 88,
   "sirkuit_balap": 9,

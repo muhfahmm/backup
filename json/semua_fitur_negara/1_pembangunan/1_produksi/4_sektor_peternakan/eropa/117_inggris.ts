@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_peternakan = {
   ayam_unggas: 12000,
   sapi_perah: 5700,

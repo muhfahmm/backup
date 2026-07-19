@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const jepang_perikanan = {
   udang: 1428,
   mutiara: 5950,

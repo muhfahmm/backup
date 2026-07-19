@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const libya_pertahanan = {
     "penjara": 11,
     "gudang_senjata": 32,

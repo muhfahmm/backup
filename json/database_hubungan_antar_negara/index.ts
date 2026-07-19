@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 // Auto-generated Relations Index
   "aljazair": aljazair_relations,
   "angola": angola_relations,

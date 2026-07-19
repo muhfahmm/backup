@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const palestina_pendidikan = {
       "prasekolah": 90,
       "dasar": 141,

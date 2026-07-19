@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const brunei_olahan_pangan = {
   air_mineral: 33,
   gula: 135,

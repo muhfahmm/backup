@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_profile = {
   "name_en": "Liechtenstein",
   "capital": "Vaduz",
   "name_id": "Liechtenstein",
   "lon": 9.31,
   "lat": 47.08,
-  "flag": "ðŸ‡±ðŸ‡®",
+  "flag": "🇱🇮",
   "jumlah_penduduk": 41237,
   "anggaran": 97,
   "pendapatan_nasional": "278",
@@ -26,7 +26,8 @@ const liechtenstein_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const liechtenstein_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const liechtenstein_extra = {
     "harga_pendidikan": 387.12
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": liechtenstein_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 24,

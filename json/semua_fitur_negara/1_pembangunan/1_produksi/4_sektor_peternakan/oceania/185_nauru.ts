@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_peternakan = {
   ayam_unggas: 129,
   sapi_perah: 120,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const el_salvador_manufaktur = {
   semikonduktor: 25,
   mobil: 60,

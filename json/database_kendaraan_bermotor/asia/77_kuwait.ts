@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwaitVehicles = {
   sepeda_motor: 620596,
   mobil: 330984,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const burkina_faso_profile = {
   "name_en": "Burkina Faso",
   "capital": "Ouagadougou",
   "name_id": "Burkina faso",
   "lon": -2,
   "lat": 13,
-  "flag": "ðŸ‡§ðŸ‡«",
+  "flag": "🇧🇫",
   "jumlah_penduduk": 22185654,
   "anggaran": 175,
   "pendapatan_nasional": "500",
@@ -26,7 +26,8 @@ const burkina_faso_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
   }
-  };
+  };
+
 const burkina_faso_extra = {
 "": {
     "harga_beras": 12.8,
@@ -42,11 +43,11 @@ const burkina_faso_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": burkina_faso_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 29,

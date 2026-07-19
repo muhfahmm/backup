@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const spanyol_agrikultur = {
   padi: 5452,
   gandum: 3828,

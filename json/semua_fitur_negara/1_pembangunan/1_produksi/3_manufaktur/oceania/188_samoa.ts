@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const samoa_manufaktur = {
   semikonduktor: 18,
   mobil: 18,

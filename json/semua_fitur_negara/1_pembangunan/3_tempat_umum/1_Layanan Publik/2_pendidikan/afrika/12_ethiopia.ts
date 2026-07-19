@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const ethiopia_pendidikan = {
       "prasekolah": 84,
       "dasar": 54,

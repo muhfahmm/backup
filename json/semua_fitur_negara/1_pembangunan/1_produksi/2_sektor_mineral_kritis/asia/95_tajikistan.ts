@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_ekstraksi = {
   emas: 19,
   uranium: 0,

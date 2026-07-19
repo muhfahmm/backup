@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const lesotho_pendidikan = {
       "prasekolah": 37,
       "dasar": 68,

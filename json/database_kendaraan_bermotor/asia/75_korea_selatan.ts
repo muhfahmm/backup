@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const koreaSelatanVehicles = {
   sepeda_motor: 0,
   mobil: 0,

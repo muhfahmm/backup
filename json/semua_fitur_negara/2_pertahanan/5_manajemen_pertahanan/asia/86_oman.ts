@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const oman_pertahanan = {
     "penjara": 8,
     "gudang_senjata": 24,

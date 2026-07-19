@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kuwait_manufaktur = {
   semikonduktor: 300,
   mobil: 160,

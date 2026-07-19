@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const albania_strategis = {
     "waktu_respon": 28,

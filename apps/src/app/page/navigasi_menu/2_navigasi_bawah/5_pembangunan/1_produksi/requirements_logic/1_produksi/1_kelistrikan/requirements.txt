@@ -5,7 +5,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
  > bahan bakar:
@@ -17,7 +17,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  ltj (dari logam_tanah_jarang)
 
 3. pembangkit_listrik_tenaga_nuklir
@@ -26,7 +26,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
  > bahan bakar
@@ -36,7 +36,7 @@
  > pembangunan
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
 
@@ -46,7 +46,7 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)
  > bahan bakar
@@ -59,6 +59,6 @@
  kayu (dari kayu)
  baja (dari baja)
  tembaga (dari tembaga)
- alumunium (dari alumunium)
+ aluminium (dari aluminium)
  nikel (dari nikel)
  besi (dari bijih_besi)

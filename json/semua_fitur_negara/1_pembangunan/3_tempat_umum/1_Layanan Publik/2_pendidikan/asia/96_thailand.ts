@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const thailand_pendidikan = {
       "prasekolah": 308,
       "dasar": 201,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const san_marino_komersial = {
   "mall": 6,
   "hotel": 8,

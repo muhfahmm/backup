@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const bahamaVehicles = {
   sepeda_motor: 57846,
   mobil: 30851,

@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const nauru_profile = {
   "name_en": "Nauru",
   "capital": "Yaren",
   "name_id": "Nauru",
   "lon": 166.91666666,
   "lat": -0.53333333,
-  "flag": "ðŸ‡³ðŸ‡·",
+  "flag": "🇳🇷",
   "jumlah_penduduk": 11680,
   "anggaran": 10,
   "pendapatan_nasional": "15",
@@ -26,7 +26,8 @@ const nauru_geopolitik = {
       "kekuatan_keras": 36,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const nauru_extra = {
 "": {
     "harga_beras": 16,
@@ -42,11 +43,11 @@ const nauru_extra = {
     "harga_pendidikan": 967.8
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": nauru_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 37,

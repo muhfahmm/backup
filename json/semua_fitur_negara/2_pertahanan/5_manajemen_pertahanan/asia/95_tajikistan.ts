@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const tajikistan_pertahanan = {
     "penjara": 13,
     "gudang_senjata": 10,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const irlandia_kesehatan = {
       "rumah_sakit_besar": 31,
       "rumah_sakit_kecil": 107,

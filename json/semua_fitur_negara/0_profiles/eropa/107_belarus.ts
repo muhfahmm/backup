@@ -1,11 +1,11 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belarus_profile = {
   "name_en": "Belarus",
   "capital": "Minsk",
   "name_id": "Belarus",
   "lon": 28,
   "lat": 53,
-  "flag": "ðŸ‡§ðŸ‡¾",
+  "flag": "🇧🇾",
   "jumlah_penduduk": 9056696,
   "anggaran": 681,
   "pendapatan_nasional": "1945",
@@ -26,7 +26,8 @@ const belarus_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
+  };
+
 const belarus_extra = {
 "": {
     "harga_beras": 8,
@@ -42,11 +43,11 @@ const belarus_extra = {
     "harga_pendidikan": 483.9
   },
     // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
+  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
   // =============================================================
   "geopolitik": belarus_geopolitik,
   // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
+  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
   // =============================================================
   "kementerian": {
     "kesehatan": 21,

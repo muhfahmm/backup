@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const finlandia_komersial = {
   "mall": 11,
   "hotel": 28,

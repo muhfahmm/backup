@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const inggris_pertahanan = {
     "penjara": 16,
     "gudang_senjata": 9,

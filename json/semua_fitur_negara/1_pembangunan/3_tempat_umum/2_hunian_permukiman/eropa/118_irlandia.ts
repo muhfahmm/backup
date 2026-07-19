@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const irlandia_hunian = {
   rumah_subsidi: 65708,

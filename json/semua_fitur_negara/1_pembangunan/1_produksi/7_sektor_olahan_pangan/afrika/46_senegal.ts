@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const senegal_olahan_pangan = {
   air_mineral: 11,
   gula: 12,

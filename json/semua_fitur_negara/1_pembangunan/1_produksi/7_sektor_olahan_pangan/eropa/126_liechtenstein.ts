@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const liechtenstein_olahan_pangan = {
   air_mineral: 64,
   gula: 152,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const belize_agrikultur = {
   padi: 124,
   gandum: 122,

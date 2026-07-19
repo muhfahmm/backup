@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const grenada_olahan_pangan = {
   air_mineral: 15,
   gula: 21,

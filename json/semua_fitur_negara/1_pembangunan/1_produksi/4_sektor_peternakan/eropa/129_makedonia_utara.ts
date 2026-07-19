@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const makedonia_utara_peternakan = {
   ayam_unggas: 141,
   sapi_perah: 96,

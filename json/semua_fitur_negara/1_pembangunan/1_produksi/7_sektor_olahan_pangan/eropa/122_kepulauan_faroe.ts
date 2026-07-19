@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const kepulauan_faroe_olahan_pangan = {
   air_mineral: 23,
   gula: 37,

@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 const maldives_perikanan = {
   udang: 54,
   mutiara: 24,

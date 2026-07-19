@@ -1,4 +1,4 @@
-﻿// @ts-nocheck
+// @ts-nocheck
 
 const estonia_strategis = {
     "waktu_respon": 17,
