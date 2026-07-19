@@ -3,77 +3,77 @@
 // ===========================
 // 1. MINERAL KRITIS
 // ===========================
-export { hasUraniumBuilding } from "./logic/1_mineral_kritis/1_uranium_logic";
-export { hasBatubaraBuilding } from "./logic/1_mineral_kritis/2_batubara_logic";
-export { hasMinyakBumiBuilding } from "./logic/1_mineral_kritis/3_minyak_bumi_logic";
-export { hasGasAlamBuilding } from "./logic/1_mineral_kritis/4_gas_alam_logic";
-export { hasGaramBuilding } from "./logic/1_mineral_kritis/5_garam_logic";
-export { hasNikelBuilding } from "./logic/1_mineral_kritis/6_nikel_logic";
-export { hasLitiumBuilding } from "./logic/1_mineral_kritis/7_litium_logic";
-export { hasTembagaBuilding } from "./logic/1_mineral_kritis/8_tembaga_logic";
-export { hasAluminiumBuilding } from "./logic/1_mineral_kritis/9_aluminium_logic";
-export { hasLogamTanahJarangBuilding } from "./logic/1_mineral_kritis/10_logam_tanah_jarang_logic";
-export { hasBijihBesiBuilding } from "./logic/1_mineral_kritis/11_bijih_besi_logic";
+export const hasUraniumBuilding = (data: any) => Number(data?.uranium || 0) > 0;
+export const hasBatubaraBuilding = (data: any) => Number(data?.batu_bara || 0) > 0;
+export const hasMinyakBumiBuilding = (data: any) => Number(data?.minyak_bumi || 0) > 0;
+export const hasGasAlamBuilding = (data: any) => Number(data?.gas_alam || 0) > 0;
+export const hasGaramBuilding = (data: any) => Number(data?.garam || 0) > 0;
+export const hasNikelBuilding = (data: any) => Number(data?.nikel || 0) > 0;
+export const hasLitiumBuilding = (data: any) => Number(data?.litium || 0) > 0;
+export const hasTembagaBuilding = (data: any) => Number(data?.tembaga || 0) > 0;
+export const hasAluminiumBuilding = (data: any) => Number(data?.aluminium || 0) > 0;
+export const hasLogamTanahJarangBuilding = (data: any) => Number(data?.logam_tanah_jarang || 0) > 0;
+export const hasBijihBesiBuilding = (data: any) => Number(data?.bijih_besi || 0) > 0;
 
 // ===========================
 // 2. MANUFAKTUR
 // ===========================
-export { hasSemikonduktorBuilding } from "./logic/2_manufaktur/1_semikonduktor_logic";
-export { hasMobilBuilding } from "./logic/2_manufaktur/2_mobil_logic";
-export { hasSepedaMotorBuilding } from "./logic/2_manufaktur/3_sepeda_motor_logic";
-export { hasSmelterBuilding } from "./logic/2_manufaktur/4_smelter_logic";
-export { hasSemenBetonBuilding } from "./logic/2_manufaktur/5_semen_beton_logic";
-export { hasKayuBuilding } from "./logic/2_manufaktur/6_kayu_logic";
-export { hasPupukBuilding } from "./logic/2_manufaktur/7_pupuk_logic";
+export const hasSemikonduktorBuilding = (data: any) => Number(data?.semikonduktor || 0) > 0;
+export const hasMobilBuilding = (data: any) => Number(data?.mobil || 0) > 0;
+export const hasSepedaMotorBuilding = (data: any) => Number(data?.sepeda_motor || 0) > 0;
+export const hasSmelterBuilding = (data: any) => Number(data?.smelter || 0) > 0;
+export const hasSemenBetonBuilding = (data: any) => Number(data?.semen_beton || 0) > 0;
+export const hasKayuBuilding = (data: any) => Number(data?.kayu || 0) > 0;
+export const hasPupukBuilding = (data: any) => Number(data?.pupuk || 0) > 0;
 
 // ===========================
 // 3. PETERNAKAN
 // ===========================
-export { hasAyamUnggasBuilding } from "./logic/3_peternakan/1_ayam_unggas_logic";
-export { hasSapiPerahBuilding } from "./logic/3_peternakan/2_sapi_perah_logic";
-export { hasSapiPotongBuilding } from "./logic/3_peternakan/3_sapi_potong_logic";
-export { hasDombaKambingBuilding } from "./logic/3_peternakan/4_domba_kambing_logic";
+export const hasAyamUnggasBuilding = (data: any) => Number(data?.ayam_unggas || 0) > 0;
+export const hasSapiPerahBuilding = (data: any) => Number(data?.sapi_perah || 0) > 0;
+export const hasSapiPotongBuilding = (data: any) => Number(data?.sapi_potong || 0) > 0;
+export const hasDombaKambingBuilding = (data: any) => Number(data?.domba_kambing || 0) > 0;
 
 // ===========================
 // 4. AGRIKULTUR
 // ===========================
-export { hasPadiBuilding } from "./logic/4_agrikultur/1_padi_logic";
-export { hasGandumBuilding } from "./logic/4_agrikultur/2_gandum_logic";
-export { hasJagungBuilding } from "./logic/4_agrikultur/3_jagung_logic";
-export { hasUmbiBuilding } from "./logic/4_agrikultur/4_umbi_logic";
-export { hasKedelaiBuilding } from "./logic/4_agrikultur/5_kedelai_logic";
-export { hasKelapaSawitBuilding } from "./logic/4_agrikultur/6_kelapa_sawit_logic";
-export { hasTehBuilding } from "./logic/4_agrikultur/7_teh_logic";
-export { hasKopiBuilding } from "./logic/4_agrikultur/8_kopi_logic";
-export { hasKakaoBuilding } from "./logic/4_agrikultur/9_kakao_logic";
-export { hasTebuBuilding } from "./logic/4_agrikultur/10_tebu_logic";
-export { hasSayurBuilding } from "./logic/4_agrikultur/11_sayur_logic";
-export { hasKaretBuilding } from "./logic/4_agrikultur/12_karet_logic";
-export { hasKapasBuilding } from "./logic/4_agrikultur/13_kapas_logic";
-export { hasTembakauBuilding } from "./logic/4_agrikultur/14_tembakau_logic";
+export const hasPadiBuilding = (data: any) => Number(data?.padi || 0) > 0;
+export const hasGandumBuilding = (data: any) => Number(data?.gandum || 0) > 0;
+export const hasJagungBuilding = (data: any) => Number(data?.jagung || 0) > 0;
+export const hasUmbiBuilding = (data: any) => Number(data?.umbi || 0) > 0;
+export const hasKedelaiBuilding = (data: any) => Number(data?.kedelai || 0) > 0;
+export const hasKelapaSawitBuilding = (data: any) => Number(data?.kelapa_sawit || 0) > 0;
+export const hasTehBuilding = (data: any) => Number(data?.teh || 0) > 0;
+export const hasKopiBuilding = (data: any) => Number(data?.kopi || 0) > 0;
+export const hasKakaoBuilding = (data: any) => Number(data?.kakao || 0) > 0;
+export const hasTebuBuilding = (data: any) => Number(data?.tebu || 0) > 0;
+export const hasSayurBuilding = (data: any) => Number(data?.sayur || 0) > 0;
+export const hasKaretBuilding = (data: any) => Number(data?.karet || 0) > 0;
+export const hasKapasBuilding = (data: any) => Number(data?.kapas || 0) > 0;
+export const hasTembakauBuilding = (data: any) => Number(data?.tembakau || 0) > 0;
 
 // ===========================
 // 5. PERIKANAN
 // ===========================
-export { hasUdangBuilding } from "./logic/5_perikanan/1_udang_logic";
-export { hasIkanBuilding } from "./logic/5_perikanan/2_ikan_logic";
-export { hasMutiaraBuilding } from "./logic/5_perikanan/3_mutiara_logic";
+export const hasUdangBuilding = (data: any) => Number(data?.udang || 0) > 0;
+export const hasIkanBuilding = (data: any) => Number(data?.ikan || 0) > 0;
+export const hasMutiaraBuilding = (data: any) => Number(data?.mutiara || 0) > 0;
 
 // ===========================
 // 6. OLAHAN PANGAN
 // ===========================
-export { hasAirMineralBuilding } from "./logic/6_pangan/1_air_mineral_logic";
-export { hasGulaBuilding } from "./logic/6_pangan/2_gula_logic";
-export { hasRotiBuilding } from "./logic/6_pangan/3_roti_logic";
-export { hasPengolahanDagingBuilding } from "./logic/6_pangan/4_pengolahan_daging_logic";
-export { hasMieInstanBuilding } from "./logic/6_pangan/5_mie_instan_logic";
-export { hasMinyakGorengBuilding } from "./logic/6_pangan/6_minyak_goreng_logic";
-export { hasSusuBuilding } from "./logic/6_pangan/7_susu_logic";
-export { hasPakanTernakBuilding } from "./logic/6_pangan/8_pakan_ternak_logic";
-export { hasIkanKalengBuilding } from "./logic/6_pangan/9_ikan_kaleng_logic";
-export { hasKopiTehBuilding } from "./logic/6_pangan/10_kopi_teh_logic";
+export const hasAirMineralBuilding = (data: any) => Number(data?.air_mineral || 0) > 0;
+export const hasGulaBuilding = (data: any) => Number(data?.gula || 0) > 0;
+export const hasRotiBuilding = (data: any) => Number(data?.roti || 0) > 0;
+export const hasPengolahanDagingBuilding = (data: any) => Number(data?.pengolahan_daging || 0) > 0;
+export const hasMieInstanBuilding = (data: any) => Number(data?.mie_instan || 0) > 0;
+export const hasMinyakGorengBuilding = (data: any) => Number(data?.minyak_goreng || 0) > 0;
+export const hasSusuBuilding = (data: any) => Number(data?.susu || 0) > 0;
+export const hasPakanTernakBuilding = (data: any) => Number(data?.pakan_ternak || 0) > 0;
+export const hasIkanKalengBuilding = (data: any) => Number(data?.ikan_kaleng || 0) > 0;
+export const hasKopiTehBuilding = (data: any) => Number(data?.kopi_teh || 0) > 0;
 
 // ===========================
-// 7. FARMASI (TAMBAHAN BARU)
+// 7. FARMASI
 // ===========================
-export { hasFarmasiBuilding } from "./logic/7_farmasi/1_farmasi_logic";
+export const hasFarmasiBuilding = (data: any) => Number(data?.farmasi || 0) > 0;
