@@ -91,6 +91,7 @@ interface ModalsKonfirmasiBeliProps {
   setCountryDetail: (detail: CountryDetail | ((prev: CountryDetail) => CountryDetail)) => void;
   partners: TradePartner[];
   currentDate?: Date;
+  initialPartnerName?: string;
 }
 
 // --- HARGA DEFAULT PASAR (BERLAKU UNTUK BELI) ---
@@ -200,7 +201,8 @@ export default function ModalsKonfirmasiBeli({
   countryDetail, 
   setCountryDetail, 
   partners,
-  currentDate
+  currentDate,
+  initialPartnerName
 }: ModalsKonfirmasiBeliProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -450,12 +452,14 @@ export default function ModalsKonfirmasiBeli({
       setQuantity(1);
     }
 
-    if (partners.length > 0 && !selectedCountry) {
+    if (initialPartnerName && !selectedCountry) {
+      setSelectedCountry(initialPartnerName);
+    } else if (partners.length > 0 && !selectedCountry) {
       setSelectedCountry(partners[0].nama_negara);
     }
 
     isInitialized.current = true;
-  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct]);
+  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct, initialPartnerName]);
 
   useEffect(() => {
     if (!isOpen || !selectedProduct || !countryDetail) return;

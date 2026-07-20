@@ -46,10 +46,12 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
   const [isConfirmBeliOpen, setIsConfirmBeliOpen] = useState(false);
   const [isJualOpen, setIsJualOpen] = useState(false);
   const [isMitraOpen, setIsMitraOpen] = useState(false);
+  const [activeTradePartner, setActiveTradePartner] = useState<TradePartner | null>(null);
 
   // Fungsi trigger untuk Beli dari halaman Mitra
   const openBeliModals = (partner: TradePartner) => {
     console.log("Membuka modal Beli dari mitra:", partner.nama_negara);
+    setActiveTradePartner(partner);
     setIsMitraOpen(false);
     setIsConfirmBeliOpen(true);
   };
@@ -57,6 +59,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
   // Fungsi trigger untuk Jual dari halaman Mitra
   const openJualModals = (partner: TradePartner) => {
     console.log("Membuka modal Jual dari mitra:", partner.nama_negara);
+    setActiveTradePartner(partner);
     setIsMitraOpen(false);
     setIsJualOpen(true);
   };
@@ -163,7 +166,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                 Jual
               </button>
               <button
-                onClick={() => setIsConfirmBeliOpen(true)}
+                onClick={() => { setActiveTradePartner(null); setIsConfirmBeliOpen(true); }}
                 className="flex-1 min-w-[150px] py-3 rounded-lg bg-[#2d6e6e] hover:bg-[#255c5c] active:bg-[#1f4f4f] text-[#FAF6EE] text-xs font-bold uppercase tracking-wide cursor-pointer transition-all shadow-sm"
               >
                 Beli
@@ -218,22 +221,24 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
 
       <ModalsKonfirmasiBeli 
         isOpen={isConfirmBeliOpen} 
-        onClose={() => setIsConfirmBeliOpen(false)} 
+        onClose={() => { setIsConfirmBeliOpen(false); setActiveTradePartner(null); }} 
         countryDetail={countryDetail} 
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("beli", biaya, kuantitas)} 
         partners={allPartners}
         currentDate={currentDate}
+        initialPartnerName={activeTradePartner?.nama_negara}
       />
 
       <JualModalsMenu 
         isOpen={isJualOpen} 
-        onClose={() => setIsJualOpen(false)} 
+        onClose={() => { setIsJualOpen(false); setActiveTradePartner(null); }} 
         countryDetail={countryDetail} 
         setCountryDetail={setCountryDetail} 
         onConfirm={(biaya, kuantitas) => addHistoryEntry("jual", biaya, kuantitas)} 
         currentDate={currentDate}
         partners={allPartners}
+        initialPartnerName={activeTradePartner?.nama_negara}
       />
 
       <MitraModalsMenu 

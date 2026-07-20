@@ -90,6 +90,7 @@ interface JualModalsMenuProps {
   onConfirm: (biaya: number, kuantitas: string) => void;
   currentDate?: Date;
   partners: TradePartner[];
+  initialPartnerName?: string;
 }
 
 // --- HARGA DEFAULT PER KOMODITAS ---
@@ -256,7 +257,7 @@ const generateCandleData = (
   return data.reverse();
 };
 
-export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate, partners }: JualModalsMenuProps) {
+export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate, partners, initialPartnerName }: JualModalsMenuProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -454,10 +455,14 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     if (isOpen && selectedProduct === "") {
       const firstAvailable = getFirstAvailableProduct();
       setSelectedProduct(firstAvailable);
-      if (partners.length > 0) setSelectedCountry(partners[0].nama_negara);
+      if (initialPartnerName && !selectedCountry) {
+        setSelectedCountry(initialPartnerName);
+      } else if (partners.length > 0 && !selectedCountry) {
+        setSelectedCountry(partners[0].nama_negara);
+      }
       setQuantity(1);
     }
-  }, [isOpen, partners]);
+  }, [isOpen, partners, initialPartnerName]);
 
   // --- EFEK UPDATE PRODUK SAAT MITRA BERUBAH ---
   useEffect(() => {
