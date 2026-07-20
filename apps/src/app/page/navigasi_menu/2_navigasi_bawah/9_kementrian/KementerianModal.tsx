@@ -259,6 +259,11 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
     targetLevel: number;
     cost: number;
   } | null>(null);
+  const [confirmDowngrade, setConfirmDowngrade] = useState<{
+    dept: Department;
+    fromLevel: number;
+    targetLevel: number;
+  } | null>(null);
 
   const money = countryDetail?.anggaran ?? 325800;
 
@@ -287,13 +292,19 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
   const handleLevelBoxClick = (dept: Department, targetLevel: number) => {
     const currentLevel = getLevel(dept.id);
 
-    if (targetLevel <= currentLevel) return;
-    if (targetLevel > MAX_LEVEL) return;
+    if (targetLevel === currentLevel) return; // tidak ada aksi
 
-    const totalCost = getTotalUpgradeCost(currentLevel, targetLevel);
-    if (money < totalCost) return;
-
-    setConfirmUpgrade({ dept, fromLevel: currentLevel, targetLevel, cost: totalCost });
+    if (targetLevel > currentLevel) {
+      // Upgrade
+      if (targetLevel > MAX_LEVEL) return;
+      const totalCost = getTotalUpgradeCost(currentLevel, targetLevel);
+      if (money < totalCost) return;
+      setConfirmUpgrade({ dept, fromLevel: currentLevel, targetLevel, cost: totalCost });
+    } else if (targetLevel < currentLevel) {
+      // Downgrade
+      if (targetLevel < 1) return;
+      setConfirmDowngrade({ dept, fromLevel: currentLevel, targetLevel });
+    }
   };
 
   const handleConfirmUpgrade = () => {
@@ -313,14 +324,23 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
     setConfirmUpgrade(null);
   };
 
+  const handleConfirmDowngrade = () => {
+    if (!confirmDowngrade) return;
+    const { dept, targetLevel } = confirmDowngrade;
+    setCountryDetail({
+      ...countryDetail,
+      [`level_${dept.id}`]: targetLevel,
+    });
+    setLevels((prev) => ({ ...prev, [dept.id]: targetLevel }));
+    setConfirmDowngrade(null);
+  };
+
   const activeData = TABS.find((t) => t.key === activeTab)?.data ?? [];
 
   return (
     <>
       {/* ========== MODAL UTAMA ========== */}
-      {/* PERBAIKAN: Hapus bg-black/65 */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-        {/* PERBAIKAN: Tambahkan pointer-events-auto */}
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
@@ -370,7 +390,8 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
             <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
               Kelola kabinet pemerintahan tertinggi negara untuk menjaga kinerja pelayanan birokrasi
               Anda tetap berintegritas. Tekan salah satu kotak level untuk melompat langsung ke level
-              tersebut — biaya akan dijumlahkan dari semua level yang dilewati.
+              tersebut — biaya akan dijumlahkan dari semua level yang dilewati. Tekan kotak yang sudah terisi
+              untuk menurunkan level (downgrade) dan mengurangi biaya operasional harian.
             </p>
 
             <div className="space-y-4">
@@ -413,7 +434,7 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                           {income.toLocaleString("id-ID")} per hari
                         </div>
 
-                        {/* 10 kotak level */}
+                        {/* 10 kotak level - dengan dukungan downgrade */}
                         <div className="flex gap-1">
                           {Array.from({ length: MAX_LEVEL }).map((_, i) => {
                             const boxLevel = i + 1;
@@ -421,27 +442,28 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                             const isJumpTarget = boxLevel > level;
                             const jumpCost = isJumpTarget ? getTotalUpgradeCost(level, boxLevel) : 0;
                             const canAffordJump = isJumpTarget && money >= jumpCost;
+                            const isDowngradeTarget = boxLevel < level;
 
                             return (
                               <button
                                 key={i}
                                 type="button"
-                                onClick={() => {
-                                  if (isJumpTarget && canAffordJump) {
-                                    handleLevelBoxClick(dept, boxLevel);
-                                  }
-                                }}
-                                disabled={!isJumpTarget || !canAffordJump}
+                                onClick={() => handleLevelBoxClick(dept, boxLevel)}
+                                disabled={boxLevel === level}
                                 title={
-                                  filled
-                                    ? `Level ${boxLevel} sudah tercapai`
+                                  boxLevel === level
+                                    ? `Level saat ini`
+                                    : filled
+                                    ? `Klik untuk turun ke level ${boxLevel} (downgrade)`
                                     : canAffordJump
                                     ? `Lompat ke level ${boxLevel}: ${jumpCost.toLocaleString("id-ID")} EM`
                                     : `Kas tidak cukup untuk level ${boxLevel} (butuh ${jumpCost.toLocaleString("id-ID")} EM)`
                                 }
                                 className={`h-4 flex-1 rounded-sm transition-all ${
-                                  filled
+                                  boxLevel === level
                                     ? "bg-amber-500 cursor-default"
+                                    : filled
+                                    ? "bg-amber-500 hover:bg-amber-600/60 cursor-pointer"
                                     : canAffordJump
                                     ? "bg-[#1e3b39] hover:bg-amber-700/60 cursor-pointer"
                                     : "bg-[#1e3b39] cursor-not-allowed opacity-60"
@@ -483,13 +505,11 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
       </div>
 
       {/* ========== INFO POPUP ========== */}
-      {/* PERBAIKAN: Hapus bg-black/50 */}
       {infoTarget && (
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none"
           onClick={() => setInfoTarget(null)}
         >
-          {/* PERBAIKAN: Tambahkan pointer-events-auto */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md p-6 shadow-2xl relative pointer-events-auto"
@@ -520,13 +540,11 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
       )}
 
       {/* ========== CONFIRMATION UPGRADE POPUP ========== */}
-      {/* PERBAIKAN: Hapus bg-black/50 */}
       {confirmUpgrade && (
         <div
           className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none"
           onClick={() => setConfirmUpgrade(null)}
         >
-          {/* PERBAIKAN: Tambahkan pointer-events-auto */}
           <div
             onClick={(e) => e.stopPropagation()}
             className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md p-6 shadow-2xl relative pointer-events-auto"
@@ -609,6 +627,74 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                 className="flex-1 px-4 py-2.5 rounded-lg bg-amber-600 text-white hover:bg-amber-500 active:bg-amber-700 transition-all font-bold text-sm uppercase cursor-pointer border-2 border-amber-700 shadow-md"
               >
                 Upgrade
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ========== CONFIRMATION DOWNGRADE POPUP ========== */}
+      {confirmDowngrade && (
+        <div
+          className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none"
+          onClick={() => setConfirmDowngrade(null)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-md p-6 shadow-2xl relative pointer-events-auto"
+          >
+            <button
+              onClick={() => setConfirmDowngrade(null)}
+              className="absolute top-3 right-3 text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <div className="flex items-center gap-3 mb-4">
+              <div className="h-12 w-12 rounded-lg bg-[#e4dac3]/50 border border-[#C4B49C]/40 flex items-center justify-center shrink-0">
+                <confirmDowngrade.dept.icon className="h-6 w-6 text-[#5c3c10]" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-[#5c3c10] uppercase leading-none">
+                  {confirmDowngrade.dept.name}
+                </h3>
+                <p className="text-[10px] text-[#8b7e66] font-semibold mt-1">
+                  Level {confirmDowngrade.fromLevel} → {confirmDowngrade.targetLevel}
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg p-4 mb-4">
+              <p className="text-xs text-[#8b7e66] font-semibold mb-2">
+                Anda akan menurunkan level departemen ini dari {confirmDowngrade.fromLevel} ke {confirmDowngrade.targetLevel}.
+                Biaya operasional harian akan berkurang sesuai level baru.
+              </p>
+              <div className="flex justify-between items-center text-xs font-bold text-[#5c3c10] border-t border-[#C4B49C]/30 pt-3">
+                <span>Biaya harian saat ini (level {confirmDowngrade.fromLevel}):</span>
+                <span className="text-rose-700">- {LEVEL_UP_COST[confirmDowngrade.fromLevel].toLocaleString("id-ID")} EM</span>
+              </div>
+              <div className="flex justify-between items-center text-xs font-bold text-[#5c3c10] mt-1">
+                <span>Biaya harian baru (level {confirmDowngrade.targetLevel}):</span>
+                <span className="text-emerald-700">- {LEVEL_UP_COST[confirmDowngrade.targetLevel].toLocaleString("id-ID")} EM</span>
+              </div>
+            </div>
+
+            <p className="text-xs text-[#8b7e66] font-semibold mb-6">
+              {confirmDowngrade.dept.description}
+            </p>
+
+            <div className="flex gap-3">
+              <button
+                onClick={() => setConfirmDowngrade(null)}
+                className="flex-1 px-4 py-2.5 rounded-lg border-2 border-[#C4B49C] bg-[#FAF6EE] text-[#8b7e66] hover:bg-[#e4dac3]/40 active:bg-[#e4dac3] transition-all font-bold text-sm uppercase cursor-pointer"
+              >
+                Batal
+              </button>
+              <button
+                onClick={handleConfirmDowngrade}
+                className="flex-1 px-4 py-2.5 rounded-lg bg-amber-600 text-white hover:bg-amber-500 active:bg-amber-700 transition-all font-bold text-sm uppercase cursor-pointer border-2 border-amber-700 shadow-md"
+              >
+                Turunkan Level
               </button>
             </div>
           </div>

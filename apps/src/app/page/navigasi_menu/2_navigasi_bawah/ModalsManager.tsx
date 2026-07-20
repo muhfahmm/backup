@@ -210,6 +210,11 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           selectedCountry={selectedCountry}
+          onGotoPajak={() => setActiveMenu("Menu:Pajak")}
+          onGotoProduction={(tab, key) => {
+            setActiveMenu("Menu:Produksi");
+            setProductionDeepLink?.({ tab, key });
+          }}
         />
       );
     case "Menu:PDB":

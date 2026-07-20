@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, BarChart3, ArrowUpRight, ArrowDownRight, Globe } from "lucide-react";
+import { X, BarChart3, ArrowUpRight, ArrowDownRight } from "lucide-react";
 import {
   calculateTotalTaxIncome,
   calculateGoldIncome,
@@ -9,26 +9,28 @@ import {
 } from "@/app/logic/economic_logic/treasuryUpdater";
 import { calculateGoldMiningDailyProduction, GOLD_MINING_PRODUCTION_PER_BUILDING } from "@/app/logic/economic_logic/goldIncome";
 import { KEMENTERIAN, KEAMANAN, LAYANAN, Department } from "@/app/logic/economic_logic/departments";
-import FinansialGlobal from "./finansial_global/finansialGlobal";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   countryDetail: any;
   selectedCountry: any;
+  onGotoPajak?: () => void;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
 interface FinancialItem {
   label: string;
   amount: number;
-  subtitle?: string;
-  extra?: string;
   displayAmount?: string;
+  onClick?: () => void;
 }
+
+// --- PERBAIKAN: Pindahkan LEVEL_UP_COST ke sini agar bisa diakses oleh JSX ---
+const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
 
 // Helper untuk biaya harian per tab departemen
 const calculateTabCostDaily = (countryDetail: any, departments: Department[]) => {
-  const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
   let totalCost = 0;
   for (const dept of departments) {
     const level = countryDetail[`level_${dept.id}`] ?? 1;
@@ -47,34 +49,31 @@ const calculateTourismIncome = (countryDetail: any) => {
   return 0;
 };
 
-export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
+// --- KOMPONEN UTAMA ---
+export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDetail, selectedCountry, onGotoPajak, onGotoProduction }: ModalProps) {
   if (!isOpen) return null;
 
-  const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome" | "global">("summary");
+  const [activeTab, setActiveTab] = useState<"summary" | "income" | "outcome">("summary");
   const [outcomeSubTab, setOutcomeSubTab] = useState<"kementerian" | "keamanan" | "layanan">("kementerian");
 
-  // Menggunakan helper dari financeHelper
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
   const goldIncome = calculateGoldIncome(countryDetail);
   const ministryCostPerDay = calculateMinistryCost(countryDetail);
-  const tourismIncome = calculateTourismIncome(countryDetail); // opsional
+  const tourismIncome = calculateTourismIncome(countryDetail);
 
   const goldBuildingCount = Number(countryDetail?.emas) || 0;
   const goldUnits = calculateGoldMiningDailyProduction(countryDetail);
 
   const incomeItems: FinancialItem[] = [
-    { label: "Revenue Pajak", amount: taxRevenue },
+    { label: "Revenue Pajak", amount: taxRevenue, onClick: () => onGotoPajak?.() },
     {
       label: goldBuildingCount > 0
         ? `Produksi Tambang Emas (${goldIncome.toLocaleString('id-ID')})`
         : "Produksi Tambang Emas",
       amount: goldIncome,
       displayAmount: goldBuildingCount > 0 ? `+ ${goldUnits.toLocaleString('id-ID')} unit` : undefined,
-      subtitle: goldBuildingCount > 0
-        ? `${GOLD_MINING_PRODUCTION_PER_BUILDING} × ${goldBuildingCount.toLocaleString('id-ID')} bangunan = ${goldUnits.toLocaleString('id-ID')} unit`
-        : undefined,
+      onClick: () => onGotoProduction?.("mineral", "emas"),
     }
-    // Jika ingin memasukkan pariwisata, tambahkan item di sini
   ];
 
   const outcomeItems: FinancialItem[] = [
@@ -119,12 +118,12 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
           </button>
         </div>
 
-        {/* Tab Navigation */}
+        {/* Tab Navigation (Hanya 3 Tab) */}
         <div className="px-8 pt-6 relative z-10">
           <div className="flex gap-3 border-b-2 border-[#C4B49C]/30 pb-1">
             <button
               onClick={() => setActiveTab("summary")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all ${
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
                 activeTab === "summary"
                   ? "bg-[#5c3c10] text-[#FAF6EE] shadow-lg shadow-[#5c3c10]/20"
                   : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#5c3c10]/5"
@@ -134,7 +133,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
             </button>
             <button
               onClick={() => setActiveTab("income")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === "income"
                   ? "bg-[#5c3c10] text-[#FAF6EE] shadow-lg shadow-[#5c3c10]/20"
                   : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#5c3c10]/5"
@@ -145,7 +144,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
             </button>
             <button
               onClick={() => setActiveTab("outcome")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer ${
                 activeTab === "outcome"
                   ? "bg-[#5c3c10] text-[#FAF6EE] shadow-lg shadow-[#5c3c10]/20"
                   : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#5c3c10]/5"
@@ -154,23 +153,13 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
               <ArrowDownRight className="h-3.5 w-3.5" />
               Pengeluaran
             </button>
-            <button
-              onClick={() => setActiveTab("global")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 ${
-                activeTab === "global"
-                  ? "bg-[#5c3c10] text-[#FAF6EE] shadow-lg shadow-[#5c3c10]/20"
-                  : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#5c3c10]/5"
-              }`}
-            >
-              <Globe className="h-3.5 w-3.5" />
-              APBN Semua Negara
-            </button>
           </div>
         </div>
 
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-6 max-w-3xl mx-auto">
+            
             {/* Summary Tab */}
             {activeTab === "summary" && (
               <div className="space-y-6">
@@ -214,20 +203,13 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <div className="space-y-3">
                     {incomeItems.map((item, index) => (
                       <div key={index} className="border-b border-[#C4B49C]/20 last:border-0 pb-2">
-                        <div className="flex justify-between items-center text-xs font-bold text-emerald-700 py-2">
+                        <div
+                          onClick={item.onClick}
+                          className={`flex justify-between items-center text-xs font-bold text-emerald-700 py-2 transition-colors rounded px-1 ${item.onClick ? 'cursor-pointer hover:bg-[#e4dac3]/20' : ''}`}
+                        >
                           <span className="font-semibold">{item.label}</span>
                           <span>{item.displayAmount ?? `+ ${item.amount.toLocaleString("id-ID")}`}</span>
                         </div>
-                        {item.subtitle && (
-                          <div className="text-[10px] text-[#5c3c10] pl-1 pb-2">
-                            {item.subtitle}
-                          </div>
-                        )}
-                        {item.extra && (
-                          <div className="text-[10px] text-[#5c3c10] pl-1 pb-2 font-semibold">
-                            {item.extra}
-                          </div>
-                        )}
                       </div>
                     ))}
                   </div>
@@ -251,7 +233,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                 <div className="flex gap-2 border-b-2 border-[#C4B49C]/30 pb-2">
                   <button
                     onClick={() => setOutcomeSubTab("kementerian")}
-                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       outcomeSubTab === "kementerian" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
@@ -259,7 +241,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   </button>
                   <button
                     onClick={() => setOutcomeSubTab("keamanan")}
-                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       outcomeSubTab === "keamanan" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
@@ -267,7 +249,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   </button>
                   <button
                     onClick={() => setOutcomeSubTab("layanan")}
-                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all ${
+                    className={`px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
                       outcomeSubTab === "layanan" ? "bg-[#5c3c10] text-[#FAF6EE]" : "text-[#8b7e66] hover:text-[#5c3c10]"
                     }`}
                   >
@@ -282,8 +264,7 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
                   <div className="space-y-3">
                     {currentOutcomeTabDepts.map((dept, index) => {
                       const level = countryDetail[`level_${dept.id}`] ?? 1;
-                      const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-                      const dailyCost = LEVEL_UP_COST[level] ?? 100;
+                      const dailyCost = LEVEL_UP_COST[level] ?? 100; // ERROR INI SEKARANG SUDAH TERDEFINISI
                       const Icon = dept.icon;
                       return (
                         <div key={index} className="flex justify-between items-center text-xs font-bold text-rose-700 py-2 border-b border-[#C4B49C]/20 last:border-0">
@@ -321,10 +302,6 @@ export default function PemasukkanPengeluaranModal({ isOpen, onClose, countryDet
               </div>
             )}
 
-            {/* Global APBN Tab */}
-            {activeTab === "global" && (
-              <FinansialGlobal countryDetail={countryDetail} />
-            )}
           </div>
         </div>
       </div>

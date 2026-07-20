@@ -133,13 +133,6 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
                 <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
                   <ArrowRightLeft className="h-6 w-6 text-[#5c3c10]" />
                 </div>
-                <button
-                  type="button"
-                  title="Informasi Perdagangan"
-                  className="w-7 h-7 flex items-center justify-center rounded-full border-2 border-[#5c3c10]/30 text-[#5c3c10] hover:bg-[#5c3c10]/10 active:bg-[#5c3c10]/20 transition-all cursor-pointer flex-shrink-0"
-                >
-                  <Info className="h-4 w-4" />
-                </button>
                 <div>
                   <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Pasar Perdagangan Global</h2>
                 </div>
