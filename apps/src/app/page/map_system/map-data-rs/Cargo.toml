@@ -28,6 +28,7 @@ features = [
   "Node",
   "console",
   "MouseEvent",
+  "PointerEvent",
   "WheelEvent",
   "Response",
   "Request",

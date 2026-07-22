@@ -84,7 +84,7 @@ export default function BottomNav({ activeMenu, setActiveMenu }: BottomNavProps)
                            !activeMenu.startsWith("Menu:KomandoPertahanan");
 
   return (
-    <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 ${isOtherModalOpen ? 'z-0 opacity-50' : 'z-[100] opacity-100'
+    <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 cursor-not-allowed ${isOtherModalOpen ? 'z-0 opacity-50' : 'z-[100] opacity-100'
       }`}>
       <nav className={`flex items-center gap-2 bg-[#FAF6EE] px-2.5 py-2 rounded-2xl border-2 border-[#C4B49C] shadow-2xl transition-all duration-500 ease-in-out ${isMenuSelected ? 'min-w-[320px]' : ''}`}>
 

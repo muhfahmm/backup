@@ -1,7 +1,7 @@
 use wasm_bindgen::prelude::*;
 use wasm_bindgen::JsCast;
-use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, Window, MouseEvent, WheelEvent, Response};
-use serde::{Deserialize, Serialize};
+use web_sys::{CanvasRenderingContext2d, HtmlCanvasElement, PointerEvent, WheelEvent};
+use serde::Deserialize;
 use geojson::{GeoJson, FeatureCollection, Value};
 use std::rc::Rc;
 use std::cell::RefCell;
@@ -33,6 +33,7 @@ pub struct MapEngine {
     capitals: Vec<JsValue>,
     selected_country_iso: Option<String>,
     is_panning: bool,
+    active_pointer_id: Option<i32>,
     last_mouse_x: f64,
     last_mouse_y: f64,
     target_offset_x: f64,
@@ -55,6 +56,7 @@ impl MapEngine {
             capitals: Vec::new(),
             selected_country_iso: None,
             is_panning: false,
+            active_pointer_id: None,
             last_mouse_x: 0.0,
             last_mouse_y: 0.0,
             target_offset_x: 0.0,
@@ -91,13 +93,23 @@ impl MapEngine {
         self.apply_clamping();
     }
 
-    pub fn handle_mouse_down(&mut self, x: f64, y: f64) {
+    pub fn handle_mouse_down(&mut self, x: f64, y: f64, pointer_id: i32) {
         self.is_panning = true;
+        self.active_pointer_id = Some(pointer_id);
         self.last_mouse_x = x;
         self.last_mouse_y = y;
     }
 
-    pub fn handle_mouse_move(&mut self, x: f64, y: f64) {
+    pub fn handle_mouse_move(&mut self, x: f64, y: f64, buttons: u16, pointer_id: i32) {
+        if self.active_pointer_id != Some(pointer_id) {
+            return;
+        }
+
+        if buttons == 0 {
+            self.handle_mouse_up();
+            return;
+        }
+
         if self.is_panning {
             self.offset_x += x - self.last_mouse_x;
             self.offset_y += y - self.last_mouse_y;
@@ -115,6 +127,7 @@ impl MapEngine {
 
     pub fn handle_mouse_up(&mut self) {
         self.is_panning = false;
+        self.active_pointer_id = None;
     }
 
     pub fn set_selected_country(&mut self, iso: Option<String>, should_center: bool) {
@@ -491,28 +504,92 @@ pub fn start_map_engine(
     
     {
         let engine = engine.clone();
-        let closure = Closure::wrap(Box::new(move |e: MouseEvent| {
-            engine.borrow_mut().handle_mouse_down(e.offset_x() as f64, e.offset_y() as f64);
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() && e.button() == 0 {
+                engine.borrow_mut().handle_mouse_down(e.offset_x() as f64, e.offset_y() as f64, e.pointer_id());
+            }
         }) as Box<dyn FnMut(_)>);
-        canvas.add_event_listener_with_callback("mousedown", closure.as_ref().unchecked_ref())?;
+        canvas.add_event_listener_with_callback("pointerdown", closure.as_ref().unchecked_ref())?;
         closure.forget();
     }
     
     {
         let engine = engine.clone();
-        let closure = Closure::wrap(Box::new(move |e: MouseEvent| {
-            engine.borrow_mut().handle_mouse_move(e.offset_x() as f64, e.offset_y() as f64);
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                if e.buttons() == 0 {
+                    engine.borrow_mut().handle_mouse_up();
+                    return;
+                }
+                engine.borrow_mut().handle_mouse_move(e.offset_x() as f64, e.offset_y() as f64, e.buttons(), e.pointer_id());
+            }
         }) as Box<dyn FnMut(_)>);
-        canvas.add_event_listener_with_callback("mousemove", closure.as_ref().unchecked_ref())?;
+        canvas.add_event_listener_with_callback("pointermove", closure.as_ref().unchecked_ref())?;
         closure.forget();
     }
-    
+
     {
         let engine = engine.clone();
-        let closure = Closure::wrap(Box::new(move |_e: MouseEvent| {
-            engine.borrow_mut().handle_mouse_up();
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                engine.borrow_mut().handle_mouse_up();
+            }
         }) as Box<dyn FnMut(_)>);
-        canvas.add_event_listener_with_callback("mouseup", closure.as_ref().unchecked_ref())?;
+        canvas.add_event_listener_with_callback("pointerup", closure.as_ref().unchecked_ref())?;
+        closure.forget();
+    }
+
+    {
+        let engine = engine.clone();
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                engine.borrow_mut().handle_mouse_up();
+            }
+        }) as Box<dyn FnMut(_)>);
+        canvas.add_event_listener_with_callback("pointerleave", closure.as_ref().unchecked_ref())?;
+        closure.forget();
+    }
+
+    {
+        let engine = engine.clone();
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                engine.borrow_mut().handle_mouse_up();
+            }
+        }) as Box<dyn FnMut(_)>);
+        window.add_event_listener_with_callback("pointerup", closure.as_ref().unchecked_ref())?;
+        closure.forget();
+    }
+
+    {
+        let engine = engine.clone();
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                engine.borrow_mut().handle_mouse_up();
+            }
+        }) as Box<dyn FnMut(_)>);
+        window.add_event_listener_with_callback("pointercancel", closure.as_ref().unchecked_ref())?;
+        closure.forget();
+    }
+
+    {
+        let engine = engine.clone();
+        let canvas_clone = canvas.clone();
+        let closure = Closure::wrap(Box::new(move |e: PointerEvent| {
+            if e.is_primary() {
+                let document = web_sys::window().and_then(|w| w.document()).unwrap();
+                let element_at_point = document.element_from_point(e.client_x() as f32, e.client_y() as f32);
+                let over_canvas = element_at_point.map_or(false, |target| {
+                    target.dyn_ref::<HtmlCanvasElement>().map_or(false, |target_canvas| target_canvas == &canvas_clone)
+                });
+
+                if !over_canvas || e.buttons() == 0 {
+                    engine.borrow_mut().handle_mouse_up();
+                    return;
+                }
+            }
+        }) as Box<dyn FnMut(_)>);
+        window.add_event_listener_with_callback("pointermove", closure.as_ref().unchecked_ref())?;
         closure.forget();
     }
 
