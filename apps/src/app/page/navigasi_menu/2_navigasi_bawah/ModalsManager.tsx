@@ -201,6 +201,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          resetTrigger={resetTrigger}
         />
       );
     case "Menu:Budget":

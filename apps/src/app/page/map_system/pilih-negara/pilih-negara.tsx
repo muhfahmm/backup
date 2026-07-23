@@ -380,6 +380,15 @@ export default function PilihNegaraPage() {
             <div className="ml-3">
               <Link
                 href={hasInteracted ? `/page/map_system?country=${countries[currentIndex]?.country}` : '#'}
+                onClick={(e) => {
+                  if (!hasInteracted) {
+                    e.preventDefault();
+                    return;
+                  }
+                  if (typeof window !== 'undefined') {
+                    window.localStorage.setItem('presiden_simulator_new_game', '1');
+                  }
+                }}
                 className="flex flex-col"
               >
                 <span className="text-[12px] font-black text-black tracking-tight uppercase">
@@ -561,7 +570,15 @@ export default function PilihNegaraPage() {
                 ? `/page/map_system?country=${filteredCountries[currentIndex]?.country}`
                 : '#'
             }
-            onClick={(e) => !hasInteracted && e.preventDefault()}
+            onClick={(e) => {
+              if (!hasInteracted) {
+                e.preventDefault();
+                return;
+              }
+              if (typeof window !== 'undefined') {
+                window.localStorage.setItem('presiden_simulator_new_game', '1');
+              }
+            }}
             className={`flex items-center gap-3 px-8 py-2.5 ${
               hasInteracted
                 ? 'bg-cyan-500 hover:bg-cyan-400 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]'

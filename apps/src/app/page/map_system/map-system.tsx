@@ -100,6 +100,12 @@ export default function MapPage() {
         // Check if there is a save to load to restore the date
         if (typeof window !== 'undefined') {
             const loadSaveStr = localStorage.getItem('presiden_simulator_load_save');
+            const newGameMarker = localStorage.getItem('presiden_simulator_new_game');
+            if (newGameMarker === '1') {
+                localStorage.removeItem('hutangModalLoanSources');
+                localStorage.removeItem('hutangModalLoanSourcesLastRefresh');
+                localStorage.removeItem('presiden_simulator_new_game');
+            }
             if (loadSaveStr) {
                 try {
                     const savedState = JSON.parse(loadSaveStr);
@@ -315,6 +321,10 @@ export default function MapPage() {
     }, [currentDate, countryDetail]);
     const handleRestart = () => {
         if (selectedCountry) {
+            if (typeof window !== 'undefined') {
+                window.localStorage.removeItem('hutangModalLoanSources');
+                window.localStorage.removeItem('hutangModalLoanSourcesLastRefresh');
+            }
             handleGameRestart({
                 timeManager: timeManagerRef.current,
                 setIsPaused,
