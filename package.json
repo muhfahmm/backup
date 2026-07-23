@@ -8,7 +8,12 @@
   "scripts": {
     "dev": "npm run dev -w frontend",
     "build": "npm run build --workspaces --if-present",
-    "test": "npm run test --workspaces --if-present"
+    "test": "npm run test --workspaces --if-present",
+    "tauri": "npm run tauri:dev -w frontend",
+    "tauri:dev": "npm run tauri:dev -w frontend",
+    "tauri:build": "npm run tauri:build -w frontend",
+    "tauri:android:dev": "npm run tauri:android:dev -w frontend",
+    "tauri:android:build": "npm run tauri:android:build -w frontend"
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
