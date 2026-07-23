@@ -8,6 +8,7 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  currentDate?: Date;
   resetTrigger?: boolean;
 }
 
@@ -71,7 +72,7 @@ const LEMBAGA_MULTILATERAL = [
   { id: 9993, name: "ADB (Asian Development Bank)", flag: "🌏", interest: 3.2, maxLoan: 75_000, term: 180 },
 ];
 
-export default function HutangModal({ isOpen, onClose, countryDetail, setCountryDetail, resetTrigger }: ModalProps) {
+export default function HutangModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate, resetTrigger }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"bilateral" | "multilateral" | "history">("bilateral");
   const [searchQuery, setSearchQuery] = useState("");
   const [loanSources, setLoanSources] = useState<any[]>([]);
@@ -112,7 +113,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
       try {
         const storedSources = window.localStorage.getItem(LOAN_STORAGE_KEY);
         const storedRefresh = window.localStorage.getItem(LOAN_STORAGE_REFRESH_KEY);
-        const now = new Date();
+        const now = currentDate instanceof Date ? currentDate : new Date();
 
         if (storedSources && storedRefresh) {
           const lastRefresh = new Date(storedRefresh);
@@ -140,18 +141,13 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
       setLoanSources(generatedSources);
       if (typeof window !== "undefined") {
         window.localStorage.setItem(LOAN_STORAGE_KEY, JSON.stringify(generatedSources));
-        window.localStorage.setItem(LOAN_STORAGE_REFRESH_KEY, new Date().toISOString());
+        window.localStorage.setItem(LOAN_STORAGE_REFRESH_KEY, (currentDate instanceof Date ? currentDate : new Date()).toISOString());
       }
     };
 
-    if (typeof window !== "undefined" && !initialLoanLoadRef.current) {
-      window.localStorage.removeItem(LOAN_STORAGE_KEY);
-      window.localStorage.removeItem(LOAN_STORAGE_REFRESH_KEY);
-    }
-
     loadLoanSources();
     initialLoanLoadRef.current = false;
-  }, [resetTrigger]);
+  }, [resetTrigger, currentDate]);
 
   if (!isOpen) return null;
 

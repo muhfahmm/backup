@@ -201,6 +201,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
           resetTrigger={resetTrigger}
         />
       );
