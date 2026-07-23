@@ -491,6 +491,7 @@ export default function MapPage() {
             <BottomNav
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
+                countryDetail={countryDetail}
             />
 
             <ModalsManager

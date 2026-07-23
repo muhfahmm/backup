@@ -374,6 +374,7 @@ function ModalsManager({
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
         />
       );
     case "Menu:Ideologi":
@@ -382,6 +383,7 @@ function ModalsManager({
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
         />
       );
 

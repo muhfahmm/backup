@@ -12,9 +12,10 @@ import { menuItems, subMenuItems } from "../navigationData";
 interface BottomNavProps {
   activeMenu: string;
   setActiveMenu: (menu: string) => void;
+  countryDetail?: any;
 }
 
-export default function BottomNav({ activeMenu, setActiveMenu }: BottomNavProps) {
+export default function BottomNav({ activeMenu, setActiveMenu, countryDetail }: BottomNavProps) {
   const [isTemporarilyHidden, setIsTemporarilyHidden] = useState(false);
 
   useEffect(() => {
@@ -59,8 +60,25 @@ export default function BottomNav({ activeMenu, setActiveMenu }: BottomNavProps)
       setActiveTab(null);
       setActiveMenu("Peta Taktis");
     } else {
-      setActiveTab(id);
-      setActiveMenu(id);
+      // If opening Sosial & Budaya, choose a sensible default subtab
+      if (id === "Sosial & Budaya") {
+        // Prefer showing Agama if the country has a non-ateist religion recorded,
+        // otherwise default to Ideologi.
+        let defaultSub = "Menu:Ideologi";
+        try {
+          const rel = countryDetail?.religion;
+          if (rel && String(rel).toLowerCase() !== 'ateisme') {
+            defaultSub = "Menu:Agama";
+          }
+        } catch (e) {
+          // fallback stays Menu:Ideologi
+        }
+        setActiveTab(id);
+        setActiveMenu(defaultSub);
+      } else {
+        setActiveTab(id);
+        setActiveMenu(id);
+      }
     }
   };
 
