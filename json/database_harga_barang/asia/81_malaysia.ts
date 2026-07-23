@@ -2,18 +2,14 @@
 const malaysia_harga = {
 
   "harga": {
-    "harga": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 14.4,
-    "harga_telur": 15.55,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 10.4,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 483.9
+    "harga_beras": 25000,
+    "harga_daging_sapi": 75000,
+    "harga_ayam": 50000,
+    "harga_minyak_goreng": 25000,
+    "harga_gula": 25000,
+    "harga_telur": 50000,
+    "harga_listrik": 75000,
+    "harga_air": 25000
     },
     "kesehatan": 2,
     "pendidikan": 39,

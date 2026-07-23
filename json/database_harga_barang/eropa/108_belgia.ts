@@ -2,16 +2,13 @@
 const belgia_harga = {
 
   "harga": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 10.4,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 483.9
+    "harga_beras": 75000,
+    "harga_daging_sapi": 100000,
+    "harga_ayam": 100000,
+    "harga_minyak_goreng": 75000,
+    "harga_gula": 75000,
+    "harga_telur": 100000,
+    "harga_listrik": 100000,
+    "harga_air": 75000
   }
 };

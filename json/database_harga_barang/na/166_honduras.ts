@@ -2,16 +2,13 @@
 const honduras_harga = {
 
   "harga": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 14.98,
-    "harga_listrik": 3.2,
-    "harga_air": 5.2,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 241.95
+    "harga_beras": 10000,
+    "harga_daging_sapi": 50000,
+    "harga_ayam": 25000,
+    "harga_minyak_goreng": 10000,
+    "harga_gula": 10000,
+    "harga_telur": 25000,
+    "harga_listrik": 50000,
+    "harga_air": 10000
   }
 };

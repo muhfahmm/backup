@@ -37,12 +37,15 @@ export function handleGameRestart(options: RestartOptions): void {
             // Create a new object without any accumulated_* or build_date_* fields
             const reset: any = { ...prev };
             
-            // Remove all production-related fields
+            // Remove all production-related fields and custom price controls
             Object.keys(reset).forEach(key => {
                 if (key.startsWith('accumulated_') || key.startsWith('build_date_') || key.startsWith('last_prod_date_')) {
                     delete reset[key];
                 }
             });
+            delete reset.harga;
+            delete reset.price_rice;
+            delete reset.price_fuel;
             
             // Also reset all building counts to 0
             // Buildings keys that can have count > 0

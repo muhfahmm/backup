@@ -2,16 +2,13 @@
 const turkmenistan_harga = {
 
   "harga": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 11.52,
-    "harga_telur": 31.1,
-    "harga_bbm": 14.98,
-    "harga_listrik": 0.8,
-    "harga_air": 5.2,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 967.8
+    "harga_beras": 25000,
+    "harga_daging_sapi": 75000,
+    "harga_ayam": 50000,
+    "harga_minyak_goreng": 25000,
+    "harga_gula": 25000,
+    "harga_telur": 50000,
+    "harga_listrik": 75000,
+    "harga_air": 25000
   }
 };

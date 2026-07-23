@@ -132,6 +132,17 @@ export default function MapPage() {
         return String.fromCodePoint(...codePoints);
     };
 
+    const loadDefaultPrices = async (countryName: string) => {
+        try {
+            const res = await fetch(`/api/price-data?country=${encodeURIComponent(countryName)}`);
+            const data = await res.json();
+            return data?.prices || null;
+        } catch (e) {
+            console.warn(`Failed to load default prices for ${countryName}:`, e);
+            return null;
+        }
+    };
+
     // Reusable function to load stats for a country
     const loadCountryStats = async (countryName: string, capitalName: string) => {
         const relPath = Object.entries(countryPaths).find(
@@ -149,6 +160,8 @@ export default function MapPage() {
                 return;
             }
 
+            const defaultPrices = await loadDefaultPrices(countryName);
+
             setCountryDetail({
                 ...mergedData,
                 country: countryName,
@@ -159,6 +172,9 @@ export default function MapPage() {
                 ideology: mergedData.ideology || '-',
                 un_vote: mergedData.un_vote || 0,
                 kepuasan: mergedData.kepuasan ?? 50,
+                harga: defaultPrices || mergedData?.harga || {},
+                price_rice: defaultPrices?.harga_beras ?? mergedData?.harga?.harga_beras,
+                price_fuel: defaultPrices?.harga_minyak_goreng ?? mergedData?.harga?.harga_bbm,
                 // Tax fields
                 income_tax: mergedData.pajak?.penghasilan?.tarif ?? mergedData.income_tax,
                 corporate: mergedData.pajak?.korporasi?.tarif ?? mergedData.corporate,

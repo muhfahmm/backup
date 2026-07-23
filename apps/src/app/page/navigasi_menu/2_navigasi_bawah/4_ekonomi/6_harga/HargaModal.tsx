@@ -1,6 +1,6 @@
 "use client"
-import React from "react";
-import { X, Tag } from "lucide-react";
+import React, { useEffect, useMemo, useState } from "react";
+import { X, Tag, Loader2 } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,9 +10,63 @@ interface ModalProps {
 }
 
 export default function HargaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
-  if (!isOpen) return null;
+  const [prices, setPrices] = useState<Record<string, number>>({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const countryName = countryDetail?.country || "";
   const anggaran = countryDetail?.anggaran || 0;
   const kepuasan = countryDetail?.kepuasan || 65.0;
+
+  const priceOptions = useMemo(() => [10000, 25000, 50000, 75000, 100000], []);
+
+  useEffect(() => {
+    if (!isOpen || !countryName) return;
+
+    if (countryDetail?.harga && Object.keys(countryDetail.harga).length > 0) {
+      setPrices(countryDetail.harga);
+      return;
+    }
+
+    const loadPrices = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const res = await fetch(`/api/price-data?country=${encodeURIComponent(countryName)}`);
+        const data = await res.json();
+        if (data?.prices) {
+          const defaultPrices = data.prices;
+          setPrices(defaultPrices);
+          setCountryDetail({
+            ...countryDetail,
+            harga: defaultPrices,
+          });
+        } else {
+          setPrices({});
+        }
+      } catch (err) {
+        console.error("Failed to load price data", err);
+        setError("Gagal memuat data harga dari database.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadPrices();
+  }, [isOpen, countryName, countryDetail?.harga]);
+
+  if (!isOpen) return null;
+
+  const handlePriceChange = (key: string, value: number) => {
+    const updatedPrices = { ...prices, [key]: value };
+    setPrices(updatedPrices);
+    setCountryDetail({
+      ...countryDetail,
+      harga: updatedPrices,
+      ...(key === 'harga_beras' ? { price_rice: value } : {}),
+      ...(key === 'harga_minyak_goreng' ? { price_fuel: value } : {}),
+    });
+  };
 
   const handleSubsidize = () => {
     if (anggaran < 20000000) {
@@ -27,11 +81,10 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
     alert("Beras & Minyak Goreng disubsidi penuh (+5.0% Kepuasan Rakyat)!");
   };
 
+  const priceEntries = Object.entries(prices).filter(([key]) => key.startsWith("harga_"));
+
   return (
-    // PERBAIKAN: Hapus bg-black/65, gunakan bg-transparent dan pointer-events-none
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN: Tambahkan pointer-events-auto agar modal bisa diklik */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
@@ -70,6 +123,51 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
               <span>Kas Anggaran Negara:</span>
               <span>{anggaran.toLocaleString("id-ID")}</span>
             </div>
+          </div>
+
+          {loading ? (
+            <div className="flex items-center gap-2 text-sm text-[#5c3c10] mb-6">
+              <Loader2 className="h-4 w-4 animate-spin" />
+              Memuat data harga negara...
+            </div>
+          ) : null}
+
+          {error ? <p className="text-sm text-rose-700 mb-4">{error}</p> : null}
+
+          <div className="space-y-4 mb-6">
+            {priceEntries.length === 0 ? (
+              <p className="text-sm text-[#8b7e66]">Belum ada data harga yang tersedia untuk negara ini.</p>
+            ) : (
+              priceEntries.map(([key, value]) => (
+                <div key={key} className="bg-white/70 border border-[#C4B49C]/30 rounded-xl p-4 shadow-sm">
+                  <div className="flex items-center justify-between mb-3">
+                    <div>
+                      <p className="text-sm font-black text-[#5c3c10] uppercase">{key.replace("harga_", "").replace(/_/g, " ")}</p>
+                      <p className="text-xs text-[#8b7e66]">
+                        Nilai saat ini: <span className="font-black text-[#5c3c10]">{Number(value).toLocaleString("id-ID")}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* PERBAIKAN: Hapus elemen Input, hanya gunakan tombol opsi */}
+                  <div className="flex flex-wrap gap-2">
+                    {priceOptions.map((option) => (
+                      <button
+                        key={option}
+                        onClick={() => handlePriceChange(key, option)}
+                        className={`px-3 py-2 rounded-lg border text-xs font-black uppercase transition cursor-pointer ${
+                          value === option
+                            ? "bg-[#5c3c10] text-[#FAF6EE] border-[#5c3c10] shadow-sm"
+                            : "bg-[#FAF6EE] text-[#5c3c10] border-[#C4B49C] hover:bg-[#e4dac3]"
+                        }`}
+                      >
+                        {option.toLocaleString("id-ID")}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))
+            )}
           </div>
 
           <button

@@ -2,16 +2,13 @@
 const komoro_harga = {
 
   "harga": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 7.2,
-    "harga_telur": 31.1,
-    "harga_bbm": 21.4,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 967.8
+    "harga_beras": 10000,
+    "harga_daging_sapi": 25000,
+    "harga_ayam": 10000,
+    "harga_minyak_goreng": 10000,
+    "harga_gula": 10000,
+    "harga_telur": 10000,
+    "harga_listrik": 25000,
+    "harga_air": 10000
   }
 };

@@ -86,6 +86,17 @@ export default function PilihNegaraPage() {
     return String.fromCodePoint(...codePoints);
   };
 
+  const loadDefaultPrices = async (countryName: string) => {
+    try {
+      const res = await fetch(`/api/price-data?country=${encodeURIComponent(countryName)}`);
+      const data = await res.json();
+      return data?.prices || null;
+    } catch (e) {
+      console.warn(`Failed to load default prices for ${countryName}:`, e);
+      return null;
+    }
+  };
+
   useEffect(() => {
     const handleGlobalMouseUp = () => {
       const canvas = document.getElementById('map-canvas-bg');
@@ -173,6 +184,8 @@ export default function PilihNegaraPage() {
             return;
           }
 
+          const defaultPrices = await loadDefaultPrices(selected.country);
+
           setCountryDetail({
             ...mergedData,
             ppn: mergedData.pajak?.ppn?.tarif,
@@ -180,8 +193,9 @@ export default function PilihNegaraPage() {
             income_tax: mergedData.pajak?.penghasilan?.tarif,
             cigarette_tax: mergedData.pajak?.bea_cukai?.tarif,
             environment_tax: mergedData.pajak?.lingkungan?.tarif,
-            price_rice: mergedData.harga?.harga_beras,
-            price_fuel: mergedData.harga?.harga_bbm,
+            harga: defaultPrices || mergedData?.harga || {},
+            price_rice: defaultPrices?.harga_beras ?? mergedData?.harga?.harga_beras,
+            price_fuel: defaultPrices?.harga_minyak_goreng ?? mergedData?.harga?.harga_bbm,
             un_vote: mergedData.un_vote,
             reputation: mergedData.reputasi_diplomatik,
             kepuasan: mergedData.kepuasan ?? 50,
