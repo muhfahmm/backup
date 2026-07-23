@@ -1,5 +1,5 @@
 // @ts-nocheck
-const 81_malaysia_harga = {
+const malaysia_harga = {
 
   "harga": {
     "harga": {

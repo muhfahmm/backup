@@ -1,5 +1,5 @@
 // @ts-nocheck
-const 36_pantai_gading_harga = {
+const pantai_gading_harga = {
 
   "harga": {
     "harga_beras": 12.8,

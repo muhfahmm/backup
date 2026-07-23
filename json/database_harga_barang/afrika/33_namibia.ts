@@ -1,5 +1,5 @@
 // @ts-nocheck
-const 33_namibia_harga = {
+const namibia_harga = {
 
   "harga": {
     "harga_beras": 12.8,

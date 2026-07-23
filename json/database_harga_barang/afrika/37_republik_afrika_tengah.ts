@@ -1,5 +1,5 @@
 // @ts-nocheck
-const 37_republik_afrika_tengah_harga = {
+const republik_afrika_tengah_harga = {
 
   "harga": {
     "harga_beras": 32,

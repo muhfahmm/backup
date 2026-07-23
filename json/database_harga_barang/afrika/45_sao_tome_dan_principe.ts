@@ -1,5 +1,5 @@
 // @ts-nocheck
-const 45_sao_tome_dan_principe_harga = {
+const sao_tome_dan_principe_harga = {
 
   "harga": {
     "harga_beras": 12.8,
