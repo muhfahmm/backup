@@ -52,6 +52,23 @@ export default function MapPage() {
     const timeManagerRef = useRef<SimulationTimeManager | null>(null);
     const hasInitRef = useRef(false);
 
+    useEffect(() => {
+        const handleGlobalMouseUp = () => {
+            const canvas = document.getElementById('map-canvas');
+            if (canvas) {
+                const event = new MouseEvent('mouseup', {
+                    bubbles: true,
+                    cancelable: true,
+                    view: window,
+                });
+                canvas.dispatchEvent(event);
+            }
+        };
+
+        window.addEventListener('mouseup', handleGlobalMouseUp);
+        return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
+    }, []);
+
     // Initialize high-performance simulation clock on mount
     useEffect(() => {
         const manager = new SimulationTimeManager(
@@ -428,7 +445,18 @@ export default function MapPage() {
 
             {/* Shifted Canvas Container */}
             <div className={`fixed top-20 inset-x-0 bottom-0 z-0 ${isMapInteractionDisabled ? 'pointer-events-none' : ''}`}>
-                <canvas id="map-canvas" className="w-full h-full block cursor-grab" />
+                <canvas
+                    id="map-canvas"
+                    className="w-full h-full block cursor-grab"
+                    onMouseLeave={(e) => {
+                        const event = new MouseEvent('mouseup', {
+                            bubbles: true,
+                            cancelable: true,
+                            view: window,
+                        });
+                        e.currentTarget.dispatchEvent(event);
+                    }}
+                />
 
                 {/* Global FX */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)] vignette-gradient" />
