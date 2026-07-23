@@ -11,9 +11,7 @@ const kongo_profile = {
   "pendapatan_nasional": "417",
   "religion": "Katolik",
   "ideology": "Sosialisme"
-};
-
-
+}
 const kongo_geopolitik = {
     "un_vote": 53,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kongo_geopolitik = {
       "kekuatan_keras": 11,
       "prestise_diplomatik": 57
   }
-  };
-
-const kongo_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 31.1,
-    "harga_bbm": 21.4,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kongo_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 3,
-    "pendidikan": 17,
-    "keamanan": 3,
-    "keuangan": 37,
-    "lingkungan": 60
   }
-};
-

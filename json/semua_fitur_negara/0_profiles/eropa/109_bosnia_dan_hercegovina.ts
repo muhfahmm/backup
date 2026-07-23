@@ -11,9 +11,7 @@ const bosnia_dan_hercegovina_profile = {
   "pendapatan_nasional": "667",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const bosnia_dan_hercegovina_geopolitik = {
     "un_vote": 144,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const bosnia_dan_hercegovina_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const bosnia_dan_hercegovina_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 28.8,
-    "harga_telur": 62.2,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": bosnia_dan_hercegovina_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 15,
-    "pendidikan": 19,
-    "keamanan": 36,
-    "keuangan": 24,
-    "lingkungan": 60
   }
-};
-

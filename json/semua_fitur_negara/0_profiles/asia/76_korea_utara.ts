@@ -11,9 +11,7 @@ const korea_utara_profile = {
   "pendapatan_nasional": "500",
   "religion": "Ateisme",
   "ideology": "Komunisme"
-};
-
-
+}
 const korea_utara_geopolitik = {
     "un_vote": 56,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const korea_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const korea_utara_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 11.52,
-    "harga_telur": 15.55,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.6,
-    "harga_air": 4.16,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": korea_utara_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 3,
-    "pendidikan": 1,
-    "keamanan": 29,
-    "keuangan": 3,
-    "lingkungan": 60
   }
-};
-

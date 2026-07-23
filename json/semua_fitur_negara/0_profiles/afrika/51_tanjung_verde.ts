@@ -11,9 +11,7 @@ const tanjung_verde_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Liberalisme"
-};
-
-
+}
 const tanjung_verde_geopolitik = {
     "un_vote": 97,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const tanjung_verde_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
   }
-  };
-
-const tanjung_verde_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 3.2,
-    "harga_air": 4.16,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": tanjung_verde_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 17,
-    "pendidikan": 4,
-    "keamanan": 39,
-    "keuangan": 13,
-    "lingkungan": 60
   }
-};
-

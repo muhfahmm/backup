@@ -11,9 +11,7 @@ const komoro_profile = {
   "pendapatan_nasional": "36",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const komoro_geopolitik = {
     "un_vote": 61,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const komoro_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
   }
-  };
-
-const komoro_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 7.2,
-    "harga_telur": 31.1,
-    "harga_bbm": 21.4,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": komoro_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 7,
-    "pendidikan": 6,
-    "keamanan": 31,
-    "keuangan": 37,
-    "lingkungan": 60
   }
-};
-

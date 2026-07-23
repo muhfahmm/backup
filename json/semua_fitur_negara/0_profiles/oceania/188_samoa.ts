@@ -11,9 +11,7 @@ const samoa_profile = {
   "pendapatan_nasional": "25",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-};
-
-
+}
 const samoa_geopolitik = {
     "un_vote": 9,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const samoa_geopolitik = {
       "kekuatan_keras": 35,
       "prestise_diplomatik": 57
     }
-  };
-
-const samoa_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 28.8,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.28,
-    "harga_air": 4.16,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": samoa_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 14,
-    "pendidikan": 27,
-    "keamanan": 33,
-    "keuangan": 8,
-    "lingkungan": 60
   }
-};
-

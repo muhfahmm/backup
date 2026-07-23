@@ -11,9 +11,7 @@ const korea_selatan_profile = {
   "pendapatan_nasional": "48893",
   "religion": "Ateisme",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const korea_selatan_geopolitik = {
     "un_vote": 185,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const korea_selatan_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
-
-const korea_selatan_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 11.52,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 4.16,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": korea_selatan_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 7,
-    "pendidikan": 34,
-    "keamanan": 9,
-    "keuangan": 12,
-    "lingkungan": 60
   }
-};
-

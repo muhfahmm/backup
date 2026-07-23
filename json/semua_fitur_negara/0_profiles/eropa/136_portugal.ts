@@ -11,9 +11,7 @@ const portugal_profile = {
   "pendapatan_nasional": "7778",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const portugal_geopolitik = {
     "un_vote": 194,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const portugal_geopolitik = {
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
     }
-  };
-
-const portugal_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 31.1,
-    "harga_bbm": 10.7,
-    "harga_listrik": 0.8,
-    "harga_air": 2.6,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": portugal_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 16,
-    "pendidikan": 33,
-    "keamanan": 9,
-    "keuangan": 12,
-    "lingkungan": 60
   }
-};
-

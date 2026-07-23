@@ -11,9 +11,7 @@ const aljazair_profile = {
   "pendapatan_nasional": "6667",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const aljazair_geopolitik = {
     "un_vote": 84,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const aljazair_geopolitik = {
       "kekuatan_keras": 14,
       "prestise_diplomatik": 57
   }
-  };
-
-const aljazair_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 31.1,
-    "harga_bbm": 5.35,
-    "harga_listrik": 1.28,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": aljazair_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 21,
-    "pendidikan": 5,
-    "keamanan": 10,
-    "keuangan": 12,
-    "lingkungan": 60
   }
-};
-

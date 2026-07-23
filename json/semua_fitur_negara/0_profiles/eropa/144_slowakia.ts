@@ -11,9 +11,7 @@ const slowakia_profile = {
   "pendapatan_nasional": "3611",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const slowakia_geopolitik = {
     "un_vote": 176,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const slowakia_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  };
-
-const slowakia_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 20.16,
-    "harga_telur": 43.54,
-    "harga_bbm": 14.98,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": slowakia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 22,
-    "pendidikan": 30,
-    "keamanan": 14,
-    "keuangan": 28,
-    "lingkungan": 60
   }
-};
-

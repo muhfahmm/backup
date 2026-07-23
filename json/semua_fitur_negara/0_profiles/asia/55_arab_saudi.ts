@@ -11,9 +11,7 @@ const arab_saudi_profile = {
   "pendapatan_nasional": "30836",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const arab_saudi_geopolitik = {
     "un_vote": 163,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const arab_saudi_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  };
-
-const arab_saudi_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 62.2,
-    "harga_bbm": 21.4,
-    "harga_listrik": 2.24,
-    "harga_air": 10.4,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": arab_saudi_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 33,
-    "pendidikan": 19,
-    "keamanan": 21,
-    "keuangan": 39,
-    "lingkungan": 60
   }
-};
-

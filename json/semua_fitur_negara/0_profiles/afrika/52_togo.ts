@@ -11,9 +11,7 @@ const togo_profile = {
   "pendapatan_nasional": "250",
   "religion": "Katolik",
   "ideology": "Konservatisme"
-};
-
-
+}
 const togo_geopolitik = {
     "un_vote": 122,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const togo_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
   }
-  };
-
-const togo_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 20.16,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.28,
-    "harga_air": 5.2,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": togo_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 22,
-    "pendidikan": 30,
-    "keamanan": 2,
-    "keuangan": 11,
-    "lingkungan": 60
   }
-};
-

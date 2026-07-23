@@ -11,9 +11,7 @@ const rusia_profile = {
   "pendapatan_nasional": "56116",
   "religion": "Kristen Ortodoks",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const rusia_geopolitik = {
     "un_vote": 150,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const rusia_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
-
-const rusia_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 14.4,
-    "harga_telur": 15.55,
-    "harga_bbm": 21.4,
-    "harga_listrik": 1.28,
-    "harga_air": 4.16,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": rusia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 7,
-    "pendidikan": 14,
-    "keamanan": 20,
-    "keuangan": 1,
-    "lingkungan": 60
   }
-};
-

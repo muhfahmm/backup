@@ -11,9 +11,7 @@ const oman_profile = {
   "pendapatan_nasional": "2917",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const oman_geopolitik = {
     "un_vote": 165,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const oman_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
-
-const oman_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 28.8,
-    "harga_telur": 24.88,
-    "harga_bbm": 14.98,
-    "harga_listrik": 1.28,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": oman_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 26,
-    "pendidikan": 22,
-    "keamanan": 5,
-    "keuangan": 24,
-    "lingkungan": 60
   }
-};
-

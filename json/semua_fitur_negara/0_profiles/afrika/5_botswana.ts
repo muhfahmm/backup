@@ -11,9 +11,7 @@ const botswana_profile = {
   "pendapatan_nasional": "556",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const botswana_geopolitik = {
     "un_vote": 48,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const botswana_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
   }
-  };
-
-const botswana_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 24.88,
-    "harga_bbm": 21.4,
-    "harga_listrik": 1.28,
-    "harga_air": 7.28,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": botswana_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 20,
-    "pendidikan": 16,
-    "keamanan": 9,
-    "keuangan": 18,
-    "lingkungan": 60
   }
-};
-

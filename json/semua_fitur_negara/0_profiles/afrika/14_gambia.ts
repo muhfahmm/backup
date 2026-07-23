@@ -11,9 +11,7 @@ const gambia_profile = {
   "pendapatan_nasional": "61",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const gambia_geopolitik = {
     "un_vote": 116,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const gambia_geopolitik = {
       "kekuatan_keras": 17,
       "prestise_diplomatik": 57
   }
-  };
-
-const gambia_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 20.5,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.28,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": gambia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 33,
-    "pendidikan": 23,
-    "keamanan": 22,
-    "keuangan": 31,
-    "lingkungan": 60
   }
-};
-

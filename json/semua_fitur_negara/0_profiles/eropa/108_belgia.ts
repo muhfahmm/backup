@@ -11,9 +11,7 @@ const belgia_profile = {
   "pendapatan_nasional": "17362",
   "religion": "Katolik",
   "ideology": "Sosialisme"
-};
-
-
+}
 const belgia_geopolitik = {
     "un_vote": 189,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const belgia_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const belgia_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 10.4,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": belgia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 20,
-    "pendidikan": 26,
-    "keamanan": 34,
-    "keuangan": 20,
-    "lingkungan": 60
   }
-};
-

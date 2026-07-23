@@ -11,9 +11,7 @@ const mozambik_profile = {
   "pendapatan_nasional": "500",
   "religion": "Katolik",
   "ideology": "Sosialisme"
-};
-
-
+}
 const mozambik_geopolitik = {
     "un_vote": 85,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const mozambik_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
-
-const mozambik_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 14.4,
-    "harga_telur": 24.88,
-    "harga_bbm": 14.98,
-    "harga_listrik": 2.24,
-    "harga_air": 7.28,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": mozambik_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 6,
-    "pendidikan": 25,
-    "keamanan": 1,
-    "keuangan": 35,
-    "lingkungan": 60
   }
-};
-

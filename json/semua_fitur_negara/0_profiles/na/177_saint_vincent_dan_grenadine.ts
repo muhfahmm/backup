@@ -11,9 +11,7 @@ const saint_vincent_dan_grenadine_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const saint_vincent_dan_grenadine_geopolitik = {
     "un_vote": 110,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const saint_vincent_dan_grenadine_geopolitik = {
       "kekuatan_keras": 39,
       "prestise_diplomatik": 57
     }
-  };
-
-const saint_vincent_dan_grenadine_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 20.16,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": saint_vincent_dan_grenadine_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 22,
-    "pendidikan": 23,
-    "keamanan": 31,
-    "keuangan": 3,
-    "lingkungan": 60
   }
-};
-

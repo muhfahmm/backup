@@ -11,9 +11,7 @@ const puerto_rico_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const puerto_rico_geopolitik = {
     "un_vote": 117,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const puerto_rico_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const puerto_rico_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 2.24,
-    "harga_air": 2.6,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": puerto_rico_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 6,
-    "pendidikan": 13,
-    "keamanan": 28,
-    "keuangan": 20,
-    "lingkungan": 60
   }
-};
-

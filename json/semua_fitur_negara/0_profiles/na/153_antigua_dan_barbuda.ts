@@ -11,9 +11,7 @@ const antigua_dan_barbuda_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const antigua_dan_barbuda_geopolitik = {
     "un_vote": 12,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const antigua_dan_barbuda_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
-
-const antigua_dan_barbuda_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 21.4,
-    "harga_listrik": 2.24,
-    "harga_air": 4.16,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": antigua_dan_barbuda_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 30,
-    "pendidikan": 7,
-    "keamanan": 11,
-    "keuangan": 27,
-    "lingkungan": 60
   }
-};
-

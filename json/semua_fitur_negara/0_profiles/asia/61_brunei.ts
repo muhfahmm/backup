@@ -11,9 +11,7 @@ const brunei_profile = {
   "pendapatan_nasional": "417",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const brunei_geopolitik = {
     "un_vote": 114,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const brunei_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
-
-const brunei_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 20.5,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 10.7,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": brunei_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 9,
-    "pendidikan": 24,
-    "keamanan": 13,
-    "keuangan": 14,
-    "lingkungan": 60
   }
-};
-

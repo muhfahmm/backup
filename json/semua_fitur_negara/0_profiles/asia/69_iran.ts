@@ -11,9 +11,7 @@ const iran_profile = {
   "pendapatan_nasional": "10279",
   "religion": "Islam",
   "ideology": "Konservatisme"
-};
-
-
+}
 const iran_geopolitik = {
     "un_vote": 191,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const iran_geopolitik = {
       "kekuatan_keras": 38,
       "prestise_diplomatik": 57
     }
-  };
-
-const iran_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 43.54,
-    "harga_bbm": 21.4,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": iran_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 5,
-    "pendidikan": 16,
-    "keamanan": 24,
-    "keuangan": 4,
-    "lingkungan": 60
   }
-};
-

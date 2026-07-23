@@ -11,9 +11,7 @@ const kepulauan_faroe_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const kepulauan_faroe_geopolitik = {
     "un_vote": 18,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kepulauan_faroe_geopolitik = {
       "kekuatan_keras": 16,
       "prestise_diplomatik": 57
     }
-  };
-
-const kepulauan_faroe_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 28.8,
-    "harga_telur": 43.54,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kepulauan_faroe_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 30,
-    "pendidikan": 32,
-    "keamanan": 9,
-    "keuangan": 17,
-    "lingkungan": 60
   }
-};
-

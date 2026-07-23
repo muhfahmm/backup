@@ -11,9 +11,7 @@ const tunisia_profile = {
   "pendapatan_nasional": "1306",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const tunisia_geopolitik = {
     "un_vote": 59,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const tunisia_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
   }
-  };
-
-const tunisia_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 20.5,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 7.2,
-    "harga_telur": 43.54,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": tunisia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 19,
-    "pendidikan": 39,
-    "keamanan": 14,
-    "keuangan": 16,
-    "lingkungan": 60
   }
-};
-

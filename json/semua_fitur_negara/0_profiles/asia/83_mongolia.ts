@@ -11,9 +11,7 @@ const mongolia_profile = {
   "pendapatan_nasional": "500",
   "religion": "Buddha",
   "ideology": "Demokrasi"
-};
-
-
+}
 const mongolia_geopolitik = {
     "un_vote": 134,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const mongolia_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const mongolia_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 30.8,
-    "harga_gula": 28.8,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.28,
-    "harga_air": 2.6,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": mongolia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 31,
-    "pendidikan": 6,
-    "keamanan": 23,
-    "keuangan": 32,
-    "lingkungan": 60
   }
-};
-

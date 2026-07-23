@@ -11,9 +11,7 @@ const qatar_profile = {
   "pendapatan_nasional": "6112",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const qatar_geopolitik = {
     "un_vote": 182,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const qatar_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
     }
-  };
-
-const qatar_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 15.55,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 7.28,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": qatar_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 36,
-    "pendidikan": 29,
-    "keamanan": 20,
-    "keuangan": 20,
-    "lingkungan": 60
   }
-};
-

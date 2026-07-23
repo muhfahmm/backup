@@ -11,9 +11,7 @@ const costa_rica_profile = {
   "pendapatan_nasional": "1945",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const costa_rica_geopolitik = {
     "un_vote": 72,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const costa_rica_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
     }
-  };
-
-const costa_rica_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 11.52,
-    "harga_telur": 31.1,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": costa_rica_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 11,
-    "pendidikan": 8,
-    "keamanan": 10,
-    "keuangan": 36,
-    "lingkungan": 60
   }
-};
-

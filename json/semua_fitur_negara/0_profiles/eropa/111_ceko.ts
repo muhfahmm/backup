@@ -11,9 +11,7 @@ const ceko_profile = {
   "pendapatan_nasional": "9167",
   "religion": "Ateisme",
   "ideology": "Demokrasi"
-};
-
-
+}
 const ceko_geopolitik = {
     "un_vote": 26,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const ceko_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
-
-const ceko_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 28.8,
-    "harga_telur": 43.54,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.6,
-    "harga_air": 4.16,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": ceko_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 15,
-    "pendidikan": 8,
-    "keamanan": 39,
-    "keuangan": 23,
-    "lingkungan": 60
   }
-};
-

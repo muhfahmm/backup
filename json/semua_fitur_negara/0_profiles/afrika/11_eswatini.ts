@@ -11,9 +11,7 @@ const eswatini_profile = {
   "pendapatan_nasional": "125",
   "religion": "Protestan",
   "ideology": "Monarki"
-};
-
-
+}
 const eswatini_geopolitik = {
     "un_vote": 60,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const eswatini_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
-
-const eswatini_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 20.5,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 7.28,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": eswatini_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 29,
-    "pendidikan": 40,
-    "keamanan": 6,
-    "keuangan": 10,
-    "lingkungan": 60
   }
-};
-

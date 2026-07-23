@@ -11,9 +11,7 @@ const andorra_profile = {
   "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const andorra_geopolitik = {
     "un_vote": 11,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const andorra_geopolitik = {
       "kekuatan_keras": 12,
       "prestise_diplomatik": 57
     }
-  };
-
-const andorra_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 11.52,
-    "harga_telur": 43.54,
-    "harga_bbm": 14.98,
-    "harga_listrik": 0.8,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": andorra_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 4,
-    "pendidikan": 20,
-    "keamanan": 33,
-    "keuangan": 6,
-    "lingkungan": 60
   }
-};
-

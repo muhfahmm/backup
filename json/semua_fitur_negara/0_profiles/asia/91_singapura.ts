@@ -11,9 +11,7 @@ const singapura_profile = {
   "pendapatan_nasional": "13890",
   "religion": "Buddha",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const singapura_geopolitik = {
     "un_vote": 148,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const singapura_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-  };
-
-const singapura_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 20.5,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 11.52,
-    "harga_telur": 31.1,
-    "harga_bbm": 10.7,
-    "harga_listrik": 0.8,
-    "harga_air": 10.4,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": singapura_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 6,
-    "pendidikan": 18,
-    "keamanan": 31,
-    "keuangan": 19,
-    "lingkungan": 60
   }
-};
-

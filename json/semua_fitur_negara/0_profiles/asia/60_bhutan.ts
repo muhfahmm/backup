@@ -11,9 +11,7 @@ const bhutan_profile = {
   "pendapatan_nasional": "78",
   "religion": "Buddha",
   "ideology": "Monarki"
-};
-
-
+}
 const bhutan_geopolitik = {
     "un_vote": 149,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const bhutan_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
-
-const bhutan_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 14.4,
-    "harga_telur": 62.2,
-    "harga_bbm": 8.56,
-    "harga_listrik": 3.2,
-    "harga_air": 10.4,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": bhutan_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 35,
-    "pendidikan": 29,
-    "keamanan": 10,
-    "keuangan": 7,
-    "lingkungan": 60
   }
-};
-

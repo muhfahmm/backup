@@ -11,9 +11,7 @@ const belize_profile = {
   "pendapatan_nasional": "69",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const belize_geopolitik = {
     "un_vote": 15,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const belize_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  };
-
-const belize_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 83.28,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 11.52,
-    "harga_telur": 24.88,
-    "harga_bbm": 14.98,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": belize_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 23,
-    "pendidikan": 29,
-    "keamanan": 34,
-    "keuangan": 27,
-    "lingkungan": 60
   }
-};
-

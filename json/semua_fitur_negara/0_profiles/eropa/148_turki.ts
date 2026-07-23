@@ -11,9 +11,7 @@ const turki_profile = {
   "pendapatan_nasional": "278",
   "religion": "Islam",
   "ideology": "Konservatisme"
-};
-
-
+}
 const turki_geopolitik = {
     "un_vote": 83,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const turki_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-  };
-
-const turki_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 28.8,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 3.2,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": turki_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 27,
-    "pendidikan": 22,
-    "keamanan": 26,
-    "keuangan": 28,
-    "lingkungan": 60
   }
-};
-

@@ -11,9 +11,7 @@ const palau_profile = {
   "pendapatan_nasional": "15",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-};
-
-
+}
 const palau_geopolitik = {
     "un_vote": 44,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const palau_geopolitik = {
       "kekuatan_keras": 21,
       "prestise_diplomatik": 57
     }
-  };
-
-const palau_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": palau_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 35,
-    "pendidikan": 27,
-    "keamanan": 34,
-    "keuangan": 8,
-    "lingkungan": 60
   }
-};
-

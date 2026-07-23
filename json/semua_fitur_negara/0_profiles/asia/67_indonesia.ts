@@ -11,8 +11,7 @@ const indonesia_profile = {
   "pendapatan_nasional": "39448",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
+}
 const indonesia_geopolitik = {
     "un_vote": 128,
     "reputasi_diplomatik": "Unggul",
@@ -25,23 +24,4 @@ const indonesia_geopolitik = {
       "kekuatan_keras": 7,
       "prestise_diplomatik": 57
     }
-};
-
-const indonesia_pajak = {
-  "pajak": {
-    "ppn": { "nama": "Pajak Pertambahan Nilai", "tarif": 11, "pendapatan": 450 },
-    "korporasi": { "nama": "Pajak Korporasi", "tarif": 22, "pendapatan": 380 },
-    "penghasilan": { "nama": "Pajak Penghasilan", "tarif": 15, "pendapatan": 520 },
-    "cukai_rokok": { "nama": "Cukai Hasil Tembakau", "tarif": 10, "pendapatan": 120 }
-  }
-};
-
-const indonesia_harga = {
-  "harga": {
-    "harga_beras": 14500,
-    "harga_bbm": 12500,
-    "harga_listrik": 1500,
-    "indeks_konsumen": 105.4
-  }
-};
-
+}

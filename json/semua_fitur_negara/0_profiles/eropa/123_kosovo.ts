@@ -11,9 +11,7 @@ const kosovo_profile = {
   "pendapatan_nasional": "278",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const kosovo_geopolitik = {
     "un_vote": 7,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kosovo_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-  };
-
-const kosovo_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 28.8,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 10.4,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kosovo_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 39,
-    "pendidikan": 9,
-    "keamanan": 33,
-    "keuangan": 9,
-    "lingkungan": 60
   }
-};
-

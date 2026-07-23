@@ -11,9 +11,7 @@ const maroko_profile = {
   "pendapatan_nasional": "3750",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const maroko_geopolitik = {
     "un_vote": 109,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const maroko_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
   }
-  };
-
-const maroko_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.6,
-    "harga_air": 2.6,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": maroko_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 21,
-    "pendidikan": 29,
-    "keamanan": 9,
-    "keuangan": 14,
-    "lingkungan": 60
   }
-};
-

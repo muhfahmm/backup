@@ -11,9 +11,7 @@ const belanda_profile = {
   "pendapatan_nasional": "30280",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const belanda_geopolitik = {
     "un_vote": 196,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const belanda_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
-
-const belanda_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 7.2,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": belanda_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 23,
-    "pendidikan": 25,
-    "keamanan": 26,
-    "keuangan": 30,
-    "lingkungan": 60
   }
-};
-

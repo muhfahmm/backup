@@ -11,9 +11,7 @@ const republik_zambia_profile = {
   "pendapatan_nasional": "778",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-};
-
-
+}
 const republik_zambia_geopolitik = {
     "un_vote": 25,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const republik_zambia_geopolitik = {
       "kekuatan_keras": 13,
       "prestise_diplomatik": 57
   }
-  };
-
-const republik_zambia_extra = {
-"": {
-    "harga_beras": 12.8,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 28.8,
-    "harga_telur": 24.88,
-    "harga_bbm": 14.98,
-    "harga_listrik": 1.6,
-    "harga_air": 4.16,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": republik_zambia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 38,
-    "pendidikan": 14,
-    "keamanan": 32,
-    "keuangan": 31,
-    "lingkungan": 60
   }
-};
-

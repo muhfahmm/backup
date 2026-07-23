@@ -11,9 +11,7 @@ const malaysia_profile = {
   "pendapatan_nasional": "11112",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const malaysia_geopolitik = {
     "un_vote": 141,
     "reputasi_diplomatik": "Netral",
@@ -26,36 +24,4 @@ const malaysia_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const malaysia_extra = {
-"harga": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 14.4,
-    "harga_telur": 15.55,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 10.4,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. Ã°Å¸Å’Â GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": malaysia_geopolitik,
-  // =============================================================
-  // 16. Ã°Å¸Ââ€ºÃ¯Â¸Â KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 2,
-    "pendidikan": 39,
-    "keamanan": 5,
-    "keuangan": 39,
-    "lingkungan": 60
   }
-};
-
-

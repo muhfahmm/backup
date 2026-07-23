@@ -11,9 +11,7 @@ const liberia_profile = {
   "pendapatan_nasional": "111",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-};
-
-
+}
 const liberia_geopolitik = {
     "un_vote": 93,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const liberia_geopolitik = {
       "kekuatan_keras": 8,
       "prestise_diplomatik": 57
   }
-  };
-
-const liberia_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 7.7,
-    "harga_gula": 20.16,
-    "harga_telur": 62.2,
-    "harga_bbm": 14.98,
-    "harga_listrik": 2.24,
-    "harga_air": 5.2,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": liberia_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 7,
-    "pendidikan": 21,
-    "keamanan": 36,
-    "keuangan": 3,
-    "lingkungan": 60
   }
-};
-

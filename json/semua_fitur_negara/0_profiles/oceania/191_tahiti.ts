@@ -11,9 +11,7 @@ const tahiti_profile = {
   "pendapatan_nasional": "278",
   "religion": "Protestan",
   "ideology": "Demokrasi"
-};
-
-
+}
 const tahiti_geopolitik = {
     "un_vote": 81,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const tahiti_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-  };
-
-const tahiti_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 20.16,
-    "harga_telur": 31.1,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 7.28,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 677.46
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": tahiti_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 38,
-    "pendidikan": 10,
-    "keamanan": 18,
-    "keuangan": 37,
-    "lingkungan": 60
   }
-};
-

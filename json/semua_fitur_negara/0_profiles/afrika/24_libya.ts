@@ -11,9 +11,7 @@ const libya_profile = {
   "pendapatan_nasional": "1167",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const libya_geopolitik = {
     "un_vote": 108,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const libya_geopolitik = {
       "kekuatan_keras": 23,
       "prestise_diplomatik": 57
   }
-  };
-
-const libya_extra = {
-"": {
-    "harga_beras": 22.4,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 11.52,
-    "harga_telur": 15.55,
-    "harga_bbm": 10.7,
-    "harga_listrik": 2.24,
-    "harga_air": 4.16,
-    "harga_obat": 221.06,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": libya_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 37,
-    "pendidikan": 6,
-    "keamanan": 38,
-    "keuangan": 22,
-    "lingkungan": 60
   }
-};
-

@@ -11,9 +11,7 @@ const argentina_profile = {
   "pendapatan_nasional": "17779",
   "religion": "Katolik",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const argentina_geopolitik = {
     "un_vote": 190,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const argentina_geopolitik = {
       "kekuatan_keras": 22,
       "prestise_diplomatik": 57
     }
-  };
-
-const argentina_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 15.55,
-    "harga_bbm": 14.98,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": argentina_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 33,
-    "pendidikan": 35,
-    "keamanan": 24,
-    "keuangan": 36,
-    "lingkungan": 60
   }
-};
-

@@ -11,9 +11,7 @@ const tonga_profile = {
   "pendapatan_nasional": "15",
   "religion": "Protestan",
   "ideology": "Monarki"
-};
-
-
+}
 const tonga_geopolitik = {
     "un_vote": 5,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const tonga_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
-
-const tonga_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 30.8,
-    "harga_gula": 11.52,
-    "harga_telur": 24.88,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.28,
-    "harga_air": 10.4,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": tonga_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 19,
-    "pendidikan": 33,
-    "keamanan": 6,
-    "keuangan": 18,
-    "lingkungan": 60
   }
-};
-

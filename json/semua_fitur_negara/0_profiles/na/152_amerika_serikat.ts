@@ -11,9 +11,7 @@ const amerika_serikat_profile = {
   "pendapatan_nasional": "800064",
   "religion": "Protestan",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const amerika_serikat_geopolitik = {
     "un_vote": 203,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const amerika_serikat_geopolitik = {
       "kekuatan_keras": 15,
       "prestise_diplomatik": 57
     }
-  };
-
-const amerika_serikat_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 11.52,
-    "harga_telur": 31.1,
-    "harga_bbm": 5.35,
-    "harga_listrik": 0.8,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": amerika_serikat_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 6,
-    "pendidikan": 13,
-    "keamanan": 35,
-    "keuangan": 32,
-    "lingkungan": 60
   }
-};
-

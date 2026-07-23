@@ -11,9 +11,7 @@ const kanada_profile = {
   "pendapatan_nasional": "62227",
   "religion": "Protestan",
   "ideology": "Liberalisme"
-};
-
-
+}
 const kanada_geopolitik = {
     "un_vote": 160,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kanada_geopolitik = {
       "kekuatan_keras": 18,
       "prestise_diplomatik": 57
     }
-  };
-
-const kanada_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 82,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 20.16,
-    "harga_telur": 24.88,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.28,
-    "harga_air": 10.4,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kanada_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 5,
-    "pendidikan": 5,
-    "keamanan": 9,
-    "keuangan": 18,
-    "lingkungan": 60
   }
-};
-

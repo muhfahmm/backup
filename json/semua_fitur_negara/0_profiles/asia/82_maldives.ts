@@ -11,9 +11,7 @@ const maldives_profile = {
   "pendapatan_nasional": "181",
   "religion": "Katolik",
   "ideology": "Demokrasi"
-};
-
-
+}
 const maldives_geopolitik = {
     "un_vote": 145,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const maldives_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-  };
-
-const maldives_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 208.2,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 20.16,
-    "harga_telur": 43.54,
-    "harga_bbm": 10.7,
-    "harga_listrik": 3.2,
-    "harga_air": 2.6,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": maldives_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 27,
-    "pendidikan": 4,
-    "keamanan": 34,
-    "keuangan": 14,
-    "lingkungan": 60
   }
-};
-

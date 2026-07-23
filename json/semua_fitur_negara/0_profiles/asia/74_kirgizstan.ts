@@ -11,9 +11,7 @@ const kirgizstan_profile = {
   "pendapatan_nasional": "333",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const kirgizstan_geopolitik = {
     "un_vote": 19,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kirgizstan_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const kirgizstan_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 43.54,
-    "harga_bbm": 10.7,
-    "harga_listrik": 0.8,
-    "harga_air": 5.2,
-    "harga_obat": 315.8,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kirgizstan_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 16,
-    "pendidikan": 1,
-    "keamanan": 37,
-    "keuangan": 26,
-    "lingkungan": 60
   }
-};
-

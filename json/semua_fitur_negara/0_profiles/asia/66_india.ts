@@ -11,9 +11,7 @@ const india_profile = {
   "pendapatan_nasional": "109453",
   "religion": "Hindu",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const india_geopolitik = {
     "un_vote": 204,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const india_geopolitik = {
       "kekuatan_keras": 33,
       "prestise_diplomatik": 57
     }
-  };
-
-const india_extra = {
-"": {
-    "harga_beras": 8,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 20.16,
-    "harga_telur": 31.1,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 4.16,
-    "harga_obat": 126.32,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": india_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 22,
-    "pendidikan": 29,
-    "keamanan": 19,
-    "keuangan": 39,
-    "lingkungan": 60
   }
-};
-

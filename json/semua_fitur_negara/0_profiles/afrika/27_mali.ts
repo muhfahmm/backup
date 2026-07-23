@@ -11,9 +11,7 @@ const mali_profile = {
   "pendapatan_nasional": "500",
   "religion": "Islam",
   "ideology": "Nasionalisme"
-};
-
-
+}
 const mali_geopolitik = {
     "un_vote": 106,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const mali_geopolitik = {
       "kekuatan_keras": 24,
       "prestise_diplomatik": 57
   }
-  };
-
-const mali_extra = {
-"": {
-    "harga_beras": 32,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 32.8,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 14.4,
-    "harga_telur": 31.1,
-    "harga_bbm": 14.98,
-    "harga_listrik": 1.28,
-    "harga_air": 10.4,
-    "harga_obat": 78.95,
-    "harga_pendidikan": 387.12
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": mali_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 9,
-    "pendidikan": 20,
-    "keamanan": 21,
-    "keuangan": 32,
-    "lingkungan": 60
   }
-};
-

@@ -11,9 +11,7 @@ const azerbaijan_profile = {
   "pendapatan_nasional": "1528",
   "religion": "Islam",
   "ideology": "Demokrasi"
-};
-
-
+}
 const azerbaijan_geopolitik = {
     "un_vote": 140,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const azerbaijan_geopolitik = {
       "kekuatan_keras": 40,
       "prestise_diplomatik": 57
     }
-  };
-
-const azerbaijan_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 21.56,
-    "harga_gula": 20.16,
-    "harga_telur": 15.55,
-    "harga_bbm": 8.56,
-    "harga_listrik": 1.28,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 241.95
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": azerbaijan_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 6,
-    "pendidikan": 9,
-    "keamanan": 28,
-    "keuangan": 22,
-    "lingkungan": 60
   }
-};
-

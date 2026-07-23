@@ -11,9 +11,7 @@ const kuwait_profile = {
   "pendapatan_nasional": "4306",
   "religion": "Islam",
   "ideology": "Monarki"
-};
-
-
+}
 const kuwait_geopolitik = {
     "un_vote": 157,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kuwait_geopolitik = {
       "kekuatan_keras": 6,
       "prestise_diplomatik": 57
     }
-  };
-
-const kuwait_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 145.74,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 11.52,
-    "harga_telur": 31.1,
-    "harga_bbm": 10.7,
-    "harga_listrik": 1.6,
-    "harga_air": 5.2,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 967.8
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kuwait_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 21,
-    "pendidikan": 17,
-    "keamanan": 24,
-    "keuangan": 25,
-    "lingkungan": 60
   }
-};
-

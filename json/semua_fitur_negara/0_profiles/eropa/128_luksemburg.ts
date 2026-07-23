@@ -11,9 +11,7 @@ const luksemburg_profile = {
   "pendapatan_nasional": "2417",
   "religion": "Katolik",
   "ideology": "Kapitalisme"
-};
-
-
+}
 const luksemburg_geopolitik = {
     "un_vote": 67,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const luksemburg_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  };
-
-const luksemburg_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 104.1,
-    "harga_ayam": 57.4,
-    "harga_minyak_goreng": 12.32,
-    "harga_gula": 11.52,
-    "harga_telur": 62.2,
-    "harga_bbm": 5.35,
-    "harga_listrik": 1.6,
-    "harga_air": 10.4,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": luksemburg_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 16,
-    "pendidikan": 39,
-    "keamanan": 39,
-    "keuangan": 6,
-    "lingkungan": 60
   }
-};
-

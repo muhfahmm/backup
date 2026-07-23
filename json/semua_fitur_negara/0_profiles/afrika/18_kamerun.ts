@@ -11,9 +11,7 @@ const kamerun_profile = {
   "pendapatan_nasional": "1250",
   "religion": "Katolik",
   "ideology": "Konservatisme"
-};
-
-
+}
 const kamerun_geopolitik = {
     "un_vote": 138,
     "reputasi_diplomatik": "Netral",
@@ -26,35 +24,4 @@ const kamerun_geopolitik = {
       "kekuatan_keras": 19,
       "prestise_diplomatik": 57
   }
-  };
-
-const kamerun_extra = {
-"": {
-    "harga_beras": 16,
-    "harga_daging_sapi": 52.05,
-    "harga_ayam": 41,
-    "harga_minyak_goreng": 15.4,
-    "harga_gula": 7.2,
-    "harga_telur": 43.54,
-    "harga_bbm": 8.56,
-    "harga_listrik": 2.24,
-    "harga_air": 7.28,
-    "harga_obat": 157.9,
-    "harga_pendidikan": 483.9
-  },
-    // =============================================================
-  // 15. ðŸŒ GEOPOLITIK & HUBUNGAN INTERNASIONAL
-  // =============================================================
-  "geopolitik": kamerun_geopolitik,
-  // =============================================================
-  // 16. ðŸ›ï¸ KEMENTERIAN NEGARA
-  // =============================================================
-  "kementerian": {
-    "kesehatan": 15,
-    "pendidikan": 38,
-    "keamanan": 9,
-    "keuangan": 3,
-    "lingkungan": 60
   }
-};
-

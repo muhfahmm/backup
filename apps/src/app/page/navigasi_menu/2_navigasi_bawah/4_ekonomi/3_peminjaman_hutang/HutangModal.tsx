@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useRef } from "react";
-import { X, CreditCard, Search, Landmark, ArrowRight } from "lucide-react";
+import { X, CreditCard, Search, Landmark, ArrowRight, AlertCircle } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 
 interface ModalProps {
@@ -77,6 +77,9 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   const [loanSources, setLoanSources] = useState<any[]>([]);
   const initialLoanLoadRef = useRef(true);
 
+  // State untuk menampung data pinjaman yang diklik sebelum konfirmasi
+  const [pendingLoan, setPendingLoan] = useState<any>(null);
+
   useEffect(() => {
     const loadLoanSources = () => {
       if (typeof window === "undefined") return;
@@ -152,25 +155,44 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
 
   if (!isOpen) return null;
 
-  // Ambil data kas dan hutang dari countryDetail
   const kasNegara = countryDetail?.anggaran || 0;
   const totalHutang = countryDetail?.totalHutang || 0;
   const riwayatPinjaman = countryDetail?.pinjamanList || [];
 
-  // Disesuaikan PDB menjadi 500.000 agar rasio hutang terlihat
   const simulatedGDP = 500_000; 
   const debtRatio = Math.min(100, Math.round((totalHutang / simulatedGDP) * 100));
 
-  // Logika Peminjaman
-  const handleBorrow = (source: any) => {
-    // Hitung total hutang baru + bunga
+  // PERBAIKAN: Logika Render Bendera Anti-Broken Image
+  const renderFlag = (iso: string | undefined, fallbackEmoji: string, altName: string) => {
+    if (!iso || iso.length !== 2) {
+      return <span className="text-xl">{fallbackEmoji}</span>;
+    }
+
+    return (
+      <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center">
+        <img
+          src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+          alt={altName}
+          className="w-full h-full object-cover absolute inset-0"
+          onError={(e) => {
+            // Jika gambar gagal, sembunyikan gambar dan hanya tampilkan background/emoji
+            (e.target as HTMLImageElement).style.display = 'none';
+          }}
+        />
+        {/* Fallback Emoji yang muncul di belakang jika gambar gagal */}
+        <span className="text-sm opacity-50 select-none">{fallbackEmoji}</span>
+      </div>
+    );
+  };
+
+  // Logika Peminjaman (dieksekusi setelah konfirmasi)
+  const confirmBorrow = () => {
+    if (!pendingLoan) return;
+    const source = pendingLoan;
     const totalYangHarusDibayar = source.maxLoan + (source.maxLoan * (source.interest / 100));
     const newTotalHutang = totalHutang + totalYangHarusDibayar;
-
-    // Hitung tanggal pengembalian berdasarkan masa tenggang (dalam hari)
     const returnDate = new Date(Date.now() + source.term * 24 * 60 * 60 * 1000).toLocaleDateString('id-ID');
 
-    // Tambahkan ke riwayat
     const newLoanRecord = {
       id: Date.now(),
       source: source.name,
@@ -180,25 +202,28 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
       term: source.term,
       totalRepayment: totalYangHarusDibayar,
       date: new Date().toLocaleDateString('id-ID'),
-      returnDate: returnDate // Tambahkan tanggal pengembalian
+      returnDate: returnDate
     };
 
     setCountryDetail({
       ...countryDetail,
-      anggaran: kasNegara + source.maxLoan, // Kas bertambah
-      totalHutang: newTotalHutang, // Hutang bertambah plus bunga
-      pinjamanList: [newLoanRecord, ...riwayatPinjaman] // Simpan riwayat
+      anggaran: kasNegara + source.maxLoan,
+      totalHutang: newTotalHutang,
+      pinjamanList: [newLoanRecord, ...riwayatPinjaman]
     });
+
+    setPendingLoan(null);
   };
 
-  // Filtering Data berdasarkan Search
+  const cancelBorrow = () => setPendingLoan(null);
+
   const filteredCountries = loanSources.filter((country) =>
     country.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-5xl h-[82vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         
         {/* Background Texture */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
@@ -295,24 +320,10 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                   <div key={negara.id} className="bg-white/60 border border-[#C4B49C]/30 p-4 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        {(() => {
-                          const isoCode = negara.iso || COUNTRIES_DATA.find(c => c.country && c.country.toLowerCase() === (negara.name || "").toLowerCase())?.iso;
-                          if (isoCode) {
-                            return (
-                              <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm">
-                                <img
-                                  src={`https://flagcdn.com/w80/${isoCode.toLowerCase()}.png`}
-                                  alt={negara.name}
-                                  className="w-full h-full object-cover"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
-                                  }}
-                                />
-                              </div>
-                            );
-                          }
-                          return <span className="text-xl">{negara.flag}</span>;
-                        })()}
+                        
+                        {/* PERBAIKAN: Render Flag dengan Function Anti-Broken Image */}
+                        {renderFlag(negara.iso, negara.flag, negara.name)}
+
                         <span className="text-sm font-black text-[#5c3c10]">{negara.name}</span>
                       </div>
                       <span className="text-xs font-black text-red-600 bg-red-600/10 px-2 py-1 rounded-lg">{negara.interest}%</span>
@@ -321,8 +332,9 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                       <p className="flex justify-between"><span>Plafon Pinjaman:</span> <span className="text-[#5c3c10]">{negara.maxLoan.toLocaleString('id-ID')} EM</span></p>
                       <p className="flex justify-between"><span>Masa Tenggang:</span> <span className="text-[#5c3c10]">{negara.term} Hari</span></p>
                     </div>
+                    
                     <button
-                      onClick={() => handleBorrow(negara)}
+                      onClick={() => setPendingLoan(negara)}
                       className="w-full mt-4 py-2.5 rounded-lg bg-gradient-to-r from-[#fcae1e] to-[#c77a00] text-white text-[10px] font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all cursor-pointer"
                     >
                       <span>Pinjam Dana</span>
@@ -349,7 +361,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                     </div>
                   </div>
                   <button
-                    onClick={() => handleBorrow(lembaga)}
+                    onClick={() => setPendingLoan(lembaga)}
                     className="px-8 py-2.5 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10]/60 shadow-md text-[10px] font-black uppercase tracking-wider hover:bg-[#3d2911] active:scale-95 transition-all cursor-pointer"
                   >
                     Ajukan Kredit
@@ -384,18 +396,10 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                       <tr key={pinjam.id || idx} className="hover:bg-[#e4dac3]/20 transition-colors">
                         <td className="px-5 py-3 font-bold text-[#5c3c10]">
                           <div className="flex items-center gap-2">
-                            {pinjam.iso && (
-                              <div className="w-6 h-4 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0">
-                                <img
-                                  src={`https://flagcdn.com/w80/${pinjam.iso.toLowerCase()}.png`}
-                                  alt={pinjam.source}
-                                  className="w-full h-full object-cover"
-                                  onError={(e) => {
-                                    (e.target as HTMLImageElement).src = 'https://flagcdn.com/w80/un.png';
-                                  }}
-                                />
-                              </div>
-                            )}
+                            
+                            {/* PERBAIKAN: Render Flag di Tabel Riwayat */}
+                            {renderFlag(pinjam.iso, "🌐", pinjam.source)}
+
                             <span>{pinjam.source}</span>
                           </div>
                         </td>
@@ -412,6 +416,74 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
           )}
 
         </div>
+
+        {/* Modal Konfirmasi Peminjaman */}
+        {pendingLoan && (
+          <div className="absolute inset-0 bg-black/60 z-20 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
+            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-lg w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
+              
+              <button
+                onClick={cancelBorrow}
+                className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors"
+              >
+                <X className="h-5 w-5" />
+              </button>
+
+              <div className="flex items-center gap-3 mb-6">
+                <div className="p-2 bg-amber-600/10 rounded-xl border border-amber-600/20">
+                  <AlertCircle className="h-6 w-6 text-amber-600" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Konfirmasi Pinjaman</h3>
+                  <p className="text-xs text-[#8b7e66] font-bold">Pastikan data sudah benar sebelum menyetujui.</p>
+                </div>
+              </div>
+
+              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-5 space-y-2.5 mb-6">
+                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
+                  <span>Negara Pemberi</span>
+                  <span className="flex items-center gap-2">
+                    {renderFlag(pendingLoan.iso, pendingLoan.flag, pendingLoan.name)} {pendingLoan.name}
+                  </span>
+                </div>
+                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
+                  <span>Jumlah Pinjaman</span>
+                  <span className="text-emerald-700">{pendingLoan.maxLoan.toLocaleString('id-ID')} EM</span>
+                </div>
+                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
+                  <span>Bunga Pinjaman</span>
+                  <span className="text-red-600">{pendingLoan.interest}%</span>
+                </div>
+                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
+                  <span>Masa Tenggang</span>
+                  <span>{pendingLoan.term} Hari</span>
+                </div>
+                <div className="flex justify-between text-base font-black text-[#5c3c10] pt-2">
+                  <span>Total Pembayaran</span>
+                  <span className="text-[#5c3c10]">
+                    {(pendingLoan.maxLoan + (pendingLoan.maxLoan * (pendingLoan.interest / 100))).toLocaleString('id-ID')} EM
+                  </span>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <button
+                  onClick={cancelBorrow}
+                  className="flex-1 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer"
+                >
+                  Batal
+                </button>
+                <button
+                  onClick={confirmBorrow}
+                  className="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#fcae1e] to-[#c77a00] text-[#FAF6EE] shadow-md shadow-[#c77a00]/30 font-black text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+                >
+                  Konfirmasi Pinjaman
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
