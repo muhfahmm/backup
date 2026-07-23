@@ -428,7 +428,7 @@ export default function MapPage() {
 
             {/* Shifted Canvas Container */}
             <div className={`fixed top-20 inset-x-0 bottom-0 z-0 ${isMapInteractionDisabled ? 'pointer-events-none' : ''}`}>
-                <canvas id="map-canvas" className="w-full h-full block cursor-default" />
+                <canvas id="map-canvas" className="w-full h-full block cursor-grab" />
 
                 {/* Global FX */}
                 <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_200px_rgba(0,0,0,0.6)] vignette-gradient" />
@@ -452,7 +452,7 @@ export default function MapPage() {
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
-            <div className="fixed bottom-8 right-8 z-60 flex flex-col w-[320px] pointer-not-allowed">
+            <div className="fixed bottom-8 right-8 z-60 flex flex-col w-[320px]">
                 {/* Upper Parchment Card */}
                 <div className="bg-[#FAF6EE] rounded-t-2xl px-6 pt-5 pb-10 border-t-2 border-x-2 border-[#C4B49C] shadow-lg flex flex-col relative overflow-hidden">
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.01)_0%,transparent_100%)] pointer-events-none" />

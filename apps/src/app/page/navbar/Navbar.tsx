@@ -39,7 +39,7 @@ export function Navbar({
     const netBalanceLabel = `${netBalance >= 0 ? '+ ' : '- '}${Math.abs(netBalance).toLocaleString('id-ID')}`;
 
     return (
-        <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto cursor-not-allowed bg-[#e6d8b9] border-b border-[#c4b49c] px-2 sm:px-6 lg:px-8 py-2 sm:py-3.5 flex items-center justify-between shadow-md min-h-[56px] sm:min-h-[64px] lg:min-h-[80px] select-none backdrop-blur-none">
+        <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto bg-[#e6d8b9] border-b border-[#c4b49c] px-2 sm:px-6 lg:px-8 py-2 sm:py-3.5 flex items-center justify-between shadow-md min-h-[56px] sm:min-h-[64px] lg:min-h-[80px] select-none backdrop-blur-none">
             
             {/* 1. Left Side: Circular Menu & Selected Badge */}
             <div className="flex items-center gap-1.5 sm:gap-3.5 shrink-0">
