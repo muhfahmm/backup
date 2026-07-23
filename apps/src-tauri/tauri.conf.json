@@ -6,8 +6,8 @@
   "build": {
     "frontendDist": "../.next",
     "devUrl": "http://localhost:3001",
-    "beforeDevCommand": "cd .. && npm run dev",
-    "beforeBuildCommand": "cd .. && npm run build"
+    "beforeDevCommand": "npm --prefix .. run tauri:serve",
+    "beforeBuildCommand": "npm --prefix .. run build"
   },
   "app": {
     "windows": [
