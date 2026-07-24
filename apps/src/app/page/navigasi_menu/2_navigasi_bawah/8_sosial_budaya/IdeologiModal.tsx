@@ -195,7 +195,6 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

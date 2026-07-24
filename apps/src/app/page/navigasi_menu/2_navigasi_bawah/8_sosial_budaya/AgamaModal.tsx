@@ -197,7 +197,6 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
               </div>
             </div>
           )}
-
         </div>
       </div>
     </div>

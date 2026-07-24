@@ -38,7 +38,7 @@ import ArmadaPolisiModal from "./6_pertahanan/ArmadaPolisiModal";
 import ManajemenPertahananModal from "./6_pertahanan/ManajemenPertahananModal";
 
 // 7. Geopolitik
-import PBBModal from "./7_geopolitik/PBBModal";
+import PBBModal from "./7_geopolitik/1_PBB/PBBModal";
 import KedutaanBesarModal from "./7_geopolitik/KedutaanBesarModal";
 import OrgIntlModal from "./7_geopolitik/OrgIntlModal";
 import TingkatHubunganModal from "./7_geopolitik/TingkatHubunganModal";
