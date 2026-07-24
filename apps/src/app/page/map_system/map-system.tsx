@@ -477,6 +477,8 @@ export default function MapPage() {
 
             setCountryDetailModalName(countryName);
             setCountryDetailModalOpen(true);
+            // Also pass the current countryDetail to the modal
+            setCountryDetail(countryDetail);
         } catch (error) {
             console.error('Failed to read clicked country from map:', error);
         }
@@ -641,6 +643,8 @@ export default function MapPage() {
             <CountryDetailModal
                 isOpen={countryDetailModalOpen}
                 countryName={countryDetailModalName}
+                countryDetail={countryDetail}
+                currentDate={currentDate}
                 onClose={() => {
                     setCountryDetailModalOpen(false);
                     setCountryDetailModalName(null);
