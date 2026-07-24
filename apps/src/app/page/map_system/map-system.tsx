@@ -17,6 +17,7 @@ import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
 import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryUpdater';
 import { logger } from '../../../lib/logger';
+import { CountryDetailModal } from '../detail_negara/detail_negara';
 
 interface Country {
     id: number;
@@ -44,12 +45,15 @@ export default function MapPage() {
     const [activeMenu, setActiveMenu] = useState('Peta Taktis');
     const [resetTrigger, setResetTrigger] = useState(false);
     const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
+    const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
+    const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
 
     const isMapInteractionDisabled = isSaveModalOpen || isPresidentMenuOpen || isRestartConfirmOpen || activeMenu !== 'Peta Taktis';
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
     const timeManagerRef = useRef<SimulationTimeManager | null>(null);
+    const wasmModuleRef = useRef<any>(null);
     const hasInitRef = useRef(false);
 
     useEffect(() => {
@@ -417,6 +421,7 @@ export default function MapPage() {
             try {
                 const wasmModule = await import('../../../wasm/map-engine-rs/map_engine_rs');
                 await wasmModule.default(); // Initialize WASM module first
+                wasmModuleRef.current = wasmModule;
                 
                 // After init, the exported functions are available on the module
                 const { start_map_engine, set_selected_country_on_map } = wasmModule;
@@ -455,6 +460,28 @@ export default function MapPage() {
         initMap();
     }, []);
 
+    const handleCanvasCountryClick = async (event: React.MouseEvent<HTMLCanvasElement>) => {
+        if (isMapInteractionDisabled) return;
+
+        const canvas = event.currentTarget;
+        const rect = canvas.getBoundingClientRect();
+        const x = event.clientX - rect.left;
+        const y = event.clientY - rect.top;
+
+        try {
+            const wasmModule = wasmModuleRef.current;
+            const clickedCountry = wasmModule?.get_country_at_on_map?.(x, y);
+            const countryName = clickedCountry?.country || clickedCountry?.name || clickedCountry?.country_name;
+
+            if (!countryName) return;
+
+            setCountryDetailModalName(countryName);
+            setCountryDetailModalOpen(true);
+        } catch (error) {
+            console.error('Failed to read clicked country from map:', error);
+        }
+    };
+
     return (
         <main className="fixed inset-0 bg-[#070b14] overflow-hidden font-sans">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.02)_0%,transparent_100%)] pointer-events-none" />
@@ -474,6 +501,7 @@ export default function MapPage() {
                 <canvas
                     id="map-canvas"
                     className="w-full h-full block cursor-grab"
+                    onClick={handleCanvasCountryClick}
                     onMouseLeave={(e) => {
                         const event = new MouseEvent('mouseup', {
                             bubbles: true,
@@ -609,6 +637,15 @@ export default function MapPage() {
                     </div>
                 </div>
             </div>
+
+            <CountryDetailModal
+                isOpen={countryDetailModalOpen}
+                countryName={countryDetailModalName}
+                onClose={() => {
+                    setCountryDetailModalOpen(false);
+                    setCountryDetailModalName(null);
+                }}
+            />
 
             {/* Custom Premium Save Modal */}
             {isSaveModalOpen && (
