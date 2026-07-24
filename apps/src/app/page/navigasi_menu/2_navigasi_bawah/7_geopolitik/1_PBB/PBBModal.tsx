@@ -69,8 +69,11 @@ export default function PBBModal({ isOpen, onClose, selectedCountry }: ModalProp
           </div>
 
           {/* Render 3 Komponen Berdasarkan Active Tab */}
-          {activeTab === "resolusi" && <ResolusiPBB />}
-          {activeTab === "keamanan" && <KeamananPBB />}
+          {activeTab === "resolusi" && <ResolusiPBB selectedCountry={selectedCountry} />}
+          
+          {/* PERBAIKAN: Menambahkan selectedCountry pada komponen KeamananPBB */}
+          {activeTab === "keamanan" && <KeamananPBB selectedCountry={selectedCountry} />}
+          
           {activeTab === "suara" && <SuaraPBB />}
           
         </div>
