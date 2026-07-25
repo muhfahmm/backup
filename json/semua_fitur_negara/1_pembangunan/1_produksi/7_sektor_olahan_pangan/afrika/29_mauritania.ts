@@ -9,5 +9,4 @@ const mauritania_olahan_pangan = {
   susu: 54,
   pakan_ternak: 68,
   ikan_kaleng: 32,
-  kopi_teh: 42,
 };

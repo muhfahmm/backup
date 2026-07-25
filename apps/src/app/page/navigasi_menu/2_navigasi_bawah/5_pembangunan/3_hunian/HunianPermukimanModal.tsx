@@ -43,8 +43,6 @@ const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
     requirements: [
       { resourceKey: 'semen_beton', label: 'Semen Beton', group: 'Manufaktur' },
       { resourceKey: 'kayu', label: 'Kayu', group: 'Manufaktur' },
-      { resourceKey: 'emas', label: 'Emas', group: 'Mineral' },
-      { resourceKey: 'logam_tanah_jarang', label: 'Logam Tanah Jarang', group: 'Mineral' },
     ]
   }
 };

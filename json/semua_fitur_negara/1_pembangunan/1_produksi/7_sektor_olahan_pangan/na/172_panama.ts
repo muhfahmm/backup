@@ -9,5 +9,4 @@ const panama_olahan_pangan = {
   susu: 120,
   pakan_ternak: 190,
   ikan_kaleng: 225,
-  kopi_teh: 190,
 };

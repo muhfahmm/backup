@@ -9,5 +9,4 @@ const guinea_bissau_olahan_pangan = {
   susu: 22,
   pakan_ternak: 98,
   ikan_kaleng: 20,
-  kopi_teh: 48,
 };

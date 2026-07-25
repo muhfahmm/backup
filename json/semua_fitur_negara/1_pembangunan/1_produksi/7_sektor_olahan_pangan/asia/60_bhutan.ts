@@ -9,5 +9,4 @@ const bhutan_olahan_pangan = {
   susu: 39,
   pakan_ternak: 93,
   ikan_kaleng: 33,
-  kopi_teh: 147,
 };

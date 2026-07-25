@@ -9,5 +9,4 @@ const mesir_olahan_pangan = {
   susu: 470,
   pakan_ternak: 752,
   ikan_kaleng: 987,
-  kopi_teh: 2068,
 };

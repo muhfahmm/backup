@@ -9,5 +9,4 @@ const lithuania_olahan_pangan = {
   susu: 240,
   pakan_ternak: 90,
   ikan_kaleng: 245,
-  kopi_teh: 50,
 };

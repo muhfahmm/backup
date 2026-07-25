@@ -9,5 +9,4 @@ const uni_emirat_arab_olahan_pangan = {
   susu: 2046,
   pakan_ternak: 2772,
   ikan_kaleng: 792,
-  kopi_teh: 2838,
 };

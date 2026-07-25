@@ -9,5 +9,4 @@ const irak_olahan_pangan = {
   susu: 78,
   pakan_ternak: 114,
   ikan_kaleng: 84,
-  kopi_teh: 258,
 };

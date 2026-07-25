@@ -9,5 +9,4 @@ const andorra_olahan_pangan = {
   susu: 60,
   pakan_ternak: 98,
   ikan_kaleng: 96,
-  kopi_teh: 34,
 };

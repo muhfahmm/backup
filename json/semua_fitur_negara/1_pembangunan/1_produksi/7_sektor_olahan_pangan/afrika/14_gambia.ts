@@ -9,5 +9,4 @@ const gambia_olahan_pangan = {
   susu: 30,
   pakan_ternak: 68,
   ikan_kaleng: 36,
-  kopi_teh: 76,
 };

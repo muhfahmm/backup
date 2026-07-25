@@ -9,5 +9,4 @@ const djibouti_olahan_pangan = {
   susu: 16,
   pakan_ternak: 31,
   ikan_kaleng: 44,
-  kopi_teh: 43,
 };

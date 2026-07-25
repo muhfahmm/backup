@@ -9,5 +9,4 @@ const yordania_olahan_pangan = {
   susu: 82,
   pakan_ternak: 72,
   ikan_kaleng: 46,
-  kopi_teh: 76,
 };

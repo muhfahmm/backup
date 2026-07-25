@@ -9,5 +9,4 @@ const grenada_olahan_pangan = {
   susu: 33,
   pakan_ternak: 37,
   ikan_kaleng: 37,
-  kopi_teh: 45,
 };

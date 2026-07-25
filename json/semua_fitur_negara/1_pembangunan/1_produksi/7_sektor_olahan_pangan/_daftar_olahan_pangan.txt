@@ -7,4 +7,3 @@
 7. susu
 8. pakan_ternak
 9. ikan_kaleng
-10. kopi_teh

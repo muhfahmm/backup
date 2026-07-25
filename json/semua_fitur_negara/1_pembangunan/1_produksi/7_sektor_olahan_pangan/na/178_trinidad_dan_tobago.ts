@@ -9,5 +9,4 @@ const trinidad_dan_tobago_olahan_pangan = {
   susu: 42,
   pakan_ternak: 74,
   ikan_kaleng: 78,
-  kopi_teh: 80,
 };

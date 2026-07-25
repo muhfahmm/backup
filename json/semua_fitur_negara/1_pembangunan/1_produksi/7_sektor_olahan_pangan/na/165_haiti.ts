@@ -9,5 +9,4 @@ const haiti_olahan_pangan = {
   susu: 51,
   pakan_ternak: 144,
   ikan_kaleng: 75,
-  kopi_teh: 60,
 };

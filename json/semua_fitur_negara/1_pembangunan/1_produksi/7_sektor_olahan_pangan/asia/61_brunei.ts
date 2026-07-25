@@ -9,5 +9,4 @@ const brunei_olahan_pangan = {
   susu: 60,
   pakan_ternak: 57,
   ikan_kaleng: 147,
-  kopi_teh: 105,
 };

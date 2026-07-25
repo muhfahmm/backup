@@ -9,5 +9,4 @@ const lebanon_olahan_pangan = {
   susu: 16,
   pakan_ternak: 19,
   ikan_kaleng: 30,
-  kopi_teh: 33,
 };

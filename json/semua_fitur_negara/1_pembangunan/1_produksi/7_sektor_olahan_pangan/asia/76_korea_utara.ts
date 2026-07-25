@@ -9,5 +9,4 @@ const korea_utara_olahan_pangan = {
   susu: 156,
   pakan_ternak: 68,
   ikan_kaleng: 152,
-  kopi_teh: 200,
 };

@@ -9,5 +9,4 @@ const aljazair_olahan_pangan = {
   susu: 220,
   pakan_ternak: 506,
   ikan_kaleng: 264,
-  kopi_teh: 275,
 };

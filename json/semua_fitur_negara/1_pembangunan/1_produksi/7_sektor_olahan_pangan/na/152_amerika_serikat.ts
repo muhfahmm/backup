@@ -9,5 +9,4 @@ const amerika_serikat_olahan_pangan = {
   susu: 3944,
   pakan_ternak: 1392,
   ikan_kaleng: 1740,
-  kopi_teh: 1856,
 };

@@ -9,5 +9,4 @@ const eswatini_olahan_pangan = {
   susu: 46,
   pakan_ternak: 11,
   ikan_kaleng: 46,
-  kopi_teh: 38,
 };

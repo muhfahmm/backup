@@ -9,5 +9,4 @@ const qatar_olahan_pangan = {
   susu: 405,
   pakan_ternak: 480,
   ikan_kaleng: 195,
-  kopi_teh: 675,
 };

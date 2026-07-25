@@ -9,5 +9,4 @@ const malawi_olahan_pangan = {
   susu: 52,
   pakan_ternak: 48,
   ikan_kaleng: 48,
-  kopi_teh: 76,
 };

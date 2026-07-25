@@ -9,5 +9,4 @@ const kiribati_olahan_pangan = {
   susu: 88,
   pakan_ternak: 96,
   ikan_kaleng: 96,
-  kopi_teh: 50,
 };

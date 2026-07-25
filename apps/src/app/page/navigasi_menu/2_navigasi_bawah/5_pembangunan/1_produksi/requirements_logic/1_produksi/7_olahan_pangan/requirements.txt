@@ -60,10 +60,3 @@
  baja (dari baja)
  aluminium (dari aluminium)
  tembaga (dari tembaga)
-
-10. kopi_teh
- semen beton (dari semen_beton)
- kayu (dari kayu)
- baja (dari baja)
- aluminium (dari aluminium)
- tembaga (dari tembaga)

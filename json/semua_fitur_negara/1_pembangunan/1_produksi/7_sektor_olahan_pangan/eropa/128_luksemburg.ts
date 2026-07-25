@@ -9,5 +9,4 @@ const luksemburg_olahan_pangan = {
   susu: 33,
   pakan_ternak: 69,
   ikan_kaleng: 36,
-  kopi_teh: 90,
 };

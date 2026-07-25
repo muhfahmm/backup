@@ -9,5 +9,4 @@ const ukraina_olahan_pangan = {
   susu: 125,
   pakan_ternak: 185,
   ikan_kaleng: 75,
-  kopi_teh: 200,
 };

@@ -9,5 +9,4 @@ const vietnam_olahan_pangan = {
   susu: 2720,
   pakan_ternak: 1020,
   ikan_kaleng: 1020,
-  kopi_teh: 2108,
 };

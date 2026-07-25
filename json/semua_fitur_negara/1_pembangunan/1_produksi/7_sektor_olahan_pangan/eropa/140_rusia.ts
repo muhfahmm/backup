@@ -9,5 +9,4 @@ const rusia_olahan_pangan = {
   susu: 6237,
   pakan_ternak: 8883,
   ikan_kaleng: 4725,
-  kopi_teh: 4536,
 };

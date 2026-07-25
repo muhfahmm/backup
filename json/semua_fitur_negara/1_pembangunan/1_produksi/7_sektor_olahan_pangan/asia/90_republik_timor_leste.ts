@@ -9,5 +9,4 @@ const republik_timor_leste_olahan_pangan = {
   susu: 14,
   pakan_ternak: 16,
   ikan_kaleng: 18,
-  kopi_teh: 21,
 };

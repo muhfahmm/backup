@@ -9,5 +9,4 @@ const kongo_olahan_pangan = {
   susu: 128,
   pakan_ternak: 64,
   ikan_kaleng: 116,
-  kopi_teh: 188,
 };

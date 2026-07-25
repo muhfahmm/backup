@@ -9,5 +9,4 @@ const sierra_leone_olahan_pangan = {
   susu: 88,
   pakan_ternak: 120,
   ikan_kaleng: 188,
-  kopi_teh: 108,
 };

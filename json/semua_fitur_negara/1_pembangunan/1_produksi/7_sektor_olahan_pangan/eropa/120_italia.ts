@@ -9,5 +9,4 @@ const italia_olahan_pangan = {
   susu: 21298,
   pakan_ternak: 14353,
   ikan_kaleng: 21298,
-  kopi_teh: 9260,
 };

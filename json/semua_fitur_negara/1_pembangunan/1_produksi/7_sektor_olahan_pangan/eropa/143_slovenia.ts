@@ -9,5 +9,4 @@ const slovenia_olahan_pangan = {
   susu: 48,
   pakan_ternak: 20,
   ikan_kaleng: 84,
-  kopi_teh: 66,
 };

@@ -9,5 +9,4 @@ const denmark_olahan_pangan = {
   susu: 660,
   pakan_ternak: 792,
   ikan_kaleng: 1980,
-  kopi_teh: 1804,
 };

@@ -9,5 +9,4 @@ const greenland_olahan_pangan = {
   susu: 152,
   pakan_ternak: 120,
   ikan_kaleng: 196,
-  kopi_teh: 52,
 };

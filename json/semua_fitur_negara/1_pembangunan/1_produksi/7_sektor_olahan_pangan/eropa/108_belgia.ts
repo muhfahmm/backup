@@ -9,5 +9,4 @@ const belgia_olahan_pangan = {
   susu: 861,
   pakan_ternak: 1107,
   ikan_kaleng: 1640,
-  kopi_teh: 1722,
 };

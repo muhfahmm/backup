@@ -9,5 +9,4 @@ const austria_olahan_pangan = {
   susu: 3626,
   pakan_ternak: 3626,
   ikan_kaleng: 1702,
-  kopi_teh: 3626,
 };

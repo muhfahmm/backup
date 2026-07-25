@@ -9,5 +9,4 @@ const makau_olahan_pangan = {
   susu: 80,
   pakan_ternak: 52,
   ikan_kaleng: 96,
-  kopi_teh: 112,
 };

@@ -9,5 +9,4 @@ const thailand_olahan_pangan = {
   susu: 1271,
   pakan_ternak: 1640,
   ikan_kaleng: 779,
-  kopi_teh: 1394,
 };

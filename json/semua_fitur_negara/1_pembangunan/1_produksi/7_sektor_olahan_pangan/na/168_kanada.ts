@@ -9,5 +9,4 @@ const kanada_olahan_pangan = {
   susu: 8064,
   pakan_ternak: 13824,
   ikan_kaleng: 9600,
-  kopi_teh: 4992,
 };

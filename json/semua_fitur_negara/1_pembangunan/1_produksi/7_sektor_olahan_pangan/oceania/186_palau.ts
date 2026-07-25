@@ -9,5 +9,4 @@ const palau_olahan_pangan = {
   susu: 92,
   pakan_ternak: 80,
   ikan_kaleng: 26,
-  kopi_teh: 24,
 };

@@ -9,5 +9,4 @@ const kamerun_olahan_pangan = {
   susu: 152,
   pakan_ternak: 352,
   ikan_kaleng: 336,
-  kopi_teh: 280,
 };

@@ -9,5 +9,4 @@ const kirgizstan_olahan_pangan = {
   susu: 123,
   pakan_ternak: 42,
   ikan_kaleng: 69,
-  kopi_teh: 123,
 };

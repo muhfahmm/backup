@@ -9,5 +9,4 @@ const niger_olahan_pangan = {
   susu: 40,
   pakan_ternak: 15,
   ikan_kaleng: 12,
-  kopi_teh: 32,
 };

@@ -9,5 +9,4 @@ const komoro_olahan_pangan = {
   susu: 124,
   pakan_ternak: 120,
   ikan_kaleng: 160,
-  kopi_teh: 60,
 };

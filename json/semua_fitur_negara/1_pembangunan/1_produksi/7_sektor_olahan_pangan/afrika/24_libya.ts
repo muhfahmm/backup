@@ -9,5 +9,4 @@ const libya_olahan_pangan = {
   susu: 133,
   pakan_ternak: 343,
   ikan_kaleng: 210,
-  kopi_teh: 315,
 };

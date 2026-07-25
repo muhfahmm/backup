@@ -9,5 +9,4 @@ const paraguay_olahan_pangan = {
   susu: 70,
   pakan_ternak: 250,
   ikan_kaleng: 245,
-  kopi_teh: 205,
 };

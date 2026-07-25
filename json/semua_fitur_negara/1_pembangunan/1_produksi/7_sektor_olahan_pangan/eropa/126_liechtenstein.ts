@@ -9,5 +9,4 @@ const liechtenstein_olahan_pangan = {
   susu: 60,
   pakan_ternak: 156,
   ikan_kaleng: 176,
-  kopi_teh: 60,
 };

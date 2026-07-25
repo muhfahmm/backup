@@ -9,5 +9,4 @@ const seychelles_olahan_pangan = {
   susu: 36,
   pakan_ternak: 70,
   ikan_kaleng: 70,
-  kopi_teh: 62,
 };

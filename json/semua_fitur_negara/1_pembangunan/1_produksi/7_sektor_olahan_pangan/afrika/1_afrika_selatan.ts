@@ -9,5 +9,4 @@ const afrika_selatan_olahan_pangan = {
   susu: 1520,
   pakan_ternak: 1400,
   ikan_kaleng: 480,
-  kopi_teh: 1960,
 };

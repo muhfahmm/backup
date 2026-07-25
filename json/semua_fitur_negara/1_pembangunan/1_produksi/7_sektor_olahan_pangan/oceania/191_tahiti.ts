@@ -9,5 +9,4 @@ const tahiti_olahan_pangan = {
   susu: 44,
   pakan_ternak: 19,
   ikan_kaleng: 12,
-  kopi_teh: 40,
 };

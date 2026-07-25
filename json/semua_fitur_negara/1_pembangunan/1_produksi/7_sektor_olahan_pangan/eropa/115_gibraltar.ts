@@ -9,5 +9,4 @@ const gibraltar_olahan_pangan = {
   susu: 66,
   pakan_ternak: 36,
   ikan_kaleng: 36,
-  kopi_teh: 22,
 };

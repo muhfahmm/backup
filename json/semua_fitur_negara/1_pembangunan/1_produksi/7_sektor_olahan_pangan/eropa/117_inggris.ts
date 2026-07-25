@@ -9,5 +9,4 @@ const inggris_olahan_pangan = {
   susu: 13500,
   pakan_ternak: 13200,
   ikan_kaleng: 6600,
-  kopi_teh: 13200,
 };

@@ -9,5 +9,4 @@ const jamaika_olahan_pangan = {
   susu: 80,
   pakan_ternak: 60,
   ikan_kaleng: 48,
-  kopi_teh: 196,
 };

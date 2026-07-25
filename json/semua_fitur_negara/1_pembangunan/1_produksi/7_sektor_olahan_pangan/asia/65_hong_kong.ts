@@ -9,5 +9,4 @@ const hong_kong_olahan_pangan = {
   susu: 34,
   pakan_ternak: 12,
   ikan_kaleng: 27,
-  kopi_teh: 48,
 };

@@ -9,5 +9,4 @@ const selandia_baru_olahan_pangan = {
   susu: 210,
   pakan_ternak: 546,
   ikan_kaleng: 252,
-  kopi_teh: 378,
 };

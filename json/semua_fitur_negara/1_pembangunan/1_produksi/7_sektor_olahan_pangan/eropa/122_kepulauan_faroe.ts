@@ -9,5 +9,4 @@ const kepulauan_faroe_olahan_pangan = {
   susu: 50,
   pakan_ternak: 39,
   ikan_kaleng: 18,
-  kopi_teh: 38,
 };

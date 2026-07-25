@@ -9,5 +9,4 @@ const argentina_olahan_pangan = {
   susu: 2208,
   pakan_ternak: 576,
   ikan_kaleng: 2160,
-  kopi_teh: 576,
 };

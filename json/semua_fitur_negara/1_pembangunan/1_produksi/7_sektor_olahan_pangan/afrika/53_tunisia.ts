@@ -9,5 +9,4 @@ const tunisia_olahan_pangan = {
   susu: 64,
   pakan_ternak: 74,
   ikan_kaleng: 54,
-  kopi_teh: 94,
 };

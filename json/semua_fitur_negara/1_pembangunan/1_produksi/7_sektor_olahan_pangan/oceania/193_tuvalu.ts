@@ -9,5 +9,4 @@ const tuvalu_olahan_pangan = {
   susu: 60,
   pakan_ternak: 126,
   ikan_kaleng: 126,
-  kopi_teh: 66,
 };

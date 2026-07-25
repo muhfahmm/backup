@@ -9,5 +9,4 @@ const botswana_olahan_pangan = {
   susu: 44,
   pakan_ternak: 52,
   ikan_kaleng: 84,
-  kopi_teh: 100,
 };

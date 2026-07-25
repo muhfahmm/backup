@@ -9,5 +9,4 @@ const slowakia_olahan_pangan = {
   susu: 403,
   pakan_ternak: 130,
   ikan_kaleng: 195,
-  kopi_teh: 338,
 };

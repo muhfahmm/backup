@@ -9,5 +9,4 @@ const georgia_olahan_pangan = {
   susu: 140,
   pakan_ternak: 200,
   ikan_kaleng: 152,
-  kopi_teh: 160,
 };

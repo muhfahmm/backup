@@ -9,5 +9,4 @@ const islandia_olahan_pangan = {
   susu: 176,
   pakan_ternak: 40,
   ikan_kaleng: 124,
-  kopi_teh: 60,
 };

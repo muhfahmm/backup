@@ -9,5 +9,4 @@ const afganistan_olahan_pangan = {
   susu: 104,
   pakan_ternak: 124,
   ikan_kaleng: 200,
-  kopi_teh: 52,
 };

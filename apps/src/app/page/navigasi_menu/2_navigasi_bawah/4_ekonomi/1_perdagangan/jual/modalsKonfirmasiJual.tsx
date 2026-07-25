@@ -55,7 +55,6 @@ import {
   hasSusuBuilding,
   hasPakanTernakBuilding,
   hasIkanKalengBuilding,
-  hasKopiTehBuilding,
   hasFarmasiBuilding
 } from "../beli/index";
 
@@ -79,7 +78,7 @@ const ALL_JUAL_KEYS = [
   "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
   "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau",
   "udang", "mutiara", "ikan",
-  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "kopi_teh", "farmasi"
+  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng", "farmasi"
 ];
 
 interface JualModalsMenuProps {
@@ -143,7 +142,6 @@ const DEFAULT_PRICES: Record<string, number> = {
   susu: 160,
   pakan_ternak: 120,
   ikan_kaleng: 280,
-  kopi_teh: 350,
   farmasi: 600,
 };
 
@@ -435,7 +433,6 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     susu: hasSusuBuilding,
     pakan_ternak: hasPakanTernakBuilding,
     ikan_kaleng: hasIkanKalengBuilding,
-    kopi_teh: hasKopiTehBuilding,
     farmasi: hasFarmasiBuilding,
   };
 

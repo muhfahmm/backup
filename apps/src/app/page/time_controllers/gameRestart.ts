@@ -57,7 +57,7 @@ export function handleGameRestart(options: RestartOptions): void {
                 // Perikanan
                 'udang', 'mutiara', 'ikan',
                 // Olahan Pangan
-                'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu', 'pakan_ternak', 'ikan_kaleng', 'kopi_teh',
+                'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu', 'pakan_ternak', 'ikan_kaleng',
                 // Kelistrikan
                 'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
                 // Mineral & Energi

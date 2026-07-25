@@ -9,5 +9,4 @@ const togo_olahan_pangan = {
   susu: 22,
   pakan_ternak: 62,
   ikan_kaleng: 76,
-  kopi_teh: 36,
 };

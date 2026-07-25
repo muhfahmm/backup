@@ -9,5 +9,4 @@ const india_olahan_pangan = {
   susu: 7467,
   pakan_ternak: 12183,
   ikan_kaleng: 7074,
-  kopi_teh: 11790,
 };

@@ -9,5 +9,4 @@ const republik_dominika_olahan_pangan = {
   susu: 588,
   pakan_ternak: 196,
   ikan_kaleng: 602,
-  kopi_teh: 630,
 };

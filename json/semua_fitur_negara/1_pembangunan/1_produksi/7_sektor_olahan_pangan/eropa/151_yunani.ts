@@ -9,5 +9,4 @@ const yunani_olahan_pangan = {
   susu: 220,
   pakan_ternak: 330,
   ikan_kaleng: 110,
-  kopi_teh: 340,
 };

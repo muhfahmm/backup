@@ -9,5 +9,4 @@ const brazil_olahan_pangan = {
   susu: 4947,
   pakan_ternak: 5529,
   ikan_kaleng: 8730,
-  kopi_teh: 8148,
 };

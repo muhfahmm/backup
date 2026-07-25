@@ -9,5 +9,4 @@ const moldova_olahan_pangan = {
   susu: 64,
   pakan_ternak: 60,
   ikan_kaleng: 60,
-  kopi_teh: 132,
 };

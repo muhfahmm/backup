@@ -9,5 +9,4 @@ const bahama_olahan_pangan = {
   susu: 152,
   pakan_ternak: 92,
   ikan_kaleng: 144,
-  kopi_teh: 72,
 };

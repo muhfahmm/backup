@@ -9,5 +9,4 @@ const sao_tome_dan_principe_olahan_pangan = {
   susu: 192,
   pakan_ternak: 180,
   ikan_kaleng: 72,
-  kopi_teh: 136,
 };

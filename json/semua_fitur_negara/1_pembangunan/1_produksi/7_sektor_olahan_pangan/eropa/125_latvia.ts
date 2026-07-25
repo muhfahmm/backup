@@ -9,5 +9,4 @@ const latvia_olahan_pangan = {
   susu: 108,
   pakan_ternak: 168,
   ikan_kaleng: 120,
-  kopi_teh: 76,
 };

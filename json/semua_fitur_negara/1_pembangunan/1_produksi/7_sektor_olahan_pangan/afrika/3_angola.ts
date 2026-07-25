@@ -9,5 +9,4 @@ const angola_olahan_pangan = {
   susu: 288,
   pakan_ternak: 104,
   ikan_kaleng: 160,
-  kopi_teh: 128,
 };

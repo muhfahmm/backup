@@ -9,5 +9,4 @@ const el_salvador_olahan_pangan = {
   susu: 85,
   pakan_ternak: 195,
   ikan_kaleng: 100,
-  kopi_teh: 205,
 };

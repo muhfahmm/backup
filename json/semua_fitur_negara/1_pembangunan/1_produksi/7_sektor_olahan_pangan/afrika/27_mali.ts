@@ -9,5 +9,4 @@ const mali_olahan_pangan = {
   susu: 48,
   pakan_ternak: 57,
   ikan_kaleng: 60,
-  kopi_teh: 39,
 };

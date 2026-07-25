@@ -9,5 +9,4 @@ const papua_nugini_olahan_pangan = {
   susu: 84,
   pakan_ternak: 90,
   ikan_kaleng: 93,
-  kopi_teh: 87,
 };

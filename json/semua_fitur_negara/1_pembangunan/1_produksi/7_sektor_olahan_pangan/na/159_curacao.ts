@@ -9,5 +9,4 @@ const curacao_olahan_pangan = {
   susu: 28,
   pakan_ternak: 88,
   ikan_kaleng: 66,
-  kopi_teh: 20,
 };

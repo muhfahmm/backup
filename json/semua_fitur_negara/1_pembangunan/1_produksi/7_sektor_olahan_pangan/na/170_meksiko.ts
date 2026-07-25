@@ -9,5 +9,4 @@ const meksiko_olahan_pangan = {
   susu: 2783,
   pakan_ternak: 4235,
   ikan_kaleng: 5082,
-  kopi_teh: 4477,
 };

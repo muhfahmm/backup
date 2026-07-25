@@ -9,5 +9,4 @@ const kenya_olahan_pangan = {
   susu: 98,
   pakan_ternak: 175,
   ikan_kaleng: 315,
-  kopi_teh: 315,
 };

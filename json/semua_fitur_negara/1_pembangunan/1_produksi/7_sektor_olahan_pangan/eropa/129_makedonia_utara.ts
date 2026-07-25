@@ -9,5 +9,4 @@ const makedonia_utara_olahan_pangan = {
   susu: 66,
   pakan_ternak: 93,
   ikan_kaleng: 147,
-  kopi_teh: 132,
 };

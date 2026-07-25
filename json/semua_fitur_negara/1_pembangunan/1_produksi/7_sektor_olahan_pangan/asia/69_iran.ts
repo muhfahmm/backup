@@ -9,5 +9,4 @@ const iran_olahan_pangan = {
   susu: 828,
   pakan_ternak: 690,
   ikan_kaleng: 2208,
-  kopi_teh: 552,
 };

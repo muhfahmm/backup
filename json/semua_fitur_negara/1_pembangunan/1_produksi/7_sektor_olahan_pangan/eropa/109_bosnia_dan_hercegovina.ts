@@ -9,5 +9,4 @@ const bosnia_dan_hercegovina_olahan_pangan = {
   susu: 160,
   pakan_ternak: 44,
   ikan_kaleng: 184,
-  kopi_teh: 56,
 };

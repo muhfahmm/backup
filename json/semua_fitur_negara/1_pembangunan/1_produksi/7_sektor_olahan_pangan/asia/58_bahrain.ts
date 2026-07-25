@@ -9,5 +9,4 @@ const bahrain_olahan_pangan = {
   susu: 280,
   pakan_ternak: 96,
   ikan_kaleng: 344,
-  kopi_teh: 152,
 };

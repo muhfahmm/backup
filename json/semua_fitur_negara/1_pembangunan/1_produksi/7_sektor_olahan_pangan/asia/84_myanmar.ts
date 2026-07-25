@@ -9,5 +9,4 @@ const myanmar_olahan_pangan = {
   susu: 78,
   pakan_ternak: 228,
   ikan_kaleng: 90,
-  kopi_teh: 96,
 };

@@ -9,5 +9,4 @@ const irlandia_olahan_pangan = {
   susu: 1813,
   pakan_ternak: 1225,
   ikan_kaleng: 1176,
-  kopi_teh: 1225,
 };

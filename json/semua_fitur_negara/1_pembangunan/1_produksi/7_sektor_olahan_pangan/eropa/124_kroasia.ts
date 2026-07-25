@@ -9,5 +9,4 @@ const kroasia_olahan_pangan = {
   susu: 72,
   pakan_ternak: 45,
   ikan_kaleng: 123,
-  kopi_teh: 33,
 };

@@ -9,5 +9,4 @@ const maroko_olahan_pangan = {
   susu: 792,
   pakan_ternak: 1104,
   ikan_kaleng: 504,
-  kopi_teh: 768,
 };

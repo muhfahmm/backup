@@ -9,5 +9,4 @@ const suriname_olahan_pangan = {
   susu: 32,
   pakan_ternak: 72,
   ikan_kaleng: 56,
-  kopi_teh: 74,
 };

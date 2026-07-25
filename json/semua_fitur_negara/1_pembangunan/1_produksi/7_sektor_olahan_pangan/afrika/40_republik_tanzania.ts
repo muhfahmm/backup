@@ -9,5 +9,4 @@ const republik_tanzania_olahan_pangan = {
   susu: 42,
   pakan_ternak: 129,
   ikan_kaleng: 60,
-  kopi_teh: 84,
 };

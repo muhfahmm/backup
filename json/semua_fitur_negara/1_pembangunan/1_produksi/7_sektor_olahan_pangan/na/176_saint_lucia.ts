@@ -9,5 +9,4 @@ const saint_lucia_olahan_pangan = {
   susu: 20,
   pakan_ternak: 38,
   ikan_kaleng: 22,
-  kopi_teh: 50,
 };

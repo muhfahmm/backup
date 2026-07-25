@@ -106,17 +106,5 @@
     "biaya_pembangunan": 2500,
     "lowongan_kerja": 5500,
     "konsumsi_listrik": 65
-  },
-  "kopi_teh": {
-    "key": "10_pabrik_pengolahan_kopi_teh",
-    "dataKey": "kopi_teh",
-    "label": "Pabrik Pengolahan Kopi & Teh",
-    "deskripsi": "Pabrik Pengolahan Kopi & Teh",
-    "produksi": 350,
-    "satuan": "KG",
-    "waktu_pembangunan": 7,
-    "biaya_pembangunan": 1200,
-    "lowongan_kerja": 4000,
-    "konsumsi_listrik": 45
   }
 }

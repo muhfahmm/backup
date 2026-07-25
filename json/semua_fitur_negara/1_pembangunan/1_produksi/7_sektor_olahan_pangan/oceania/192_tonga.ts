@@ -9,5 +9,4 @@ const tonga_olahan_pangan = {
   susu: 41,
   pakan_ternak: 35,
   ikan_kaleng: 33,
-  kopi_teh: 46,
 };

@@ -9,5 +9,4 @@ const bermuda_olahan_pangan = {
   susu: 26,
   pakan_ternak: 24,
   ikan_kaleng: 34,
-  kopi_teh: 92,
 };

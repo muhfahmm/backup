@@ -9,5 +9,4 @@ const sri_lanka_olahan_pangan = {
   susu: 235,
   pakan_ternak: 135,
   ikan_kaleng: 150,
-  kopi_teh: 200,
 };

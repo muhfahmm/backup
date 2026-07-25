@@ -9,5 +9,4 @@ const rwanda_olahan_pangan = {
   susu: 15,
   pakan_ternak: 18,
   ikan_kaleng: 14,
-  kopi_teh: 19,
 };

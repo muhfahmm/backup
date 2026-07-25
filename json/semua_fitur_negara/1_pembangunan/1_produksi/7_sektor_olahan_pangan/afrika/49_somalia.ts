@@ -9,5 +9,4 @@ const somalia_olahan_pangan = {
   susu: 81,
   pakan_ternak: 99,
   ikan_kaleng: 105,
-  kopi_teh: 87,
 };

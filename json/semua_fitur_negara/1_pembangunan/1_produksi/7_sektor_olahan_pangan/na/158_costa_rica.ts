@@ -9,5 +9,4 @@ const costa_rica_olahan_pangan = {
   susu: 39,
   pakan_ternak: 57,
   ikan_kaleng: 102,
-  kopi_teh: 51,
 };

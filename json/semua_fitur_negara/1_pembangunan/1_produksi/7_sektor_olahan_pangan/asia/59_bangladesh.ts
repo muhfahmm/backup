@@ -9,5 +9,4 @@ const bangladesh_olahan_pangan = {
   susu: 3430,
   pakan_ternak: 3220,
   ikan_kaleng: 2660,
-  kopi_teh: 770,
 };

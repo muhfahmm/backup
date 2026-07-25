@@ -9,5 +9,4 @@ const lesotho_olahan_pangan = {
   susu: 132,
   pakan_ternak: 117,
   ikan_kaleng: 30,
-  kopi_teh: 114,
 };

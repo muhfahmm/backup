@@ -9,5 +9,4 @@ const republik_serbia_olahan_pangan = {
   susu: 50,
   pakan_ternak: 235,
   ikan_kaleng: 105,
-  kopi_teh: 200,
 };

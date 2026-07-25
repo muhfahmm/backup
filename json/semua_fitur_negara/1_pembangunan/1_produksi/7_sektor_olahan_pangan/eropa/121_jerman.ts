@@ -9,5 +9,4 @@ const jerman_olahan_pangan = {
   susu: 5418,
   pakan_ternak: 11352,
   ikan_kaleng: 11094,
-  kopi_teh: 3354,
 };

@@ -9,5 +9,4 @@ const republik_zimbabwe_olahan_pangan = {
   susu: 56,
   pakan_ternak: 40,
   ikan_kaleng: 88,
-  kopi_teh: 84,
 };

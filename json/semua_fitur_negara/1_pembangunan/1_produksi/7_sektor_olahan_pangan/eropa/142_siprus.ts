@@ -9,5 +9,4 @@ const siprus_olahan_pangan = {
   susu: 200,
   pakan_ternak: 144,
   ikan_kaleng: 160,
-  kopi_teh: 140,
 };

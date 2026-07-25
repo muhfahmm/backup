@@ -9,5 +9,4 @@ const senegal_olahan_pangan = {
   susu: 16,
   pakan_ternak: 14,
   ikan_kaleng: 38,
-  kopi_teh: 12,
 };

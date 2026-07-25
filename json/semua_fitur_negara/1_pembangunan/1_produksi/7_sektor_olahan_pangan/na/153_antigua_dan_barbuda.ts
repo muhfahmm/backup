@@ -9,5 +9,4 @@ const antigua_dan_barbuda_olahan_pangan = {
   susu: 40,
   pakan_ternak: 32,
   ikan_kaleng: 98,
-  kopi_teh: 68,
 };

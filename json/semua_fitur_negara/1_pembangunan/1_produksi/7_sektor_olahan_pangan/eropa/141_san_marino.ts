@@ -9,5 +9,4 @@ const san_marino_olahan_pangan = {
   susu: 88,
   pakan_ternak: 148,
   ikan_kaleng: 132,
-  kopi_teh: 68,
 };

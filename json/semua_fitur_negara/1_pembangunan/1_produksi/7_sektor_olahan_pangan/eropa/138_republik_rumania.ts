@@ -9,5 +9,4 @@ const republik_rumania_olahan_pangan = {
   susu: 720,
   pakan_ternak: 672,
   ikan_kaleng: 840,
-  kopi_teh: 1176,
 };

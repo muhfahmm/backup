@@ -9,5 +9,4 @@ const jepang_olahan_pangan = {
   susu: 3332,
   pakan_ternak: 4522,
   ikan_kaleng: 9520,
-  kopi_teh: 9758,
 };

@@ -9,5 +9,4 @@ const chile_olahan_pangan = {
   susu: 1836,
   pakan_ternak: 2268,
   ikan_kaleng: 1836,
-  kopi_teh: 702,
 };

@@ -9,5 +9,4 @@ const singapura_olahan_pangan = {
   susu: 1320,
   pakan_ternak: 924,
   ikan_kaleng: 748,
-  kopi_teh: 660,
 };

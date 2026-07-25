@@ -9,5 +9,4 @@ const mikronesia_olahan_pangan = {
   susu: 128,
   pakan_ternak: 148,
   ikan_kaleng: 136,
-  kopi_teh: 124,
 };

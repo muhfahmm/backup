@@ -9,5 +9,4 @@ const mauritius_olahan_pangan = {
   susu: 34,
   pakan_ternak: 28,
   ikan_kaleng: 26,
-  kopi_teh: 15,
 };

@@ -9,5 +9,4 @@ const ekuador_olahan_pangan = {
   susu: 240,
   pakan_ternak: 480,
   ikan_kaleng: 510,
-  kopi_teh: 510,
 };

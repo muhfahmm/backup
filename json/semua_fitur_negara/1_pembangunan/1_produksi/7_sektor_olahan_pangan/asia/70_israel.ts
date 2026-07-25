@@ -9,5 +9,4 @@ const israel_olahan_pangan = {
   susu: 1134,
   pakan_ternak: 1323,
   ikan_kaleng: 1449,
-  kopi_teh: 1197,
 };

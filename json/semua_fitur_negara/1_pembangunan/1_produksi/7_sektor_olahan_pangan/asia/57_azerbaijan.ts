@@ -9,5 +9,4 @@ const azerbaijan_olahan_pangan = {
   susu: 69,
   pakan_ternak: 39,
   ikan_kaleng: 132,
-  kopi_teh: 54,
 };

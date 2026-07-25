@@ -9,5 +9,4 @@ const australia_olahan_pangan = {
   susu: 3570,
   pakan_ternak: 3672,
   ikan_kaleng: 2244,
-  kopi_teh: 1224,
 };

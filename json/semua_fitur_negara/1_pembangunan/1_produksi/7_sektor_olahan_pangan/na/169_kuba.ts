@@ -9,5 +9,4 @@ const kuba_olahan_pangan = {
   susu: 361,
   pakan_ternak: 874,
   ikan_kaleng: 722,
-  kopi_teh: 399,
 };

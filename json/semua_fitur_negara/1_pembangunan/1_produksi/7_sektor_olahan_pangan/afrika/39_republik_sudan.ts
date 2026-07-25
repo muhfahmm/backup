@@ -9,5 +9,4 @@ const republik_sudan_olahan_pangan = {
   susu: 57,
   pakan_ternak: 150,
   ikan_kaleng: 48,
-  kopi_teh: 84,
 };

@@ -9,5 +9,4 @@ const filipina_olahan_pangan = {
   susu: 260,
   pakan_ternak: 460,
   ikan_kaleng: 980,
-  kopi_teh: 320,
 };

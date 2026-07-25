@@ -9,5 +9,4 @@ const nepal_olahan_pangan = {
   susu: 92,
   pakan_ternak: 120,
   ikan_kaleng: 96,
-  kopi_teh: 176,
 };

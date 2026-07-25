@@ -9,5 +9,4 @@ const tajikistan_olahan_pangan = {
   susu: 168,
   pakan_ternak: 164,
   ikan_kaleng: 40,
-  kopi_teh: 80,
 };

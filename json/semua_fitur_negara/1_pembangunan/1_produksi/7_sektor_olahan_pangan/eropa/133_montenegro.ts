@@ -9,5 +9,4 @@ const montenegro_olahan_pangan = {
   susu: 34,
   pakan_ternak: 46,
   ikan_kaleng: 27,
-  kopi_teh: 32,
 };

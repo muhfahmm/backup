@@ -9,5 +9,4 @@ const republik_uganda_olahan_pangan = {
   susu: 57,
   pakan_ternak: 93,
   ikan_kaleng: 117,
-  kopi_teh: 63,
 };

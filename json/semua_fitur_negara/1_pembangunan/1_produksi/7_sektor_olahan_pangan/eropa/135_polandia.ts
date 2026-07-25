@@ -9,5 +9,4 @@ const polandia_olahan_pangan = {
   susu: 742,
   pakan_ternak: 1484,
   ikan_kaleng: 1272,
-  kopi_teh: 1325,
 };

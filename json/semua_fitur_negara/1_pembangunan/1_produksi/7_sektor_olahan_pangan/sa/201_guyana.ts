@@ -9,5 +9,4 @@ const guyana_olahan_pangan = {
   susu: 32,
   pakan_ternak: 50,
   ikan_kaleng: 82,
-  kopi_teh: 88,
 };

@@ -9,5 +9,4 @@ const malaysia_olahan_pangan = {
   susu: 1440,
   pakan_ternak: 936,
   ikan_kaleng: 1296,
-  kopi_teh: 828,
 };

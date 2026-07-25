@@ -9,5 +9,4 @@ const norwegia_olahan_pangan = {
   susu: 260,
   pakan_ternak: 520,
   ikan_kaleng: 780,
-  kopi_teh: 920,
 };

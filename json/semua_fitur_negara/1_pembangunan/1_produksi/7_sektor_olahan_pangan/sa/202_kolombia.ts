@@ -9,5 +9,4 @@ const kolombia_olahan_pangan = {
   susu: 756,
   pakan_ternak: 576,
   ikan_kaleng: 1332,
-  kopi_teh: 468,
 };

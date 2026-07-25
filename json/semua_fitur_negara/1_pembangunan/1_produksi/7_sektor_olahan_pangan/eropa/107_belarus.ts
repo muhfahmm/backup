@@ -9,5 +9,4 @@ const belarus_olahan_pangan = {
   susu: 100,
   pakan_ternak: 140,
   ikan_kaleng: 160,
-  kopi_teh: 100,
 };

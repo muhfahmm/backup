@@ -9,5 +9,4 @@ const barbados_olahan_pangan = {
   susu: 10,
   pakan_ternak: 36,
   ikan_kaleng: 28,
-  kopi_teh: 41,
 };

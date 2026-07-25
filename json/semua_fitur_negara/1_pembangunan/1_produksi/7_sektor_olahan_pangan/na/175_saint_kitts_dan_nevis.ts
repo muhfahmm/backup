@@ -9,5 +9,4 @@ const saint_kitts_dan_nevis_olahan_pangan = {
   susu: 108,
   pakan_ternak: 120,
   ikan_kaleng: 105,
-  kopi_teh: 72,
 };

@@ -9,5 +9,4 @@ const malta_olahan_pangan = {
   susu: 66,
   pakan_ternak: 90,
   ikan_kaleng: 36,
-  kopi_teh: 34,
 };

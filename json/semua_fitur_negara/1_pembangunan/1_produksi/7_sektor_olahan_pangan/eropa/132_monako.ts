@@ -9,5 +9,4 @@ const monako_olahan_pangan = {
   susu: 40,
   pakan_ternak: 29,
   ikan_kaleng: 40,
-  kopi_teh: 28,
 };

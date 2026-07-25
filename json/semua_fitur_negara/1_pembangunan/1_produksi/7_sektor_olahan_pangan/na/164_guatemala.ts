@@ -9,5 +9,4 @@ const guatemala_olahan_pangan = {
   susu: 54,
   pakan_ternak: 81,
   ikan_kaleng: 39,
-  kopi_teh: 114,
 };

@@ -9,5 +9,4 @@ const fiji_olahan_pangan = {
   susu: 86,
   pakan_ternak: 24,
   ikan_kaleng: 82,
-  kopi_teh: 72,
 };

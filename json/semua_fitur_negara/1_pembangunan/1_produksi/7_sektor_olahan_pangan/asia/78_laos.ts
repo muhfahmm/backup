@@ -9,5 +9,4 @@ const laos_olahan_pangan = {
   susu: 72,
   pakan_ternak: 84,
   ikan_kaleng: 87,
-  kopi_teh: 144,
 };

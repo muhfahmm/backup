@@ -9,5 +9,4 @@ const maldives_olahan_pangan = {
   susu: 26,
   pakan_ternak: 54,
   ikan_kaleng: 44,
-  kopi_teh: 84,
 };

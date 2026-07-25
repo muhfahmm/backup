@@ -9,5 +9,4 @@ const honduras_olahan_pangan = {
   susu: 69,
   pakan_ternak: 108,
   ikan_kaleng: 108,
-  kopi_teh: 150,
 };

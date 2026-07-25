@@ -9,5 +9,4 @@ const vatikan_olahan_pangan = {
   susu: 60,
   pakan_ternak: 188,
   ikan_kaleng: 72,
-  kopi_teh: 156,
 };

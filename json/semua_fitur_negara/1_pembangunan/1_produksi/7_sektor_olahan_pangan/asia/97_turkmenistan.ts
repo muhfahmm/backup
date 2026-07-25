@@ -9,5 +9,4 @@ const turkmenistan_olahan_pangan = {
   susu: 48,
   pakan_ternak: 20,
   ikan_kaleng: 90,
-  kopi_teh: 76,
 };

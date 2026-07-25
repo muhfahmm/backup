@@ -9,5 +9,4 @@ const ghana_olahan_pangan = {
   susu: 196,
   pakan_ternak: 308,
   ikan_kaleng: 343,
-  kopi_teh: 175,
 };

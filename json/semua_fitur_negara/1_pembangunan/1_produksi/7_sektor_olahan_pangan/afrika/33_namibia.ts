@@ -9,5 +9,4 @@ const namibia_olahan_pangan = {
   susu: 38,
   pakan_ternak: 38,
   ikan_kaleng: 38,
-  kopi_teh: 24,
 };

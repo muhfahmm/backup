@@ -9,5 +9,4 @@ const liberia_olahan_pangan = {
   susu: 138,
   pakan_ternak: 78,
   ikan_kaleng: 69,
-  kopi_teh: 123,
 };

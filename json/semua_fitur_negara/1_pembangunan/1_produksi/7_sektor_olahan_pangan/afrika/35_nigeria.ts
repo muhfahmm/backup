@@ -9,5 +9,4 @@ const nigeria_olahan_pangan = {
   susu: 1344,
   pakan_ternak: 896,
   ikan_kaleng: 2688,
-  kopi_teh: 1904,
 };

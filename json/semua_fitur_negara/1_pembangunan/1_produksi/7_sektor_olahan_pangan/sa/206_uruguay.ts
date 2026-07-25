@@ -9,5 +9,4 @@ const uruguay_olahan_pangan = {
   susu: 90,
   pakan_ternak: 64,
   ikan_kaleng: 86,
-  kopi_teh: 22,
 };

@@ -9,5 +9,4 @@ const eritrea_olahan_pangan = {
   susu: 26,
   pakan_ternak: 11,
   ikan_kaleng: 16,
-  kopi_teh: 46,
 };

@@ -71,7 +71,6 @@ export const hasMinyakGorengBuilding = (data: any) => Number(data?.minyak_goreng
 export const hasSusuBuilding = (data: any) => Number(data?.susu || 0) > 0;
 export const hasPakanTernakBuilding = (data: any) => Number(data?.pakan_ternak || 0) > 0;
 export const hasIkanKalengBuilding = (data: any) => Number(data?.ikan_kaleng || 0) > 0;
-export const hasKopiTehBuilding = (data: any) => Number(data?.kopi_teh || 0) > 0;
 
 // ===========================
 // 7. FARMASI

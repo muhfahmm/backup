@@ -9,5 +9,4 @@ const gabon_olahan_pangan = {
   susu: 29,
   pakan_ternak: 37,
   ikan_kaleng: 50,
-  kopi_teh: 48,
 };

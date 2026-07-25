@@ -9,5 +9,4 @@ const turki_olahan_pangan = {
   susu: 104,
   pakan_ternak: 104,
   ikan_kaleng: 72,
-  kopi_teh: 100,
 };

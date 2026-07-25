@@ -9,5 +9,4 @@ const taiwan_olahan_pangan = {
   susu: 432,
   pakan_ternak: 792,
   ikan_kaleng: 432,
-  kopi_teh: 744,
 };

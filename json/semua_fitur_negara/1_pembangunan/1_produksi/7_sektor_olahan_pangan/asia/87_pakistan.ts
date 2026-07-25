@@ -9,5 +9,4 @@ const pakistan_olahan_pangan = {
   susu: 1352,
   pakan_ternak: 884,
   ikan_kaleng: 1664,
-  kopi_teh: 1768,
 };

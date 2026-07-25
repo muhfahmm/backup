@@ -9,5 +9,4 @@ const madagaskar_olahan_pangan = {
   susu: 46,
   pakan_ternak: 46,
   ikan_kaleng: 64,
-  kopi_teh: 46,
 };

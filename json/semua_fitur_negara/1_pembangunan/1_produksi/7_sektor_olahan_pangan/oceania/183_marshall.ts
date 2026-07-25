@@ -9,5 +9,4 @@ const marshall_olahan_pangan = {
   susu: 132,
   pakan_ternak: 128,
   ikan_kaleng: 160,
-  kopi_teh: 188,
 };

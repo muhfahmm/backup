@@ -9,5 +9,4 @@ const venezuela_olahan_pangan = {
   susu: 376,
   pakan_ternak: 400,
   ikan_kaleng: 360,
-  kopi_teh: 104,
 };

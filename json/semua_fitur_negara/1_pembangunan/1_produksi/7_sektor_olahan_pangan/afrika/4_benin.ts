@@ -9,5 +9,4 @@ const benin_olahan_pangan = {
   susu: 70,
   pakan_ternak: 72,
   ikan_kaleng: 22,
-  kopi_teh: 40,
 };

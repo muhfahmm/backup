@@ -9,5 +9,4 @@ const belanda_olahan_pangan = {
   susu: 2295,
   pakan_ternak: 4995,
   ikan_kaleng: 2295,
-  kopi_teh: 5130,
 };

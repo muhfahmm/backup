@@ -9,5 +9,4 @@ const prancis_olahan_pangan = {
   susu: 12838,
   pakan_ternak: 11790,
   ikan_kaleng: 11004,
-  kopi_teh: 5764,
 };

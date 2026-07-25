@@ -9,5 +9,4 @@ const kuwait_olahan_pangan = {
   susu: 340,
   pakan_ternak: 300,
   ikan_kaleng: 200,
-  kopi_teh: 880,
 };

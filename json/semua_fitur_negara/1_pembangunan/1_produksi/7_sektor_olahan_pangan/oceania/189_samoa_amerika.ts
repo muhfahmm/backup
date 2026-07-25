@@ -9,5 +9,4 @@ const samoa_amerika_olahan_pangan = {
   susu: 56,
   pakan_ternak: 58,
   ikan_kaleng: 66,
-  kopi_teh: 90,
 };

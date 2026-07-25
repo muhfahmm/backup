@@ -9,5 +9,4 @@ const tanjung_verde_olahan_pangan = {
   susu: 123,
   pakan_ternak: 48,
   ikan_kaleng: 108,
-  kopi_teh: 114,
 };

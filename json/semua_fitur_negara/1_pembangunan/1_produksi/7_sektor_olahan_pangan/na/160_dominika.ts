@@ -9,5 +9,4 @@ const dominika_olahan_pangan = {
   susu: 148,
   pakan_ternak: 64,
   ikan_kaleng: 168,
-  kopi_teh: 196,
 };

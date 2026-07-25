@@ -9,5 +9,4 @@ const belize_olahan_pangan = {
   susu: 86,
   pakan_ternak: 58,
   ikan_kaleng: 26,
-  kopi_teh: 58,
 };

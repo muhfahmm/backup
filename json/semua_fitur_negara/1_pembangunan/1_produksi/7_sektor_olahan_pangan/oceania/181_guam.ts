@@ -9,5 +9,4 @@ const guam_olahan_pangan = {
   susu: 42,
   pakan_ternak: 68,
   ikan_kaleng: 30,
-  kopi_teh: 84,
 };

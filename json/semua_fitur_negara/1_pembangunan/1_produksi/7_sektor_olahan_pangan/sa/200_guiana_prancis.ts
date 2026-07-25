@@ -9,5 +9,4 @@ const guiana_prancis_olahan_pangan = {
   susu: 38,
   pakan_ternak: 21,
   ikan_kaleng: 33,
-  kopi_teh: 37,
 };

@@ -9,5 +9,4 @@ const burundi_olahan_pangan = {
   susu: 44,
   pakan_ternak: 74,
   ikan_kaleng: 82,
-  kopi_teh: 70,
 };

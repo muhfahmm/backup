@@ -9,5 +9,4 @@ const chad_olahan_pangan = {
   susu: 84,
   pakan_ternak: 123,
   ikan_kaleng: 42,
-  kopi_teh: 60,
 };

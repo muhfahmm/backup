@@ -9,5 +9,4 @@ const indonesia_olahan_pangan = {
   susu: 1343,
   pakan_ternak: 3397,
   ikan_kaleng: 2449,
-  kopi_teh: 3239,
 };

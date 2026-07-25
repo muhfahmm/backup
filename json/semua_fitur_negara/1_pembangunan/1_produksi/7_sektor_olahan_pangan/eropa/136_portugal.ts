@@ -9,5 +9,4 @@ const portugal_olahan_pangan = {
   susu: 697,
   pakan_ternak: 731,
   ikan_kaleng: 782,
-  kopi_teh: 782,
 };

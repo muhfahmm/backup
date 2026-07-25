@@ -9,5 +9,4 @@ const ethiopia_olahan_pangan = {
   susu: 666,
   pakan_ternak: 558,
   ikan_kaleng: 486,
-  kopi_teh: 576,
 };

@@ -9,5 +9,4 @@ const nauru_olahan_pangan = {
   susu: 114,
   pakan_ternak: 42,
   ikan_kaleng: 39,
-  kopi_teh: 138,
 };

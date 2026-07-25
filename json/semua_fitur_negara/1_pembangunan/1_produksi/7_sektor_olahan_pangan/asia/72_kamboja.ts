@@ -9,5 +9,4 @@ const kamboja_olahan_pangan = {
   susu: 84,
   pakan_ternak: 75,
   ikan_kaleng: 93,
-  kopi_teh: 108,
 };

@@ -9,5 +9,4 @@ const swedia_olahan_pangan = {
   susu: 1554,
   pakan_ternak: 1554,
   ikan_kaleng: 3552,
-  kopi_teh: 2738,
 };

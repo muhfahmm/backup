@@ -9,5 +9,4 @@ const nikaragua_olahan_pangan = {
   susu: 19,
   pakan_ternak: 15,
   ikan_kaleng: 26,
-  kopi_teh: 25,
 };

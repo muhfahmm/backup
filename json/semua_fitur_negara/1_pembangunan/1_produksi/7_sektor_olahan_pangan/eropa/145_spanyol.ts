@@ -9,5 +9,4 @@ const spanyol_olahan_pangan = {
   susu: 3712,
   pakan_ternak: 5684,
   ikan_kaleng: 4408,
-  kopi_teh: 2668,
 };

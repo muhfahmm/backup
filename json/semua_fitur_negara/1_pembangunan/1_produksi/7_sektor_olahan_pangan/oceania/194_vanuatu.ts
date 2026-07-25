@@ -9,5 +9,4 @@ const vanuatu_olahan_pangan = {
   susu: 37,
   pakan_ternak: 20,
   ikan_kaleng: 30,
-  kopi_teh: 47,
 };

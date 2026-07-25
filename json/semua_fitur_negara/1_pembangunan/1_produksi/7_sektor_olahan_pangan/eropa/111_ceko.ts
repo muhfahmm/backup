@@ -9,5 +9,4 @@ const ceko_olahan_pangan = {
   susu: 897,
   pakan_ternak: 1012,
   ikan_kaleng: 690,
-  kopi_teh: 690,
 };

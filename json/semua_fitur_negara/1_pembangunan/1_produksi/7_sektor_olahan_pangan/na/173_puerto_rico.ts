@@ -9,5 +9,4 @@ const puerto_rico_olahan_pangan = {
   susu: 180,
   pakan_ternak: 104,
   ikan_kaleng: 52,
-  kopi_teh: 188,
 };

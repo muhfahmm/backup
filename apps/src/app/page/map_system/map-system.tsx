@@ -284,7 +284,7 @@ export default function MapPage() {
             "tebu", "karet", "kapas", "tembakau",
             "udang", "mutiara", "ikan",
             "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu",
-            "pakan_ternak", "ikan_kaleng", "kopi_teh",
+            "pakan_ternak", "ikan_kaleng",
             "farmasi"
         ];
         

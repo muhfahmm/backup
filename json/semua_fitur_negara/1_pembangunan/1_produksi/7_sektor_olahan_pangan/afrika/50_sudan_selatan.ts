@@ -9,5 +9,4 @@ const sudan_selatan_olahan_pangan = {
   susu: 56,
   pakan_ternak: 64,
   ikan_kaleng: 144,
-  kopi_teh: 192,
 };

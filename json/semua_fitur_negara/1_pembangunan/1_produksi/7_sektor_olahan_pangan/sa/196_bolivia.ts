@@ -9,5 +9,4 @@ const bolivia_olahan_pangan = {
   susu: 80,
   pakan_ternak: 250,
   ikan_kaleng: 240,
-  kopi_teh: 70,
 };

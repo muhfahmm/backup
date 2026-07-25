@@ -9,5 +9,4 @@ const suriah_olahan_pangan = {
   susu: 49,
   pakan_ternak: 30,
   ikan_kaleng: 37,
-  kopi_teh: 38,
 };

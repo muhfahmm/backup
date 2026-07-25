@@ -9,5 +9,4 @@ const swiss_olahan_pangan = {
   susu: 1974,
   pakan_ternak: 564,
   ikan_kaleng: 1739,
-  kopi_teh: 1927,
 };

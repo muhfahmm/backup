@@ -110,17 +110,5 @@ const olahanPanganRate = {
     biaya_pembangunan: 2500, // Reduced to 2.5M
     lowongan_kerja: 5500,
     konsumsi_listrik: 65
-  },
-  "10_pabrik_pengolahan_kopi_teh": {
-    key: "10_pabrik_pengolahan_kopi_teh",
-    dataKey: "kopi_teh",
-    label: "Pabrik Pengolahan Kopi & Teh",
-    deskripsi: "Pabrik Pengolahan Kopi & Teh",
-    produksi: 35000,
-    satuan: "KG",
-    waktu_pembangunan: 7,
-    biaya_pembangunan: 1200, // Reduced to 1.2M
-    lowongan_kerja: 4000,
-    konsumsi_listrik: 45
   }
 };

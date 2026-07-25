@@ -9,5 +9,4 @@ const burkina_faso_olahan_pangan = {
   susu: 92,
   pakan_ternak: 38,
   ikan_kaleng: 74,
-  kopi_teh: 34,
 };

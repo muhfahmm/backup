@@ -9,5 +9,4 @@ const uzbekistan_olahan_pangan = {
   susu: 329,
   pakan_ternak: 252,
   ikan_kaleng: 140,
-  kopi_teh: 91,
 };

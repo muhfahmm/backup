@@ -9,5 +9,4 @@ const oman_olahan_pangan = {
   susu: 396,
   pakan_ternak: 231,
   ikan_kaleng: 363,
-  kopi_teh: 154,
 };

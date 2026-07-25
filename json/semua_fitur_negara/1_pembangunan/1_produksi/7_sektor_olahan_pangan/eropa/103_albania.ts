@@ -9,5 +9,4 @@ const albania_olahan_pangan = {
   susu: 24,
   pakan_ternak: 39,
   ikan_kaleng: 25,
-  kopi_teh: 31,
 };

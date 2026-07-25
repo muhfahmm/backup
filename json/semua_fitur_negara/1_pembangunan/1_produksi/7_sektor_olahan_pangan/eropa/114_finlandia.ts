@@ -9,5 +9,4 @@ const finlandia_olahan_pangan = {
   susu: 216,
   pakan_ternak: 207,
   ikan_kaleng: 108,
-  kopi_teh: 198,
 };

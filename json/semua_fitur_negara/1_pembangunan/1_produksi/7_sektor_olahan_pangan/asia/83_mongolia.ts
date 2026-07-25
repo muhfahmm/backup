@@ -9,5 +9,4 @@ const mongolia_olahan_pangan = {
   susu: 40,
   pakan_ternak: 192,
   ikan_kaleng: 76,
-  kopi_teh: 140,
 };
