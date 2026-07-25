@@ -9,7 +9,7 @@ interface ResolusiPBBProps {
 
 // Fungsi helper untuk menampilkan bendera (Anti broken image)
 const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" = "md") => {
-  if (!iso || iso.length !== 2) return <span className="text-xl">🌐</span>;
+  if (!iso || iso.length !== 2) return null;
   const wClass = size === "sm" ? "w-6 h-4" : "w-8 h-5";
   return (
     <div className={`${wClass} rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center`}>
@@ -19,7 +19,6 @@ const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" 
         className="w-full h-full object-cover absolute inset-0"
         onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
       />
-      <span className="text-sm opacity-50 select-none">🌐</span>
     </div>
   );
 };

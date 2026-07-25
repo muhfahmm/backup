@@ -70,7 +70,6 @@ export function Navbar({
                         />
                     ) : (
                         <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-black/5 flex items-center justify-center text-base sm:text-xl">
-                            🌐
                         </div>
                     )}
                     <div className="flex flex-col leading-tight">

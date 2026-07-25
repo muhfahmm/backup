@@ -137,7 +137,7 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
 
   // Fungsi Helper untuk bendera di Header
   const renderFlagHeader = (iso: string | undefined, altName: string) => {
-    if (!iso || iso.length !== 2) return <span className="text-xl leading-none">🌐</span>;
+    if (!iso || iso.length !== 2) return null;
     return (
       <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center">
         <img
@@ -146,7 +146,6 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
           className="w-full h-full object-cover absolute inset-0"
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
-        <span className="text-sm opacity-50 select-none">🌐</span>
       </div>
     );
   };

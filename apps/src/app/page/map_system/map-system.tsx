@@ -131,7 +131,7 @@ export default function MapPage() {
 
     // Get Flag emoji helper
     const getFlagEmoji = (iso: string) => {
-        if (!iso || iso.length !== 2) return '🌐';
+        if (!iso || iso.length !== 2) return null;
         const codePoints = iso.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
         return String.fromCodePoint(...codePoints);
     };
@@ -460,8 +460,17 @@ export default function MapPage() {
         initMap();
     }, []);
 
+    const dragStartRef = useRef({ x: 0, y: 0 });
+    const isDraggingRef = useRef(false);
+
     const handleCanvasCountryClick = async (event: React.MouseEvent<HTMLCanvasElement>) => {
         if (isMapInteractionDisabled) return;
+
+        // Only open modal if it was a click (not a drag)
+        if (isDraggingRef.current) {
+            isDraggingRef.current = false;
+            return;
+        }
 
         const canvas = event.currentTarget;
         const rect = canvas.getBoundingClientRect();
@@ -481,6 +490,22 @@ export default function MapPage() {
             setCountryDetail(countryDetail);
         } catch (error) {
             console.error('Failed to read clicked country from map:', error);
+        }
+    };
+
+    const handleCanvasMouseDown = (event: React.MouseEvent<HTMLCanvasElement>) => {
+        if (isMapInteractionDisabled) return;
+        dragStartRef.current = { x: event.clientX, y: event.clientY };
+        isDraggingRef.current = false;
+    };
+
+    const handleCanvasMouseMove = (event: React.MouseEvent<HTMLCanvasElement>) => {
+        if (isMapInteractionDisabled) return;
+        const dx = Math.abs(event.clientX - dragStartRef.current.x);
+        const dy = Math.abs(event.clientY - dragStartRef.current.y);
+        // If mouse moved more than 5 pixels, consider it a drag
+        if (dx > 5 || dy > 5) {
+            isDraggingRef.current = true;
         }
     };
 
@@ -504,6 +529,8 @@ export default function MapPage() {
                     id="map-canvas"
                     className="w-full h-full block cursor-grab"
                     onClick={handleCanvasCountryClick}
+                    onMouseDown={handleCanvasMouseDown}
+                    onMouseMove={handleCanvasMouseMove}
                     onMouseLeave={(e) => {
                         const event = new MouseEvent('mouseup', {
                             bubbles: true,

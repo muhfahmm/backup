@@ -24,7 +24,7 @@ const RANDOM_LOAN_COUNT = 10;
 
 const getFlagEmoji = (iso: string) => {
   const cleaned = String(iso || "").trim().toUpperCase().replace(/[^A-Z]/g, "");
-  if (cleaned.length !== 2) return "🌐";
+  if (cleaned.length !== 2) return null;
   const codePoints = cleaned.split("").map((char) => 127397 + char.charCodeAt(0));
   return String.fromCodePoint(...codePoints);
 };
@@ -67,7 +67,7 @@ const generateLoanSources = () => {
 
 // Lembaga Multilateral
 const LEMBAGA_MULTILATERAL = [
-  { id: 9991, name: "IMF (Dana Moneter Internasional)", flag: "🌐", interest: 4.8, maxLoan: 100_000, term: 90 },
+  { id: 9991, name: "IMF (Dana Moneter Internasional)", flag: null, interest: 4.8, maxLoan: 100_000, term: 90 },
   { id: 9992, name: "Bank Dunia (World Bank)", flag: "🏦", interest: 3.5, maxLoan: 90_000, term: 360 },
   { id: 9993, name: "ADB (Asian Development Bank)", flag: "🌏", interest: 3.2, maxLoan: 75_000, term: 180 },
 ];

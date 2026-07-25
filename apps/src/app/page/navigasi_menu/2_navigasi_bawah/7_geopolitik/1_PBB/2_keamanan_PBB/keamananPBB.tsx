@@ -50,7 +50,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
 
   // Fungsi Helper Render Bendera (Anti-Broken Image)
   const renderFlag = (iso: string, altName: string) => {
-    if (!iso || iso.length !== 2) return <span className="text-xl">🌐</span>;
+    if (!iso || iso.length !== 2) return null;
     return (
       <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center mx-auto mb-1">
         <img
@@ -59,7 +59,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
           className="w-full h-full object-cover absolute inset-0"
           onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
-        <span className="text-sm opacity-50 select-none">🌐</span>
       </div>
     );
   };
