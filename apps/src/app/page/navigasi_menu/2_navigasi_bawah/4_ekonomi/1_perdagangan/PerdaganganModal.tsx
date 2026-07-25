@@ -117,6 +117,18 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
     }));
   }, [countryDetail?.region, countryName]);
 
+  // Local UI state for partners so we can remove (putus hubungan) without mutating registry files
+  const [partnersState, setPartnersState] = useState<TradePartner[]>([]);
+
+  useEffect(() => {
+    setPartnersState(allPartners);
+  }, [allPartners]);
+
+  const handleRemovePartner = (partnerId: number) => {
+    setPartnersState((prev) => prev.filter(p => p.id !== partnerId));
+    // Optional: record action/log or update countryDetail if needed
+  };
+
   const filteredHistory = effectiveHistory.filter((item) => {
     if (effectiveFilter === "semua") return true;
     return item.tipe === effectiveFilter;
@@ -244,9 +256,10 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
       <MitraModalsMenu 
         isOpen={isMitraOpen} 
         onClose={() => setIsMitraOpen(false)} 
-        partners={allPartners}
+        partners={partnersState}
         onOpenBeli={openBeliModals}
         onOpenJual={openJualModals}
+        onRemovePartner={handleRemovePartner}
       />
     </>
   );

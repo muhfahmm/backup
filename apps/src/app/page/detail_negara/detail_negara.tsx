@@ -318,7 +318,7 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
 
             {/* Render 3 Komponen Berdasarkan Active Tab */}
             {activeTab === "informasi" && (
-              <InformasiUmum countryName={countryName} />
+              <InformasiUmum countryName={countryName} playerCountryDetail={countryDetail} />
             )}
 
             {activeTab === "geopolitik" && (

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Handshake, ChevronRight, Globe } from "lucide-react";
 import MitraDetailModals from "./mitraDetailModals";
+import ConfirmRemoveTradeModal from "./ConfirmRemoveTradeModal";
 
 export interface TradePartner {
   id: number;
@@ -19,6 +20,7 @@ interface MitraModalsMenuProps {
   partners: TradePartner[];
   onOpenBeli?: (partner: TradePartner) => void;
   onOpenJual?: (partner: TradePartner) => void;
+  onRemovePartner?: (partnerId: number) => void;
 }
 
 export default function MitraModalsMenu({ 
@@ -30,6 +32,8 @@ export default function MitraModalsMenu({
 }: MitraModalsMenuProps) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [selectedPartner, setSelectedPartner] = useState<TradePartner | null>(null);
+  const [isRemoveConfirmOpen, setIsRemoveConfirmOpen] = useState(false);
+  const [removeTarget, setRemoveTarget] = useState<TradePartner | null>(null);
 
   if (!isOpen) return null;
 
@@ -82,11 +86,7 @@ export default function MitraModalsMenu({
                   {partners.map((partner, idx) => (
                     <div 
                       key={idx}
-                      onClick={() => {
-                        setSelectedPartner(partner);
-                        setIsDetailOpen(true);
-                      }}
-                      className="bg-white/70 border border-[#C4B49C]/40 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all hover:shadow-md hover:border-[#5c3c10]/50 cursor-pointer group"
+                      className="bg-white/70 border border-[#C4B49C]/40 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all hover:shadow-md hover:border-[#5c3c10]/50"
                     >
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1 flex-wrap">
@@ -114,7 +114,19 @@ export default function MitraModalsMenu({
                             <p className="text-xs font-black text-[#5c3c10]">{partner.total_nilai_dagang.toLocaleString('id-ID')} EM</p>
                           </div>
                         )}
-                        <ChevronRight className="h-4 w-4 text-[#C4B49C] group-hover:text-[#5c3c10] group-hover:translate-x-0.5 transition-all" />
+                        <div className="flex items-center gap-3">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setRemoveTarget(partner);
+                              setIsRemoveConfirmOpen(true);
+                            }}
+                            className="px-3 py-2 rounded-lg border-2 border-emerald-600 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 text-[11px] font-black uppercase tracking-wider transition-all"
+                          >
+                            Putus Hubungan
+                          </button>
+                          <ChevronRight className="h-4 w-4 text-[#C4B49C] group-hover:text-[#5c3c10] group-hover:translate-x-0.5 transition-all" />
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -124,6 +136,16 @@ export default function MitraModalsMenu({
           </div>
         </div>
       )}
+      <ConfirmRemoveTradeModal
+        isOpen={isRemoveConfirmOpen}
+        partnerName={removeTarget?.nama_negara || null}
+        onClose={() => { setIsRemoveConfirmOpen(false); setRemoveTarget(null); }}
+        onConfirm={() => {
+          if (removeTarget && onRemovePartner) onRemovePartner(removeTarget.id);
+          setIsRemoveConfirmOpen(false);
+          setRemoveTarget(null);
+        }}
+      />
     </>
   );
 }
