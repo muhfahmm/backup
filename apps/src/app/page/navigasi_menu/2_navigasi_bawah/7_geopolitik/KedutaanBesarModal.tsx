@@ -1,6 +1,8 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { X, Globe } from "lucide-react";
+// PERBAIKAN: Import data negara untuk mendapatkan ISO bendera
+import { COUNTRIES_DATA } from "../../../map_system/map-data";
 
 interface ModalProps {
   isOpen: boolean;
@@ -12,23 +14,62 @@ interface ModalProps {
 export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
   const anggaran = countryDetail?.anggaran || 0;
+  const embassies = Array.isArray(countryDetail?.embassies) ? countryDetail.embassies : [];
+  const playerName = countryDetail?.country || countryDetail?.nama || countryDetail?.country_name || 'Negara Anda';
 
-  const handleGift = (power: string) => {
-    if (anggaran < 20000000) {
-      alert("Kas negara tidak mencukupi untuk diplomasi!");
-      return;
-    }
+  // PERBAIKAN: State untuk Modal Konfirmasi & Modal Sukses
+  const [confirmModal, setConfirmModal] = useState<{ isOpen: boolean; partnerName: string | null }>({ isOpen: false, partnerName: null });
+  const [successModal, setSuccessModal] = useState<{ isOpen: boolean; message: string | null }>({ isOpen: false, message: null });
+
+  // Fungsi helper untuk mendapatkan ISO dari nama negara
+  const getIsoFromName = (name: string) => {
+    const found = COUNTRIES_DATA?.find((c: { country?: string; iso?: string }) =>
+      c.country?.toLowerCase().trim() === name?.toLowerCase().trim()
+    );
+    return found?.iso?.toLowerCase() || "";
+  };
+
+  // Fungsi helper untuk merender bendera (Anti broken image)
+  const renderFlag = (iso: string, altName: string) => {
+    if (!iso || iso.length !== 2) return null;
+    return (
+      <div className="w-6 h-4 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative">
+        <img
+          src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+          alt={altName}
+          className="w-full h-full object-cover absolute inset-0"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+        />
+      </div>
+    );
+  };
+
+  // PERBAIKAN: Logika membuka modal konfirmasi
+  const handleDestroyEmbassy = (partnerName: string) => {
+    setConfirmModal({ isOpen: true, partnerName });
+  };
+
+  // PERBAIKAN: Eksekusi penghancuran setelah dikonfirmasi
+  const handleConfirmDestroy = () => {
+    if (!confirmModal.partnerName) return;
+    const partnerName = confirmModal.partnerName;
+
+    const newEmbassies = embassies.filter((item: { mitra?: string }) => item.mitra !== partnerName);
     setCountryDetail({
       ...countryDetail,
-      anggaran: anggaran - 20000000
+      embassies: newEmbassies,
     });
-    alert(`Hibah bantuan diplomatik sukses dikirim ke Kedutaan Besar ${power}! Hubungan bilateral meningkat.`);
+
+    // Tutup modal konfirmasi & tampilkan modal sukses
+    setConfirmModal({ isOpen: false, partnerName: null });
+    setSuccessModal({
+      isOpen: true,
+      message: `Kedutaan Besar di ${partnerName} telah dihancurkan.`,
+    });
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN LEBAR: Ubah max-w-xl menjadi max-w-6xl agar sama dengan modal lainnya */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
@@ -39,6 +80,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Kantor Kedutaan Besar Asing</h2>
+                <p className="text-xs text-[#8b7e66] uppercase tracking-wider">Kedutaan milik {playerName}</p>
               </div>
             </div>
           </div>
@@ -49,29 +91,105 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-            Kelola kemitraan dagang dan hubungan timbal balik dengan aliansi negara adidaya global. Kirim hibah diplomatik untuk memperkuat ikatan bilateral.
+            Kelola daftar kedutaan asing yang dimiliki negara Anda. Setiap kedutaan yang dibangun akan muncul di sini dan dapat dihancurkan jika diperlukan.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {[
-              { power: "Amerika Serikat", rel: "Harmonis (75/100)" },
-              { power: "Tiongkok / China", rel: "Sangat Erat (80/100)" }
-            ].map((item, idx) => (
-              <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between">
-                <div>
-                  <h4 className="text-xs font-black text-[#5c3c10] uppercase mb-1 leading-snug">{item.power}</h4>
-                  <span className="text-[10px] bg-blue-500/10 text-blue-700 border border-blue-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">{item.rel}</span>
-                </div>
+          {embassies.length === 0 ? (
+            <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-8 text-center">
+              <p className="text-sm text-[#5c3c10] font-semibold mb-3">Belum ada kedutaan asing yang terdaftar.</p>
+              <p className="text-xs text-[#8b7e66]">Bangun kedutaan melalui halaman detail negara untuk mulai menambahkan hubungan diplomatik.</p>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-4 w-full">
+              {embassies.map((item: any, idx: number) => {
+                const iso = getIsoFromName(item.mitra);
+                return (
+                  <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between w-full gap-4">
+                    
+                    {/* Bagian Informasi Kedutaan */}
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        {renderFlag(iso, item.mitra)}
+                        <h4 className="text-xs font-black text-[#5c3c10] uppercase leading-snug">{item.mitra}</h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2 text-[10px] leading-none">
+                        <span className="bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">{item.status || 'Aktif'}</span>
+                        {item.type && <span className="bg-[#5c3c10]/10 text-[#5c3c10] border border-[#5c3c10]/15 px-2 py-0.5 rounded-full font-black uppercase tracking-wider">{item.type}</span>}
+                      </div>
+                      {item.continent && (
+                        <p className="text-[10px] text-[#5c3c10]/80 mt-3">Benua: {item.continent}</p>
+                      )}
+                      {item.builtAt && (
+                        <p className="text-[10px] text-[#5c3c10]/80 mt-1">Dibangun: {new Date(item.builtAt).toLocaleDateString('id-ID')}</p>
+                      )}
+                    </div>
+
+                    {/* Bagian Tombol Aksi (Di Kanan) */}
+                    <div className="flex justify-end">
+                      <button
+                        onClick={() => handleDestroyEmbassy(item.mitra)}
+                        className="border-2 border-rose-500 bg-transparent text-rose-700 hover:bg-rose-50 hover:border-rose-600 px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer"
+                      >
+                        Hancurkan Kedutaan Besar
+                      </button>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+
+        {/* PERBAIKAN: Modal Konfirmasi Hancurkan Kedutaan */}
+        {confirmModal.isOpen && (
+          <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
+            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-md w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
+              <button
+                onClick={() => setConfirmModal({ isOpen: false, partnerName: null })}
+                className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight mb-3">Konfirmasi Hancurkan Kedutaan</h3>
+              <p className="text-sm text-[#8b7e66] font-medium leading-relaxed mb-6">
+                Apakah Anda yakin ingin menghancurkan Kedutaan Besar di <strong className="text-[#5c3c10]">{confirmModal.partnerName}</strong>? Tindakan ini tidak dapat dibatalkan dan akan memutuskan hubungan diplomatik.
+              </p>
+              <div className="flex gap-3">
                 <button
-                  onClick={() => handleGift(item.power)}
-                  className="w-full py-2 mt-4 rounded-lg bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 text-[10px] font-black uppercase cursor-pointer"
+                  onClick={() => setConfirmModal({ isOpen: false, partnerName: null })}
+                  className="flex-1 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] transition-all font-black text-xs uppercase cursor-pointer"
                 >
-                  Kirim Hadiah (20.000.000 EM)
+                  Batal
+                </button>
+                <button
+                  onClick={handleConfirmDestroy}
+                  className="flex-1 py-3 rounded-xl border-2 border-rose-500 bg-transparent text-rose-700 hover:bg-rose-50 transition-all font-black text-xs uppercase cursor-pointer"
+                >
+                  Hancurkan Kedutaan
                 </button>
               </div>
-            ))}
+            </div>
           </div>
-        </div>
+        )}
+
+        {/* PERBAIKAN: Modal Notifikasi Sukses */}
+        {successModal.isOpen && (
+          <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
+            <div className="bg-[#FAF6EE] border-4 border-emerald-500 rounded-2xl max-w-md w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
+              <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight mb-3">Berhasil</h3>
+              <p className="text-sm text-[#8b7e66] font-medium leading-relaxed mb-6">
+                {successModal.message}
+              </p>
+              <button
+                onClick={() => setSuccessModal({ isOpen: false, message: null })}
+                className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#3d2911] transition-all font-black text-xs uppercase cursor-pointer"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

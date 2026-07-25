@@ -44,13 +44,39 @@ export const countryHasTradePartners = (viewedCountryName?: string | null, playe
   }
 };
 
-export const getEmbassyButtonLabel = (viewedCountryName?: string | null, playerCountryName?: string | null): string => {
-  return countryHasTradePartners(viewedCountryName, playerCountryName) ? 'Hancurkan Kedutaan' : 'Bangun Kedutaan';
+export const playerHasEmbassyWith = (viewedCountryName?: string | null, playerEmbassies?: any[]): boolean => {
+  if (!viewedCountryName || !Array.isArray(playerEmbassies) || playerEmbassies.length === 0) return false;
+  const normViewed = normalizeName(viewedCountryName);
+  return playerEmbassies.some((embassy) => normalizeName(embassy?.mitra) === normViewed);
 };
 
-export const getEmbassyButtonClass = (viewedCountryName?: string | null, playerCountryName?: string | null): string => {
-  if (countryHasTradePartners(viewedCountryName, playerCountryName)) {
-    // Use pale green background with green border to match UI style in Mitra list
+export const playerHasEmbassyOrTradePartners = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  playerEmbassies?: any[]
+): boolean => {
+  return (
+    playerHasEmbassyWith(viewedCountryName, playerEmbassies) ||
+    countryHasTradePartners(viewedCountryName, playerCountryName)
+  );
+};
+
+export const getEmbassyButtonLabel = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  playerEmbassies?: any[]
+): string => {
+  return playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies)
+    ? 'Hancurkan Kedutaan'
+    : 'Bangun Kedutaan';
+};
+
+export const getEmbassyButtonClass = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  playerEmbassies?: any[]
+): string => {
+  if (playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies)) {
     return 'bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 border border-emerald-600 text-emerald-700';
   }
   return 'bg-white/70 border border-[#C4B49C]/30';

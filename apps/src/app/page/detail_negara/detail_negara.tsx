@@ -16,10 +16,13 @@ interface CountryDetailModalProps {
   countryName: string | null;
   onClose: () => void;
   countryDetail?: any; // Data detail negara dari API (negara yang sedang dimainkan)
+  setCountryDetail?: (detail: any | ((prev: any) => any)) => void;
   currentDate?: Date; // Tanggal terkini dari TimeController
+  playerNetBalanceAdjustment?: number;
+  adjustPlayerNetBalance?: (delta: number) => void;
 }
 
-export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail, currentDate }: CountryDetailModalProps) {
+export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail, setCountryDetail, currentDate, playerNetBalanceAdjustment = 0, adjustPlayerNetBalance }: CountryDetailModalProps) {
   // State untuk menu tab
   const [activeTab, setActiveTab] = useState<"informasi" | "geopolitik" | "militer">("informasi");
 
@@ -118,6 +121,15 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
     });
   }, [currentDate, fetchedDetail, isOpen]);
 
+
+  // Hitung Netto APBN target negara yang ditampilkan di header dan summary
+  const targetBaseNetBalance = fetchedDetail ? dailyNetBalance : 0;
+  const targetEffectiveNetBalance = targetBaseNetBalance;
+
+  // Hitung Netto APBN negara pemain yang digunakan untuk biaya kedutaan
+  const playerBaseNetBalance = countryDetail ? calculateCountryNetBalance(countryDetail) : 0;
+  const playerEffectiveNetBalance = playerBaseNetBalance + playerNetBalanceAdjustment;
+
   if (!isOpen || !countryName) return null;
 
   // Ambil data dasar (iso, capital) dari COUNTRIES_DATA (sumber peta)
@@ -131,9 +143,6 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
   // Fallback ganda untuk iso dan capital
   const iso = mapData?.iso || detailData?.iso || "";
   const capital = mapData?.capital || detailData?.capital || "Data tidak tersedia";
-
-  // Hitung Netto APBN efektif yang ditampilkan
-  const effectiveNetBalance = fetchedDetail ? dailyNetBalance : (countryDetail ? calculateCountryNetBalance(countryDetail) : 0);
 
   // Fungsi Helper untuk bendera di Header
   const renderFlagHeader = (iso: string | undefined, altName: string) => {
@@ -242,8 +251,8 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
                     }
                   </span>
                   {!isLoadingDetail && detailData && (
-                    <span className={`text-[10px] font-black ${effectiveNetBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                      ({effectiveNetBalance >= 0 ? `+${effectiveNetBalance.toLocaleString('id-ID')}` : effectiveNetBalance.toLocaleString('id-ID')})
+                    <span className={`text-[10px] font-black ${targetEffectiveNetBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                      ({targetEffectiveNetBalance >= 0 ? `+${targetEffectiveNetBalance.toLocaleString('id-ID')}` : targetEffectiveNetBalance.toLocaleString('id-ID')})
                     </span>
                   )}
                 </div>
@@ -318,15 +327,21 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
 
             {/* Render 3 Komponen Berdasarkan Active Tab */}
             {activeTab === "informasi" && (
-              <InformasiUmum countryName={countryName} playerCountryDetail={countryDetail} />
+              <InformasiUmum
+                countryName={countryName}
+                playerCountryDetail={countryDetail}
+                setPlayerCountryDetail={setCountryDetail}
+                currentNetBalance={playerEffectiveNetBalance}
+                adjustNetBalance={adjustPlayerNetBalance}
+              />
             )}
 
             {activeTab === "geopolitik" && (
-              <Geopolitik countryName={countryName} />
+              <Geopolitik countryName={countryName} playerCountryDetail={countryDetail} />
             )}
 
             {activeTab === "militer" && (
-              <OperasiMiliter countryName={countryName} />
+              <OperasiMiliter countryName={countryName} playerCountryDetail={countryDetail} />
             )}
 
           </div>

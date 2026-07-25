@@ -19,6 +19,7 @@ interface Country {
 interface NavbarProps {
     selectedCountry: Country | null;
     countryDetail: any;
+    netBalanceAdjustment?: number;
     onOpenGameMenu: () => void;
     onOpenSaveModal: () => void;
     onOpenRestartConfirm: () => void;
@@ -28,13 +29,14 @@ interface NavbarProps {
 export function Navbar({
     selectedCountry,
     countryDetail,
+    netBalanceAdjustment = 0,
     onOpenGameMenu,
     onOpenSaveModal,
     onOpenRestartConfirm,
     onOpenKepuasan
 }: NavbarProps) {
     const anggaran = Number(countryDetail?.anggaran) || 0;
-    const netBalance = calculateCountryNetBalance(countryDetail);
+    const netBalance = calculateCountryNetBalance(countryDetail) + netBalanceAdjustment;
     const netBalanceColor = netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700';
     const netBalanceLabel = `${netBalance >= 0 ? '+ ' : '- '}${Math.abs(netBalance).toLocaleString('id-ID')}`;
 

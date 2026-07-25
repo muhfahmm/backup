@@ -7,42 +7,73 @@ import {
   Phone, 
   Map 
 } from 'lucide-react';
+import { useState } from 'react';
+import { playerHasEmbassyOrTradePartners } from '../1_informasi_umum/1_kedutaan_besar/logic/kedutaanBesarLogic';
+import BeriTentaraModal from './1_beri_tentara/beriTentaraModals';
+import BeriHadiahModal from './2_beri_hadiah/beriHadiahModals';
+import TingkatkanHubunganModal from './3_tingkatkan_hubungan/tingkatkanHubunganModals';
+import DukungKemerdekaanModal from './4_dukung_kemerdekaan/dukungKemerdekaanModals';
+import MintaBantuanModal from './5_minta_bantuan/mintaBantuanModals';
+import BerikanWilayahModal from './6_berikan_wilayah/berikanWilayahModals';
 
 interface GeopolitikProps {
   countryName: string;
+  playerCountryDetail?: any;
 }
 
 // Komponen tombol aksi agar kode lebih rapi (Persis sama dengan InformasiUmum)
-const ActionButton = ({ icon: Icon, label, onClick }: { icon: any, label: string, onClick?: () => void }) => (
-  <button
-    onClick={onClick}
-    className="bg-white/70 border border-[#C4B49C]/30 rounded-xl p-5 flex flex-col items-center justify-center gap-3 hover:shadow-md hover:border-[#5c3c10]/50 transition-all cursor-pointer group h-32"
-  >
-    <Icon className="h-8 w-8 text-[#5c3c10] group-hover:scale-110 group-hover:text-[#3d2911] transition-transform" />
-    <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider text-center leading-tight">
-      {label}
-    </span>
-  </button>
-);
+const ActionButton = ({ icon: Icon, label, onClick, disabled }: { icon: any, label: string, onClick?: () => void, disabled?: boolean }) => {
+  const base = 'bg-white/70 border border-[#C4B49C]/30 rounded-xl p-5 flex flex-col items-center justify-center gap-3 transition-all group h-32';
+  const interactive = disabled ? 'opacity-40 cursor-not-allowed pointer-events-none' : 'hover:shadow-md hover:border-[#5c3c10]/50 cursor-pointer';
+  return (
+    <button
+      onClick={disabled ? undefined : onClick}
+      aria-disabled={disabled}
+      className={`${base} ${interactive}`}
+    >
+      <Icon className={`h-8 w-8 text-[#5c3c10] ${disabled ? '' : 'group-hover:scale-110 group-hover:text-[#3d2911]'} transition-transform`} />
+      <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider text-center leading-tight">
+        {label}
+      </span>
+    </button>
+  );
+};
 
-export default function Geopolitik({ countryName }: GeopolitikProps) {
+export default function Geopolitik({ countryName, playerCountryDetail }: GeopolitikProps) {
+  const [isBeriTentaraOpen, setIsBeriTentaraOpen] = useState(false);
+  const [isBeriHadiahOpen, setIsBeriHadiahOpen] = useState(false);
+  const [isTingkatkanOpen, setIsTingkatkanOpen] = useState(false);
+  const [isDukungKemerdekaanOpen, setIsDukungKemerdekaanOpen] = useState(false);
+  const [isMintaBantuanOpen, setIsMintaBantuanOpen] = useState(false);
+  const [isBerikanWilayahOpen, setIsBerikanWilayahOpen] = useState(false);
+
   const handleAction = (action: string) => {
-    // Hubungkan dengan logika game atau API Anda di sini
-    alert(`Anda memilih tindakan Geopolitik: ${action} untuk negara ${countryName}`);
+    console.log(`Aksi geopolitik: ${action} untuk ${countryName}`);
   };
+
+  const playerCountryName = playerCountryDetail?.country || playerCountryDetail?.nama || playerCountryDetail?.country_name || null;
+  const playerEmbassies = Array.isArray(playerCountryDetail?.embassies) ? playerCountryDetail.embassies : [];
+  const embassyExists = playerHasEmbassyOrTradePartners(countryName, playerCountryName, playerEmbassies);
 
   return (
     <div className="space-y-6">
       {/* Grid Layout 4-4 (2 baris x 4 kolom pada desktop) */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <ActionButton icon={Sword} label="Beri Tentara" onClick={() => handleAction("Beri Tentara")} />
-        <ActionButton icon={Gift} label="Beri Hadiah" onClick={() => handleAction("Beri Hadiah")} />
-        <ActionButton icon={Heart} label="Tingkatkan Hubungan" onClick={() => handleAction("Tingkatkan Hubungan")} />
-        <ActionButton icon={Flag} label="Dukung Kemerdekaan" onClick={() => handleAction("Dukung Kemerdekaan")} />
+        <ActionButton icon={Sword} label="Beri Tentara" onClick={() => setIsBeriTentaraOpen(true)} disabled={!embassyExists} />
+        <ActionButton icon={Gift} label="Beri Hadiah" onClick={() => setIsBeriHadiahOpen(true)} />
+        <ActionButton icon={Heart} label="Tingkatkan Hubungan" onClick={() => setIsTingkatkanOpen(true)} />
+        <ActionButton icon={Flag} label="Dukung Kemerdekaan" onClick={() => setIsDukungKemerdekaanOpen(true)} />
         
-        <ActionButton icon={Phone} label="Minta Bantuan" onClick={() => handleAction("Minta Bantuan")} />
-        <ActionButton icon={Map} label="Berikan Wilayah" onClick={() => handleAction("Berikan Wilayah")} />
+        <ActionButton icon={Phone} label="Minta Bantuan" onClick={() => setIsMintaBantuanOpen(true)} />
+        <ActionButton icon={Map} label="Berikan Wilayah" onClick={() => setIsBerikanWilayahOpen(true)} />
       </div>
+
+      <BeriTentaraModal isOpen={isBeriTentaraOpen} countryName={countryName} onClose={() => setIsBeriTentaraOpen(false)} onConfirm={() => { console.log(`Beri Tentara -> ${countryName}`); }} />
+      <BeriHadiahModal isOpen={isBeriHadiahOpen} countryName={countryName} onClose={() => setIsBeriHadiahOpen(false)} onConfirm={() => { console.log(`Beri Hadiah -> ${countryName}`); }} />
+      <TingkatkanHubunganModal isOpen={isTingkatkanOpen} countryName={countryName} onClose={() => setIsTingkatkanOpen(false)} onConfirm={() => { console.log(`Tingkatkan Hubungan -> ${countryName}`); }} />
+      <DukungKemerdekaanModal isOpen={isDukungKemerdekaanOpen} countryName={countryName} onClose={() => setIsDukungKemerdekaanOpen(false)} onConfirm={() => { console.log(`Dukung Kemerdekaan -> ${countryName}`); }} />
+      <MintaBantuanModal isOpen={isMintaBantuanOpen} countryName={countryName} onClose={() => setIsMintaBantuanOpen(false)} onConfirm={() => { console.log(`Minta Bantuan -> ${countryName}`); }} />
+      <BerikanWilayahModal isOpen={isBerikanWilayahOpen} countryName={countryName} onClose={() => setIsBerikanWilayahOpen(false)} onConfirm={() => { console.log(`Berikan Wilayah -> ${countryName}`); }} />
     </div>
   );
 }

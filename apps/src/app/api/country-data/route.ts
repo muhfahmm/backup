@@ -5,10 +5,14 @@ import path from 'path';
 const removeComments = (input: string) =>
     input.replace(/\/\/.*$/gm, '').replace(/\/\*[\s\S]*?\*\//g, '');
 
-const findObjectLiteral = (input: string, start: number) => {
+const findLiteral = (input: string, start: number) => {
     let depth = 0;
     let inString: string | null = null;
     let escaped = false;
+    const openingChar = input[start];
+    const closingChar = openingChar === '[' ? ']' : openingChar === '{' ? '}' : null;
+
+    if (!closingChar) return null;
 
     for (let i = start; i < input.length; i++) {
         const char = input[i];
@@ -30,11 +34,11 @@ const findObjectLiteral = (input: string, start: number) => {
             inString = char;
             continue;
         }
-        if (char === '{') {
+        if (char === openingChar) {
             depth += 1;
             continue;
         }
-        if (char === '}') {
+        if (char === closingChar) {
             depth -= 1;
             if (depth === 0) {
                 return input.slice(start, i + 1);
@@ -46,15 +50,11 @@ const findObjectLiteral = (input: string, start: number) => {
 
 const parseObjectLiteral = (literal: string) => {
     try {
-        // First attempt: direct evaluation
         return new Function(`"use strict"; return (${literal});`)();
     } catch (e) {
-        // Second attempt: replace bare identifiers (that look like variable references) with null
         try {
             let fixedLiteral = literal;
-            // Replace patterns like ": identifier_name" with ": null" where identifier is not a string/number/boolean/null
-            fixedLiteral = fixedLiteral.replace(/:\s*([A-Za-z_$][\w$]*)\s*([,\}])/g, (match, identifier, after) => {
-                // Skip if it's a literal value keyword
+            fixedLiteral = fixedLiteral.replace(/:\s*([A-Za-z_$][\w$]*)\s*([,\}\]])/g, (match, identifier, after) => {
                 if (['true', 'false', 'null', 'undefined', 'NaN', 'Infinity'].includes(identifier)) {
                     return match;
                 }
@@ -71,35 +71,41 @@ const parseObjectLiteral = (literal: string) => {
 const extractObjectsFromFile = (fileContent: string) => {
     const cleaned = removeComments(fileContent);
 
-    const objects: any[] = [];
+    const parsedValues: any[] = [];
 
-    const constRegex = /(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*\{/g;
+    const constRegex = /(?:const|let|var)\s+[A-Za-z_$][\w$]*\s*=\s*[\[{]/g;
     let match: RegExpExecArray | null;
     while ((match = constRegex.exec(cleaned))) {
         const start = match.index + match[0].length - 1;
-        const objectLiteral = findObjectLiteral(cleaned, start);
-        if (objectLiteral) {
-            const parsed = parseObjectLiteral(objectLiteral);
-            if (parsed && typeof parsed === 'object') {
-                objects.push(parsed);
+        const literal = findLiteral(cleaned, start);
+        if (literal) {
+            const parsed = parseObjectLiteral(literal);
+            if (parsed !== null && parsed !== undefined) {
+                parsedValues.push(parsed);
             }
         }
     }
 
-    const exportRegex = /export\s+default\s*\{/g;
-    const exportMatch = exportRegex.exec(cleaned);
+    const exportDefaultRegex = /export\s+default\s*[\[{]/g;
+    const exportMatch = exportDefaultRegex.exec(cleaned);
     if (exportMatch) {
         const start = exportMatch.index + exportMatch[0].length - 1;
-        const objectLiteral = findObjectLiteral(cleaned, start);
-        if (objectLiteral) {
-            const parsed = parseObjectLiteral(objectLiteral);
-            if (parsed && typeof parsed === 'object') {
-                objects.push(parsed);
+        const literal = findLiteral(cleaned, start);
+        if (literal) {
+            const parsed = parseObjectLiteral(literal);
+            if (parsed !== null && parsed !== undefined) {
+                parsedValues.push(parsed);
             }
         }
     }
 
-    return Object.assign({}, ...objects);
+    if (parsedValues.length === 0) return null;
+    if (parsedValues.length === 1) return parsedValues[0];
+    const objects = parsedValues.filter((item) => item && typeof item === 'object' && !Array.isArray(item));
+    if (objects.length === parsedValues.length) {
+        return Object.assign({}, ...objects);
+    }
+    return parsedValues[parsedValues.length - 1] || parsedValues[0];
 };
 
 const getLevelSource = (source: any) => {
@@ -161,6 +167,7 @@ export async function GET(request: Request) {
         const levelRoot = path.join(projectRoot, 'json/database_level_kabinet');
         const taxRoot = path.join(projectRoot, 'json/database_pajak_negara');
 
+        const embassyRoot = path.join(projectRoot, 'json', 'database_kedutaan_besar');
         const allFiles: string[] = [];
         const findFiles = (dir: string, filename?: string) => {
             const files = fs.readdirSync(dir);
@@ -178,6 +185,11 @@ export async function GET(request: Request) {
             const fileContents = fs.readFileSync(filePath, 'utf8');
             const parsed = extractObjectsFromFile(fileContents);
             if (!parsed || typeof parsed !== 'object') return null;
+
+            const isEmbassyFile = filePath.startsWith(embassyRoot + path.sep) || filePath === embassyRoot;
+            if (isEmbassyFile && Array.isArray(parsed)) {
+                return { embassies: parsed };
+            }
 
             const isLevelFile = path.relative(levelRoot, filePath).startsWith('..') === false;
             if (isLevelFile) {
@@ -291,6 +303,11 @@ export async function GET(request: Request) {
                     countryFiles.push(taxPath);
                 }
 
+                const embassyPath = path.join(embassyRoot, countryPath);
+                if (fs.existsSync(embassyPath)) {
+                    countryFiles.push(embassyPath);
+                }
+
                 // 4. Extraction files
                 if (extractionFilesByFilename[targetFilename]) {
                     countryFiles.push(...extractionFilesByFilename[targetFilename]);
@@ -325,6 +342,7 @@ export async function GET(request: Request) {
 
         findTargetFiles(jsonRoot);
         findTargetFiles(taxRoot);
+        findTargetFiles(embassyRoot);
         
         // Explicitly search for extraction files in 2_sektor_mineral_kritis
         const ekstraksiRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');

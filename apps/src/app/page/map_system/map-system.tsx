@@ -32,6 +32,7 @@ interface Country {
 export default function MapPage() {
     const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
     const [countryDetail, setCountryDetail] = useState<any>(null);
+    const [playerNetBalanceAdjustment, setPlayerNetBalanceAdjustment] = useState<number>(0);
     const [isPaused, setIsPaused] = useState(true);
     const [speed, setSpeed] = useState(1);
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
@@ -353,6 +354,7 @@ export default function MapPage() {
                 reloadStats: () => loadCountryStats(selectedCountry.country, selectedCountry.capital),
                 skipConfirm: true
             });
+            setPlayerNetBalanceAdjustment(0);
             // Toggle resetTrigger to signal all modals to reset
             setResetTrigger(prev => !prev);
         }
@@ -517,6 +519,7 @@ export default function MapPage() {
             <Navbar 
                 selectedCountry={selectedCountry}
                 countryDetail={countryDetail}
+                netBalanceAdjustment={playerNetBalanceAdjustment}
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
@@ -671,7 +674,10 @@ export default function MapPage() {
                 isOpen={countryDetailModalOpen}
                 countryName={countryDetailModalName}
                 countryDetail={countryDetail}
+                setCountryDetail={setCountryDetail}
                 currentDate={currentDate}
+                playerNetBalanceAdjustment={playerNetBalanceAdjustment}
+                adjustPlayerNetBalance={(delta: number) => setPlayerNetBalanceAdjustment((prev) => prev + delta)}
                 onClose={() => {
                     setCountryDetailModalOpen(false);
                     setCountryDetailModalName(null);
