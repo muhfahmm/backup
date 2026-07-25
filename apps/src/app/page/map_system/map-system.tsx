@@ -552,6 +552,7 @@ export default function MapPage() {
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
                 countryDetail={countryDetail}
+                isDetailModalOpen={countryDetailModalOpen}
             />
 
             <ModalsManager

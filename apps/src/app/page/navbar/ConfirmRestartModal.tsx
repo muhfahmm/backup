@@ -13,7 +13,7 @@ export function ConfirmRestartModal({ isOpen, onClose, onConfirm }: ConfirmResta
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm font-sans select-none">
+        <div className="fixed inset-0 z-[120] flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm font-sans select-none">
             
             {/* Skeuomorphic Confirmation Frame */}
             <div className="bg-[#101720] border-[4px] border-slate-950 rounded-2xl w-full max-w-[420px] shadow-2xl relative flex flex-col p-3.5 pl-9 min-h-[320px]">

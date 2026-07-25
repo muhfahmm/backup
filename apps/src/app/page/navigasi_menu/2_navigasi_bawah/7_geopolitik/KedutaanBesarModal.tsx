@@ -3,6 +3,21 @@ import React, { useState } from "react";
 import { X, Globe } from "lucide-react";
 // PERBAIKAN: Import data negara untuk mendapatkan ISO bendera
 import { COUNTRIES_DATA } from "../../../map_system/map-data";
+import getTradeAgreementsForCountry from '../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
+
+type TradeAgreement = {
+  mitra: string;
+  type?: string;
+  status?: string;
+};
+
+type EmbassyRecord = {
+  mitra?: string;
+  status?: string;
+  type?: string;
+  source?: string;
+  [key: string]: any;
+};
 
 interface ModalProps {
   isOpen: boolean;
@@ -14,7 +29,33 @@ interface ModalProps {
 export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
   const anggaran = countryDetail?.anggaran || 0;
-  const embassies = Array.isArray(countryDetail?.embassies) ? countryDetail.embassies : [];
+  const directEmbassies = Array.isArray(countryDetail?.embassies) ? countryDetail.embassies : [];
+  const tradeAgreements = getTradeAgreementsForCountry(countryDetail?.country || countryDetail?.nama || countryDetail?.country_name);
+
+  const allPartnersFromTrade: EmbassyRecord[] = Array.isArray(tradeAgreements)
+    ? tradeAgreements.map((agreement: TradeAgreement) => ({
+        mitra: agreement.mitra,
+        status: agreement.status || 'Aktif',
+        type: agreement.type || 'Perdagangan',
+      }))
+    : [];
+
+  const mergedEmbassies: EmbassyRecord[] = [
+    ...directEmbassies.map((item: EmbassyRecord) => ({
+      ...item,
+      source: 'kedutaan',
+    })),
+    ...allPartnersFromTrade.map((item: EmbassyRecord) => ({
+      ...item,
+      source: 'trade',
+    })),
+  ];
+
+  const embassies = mergedEmbassies.filter((item, index, array) => {
+    const normalized = String(item.mitra || item.nama_negara || '').toLowerCase().trim();
+    return normalized && array.findIndex((other) => String(other.mitra || other.nama_negara || '').toLowerCase().trim() === normalized) === index;
+  });
+
   const playerName = countryDetail?.country || countryDetail?.nama || countryDetail?.country_name || 'Negara Anda';
 
   // PERBAIKAN: State untuk Modal Konfirmasi & Modal Sukses
@@ -54,10 +95,10 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
     if (!confirmModal.partnerName) return;
     const partnerName = confirmModal.partnerName;
 
-    const newEmbassies = embassies.filter((item: { mitra?: string }) => item.mitra !== partnerName);
+    const updatedDirectEmbassies = directEmbassies.filter((item: { mitra?: string }) => item.mitra !== partnerName);
     setCountryDetail({
       ...countryDetail,
-      embassies: newEmbassies,
+      embassies: updatedDirectEmbassies,
     });
 
     // Tutup modal konfirmasi & tampilkan modal sukses

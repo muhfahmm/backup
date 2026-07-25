@@ -13,9 +13,10 @@ interface BottomNavProps {
   activeMenu: string;
   setActiveMenu: (menu: string) => void;
   countryDetail?: any;
+  isDetailModalOpen?: boolean;
 }
 
-export default function BottomNav({ activeMenu, setActiveMenu, countryDetail }: BottomNavProps) {
+export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, isDetailModalOpen = false }: BottomNavProps) {
   const [isTemporarilyHidden, setIsTemporarilyHidden] = useState(false);
 
   useEffect(() => {
@@ -100,6 +101,8 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail }: 
                            !isMainCategory && 
                            !isSubMenuItem &&
                            !activeMenu.startsWith("Menu:KomandoPertahanan");
+
+  if (isTemporarilyHidden || isDetailModalOpen) return null;
 
   return (
     <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 cursor-not-allowed ${isOtherModalOpen ? 'z-0 opacity-50' : 'z-[100] opacity-100'
