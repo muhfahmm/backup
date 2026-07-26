@@ -1,16 +1,13 @@
 // @ts-nocheck
 export const afrika_selatanAgreements = [
-  { "no": 1, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "Ethiopia", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 12, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 13, "mitra": "India", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Botswana", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Bangladesh", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Argentina", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Bhutan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Albania", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Benin", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Barbados", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Austria", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 9, "mitra": "Arab Saudi", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 10, "mitra": "Brunei", "type": "Perdagangan", "status": "Aktif" }
 ];

@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 
 const rootDir = path.resolve(__dirname, '..', 'json', 'database_mitra_perdagangan');
-const excludeFiles = new Set(['index.ts', 'agreementsRegistry.ts', 'types.ts']);
+const excludeFiles = new Set(['index.ts', 'agreementsRegistry.ts', 'tradeAgreementRegistry.ts', 'types.ts']);
 
 function normalizeName(value) {
   return String(value || '')

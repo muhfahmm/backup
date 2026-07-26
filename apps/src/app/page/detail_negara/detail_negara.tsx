@@ -1,10 +1,11 @@
 'use client';
 
 import { useState, useEffect, useRef } from "react";
-import { X, Globe, Landmark, Shield, Users, Banknote, Scale, Home } from 'lucide-react';
+import { X, Globe, Landmark, Shield, Users, Banknote, Scale, Home, Handshake } from 'lucide-react';
 import { COUNTRIES_DATA } from '../map_system/map-data';
 import countryPaths from '../map_system/country-paths.json';
 import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryUpdater';
+import { getRelationValue } from '@/../../json/database_hubungan_antar_negara/relationsRegistry';
 
 // Import 3 komponen terpisah
 import InformasiUmum from "./1_informasi_umum/informasi_umum";
@@ -143,6 +144,10 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
   // Fallback ganda untuk iso dan capital
   const iso = mapData?.iso || detailData?.iso || "";
   const capital = mapData?.capital || detailData?.capital || "Data tidak tersedia";
+  
+  // Hitung Hubungan
+  const playerCountryName = countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || countryDetail?.name || "Indonesia";
+  const relationValue = getRelationValue(playerCountryName, countryName);
 
   // Fungsi Helper untuk bendera di Header
   const renderFlagHeader = (iso: string | undefined, altName: string) => {
@@ -207,6 +212,23 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
         {/* DATA RINGKASAN - Data diambil langsung dari JSON database berdasarkan negara yang diklik */}
         <div className="px-8 py-4 bg-[#e4dac3]/30 border-b border-[#C4B49C]/20 flex items-center gap-8 relative z-10 overflow-x-auto">
           <div className="flex items-center gap-6 min-w-max">
+            {/* Hubungan */}
+            <div className="flex items-center gap-2">
+              <div className="p-1.5 bg-[#dcc9a3]/60 rounded-lg text-[#8b7e66]">
+                <Handshake className="h-4 w-4 text-[#5c3c10]" />
+              </div>
+              <div className="flex flex-col">
+                <span className="text-[9px] font-black text-[#8b7e66]/80 uppercase tracking-wider">Hubungan</span>
+                <span className={`text-[11px] font-extrabold uppercase ${relationValue >= 75 ? 'text-emerald-700' : relationValue >= 50 ? 'text-[#5c3c10]' : 'text-rose-700'}`}>
+                  {isLoadingDetail ? (
+                    <span className="inline-block w-12 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
+                  ) : (
+                    relationValue
+                  )}
+                </span>
+              </div>
+            </div>
+
             {/* Ibukota */}
             <div className="flex items-center gap-2">
               <div className="p-1.5 bg-[#dcc9a3]/60 rounded-lg text-[#8b7e66]">

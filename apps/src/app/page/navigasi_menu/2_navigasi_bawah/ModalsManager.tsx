@@ -40,7 +40,7 @@ import ManajemenPertahananModal from "./6_pertahanan/ManajemenPertahananModal";
 // 7. Geopolitik
 import PBBModal from "./7_geopolitik/1_PBB/PBBModal";
 import KedutaanBesarModal from "./7_geopolitik/KedutaanBesarModal";
-import OrgIntlModal from "./7_geopolitik/OrgIntlModal";
+import OrgIntlModal from "./7_geopolitik/3_organisasi_internasional/OrgIntlModal";
 import TingkatHubunganModal from "./7_geopolitik/TingkatHubunganModal";
 import BantuanModal from "./7_geopolitik/BantuanModal";
 
@@ -358,6 +358,7 @@ function ModalsManager({
           isOpen={true}
           onClose={onClose}
           selectedCountry={selectedCountry}
+          countryDetail={countryDetail}
         />
       );
     case "Menu:Bantuan":

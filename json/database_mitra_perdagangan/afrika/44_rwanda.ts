@@ -1,16 +1,11 @@
 // @ts-nocheck
 export const rwandaAgreements = [
-  { "no": 1, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "Nigeria", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Ethiopia", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Maroko", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 12, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 13, "mitra": "Kenya", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Antigua dan Barbuda", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Benin", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Bangladesh", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Arab Saudi", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Australia", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Azerbaijan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Afganistan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Albania", "type": "Perdagangan", "status": "Aktif" }
 ];

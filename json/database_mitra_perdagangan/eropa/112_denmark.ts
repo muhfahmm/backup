@@ -1,15 +1,11 @@
 // @ts-nocheck
 export const denmarkAgreements = [
-  { "no": 1, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "Turki", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Swiss", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "Rusia", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "Spanyol", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 12, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Benin", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Bermuda", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Azerbaijan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Belgia", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Belarus", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Bolivia", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Afganistan", "type": "Perdagangan", "status": "Aktif" }
 ];

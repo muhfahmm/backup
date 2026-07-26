@@ -1,24 +1,140 @@
 "use client"
-import React from "react";
-import { X, Globe } from "lucide-react";
+import React, { useState } from "react";
+import { X, Globe, Search, Info } from "lucide-react";
+import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
+import { getRelationValue } from "@/../../json/database_hubungan_antar_negara/relationsRegistry";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  selectedCountry: any;
+  selectedCountry?: any;
+  countryDetail?: any;
 }
 
-export default function TingkatHubunganModal({ isOpen, onClose, selectedCountry }: ModalProps) {
+const normalizeContinent = (continent: any) => {
+  if (typeof continent !== 'string') return 'Lainnya';
+  const value = continent.trim().toLowerCase();
+  if (value === 'asia') return 'Asia';
+  if (value === 'africa' || value === 'afrika') return 'Africa';
+  if (value === 'europe' || value === 'eropa') return 'Europe';
+  if (value === 'north america' || value === 'amerika utara') return 'North America';
+  if (value === 'south america' || value === 'amerika selatan') return 'South America';
+  if (value === 'oceania' || value === 'oseania' || value === 'australia') return 'Oceania';
+  return continent || 'Lainnya';
+};
+
+export default function TingkatHubunganModal({ isOpen, onClose, selectedCountry, countryDetail }: ModalProps) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' }>({
+    key: 'no',
+    direction: 'asc',
+  });
+  
+  const [isLegendOpen, setIsLegendOpen] = useState(false);
+
   if (!isOpen) return null;
 
+  const playerCountryName = selectedCountry?.country || countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || "Indonesia";
+  const normPlayer = playerCountryName.toLowerCase().trim();
+
+  // Filter 206 negara (kecuali negara user)
+  const allTargetCountries = COUNTRIES_DATA.filter(
+    (c) => c.country.toLowerCase().trim() !== normPlayer
+  ).map((c, idx) => {
+    return {
+      no: idx + 1,
+      name: c.country,
+      continent: normalizeContinent(c.continent),
+      relation: getRelationValue(playerCountryName, c.country),
+    };
+  });
+
+  // Logika 5 warna & alias hubungan
+  const getRelationBadge = (value: number) => {
+    if (value >= 81 && value <= 100) {
+      return { 
+        alias: 'Sangat Baik', 
+        className: 'bg-emerald-100 text-emerald-800 border-emerald-300' 
+      };
+    }
+    if (value >= 66 && value <= 80) {
+      return { 
+        alias: 'Baik', 
+        className: 'bg-green-100 text-green-800 border-green-300' 
+      };
+    }
+    if (value >= 41 && value <= 65) {
+      return { 
+        alias: 'Netral', 
+        className: 'bg-yellow-100 text-yellow-800 border-yellow-300' 
+      };
+    }
+    if (value >= 26 && value <= 40) {
+      return { 
+        alias: 'Buruk', 
+        className: 'bg-rose-100 text-rose-800 border-rose-300' 
+      };
+    }
+    if (value >= 0 && value <= 25) {
+      return { 
+        alias: 'Sangat Buruk', 
+        className: 'bg-red-100 text-red-800 border-red-300' 
+      };
+    }
+    return { 
+      alias: 'Tidak Diketahui', 
+      className: 'bg-gray-100 text-gray-800 border-gray-300' 
+    };
+  };
+
+  const handleSort = (key: string) => {
+    setSortConfig((prev) => ({
+      key,
+      direction: prev.key === key && prev.direction === 'desc' ? 'asc' : 'desc',
+    }));
+  };
+
+  const renderSortArrow = (key: string) => {
+    if (sortConfig.key !== key) return null;
+    return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
+  };
+
+  let rows = allTargetCountries;
+
+  if (searchQuery.trim() !== '') {
+    const q = searchQuery.toLowerCase();
+    rows = rows.filter(
+      (item) => item.name.toLowerCase().includes(q) || item.continent.toLowerCase().includes(q)
+    );
+  }
+
+  const sortedRows = [...rows].sort((a, b) => {
+    const key = sortConfig.key as keyof typeof a;
+    const aVal = a[key];
+    const bVal = b[key];
+    if (typeof aVal === 'string' && typeof bVal === 'string') {
+      return sortConfig.direction === 'asc' ? aVal.localeCompare(bVal) : bVal.localeCompare(aVal);
+    } else {
+      return sortConfig.direction === 'asc' ? (aVal as number) - (bVal as number) : (bVal as number) - (aVal as number);
+    }
+  });
+
+  // Hitung jumlah negara untuk setiap kategori berdasarkan data asli (allTargetCountries)
+  const countByCategory = {
+    sangatBuruk: allTargetCountries.filter(c => c.relation >= 0 && c.relation <= 25).length,
+    buruk: allTargetCountries.filter(c => c.relation >= 26 && c.relation <= 40).length,
+    netral: allTargetCountries.filter(c => c.relation >= 41 && c.relation <= 65).length,
+    baik: allTargetCountries.filter(c => c.relation >= 66 && c.relation <= 80).length,
+    sangatBaik: allTargetCountries.filter(c => c.relation >= 81 && c.relation <= 100).length,
+  };
+
   return (
-    // PERBAIKAN: Hapus bg-black/65
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN: Tambahkan pointer-events-auto di lapisan dalam */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
-        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+
+        {/* HEADER MODAL */}
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 flex-shrink-0">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
@@ -29,27 +145,172 @@ export default function TingkatHubunganModal({ isOpen, onClose, selectedCountry 
               </div>
             </div>
           </div>
-          <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+          <button
+            onClick={onClose}
+            className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+          >
             <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
             <X className="h-5 w-5" />
           </button>
         </div>
-        <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-            Peringkat indeks kepercayaan diplomatik global terhadap kedaulatan negara Anda di mata dunia.
-          </p>
 
-          <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
-            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Reputasi Diplomatik:</span>
-              <span className="text-emerald-700 font-bold">Sangat Terhormat (A+)</span>
+        {/* BODY TABEL */}
+        <div className="flex-1 min-h-0 flex flex-col p-8 bg-[#FAF6EE]/40 relative z-10">
+          <div className="flex justify-between items-center gap-3 mb-4 flex-shrink-0">
+            
+            {/* PERBAIKAN: Tombol Legenda dengan warna teks coklat tua agar terbaca */}
+            <button
+              onClick={() => setIsLegendOpen(true)}
+              className="px-4 py-2 rounded-lg bg-[#e4dac3]/40 border border-[#C4B49C] text-[#5c3c10] text-[10px] font-black uppercase tracking-wider hover:bg-[#e4dac3]/60 transition-all cursor-pointer flex items-center gap-2"
+            >
+              <Info className="h-3.5 w-3.5 text-[#5c3c10]" />
+              Legenda Hubungan
+            </button>
+
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Cari negara / benua..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-8 pr-3 py-1.5 rounded-lg bg-white/80 border border-[#C4B49C] text-sm font-bold text-[#2e261a] outline-none focus:ring-2 focus:ring-[#5c3c10] w-52 transition-all placeholder:text-[#8b7e66]"
+              />
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 w-3.5 h-3.5 text-[#8b7e66]" />
             </div>
-            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Indeks Keterbukaan Pasar:</span>
-              <span>78% / 100%</span>
+          </div>
+
+          <div className="flex-1 min-h-0 bg-[#FAF6EE] border-2 border-[#C4B49C] rounded-xl overflow-hidden shadow-sm flex flex-col">
+            <div className="flex-1 min-h-0 overflow-y-auto">
+              <table className="min-w-full table-auto border-separate border-spacing-0 text-left">
+                <thead className="sticky top-0 z-10 bg-[#e9dcc6]">
+                  <tr className="border-b-2 border-[#C4B49C]">
+                    <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-center cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider w-16" onClick={() => handleSort('no')}>No{renderSortArrow('no')}</th>
+                    <th className="px-4 py-3 border-b-2 border-[#C4B49C] cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('name')}>Nama Negara{renderSortArrow('name')}</th>
+                    <th className="px-4 py-3 border-b-2 border-[#C4B49C] cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('continent')}>Benua{renderSortArrow('continent')}</th>
+                    <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-center cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('relation')}>Tingkat Hubungan{renderSortArrow('relation')}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {sortedRows.length === 0 ? (
+                    <tr>
+                      <td className="px-4 py-6 text-center text-sm font-bold text-[#5c3c10]" colSpan={4}>
+                        Tidak ada data yang cocok dengan pencarian "{searchQuery}".
+                      </td>
+                    </tr>
+                  ) : (
+                    sortedRows.map((row, index) => {
+                      const { alias, className } = getRelationBadge(row.relation);
+                      return (
+                        <tr key={`${row.name}-${index}`} className={index % 2 === 0 ? 'bg-[#f5efdf]/50' : 'bg-white/50'}>
+                          <td className="px-4 py-3 text-center text-sm font-bold text-[#8b7e66] border-b border-[#C4B49C]/10">{row.no}</td>
+                          <td className="px-4 py-3 text-sm font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{row.name}</td>
+                          <td className="px-4 py-3 text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/10">{row.continent}</td>
+                          <td className="px-4 py-3 text-center text-sm font-bold border-b border-[#C4B49C]/10">
+                            <span className={`inline-block px-3 py-0.5 rounded-md border font-black text-xs shadow-sm ${className}`}>
+                              {row.relation} - {alias}
+                            </span>
+                          </td>
+                        </tr>
+                      );
+                    })
+                  )}
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
+
+        {/* MODAL LEGENDA WARNA HUBUNGAN DENGAN JUMLAH NEGARA */}
+        {isLegendOpen && (
+          <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
+            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-lg w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
+              <button
+                onClick={() => setIsLegendOpen(false)}
+                className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+              >
+                <X className="h-5 w-5" />
+              </button>
+              
+              <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight mb-4">
+                Indikator Hubungan Diplomatik
+              </h3>
+              <div className="space-y-3 mb-6">
+                {/* 0 - 25 */}
+                <div className="flex items-center justify-between border-b border-[#C4B49C]/20 pb-2">
+                  <span className="text-sm font-bold text-[#5c3c10]">0 - 25</span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-block px-3 py-1 rounded-md bg-red-100 text-red-800 border border-red-300 font-black text-xs">
+                      Sangat Buruk
+                    </span>
+                    <span className="text-xs font-bold text-[#8b7e66] w-20 text-right">
+                      ({countByCategory.sangatBuruk} negara)
+                    </span>
+                  </div>
+                </div>
+
+                {/* 26 - 40 */}
+                <div className="flex items-center justify-between border-b border-[#C4B49C]/20 pb-2">
+                  <span className="text-sm font-bold text-[#5c3c10]">26 - 40</span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-block px-3 py-1 rounded-md bg-rose-100 text-rose-800 border border-rose-300 font-black text-xs">
+                      Buruk
+                    </span>
+                    <span className="text-xs font-bold text-[#8b7e66] w-20 text-right">
+                      ({countByCategory.buruk} negara)
+                    </span>
+                  </div>
+                </div>
+
+                {/* 41 - 65 */}
+                <div className="flex items-center justify-between border-b border-[#C4B49C]/20 pb-2">
+                  <span className="text-sm font-bold text-[#5c3c10]">41 - 65</span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-block px-3 py-1 rounded-md bg-yellow-100 text-yellow-800 border border-yellow-300 font-black text-xs">
+                      Netral
+                    </span>
+                    <span className="text-xs font-bold text-[#8b7e66] w-20 text-right">
+                      ({countByCategory.netral} negara)
+                    </span>
+                  </div>
+                </div>
+
+                {/* 66 - 80 */}
+                <div className="flex items-center justify-between border-b border-[#C4B49C]/20 pb-2">
+                  <span className="text-sm font-bold text-[#5c3c10]">66 - 80</span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-block px-3 py-1 rounded-md bg-green-100 text-green-800 border border-green-300 font-black text-xs">
+                      Baik
+                    </span>
+                    <span className="text-xs font-bold text-[#8b7e66] w-20 text-right">
+                      ({countByCategory.baik} negara)
+                    </span>
+                  </div>
+                </div>
+
+                {/* 81 - 100 */}
+                <div className="flex items-center justify-between border-b border-[#C4B49C]/20 pb-2">
+                  <span className="text-sm font-bold text-[#5c3c10]">81 - 100</span>
+                  <div className="flex items-center gap-3">
+                    <span className="inline-block px-3 py-1 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300 font-black text-xs">
+                      Sangat Baik
+                    </span>
+                    <span className="text-xs font-bold text-[#8b7e66] w-20 text-right">
+                      ({countByCategory.sangatBaik} negara)
+                    </span>
+                  </div>
+                </div>
+              </div>
+              
+              <button
+                onClick={() => setIsLegendOpen(false)}
+                className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] text-xs font-black uppercase tracking-widest hover:bg-[#3d2911] transition-all cursor-pointer"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );

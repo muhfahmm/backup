@@ -61,3 +61,69 @@ export const OrganizationMembers: Record<string, string[]> = {
   opec: opec_Members,
   g20: g20_Members,
 };
+
+const orgNameToKeyMap: Record<string, string[]> = {
+  // PBB
+  "Interpol": interpol_Members,
+  "Organisasi Kesehatan Dunia (WHO)": who_Members,
+  "UNESCO": unesco_Members,
+  "Organisasi Perdagangan Dunia (WTO)": wto_Members,
+  "Organisasi Buruh Internasional (ILO)": ilo_Members,
+  "Organisasi Pangan dan Pertanian (FAO)": fao_Members,
+  "Organisasi Penerbangan Sipil Internasional (ICAO)": icao_Members,
+  "Organisasi Maritim Internasional (IMO)": imo_Members,
+  "Organisasi Telekomunikasi Internasional (ITU)": itu_Members,
+  "Organisasi Meteorologi Dunia (WMO)": wmo_Members,
+  "Dana Moneter Internasional (IMF)": imf_Members,
+  "Bank Dunia": world_bank_Members,
+
+  // Regional
+  "Perhimpunan Bangsa-Bangsa Asia Tenggara (ASEAN)": asean_Members,
+  "Uni Eropa (EU)": eu_Members,
+  "Liga Arab": arab_league_Members,
+  "Uni Afrika (AU)": au_Members,
+  "Organisasi Kerja Sama Islam (OKI)": oic_Members,
+  "BRICS (Brasil, Rusia, India, China, Afrika Selatan)": brics_Members,
+  "Pakta Pertahanan Atlantik Utara (NATO)": nato_Members,
+  "Organisasi Negara-Negara Pengekspor Minyak Bumi (OPEC)": opec_Members,
+  "Kelompok Duapuluh (G20)": g20_Members,
+  "Kerja Sama Ekonomi Asia-Pasifik (APEC)": apec_Members,
+  "Organisasi Kerja Sama Shanghai (SCO)": sco_Members,
+  "Organisasi Negara-Negara Amerika (OAS)": oas_Members,
+  "Dewan Kerja Sama Teluk (GCC)": gcc_Members,
+  "Pasar Umum Selatan (MERCOSUR)": mercosur_Members,
+  "Persemakmuran Bangsa-Bangsa (Commonwealth)": commonwealth_Members,
+  "Kelompok Tujuh (G7)": g7_Members,
+  "Dialog Keamanan Kuadrilateral (QUAD)": quad_Members,
+  "Organisasi Kerja Sama dan Pembangunan Ekonomi (OECD)": oecd_Members,
+};
+
+export function getOrgMembers(orgName: string): { country: string; status: string }[] {
+  if (!orgName) return [];
+  
+  let list = orgNameToKeyMap[orgName];
+
+  if (!list) {
+    const norm = orgName.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const entry = Object.entries(orgNameToKeyMap).find(([k]) => k.toLowerCase().replace(/[^a-z0-9]/g, '') === norm);
+    if (entry) {
+      list = entry[1];
+    }
+  }
+
+  if (!list || !Array.isArray(list)) return [];
+
+  return list.map((item) => {
+    const rawCountry = typeof item === 'string' ? item : (item as any).country || '';
+    const formattedCountry = rawCountry
+      .split(' ')
+      .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+    
+    return {
+      country: formattedCountry,
+      status: 'Anggota',
+    };
+  });
+}
+

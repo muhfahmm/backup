@@ -1,14 +1,12 @@
 // @ts-nocheck
 export const republik_sudanAgreements = [
-  { "no": 1, "mitra": "Ethiopia", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "Mesir", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "Ghana", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Arab Saudi", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Antigua dan Barbuda", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Belanda", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Barbados", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Argentina", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Bahrain", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Bolivia", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Austria", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 9, "mitra": "Aljazair", "type": "Perdagangan", "status": "Aktif" }
 ];

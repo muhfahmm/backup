@@ -1,16 +1,12 @@
 // @ts-nocheck
 export const republik_dominikaAgreements = [
-  { "no": 1, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "Kanada", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Inggris", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 12, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 13, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Bosnia dan Hercegovina", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Afganistan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Argentina", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Botswana", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Brunei", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Bangladesh", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Afrika Selatan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Benin", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 9, "mitra": "Andorra", "type": "Perdagangan", "status": "Aktif" }
 ];

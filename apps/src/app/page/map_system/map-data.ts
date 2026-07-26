@@ -7,7 +7,7 @@ export const COUNTRIES_DATA = [
     "iso": "af",
     "latitude": 34.52,
     "longitude": 69.18,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 29240,
@@ -16,7 +16,7 @@ export const COUNTRIES_DATA = [
     "iso": "za",
     "latitude": -25.7,
     "longitude": 28.22,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 93002,
@@ -34,7 +34,7 @@ export const COUNTRIES_DATA = [
     "iso": "dz",
     "latitude": 36.75,
     "longitude": 3.05,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 20257,
@@ -43,7 +43,7 @@ export const COUNTRIES_DATA = [
     "iso": "us",
     "latitude": 38.89,
     "longitude": -77.05,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 25837,
@@ -70,7 +70,7 @@ export const COUNTRIES_DATA = [
     "iso": "ag",
     "latitude": 17.12,
     "longitude": -61.85,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 69246,
@@ -79,7 +79,7 @@ export const COUNTRIES_DATA = [
     "iso": "sa",
     "latitude": 24.65,
     "longitude": 46.7,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 97966,
@@ -133,7 +133,7 @@ export const COUNTRIES_DATA = [
     "iso": "bs",
     "latitude": 25.08,
     "longitude": -77.35,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 98511,
@@ -169,7 +169,7 @@ export const COUNTRIES_DATA = [
     "iso": "nl",
     "latitude": 52.35,
     "longitude": 4.92,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 69739,
@@ -187,7 +187,7 @@ export const COUNTRIES_DATA = [
     "iso": "be",
     "latitude": 50.83,
     "longitude": 4.33,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 7223,
@@ -295,7 +295,7 @@ export const COUNTRIES_DATA = [
     "iso": "cz",
     "latitude": 50.08,
     "longitude": 14.47,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 93060,
@@ -340,7 +340,7 @@ export const COUNTRIES_DATA = [
     "iso": "cw",
     "latitude": 12.1,
     "longitude": -68.92,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 43869,
@@ -367,7 +367,7 @@ export const COUNTRIES_DATA = [
     "iso": "dm",
     "latitude": 15.3,
     "longitude": -61.4,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 50663,
@@ -376,7 +376,7 @@ export const COUNTRIES_DATA = [
     "iso": "ec",
     "latitude": -0.22,
     "longitude": -78.5,
-    "continent": "Unknown"
+    "continent": "South America"
   },
   {
     "id": 48364,
@@ -439,7 +439,7 @@ export const COUNTRIES_DATA = [
     "iso": "ph",
     "latitude": 14.6,
     "longitude": 120.97,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 51192,
@@ -448,7 +448,7 @@ export const COUNTRIES_DATA = [
     "iso": "fi",
     "latitude": 60.17,
     "longitude": 24.93,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 55085,
@@ -493,7 +493,7 @@ export const COUNTRIES_DATA = [
     "iso": "gi",
     "latitude": 36.13,
     "longitude": -5.35,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 18499,
@@ -583,7 +583,7 @@ export const COUNTRIES_DATA = [
     "iso": "hu",
     "latitude": 47.5,
     "longitude": 19.08,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 23635,
@@ -610,7 +610,7 @@ export const COUNTRIES_DATA = [
     "iso": "gb",
     "latitude": 51.5,
     "longitude": -0.08,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 9013,
@@ -619,7 +619,7 @@ export const COUNTRIES_DATA = [
     "iso": "iq",
     "latitude": 33.33,
     "longitude": 44.4,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 25469,
@@ -637,7 +637,7 @@ export const COUNTRIES_DATA = [
     "iso": "ie",
     "latitude": 53.32,
     "longitude": -6.23,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 93352,
@@ -646,7 +646,7 @@ export const COUNTRIES_DATA = [
     "iso": "is",
     "latitude": 64.15,
     "longitude": -21.95,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 14097,
@@ -664,7 +664,7 @@ export const COUNTRIES_DATA = [
     "iso": "it",
     "latitude": 41.9,
     "longitude": 12.48,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 67196,
@@ -673,7 +673,7 @@ export const COUNTRIES_DATA = [
     "iso": "jm",
     "latitude": 17.99702,
     "longitude": -76.79358,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 69792,
@@ -682,7 +682,7 @@ export const COUNTRIES_DATA = [
     "iso": "jp",
     "latitude": 35.68,
     "longitude": 139.75,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 50254,
@@ -691,7 +691,7 @@ export const COUNTRIES_DATA = [
     "iso": "de",
     "latitude": 52.52,
     "longitude": 13.4,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 24209,
@@ -700,7 +700,7 @@ export const COUNTRIES_DATA = [
     "iso": "kh",
     "latitude": 11.55,
     "longitude": 104.92,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 50852,
@@ -709,7 +709,7 @@ export const COUNTRIES_DATA = [
     "iso": "cm",
     "latitude": 3.85,
     "longitude": 11.5,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 26802,
@@ -718,7 +718,7 @@ export const COUNTRIES_DATA = [
     "iso": "ca",
     "latitude": 45.42,
     "longitude": -75.7,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 61803,
@@ -745,7 +745,7 @@ export const COUNTRIES_DATA = [
     "iso": "fo",
     "latitude": 62.01,
     "longitude": -6.77,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 74292,
@@ -754,7 +754,7 @@ export const COUNTRIES_DATA = [
     "iso": "kg",
     "latitude": 42.87,
     "longitude": 74.6,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 78382,
@@ -772,7 +772,7 @@ export const COUNTRIES_DATA = [
     "iso": "co",
     "latitude": 4.71,
     "longitude": -74.07,
-    "continent": "Unknown"
+    "continent": "South America"
   },
   {
     "id": 51675,
@@ -781,7 +781,7 @@ export const COUNTRIES_DATA = [
     "iso": "km",
     "latitude": -11.7,
     "longitude": 43.23,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 9450,
@@ -790,7 +790,7 @@ export const COUNTRIES_DATA = [
     "iso": "cg",
     "latitude": -4.25,
     "longitude": 15.28,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 82537,
@@ -799,7 +799,7 @@ export const COUNTRIES_DATA = [
     "iso": "kr",
     "latitude": 37.55,
     "longitude": 126.98,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 30813,
@@ -808,7 +808,7 @@ export const COUNTRIES_DATA = [
     "iso": "kp",
     "latitude": 39.02,
     "longitude": 125.75,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 17768,
@@ -826,7 +826,7 @@ export const COUNTRIES_DATA = [
     "iso": "hr",
     "latitude": 45.8,
     "longitude": 16,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 57401,
@@ -835,7 +835,7 @@ export const COUNTRIES_DATA = [
     "iso": "cu",
     "latitude": 23.12,
     "longitude": -82.35,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 7492,
@@ -925,7 +925,7 @@ export const COUNTRIES_DATA = [
     "iso": "lu",
     "latitude": 49.6,
     "longitude": 6.12,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 51020,
@@ -934,7 +934,7 @@ export const COUNTRIES_DATA = [
     "iso": "mg",
     "latitude": -18.92,
     "longitude": 47.52,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 67421,
@@ -961,7 +961,7 @@ export const COUNTRIES_DATA = [
     "iso": "mv",
     "latitude": 4.17,
     "longitude": 73.51,
-    "continent": "Seven seas (open ocean)"
+    "continent": "Asia"
   },
   {
     "id": 91542,
@@ -988,7 +988,7 @@ export const COUNTRIES_DATA = [
     "iso": "ma",
     "latitude": 34.02,
     "longitude": -6.82,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 65580,
@@ -1006,7 +1006,7 @@ export const COUNTRIES_DATA = [
     "iso": "mu",
     "latitude": -20.15,
     "longitude": 57.48,
-    "continent": "Seven seas (open ocean)"
+    "continent": "Africa"
   },
   {
     "id": 24386,
@@ -1015,7 +1015,7 @@ export const COUNTRIES_DATA = [
     "iso": "mx",
     "latitude": 19.43,
     "longitude": -99.13,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 1099,
@@ -1024,7 +1024,7 @@ export const COUNTRIES_DATA = [
     "iso": "eg",
     "latitude": 30.05,
     "longitude": 31.25,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 69213,
@@ -1033,7 +1033,7 @@ export const COUNTRIES_DATA = [
     "iso": "fm",
     "latitude": 6.92,
     "longitude": 158.15,
-    "continent": "Unknown"
+    "continent": "Oceania"
   },
   {
     "id": 17294,
@@ -1051,7 +1051,7 @@ export const COUNTRIES_DATA = [
     "iso": "mc",
     "latitude": 43.73,
     "longitude": 7.42,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 22019,
@@ -1078,7 +1078,7 @@ export const COUNTRIES_DATA = [
     "iso": "mz",
     "latitude": -25.95,
     "longitude": 32.58,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 49059,
@@ -1141,7 +1141,7 @@ export const COUNTRIES_DATA = [
     "iso": "ni",
     "latitude": 12.13,
     "longitude": -86.25,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 39519,
@@ -1150,7 +1150,7 @@ export const COUNTRIES_DATA = [
     "iso": "no",
     "latitude": 59.92,
     "longitude": 10.75,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 2124,
@@ -1186,7 +1186,7 @@ export const COUNTRIES_DATA = [
     "iso": "ps",
     "latitude": 31.9,
     "longitude": 35.2,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 95071,
@@ -1204,7 +1204,7 @@ export const COUNTRIES_DATA = [
     "iso": "ci",
     "latitude": 6.82,
     "longitude": -5.27,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 98051,
@@ -1213,7 +1213,7 @@ export const COUNTRIES_DATA = [
     "iso": "pg",
     "latitude": -9.45,
     "longitude": 147.18,
-    "continent": "Unknown"
+    "continent": "Oceania"
   },
   {
     "id": 33996,
@@ -1240,7 +1240,7 @@ export const COUNTRIES_DATA = [
     "iso": "pl",
     "latitude": 52.25,
     "longitude": 21,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 12936,
@@ -1258,7 +1258,7 @@ export const COUNTRIES_DATA = [
     "iso": "fr",
     "latitude": 48.87,
     "longitude": 2.33,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 83966,
@@ -1285,7 +1285,7 @@ export const COUNTRIES_DATA = [
     "iso": "cd",
     "latitude": -4.32,
     "longitude": 15.3,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 95870,
@@ -1294,7 +1294,7 @@ export const COUNTRIES_DATA = [
     "iso": "do",
     "latitude": 18.47,
     "longitude": -69.9,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 3895,
@@ -1303,7 +1303,7 @@ export const COUNTRIES_DATA = [
     "iso": "ro",
     "latitude": 44.43,
     "longitude": 26.1,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 84459,
@@ -1312,7 +1312,7 @@ export const COUNTRIES_DATA = [
     "iso": "rs",
     "latitude": 44.83,
     "longitude": 20.5,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 27161,
@@ -1321,7 +1321,7 @@ export const COUNTRIES_DATA = [
     "iso": "sd",
     "latitude": 15.6,
     "longitude": 32.53,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 83510,
@@ -1330,7 +1330,7 @@ export const COUNTRIES_DATA = [
     "iso": "tz",
     "latitude": -6.16,
     "longitude": 35.75,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 95671,
@@ -1339,7 +1339,7 @@ export const COUNTRIES_DATA = [
     "iso": "tl",
     "latitude": -8.58,
     "longitude": 125.6,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 1230,
@@ -1348,7 +1348,7 @@ export const COUNTRIES_DATA = [
     "iso": "ug",
     "latitude": 0.32,
     "longitude": 32.55,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 39400,
@@ -1357,7 +1357,7 @@ export const COUNTRIES_DATA = [
     "iso": "zm",
     "latitude": -15.42,
     "longitude": 28.28,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 10303,
@@ -1366,7 +1366,7 @@ export const COUNTRIES_DATA = [
     "iso": "zw",
     "latitude": -17.82,
     "longitude": 31.03,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 54450,
@@ -1375,7 +1375,7 @@ export const COUNTRIES_DATA = [
     "iso": "ru",
     "latitude": 55.75,
     "longitude": 37.6,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 82506,
@@ -1411,7 +1411,7 @@ export const COUNTRIES_DATA = [
     "iso": "ws",
     "latitude": -14.27,
     "longitude": -170.7,
-    "continent": "Unknown"
+    "continent": "Oceania"
   },
   {
     "id": 34985,
@@ -1429,7 +1429,7 @@ export const COUNTRIES_DATA = [
     "iso": "nz",
     "latitude": -41.3,
     "longitude": 174.78,
-    "continent": "Unknown"
+    "continent": "Oceania"
   },
   {
     "id": 6400,
@@ -1447,7 +1447,7 @@ export const COUNTRIES_DATA = [
     "iso": "sc",
     "latitude": -4.62,
     "longitude": 55.45,
-    "continent": "Seven seas (open ocean)"
+    "continent": "Africa"
   },
   {
     "id": 57941,
@@ -1465,7 +1465,7 @@ export const COUNTRIES_DATA = [
     "iso": "sg",
     "latitude": 1.28,
     "longitude": 103.85,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 92726,
@@ -1474,7 +1474,7 @@ export const COUNTRIES_DATA = [
     "iso": "cy",
     "latitude": 35.17,
     "longitude": 33.37,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 23672,
@@ -1492,7 +1492,7 @@ export const COUNTRIES_DATA = [
     "iso": "sk",
     "latitude": 48.15,
     "longitude": 17.12,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 62668,
@@ -1510,7 +1510,7 @@ export const COUNTRIES_DATA = [
     "iso": "es",
     "latitude": 40.4,
     "longitude": -3.68,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 29770,
@@ -1528,7 +1528,7 @@ export const COUNTRIES_DATA = [
     "iso": "sd",
     "latitude": 4.85,
     "longitude": 31.62,
-    "continent": "Unknown"
+    "continent": "Africa"
   },
   {
     "id": 26614,
@@ -1537,7 +1537,7 @@ export const COUNTRIES_DATA = [
     "iso": "sy",
     "latitude": 33.5,
     "longitude": 36.3,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 57844,
@@ -1555,7 +1555,7 @@ export const COUNTRIES_DATA = [
     "iso": "se",
     "latitude": 59.33,
     "longitude": 18.05,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 46375,
@@ -1609,7 +1609,7 @@ export const COUNTRIES_DATA = [
     "iso": "tt",
     "latitude": 10.65,
     "longitude": -61.52,
-    "continent": "Unknown"
+    "continent": "North America"
   },
   {
     "id": 76562,
@@ -1627,7 +1627,7 @@ export const COUNTRIES_DATA = [
     "iso": "tr",
     "latitude": 39.93,
     "longitude": 32.87,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 42321,
@@ -1654,7 +1654,7 @@ export const COUNTRIES_DATA = [
     "iso": "ua",
     "latitude": 50.43,
     "longitude": 30.52,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 4281,
@@ -1690,7 +1690,7 @@ export const COUNTRIES_DATA = [
     "iso": "va",
     "latitude": 41.9,
     "longitude": 12.45,
-    "continent": "Unknown"
+    "continent": "Europe"
   },
   {
     "id": 69159,
@@ -1717,7 +1717,7 @@ export const COUNTRIES_DATA = [
     "iso": "ye",
     "latitude": 15.37,
     "longitude": 44.19,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 28730,
@@ -1726,7 +1726,7 @@ export const COUNTRIES_DATA = [
     "iso": "jo",
     "latitude": 31.95,
     "longitude": 35.93,
-    "continent": "Unknown"
+    "continent": "Asia"
   },
   {
     "id": 64769,
@@ -1735,7 +1735,7 @@ export const COUNTRIES_DATA = [
     "iso": "gr",
     "latitude": 37.98,
     "longitude": 23.73,
-    "continent": "Unknown"
+    "continent": "Europe"
   }
   ,
   {

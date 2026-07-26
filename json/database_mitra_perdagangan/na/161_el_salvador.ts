@@ -1,14 +1,11 @@
 // @ts-nocheck
 export const el_salvadorAgreements = [
-  { "no": 1, "mitra": "Meksiko", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 2, "mitra": "Jepang", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 3, "mitra": "Prancis", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 4, "mitra": "Kuba", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 5, "mitra": "China", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 6, "mitra": "Singapura", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 7, "mitra": "Uni Emirat Arab", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 8, "mitra": "Korea Selatan", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 9, "mitra": "India", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 10, "mitra": "Amerika Serikat", "type": "Perdagangan", "status": "Aktif" },
-  { "no": 11, "mitra": "Jerman", "type": "Perdagangan", "status": "Aktif" }
+  { "no": 1, "mitra": "Benin", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 2, "mitra": "Afganistan", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 3, "mitra": "Belarus", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 4, "mitra": "Barbados", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 5, "mitra": "Albania", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 6, "mitra": "Austria", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 7, "mitra": "Angola", "type": "Perdagangan", "status": "Aktif" },
+  { "no": 8, "mitra": "Botswana", "type": "Perdagangan", "status": "Aktif" }
 ];

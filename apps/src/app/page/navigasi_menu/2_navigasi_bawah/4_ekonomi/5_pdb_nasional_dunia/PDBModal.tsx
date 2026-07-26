@@ -1,12 +1,13 @@
 "use client"
 import React, { useState, useEffect } from "react";
-import { X, TrendingUp, Search } from "lucide-react";
+import { X, TrendingUp, Search, User } from "lucide-react";
 import {
   calculateTotalTaxIncome,
   calculateGoldIncome,
   calculateTotalMinistryCostPerDay,
 } from "@/app/logic/economic_logic/treasuryUpdater";
 import { COUNTRIES_DATA } from '@/app/page/map_system/map-data';
+import { getRelationValue } from '@/../../json/database_hubungan_antar_negara/relationsRegistry';
 
 interface ModalProps {
   isOpen: boolean;
@@ -17,9 +18,6 @@ interface ModalProps {
 
 // --- HELPER GLOBAL UNTUK DATA SEMUA NEGARA (DIPINDAHKAN) ---
 const LEVEL_UP_COST = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000];
-
-let cachedAllCountries: any[] | null = null;
-let cachedDataVersion: number | null = null;
 
 const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
@@ -51,14 +49,28 @@ const normalizeContinent = (continent: any) => {
   if (value === 'europe' || value === 'eropa') return 'Europe';
   if (value === 'north america' || value === 'amerika utara') return 'North America';
   if (value === 'south america' || value === 'amerika selatan') return 'South America';
-  if (value === 'oceania' || value === 'oseania') return 'Oceania';
-  return 'Lainnya';
+  if (value === 'oceania' || value === 'oseania' || value === 'australia') return 'Oceania';
+  return continent || 'Lainnya';
 };
 
+const getInitialCountriesData = () => {
+  return COUNTRIES_DATA.map((c, idx) => {
+    return {
+      ...c,
+      __displayName: c.country,
+      continent: normalizeContinent(c.continent),
+      __fileOrder: idx + 1,
+      __loaded: false,
+    };
+  });
+};
+
+let cachedAllCountries: any[] = getInitialCountriesData();
+let cachedDataVersion: number | null = null;
+
 // --- KOMPONEN DATA NEGARA ---
-function AllCountriesGDP() {
-  const [allCountries, setAllCountries] = useState<any[] | null>(cachedAllCountries);
-  const [loading, setLoading] = useState(false);
+function AllCountriesGDP({ playerCountryName }: { playerCountryName: string }) {
+  const [allCountries, setAllCountries] = useState<any[]>(() => cachedAllCountries || getInitialCountriesData());
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: 'asc' | 'desc' }>({
@@ -85,13 +97,12 @@ function AllCountriesGDP() {
           countryToContinentMap.get(name.toLowerCase()) ||
           getContinentFromOrder(listOrder)
       );
-      return { ...country, __displayName: name, continent, __fileOrder: listOrder };
+      return { ...country, __displayName: name, continent, __fileOrder: listOrder, __loaded: true };
     });
   };
 
   useEffect(() => {
     const prefetch = async () => {
-      if (cachedAllCountries) return;
       try {
         const processed = await fetchAndProcessAllCountries();
         if (processed) {
@@ -112,7 +123,6 @@ function AllCountriesGDP() {
         const { version } = await res.json();
         if (cachedDataVersion !== null && version !== cachedDataVersion) {
           cachedDataVersion = version;
-          cachedAllCountries = null;
           setIsRefreshing(true);
           try {
             const processed = await fetchAndProcessAllCountries();
@@ -135,34 +145,6 @@ function AllCountriesGDP() {
     return () => clearInterval(interval);
   }, []);
 
-  useEffect(() => {
-    let mounted = true;
-    const load = async () => {
-      if (cachedAllCountries) {
-        setAllCountries(cachedAllCountries);
-        return;
-      }
-      setLoading(true);
-      try {
-        const processed = await fetchAndProcessAllCountries();
-        if (!mounted) return;
-        if (processed) {
-          cachedAllCountries = processed;
-          setAllCountries(processed);
-        } else {
-          setAllCountries([]);
-        }
-      } catch (e) {
-        console.error('Error fetching all countries GDP:', e);
-        setAllCountries(null);
-      } finally {
-        if (mounted) setLoading(false);
-      }
-    };
-    load();
-    return () => { mounted = false; };
-  }, []);
-
   const computeTaxValue = (detail: any) => calculateTotalTaxIncome(detail);
   const computeGoldValue = (detail: any) => calculateGoldIncome(detail);
   const computeMinistryCost = (detail: any) => calculateTotalMinistryCostPerDay(detail);
@@ -179,35 +161,34 @@ function AllCountriesGDP() {
     return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
   };
 
-  const renderAllRows = () => {
-    if (!allCountries || allCountries.length === 0) {
-      return (
-        <tr>
-          <td className="px-4 py-6 text-center text-sm font-bold text-[#5c3c10]" colSpan={7}>
-            {loading ? 'Memuat data...' : 'Tidak ada data negara.'}
-          </td>
-        </tr>
-      );
-    }
+  const renderSkeleton = (w = "w-16") => (
+    <span className={`inline-block ${w} h-3.5 bg-[#8b7e66]/20 animate-pulse rounded-md align-middle`} />
+  );
 
+  const renderAllRows = () => {
     let rows = allCountries.map((country) => {
-      const tax = computeTaxValue(country);
-      const gold = computeGoldValue(country);
-      const ministry = computeMinistryCost(country);
+      const isLoaded = country.__loaded === true;
+      const tax = isLoaded ? computeTaxValue(country) : 0;
+      const gold = isLoaded ? computeGoldValue(country) : 0;
+      const ministry = isLoaded ? computeMinistryCost(country) : 0;
       const net = tax + gold - ministry;
       const continent = normalizeContinent(country.continent || getContinentFromOrder(country.__fileOrder));
       const hasEkstraksiData = country.uranium !== undefined || country.batu_bara !== undefined || country.minyak_bumi !== undefined || country.gas_alam !== undefined;
-      const buildingCount = hasEkstraksiData && typeof country.emas === 'number' ? country.emas : 0;
+      const buildingCount = isLoaded && hasEkstraksiData && typeof country.emas === 'number' ? country.emas : 0;
+      const name = country.__displayName || getDisplayName(country);
+      const relation = isLoaded ? getRelationValue(playerCountryName, name) : 50;
 
       return {
-        name: country.__displayName || getDisplayName(country),
+        name,
         continent,
+        relation,
         tax,
         gold,
         ministry,
         net,
         order: country.__fileOrder,
         buildingCount,
+        isLoaded,
       };
     });
 
@@ -219,7 +200,7 @@ function AllCountriesGDP() {
     if (rows.length === 0) {
       return (
         <tr>
-          <td className="px-4 py-6 text-center text-sm font-bold text-[#5c3c10]" colSpan={7}>
+          <td className="px-4 py-6 text-center text-sm font-bold text-[#5c3c10]" colSpan={8}>
             Tidak ada data yang cocok dengan pencarian "{searchQuery}".
           </td>
         </tr>
@@ -237,24 +218,84 @@ function AllCountriesGDP() {
       }
     });
 
-    return sortedRows.map((row, index) => (
-      <tr key={`${row.name}-${index}`} className={index % 2 === 0 ? 'bg-[#f5efdf]/50' : 'bg-white/50'}>
-        <td className="px-4 py-3 text-sm font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{row.name}</td>
-        <td className="px-4 py-3 text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/10">{row.continent}</td>
-        <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{formatNumber(row.tax)}</td>
-        <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{row.buildingCount > 0 ? row.buildingCount : '-'}</td>
-        <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{formatNumber(row.gold)}</td>
-        <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">{formatNumber(row.ministry)}</td>
-        <td className={`px-4 py-3 text-right font-black text-sm border-b border-[#C4B49C]/10 ${row.net >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-          {row.net >= 0 ? '+' : ''}{formatNumber(row.net)}
-        </td>
-      </tr>
-    ));
+    const normPlayerCountry = String(playerCountryName || '').toLowerCase().trim();
+
+    return sortedRows.map((row, index) => {
+      const isPlayer = String(row.name || '').toLowerCase().trim() === normPlayerCountry;
+
+      return (
+        <tr
+          key={`${row.name}-${index}`}
+          className={
+            isPlayer
+              ? 'bg-emerald-500/15 border-l-4 border-l-emerald-600 font-bold'
+              : index % 2 === 0
+              ? 'bg-[#f5efdf]/50'
+              : 'bg-white/50'
+          }
+        >
+          <td className="px-4 py-3 text-sm font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
+            {isPlayer ? (
+              <div className="flex items-center gap-1.5 text-emerald-950 font-black">
+                <User className="w-4 h-4 text-emerald-700 flex-shrink-0" />
+                <span>{row.name}</span>
+                <span className="bg-emerald-600 text-white text-[9px] px-2 py-0.5 rounded-full font-black uppercase tracking-wider ml-1 shadow-sm">
+                  Anda
+                </span>
+              </div>
+            ) : (
+              row.name
+            )}
+          </td>
+          <td className={`px-4 py-3 text-sm font-bold border-b border-[#C4B49C]/10 ${isPlayer ? 'text-emerald-900 font-black' : 'text-[#5c3c10]'}`}>
+            {row.isLoaded ? row.continent : renderSkeleton("w-14")}
+          </td>
+          <td className="px-4 py-3 text-center text-sm font-bold border-b border-[#C4B49C]/10">
+            {row.isLoaded ? (
+              isPlayer ? (
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-emerald-600 text-white font-black text-xs shadow-sm">
+                  100
+                </span>
+              ) : row.relation >= 75 ? (
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 border border-emerald-300 font-extrabold text-xs">
+                  {row.relation}
+                </span>
+              ) : row.relation >= 50 ? (
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-[#e9dcc6]/60 text-[#5c3c10] border border-[#C4B49C]/40 font-extrabold text-xs">
+                  {row.relation}
+                </span>
+              ) : (
+                <span className="inline-block px-2.5 py-0.5 rounded-md bg-rose-100 text-rose-800 border border-rose-300 font-extrabold text-xs">
+                  {row.relation}
+                </span>
+              )
+            ) : (
+              renderSkeleton("w-10")
+            )}
+          </td>
+          <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
+            {row.isLoaded ? formatNumber(row.tax) : renderSkeleton("w-14")}
+          </td>
+          <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
+            {row.isLoaded ? (row.buildingCount > 0 ? row.buildingCount : '-') : renderSkeleton("w-8")}
+          </td>
+          <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
+            {row.isLoaded ? formatNumber(row.gold) : renderSkeleton("w-14")}
+          </td>
+          <td className="px-4 py-3 text-right font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
+            {row.isLoaded ? formatNumber(row.ministry) : renderSkeleton("w-14")}
+          </td>
+          <td className={`px-4 py-3 text-right font-black text-sm border-b border-[#C4B49C]/10 ${row.isLoaded ? (row.net >= 0 ? 'text-emerald-700' : 'text-rose-700') : ''}`}>
+            {row.isLoaded ? `${row.net >= 0 ? '+' : ''}${formatNumber(row.net)}` : renderSkeleton("w-16")}
+          </td>
+        </tr>
+      );
+    });
   };
 
   return (
-    <div className="space-y-4">
-      <div className="flex justify-between items-center gap-3">
+    <div className="flex-1 min-h-0 flex flex-col space-y-4">
+      <div className="flex justify-between items-center gap-3 flex-shrink-0">
         <div className="flex items-center gap-2">
           <span className="text-[10px] text-[#5c3c10] font-black uppercase tracking-wider">
             {isRefreshing ? 'Memperbarui data...' : 'Live update aktif'}
@@ -273,13 +314,14 @@ function AllCountriesGDP() {
         </div>
       </div>
 
-      <div className="bg-[#FAF6EE] border-2 border-[#C4B49C] rounded-xl overflow-hidden shadow-sm">
-        <div className="overflow-auto max-h-[40vh]">
+      <div className="flex-1 min-h-0 bg-[#FAF6EE] border-2 border-[#C4B49C] rounded-xl overflow-hidden shadow-sm flex flex-col">
+        <div className="flex-1 min-h-0 overflow-y-auto">
           <table className="min-w-full table-auto border-separate border-spacing-0 text-left">
-            <thead>
-              <tr className="bg-[#e9dcc6] border-b-2 border-[#C4B49C]">
+            <thead className="sticky top-0 z-10 bg-[#e9dcc6]">
+              <tr className="border-b-2 border-[#C4B49C]">
                 <th className="px-4 py-3 border-b-2 border-[#C4B49C] cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('name')}>Nama Negara{renderSortArrow('name')}</th>
                 <th className="px-4 py-3 border-b-2 border-[#C4B49C] cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('continent')}>Benua{renderSortArrow('continent')}</th>
+                <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-center cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('relation')}>Hubungan{renderSortArrow('relation')}</th>
                 <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-right cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('tax')}>Total Pajak{renderSortArrow('tax')}</th>
                 <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-right cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('buildingCount')}>Bangunan Emas{renderSortArrow('buildingCount')}</th>
                 <th className="px-4 py-3 border-b-2 border-[#C4B49C] text-right cursor-pointer hover:bg-[#ddd0b8] transition text-[10px] text-[#5c3c10] font-black uppercase tracking-wider" onClick={() => handleSort('gold')}>Produksi Emas{renderSortArrow('gold')}</th>
@@ -298,14 +340,14 @@ function AllCountriesGDP() {
 // --- KOMPONEN UTAMA PDB MODAL ---
 export default function PDBModal({ isOpen, onClose, countryDetail, selectedCountry }: ModalProps) {
   if (!isOpen) return null;
-  const countryName = selectedCountry?.country || "Indonesia";
+  const countryName = selectedCountry?.country || countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || "Indonesia";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
-        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 flex-shrink-0">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
               <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
@@ -326,14 +368,14 @@ export default function PDBModal({ isOpen, onClose, countryDetail, selectedCount
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
+        <div className="flex-1 min-h-0 flex flex-col p-8 bg-[#FAF6EE]/40 relative z-10">
+          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4 flex-shrink-0">
             PDB mengukur kekuatan ekonomi makro kedaulatan {countryName}. Pertumbuhan positif meningkatkan daya tawar diplomasi Anda. 
             <span className="ml-1 text-[#5c3c10] font-black">(Data APBN Seluruh Negara Di Bawah Ini)</span>
           </p>
 
           {/* --- DATA APBN SEMUA NEGARA YANG DIPINDAHKAN --- */}
-          <AllCountriesGDP />
+          <AllCountriesGDP playerCountryName={countryName} />
         </div>
       </div>
     </div>
