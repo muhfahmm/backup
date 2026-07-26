@@ -9,11 +9,11 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   selectedCountry: any;
+  onOpenCountryDetail?: (countryName: string) => void;
+  onOpenPlayerDetail?: () => void;
 }
 
-// Mapping Ikon untuk Semua Organisasi
 const orgIconMap: Record<string, React.ElementType> = {
-  // PBB
   "Interpol": Shield,
   "Organisasi Kesehatan Dunia (WHO)": HeartPulse,
   "UNESCO": BookOpen,
@@ -24,7 +24,6 @@ const orgIconMap: Record<string, React.ElementType> = {
   "Organisasi Maritim Internasional (IMO)": Ship,
   "Organisasi Telekomunikasi Internasional (ITU)": Wifi,
   "Organisasi Meteorologi Dunia (WMO)": Cloud,
-  // Regional
   "Perhimpunan Bangsa-Bangsa Asia Tenggara (ASEAN)": Landmark,
   "Uni Eropa (EU)": Flag,
   "Liga Arab": Flag,
@@ -45,7 +44,7 @@ const orgIconMap: Record<string, React.ElementType> = {
   "Organisasi Kerja Sama dan Pembangunan Ekonomi (OECD)": TrendingUp,
 };
 
-export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: ModalProps) {
+export default function OrgIntlModal({ isOpen, onClose, selectedCountry, onOpenCountryDetail, onOpenPlayerDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"pbb" | "regional">("pbb");
   const [isChildModalOpen, setIsChildModalOpen] = useState(false);
   const [selectedOrgName, setSelectedOrgName] = useState<string | null>(null);
@@ -55,43 +54,26 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
 
   const playerCountryName = selectedCountry?.country || "Indonesia";
 
-  // Data Organisasi PBB
   const unOrganizations = [
-    "Interpol",
-    "Organisasi Kesehatan Dunia (WHO)",
-    "UNESCO",
-    "Organisasi Perdagangan Dunia (WTO)",
-    "Organisasi Buruh Internasional (ILO)",
-    "Organisasi Pangan dan Pertanian (FAO)",
-    "Organisasi Penerbangan Sipil Internasional (ICAO)",
-    "Organisasi Maritim Internasional (IMO)",
-    "Organisasi Telekomunikasi Internasional (ITU)",
+    "Interpol", "Organisasi Kesehatan Dunia (WHO)", "UNESCO",
+    "Organisasi Perdagangan Dunia (WTO)", "Organisasi Buruh Internasional (ILO)",
+    "Organisasi Pangan dan Pertanian (FAO)", "Organisasi Penerbangan Sipil Internasional (ICAO)",
+    "Organisasi Maritim Internasional (IMO)", "Organisasi Telekomunikasi Internasional (ITU)",
     "Organisasi Meteorologi Dunia (WMO)",
   ];
 
-  // Data Organisasi Regional
   const regionalOrganizations = [
-    "Perhimpunan Bangsa-Bangsa Asia Tenggara (ASEAN)",
-    "Uni Eropa (EU)",
-    "Liga Arab",
-    "Uni Afrika (AU)",
-    "Organisasi Kerja Sama Islam (OKI)",
+    "Perhimpunan Bangsa-Bangsa Asia Tenggara (ASEAN)", "Uni Eropa (EU)",
+    "Liga Arab", "Uni Afrika (AU)", "Organisasi Kerja Sama Islam (OKI)",
     "BRICS (Brasil, Rusia, India, China, Afrika Selatan)",
-    "Pakta Pertahanan Atlantik Utara (NATO)",
-    "Organisasi Negara-Negara Pengekspor Minyak Bumi (OPEC)",
-    "Kelompok Duapuluh (G20)",
-    "Kerja Sama Ekonomi Asia-Pasifik (APEC)",
-    "Organisasi Kerja Sama Shanghai (SCO)",
-    "Organisasi Negara-Negara Amerika (OAS)",
-    "Dewan Kerja Sama Teluk (GCC)",
-    "Pasar Umum Selatan (MERCOSUR)",
-    "Persemakmuran Bangsa-Bangsa (Commonwealth)",
-    "Kelompok Tujuh (G7)",
-    "Dialog Keamanan Kuadrilateral (QUAD)",
-    "Organisasi Kerja Sama dan Pembangunan Ekonomi (OECD)",
+    "Pakta Pertahanan Atlantik Utara (NATO)", "Organisasi Negara-Negara Pengekspor Minyak Bumi (OPEC)",
+    "Kelompok Duapuluh (G20)", "Kerja Sama Ekonomi Asia-Pasifik (APEC)",
+    "Organisasi Kerja Sama Shanghai (SCO)", "Organisasi Negara-Negara Amerika (OAS)",
+    "Dewan Kerja Sama Teluk (GCC)", "Pasar Umum Selatan (MERCOSUR)",
+    "Persemakmuran Bangsa-Bangsa (Commonwealth)", "Kelompok Tujuh (G7)",
+    "Dialog Keamanan Kuadrilateral (QUAD)", "Organisasi Kerja Sama dan Pembangunan Ekonomi (OECD)",
   ];
 
-  // PERBAIKAN: Membuat peta status keanggotaan untuk semua organisasi menggunakan useMemo
   const membershipMap = useMemo(() => {
     const map: Record<string, boolean> = {};
     const allOrgs = [...unOrganizations, ...regionalOrganizations];
@@ -104,9 +86,8 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
     return map;
   }, [playerCountryName]);
 
-  // Simpan nama dan ikon saat kartu diklik
   const handleOrgClick = (orgName: string) => {
-    const IconComponent = orgIconMap[orgName] || Globe; // Fallback ke Globe jika tidak ada mapping
+    const IconComponent = orgIconMap[orgName] || Globe;
     setSelectedOrgName(orgName);
     setSelectedOrgIcon(() => IconComponent);
     setIsChildModalOpen(true);
@@ -141,27 +122,11 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
             Negara Anda berpartisipasi aktif dalam berbagai pakta pertahanan militer multilateral serta kerja sama blok dagang bebas dunia. Pilih salah satu kategori di bawah untuk melihat daftar organisasinya.
           </p>
 
-          {/* TAB NAVIGASI */}
           <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-6 shadow-sm">
-            <button
-              onClick={() => setActiveTab("pbb")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
-                activeTab === "pbb" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"
-              }`}
-            >
-              Organisasi PBB
-            </button>
-            <button
-              onClick={() => setActiveTab("regional")}
-              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
-                activeTab === "regional" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"
-              }`}
-            >
-              Organisasi Regional
-            </button>
+            <button onClick={() => setActiveTab("pbb")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "pbb" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>Organisasi PBB</button>
+            <button onClick={() => setActiveTab("regional")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "regional" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>Organisasi Regional</button>
           </div>
 
-          {/* GRID PBB */}
           {activeTab === "pbb" && (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {unOrganizations.map((org, idx) => {
@@ -171,9 +136,7 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
                   <div
                     key={idx}
                     onClick={() => handleOrgClick(org)}
-                    className={`bg-white/70 rounded-xl p-4 text-center shadow-sm hover:bg-[#e4dac3]/30 hover:border-[#5c3c10]/40 transition-all cursor-pointer flex flex-col items-center gap-2 ${
-                      isMember ? 'border-2 border-emerald-500' : 'border border-[#C4B49C]/30'
-                    }`}
+                    className={`bg-white/70 rounded-xl p-4 text-center shadow-sm hover:bg-[#e4dac3]/30 hover:border-[#5c3c10]/40 transition-all cursor-pointer flex flex-col items-center gap-2 ${isMember ? 'border-2 border-emerald-500' : 'border border-[#C4B49C]/30'}`}
                   >
                     <Icon className="h-6 w-6 text-[#5c3c10]" />
                     <span className="text-[10px] font-black text-[#5c3c10] uppercase tracking-tight leading-tight block">{org}</span>
@@ -183,7 +146,6 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
             </div>
           )}
 
-          {/* GRID REGIONAL */}
           {activeTab === "regional" && (
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {regionalOrganizations.map((org, idx) => {
@@ -193,9 +155,7 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
                   <div
                     key={idx}
                     onClick={() => handleOrgClick(org)}
-                    className={`bg-white/70 rounded-xl p-4 text-center shadow-sm hover:bg-[#e4dac3]/30 hover:border-[#5c3c10]/40 transition-all cursor-pointer flex flex-col items-center gap-2 ${
-                      isMember ? 'border-2 border-emerald-500' : 'border border-[#C4B49C]/30'
-                    }`}
+                    className={`bg-white/70 rounded-xl p-4 text-center shadow-sm hover:bg-[#e4dac3]/30 hover:border-[#5c3c10]/40 transition-all cursor-pointer flex flex-col items-center gap-2 ${isMember ? 'border-2 border-emerald-500' : 'border border-[#C4B49C]/30'}`}
                   >
                     <Icon className="h-6 w-6 text-[#5c3c10]" />
                     <span className="text-[10px] font-black text-[#5c3c10] uppercase tracking-tight leading-tight block">{org}</span>
@@ -206,21 +166,27 @@ export default function OrgIntlModal({ isOpen, onClose, selectedCountry }: Modal
           )}
         </div>
 
-        {/* MODAL ANAK */}
+        {/* PERBAIKAN: MODAL ANAK - Hapus bg-black/60 dan backdrop-blur-sm, ganti dengan bg-transparent */}
         {isChildModalOpen && selectedOrgName && selectedOrgIcon && (
-          <div className="absolute inset-0 z-20 flex items-center justify-center bg-black/60 backdrop-blur-sm pointer-events-auto">
+          <div className="absolute inset-0 z-20 flex items-center justify-center bg-transparent pointer-events-auto">
             <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
               {activeTab === "pbb" ? (
                 <OrganisasiPBBModal
                   orgName={selectedOrgName}
                   orgIcon={selectedOrgIcon}
+                  selectedCountry={selectedCountry}
                   onClose={() => setIsChildModalOpen(false)}
+                  onOpenCountryDetail={onOpenCountryDetail}
+                  onOpenPlayerDetail={onOpenPlayerDetail}
                 />
               ) : (
                 <OrganisasiRegional
                   orgName={selectedOrgName}
                   orgIcon={selectedOrgIcon}
+                  selectedCountry={selectedCountry}
                   onClose={() => setIsChildModalOpen(false)}
+                  onOpenCountryDetail={onOpenCountryDetail}
+                  onOpenPlayerDetail={onOpenPlayerDetail}
                 />
               )}
             </div>

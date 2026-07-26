@@ -1,26 +1,30 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { X, Loader2 } from "lucide-react";
+import { X, Loader2, User, ChevronRight } from "lucide-react";
 import { getOrgMembers } from "@/../../json/database_organisasi_internasional";
 import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
 
-interface OrganisasiPBBModalProps {
+interface OrganisasiRegionalProps {
   orgName: string;
   orgIcon?: React.ElementType;
+  selectedCountry?: any;
   onClose: () => void;
+  onOpenCountryDetail?: (countryName: string) => void;
+  onOpenPlayerDetail?: () => void;
 }
 
 interface MemberData {
   country: string;
   status: string;
-  iso?: string; // PERBAIKAN: Tambahkan ISO agar bisa menampilkan bendera
+  iso?: string;
 }
 
-export default function OrganisasiPBBModal({ orgName, orgIcon: Icon, onClose }: OrganisasiPBBModalProps) {
+export default function OrganisasiRegional({ orgName, orgIcon: Icon, selectedCountry, onClose, onOpenCountryDetail, onOpenPlayerDetail }: OrganisasiRegionalProps) {
   const [members, setMembers] = useState<MemberData[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fungsi helper untuk mencari ISO dari nama negara
+  const playerCountryName = selectedCountry?.country || "";
+
   const getIsoFromName = (name: string) => {
     const found = COUNTRIES_DATA?.find(
       (c) => c.country?.toLowerCase().trim() === name?.toLowerCase().trim()
@@ -28,7 +32,6 @@ export default function OrganisasiPBBModal({ orgName, orgIcon: Icon, onClose }: 
     return found?.iso?.toLowerCase() || "";
   };
 
-  // Fungsi helper untuk merender bendera (Anti broken image)
   const renderFlag = (iso: string | undefined, altName: string) => {
     if (!iso || iso.length !== 2) return null;
     return (
@@ -50,6 +53,15 @@ export default function OrganisasiPBBModal({ orgName, orgIcon: Icon, onClose }: 
     setLoading(false);
   }, [orgName]);
 
+  const handleOpenDetail = (countryName: string, isPlayer: boolean) => {
+    if (isPlayer) {
+      if (onOpenPlayerDetail) onOpenPlayerDetail();
+    } else {
+      if (onOpenCountryDetail) onOpenCountryDetail(countryName);
+    }
+    onClose();
+  };
+
   return (
     <div className="w-full h-full flex flex-col bg-[#FAF6EE]">
       {/* HEADER */}
@@ -65,7 +77,7 @@ export default function OrganisasiPBBModal({ orgName, orgIcon: Icon, onClose }: 
               {orgName}
             </h3>
             <p className="text-xs text-[#8b7e66] font-semibold mt-1">
-              Organisasi PBB
+              Organisasi Regional
             </p>
           </div>
         </div>
@@ -98,24 +110,45 @@ export default function OrganisasiPBBModal({ orgName, orgIcon: Icon, onClose }: 
             </div>
           ) : (
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-              {members.map((member, idx) => (
-                <div key={idx} className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-lg p-3 flex flex-col gap-1 shadow-sm">
-                  
-                  {/* PERBAIKAN: Menambahkan Flag di sebelah kiri nama negara */}
-                  <div className="flex items-center gap-2">
-                    {renderFlag(member.iso || getIsoFromName(member.country), member.country)}
-                    <span className="text-sm font-black text-[#5c3c10]">{member.country}</span>
+              {members.map((member, idx) => {
+                const isPlayer = member.country?.toLowerCase().trim() === playerCountryName.toLowerCase().trim();
+                return (
+                  <div
+                    key={idx}
+                    className={`rounded-lg p-3 flex flex-col gap-1 shadow-sm border-2 cursor-pointer transition-all hover:bg-[#e4dac3]/20 ${
+                      isPlayer
+                        ? 'bg-emerald-50/70 border-emerald-500'
+                        : 'bg-[#FAF6EE]/80 border border-[#C4B49C]/30'
+                    }`}
+                    onClick={() => handleOpenDetail(member.country, isPlayer)}
+                  >
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        {renderFlag(member.iso || getIsoFromName(member.country), member.country)}
+                        <span className={`text-sm font-black ${isPlayer ? 'text-emerald-800' : 'text-[#5c3c10]'}`}>
+                          {member.country}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        {isPlayer && (
+                          <span className="flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-black uppercase tracking-wider shadow-sm">
+                            <User className="w-3 h-3" />
+                            ANDA
+                          </span>
+                        )}
+                        <ChevronRight className="h-4 w-4 text-[#C4B49C] group-hover:text-[#5c3c10] transition-colors" />
+                      </div>
+                    </div>
+                    <span className={`text-[10px] font-bold uppercase tracking-wider self-start px-2 py-0.5 rounded-full ${
+                      member.status === 'Anggota Tetap' ? 'bg-amber-600/10 text-amber-700 border border-amber-600/20' :
+                      member.status === 'Anggota' ? 'bg-emerald-600/10 text-emerald-700 border border-emerald-600/20' :
+                      'bg-[#5c3c10]/10 text-[#5c3c10] border border-[#5c3c10]/15'
+                    }`}>
+                      {member.status || 'Anggota'}
+                    </span>
                   </div>
-
-                  <span className={`text-[10px] font-bold uppercase tracking-wider self-start px-2 py-0.5 rounded-full ${
-                    member.status === 'Anggota Tetap' ? 'bg-amber-600/10 text-amber-700 border border-amber-600/20' :
-                    member.status === 'Anggota' ? 'bg-emerald-600/10 text-emerald-700 border border-emerald-600/20' :
-                    'bg-[#5c3c10]/10 text-[#5c3c10] border border-[#5c3c10]/15'
-                  }`}>
-                    {member.status || 'Anggota'}
-                  </span>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

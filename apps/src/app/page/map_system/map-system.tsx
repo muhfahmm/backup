@@ -18,6 +18,7 @@ import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
 import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryUpdater';
 import { logger } from '../../../lib/logger';
 import { CountryDetailModal } from '../detail_negara/detail_negara';
+import NegaraUserModal from './negara_user';
 
 interface Country {
     id: number;
@@ -48,6 +49,7 @@ export default function MapPage() {
     const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
     const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
     const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
+    const [playerDetailModalOpen, setPlayerDetailModalOpen] = useState(false);
 
     const isMapInteractionDisabled = isSaveModalOpen || isPresidentMenuOpen || isRestartConfirmOpen || activeMenu !== 'Peta Taktis';
 
@@ -486,10 +488,17 @@ export default function MapPage() {
 
             if (!countryName) return;
 
-            setCountryDetailModalName(countryName);
-            setCountryDetailModalOpen(true);
-            // Also pass the current countryDetail to the modal
-            setCountryDetail(countryDetail);
+            const playerCountryName = selectedCountry?.country || countryDetail?.country || countryDetail?.nama_negara || "";
+            const isPlayer = playerCountryName && countryName.toLowerCase().trim() === playerCountryName.toLowerCase().trim();
+
+            if (isPlayer) {
+                setPlayerDetailModalOpen(true);
+            } else {
+                setCountryDetailModalName(countryName);
+                setCountryDetailModalOpen(true);
+                // Also pass the current countryDetail to the modal
+                setCountryDetail(countryDetail);
+            }
         } catch (error) {
             console.error('Failed to read clicked country from map:', error);
         }
@@ -552,7 +561,7 @@ export default function MapPage() {
                 activeMenu={activeMenu}
                 setActiveMenu={setActiveMenu}
                 countryDetail={countryDetail}
-                isDetailModalOpen={countryDetailModalOpen}
+                isDetailModalOpen={countryDetailModalOpen || playerDetailModalOpen}
             />
 
             <ModalsManager
@@ -568,6 +577,9 @@ export default function MapPage() {
                 onOpenCountryDetail={(targetCountry: string) => {
                     setCountryDetailModalName(targetCountry);
                     setCountryDetailModalOpen(true);
+                }}
+                onOpenPlayerDetail={() => {
+                    setPlayerDetailModalOpen(true);
                 }}
             />
 
@@ -687,6 +699,14 @@ export default function MapPage() {
                     setCountryDetailModalOpen(false);
                     setCountryDetailModalName(null);
                 }}
+            />
+
+            {/* Modal DETAIL NEGARA USER (Prototipe) */}
+            <NegaraUserModal
+                isOpen={playerDetailModalOpen}
+                onClose={() => setPlayerDetailModalOpen(false)}
+                selectedCountry={selectedCountry}
+                countryDetail={countryDetail}
             />
 
             {/* Custom Premium Save Modal */}

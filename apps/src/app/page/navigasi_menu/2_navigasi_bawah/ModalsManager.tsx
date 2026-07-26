@@ -70,6 +70,7 @@ interface ModalsManagerProps {
   productionDeepLink?: { tab: string; key: string } | null;
   setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
   onOpenCountryDetail?: (countryName: string) => void;
+  onOpenPlayerDetail?: () => void;
 }
 
 function ModalsManager({
@@ -83,6 +84,7 @@ function ModalsManager({
   productionDeepLink,
   setProductionDeepLink,
   onOpenCountryDetail,
+  onOpenPlayerDetail,
 }: ModalsManagerProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
 
@@ -350,6 +352,8 @@ function ModalsManager({
           isOpen={true}
           onClose={onClose}
           selectedCountry={selectedCountry}
+          onOpenCountryDetail={onOpenCountryDetail}
+          onOpenPlayerDetail={onOpenPlayerDetail}
         />
       );
     case "Menu:TingkatHubungan":
