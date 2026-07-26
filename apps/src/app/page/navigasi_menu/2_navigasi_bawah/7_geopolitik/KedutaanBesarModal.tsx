@@ -30,14 +30,23 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
   if (!isOpen) return null;
   const anggaran = countryDetail?.anggaran || 0;
   const directEmbassies = Array.isArray(countryDetail?.embassies) ? countryDetail.embassies : [];
+  const removedEmbassies = Array.isArray(countryDetail?.removedEmbassies) ? countryDetail.removedEmbassies : [];
+  const removedTradePartners = Array.isArray(countryDetail?.removedTradePartners) ? countryDetail.removedTradePartners : [];
   const tradeAgreements = getTradeAgreementsForCountry(countryDetail?.country || countryDetail?.nama || countryDetail?.country_name);
 
   const allPartnersFromTrade: EmbassyRecord[] = Array.isArray(tradeAgreements)
-    ? tradeAgreements.map((agreement: TradeAgreement) => ({
-        mitra: agreement.mitra,
-        status: agreement.status || 'Aktif',
-        type: agreement.type || 'Perdagangan',
-      }))
+    ? tradeAgreements
+        .filter((agreement: TradeAgreement) => {
+          const normMitra = String(agreement.mitra || '').toLowerCase().trim();
+          const isRemovedTrade = removedTradePartners.some((r: string) => String(r || '').toLowerCase().trim() === normMitra);
+          const isRemovedEmbassy = removedEmbassies.some((r: string) => String(r || '').toLowerCase().trim() === normMitra);
+          return !isRemovedTrade && !isRemovedEmbassy;
+        })
+        .map((agreement: TradeAgreement) => ({
+          mitra: agreement.mitra,
+          status: agreement.status || 'Aktif',
+          type: agreement.type || 'Perdagangan',
+        }))
     : [];
 
   const mergedEmbassies: EmbassyRecord[] = [
@@ -53,7 +62,10 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
 
   const embassies = mergedEmbassies.filter((item, index, array) => {
     const normalized = String(item.mitra || item.nama_negara || '').toLowerCase().trim();
-    return normalized && array.findIndex((other) => String(other.mitra || other.nama_negara || '').toLowerCase().trim() === normalized) === index;
+    if (!normalized) return false;
+    const isRemoved = removedEmbassies.some((r: string) => String(r || '').toLowerCase().trim() === normalized);
+    if (isRemoved) return false;
+    return array.findIndex((other) => String(other.mitra || other.nama_negara || '').toLowerCase().trim() === normalized) === index;
   });
 
   const playerName = countryDetail?.country || countryDetail?.nama || countryDetail?.country_name || 'Negara Anda';
@@ -96,9 +108,14 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
     const partnerName = confirmModal.partnerName;
 
     const updatedDirectEmbassies = directEmbassies.filter((item: { mitra?: string }) => item.mitra !== partnerName);
+    const existingRemovedEmbassies = Array.isArray(countryDetail?.removedEmbassies) ? countryDetail.removedEmbassies : [];
+    const existingRemovedTrade = Array.isArray(countryDetail?.removedTradePartners) ? countryDetail.removedTradePartners : [];
+
     setCountryDetail({
       ...countryDetail,
       embassies: updatedDirectEmbassies,
+      removedEmbassies: Array.from(new Set([...existingRemovedEmbassies, partnerName])),
+      removedTradePartners: Array.from(new Set([...existingRemovedTrade, partnerName])),
     });
 
     // Tutup modal konfirmasi & tampilkan modal sukses

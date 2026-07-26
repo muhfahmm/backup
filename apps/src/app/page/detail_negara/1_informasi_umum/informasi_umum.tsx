@@ -83,6 +83,8 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
   const playerBudget = Number(playerCountryDetail?.anggaran) || currentNetBalance;
   const continentLabel = String(playerCountryDetail?.continent || playerCountryDetail?.region || playerCountryDetail?.benua || 'Lainnya');
   const playerEmbassies = Array.isArray(playerCountryDetail?.embassies) ? playerCountryDetail.embassies : [];
+  const removedEmbassies = Array.isArray(playerCountryDetail?.removedEmbassies) ? playerCountryDetail.removedEmbassies : [];
+  const removedTradePartners = Array.isArray(playerCountryDetail?.removedTradePartners) ? playerCountryDetail.removedTradePartners : [];
 
   const getEmbassyCost = (continent?: string | null): number => {
     switch (String(continent || 'Lainnya').trim().toLowerCase()) {
@@ -114,15 +116,15 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
   const embassyCost = getEmbassyCost(continentLabel);
   const embassyResultBudget = playerBudget - embassyCost;
 
-  const embassyLabel = getEmbassyButtonLabel(countryName, playerCountryName, playerEmbassies);
-  const embassyClass = getEmbassyButtonClass(countryName, playerCountryName, playerEmbassies);
+  const embassyLabel = getEmbassyButtonLabel(countryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners);
+  const embassyClass = getEmbassyButtonClass(countryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners);
   const embassyIconClass = embassyLabel === 'Hancurkan Kedutaan' ? 'text-emerald-700' : undefined;
   const embassyLabelClass = embassyLabel === 'Hancurkan Kedutaan' ? 'text-emerald-700' : undefined;
 
-  const hasTrade = getTradeButtonLabel(countryName, playerCountryName) === 'Putus Hubungan Dagang';
+  const hasTrade = getTradeButtonLabel(countryName, playerCountryName, removedTradePartners) === 'Putus Hubungan Dagang';
   const tradeIsActive = hasTrade || tradeActive;
   const tradeLabel = tradeIsActive ? 'Putus Hubungan Dagang' : 'Perjanjian Dagang';
-  const tradeClass = getTradeButtonClass(countryName, playerCountryName);
+  const tradeClass = getTradeButtonClass(countryName, playerCountryName, removedTradePartners);
   const tradeIconClass = tradeIsActive ? 'text-emerald-700' : undefined;
   const tradeLabelClass = tradeIsActive ? 'text-emerald-700' : undefined;
 
@@ -130,8 +132,8 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
   // Sync initial active states from logic at mount / when country changes
   // (we keep local state so user actions toggle UI immediately)
   useEffect(() => {
-    const embassyLabelNow = getEmbassyButtonLabel(countryName, playerCountryName, playerEmbassies);
-    const tradeLabelNow = getTradeButtonLabel(countryName, playerCountryName);
+    const embassyLabelNow = getEmbassyButtonLabel(countryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners);
+    const tradeLabelNow = getTradeButtonLabel(countryName, playerCountryName, removedTradePartners);
     setEmbassyActive(embassyLabelNow === 'Hancurkan Kedutaan');
     // Mark trade as active if registry indicates an existing trade agreement.
     setTradeActive(tradeLabelNow === 'Putus Hubungan Dagang');
@@ -142,7 +144,7 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
     setIsDestroyPaktaOpen(false);
     setIsDestroyAliansiOpen(false);
     setIsDestroyKontrakOpen(false);
-  }, [countryName, playerCountryName, playerEmbassies.length]);
+  }, [countryName, playerCountryName, playerEmbassies.length, removedEmbassies.length, removedTradePartners.length]);
 
   // PERBAIKAN: Ganti style hijau solid menjadi border hijau modern
   const modernGreenBorderClass = 'border-2 border-emerald-500 bg-transparent text-emerald-700 hover:bg-emerald-50 hover:border-emerald-600';
@@ -211,15 +213,25 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
         onClose={() => setIsDestroyModalOpen(false)}
         onConfirm={() => {
           setEmbassyActive(false);
+          setTradeActive(false);
+          setPaktaActive(false);
+          setAliansiActive(false);
+          setKontrakActive(false);
           if (setPlayerCountryDetail) {
             setPlayerCountryDetail((prev: any) => {
               if (!prev) return prev;
               const existingEmbassies = Array.isArray(prev.embassies) ? prev.embassies : [];
+              const existingRemovedEmbassies = Array.isArray(prev.removedEmbassies) ? prev.removedEmbassies : [];
+              const existingRemovedTrade = Array.isArray(prev.removedTradePartners) ? prev.removedTradePartners : [];
+              const normTarget = String(countryName || '').toLowerCase().trim();
+
               return {
                 ...prev,
                 embassies: existingEmbassies.filter(
-                  (embassy: any) => String(embassy.mitra || '').toLowerCase().trim() !== String(countryName || '').toLowerCase().trim()
+                  (embassy: any) => String(embassy.mitra || '').toLowerCase().trim() !== normTarget
                 ),
+                removedEmbassies: Array.from(new Set([...existingRemovedEmbassies, countryName])),
+                removedTradePartners: Array.from(new Set([...existingRemovedTrade, countryName])),
               };
             });
           }
@@ -239,17 +251,16 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
           if (setPlayerCountryDetail) {
             setPlayerCountryDetail((prev: any) => {
               const existingEmbassies = Array.isArray(prev?.embassies) ? prev.embassies : [];
-              const normalizedTarget = String(countryName || '').toLowerCase().trim();
-              const alreadyExists = existingEmbassies.some(
-                (embassy: any) => String(embassy.mitra || '').toLowerCase().trim() === normalizedTarget
-              );
-
-              if (alreadyExists) return prev || { embassies: existingEmbassies };
+              const existingRemovedEmbassies = Array.isArray(prev?.removedEmbassies) ? prev.removedEmbassies : [];
+              const existingRemovedTrade = Array.isArray(prev?.removedTradePartners) ? prev.removedTradePartners : [];
+              const normTarget = String(countryName || '').toLowerCase().trim();
 
               return {
                 ...prev,
                 embassies: [
-                  ...existingEmbassies,
+                  ...existingEmbassies.filter(
+                    (embassy: any) => String(embassy.mitra || '').toLowerCase().trim() !== normTarget
+                  ),
                   {
                     id: Date.now(),
                     mitra: countryName,
@@ -259,6 +270,12 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
                     builtAt: new Date().toISOString(),
                   },
                 ],
+                removedEmbassies: existingRemovedEmbassies.filter(
+                  (r: string) => String(r || '').toLowerCase().trim() !== normTarget
+                ),
+                removedTradePartners: existingRemovedTrade.filter(
+                  (r: string) => String(r || '').toLowerCase().trim() !== normTarget
+                ),
               };
             });
           }
@@ -268,6 +285,27 @@ export default function InformasiUmum({ countryName, playerCountryDetail, setPla
           console.log(`Kedutaan di ${countryName} dibangun.`);
         }}
       />
+
+      <DestroyTradeModal
+        isOpen={isDestroyTradeModalOpen}
+        countryName={countryName}
+        onClose={() => setIsDestroyTradeModalOpen(false)}
+        onConfirm={() => {
+          setTradeActive(false);
+          if (setPlayerCountryDetail) {
+            setPlayerCountryDetail((prev: any) => {
+              if (!prev) return prev;
+              const existingRemovedTrade = Array.isArray(prev.removedTradePartners) ? prev.removedTradePartners : [];
+              return {
+                ...prev,
+                removedTradePartners: Array.from(new Set([...existingRemovedTrade, countryName])),
+              };
+            });
+          }
+          console.log(`Perjanjian dagang dengan ${countryName} diputus.`);
+        }}
+      />
+
 
       <BuildTradeModal
         isOpen={isBuildTradeModalOpen}

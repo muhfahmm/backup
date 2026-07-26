@@ -53,7 +53,9 @@ export default function Geopolitik({ countryName, playerCountryDetail }: Geopoli
 
   const playerCountryName = playerCountryDetail?.country || playerCountryDetail?.nama || playerCountryDetail?.country_name || null;
   const playerEmbassies = Array.isArray(playerCountryDetail?.embassies) ? playerCountryDetail.embassies : [];
-  const embassyExists = playerHasEmbassyOrTradePartners(countryName, playerCountryName, playerEmbassies);
+  const removedEmbassies = Array.isArray(playerCountryDetail?.removedEmbassies) ? playerCountryDetail.removedEmbassies : [];
+  const removedTradePartners = Array.isArray(playerCountryDetail?.removedTradePartners) ? playerCountryDetail.removedTradePartners : [];
+  const embassyExists = playerHasEmbassyOrTradePartners(countryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners);
 
   return (
     <div className="space-y-6">

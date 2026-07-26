@@ -17,12 +17,19 @@ const normalizeName = (value?: string | null): string => {
     .replace(/^_+|_+$/g, '');
 };
 
-export const playerHasTradeWith = (viewedCountryName?: string | null, playerCountryName?: string | null): boolean => {
+export const playerHasTradeWith = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  removedTradePartners?: string[]
+): boolean => {
   if (!viewedCountryName || !playerCountryName) return false;
+  const normViewed = normalizeName(viewedCountryName);
+  if (Array.isArray(removedTradePartners) && removedTradePartners.some(r => normalizeName(r) === normViewed)) {
+    return false;
+  }
   try {
     const playerAgreements: TradeAgreement[] = getTradeAgreementsForCountry(playerCountryName);
     if (!Array.isArray(playerAgreements) || playerAgreements.length === 0) return false;
-    const normViewed = normalizeName(viewedCountryName);
     return playerAgreements.some(a => normalizeName(a.mitra) === normViewed);
   } catch (e) {
     console.error('perjanjianDagangLogic: failed to check trade partners', e);
@@ -30,15 +37,23 @@ export const playerHasTradeWith = (viewedCountryName?: string | null, playerCoun
   }
 };
 
-export const getTradeButtonClass = (viewedCountryName?: string | null, playerCountryName?: string | null): string => {
-  if (playerHasTradeWith(viewedCountryName, playerCountryName)) {
+export const getTradeButtonClass = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  removedTradePartners?: string[]
+): string => {
+  if (playerHasTradeWith(viewedCountryName, playerCountryName, removedTradePartners)) {
     return 'bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 border border-emerald-600 text-emerald-700';
   }
   return 'bg-white/70 border border-[#C4B49C]/30';
 };
 
-export const getTradeButtonLabel = (viewedCountryName?: string | null, playerCountryName?: string | null): string => {
-  return playerHasTradeWith(viewedCountryName, playerCountryName) ? 'Putus Hubungan Dagang' : 'Perjanjian Dagang';
+export const getTradeButtonLabel = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  removedTradePartners?: string[]
+): string => {
+  return playerHasTradeWith(viewedCountryName, playerCountryName, removedTradePartners) ? 'Putus Hubungan Dagang' : 'Perjanjian Dagang';
 };
 
 export default {

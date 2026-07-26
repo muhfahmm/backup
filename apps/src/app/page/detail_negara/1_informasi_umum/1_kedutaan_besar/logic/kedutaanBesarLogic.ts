@@ -22,8 +22,17 @@ const normalizeName = (value?: string | null): string => {
  * If playerCountryName is not provided, falls back to checking whether viewedCountry
  * has any agreements at all (legacy behavior).
  */
-export const countryHasTradePartners = (viewedCountryName?: string | null, playerCountryName?: string | null): boolean => {
+export const countryHasTradePartners = (
+  viewedCountryName?: string | null,
+  playerCountryName?: string | null,
+  removedTradePartners?: string[]
+): boolean => {
   if (!viewedCountryName) return false;
+
+  const normViewed = normalizeName(viewedCountryName);
+  if (Array.isArray(removedTradePartners) && removedTradePartners.some(r => normalizeName(r) === normViewed)) {
+    return false;
+  }
 
   try {
     // If player country provided, check player's agreements for a matching mitra
@@ -31,7 +40,6 @@ export const countryHasTradePartners = (viewedCountryName?: string | null, playe
       const playerAgreements: TradeAgreement[] = getTradeAgreementsForCountry(playerCountryName);
       if (!Array.isArray(playerAgreements) || playerAgreements.length === 0) return false;
 
-      const normViewed = normalizeName(viewedCountryName);
       return playerAgreements.some(a => normalizeName(a.mitra) === normViewed);
     }
 
@@ -53,20 +61,30 @@ export const playerHasEmbassyWith = (viewedCountryName?: string | null, playerEm
 export const playerHasEmbassyOrTradePartners = (
   viewedCountryName?: string | null,
   playerCountryName?: string | null,
-  playerEmbassies?: any[]
+  playerEmbassies?: any[],
+  removedEmbassies?: string[],
+  removedTradePartners?: string[]
 ): boolean => {
+  if (!viewedCountryName) return false;
+  const normViewed = normalizeName(viewedCountryName);
+  if (Array.isArray(removedEmbassies) && removedEmbassies.some(r => normalizeName(r) === normViewed)) {
+    return false;
+  }
+
   return (
     playerHasEmbassyWith(viewedCountryName, playerEmbassies) ||
-    countryHasTradePartners(viewedCountryName, playerCountryName)
+    countryHasTradePartners(viewedCountryName, playerCountryName, removedTradePartners)
   );
 };
 
 export const getEmbassyButtonLabel = (
   viewedCountryName?: string | null,
   playerCountryName?: string | null,
-  playerEmbassies?: any[]
+  playerEmbassies?: any[],
+  removedEmbassies?: string[],
+  removedTradePartners?: string[]
 ): string => {
-  return playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies)
+  return playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners)
     ? 'Hancurkan Kedutaan'
     : 'Bangun Kedutaan';
 };
@@ -74,9 +92,11 @@ export const getEmbassyButtonLabel = (
 export const getEmbassyButtonClass = (
   viewedCountryName?: string | null,
   playerCountryName?: string | null,
-  playerEmbassies?: any[]
+  playerEmbassies?: any[],
+  removedEmbassies?: string[],
+  removedTradePartners?: string[]
 ): string => {
-  if (playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies)) {
+  if (playerHasEmbassyOrTradePartners(viewedCountryName, playerCountryName, playerEmbassies, removedEmbassies, removedTradePartners)) {
     return 'bg-emerald-50 hover:bg-emerald-100 active:bg-emerald-200 border border-emerald-600 text-emerald-700';
   }
   return 'bg-white/70 border border-[#C4B49C]/30';
@@ -87,3 +107,4 @@ export default {
   getEmbassyButtonLabel,
   getEmbassyButtonClass,
 };
+

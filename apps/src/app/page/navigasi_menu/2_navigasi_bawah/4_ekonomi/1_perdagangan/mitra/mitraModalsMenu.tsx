@@ -28,7 +28,8 @@ export default function MitraModalsMenu({
   onClose, 
   partners,
   onOpenBeli,
-  onOpenJual
+  onOpenJual,
+  onRemovePartner
 }: MitraModalsMenuProps) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [selectedPartner, setSelectedPartner] = useState<TradePartner | null>(null);
