@@ -25,6 +25,14 @@ import {
   Banknote,
   Gem,
   Plane,
+  Droplet,
+  Flame,
+  Mountain,
+  Radiation,
+  Hammer,
+  Cable,
+  Battery,
+  Sparkles,
 } from 'lucide-react';
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from '../map-data';
@@ -37,6 +45,20 @@ import { KEMENTERIAN, KEAMANAN, LAYANAN } from '@/app/logic/economic_logic/depar
 
 // Import Debug Modal
 import DebugAPBN from '../../navigasi_menu/2_navigasi_bawah/debugAPBN';
+
+// Type untuk SDA data per negara
+interface SDAData {
+  emas?: boolean;
+  uranium?: boolean;
+  batu_bara?: boolean;
+  minyak_bumi?: boolean;
+  gas_alam?: boolean;
+  garam?: boolean;
+  litium?: boolean;
+  logam_tanah_jarang?: boolean;
+  bijih_besi?: boolean;
+  [key: string]: boolean | undefined;
+}
 
 interface Country {
   id: number;
@@ -76,6 +98,38 @@ export default function PilihNegaraPage() {
   // State untuk Modal Debug
   const [isDebugOpen, setIsDebugOpen] = useState(false);
   const [isDebugAllCountries, setIsDebugAllCountries] = useState(false);
+
+  // State SDA - data boolean sumber daya alam dari database_SDA
+  const [sdaData, setSdaData] = useState<SDAData | null>(null);
+
+  // Mapping sumber daya alam yang tersedia di database_SDA
+  const resourceMap = useMemo(() => [
+    { key: 'emas', icon: Gem, label: 'Emas' },
+    { key: 'minyak_bumi', icon: Droplet, label: 'Minyak Bumi' },
+    { key: 'gas_alam', icon: Flame, label: 'Gas Alam' },
+    { key: 'batu_bara', icon: Mountain, label: 'Batu Bara' },
+    { key: 'uranium', icon: Radiation, label: 'Uranium' },
+    { key: 'bijih_besi', icon: Hammer, label: 'Bijih Besi' },
+    { key: 'garam', icon: Cable, label: 'Garam' },
+    { key: 'litium', icon: Battery, label: 'Litium' },
+    { key: 'logam_tanah_jarang', icon: Sparkles, label: 'Logam Tanah Jarang' },
+  ], []);
+
+  // Fetch SDA data dari API saat negara berubah
+  useEffect(() => {
+    if (!hasInteracted || !countries[currentIndex]) {
+      setSdaData(null);
+      return;
+    }
+    const countryName = countries[currentIndex].country;
+    fetch(`/api/sda-data?country=${encodeURIComponent(countryName)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => setSdaData(data))
+      .catch(() => setSdaData(null));
+  }, [hasInteracted, currentIndex, countries]);
+
+  // Gunakan sdaData sebagai sumber ketersediaan SDA
+  const getCurrentSDA = sdaData;
 
   const getFlagEmoji = (iso: string) => {
     if (!iso || iso.length !== 2) return '🌐';
@@ -305,7 +359,7 @@ export default function PilihNegaraPage() {
             <HelpCircle className="w-4 h-4" />
           </button>
 
-          {/* Debug Icon - New */}
+          {/* Debug Icon */}
           <button
             onClick={() => {
               setIsDebugAllCountries(true);
@@ -333,7 +387,6 @@ export default function PilihNegaraPage() {
               value={hasInteracted ? `${countryDetail?.anggaran || 0} EM` : '0 EM'}
             />
 
-            {/* PERUBAHAN: NETTO APBN sama persis dengan modal */}
             <StatusItem
               icon={<TrendingUp className="w-3.5 h-3.5" />}
               label="NETTO APBN"
@@ -451,7 +504,9 @@ export default function PilihNegaraPage() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-end min-h-screen pb-12 pointer-events-none">
-        <div className="mb-6 flex items-center gap-6 pointer-events-auto">
+        
+        {/* Tab & Search Kembali ke Tengah */}
+        <div className="mb-6 flex items-center justify-center gap-6 pointer-events-auto">
           <div className="flex bg-black/60 backdrop-blur-md p-1 rounded-2xl border border-white/10">
             <button
               onClick={() => setActiveTab('utama')}
@@ -486,6 +541,44 @@ export default function PilihNegaraPage() {
           </div>
         </div>
 
+        {/* RESOURCE MENU DENGAN BORDER BERDASARKAN DATABASE_SDA */}
+        <div className="absolute right-6 top-[88px] z-30 flex flex-wrap items-center justify-end gap-2 max-w-2xl pointer-events-auto p-3 bg-[#e6d8b9]/90 backdrop-blur-md border-2 border-[#C4B49C] rounded-2xl shadow-lg">
+          {resourceMap.map((resource) => {
+            const Icon = resource.icon;
+            const value = hasInteracted && countryDetail ? (countryDetail[resource.key] || 0) : '-';
+            
+            // PERUBAHAN: Cek status SDA dari database (true/false)
+            // SDA status: true=hijau, false=merah, undefined=abu-abu default
+            const sdaStatus = getCurrentSDA?.[resource.key as keyof SDAData];
+            let borderClass = 'border border-white/20'; // default (belum ada data)
+            let dotColor = 'bg-gray-400';
+            if (sdaStatus === true) {
+              borderClass = 'border-2 border-green-500 shadow-[0_0_6px_rgba(34,197,94,0.4)]';
+              dotColor = 'bg-green-400';
+            } else if (sdaStatus === false) {
+              borderClass = 'border-2 border-red-500 shadow-[0_0_6px_rgba(239,68,68,0.3)]';
+              dotColor = 'bg-red-400';
+            }
+
+            return (
+              <div
+                key={resource.key}
+                className={`flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-xl text-white/80 transition-all hover:bg-black/80 ${borderClass}`}
+              >
+                <div className={`w-1.5 h-1.5 rounded-full ${dotColor} shrink-0`} />
+                <Icon className="w-3.5 h-3.5 text-cyan-400/80" />
+                <span className="text-[9px] font-bold uppercase tracking-wider">{resource.label}</span>
+                {hasInteracted && value !== '-' && (
+                  <span className="text-[10px] font-black text-white/70 ml-1">
+                    {typeof value === 'number' ? value.toLocaleString('id-ID') : value}
+                  </span>
+                )}
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Slider Negara */}
         <div className="relative w-full max-w-6xl flex items-center justify-center mb-8 pointer-events-auto">
           <button
             onClick={prevCountry}
@@ -567,6 +660,7 @@ export default function PilihNegaraPage() {
           </button>
         </div>
 
+        {/* Tombol Kembali & Mulai */}
         <div className="w-full px-8 flex items-center justify-between pointer-events-auto">
           <Link
             href="/page"
