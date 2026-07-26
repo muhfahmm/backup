@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const komoro_agrikultur = {
   padi: 60,
   gandum: 280,
@@ -11,7 +11,5 @@ const komoro_agrikultur = {
   teh: 172,
   kakao: 0,
   tebu: 304,
-  karet: 0,
-  kapas: 64,
-  tembakau: 204,
+  karet: 0
 };

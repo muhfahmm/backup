@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const puerto_rico_agrikultur = {
   padi: 168,
   gandum: 284,
@@ -11,7 +11,5 @@ const puerto_rico_agrikultur = {
   teh: 144,
   kakao: 0,
   tebu: 96,
-  karet: 0,
-  kapas: 248,
-  tembakau: 116,
+  karet: 0
 };

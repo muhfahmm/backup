@@ -6,7 +6,7 @@ const lebanon_olahan_pangan = {
   pengolahan_daging: 19,
   mie_instan: 28,
   minyak_goreng: 34,
-  susu: 16,
-  pakan_ternak: 19,
-  ikan_kaleng: 30,
+  susu: 16
+  
+  
 };

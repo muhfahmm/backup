@@ -6,7 +6,7 @@ const honduras_olahan_pangan = {
   pengolahan_daging: 57,
   mie_instan: 45,
   minyak_goreng: 123,
-  susu: 69,
-  pakan_ternak: 108,
-  ikan_kaleng: 108,
+  susu: 69
+  
+  
 };

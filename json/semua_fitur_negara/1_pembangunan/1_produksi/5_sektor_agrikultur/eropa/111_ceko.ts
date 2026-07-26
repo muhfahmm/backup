@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const ceko_agrikultur = {
   padi: 1817,
   gandum: 529,
@@ -11,7 +11,5 @@ const ceko_agrikultur = {
   teh: 1403,
   kakao: 0,
   tebu: 1564,
-  karet: 0,
-  kapas: 1679,
-  tembakau: 621,
+  karet: 0
 };

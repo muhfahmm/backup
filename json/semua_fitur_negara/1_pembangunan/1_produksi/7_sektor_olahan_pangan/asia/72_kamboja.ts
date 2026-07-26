@@ -6,7 +6,7 @@ const kamboja_olahan_pangan = {
   pengolahan_daging: 108,
   mie_instan: 120,
   minyak_goreng: 126,
-  susu: 84,
-  pakan_ternak: 75,
-  ikan_kaleng: 93,
+  susu: 84
+  
+  
 };

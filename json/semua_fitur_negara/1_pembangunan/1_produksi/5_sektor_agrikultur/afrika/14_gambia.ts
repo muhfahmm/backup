@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const gambia_agrikultur = {
   padi: 72,
   gandum: 144,
@@ -11,7 +11,5 @@ const gambia_agrikultur = {
   teh: 78,
   kakao: 0,
   tebu: 40,
-  karet: 0,
-  kapas: 22,
-  tembakau: 36,
+  karet: 0
 };

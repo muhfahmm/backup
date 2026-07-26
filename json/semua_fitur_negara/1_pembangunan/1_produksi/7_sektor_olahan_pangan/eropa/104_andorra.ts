@@ -6,7 +6,7 @@ const andorra_olahan_pangan = {
   pengolahan_daging: 72,
   mie_instan: 62,
   minyak_goreng: 68,
-  susu: 60,
-  pakan_ternak: 98,
-  ikan_kaleng: 96,
+  susu: 60
+  
+  
 };

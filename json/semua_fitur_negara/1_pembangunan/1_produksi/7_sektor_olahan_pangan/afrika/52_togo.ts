@@ -6,7 +6,7 @@ const togo_olahan_pangan = {
   pengolahan_daging: 46,
   mie_instan: 82,
   minyak_goreng: 62,
-  susu: 22,
-  pakan_ternak: 62,
-  ikan_kaleng: 76,
+  susu: 22
+  
+  
 };

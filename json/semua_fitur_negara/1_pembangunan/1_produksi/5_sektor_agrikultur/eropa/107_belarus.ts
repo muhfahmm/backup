@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const belarus_agrikultur = {
   padi: 195,
   gandum: 290,
@@ -11,7 +11,5 @@ const belarus_agrikultur = {
   teh: 120,
   kakao: 0,
   tebu: 330,
-  karet: 0,
-  kapas: 345,
-  tembakau: 390,
+  karet: 0
 };

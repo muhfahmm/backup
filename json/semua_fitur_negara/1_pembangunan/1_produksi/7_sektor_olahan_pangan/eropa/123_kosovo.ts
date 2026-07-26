@@ -6,7 +6,7 @@ const kosovo_olahan_pangan = {
   pengolahan_daging: 84,
   mie_instan: 42,
   minyak_goreng: 84,
-  susu: 60,
-  pakan_ternak: 57,
-  ikan_kaleng: 111,
+  susu: 60
+  
+  
 };

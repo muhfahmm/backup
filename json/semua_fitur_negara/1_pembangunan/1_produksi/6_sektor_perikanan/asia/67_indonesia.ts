@@ -2,5 +2,5 @@
 const indonesia_perikanan = {
   udang: 553,
   mutiara: 948,
-  ikan: 1027,
+  ikan: 1027
 };

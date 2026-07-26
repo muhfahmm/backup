@@ -6,7 +6,7 @@ const jepang_olahan_pangan = {
   pengolahan_daging: 8806,
   mie_instan: 9758,
   minyak_goreng: 9758,
-  susu: 3332,
-  pakan_ternak: 4522,
-  ikan_kaleng: 9520,
+  susu: 3332
+  
+  
 };

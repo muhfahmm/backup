@@ -6,7 +6,7 @@ const belanda_olahan_pangan = {
   pengolahan_daging: 6075,
   mie_instan: 1755,
   minyak_goreng: 2835,
-  susu: 2295,
-  pakan_ternak: 4995,
-  ikan_kaleng: 2295,
+  susu: 2295
+  
+  
 };

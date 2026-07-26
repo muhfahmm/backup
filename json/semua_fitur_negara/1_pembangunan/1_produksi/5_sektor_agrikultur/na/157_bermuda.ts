@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bermuda_agrikultur = {
   padi: 108,
   gandum: 108,
@@ -11,7 +11,5 @@ const bermuda_agrikultur = {
   teh: 140,
   kakao: 0,
   tebu: 102,
-  karet: 0,
-  kapas: 94,
-  tembakau: 140,
+  karet: 0
 };

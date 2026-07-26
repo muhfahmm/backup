@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const saint_kitts_dan_nevis_agrikultur = {
   padi: 240,
   gandum: 186,
@@ -11,7 +11,5 @@ const saint_kitts_dan_nevis_agrikultur = {
   teh: 186,
   kakao: 0,
   tebu: 138,
-  karet: 0,
-  kapas: 189,
-  tembakau: 189,
+  karet: 0
 };

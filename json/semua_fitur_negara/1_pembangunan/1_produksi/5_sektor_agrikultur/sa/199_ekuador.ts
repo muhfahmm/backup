@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const ekuador_agrikultur = {
   padi: 375,
   gandum: 465,
@@ -11,7 +11,5 @@ const ekuador_agrikultur = {
   teh: 1185,
   kakao: 0,
   tebu: 225,
-  karet: 0,
-  kapas: 630,
-  tembakau: 870,
+  karet: 0
 };

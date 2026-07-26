@@ -6,7 +6,7 @@ const mongolia_olahan_pangan = {
   pengolahan_daging: 40,
   mie_instan: 116,
   minyak_goreng: 196,
-  susu: 40,
-  pakan_ternak: 192,
-  ikan_kaleng: 76,
+  susu: 40
+  
+  
 };

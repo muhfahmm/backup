@@ -6,7 +6,7 @@ const marshall_olahan_pangan = {
   pengolahan_daging: 96,
   mie_instan: 172,
   minyak_goreng: 192,
-  susu: 132,
-  pakan_ternak: 128,
-  ikan_kaleng: 160,
+  susu: 132
+  
+  
 };

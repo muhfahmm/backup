@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const arab_saudi_agrikultur = {
   padi: 5320,
   gandum: 6384,
@@ -11,7 +11,5 @@ const arab_saudi_agrikultur = {
   teh: 7049,
   kakao: 0,
   tebu: 6118,
-  karet: 0,
-  kapas: 6916,
-  tembakau: 6118,
+  karet: 0
 };

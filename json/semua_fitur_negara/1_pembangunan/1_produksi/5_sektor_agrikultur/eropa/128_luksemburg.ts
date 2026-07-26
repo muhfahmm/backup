@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const luksemburg_agrikultur = {
   padi: 66,
   gandum: 57,
@@ -11,7 +11,5 @@ const luksemburg_agrikultur = {
   teh: 117,
   kakao: 0,
   tebu: 60,
-  karet: 0,
-  kapas: 39,
-  tembakau: 213,
+  karet: 0
 };

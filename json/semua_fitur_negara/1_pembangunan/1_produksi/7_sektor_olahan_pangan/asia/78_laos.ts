@@ -6,7 +6,7 @@ const laos_olahan_pangan = {
   pengolahan_daging: 66,
   mie_instan: 84,
   minyak_goreng: 60,
-  susu: 72,
-  pakan_ternak: 84,
-  ikan_kaleng: 87,
+  susu: 72
+  
+  
 };

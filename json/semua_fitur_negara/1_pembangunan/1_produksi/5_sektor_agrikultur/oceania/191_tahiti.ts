@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tahiti_agrikultur = {
   padi: 33,
   gandum: 53,
@@ -11,7 +11,5 @@ const tahiti_agrikultur = {
   teh: 33,
   kakao: 0,
   tebu: 60,
-  karet: 0,
-  kapas: 17,
-  tembakau: 32,
+  karet: 0
 };

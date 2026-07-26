@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const gibraltar_agrikultur = {
   padi: 140,
   gandum: 152,
@@ -11,7 +11,5 @@ const gibraltar_agrikultur = {
   teh: 74,
   kakao: 0,
   tebu: 92,
-  karet: 0,
-  kapas: 66,
-  tembakau: 114,
+  karet: 0
 };

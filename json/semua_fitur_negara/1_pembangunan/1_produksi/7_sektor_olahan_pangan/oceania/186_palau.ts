@@ -6,7 +6,7 @@ const palau_olahan_pangan = {
   pengolahan_daging: 36,
   mie_instan: 56,
   minyak_goreng: 36,
-  susu: 92,
-  pakan_ternak: 80,
-  ikan_kaleng: 26,
+  susu: 92
+  
+  
 };

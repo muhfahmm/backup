@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const prancis_agrikultur = {
   padi: 4978,
   gandum: 19126,
@@ -11,7 +11,5 @@ const prancis_agrikultur = {
   teh: 2620,
   kakao: 0,
   tebu: 16506,
-  karet: 0,
-  kapas: 11528,
-  tembakau: 3668,
+  karet: 0
 };

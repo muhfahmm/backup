@@ -6,10 +6,9 @@ const bahrain_ekstraksi = {
   minyak_bumi: 1,
   gas_alam: 2,
   garam: 1,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 0,
-  aluminium: 2,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 8,
+  bijih_besi: 8
 };

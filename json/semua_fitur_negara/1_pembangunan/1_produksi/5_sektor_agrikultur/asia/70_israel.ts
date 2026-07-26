@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const israel_agrikultur = {
   padi: 2016,
   gandum: 2142,
@@ -11,7 +11,5 @@ const israel_agrikultur = {
   teh: 3276,
   kakao: 0,
   tebu: 2268,
-  karet: 0,
-  kapas: 3024,
-  tembakau: 2520,
+  karet: 0
 };

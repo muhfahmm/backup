@@ -6,7 +6,7 @@ const maroko_olahan_pangan = {
   pengolahan_daging: 1008,
   mie_instan: 984,
   minyak_goreng: 504,
-  susu: 792,
-  pakan_ternak: 1104,
-  ikan_kaleng: 504,
+  susu: 792
+  
+  
 };

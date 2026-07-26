@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const irlandia_agrikultur = {
   padi: 1127,
   gandum: 2156,
@@ -11,7 +11,5 @@ const irlandia_agrikultur = {
   teh: 1176,
   kakao: 0,
   tebu: 2597,
-  karet: 0,
-  kapas: 2009,
-  tembakau: 2842,
+  karet: 0
 };

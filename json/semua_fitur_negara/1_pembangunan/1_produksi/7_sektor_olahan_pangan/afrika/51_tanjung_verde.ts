@@ -6,7 +6,7 @@ const tanjung_verde_olahan_pangan = {
   pengolahan_daging: 45,
   mie_instan: 99,
   minyak_goreng: 114,
-  susu: 123,
-  pakan_ternak: 48,
-  ikan_kaleng: 108,
+  susu: 123
+  
+  
 };

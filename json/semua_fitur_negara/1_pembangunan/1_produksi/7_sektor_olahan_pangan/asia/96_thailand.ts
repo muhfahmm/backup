@@ -6,7 +6,7 @@ const thailand_olahan_pangan = {
   pengolahan_daging: 1148,
   mie_instan: 1312,
   minyak_goreng: 1886,
-  susu: 1271,
-  pakan_ternak: 1640,
-  ikan_kaleng: 779,
+  susu: 1271
+  
+  
 };

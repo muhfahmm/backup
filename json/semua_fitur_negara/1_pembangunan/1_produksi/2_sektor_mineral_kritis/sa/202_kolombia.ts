@@ -6,11 +6,10 @@ const kolombia_ekstraksi = {
   minyak_bumi: 10,
   gas_alam: 5,
   garam: 2,
-  nikel: 15,
+  
   litium: 0,
-  tembaga: 5,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 72,
+  bijih_besi: 72
 };
 

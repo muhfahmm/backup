@@ -50,9 +50,6 @@ const REQUIREMENTS_MODULES: Record<string, any> = {
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
-  tembaga: 'mineral',
-  aluminium: 'mineral',
-  nikel: 'mineral',
   bijih_besi: 'mineral',
   gas_alam: 'mineral',
   emas: 'mineral',
@@ -65,12 +62,11 @@ const CARD_TAB_MAP: Record<string, string> = {
   semikonduktor: 'manufaktur',
   mobil: 'manufaktur',
   sepeda_motor: 'manufaktur',
-  smelter: 'manufaktur',
-  pupuk: 'manufaktur',
 };
 
+// PERUBAHAN: Hapus entry aluminium dari alias (tidak digunakan lagi)
 const RESOURCE_KEY_ALIASES: Record<string, string> = {
-  aluminium: 'aluminium',
+  // aluminium: 'aluminium', // dihapus sesuai permintaan
 };
 
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;

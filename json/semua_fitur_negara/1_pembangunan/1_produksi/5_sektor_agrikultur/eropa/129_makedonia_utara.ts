@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const makedonia_utara_agrikultur = {
   padi: 99,
   gandum: 162,
@@ -11,7 +11,5 @@ const makedonia_utara_agrikultur = {
   teh: 108,
   kakao: 0,
   tebu: 186,
-  karet: 0,
-  kapas: 30,
-  tembakau: 201,
+  karet: 0
 };

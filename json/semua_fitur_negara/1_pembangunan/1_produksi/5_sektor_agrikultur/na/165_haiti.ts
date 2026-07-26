@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const haiti_agrikultur = {
   padi: 138,
   gandum: 210,
@@ -11,7 +11,5 @@ const haiti_agrikultur = {
   teh: 216,
   kakao: 0,
   tebu: 69,
-  karet: 0,
-  kapas: 99,
-  tembakau: 57,
+  karet: 0
 };

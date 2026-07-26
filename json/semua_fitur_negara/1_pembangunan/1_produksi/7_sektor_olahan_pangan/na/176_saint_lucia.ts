@@ -6,7 +6,7 @@ const saint_lucia_olahan_pangan = {
   pengolahan_daging: 41,
   mie_instan: 36,
   minyak_goreng: 26,
-  susu: 20,
-  pakan_ternak: 38,
-  ikan_kaleng: 22,
+  susu: 20
+  
+  
 };

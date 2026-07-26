@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const botswana_agrikultur = {
   padi: 82,
   gandum: 136,
@@ -11,7 +11,5 @@ const botswana_agrikultur = {
   teh: 88,
   kakao: 0,
   tebu: 82,
-  karet: 0,
-  kapas: 42,
-  tembakau: 56,
+  karet: 0
 };

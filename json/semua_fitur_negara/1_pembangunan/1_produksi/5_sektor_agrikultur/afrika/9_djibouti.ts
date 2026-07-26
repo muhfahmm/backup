@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const djibouti_agrikultur = {
   padi: 39,
   gandum: 55,
@@ -11,7 +11,5 @@ const djibouti_agrikultur = {
   teh: 31,
   kakao: 0,
   tebu: 52,
-  karet: 0,
-  kapas: 53,
-  tembakau: 42,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const burkina_faso_agrikultur = {
   padi: 138,
   gandum: 88,
@@ -11,7 +11,5 @@ const burkina_faso_agrikultur = {
   teh: 54,
   kakao: 0,
   tebu: 104,
-  karet: 0,
-  kapas: 96,
-  tembakau: 76,
+  karet: 0
 };

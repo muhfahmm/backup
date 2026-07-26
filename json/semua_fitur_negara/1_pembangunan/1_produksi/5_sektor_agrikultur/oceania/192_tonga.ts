@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tonga_agrikultur = {
   padi: 76,
   gandum: 66,
@@ -11,7 +11,5 @@ const tonga_agrikultur = {
   teh: 69,
   kakao: 0,
   tebu: 80,
-  karet: 0,
-  kapas: 75,
-  tembakau: 40,
+  karet: 0
 };

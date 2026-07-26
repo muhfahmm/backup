@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const albania_agrikultur = {
   padi: 39,
   gandum: 32,
@@ -11,7 +11,5 @@ const albania_agrikultur = {
   teh: 22,
   kakao: 0,
   tebu: 42,
-  karet: 0,
-  kapas: 75,
-  tembakau: 44,
+  karet: 0
 };

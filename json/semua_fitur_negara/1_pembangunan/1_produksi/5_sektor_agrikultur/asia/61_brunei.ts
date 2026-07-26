@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const brunei_agrikultur = {
   padi: 225,
   gandum: 153,
@@ -11,7 +11,5 @@ const brunei_agrikultur = {
   teh: 165,
   kakao: 0,
   tebu: 78,
-  karet: 0,
-  kapas: 207,
-  tembakau: 63,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const republik_serbia_olahan_pangan = {
   pengolahan_daging: 120,
   mie_instan: 80,
   minyak_goreng: 210,
-  susu: 50,
-  pakan_ternak: 235,
-  ikan_kaleng: 105,
+  susu: 50
+  
+  
 };

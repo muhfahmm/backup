@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const uzbekistan_agrikultur = {
   padi: 525,
   gandum: 112,
@@ -11,7 +11,5 @@ const uzbekistan_agrikultur = {
   teh: 203,
   kakao: 0,
   tebu: 413,
-  karet: 0,
-  kapas: 413,
-  tembakau: 497,
+  karet: 0
 };

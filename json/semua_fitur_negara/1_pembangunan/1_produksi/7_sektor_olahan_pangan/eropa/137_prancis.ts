@@ -6,7 +6,7 @@ const prancis_olahan_pangan = {
   pengolahan_daging: 4978,
   mie_instan: 11528,
   minyak_goreng: 11528,
-  susu: 12838,
-  pakan_ternak: 11790,
-  ikan_kaleng: 11004,
+  susu: 12838
+  
+  
 };

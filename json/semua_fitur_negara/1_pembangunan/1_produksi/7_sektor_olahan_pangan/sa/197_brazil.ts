@@ -6,7 +6,7 @@ const brazil_olahan_pangan = {
   pengolahan_daging: 12222,
   mie_instan: 4365,
   minyak_goreng: 11640,
-  susu: 4947,
-  pakan_ternak: 5529,
-  ikan_kaleng: 8730,
+  susu: 4947
+  
+  
 };

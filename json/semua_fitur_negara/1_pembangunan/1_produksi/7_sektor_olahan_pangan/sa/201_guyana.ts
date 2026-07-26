@@ -6,7 +6,7 @@ const guyana_olahan_pangan = {
   pengolahan_daging: 30,
   mie_instan: 46,
   minyak_goreng: 76,
-  susu: 32,
-  pakan_ternak: 50,
-  ikan_kaleng: 82,
+  susu: 32
+  
+  
 };

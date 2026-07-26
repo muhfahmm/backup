@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_tanzania_agrikultur = {
   padi: 216,
   gandum: 33,
@@ -11,7 +11,5 @@ const republik_tanzania_agrikultur = {
   teh: 39,
   kakao: 0,
   tebu: 48,
-  karet: 0,
-  kapas: 198,
-  tembakau: 81,
+  karet: 0
 };

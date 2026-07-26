@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const aljazair_agrikultur = {
   padi: 231,
   gandum: 297,
@@ -11,7 +11,5 @@ const aljazair_agrikultur = {
   teh: 759,
   kakao: 0,
   tebu: 319,
-  karet: 0,
-  kapas: 385,
-  tembakau: 528,
+  karet: 0
 };

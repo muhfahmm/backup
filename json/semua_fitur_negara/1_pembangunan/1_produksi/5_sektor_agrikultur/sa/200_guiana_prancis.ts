@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const guiana_prancis_agrikultur = {
   padi: 51,
   gandum: 23,
@@ -11,7 +11,5 @@ const guiana_prancis_agrikultur = {
   teh: 76,
   kakao: 0,
   tebu: 73,
-  karet: 0,
-  kapas: 19,
-  tembakau: 32,
+  karet: 0
 };

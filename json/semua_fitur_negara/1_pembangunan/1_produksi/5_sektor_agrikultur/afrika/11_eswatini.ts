@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const eswatini_agrikultur = {
   padi: 58,
   gandum: 73,
@@ -11,7 +11,5 @@ const eswatini_agrikultur = {
   teh: 28,
   kakao: 0,
   tebu: 26,
-  karet: 0,
-  kapas: 79,
-  tembakau: 12,
+  karet: 0
 };

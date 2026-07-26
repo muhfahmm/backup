@@ -6,7 +6,7 @@ const mauritius_olahan_pangan = {
   pengolahan_daging: 32,
   mie_instan: 14,
   minyak_goreng: 48,
-  susu: 34,
-  pakan_ternak: 28,
-  ikan_kaleng: 26,
+  susu: 34
+  
+  
 };

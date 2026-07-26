@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const islandia_agrikultur = {
   padi: 52,
   gandum: 288,
@@ -11,7 +11,5 @@ const islandia_agrikultur = {
   teh: 72,
   kakao: 0,
   tebu: 224,
-  karet: 0,
-  kapas: 256,
-  tembakau: 204,
+  karet: 0
 };

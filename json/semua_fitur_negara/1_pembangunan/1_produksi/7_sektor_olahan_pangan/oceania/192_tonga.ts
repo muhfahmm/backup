@@ -6,7 +6,7 @@ const tonga_olahan_pangan = {
   pengolahan_daging: 33,
   mie_instan: 18,
   minyak_goreng: 24,
-  susu: 41,
-  pakan_ternak: 35,
-  ikan_kaleng: 33,
+  susu: 41
+  
+  
 };

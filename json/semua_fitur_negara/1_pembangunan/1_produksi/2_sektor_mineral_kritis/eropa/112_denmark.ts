@@ -6,10 +6,9 @@ const denmark_ekstraksi = {
   minyak_bumi: 2,
   gas_alam: 2,
   garam: 1,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 0,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 440,
+  bijih_besi: 440
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const nepal_agrikultur = {
   padi: 276,
   gandum: 188,
@@ -11,7 +11,5 @@ const nepal_agrikultur = {
   teh: 224,
   kakao: 0,
   tebu: 212,
-  karet: 0,
-  kapas: 244,
-  tembakau: 116,
+  karet: 0
 };

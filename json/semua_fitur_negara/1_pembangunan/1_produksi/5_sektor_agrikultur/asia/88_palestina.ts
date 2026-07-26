@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const palestina_agrikultur = {
   padi: 116,
   gandum: 72,
@@ -11,7 +11,5 @@ const palestina_agrikultur = {
   teh: 120,
   kakao: 0,
   tebu: 30,
-  karet: 0,
-  kapas: 90,
-  tembakau: 74,
+  karet: 0
 };

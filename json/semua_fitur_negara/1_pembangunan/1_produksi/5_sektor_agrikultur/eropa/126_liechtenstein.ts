@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const liechtenstein_agrikultur = {
   padi: 140,
   gandum: 60,
@@ -11,7 +11,5 @@ const liechtenstein_agrikultur = {
   teh: 68,
   kakao: 0,
   tebu: 252,
-  karet: 0,
-  kapas: 308,
-  tembakau: 200,
+  karet: 0
 };

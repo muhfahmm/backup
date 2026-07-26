@@ -6,7 +6,7 @@ const venezuela_olahan_pangan = {
   pengolahan_daging: 392,
   mie_instan: 88,
   minyak_goreng: 336,
-  susu: 376,
-  pakan_ternak: 400,
-  ikan_kaleng: 360,
+  susu: 376
+  
+  
 };

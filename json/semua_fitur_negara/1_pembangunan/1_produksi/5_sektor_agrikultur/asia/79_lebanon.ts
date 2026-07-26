@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const lebanon_agrikultur = {
   padi: 32,
   gandum: 19,
@@ -11,7 +11,5 @@ const lebanon_agrikultur = {
   teh: 40,
   kakao: 0,
   tebu: 52,
-  karet: 0,
-  kapas: 45,
-  tembakau: 25,
+  karet: 0
 };

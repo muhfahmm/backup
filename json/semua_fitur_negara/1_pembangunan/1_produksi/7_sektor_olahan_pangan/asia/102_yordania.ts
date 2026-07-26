@@ -6,7 +6,7 @@ const yordania_olahan_pangan = {
   pengolahan_daging: 28,
   mie_instan: 66,
   minyak_goreng: 56,
-  susu: 82,
-  pakan_ternak: 72,
-  ikan_kaleng: 46,
+  susu: 82
+  
+  
 };

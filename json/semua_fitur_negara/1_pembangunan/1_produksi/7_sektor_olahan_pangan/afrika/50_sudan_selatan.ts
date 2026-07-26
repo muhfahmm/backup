@@ -6,7 +6,7 @@ const sudan_selatan_olahan_pangan = {
   pengolahan_daging: 40,
   mie_instan: 64,
   minyak_goreng: 160,
-  susu: 56,
-  pakan_ternak: 64,
-  ikan_kaleng: 144,
+  susu: 56
+  
+  
 };

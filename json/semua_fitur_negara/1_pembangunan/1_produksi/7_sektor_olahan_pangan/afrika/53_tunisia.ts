@@ -6,7 +6,7 @@ const tunisia_olahan_pangan = {
   pengolahan_daging: 38,
   mie_instan: 84,
   minyak_goreng: 20,
-  susu: 64,
-  pakan_ternak: 74,
-  ikan_kaleng: 54,
+  susu: 64
+  
+  
 };

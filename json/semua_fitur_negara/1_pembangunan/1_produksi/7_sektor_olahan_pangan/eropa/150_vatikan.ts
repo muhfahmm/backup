@@ -6,7 +6,7 @@ const vatikan_olahan_pangan = {
   pengolahan_daging: 140,
   mie_instan: 192,
   minyak_goreng: 172,
-  susu: 60,
-  pakan_ternak: 188,
-  ikan_kaleng: 72,
+  susu: 60
+  
+  
 };

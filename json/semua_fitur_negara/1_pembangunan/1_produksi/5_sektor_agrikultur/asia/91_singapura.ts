@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const singapura_agrikultur = {
   padi: 1276,
   gandum: 1232,
@@ -11,7 +11,5 @@ const singapura_agrikultur = {
   teh: 704,
   kakao: 0,
   tebu: 836,
-  karet: 0,
-  kapas: 1980,
-  tembakau: 1628,
+  karet: 0
 };

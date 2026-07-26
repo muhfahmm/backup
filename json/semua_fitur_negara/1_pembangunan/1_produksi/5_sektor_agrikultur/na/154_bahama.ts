@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bahama_agrikultur = {
   padi: 292,
   gandum: 76,
@@ -11,7 +11,5 @@ const bahama_agrikultur = {
   teh: 308,
   kakao: 0,
   tebu: 180,
-  karet: 0,
-  kapas: 268,
-  tembakau: 140,
+  karet: 0
 };

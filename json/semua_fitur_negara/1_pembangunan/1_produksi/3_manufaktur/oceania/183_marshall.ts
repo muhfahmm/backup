@@ -1,10 +1,8 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const marshall_manufaktur = {
   semikonduktor: 52,
   mobil: 60,
   sepeda_motor: 44,
-  smelter: 56,
   semen_beton: 52,
-  kayu: 44,
-  pupuk: 32,
+  kayu: 44
 };

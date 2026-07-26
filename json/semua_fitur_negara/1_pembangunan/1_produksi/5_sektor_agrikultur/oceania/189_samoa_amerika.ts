@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const samoa_amerika_agrikultur = {
   padi: 88,
   gandum: 110,
@@ -11,7 +11,5 @@ const samoa_amerika_agrikultur = {
   teh: 130,
   kakao: 0,
   tebu: 90,
-  karet: 0,
-  kapas: 30,
-  tembakau: 88,
+  karet: 0
 };

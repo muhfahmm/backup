@@ -6,10 +6,9 @@ const amerika_serikat_ekstraksi = {
   minyak_bumi: 110,
   gas_alam: 90,
   garam: 100,
-  nikel: 5,
+  
   litium: 5,
-  tembaga: 40,
-  aluminium: 2,
+  
   logam_tanah_jarang: 2,
-  bijih_besi: 464,
+  bijih_besi: 464
 };

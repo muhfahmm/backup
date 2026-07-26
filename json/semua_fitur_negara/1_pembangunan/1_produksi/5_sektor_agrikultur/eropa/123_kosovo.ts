@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kosovo_agrikultur = {
   padi: 237,
   gandum: 153,
@@ -11,7 +11,5 @@ const kosovo_agrikultur = {
   teh: 156,
   kakao: 0,
   tebu: 171,
-  karet: 0,
-  kapas: 237,
-  tembakau: 75,
+  karet: 0
 };

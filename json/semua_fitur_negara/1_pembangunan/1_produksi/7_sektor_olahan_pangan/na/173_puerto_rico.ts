@@ -6,7 +6,7 @@ const puerto_rico_olahan_pangan = {
   pengolahan_daging: 64,
   mie_instan: 76,
   minyak_goreng: 108,
-  susu: 180,
-  pakan_ternak: 104,
-  ikan_kaleng: 52,
+  susu: 180
+  
+  
 };

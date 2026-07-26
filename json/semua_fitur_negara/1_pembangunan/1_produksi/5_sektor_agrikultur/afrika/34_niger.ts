@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const niger_agrikultur = {
   padi: 55,
   gandum: 50,
@@ -11,7 +11,5 @@ const niger_agrikultur = {
   teh: 79,
   kakao: 0,
   tebu: 69,
-  karet: 0,
-  kapas: 47,
-  tembakau: 70,
+  karet: 0
 };

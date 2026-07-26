@@ -6,7 +6,7 @@ const republik_afrika_tengah_olahan_pangan = {
   pengolahan_daging: 108,
   mie_instan: 72,
   minyak_goreng: 66,
-  susu: 60,
-  pakan_ternak: 45,
-  ikan_kaleng: 141,
+  susu: 60
+  
+  
 };

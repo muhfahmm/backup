@@ -6,7 +6,7 @@ const el_salvador_olahan_pangan = {
   pengolahan_daging: 225,
   mie_instan: 240,
   minyak_goreng: 90,
-  susu: 85,
-  pakan_ternak: 195,
-  ikan_kaleng: 100,
+  susu: 85
+  
+  
 };

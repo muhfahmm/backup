@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const venezuela_agrikultur = {
   padi: 592,
   gandum: 408,
@@ -11,7 +11,5 @@ const venezuela_agrikultur = {
   teh: 232,
   kakao: 608,
   tebu: 576,
-  karet: 272,
-  kapas: 568,
-  tembakau: 304,
+  karet: 272
 };

@@ -6,7 +6,7 @@ const brunei_olahan_pangan = {
   pengolahan_daging: 102,
   mie_instan: 102,
   minyak_goreng: 147,
-  susu: 60,
-  pakan_ternak: 57,
-  ikan_kaleng: 147,
+  susu: 60
+  
+  
 };

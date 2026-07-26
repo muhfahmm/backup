@@ -6,7 +6,7 @@ const guinea_bissau_olahan_pangan = {
   pengolahan_daging: 80,
   mie_instan: 46,
   minyak_goreng: 68,
-  susu: 22,
-  pakan_ternak: 98,
-  ikan_kaleng: 20,
+  susu: 22
+  
+  
 };

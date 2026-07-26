@@ -6,7 +6,7 @@ const malawi_olahan_pangan = {
   pengolahan_daging: 128,
   mie_instan: 48,
   minyak_goreng: 60,
-  susu: 52,
-  pakan_ternak: 48,
-  ikan_kaleng: 48,
+  susu: 52
+  
+  
 };

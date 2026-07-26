@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const eritrea_agrikultur = {
   padi: 59,
   gandum: 22,
@@ -11,7 +11,5 @@ const eritrea_agrikultur = {
   teh: 76,
   kakao: 0,
   tebu: 74,
-  karet: 0,
-  kapas: 44,
-  tembakau: 53,
+  karet: 0
 };

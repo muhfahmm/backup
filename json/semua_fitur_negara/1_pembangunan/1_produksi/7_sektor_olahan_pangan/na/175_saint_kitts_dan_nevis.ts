@@ -6,7 +6,7 @@ const saint_kitts_dan_nevis_olahan_pangan = {
   pengolahan_daging: 99,
   mie_instan: 45,
   minyak_goreng: 33,
-  susu: 108,
-  pakan_ternak: 120,
-  ikan_kaleng: 105,
+  susu: 108
+  
+  
 };

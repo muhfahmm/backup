@@ -19,7 +19,7 @@ const req = http.get('http://localhost:3000/api/country-data?all=true', (res) =>
       console.log('emas:', tu.emas);
       console.log('batu_bara:', tu.batu_bara);
       console.log('uranium:', tu.uranium);
-      console.log('keys:', Object.keys(tu).filter((k) => ['emas','batu_bara','uranium','nikel','litium'].includes(k)).join(', '));
+      console.log('keys:', Object.keys(tu).filter((k) => ['emas','batu_bara','uranium','litium'].includes(k)).join(', '));
     } catch (e) {
       console.error('PARSE ERROR', e.message);
       console.log(data.slice(0, 2000));

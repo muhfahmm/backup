@@ -6,7 +6,7 @@ const islandia_olahan_pangan = {
   pengolahan_daging: 148,
   mie_instan: 148,
   minyak_goreng: 40,
-  susu: 176,
-  pakan_ternak: 40,
-  ikan_kaleng: 124,
+  susu: 176
+  
+  
 };

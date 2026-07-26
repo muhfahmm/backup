@@ -6,7 +6,7 @@ const armenia_olahan_pangan = {
   pengolahan_daging: 69,
   mie_instan: 147,
   minyak_goreng: 96,
-  susu: 48,
-  pakan_ternak: 75,
-  ikan_kaleng: 120,
+  susu: 48
+  
+  
 };

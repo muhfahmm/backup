@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const irak_agrikultur = {
   padi: 300,
   gandum: 108,
@@ -11,7 +11,5 @@ const irak_agrikultur = {
   teh: 204,
   kakao: 0,
   tebu: 108,
-  karet: 0,
-  kapas: 72,
-  tembakau: 72,
+  karet: 0
 };

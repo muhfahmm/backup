@@ -6,7 +6,7 @@ const djibouti_olahan_pangan = {
   pengolahan_daging: 44,
   mie_instan: 23,
   minyak_goreng: 35,
-  susu: 16,
-  pakan_ternak: 31,
-  ikan_kaleng: 44,
+  susu: 16
+  
+  
 };

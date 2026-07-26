@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kenya_agrikultur = {
   padi: 560,
   gandum: 518,
@@ -11,7 +11,5 @@ const kenya_agrikultur = {
   teh: 406,
   kakao: 0,
   tebu: 252,
-  karet: 0,
-  kapas: 469,
-  tembakau: 371,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const kiribati_olahan_pangan = {
   pengolahan_daging: 34,
   mie_instan: 100,
   minyak_goreng: 50,
-  susu: 88,
-  pakan_ternak: 96,
-  ikan_kaleng: 96,
+  susu: 88
+  
+  
 };

@@ -6,7 +6,7 @@ const nikaragua_olahan_pangan = {
   pengolahan_daging: 12,
   mie_instan: 21,
   minyak_goreng: 17,
-  susu: 19,
-  pakan_ternak: 15,
-  ikan_kaleng: 26,
+  susu: 19
+  
+  
 };

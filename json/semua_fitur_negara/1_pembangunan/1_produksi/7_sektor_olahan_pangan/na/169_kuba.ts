@@ -6,7 +6,7 @@ const kuba_olahan_pangan = {
   pengolahan_daging: 741,
   mie_instan: 437,
   minyak_goreng: 912,
-  susu: 361,
-  pakan_ternak: 874,
-  ikan_kaleng: 722,
+  susu: 361
+  
+  
 };

@@ -4,7 +4,7 @@ import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = [
   "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam",
-  "nikel", "litium", "tembaga", "aluminium", "logam_tanah_jarang", "bijih_besi"
+  "litium", "logam_tanah_jarang", "bijih_besi"
 ];
 
 export default function MineralEnergiTab(props: any) {

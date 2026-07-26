@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const swedia_agrikultur = {
   padi: 5180,
   gandum: 1554,
@@ -11,7 +11,5 @@ const swedia_agrikultur = {
   teh: 2812,
   kakao: 0,
   tebu: 5402,
-  karet: 0,
-  kapas: 5328,
-  tembakau: 3552,
+  karet: 0
 };

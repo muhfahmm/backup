@@ -6,7 +6,7 @@ const ghana_olahan_pangan = {
   pengolahan_daging: 196,
   mie_instan: 203,
   minyak_goreng: 196,
-  susu: 196,
-  pakan_ternak: 308,
-  ikan_kaleng: 343,
+  susu: 196
+  
+  
 };

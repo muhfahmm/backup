@@ -1,6 +1,6 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 // ===================
-// DETAIL TOTAL BANGUNAN: Agrikultur (Total: 14 Bangunan)
+// DETAIL TOTAL BANGUNAN: Agrikultur (Total: 10 Bangunan)
 // ===================
 const agrikulturRate = {
   "1_sawah_padi": {
@@ -147,29 +147,5 @@ const agrikulturRate = {
     biaya_pembangunan: 3200,
     lowongan_kerja: 12000,
     konsumsi_listrik: 25
-  },
-  "13_perkebunan_kapas": {
-    key: "13_perkebunan_kapas",
-    dataKey: "kapas",
-    label: "Perkebunan Kapas",
-    deskripsi: "Perkebunan Kapas",
-    produksi: 60000,
-    satuan: "KG",
-    waktu_pembangunan: 15,
-    biaya_pembangunan: 1500,
-    lowongan_kerja: 8000,
-    konsumsi_listrik: 15
-  },
-  "14_perkebunan_tembakau": {
-    key: "14_perkebunan_tembakau",
-    dataKey: "tembakau",
-    label: "Perkebunan Tembakau",
-    deskripsi: "Perkebunan Tembakau",
-    produksi: 25000,
-    satuan: "KG",
-    waktu_pembangunan: 25,
-    biaya_pembangunan: 2000,
-    lowongan_kerja: 10000,
-    konsumsi_listrik: 18
-  },
+  }
 };

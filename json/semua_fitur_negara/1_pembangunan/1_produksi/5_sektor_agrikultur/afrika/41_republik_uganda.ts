@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_uganda_agrikultur = {
   padi: 72,
   gandum: 213,
@@ -11,7 +11,5 @@ const republik_uganda_agrikultur = {
   teh: 33,
   kakao: 0,
   tebu: 231,
-  karet: 0,
-  kapas: 81,
-  tembakau: 51,
+  karet: 0
 };

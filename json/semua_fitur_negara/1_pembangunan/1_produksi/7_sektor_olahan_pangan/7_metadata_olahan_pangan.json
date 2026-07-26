@@ -82,29 +82,5 @@
     "biaya_pembangunan": 2800,
     "lowongan_kerja": 5000,
     "konsumsi_listrik": 60
-  },
-  "pakan_ternak": {
-    "key": "8_pabrik_pakan_ternak",
-    "dataKey": "pakan_ternak",
-    "label": "Pabrik Pakan Ternak",
-    "deskripsi": "Pabrik Pakan Ternak",
-    "produksi": 200,
-    "satuan": "TON",
-    "waktu_pembangunan": 10,
-    "biaya_pembangunan": 2000,
-    "lowongan_kerja": 4500,
-    "konsumsi_listrik": 55
-  },
-  "ikan_kaleng": {
-    "key": "9_pabrik_pengalengan_ikan",
-    "dataKey": "ikan_kaleng",
-    "label": "Pabrik Pengalengan Ikan",
-    "deskripsi": "Pabrik Pengalengan Ikan",
-    "produksi": 250,
-    "satuan": "TON",
-    "waktu_pembangunan": 10,
-    "biaya_pembangunan": 2500,
-    "lowongan_kerja": 5500,
-    "konsumsi_listrik": 65
   }
 }

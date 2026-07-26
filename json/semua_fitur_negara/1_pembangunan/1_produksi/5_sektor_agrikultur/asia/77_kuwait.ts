@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kuwait_agrikultur = {
   padi: 1440,
   gandum: 1040,
@@ -11,7 +11,5 @@ const kuwait_agrikultur = {
   teh: 260,
   kakao: 0,
   tebu: 860,
-  karet: 0,
-  kapas: 1420,
-  tembakau: 1300,
+  karet: 0
 };

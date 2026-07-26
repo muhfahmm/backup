@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const el_salvador_agrikultur = {
   padi: 65,
   gandum: 315,
@@ -11,7 +11,5 @@ const el_salvador_agrikultur = {
   teh: 115,
   kakao: 0,
   tebu: 370,
-  karet: 0,
-  kapas: 110,
-  tembakau: 315,
+  karet: 0
 };

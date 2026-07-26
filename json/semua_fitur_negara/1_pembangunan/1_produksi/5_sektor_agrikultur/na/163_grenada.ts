@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const grenada_agrikultur = {
   padi: 68,
   gandum: 43,
@@ -11,7 +11,5 @@ const grenada_agrikultur = {
   teh: 50,
   kakao: 0,
   tebu: 49,
-  karet: 0,
-  kapas: 80,
-  tembakau: 75,
+  karet: 0
 };

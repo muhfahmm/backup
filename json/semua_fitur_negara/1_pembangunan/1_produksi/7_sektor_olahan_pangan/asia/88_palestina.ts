@@ -6,7 +6,7 @@ const palestina_olahan_pangan = {
   pengolahan_daging: 70,
   mie_instan: 100,
   minyak_goreng: 98,
-  susu: 82,
-  pakan_ternak: 52,
-  ikan_kaleng: 94,
+  susu: 82
+  
+  
 };

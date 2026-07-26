@@ -6,7 +6,7 @@ const bolivia_olahan_pangan = {
   pengolahan_daging: 60,
   mie_instan: 115,
   minyak_goreng: 180,
-  susu: 80,
-  pakan_ternak: 250,
-  ikan_kaleng: 240,
+  susu: 80
+  
+  
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const portugal_agrikultur = {
   padi: 782,
   gandum: 884,
@@ -11,7 +11,5 @@ const portugal_agrikultur = {
   teh: 1020,
   kakao: 0,
   tebu: 629,
-  karet: 0,
-  kapas: 1275,
-  tembakau: 833,
+  karet: 0
 };

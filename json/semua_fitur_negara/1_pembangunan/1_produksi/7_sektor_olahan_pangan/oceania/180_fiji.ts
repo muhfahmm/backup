@@ -6,7 +6,7 @@ const fiji_olahan_pangan = {
   pengolahan_daging: 54,
   mie_instan: 52,
   minyak_goreng: 40,
-  susu: 86,
-  pakan_ternak: 24,
-  ikan_kaleng: 82,
+  susu: 86
+  
+  
 };

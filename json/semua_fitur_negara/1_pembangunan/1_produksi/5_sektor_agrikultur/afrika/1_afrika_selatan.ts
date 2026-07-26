@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const afrika_selatan_agrikultur = {
   padi: 1280,
   gandum: 1480,
@@ -11,7 +11,5 @@ const afrika_selatan_agrikultur = {
   teh: 1200,
   kakao: 0,
   tebu: 800,
-  karet: 0,
-  kapas: 1400,
-  tembakau: 2240,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kanada_agrikultur = {
   padi: 17664,
   gandum: 24192,
@@ -11,7 +11,5 @@ const kanada_agrikultur = {
   teh: 6144,
   kakao: 0,
   tebu: 16896,
-  karet: 0,
-  kapas: 21504,
-  tembakau: 10752,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kolombia_agrikultur = {
   padi: 1656,
   gandum: 1980,
@@ -11,7 +11,5 @@ const kolombia_agrikultur = {
   teh: 2628,
   kakao: 1692,
   tebu: 1476,
-  karet: 2736,
-  kapas: 1872,
-  tembakau: 1836,
+  karet: 2736
 };

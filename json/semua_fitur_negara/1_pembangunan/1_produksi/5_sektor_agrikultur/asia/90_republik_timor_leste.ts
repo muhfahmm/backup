@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_timor_leste_agrikultur = {
   padi: 22,
   gandum: 11,
@@ -11,7 +11,5 @@ const republik_timor_leste_agrikultur = {
   teh: 58,
   kakao: 0,
   tebu: 34,
-  karet: 0,
-  kapas: 47,
-  tembakau: 61,
+  karet: 0
 };

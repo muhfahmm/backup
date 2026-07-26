@@ -6,7 +6,7 @@ const bosnia_dan_hercegovina_olahan_pangan = {
   pengolahan_daging: 168,
   mie_instan: 128,
   minyak_goreng: 104,
-  susu: 160,
-  pakan_ternak: 44,
-  ikan_kaleng: 184,
+  susu: 160
+  
+  
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const malaysia_agrikultur = {
   padi: 1800,
   gandum: 2700,
@@ -11,7 +11,5 @@ const malaysia_agrikultur = {
   teh: 1656,
   kakao: 1116,
   tebu: 1296,
-  karet: 1476,
-  kapas: 1908,
-  tembakau: 720,
+  karet: 1476
 };

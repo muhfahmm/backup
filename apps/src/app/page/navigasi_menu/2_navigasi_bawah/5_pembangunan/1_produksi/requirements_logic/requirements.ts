@@ -18,7 +18,6 @@ const CATEGORY_FOLDER_MAP: Record<string, string> = {
   agrikultur: '5_agrikultur',
   perikanan: '6_perikanan',
   'olahan pangan': '7_olahan_pangan',
-  farmasi: '8_farmasi',
 };
 
 export function mapActiveTabToRequirementsFolder(tabId: string): string | undefined {

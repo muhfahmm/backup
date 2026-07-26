@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const mikronesia_agrikultur = {
   padi: 132,
   gandum: 96,
@@ -11,7 +11,5 @@ const mikronesia_agrikultur = {
   teh: 192,
   kakao: 0,
   tebu: 60,
-  karet: 0,
-  kapas: 216,
-  tembakau: 40,
+  karet: 0
 };

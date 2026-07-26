@@ -6,7 +6,7 @@ const libya_olahan_pangan = {
   pengolahan_daging: 252,
   mie_instan: 308,
   minyak_goreng: 84,
-  susu: 133,
-  pakan_ternak: 343,
-  ikan_kaleng: 210,
+  susu: 133
+  
+  
 };

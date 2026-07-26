@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const fiji_agrikultur = {
   padi: 156,
   gandum: 58,
@@ -11,7 +11,5 @@ const fiji_agrikultur = {
   teh: 70,
   kakao: 0,
   tebu: 122,
-  karet: 0,
-  kapas: 154,
-  tembakau: 40,
+  karet: 0
 };

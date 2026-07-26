@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const nauru_agrikultur = {
   padi: 102,
   gandum: 126,
@@ -11,7 +11,5 @@ const nauru_agrikultur = {
   teh: 186,
   kakao: 0,
   tebu: 234,
-  karet: 0,
-  kapas: 198,
-  tembakau: 120,
+  karet: 0
 };

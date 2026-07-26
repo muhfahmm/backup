@@ -6,7 +6,7 @@ const antigua_dan_barbuda_olahan_pangan = {
   pengolahan_daging: 78,
   mie_instan: 20,
   minyak_goreng: 84,
-  susu: 40,
-  pakan_ternak: 32,
-  ikan_kaleng: 98,
+  susu: 40
+  
+  
 };

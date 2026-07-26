@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const china_agrikultur = {
   padi: 19987,
   gandum: 15686,
@@ -11,7 +11,5 @@ const china_agrikultur = {
   teh: 19228,
   kakao: 0,
   tebu: 7337,
-  karet: 0,
-  kapas: 5819,
-  tembakau: 5060,
+  karet: 0
 };

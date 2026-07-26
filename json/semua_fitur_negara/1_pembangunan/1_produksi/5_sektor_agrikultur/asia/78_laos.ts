@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const laos_agrikultur = {
   padi: 51,
   gandum: 207,
@@ -11,7 +11,5 @@ const laos_agrikultur = {
   teh: 141,
   kakao: 0,
   tebu: 117,
-  karet: 0,
-  kapas: 156,
-  tembakau: 108,
+  karet: 0
 };

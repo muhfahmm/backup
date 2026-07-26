@@ -6,7 +6,7 @@ const aljazair_olahan_pangan = {
   pengolahan_daging: 341,
   mie_instan: 451,
   minyak_goreng: 275,
-  susu: 220,
-  pakan_ternak: 506,
-  ikan_kaleng: 264,
+  susu: 220
+  
+  
 };

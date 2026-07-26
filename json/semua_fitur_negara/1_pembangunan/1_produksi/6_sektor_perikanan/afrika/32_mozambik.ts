@@ -2,5 +2,5 @@
 const mozambik_perikanan = {
   udang: 9,
   mutiara: 19,
-  ikan: 34,
+  ikan: 34
 };

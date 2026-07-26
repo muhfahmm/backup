@@ -143,29 +143,5 @@
     "biaya_pembangunan": 3200,
     "lowongan_kerja": 12000,
     "konsumsi_listrik": 25
-  },
-  "kapas": {
-    "key": "13_perkebunan_kapas",
-    "dataKey": "kapas",
-    "label": "Perkebunan Kapas",
-    "deskripsi": "Perkebunan Kapas",
-    "produksi": 25,
-    "satuan": "KG",
-    "waktu_pembangunan": 15,
-    "biaya_pembangunan": 1500,
-    "lowongan_kerja": 8000,
-    "konsumsi_listrik": 15
-  },
-  "tembakau": {
-    "key": "14_perkebunan_tembakau",
-    "dataKey": "tembakau",
-    "label": "Perkebunan Tembakau",
-    "deskripsi": "Perkebunan Tembakau",
-    "produksi": 50,
-    "satuan": "KG",
-    "waktu_pembangunan": 25,
-    "biaya_pembangunan": 2000,
-    "lowongan_kerja": 10000,
-    "konsumsi_listrik": 18
   }
 }

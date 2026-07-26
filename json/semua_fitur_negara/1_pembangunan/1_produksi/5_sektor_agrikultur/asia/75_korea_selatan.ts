@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const korea_selatan_agrikultur = {
   padi: 6460,
   gandum: 3740,
@@ -11,7 +11,5 @@ const korea_selatan_agrikultur = {
   teh: 6290,
   kakao: 0,
   tebu: 12240,
-  karet: 0,
-  kapas: 11050,
-  tembakau: 12920,
+  karet: 0
 };

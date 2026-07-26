@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const dominika_agrikultur = {
   padi: 224,
   gandum: 112,
@@ -11,7 +11,5 @@ const dominika_agrikultur = {
   teh: 144,
   kakao: 0,
   tebu: 272,
-  karet: 0,
-  kapas: 152,
-  tembakau: 120,
+  karet: 0
 };

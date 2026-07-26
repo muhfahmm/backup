@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const slovenia_agrikultur = {
   padi: 130,
   gandum: 110,
@@ -11,7 +11,5 @@ const slovenia_agrikultur = {
   teh: 142,
   kakao: 0,
   tebu: 104,
-  karet: 0,
-  kapas: 68,
-  tembakau: 48,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const lesotho_agrikultur = {
   padi: 171,
   gandum: 129,
@@ -11,7 +11,5 @@ const lesotho_agrikultur = {
   teh: 210,
   kakao: 0,
   tebu: 207,
-  karet: 0,
-  kapas: 183,
-  tembakau: 147,
+  karet: 0
 };

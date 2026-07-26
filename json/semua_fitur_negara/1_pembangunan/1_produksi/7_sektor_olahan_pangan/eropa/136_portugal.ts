@@ -6,7 +6,7 @@ const portugal_olahan_pangan = {
   pengolahan_daging: 272,
   mie_instan: 765,
   minyak_goreng: 510,
-  susu: 697,
-  pakan_ternak: 731,
-  ikan_kaleng: 782,
+  susu: 697
+  
+  
 };

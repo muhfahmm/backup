@@ -6,7 +6,7 @@ const afganistan_olahan_pangan = {
   pengolahan_daging: 108,
   mie_instan: 100,
   minyak_goreng: 68,
-  susu: 104,
-  pakan_ternak: 124,
-  ikan_kaleng: 200,
+  susu: 104
+  
+  
 };

@@ -1,6 +1,5 @@
 1. semikonduktor
 2. mobil
 3. sepeda_motor
-4. smelter
-5. semen_beton
-6. kayu
+4. semen_beton
+5. kayu

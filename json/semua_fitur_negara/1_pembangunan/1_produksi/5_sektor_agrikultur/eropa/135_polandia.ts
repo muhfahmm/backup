@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const polandia_agrikultur = {
   padi: 1272,
   gandum: 3233,
@@ -11,7 +11,5 @@ const polandia_agrikultur = {
   teh: 1484,
   kakao: 0,
   tebu: 1537,
-  karet: 0,
-  kapas: 848,
-  tembakau: 4028,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const makau_agrikultur = {
   padi: 208,
   gandum: 176,
@@ -11,7 +11,5 @@ const makau_agrikultur = {
   teh: 164,
   kakao: 0,
   tebu: 180,
-  karet: 0,
-  kapas: 224,
-  tembakau: 308,
+  karet: 0
 };

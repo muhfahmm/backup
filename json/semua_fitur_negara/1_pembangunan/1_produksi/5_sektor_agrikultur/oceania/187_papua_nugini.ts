@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const papua_nugini_agrikultur = {
   padi: 99,
   gandum: 198,
@@ -11,7 +11,5 @@ const papua_nugini_agrikultur = {
   teh: 201,
   kakao: 0,
   tebu: 165,
-  karet: 0,
-  kapas: 108,
-  tembakau: 186,
+  karet: 0
 };

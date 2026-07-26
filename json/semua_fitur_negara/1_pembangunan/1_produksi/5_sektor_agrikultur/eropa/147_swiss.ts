@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const swiss_agrikultur = {
   padi: 1692,
   gandum: 2209,
@@ -11,7 +11,5 @@ const swiss_agrikultur = {
   teh: 1739,
   kakao: 0,
   tebu: 1786,
-  karet: 0,
-  kapas: 1927,
-  tembakau: 1880,
+  karet: 0
 };

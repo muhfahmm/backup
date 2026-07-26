@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const lithuania_agrikultur = {
   padi: 205,
   gandum: 175,
@@ -11,7 +11,5 @@ const lithuania_agrikultur = {
   teh: 320,
   kakao: 0,
   tebu: 365,
-  karet: 0,
-  kapas: 365,
-  tembakau: 300,
+  karet: 0
 };

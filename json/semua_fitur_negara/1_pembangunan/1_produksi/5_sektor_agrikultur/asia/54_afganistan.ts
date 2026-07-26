@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const afganistan_agrikultur = {
   padi: 48,
   gandum: 72,
@@ -11,7 +11,5 @@ const afganistan_agrikultur = {
   teh: 280,
   kakao: 0,
   tebu: 76,
-  karet: 0,
-  kapas: 100,
-  tembakau: 296,
+  karet: 0
 };

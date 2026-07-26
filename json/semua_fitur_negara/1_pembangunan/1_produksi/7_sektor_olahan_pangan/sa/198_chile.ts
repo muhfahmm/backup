@@ -6,7 +6,7 @@ const chile_olahan_pangan = {
   pengolahan_daging: 864,
   mie_instan: 1782,
   minyak_goreng: 1458,
-  susu: 1836,
-  pakan_ternak: 2268,
-  ikan_kaleng: 1836,
+  susu: 1836
+  
+  
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const korea_utara_agrikultur = {
   padi: 300,
   gandum: 212,
@@ -11,7 +11,5 @@ const korea_utara_agrikultur = {
   teh: 116,
   kakao: 0,
   tebu: 148,
-  karet: 0,
-  kapas: 48,
-  tembakau: 188,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const hungaria_olahan_pangan = {
   pengolahan_daging: 384,
   mie_instan: 232,
   minyak_goreng: 384,
-  susu: 376,
-  pakan_ternak: 88,
-  ikan_kaleng: 80,
+  susu: 376
+  
+  
 };

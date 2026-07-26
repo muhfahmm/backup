@@ -4,117 +4,51 @@
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 2. uranium
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 3. batu_bara
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 4. minyak_bumi
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 5. gas_alam
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 6. garam
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
-7. nikel
+7. litium
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
-8. litium
+8. logam_tanah_jarang
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
-9. tembaga
+9. bijah_besi
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
-
-10. aluminium
- > pembangunan
- semen beton (dari semen_beton)
- kayu (dari kayu)
- baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
-
-11. logam_tanah_jarang
- > pembangunan
- semen beton (dari semen_beton)
- kayu (dari kayu)
- baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
-
-12. bijih_besi
- > pembangunan
- semen beton (dari semen_beton)
- kayu (dari kayu)
- baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)

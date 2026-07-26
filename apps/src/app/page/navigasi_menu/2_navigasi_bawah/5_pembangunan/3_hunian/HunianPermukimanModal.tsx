@@ -35,8 +35,6 @@ const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
     requirements: [
       { resourceKey: 'semen_beton', label: 'Semen Beton', group: 'Manufaktur' },
       { resourceKey: 'kayu', label: 'Kayu', group: 'Manufaktur' },
-      { resourceKey: 'tembaga', label: 'Tembaga', group: 'Mineral' },
-      { resourceKey: 'aluminium', label: 'Aluminium', group: 'Mineral' },
     ]
   },
   mansion: {
@@ -51,9 +49,6 @@ const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
-  tembaga: 'mineral',
-  aluminium: 'mineral',
-  nikel: 'mineral',
   bijih_besi: 'mineral',
   gas_alam: 'mineral',
   emas: 'mineral',
@@ -66,13 +61,10 @@ const CARD_TAB_MAP: Record<string, string> = {
   semikonduktor: 'manufaktur',
   mobil: 'manufaktur',
   sepeda_motor: 'manufaktur',
-  smelter: 'manufaktur',
-  pupuk: 'manufaktur',
 };
 
-const RESOURCE_KEY_ALIASES: Record<string, string> = {
-  aluminium: 'aluminium',
-};
+// PERBAIKAN: Tambahkan deklarasi RESOURCE_KEY_ALIASES agar error "Cannot find name" hilang
+const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 

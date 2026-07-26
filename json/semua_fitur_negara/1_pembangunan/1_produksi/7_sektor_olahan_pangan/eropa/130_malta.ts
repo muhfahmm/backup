@@ -6,7 +6,7 @@ const malta_olahan_pangan = {
   pengolahan_daging: 64,
   mie_instan: 98,
   minyak_goreng: 62,
-  susu: 66,
-  pakan_ternak: 90,
-  ikan_kaleng: 36,
+  susu: 66
+  
+  
 };

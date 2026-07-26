@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tunisia_agrikultur = {
   padi: 118,
   gandum: 28,
@@ -11,7 +11,5 @@ const tunisia_agrikultur = {
   teh: 34,
   kakao: 0,
   tebu: 156,
-  karet: 0,
-  kapas: 82,
-  tembakau: 134,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const paraguay_olahan_pangan = {
   pengolahan_daging: 130,
   mie_instan: 130,
   minyak_goreng: 135,
-  susu: 70,
-  pakan_ternak: 250,
-  ikan_kaleng: 245,
+  susu: 70
+  
+  
 };

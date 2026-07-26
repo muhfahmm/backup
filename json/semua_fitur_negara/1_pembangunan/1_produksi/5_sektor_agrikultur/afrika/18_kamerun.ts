@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kamerun_agrikultur = {
   padi: 328,
   gandum: 160,
@@ -11,7 +11,5 @@ const kamerun_agrikultur = {
   teh: 416,
   kakao: 576,
   tebu: 568,
-  karet: 328,
-  kapas: 480,
-  tembakau: 360,
+  karet: 328
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const guyana_agrikultur = {
   padi: 104,
   gandum: 28,
@@ -11,7 +11,5 @@ const guyana_agrikultur = {
   teh: 122,
   kakao: 62,
   tebu: 128,
-  karet: 146,
-  kapas: 136,
-  tembakau: 28,
+  karet: 146
 };

@@ -6,7 +6,7 @@ const belize_olahan_pangan = {
   pengolahan_daging: 70,
   mie_instan: 56,
   minyak_goreng: 88,
-  susu: 86,
-  pakan_ternak: 58,
-  ikan_kaleng: 26,
+  susu: 86
+  
+  
 };

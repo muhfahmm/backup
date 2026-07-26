@@ -6,7 +6,7 @@ const kirgizstan_olahan_pangan = {
   pengolahan_daging: 90,
   mie_instan: 117,
   minyak_goreng: 78,
-  susu: 123,
-  pakan_ternak: 42,
-  ikan_kaleng: 69,
+  susu: 123
+  
+  
 };

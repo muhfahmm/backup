@@ -6,7 +6,7 @@ const montenegro_olahan_pangan = {
   pengolahan_daging: 42,
   mie_instan: 32,
   minyak_goreng: 37,
-  susu: 34,
-  pakan_ternak: 46,
-  ikan_kaleng: 27,
+  susu: 34
+  
+  
 };

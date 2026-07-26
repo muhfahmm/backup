@@ -195,10 +195,7 @@ export default function MapPage() {
                 minyak_bumi: mergedData.minyak_bumi ?? 0,
                 gas_alam: mergedData.gas_alam ?? 0,
                 garam: mergedData.garam ?? 0,
-                nikel: mergedData.nikel ?? 0,
                 litium: mergedData.litium ?? 0,
-                tembaga: mergedData.tembaga ?? 0,
-                aluminium: mergedData.aluminium ?? 0,
                 logam_tanah_jarang: mergedData.logam_tanah_jarang ?? 0,
                 bijih_besi: mergedData.bijih_besi ?? 0,
             });
@@ -279,16 +276,14 @@ export default function MapPage() {
         const resourceKeys = [
             "pembangkit_listrik_tenaga_nuklir", "pembangkit_listrik_tenaga_air", "pembangkit_listrik_tenaga_surya",
             "pembangkit_listrik_tenaga_uap", "pembangkit_listrik_tenaga_gas", "pembangkit_listrik_tenaga_angin",
-            "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga",
-            "aluminium", "logam_tanah_jarang", "bijih_besi",
-            "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
+            "emas", "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "litium",
+            "logam_tanah_jarang", "bijih_besi",
+            "semikonduktor", "mobil", "sepeda_motor", "semen_beton", "kayu",
             "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
             "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao",
-            "tebu", "karet", "kapas", "tembakau",
+            "tebu", "karet",
             "udang", "mutiara", "ikan",
-            "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu",
-            "pakan_ternak", "ikan_kaleng",
-            "farmasi"
+            "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"
         ];
         
         let hasChanges = false;

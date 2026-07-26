@@ -6,7 +6,7 @@ const saint_vincent_dan_grenadine_olahan_pangan = {
   pengolahan_daging: 17,
   mie_instan: 15,
   minyak_goreng: 24,
-  susu: 45,
-  pakan_ternak: 16,
-  ikan_kaleng: 14,
+  susu: 45
+  
+  
 };

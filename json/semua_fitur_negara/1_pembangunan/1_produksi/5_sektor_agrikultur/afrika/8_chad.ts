@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const chad_agrikultur = {
   padi: 222,
   gandum: 195,
@@ -11,7 +11,5 @@ const chad_agrikultur = {
   teh: 192,
   kakao: 0,
   tebu: 135,
-  karet: 0,
-  kapas: 183,
-  tembakau: 198,
+  karet: 0
 };

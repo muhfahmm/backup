@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const qatar_agrikultur = {
   padi: 360,
   gandum: 780,
@@ -11,7 +11,5 @@ const qatar_agrikultur = {
   teh: 480,
   kakao: 0,
   tebu: 465,
-  karet: 0,
-  kapas: 240,
-  tembakau: 1155,
+  karet: 0
 };

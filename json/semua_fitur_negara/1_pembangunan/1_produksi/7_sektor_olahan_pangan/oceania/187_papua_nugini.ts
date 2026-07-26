@@ -6,7 +6,7 @@ const papua_nugini_olahan_pangan = {
   pengolahan_daging: 45,
   mie_instan: 63,
   minyak_goreng: 102,
-  susu: 84,
-  pakan_ternak: 90,
-  ikan_kaleng: 93,
+  susu: 84
+  
+  
 };

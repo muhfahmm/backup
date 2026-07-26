@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const hong_kong_agrikultur = {
   padi: 33,
   gandum: 13,
@@ -11,7 +11,5 @@ const hong_kong_agrikultur = {
   teh: 37,
   kakao: 0,
   tebu: 72,
-  karet: 0,
-  kapas: 11,
-  tembakau: 76,
+  karet: 0
 };

@@ -1,10 +1,8 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const lithuania_manufaktur = {
   semikonduktor: 75,
   mobil: 45,
   sepeda_motor: 65,
-  smelter: 45,
   semen_beton: 35,
-  kayu: 45,
-  pupuk: 30,
+  kayu: 45
 };

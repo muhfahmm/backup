@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const somalia_agrikultur = {
   padi: 60,
   gandum: 171,
@@ -11,7 +11,5 @@ const somalia_agrikultur = {
   teh: 159,
   kakao: 0,
   tebu: 228,
-  karet: 0,
-  kapas: 105,
-  tembakau: 117,
+  karet: 0
 };

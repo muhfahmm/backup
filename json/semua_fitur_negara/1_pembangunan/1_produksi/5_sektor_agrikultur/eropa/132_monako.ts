@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const monako_agrikultur = {
   padi: 38,
   gandum: 14,
@@ -11,7 +11,5 @@ const monako_agrikultur = {
   teh: 59,
   kakao: 0,
   tebu: 10,
-  karet: 0,
-  kapas: 17,
-  tembakau: 57,
+  karet: 0
 };

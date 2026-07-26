@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const denmark_agrikultur = {
   padi: 2112,
   gandum: 2508,
@@ -11,7 +11,5 @@ const denmark_agrikultur = {
   teh: 968,
   kakao: 0,
   tebu: 3476,
-  karet: 0,
-  kapas: 1452,
-  tembakau: 2772,
+  karet: 0
 };

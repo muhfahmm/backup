@@ -6,7 +6,7 @@ const pakistan_olahan_pangan = {
   pengolahan_daging: 520,
   mie_instan: 2028,
   minyak_goreng: 1976,
-  susu: 1352,
-  pakan_ternak: 884,
-  ikan_kaleng: 1664,
+  susu: 1352
+  
+  
 };

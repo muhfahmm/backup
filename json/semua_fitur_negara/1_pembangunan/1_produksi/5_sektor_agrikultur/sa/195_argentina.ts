@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const argentina_agrikultur = {
   padi: 2544,
   gandum: 3840,
@@ -11,7 +11,5 @@ const argentina_agrikultur = {
   teh: 1440,
   kakao: 0,
   tebu: 624,
-  karet: 0,
-  kapas: 3504,
-  tembakau: 1104,
+  karet: 0
 };

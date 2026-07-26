@@ -6,7 +6,7 @@ const curacao_olahan_pangan = {
   pengolahan_daging: 88,
   mie_instan: 68,
   minyak_goreng: 62,
-  susu: 28,
-  pakan_ternak: 88,
-  ikan_kaleng: 66,
+  susu: 28
+  
+  
 };

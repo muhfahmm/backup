@@ -6,7 +6,7 @@ const filipina_olahan_pangan = {
   pengolahan_daging: 760,
   mie_instan: 800,
   minyak_goreng: 760,
-  susu: 260,
-  pakan_ternak: 460,
-  ikan_kaleng: 980,
+  susu: 260
+  
+  
 };

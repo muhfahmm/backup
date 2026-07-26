@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const rwanda_agrikultur = {
   padi: 62,
   gandum: 10,
@@ -11,7 +11,5 @@ const rwanda_agrikultur = {
   teh: 71,
   kakao: 0,
   tebu: 46,
-  karet: 0,
-  kapas: 10,
-  tembakau: 19,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const malta_agrikultur = {
   padi: 122,
   gandum: 132,
@@ -11,7 +11,5 @@ const malta_agrikultur = {
   teh: 158,
   kakao: 0,
   tebu: 134,
-  karet: 0,
-  kapas: 132,
-  tembakau: 124,
+  karet: 0
 };

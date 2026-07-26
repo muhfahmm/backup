@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const indonesia_agrikultur = {
   padi: 5609,
   gandum: 1501,
@@ -11,7 +11,5 @@ const indonesia_agrikultur = {
   teh: 2765,
   kakao: 3002,
   tebu: 6320,
-  karet: 5846,
-  kapas: 5372,
-  tembakau: 4424,
+  karet: 5846
 };

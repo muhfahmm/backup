@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tajikistan_agrikultur = {
   padi: 168,
   gandum: 304,
@@ -11,7 +11,5 @@ const tajikistan_agrikultur = {
   teh: 72,
   kakao: 0,
   tebu: 228,
-  karet: 0,
-  kapas: 52,
-  tembakau: 172,
+  karet: 0
 };

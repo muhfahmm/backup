@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kamboja_agrikultur = {
   padi: 135,
   gandum: 36,
@@ -11,7 +11,5 @@ const kamboja_agrikultur = {
   teh: 234,
   kakao: 0,
   tebu: 114,
-  karet: 0,
-  kapas: 99,
-  tembakau: 228,
+  karet: 0
 };

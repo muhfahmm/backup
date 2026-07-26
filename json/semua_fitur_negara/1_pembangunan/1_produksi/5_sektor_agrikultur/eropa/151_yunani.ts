@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const yunani_agrikultur = {
   padi: 150,
   gandum: 320,
@@ -11,7 +11,5 @@ const yunani_agrikultur = {
   teh: 350,
   kakao: 0,
   tebu: 660,
-  karet: 0,
-  kapas: 640,
-  tembakau: 170,
+  karet: 0
 };

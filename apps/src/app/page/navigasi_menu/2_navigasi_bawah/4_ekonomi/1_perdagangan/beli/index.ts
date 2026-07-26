@@ -8,10 +8,7 @@ export const hasBatubaraBuilding = (data: any) => Number(data?.batu_bara || 0) >
 export const hasMinyakBumiBuilding = (data: any) => Number(data?.minyak_bumi || 0) > 0;
 export const hasGasAlamBuilding = (data: any) => Number(data?.gas_alam || 0) > 0;
 export const hasGaramBuilding = (data: any) => Number(data?.garam || 0) > 0;
-export const hasNikelBuilding = (data: any) => Number(data?.nikel || 0) > 0;
 export const hasLitiumBuilding = (data: any) => Number(data?.litium || 0) > 0;
-export const hasTembagaBuilding = (data: any) => Number(data?.tembaga || 0) > 0;
-export const hasAluminiumBuilding = (data: any) => Number(data?.aluminium || 0) > 0;
 export const hasLogamTanahJarangBuilding = (data: any) => Number(data?.logam_tanah_jarang || 0) > 0;
 export const hasBijihBesiBuilding = (data: any) => Number(data?.bijih_besi || 0) > 0;
 
@@ -21,10 +18,8 @@ export const hasBijihBesiBuilding = (data: any) => Number(data?.bijih_besi || 0)
 export const hasSemikonduktorBuilding = (data: any) => Number(data?.semikonduktor || 0) > 0;
 export const hasMobilBuilding = (data: any) => Number(data?.mobil || 0) > 0;
 export const hasSepedaMotorBuilding = (data: any) => Number(data?.sepeda_motor || 0) > 0;
-export const hasSmelterBuilding = (data: any) => Number(data?.smelter || 0) > 0;
 export const hasSemenBetonBuilding = (data: any) => Number(data?.semen_beton || 0) > 0;
 export const hasKayuBuilding = (data: any) => Number(data?.kayu || 0) > 0;
-export const hasPupukBuilding = (data: any) => Number(data?.pupuk || 0) > 0;
 
 // ===========================
 // 3. PETERNAKAN
@@ -49,8 +44,6 @@ export const hasKakaoBuilding = (data: any) => Number(data?.kakao || 0) > 0;
 export const hasTebuBuilding = (data: any) => Number(data?.tebu || 0) > 0;
 export const hasSayurBuilding = (data: any) => Number(data?.sayur || 0) > 0;
 export const hasKaretBuilding = (data: any) => Number(data?.karet || 0) > 0;
-export const hasKapasBuilding = (data: any) => Number(data?.kapas || 0) > 0;
-export const hasTembakauBuilding = (data: any) => Number(data?.tembakau || 0) > 0;
 
 // ===========================
 // 5. PERIKANAN
@@ -69,10 +62,3 @@ export const hasPengolahanDagingBuilding = (data: any) => Number(data?.pengolaha
 export const hasMieInstanBuilding = (data: any) => Number(data?.mie_instan || 0) > 0;
 export const hasMinyakGorengBuilding = (data: any) => Number(data?.minyak_goreng || 0) > 0;
 export const hasSusuBuilding = (data: any) => Number(data?.susu || 0) > 0;
-export const hasPakanTernakBuilding = (data: any) => Number(data?.pakan_ternak || 0) > 0;
-export const hasIkanKalengBuilding = (data: any) => Number(data?.ikan_kaleng || 0) > 0;
-
-// ===========================
-// 7. FARMASI
-// ===========================
-export const hasFarmasiBuilding = (data: any) => Number(data?.farmasi || 0) > 0;

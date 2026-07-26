@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const sri_lanka_agrikultur = {
   padi: 380,
   gandum: 60,
@@ -11,7 +11,5 @@ const sri_lanka_agrikultur = {
   teh: 255,
   kakao: 0,
   tebu: 70,
-  karet: 0,
-  kapas: 220,
-  tembakau: 230,
+  karet: 0
 };

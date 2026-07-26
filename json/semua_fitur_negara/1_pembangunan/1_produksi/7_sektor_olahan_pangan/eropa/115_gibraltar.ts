@@ -6,7 +6,7 @@ const gibraltar_olahan_pangan = {
   pengolahan_daging: 38,
   mie_instan: 78,
   minyak_goreng: 32,
-  susu: 66,
-  pakan_ternak: 36,
-  ikan_kaleng: 36,
+  susu: 66
+  
+  
 };

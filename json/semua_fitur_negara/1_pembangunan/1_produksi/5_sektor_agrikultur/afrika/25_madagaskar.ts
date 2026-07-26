@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const madagaskar_agrikultur = {
   padi: 28,
   gandum: 22,
@@ -11,7 +11,5 @@ const madagaskar_agrikultur = {
   teh: 96,
   kakao: 0,
   tebu: 52,
-  karet: 0,
-  kapas: 74,
-  tembakau: 76,
+  karet: 0
 };

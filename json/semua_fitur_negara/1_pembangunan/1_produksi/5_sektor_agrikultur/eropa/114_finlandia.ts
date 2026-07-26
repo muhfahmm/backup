@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const finlandia_agrikultur = {
   padi: 342,
   gandum: 189,
@@ -11,7 +11,5 @@ const finlandia_agrikultur = {
   teh: 207,
   kakao: 0,
   tebu: 234,
-  karet: 0,
-  kapas: 567,
-  tembakau: 414,
+  karet: 0
 };

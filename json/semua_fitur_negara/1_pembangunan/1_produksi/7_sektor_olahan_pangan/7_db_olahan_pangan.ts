@@ -86,29 +86,5 @@ const olahanPanganRate = {
     biaya_pembangunan: 2800, // Reduced to 2.8M
     lowongan_kerja: 5000,
     konsumsi_listrik: 60
-  },
-  "8_pabrik_pakan_ternak": {
-    key: "8_pabrik_pakan_ternak",
-    dataKey: "pakan_ternak",
-    label: "Pabrik Pakan Ternak",
-    deskripsi: "Pabrik Pakan Ternak",
-    produksi: 85000,
-    satuan: "TON",
-    waktu_pembangunan: 10,
-    biaya_pembangunan: 2000, // Reduced to 2M
-    lowongan_kerja: 4500,
-    konsumsi_listrik: 55
-  },
-  "9_pabrik_pengalengan_ikan": {
-    key: "9_pabrik_pengalengan_ikan",
-    dataKey: "ikan_kaleng",
-    label: "Pabrik Pengalengan Ikan",
-    deskripsi: "Pabrik Pengalengan Ikan",
-    produksi: 25000,
-    satuan: "TON",
-    waktu_pembangunan: 10,
-    biaya_pembangunan: 2500, // Reduced to 2.5M
-    lowongan_kerja: 5500,
-    konsumsi_listrik: 65
   }
 };

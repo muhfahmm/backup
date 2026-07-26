@@ -6,7 +6,7 @@ const republik_zimbabwe_olahan_pangan = {
   pengolahan_daging: 70,
   mie_instan: 94,
   minyak_goreng: 74,
-  susu: 56,
-  pakan_ternak: 40,
-  ikan_kaleng: 88,
+  susu: 56
+  
+  
 };

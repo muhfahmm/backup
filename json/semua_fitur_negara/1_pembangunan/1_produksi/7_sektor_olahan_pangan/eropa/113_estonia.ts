@@ -6,7 +6,7 @@ const estonia_olahan_pangan = {
   pengolahan_daging: 175,
   mie_instan: 90,
   minyak_goreng: 205,
-  susu: 160,
-  pakan_ternak: 225,
-  ikan_kaleng: 160,
+  susu: 160
+  
+  
 };

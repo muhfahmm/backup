@@ -6,7 +6,7 @@ const suriname_olahan_pangan = {
   pengolahan_daging: 40,
   mie_instan: 100,
   minyak_goreng: 20,
-  susu: 32,
-  pakan_ternak: 72,
-  ikan_kaleng: 56,
+  susu: 32
+  
+  
 };

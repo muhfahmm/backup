@@ -6,7 +6,7 @@ const mali_olahan_pangan = {
   pengolahan_daging: 72,
   mie_instan: 102,
   minyak_goreng: 57,
-  susu: 48,
-  pakan_ternak: 57,
-  ikan_kaleng: 60,
+  susu: 48
+  
+  
 };

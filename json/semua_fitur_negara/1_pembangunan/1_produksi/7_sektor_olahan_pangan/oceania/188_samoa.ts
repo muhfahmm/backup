@@ -6,7 +6,7 @@ const samoa_olahan_pangan = {
   pengolahan_daging: 92,
   mie_instan: 46,
   minyak_goreng: 34,
-  susu: 72,
-  pakan_ternak: 26,
-  ikan_kaleng: 32,
+  susu: 72
+  
+  
 };

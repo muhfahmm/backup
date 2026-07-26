@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const amerika_serikat_agrikultur = {
   padi: 5684,
   gandum: 7076,
@@ -11,7 +11,5 @@ const amerika_serikat_agrikultur = {
   teh: 6148,
   kakao: 0,
   tebu: 4292,
-  karet: 0,
-  kapas: 4640,
-  tembakau: 5684,
+  karet: 0
 };

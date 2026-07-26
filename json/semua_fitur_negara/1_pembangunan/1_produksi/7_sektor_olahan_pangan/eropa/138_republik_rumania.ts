@@ -6,7 +6,7 @@ const republik_rumania_olahan_pangan = {
   pengolahan_daging: 1176,
   mie_instan: 720,
   minyak_goreng: 1080,
-  susu: 720,
-  pakan_ternak: 672,
-  ikan_kaleng: 840,
+  susu: 720
+  
+  
 };

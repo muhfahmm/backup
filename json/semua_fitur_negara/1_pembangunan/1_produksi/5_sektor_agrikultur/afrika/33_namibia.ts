@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const namibia_agrikultur = {
   padi: 51,
   gandum: 21,
@@ -11,7 +11,5 @@ const namibia_agrikultur = {
   teh: 46,
   kakao: 0,
   tebu: 15,
-  karet: 0,
-  kapas: 18,
-  tembakau: 55,
+  karet: 0
 };

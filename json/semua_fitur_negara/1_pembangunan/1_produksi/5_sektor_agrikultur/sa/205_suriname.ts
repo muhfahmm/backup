@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const suriname_agrikultur = {
   padi: 36,
   gandum: 154,
@@ -11,7 +11,5 @@ const suriname_agrikultur = {
   teh: 138,
   kakao: 46,
   tebu: 150,
-  karet: 54,
-  kapas: 42,
-  tembakau: 46,
+  karet: 54
 };

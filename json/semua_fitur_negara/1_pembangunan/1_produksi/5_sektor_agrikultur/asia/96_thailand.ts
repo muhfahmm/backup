@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const thailand_agrikultur = {
   padi: 3075,
   gandum: 2542,
@@ -11,7 +11,5 @@ const thailand_agrikultur = {
   teh: 656,
   kakao: 2337,
   tebu: 1517,
-  karet: 1845,
-  kapas: 738,
-  tembakau: 2542,
+  karet: 1845
 };

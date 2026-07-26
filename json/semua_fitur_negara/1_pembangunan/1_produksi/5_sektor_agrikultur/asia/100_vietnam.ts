@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const vietnam_agrikultur = {
   padi: 4488,
   gandum: 2040,
@@ -11,7 +11,5 @@ const vietnam_agrikultur = {
   teh: 4352,
   kakao: 3128,
   tebu: 1632,
-  karet: 1904,
-  kapas: 4556,
-  tembakau: 4148,
+  karet: 1904
 };

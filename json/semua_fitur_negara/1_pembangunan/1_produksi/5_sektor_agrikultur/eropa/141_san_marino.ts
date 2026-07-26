@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const san_marino_agrikultur = {
   padi: 40,
   gandum: 148,
@@ -11,7 +11,5 @@ const san_marino_agrikultur = {
   teh: 320,
   kakao: 0,
   tebu: 168,
-  karet: 0,
-  kapas: 156,
-  tembakau: 192,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const uruguay_olahan_pangan = {
   pengolahan_daging: 58,
   mie_instan: 48,
   minyak_goreng: 54,
-  susu: 90,
-  pakan_ternak: 64,
-  ikan_kaleng: 86,
+  susu: 90
+  
+  
 };

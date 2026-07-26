@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const ukraina_agrikultur = {
   padi: 300,
   gandum: 160,
@@ -11,7 +11,5 @@ const ukraina_agrikultur = {
   teh: 195,
   kakao: 0,
   tebu: 395,
-  karet: 0,
-  kapas: 400,
-  tembakau: 160,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const yaman_olahan_pangan = {
   pengolahan_daging: 64,
   mie_instan: 112,
   minyak_goreng: 96,
-  susu: 116,
-  pakan_ternak: 56,
-  ikan_kaleng: 164,
+  susu: 116
+  
+  
 };

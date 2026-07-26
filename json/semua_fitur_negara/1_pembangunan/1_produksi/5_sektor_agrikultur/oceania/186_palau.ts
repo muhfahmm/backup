@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const palau_agrikultur = {
   padi: 110,
   gandum: 110,
@@ -11,7 +11,5 @@ const palau_agrikultur = {
   teh: 116,
   kakao: 0,
   tebu: 58,
-  karet: 0,
-  kapas: 158,
-  tembakau: 66,
+  karet: 0
 };

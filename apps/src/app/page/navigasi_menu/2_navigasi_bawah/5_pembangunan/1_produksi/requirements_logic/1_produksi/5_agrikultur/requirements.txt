@@ -58,13 +58,3 @@
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
-
-13. kapas
- > pembangunan
- semen beton (dari semen_beton)
- kayu (dari kayu)
-
-14. tembakau
- > pembangunan
- semen beton (dari semen_beton)
- kayu (dari kayu)

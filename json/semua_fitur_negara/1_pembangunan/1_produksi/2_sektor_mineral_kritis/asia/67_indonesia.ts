@@ -6,11 +6,10 @@ const indonesia_ekstraksi = {
   minyak_bumi: 30,
   gas_alam: 40,
   garam: 10,
-  nikel: 135,
+  
   litium: 1,
-  tembaga: 35,
-  aluminium: 50,
+  
   logam_tanah_jarang: 1,
-  bijih_besi: 632,
+  bijih_besi: 632
 };
 

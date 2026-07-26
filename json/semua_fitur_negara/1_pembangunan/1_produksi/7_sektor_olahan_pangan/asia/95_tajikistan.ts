@@ -6,7 +6,7 @@ const tajikistan_olahan_pangan = {
   pengolahan_daging: 156,
   mie_instan: 148,
   minyak_goreng: 176,
-  susu: 168,
-  pakan_ternak: 164,
-  ikan_kaleng: 40,
+  susu: 168
+  
+  
 };

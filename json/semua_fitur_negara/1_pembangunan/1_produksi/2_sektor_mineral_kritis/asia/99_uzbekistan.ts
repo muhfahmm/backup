@@ -6,10 +6,9 @@ const uzbekistan_ekstraksi = {
   minyak_bumi: 2,
   gas_alam: 10,
   garam: 1,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 5,
-  aluminium: 1,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 21,
+  bijih_besi: 21
 };

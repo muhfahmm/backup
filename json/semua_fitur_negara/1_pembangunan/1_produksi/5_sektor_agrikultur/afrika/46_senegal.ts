@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const senegal_agrikultur = {
   padi: 72,
   gandum: 54,
@@ -11,7 +11,5 @@ const senegal_agrikultur = {
   teh: 50,
   kakao: 0,
   tebu: 73,
-  karet: 0,
-  kapas: 34,
-  tembakau: 16,
+  karet: 0
 };

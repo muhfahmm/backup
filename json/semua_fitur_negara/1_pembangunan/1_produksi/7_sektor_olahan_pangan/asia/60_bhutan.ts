@@ -6,7 +6,7 @@ const bhutan_olahan_pangan = {
   pengolahan_daging: 69,
   mie_instan: 78,
   minyak_goreng: 132,
-  susu: 39,
-  pakan_ternak: 93,
-  ikan_kaleng: 33,
+  susu: 39
+  
+  
 };

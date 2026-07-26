@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const mozambik_agrikultur = {
   padi: 55,
   gandum: 47,
@@ -11,7 +11,5 @@ const mozambik_agrikultur = {
   teh: 27,
   kakao: 0,
   tebu: 26,
-  karet: 0,
-  kapas: 38,
-  tembakau: 11,
+  karet: 0
 };

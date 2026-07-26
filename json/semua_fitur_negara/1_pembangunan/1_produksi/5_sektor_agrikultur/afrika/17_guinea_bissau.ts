@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const guinea_bissau_agrikultur = {
   padi: 112,
   gandum: 44,
@@ -11,7 +11,5 @@ const guinea_bissau_agrikultur = {
   teh: 98,
   kakao: 0,
   tebu: 50,
-  karet: 0,
-  kapas: 112,
-  tembakau: 78,
+  karet: 0
 };

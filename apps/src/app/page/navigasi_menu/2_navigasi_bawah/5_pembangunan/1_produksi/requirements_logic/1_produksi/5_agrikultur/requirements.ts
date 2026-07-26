@@ -96,20 +96,6 @@ export const REQUIREMENTS: BuildingRequirements[] = [
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
     ],
   },
-  {
-    buildingKey: 'kapas',
-    requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-    ],
-  },
-  {
-    buildingKey: 'tembakau',
-    requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-    ],
-  },
 ];
 
 export function findRequirements(buildingKey: string) {

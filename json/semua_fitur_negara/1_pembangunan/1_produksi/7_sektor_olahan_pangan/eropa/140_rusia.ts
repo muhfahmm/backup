@@ -6,7 +6,7 @@ const rusia_olahan_pangan = {
   pengolahan_daging: 9261,
   mie_instan: 9072,
   minyak_goreng: 8127,
-  susu: 6237,
-  pakan_ternak: 8883,
-  ikan_kaleng: 4725,
+  susu: 6237
+  
+  
 };

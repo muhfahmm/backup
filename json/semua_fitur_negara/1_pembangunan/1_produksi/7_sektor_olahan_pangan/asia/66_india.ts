@@ -6,7 +6,7 @@ const india_olahan_pangan = {
   pengolahan_daging: 11397,
   mie_instan: 19257,
   minyak_goreng: 10611,
-  susu: 7467,
-  pakan_ternak: 12183,
-  ikan_kaleng: 7074,
+  susu: 7467
+  
+  
 };

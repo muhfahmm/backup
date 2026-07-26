@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const andorra_agrikultur = {
   padi: 68,
   gandum: 92,
@@ -11,7 +11,5 @@ const andorra_agrikultur = {
   teh: 114,
   kakao: 0,
   tebu: 24,
-  karet: 0,
-  kapas: 138,
-  tembakau: 34,
+  karet: 0
 };

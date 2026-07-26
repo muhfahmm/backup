@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kepulauan_faroe_agrikultur = {
   padi: 43,
   gandum: 51,
@@ -11,7 +11,5 @@ const kepulauan_faroe_agrikultur = {
   teh: 39,
   kakao: 0,
   tebu: 60,
-  karet: 0,
-  kapas: 73,
-  tembakau: 53,
+  karet: 0
 };

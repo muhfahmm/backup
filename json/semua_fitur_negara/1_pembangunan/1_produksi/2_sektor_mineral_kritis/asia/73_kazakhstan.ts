@@ -6,10 +6,9 @@ const kazakhstan_ekstraksi = {
   minyak_bumi: 50,
   gas_alam: 20,
   garam: 5,
-  nikel: 5,
+  
   litium: 1,
-  tembaga: 10,
-  aluminium: 5,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 130,
+  bijih_besi: 130
 };

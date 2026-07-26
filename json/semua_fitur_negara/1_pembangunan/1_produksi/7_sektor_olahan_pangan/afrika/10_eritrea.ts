@@ -6,7 +6,7 @@ const eritrea_olahan_pangan = {
   pengolahan_daging: 42,
   mie_instan: 37,
   minyak_goreng: 38,
-  susu: 26,
-  pakan_ternak: 11,
-  ikan_kaleng: 16,
+  susu: 26
+  
+  
 };

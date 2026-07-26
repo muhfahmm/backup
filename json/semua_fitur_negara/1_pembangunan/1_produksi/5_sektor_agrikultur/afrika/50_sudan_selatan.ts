@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const sudan_selatan_agrikultur = {
   padi: 56,
   gandum: 276,
@@ -11,7 +11,5 @@ const sudan_selatan_agrikultur = {
   teh: 124,
   kakao: 0,
   tebu: 204,
-  karet: 0,
-  kapas: 196,
-  tembakau: 280,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const slowakia_agrikultur = {
   padi: 910,
   gandum: 832,
@@ -11,7 +11,5 @@ const slowakia_agrikultur = {
   teh: 416,
   kakao: 0,
   tebu: 702,
-  karet: 0,
-  kapas: 780,
-  tembakau: 247,
+  karet: 0
 };

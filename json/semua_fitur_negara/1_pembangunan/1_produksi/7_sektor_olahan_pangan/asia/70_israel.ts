@@ -6,7 +6,7 @@ const israel_olahan_pangan = {
   pengolahan_daging: 819,
   mie_instan: 2898,
   minyak_goreng: 1323,
-  susu: 1134,
-  pakan_ternak: 1323,
-  ikan_kaleng: 1449,
+  susu: 1134
+  
+  
 };

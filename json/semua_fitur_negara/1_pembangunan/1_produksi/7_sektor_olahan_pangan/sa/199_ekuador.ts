@@ -6,7 +6,7 @@ const ekuador_olahan_pangan = {
   pengolahan_daging: 180,
   mie_instan: 225,
   minyak_goreng: 345,
-  susu: 240,
-  pakan_ternak: 480,
-  ikan_kaleng: 510,
+  susu: 240
+  
+  
 };

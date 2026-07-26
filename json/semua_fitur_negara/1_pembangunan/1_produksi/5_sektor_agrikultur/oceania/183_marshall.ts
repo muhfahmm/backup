@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const marshall_agrikultur = {
   padi: 188,
   gandum: 212,
@@ -11,7 +11,5 @@ const marshall_agrikultur = {
   teh: 228,
   kakao: 0,
   tebu: 120,
-  karet: 0,
-  kapas: 128,
-  tembakau: 128,
+  karet: 0
 };

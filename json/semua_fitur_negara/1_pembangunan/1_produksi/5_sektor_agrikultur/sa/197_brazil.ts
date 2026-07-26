@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const brazil_agrikultur = {
   padi: 6693,
   gandum: 8439,
@@ -11,7 +11,5 @@ const brazil_agrikultur = {
   teh: 3783,
   kakao: 22407,
   tebu: 22116,
-  karet: 10185,
-  kapas: 20952,
-  tembakau: 11349,
+  karet: 10185
 };

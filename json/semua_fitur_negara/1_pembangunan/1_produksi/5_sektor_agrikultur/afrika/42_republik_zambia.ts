@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_zambia_agrikultur = {
   padi: 128,
   gandum: 82,
@@ -11,7 +11,5 @@ const republik_zambia_agrikultur = {
   teh: 60,
   kakao: 0,
   tebu: 70,
-  karet: 0,
-  kapas: 132,
-  tembakau: 52,
+  karet: 0
 };

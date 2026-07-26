@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tanjung_verde_agrikultur = {
   padi: 87,
   gandum: 129,
@@ -11,7 +11,5 @@ const tanjung_verde_agrikultur = {
   teh: 75,
   kakao: 0,
   tebu: 150,
-  karet: 0,
-  kapas: 132,
-  tembakau: 144,
+  karet: 0
 };

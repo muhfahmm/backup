@@ -4,9 +4,6 @@
 4. minyak_bumi
 5. gas_alam
 6. garam
-7. nikel
-8. litium
-9. tembaga
-10. aluminium
-11. logam_tanah_jarang
-12. bijih_besi
+7. litium
+8. logam_tanah_jarang
+9. bijih_besi

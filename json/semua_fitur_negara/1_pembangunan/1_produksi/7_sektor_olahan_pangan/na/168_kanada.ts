@@ -6,7 +6,7 @@ const kanada_olahan_pangan = {
   pengolahan_daging: 16128,
   mie_instan: 14592,
   minyak_goreng: 13440,
-  susu: 8064,
-  pakan_ternak: 13824,
-  ikan_kaleng: 9600,
+  susu: 8064
+  
+  
 };

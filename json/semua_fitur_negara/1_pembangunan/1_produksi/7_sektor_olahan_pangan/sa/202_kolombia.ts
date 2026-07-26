@@ -6,7 +6,7 @@ const kolombia_olahan_pangan = {
   pengolahan_daging: 1224,
   mie_instan: 1260,
   minyak_goreng: 792,
-  susu: 756,
-  pakan_ternak: 576,
-  ikan_kaleng: 1332,
+  susu: 756
+  
+  
 };

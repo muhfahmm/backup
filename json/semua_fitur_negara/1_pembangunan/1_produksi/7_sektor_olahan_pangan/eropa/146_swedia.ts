@@ -6,7 +6,7 @@ const swedia_olahan_pangan = {
   pengolahan_daging: 2738,
   mie_instan: 1850,
   minyak_goreng: 1702,
-  susu: 1554,
-  pakan_ternak: 1554,
-  ikan_kaleng: 3552,
+  susu: 1554
+  
+  
 };

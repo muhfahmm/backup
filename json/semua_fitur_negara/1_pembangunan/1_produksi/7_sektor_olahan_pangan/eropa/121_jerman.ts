@@ -6,7 +6,7 @@ const jerman_olahan_pangan = {
   pengolahan_daging: 12126,
   mie_instan: 7482,
   minyak_goreng: 4128,
-  susu: 5418,
-  pakan_ternak: 11352,
-  ikan_kaleng: 11094,
+  susu: 5418
+  
+  
 };

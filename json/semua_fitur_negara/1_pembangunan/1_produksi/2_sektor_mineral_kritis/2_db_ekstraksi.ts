@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 // ===================
 // DETAIL TOTAL BANGUNAN: Ekstraksi (Total: 12 Bangunan)
 // ===================
@@ -75,18 +75,6 @@ const mineralKritisRate = {
     lowongan_kerja: 400,
     konsumsi_listrik: 45
   },
-  "7_tambang_nikel": {
-    key: "7_tambang_nikel",
-    dataKey: "nikel",
-    label: "Tambang Nikel",
-    deskripsi: "Tambang Nikel",
-    produksi: 50,
-    satuan: "TON",
-    waktu_pembangunan: 180,
-    biaya_pembangunan: 5000,
-    lowongan_kerja: 1500,
-    konsumsi_listrik: 320
-  },
   "8_tambang_litium": {
     key: "8_tambang_litium",
     dataKey: "litium",
@@ -98,30 +86,6 @@ const mineralKritisRate = {
     biaya_pembangunan: 5500,
     lowongan_kerja: 1200,
     konsumsi_listrik: 250
-  },
-  "9_tambang_tembaga": {
-    key: "9_tambang_tembaga",
-    dataKey: "tembaga",
-    label: "Tambang Tembaga",
-    deskripsi: "Tambang Tembaga",
-    produksi: 180,
-    satuan: "TON",
-    waktu_pembangunan: 120,
-    biaya_pembangunan: 3500,
-    lowongan_kerja: 1500,
-    konsumsi_listrik: 240
-  },
-  "10_tambang_aluminium": {
-    key: "10_tambang_aluminium",
-    dataKey: "aluminium",
-    label: "Tambang Aluminium",
-    deskripsi: "Tambang Aluminium",
-    produksi: 80,
-    satuan: "TON",
-    waktu_pembangunan: 90,
-    biaya_pembangunan: 3000,
-    lowongan_kerja: 1400,
-    konsumsi_listrik: 550
   },
   "11_tambang_ltj": {
     key: "11_tambang_ltj",
@@ -146,5 +110,5 @@ const mineralKritisRate = {
     biaya_pembangunan: 2500,
     lowongan_kerja: 1800,
     konsumsi_listrik: 180
-  },
+  }
 };

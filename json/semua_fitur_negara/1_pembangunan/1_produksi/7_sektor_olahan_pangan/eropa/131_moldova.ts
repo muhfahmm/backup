@@ -6,7 +6,7 @@ const moldova_olahan_pangan = {
   pengolahan_daging: 124,
   mie_instan: 124,
   minyak_goreng: 148,
-  susu: 64,
-  pakan_ternak: 60,
-  ikan_kaleng: 60,
+  susu: 64
+  
+  
 };

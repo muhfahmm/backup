@@ -6,7 +6,7 @@ const panama_olahan_pangan = {
   pengolahan_daging: 80,
   mie_instan: 210,
   minyak_goreng: 185,
-  susu: 120,
-  pakan_ternak: 190,
-  ikan_kaleng: 225,
+  susu: 120
+  
+  
 };

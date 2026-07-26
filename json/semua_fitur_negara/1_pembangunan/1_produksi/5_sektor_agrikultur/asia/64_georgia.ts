@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const georgia_agrikultur = {
   padi: 136,
   gandum: 240,
@@ -11,7 +11,5 @@ const georgia_agrikultur = {
   teh: 140,
   kakao: 0,
   tebu: 112,
-  karet: 0,
-  kapas: 112,
-  tembakau: 112,
+  karet: 0
 };

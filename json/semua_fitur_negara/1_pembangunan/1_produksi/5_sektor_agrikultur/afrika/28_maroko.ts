@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const maroko_agrikultur = {
   padi: 312,
   gandum: 960,
@@ -11,7 +11,5 @@ const maroko_agrikultur = {
   teh: 1032,
   kakao: 0,
   tebu: 240,
-  karet: 0,
-  kapas: 1200,
-  tembakau: 1320,
+  karet: 0
 };

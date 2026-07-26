@@ -6,7 +6,7 @@ const senegal_olahan_pangan = {
   pengolahan_daging: 25,
   mie_instan: 35,
   minyak_goreng: 35,
-  susu: 16,
-  pakan_ternak: 14,
-  ikan_kaleng: 38,
+  susu: 16
+  
+  
 };

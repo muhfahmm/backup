@@ -6,7 +6,7 @@ const finlandia_olahan_pangan = {
   pengolahan_daging: 198,
   mie_instan: 297,
   minyak_goreng: 153,
-  susu: 216,
-  pakan_ternak: 207,
-  ikan_kaleng: 108,
+  susu: 216
+  
+  
 };

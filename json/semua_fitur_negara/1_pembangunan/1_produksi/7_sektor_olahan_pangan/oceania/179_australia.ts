@@ -6,7 +6,7 @@ const australia_olahan_pangan = {
   pengolahan_daging: 4998,
   mie_instan: 4590,
   minyak_goreng: 4794,
-  susu: 3570,
-  pakan_ternak: 3672,
-  ikan_kaleng: 2244,
+  susu: 3570
+  
+  
 };

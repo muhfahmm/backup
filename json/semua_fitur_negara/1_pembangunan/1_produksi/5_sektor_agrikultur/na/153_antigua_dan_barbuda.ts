@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const antigua_dan_barbuda_agrikultur = {
   padi: 44,
   gandum: 160,
@@ -11,7 +11,5 @@ const antigua_dan_barbuda_agrikultur = {
   teh: 130,
   kakao: 0,
   tebu: 112,
-  karet: 0,
-  kapas: 144,
-  tembakau: 60,
+  karet: 0
 };

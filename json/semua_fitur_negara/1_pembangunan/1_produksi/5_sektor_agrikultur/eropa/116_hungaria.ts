@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const hungaria_agrikultur = {
   padi: 296,
   gandum: 328,
@@ -11,7 +11,5 @@ const hungaria_agrikultur = {
   teh: 448,
   kakao: 0,
   tebu: 408,
-  karet: 0,
-  kapas: 296,
-  tembakau: 328,
+  karet: 0
 };

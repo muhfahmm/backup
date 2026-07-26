@@ -5,5 +5,3 @@
 5. mie_instan
 6. minyak_goreng
 7. susu
-8. pakan_ternak
-9. ikan_kaleng

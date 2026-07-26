@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const honduras_agrikultur = {
   padi: 192,
   gandum: 138,
@@ -11,7 +11,5 @@ const honduras_agrikultur = {
   teh: 204,
   kakao: 0,
   tebu: 33,
-  karet: 0,
-  kapas: 201,
-  tembakau: 201,
+  karet: 0
 };

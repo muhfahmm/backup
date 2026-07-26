@@ -6,7 +6,7 @@ const gambia_olahan_pangan = {
   pengolahan_daging: 42,
   mie_instan: 34,
   minyak_goreng: 20,
-  susu: 30,
-  pakan_ternak: 68,
-  ikan_kaleng: 36,
+  susu: 30
+  
+  
 };

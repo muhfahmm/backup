@@ -6,7 +6,7 @@ const siprus_olahan_pangan = {
   pengolahan_daging: 164,
   mie_instan: 200,
   minyak_goreng: 192,
-  susu: 200,
-  pakan_ternak: 144,
-  ikan_kaleng: 160,
+  susu: 200
+  
+  
 };

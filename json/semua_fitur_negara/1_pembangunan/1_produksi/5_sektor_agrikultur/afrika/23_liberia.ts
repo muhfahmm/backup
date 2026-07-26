@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const liberia_agrikultur = {
   padi: 195,
   gandum: 138,
@@ -11,7 +11,5 @@ const liberia_agrikultur = {
   teh: 141,
   kakao: 0,
   tebu: 57,
-  karet: 0,
-  kapas: 72,
-  tembakau: 30,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const lithuania_olahan_pangan = {
   pengolahan_daging: 85,
   mie_instan: 165,
   minyak_goreng: 120,
-  susu: 240,
-  pakan_ternak: 90,
-  ikan_kaleng: 245,
+  susu: 240
+  
+  
 };

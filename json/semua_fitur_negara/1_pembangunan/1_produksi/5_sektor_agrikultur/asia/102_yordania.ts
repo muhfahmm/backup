@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const yordania_agrikultur = {
   padi: 96,
   gandum: 90,
@@ -11,7 +11,5 @@ const yordania_agrikultur = {
   teh: 52,
   kakao: 0,
   tebu: 148,
-  karet: 0,
-  kapas: 20,
-  tembakau: 118,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const kongo_olahan_pangan = {
   pengolahan_daging: 84,
   mie_instan: 104,
   minyak_goreng: 196,
-  susu: 128,
-  pakan_ternak: 64,
-  ikan_kaleng: 116,
+  susu: 128
+  
+  
 };

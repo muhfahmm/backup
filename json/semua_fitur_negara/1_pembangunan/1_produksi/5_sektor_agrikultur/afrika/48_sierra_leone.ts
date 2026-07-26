@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const sierra_leone_agrikultur = {
   padi: 124,
   gandum: 296,
@@ -11,7 +11,5 @@ const sierra_leone_agrikultur = {
   teh: 40,
   kakao: 0,
   tebu: 88,
-  karet: 0,
-  kapas: 208,
-  tembakau: 204,
+  karet: 0
 };

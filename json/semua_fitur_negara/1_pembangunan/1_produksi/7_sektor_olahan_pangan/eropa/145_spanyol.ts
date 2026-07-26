@@ -6,7 +6,7 @@ const spanyol_olahan_pangan = {
   pengolahan_daging: 3828,
   mie_instan: 1624,
   minyak_goreng: 2204,
-  susu: 3712,
-  pakan_ternak: 5684,
-  ikan_kaleng: 4408,
+  susu: 3712
+  
+  
 };

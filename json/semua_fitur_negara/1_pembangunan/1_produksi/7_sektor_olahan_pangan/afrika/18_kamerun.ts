@@ -6,7 +6,7 @@ const kamerun_olahan_pangan = {
   pengolahan_daging: 384,
   mie_instan: 256,
   minyak_goreng: 192,
-  susu: 152,
-  pakan_ternak: 352,
-  ikan_kaleng: 336,
+  susu: 152
+  
+  
 };

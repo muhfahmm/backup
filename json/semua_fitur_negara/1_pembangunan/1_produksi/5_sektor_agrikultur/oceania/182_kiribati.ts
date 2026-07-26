@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kiribati_agrikultur = {
   padi: 146,
   gandum: 80,
@@ -11,7 +11,5 @@ const kiribati_agrikultur = {
   teh: 86,
   kakao: 0,
   tebu: 158,
-  karet: 0,
-  kapas: 136,
-  tembakau: 160,
+  karet: 0
 };

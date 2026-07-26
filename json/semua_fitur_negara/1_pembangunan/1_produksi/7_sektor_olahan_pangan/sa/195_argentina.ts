@@ -6,7 +6,7 @@ const argentina_olahan_pangan = {
   pengolahan_daging: 768,
   mie_instan: 2160,
   minyak_goreng: 624,
-  susu: 2208,
-  pakan_ternak: 576,
-  ikan_kaleng: 2160,
+  susu: 2208
+  
+  
 };

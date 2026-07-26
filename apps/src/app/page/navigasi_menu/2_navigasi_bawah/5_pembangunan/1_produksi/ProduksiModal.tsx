@@ -14,7 +14,6 @@ import PeternakanTab from "./card_data/4_peternakan";
 import AgrikulturTab from "./card_data/5_agrikultur";
 import PerikananTab from "./card_data/6_perikanan";
 import OlahanPanganTab from "./card_data/7_olahan_pangan";
-import FarmasiTab from "./card_data/8_farmasi";
 
 import * as kelistrikanRequirements from "./requirements_logic/1_produksi/1_kelistrikan/requirements";
 import * as mineralKritisRequirements from "./requirements_logic/1_produksi/2_mineral_kritis/requirements";
@@ -23,7 +22,6 @@ import * as peternakanRequirements from "./requirements_logic/1_produksi/4_peter
 import * as agrikulturRequirements from "./requirements_logic/1_produksi/5_agrikultur/requirements";
 import * as perikananRequirements from "./requirements_logic/1_produksi/6_perikanan/requirements";
 import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_olahan_pangan/requirements";
-import * as farmasiRequirements from "./requirements_logic/1_produksi/8_farmasi/requirements";
 
 interface MaterialRequirement {
   resourceKey: string;
@@ -65,9 +63,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
 
-  const RESOURCE_KEY_ALIASES: Record<string, string> = {
-    aluminium: 'aluminium',
-  };
+  const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 
   const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 
@@ -78,19 +74,14 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     minyak_bumi: 'mineral',
     gas_alam: 'mineral',
     garam: 'mineral',
-    nikel: 'mineral',
     litium: 'mineral',
-    tembaga: 'mineral',
-    aluminium: 'mineral',
     logam_tanah_jarang: 'mineral',
     bijih_besi: 'mineral',
     semikonduktor: 'manufaktur',
     mobil: 'manufaktur',
     sepeda_motor: 'manufaktur',
-    smelter: 'manufaktur',
     semen_beton: 'manufaktur',
     kayu: 'manufaktur',
-    pupuk: 'manufaktur',
   };
 
   const REQUIREMENTS_MODULES: Record<string, any> = {
@@ -101,7 +92,6 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     agrikultur: agrikulturRequirements,
     perikanan: perikananRequirements,
     "olahan pangan": olahanPanganRequirements,
-    farmasi: farmasiRequirements,
   };
 
   const getSelectedBuildingRequirements = (): BuildingRequirements | undefined => {
@@ -274,7 +264,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     { id: "agrikultur", label: "Agrikultur", component: AgrikulturTab },
     { id: "perikanan", label: "Perikanan", component: PerikananTab },
     { id: "olahan pangan", label: "Olahan Pangan", component: OlahanPanganTab },
-    { id: "farmasi", label: "Farmasi", component: FarmasiTab }
+
   ];
 
   if (!isOpen) return null;

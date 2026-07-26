@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const guatemala_agrikultur = {
   padi: 162,
   gandum: 93,
@@ -11,7 +11,5 @@ const guatemala_agrikultur = {
   teh: 99,
   kakao: 0,
   tebu: 144,
-  karet: 0,
-  kapas: 66,
-  tembakau: 162,
+  karet: 0
 };

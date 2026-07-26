@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const meksiko_agrikultur = {
   padi: 5203,
   gandum: 9196,
@@ -11,7 +11,5 @@ const meksiko_agrikultur = {
   teh: 3751,
   kakao: 0,
   tebu: 2057,
-  karet: 0,
-  kapas: 1694,
-  tembakau: 2662,
+  karet: 0
 };

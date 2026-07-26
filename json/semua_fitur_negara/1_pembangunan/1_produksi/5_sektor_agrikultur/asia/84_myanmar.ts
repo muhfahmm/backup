@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const myanmar_agrikultur = {
   padi: 234,
   gandum: 168,
@@ -11,7 +11,5 @@ const myanmar_agrikultur = {
   teh: 126,
   kakao: 0,
   tebu: 150,
-  karet: 0,
-  kapas: 402,
-  tembakau: 354,
+  karet: 0
 };

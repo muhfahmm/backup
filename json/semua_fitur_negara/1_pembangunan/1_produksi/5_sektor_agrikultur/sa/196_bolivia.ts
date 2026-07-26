@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bolivia_agrikultur = {
   padi: 190,
   gandum: 135,
@@ -11,7 +11,5 @@ const bolivia_agrikultur = {
   teh: 245,
   kakao: 0,
   tebu: 295,
-  karet: 0,
-  kapas: 295,
-  tembakau: 80,
+  karet: 0
 };

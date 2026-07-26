@@ -12,19 +12,14 @@ import {
   hasMinyakBumiBuilding,
   hasGasAlamBuilding,
   hasGaramBuilding,
-  hasNikelBuilding,
   hasLitiumBuilding,
-  hasTembagaBuilding,
-  hasAluminiumBuilding,
   hasLogamTanahJarangBuilding,
   hasBijihBesiBuilding,
   hasSemikonduktorBuilding,
   hasMobilBuilding,
   hasSepedaMotorBuilding,
-  hasSmelterBuilding,
   hasSemenBetonBuilding,
   hasKayuBuilding,
-  hasPupukBuilding,
   hasAyamUnggasBuilding,
   hasSapiPerahBuilding,
   hasSapiPotongBuilding,
@@ -41,8 +36,6 @@ import {
   hasTebuBuilding,
   hasSayurBuilding,
   hasKaretBuilding,
-  hasKapasBuilding,
-  hasTembakauBuilding,
   hasUdangBuilding,
   hasIkanBuilding,
   hasMutiaraBuilding,
@@ -52,10 +45,7 @@ import {
   hasPengolahanDagingBuilding,
   hasMieInstanBuilding,
   hasMinyakGorengBuilding,
-  hasSusuBuilding,
-  hasPakanTernakBuilding,
-  hasIkanKalengBuilding,
-  hasFarmasiBuilding
+  hasSusuBuilding
 } from "./index";
 
 interface CountryDetail {
@@ -73,13 +63,12 @@ interface MetadataEntry {
 type MetadataMap = Record<string, MetadataEntry>;
 
 const ALL_IMPORT_KEYS = [
-  "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "nikel", "litium", "tembaga", "aluminium", "logam_tanah_jarang", "bijih_besi",
-  "semikonduktor", "mobil", "sepeda_motor", "smelter", "semen_beton", "kayu", "pupuk",
+  "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "litium", "logam_tanah_jarang",
+  "semikonduktor", "mobil", "sepeda_motor", "semen_beton", "kayu",
   "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
-  "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau",
+  "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet",
   "udang", "mutiara", "ikan",
-  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu", "pakan_ternak", "ikan_kaleng",
-  "farmasi"
+  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"
 ];
 
 interface ModalsKonfirmasiBeliProps {
@@ -96,15 +85,15 @@ interface ModalsKonfirmasiBeliProps {
 // --- HARGA DEFAULT PASAR (BERLAKU UNTUK BELI) ---
 const DEFAULT_PRICES: Record<string, number> = {
   uranium: 8000, batu_bara: 100, minyak_bumi: 150, gas_alam: 120, garam: 50,
-  nikel: 2000, litium: 3000, tembaga: 1500, aluminium: 1000, logam_tanah_jarang: 5000,
-  bijih_besi: 800, semikonduktor: 4000, mobil: 15000, sepeda_motor: 5000, smelter: 12000,
-  semen_beton: 300, kayu: 200, pupuk: 250, ayam_unggas: 60, sapi_perah: 200,
+  litium: 3000, logam_tanah_jarang: 5000,
+  semikonduktor: 4000, mobil: 15000, sepeda_motor: 5000,
+  semen_beton: 300, kayu: 200, ayam_unggas: 60, sapi_perah: 200,
   sapi_potong: 180, domba_kambing: 150, padi: 80, gandum: 90, jagung: 70,
   sayur: 100, umbi: 60, kedelai: 120, kelapa_sawit: 130, kopi: 300,
-  teh: 250, kakao: 350, tebu: 100, karet: 200, kapas: 180,
-  tembakau: 400, udang: 500, mutiara: 1000, ikan: 300, air_mineral: 50,
+  teh: 250, kakao: 350, tebu: 100, karet: 200,
+  udang: 500, mutiara: 1000, ikan: 300, air_mineral: 50,
   gula: 150, roti: 200, pengolahan_daging: 250, mie_instan: 180, minyak_goreng: 220,
-  susu: 160, pakan_ternak: 120, ikan_kaleng: 280, farmasi: 600,
+  susu: 160
 };
 
 // --- HELPER TANGGAL UNTUK CHART ---
@@ -316,19 +305,14 @@ export default function ModalsKonfirmasiBeli({
     minyak_bumi: hasMinyakBumiBuilding,
     gas_alam: hasGasAlamBuilding,
     garam: hasGaramBuilding,
-    nikel: hasNikelBuilding,
     litium: hasLitiumBuilding,
-    tembaga: hasTembagaBuilding,
-    aluminium: hasAluminiumBuilding,
     logam_tanah_jarang: hasLogamTanahJarangBuilding,
     bijih_besi: hasBijihBesiBuilding,
     semikonduktor: hasSemikonduktorBuilding,
     mobil: hasMobilBuilding,
     sepeda_motor: hasSepedaMotorBuilding,
-    smelter: hasSmelterBuilding,
     semen_beton: hasSemenBetonBuilding,
     kayu: hasKayuBuilding,
-    pupuk: hasPupukBuilding,
     ayam_unggas: hasAyamUnggasBuilding,
     sapi_perah: hasSapiPerahBuilding,
     sapi_potong: hasSapiPotongBuilding,
@@ -345,8 +329,6 @@ export default function ModalsKonfirmasiBeli({
     tebu: hasTebuBuilding,
     sayur: hasSayurBuilding,
     karet: hasKaretBuilding,
-    kapas: hasKapasBuilding,
-    tembakau: hasTembakauBuilding,
     udang: hasUdangBuilding,
     ikan: hasIkanBuilding,
     mutiara: hasMutiaraBuilding,
@@ -357,9 +339,6 @@ export default function ModalsKonfirmasiBeli({
     mie_instan: hasMieInstanBuilding,
     minyak_goreng: hasMinyakGorengBuilding,
     susu: hasSusuBuilding,
-    pakan_ternak: hasPakanTernakBuilding,
-    ikan_kaleng: hasIkanKalengBuilding,
-    farmasi: hasFarmasiBuilding,
   };
 
   const getFirstAvailableProduct = (): string => {

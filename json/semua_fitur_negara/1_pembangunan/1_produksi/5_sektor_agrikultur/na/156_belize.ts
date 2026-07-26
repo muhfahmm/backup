@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const belize_agrikultur = {
   padi: 124,
   gandum: 122,
@@ -11,7 +11,5 @@ const belize_agrikultur = {
   teh: 62,
   kakao: 0,
   tebu: 102,
-  karet: 0,
-  kapas: 86,
-  tembakau: 76,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const angola_agrikultur = {
   padi: 400,
   gandum: 336,
@@ -11,7 +11,5 @@ const angola_agrikultur = {
   teh: 376,
   kakao: 0,
   tebu: 432,
-  karet: 0,
-  kapas: 112,
-  tembakau: 88,
+  karet: 0
 };

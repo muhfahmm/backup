@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const australia_agrikultur = {
   padi: 5202,
   gandum: 1836,
@@ -11,7 +11,5 @@ const australia_agrikultur = {
   teh: 3366,
   kakao: 0,
   tebu: 1326,
-  karet: 0,
-  kapas: 3978,
-  tembakau: 4794,
+  karet: 0
 };

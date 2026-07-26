@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const chile_agrikultur = {
   padi: 2484,
   gandum: 2646,
@@ -11,7 +11,5 @@ const chile_agrikultur = {
   teh: 1296,
   kakao: 0,
   tebu: 2484,
-  karet: 0,
-  kapas: 972,
-  tembakau: 1836,
+  karet: 0
 };

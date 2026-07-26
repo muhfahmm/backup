@@ -6,7 +6,7 @@ const swiss_olahan_pangan = {
   pengolahan_daging: 1363,
   mie_instan: 987,
   minyak_goreng: 2115,
-  susu: 1974,
-  pakan_ternak: 564,
-  ikan_kaleng: 1739,
+  susu: 1974
+  
+  
 };

@@ -6,7 +6,7 @@ const selandia_baru_olahan_pangan = {
   pengolahan_daging: 462,
   mie_instan: 315,
   minyak_goreng: 378,
-  susu: 210,
-  pakan_ternak: 546,
-  ikan_kaleng: 252,
+  susu: 210
+  
+  
 };

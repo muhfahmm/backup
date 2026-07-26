@@ -6,7 +6,7 @@ const makau_olahan_pangan = {
   pengolahan_daging: 100,
   mie_instan: 84,
   minyak_goreng: 108,
-  susu: 80,
-  pakan_ternak: 52,
-  ikan_kaleng: 96,
+  susu: 80
+  
+  
 };

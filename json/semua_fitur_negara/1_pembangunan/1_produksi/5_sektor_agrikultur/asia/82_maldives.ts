@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const maldives_agrikultur = {
   padi: 110,
   gandum: 34,
@@ -11,7 +11,5 @@ const maldives_agrikultur = {
   teh: 82,
   kakao: 0,
   tebu: 20,
-  karet: 0,
-  kapas: 92,
-  tembakau: 66,
+  karet: 0
 };

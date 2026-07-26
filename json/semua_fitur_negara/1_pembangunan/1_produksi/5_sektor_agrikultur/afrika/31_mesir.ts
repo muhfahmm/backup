@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const mesir_agrikultur = {
   padi: 2303,
   gandum: 2538,
@@ -11,7 +11,5 @@ const mesir_agrikultur = {
   teh: 470,
   kakao: 0,
   tebu: 3431,
-  karet: 0,
-  kapas: 2820,
-  tembakau: 564,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tuvalu_agrikultur = {
   padi: 228,
   gandum: 144,
@@ -11,7 +11,5 @@ const tuvalu_agrikultur = {
   teh: 114,
   kakao: 0,
   tebu: 105,
-  karet: 0,
-  kapas: 99,
-  tembakau: 150,
+  karet: 0
 };

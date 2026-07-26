@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_demokratik_kongo_agrikultur = {
   padi: 105,
   gandum: 60,
@@ -11,7 +11,5 @@ const republik_demokratik_kongo_agrikultur = {
   teh: 153,
   kakao: 0,
   tebu: 123,
-  karet: 0,
-  kapas: 192,
-  tembakau: 150,
+  karet: 0
 };

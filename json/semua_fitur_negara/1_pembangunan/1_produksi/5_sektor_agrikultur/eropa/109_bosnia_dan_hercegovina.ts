@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bosnia_dan_hercegovina_agrikultur = {
   padi: 208,
   gandum: 276,
@@ -11,7 +11,5 @@ const bosnia_dan_hercegovina_agrikultur = {
   teh: 228,
   kakao: 0,
   tebu: 184,
-  karet: 0,
-  kapas: 304,
-  tembakau: 44,
+  karet: 0
 };

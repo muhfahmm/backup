@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const vanuatu_agrikultur = {
   padi: 41,
   gandum: 24,
@@ -11,7 +11,5 @@ const vanuatu_agrikultur = {
   teh: 56,
   kakao: 0,
   tebu: 38,
-  karet: 0,
-  kapas: 66,
-  tembakau: 29,
+  karet: 0
 };

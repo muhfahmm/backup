@@ -6,7 +6,7 @@ const barbados_olahan_pangan = {
   pengolahan_daging: 47,
   mie_instan: 38,
   minyak_goreng: 40,
-  susu: 10,
-  pakan_ternak: 36,
-  ikan_kaleng: 28,
+  susu: 10
+  
+  
 };

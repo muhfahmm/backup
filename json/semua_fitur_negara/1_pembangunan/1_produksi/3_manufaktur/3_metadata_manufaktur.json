@@ -35,18 +35,6 @@
     "lowongan_kerja": 22000,
     "konsumsi_listrik": 280
   },
-  "smelter": {
-    "key": "4_smelter",
-    "dataKey": "smelter",
-    "label": "Pabrik Logam (Smelter)",
-    "deskripsi": "Pabrik Logam (Smelter)",
-    "produksi": 35,
-    "satuan": "TON",
-    "waktu_pembangunan": 180,
-    "biaya_pembangunan": 7500,
-    "lowongan_kerja": 12000,
-    "konsumsi_listrik": 950
-  },
   "semen_beton": {
     "key": "5_pabrik_semen",
     "dataKey": "semen_beton",
@@ -70,17 +58,5 @@
     "biaya_pembangunan": 1500,
     "lowongan_kerja": 5000,
     "konsumsi_listrik": 150
-  },
-  "pupuk": {
-    "key": "7_pabrik_pupuk",
-    "dataKey": "pupuk",
-    "label": "Pabrik Pupuk",
-    "deskripsi": "Pabrik Pupuk",
-    "produksi": 100,
-    "satuan": "TON",
-    "waktu_pembangunan": 90,
-    "biaya_pembangunan": 2000,
-    "lowongan_kerja": 7000,
-    "konsumsi_listrik": 320
   }
 }

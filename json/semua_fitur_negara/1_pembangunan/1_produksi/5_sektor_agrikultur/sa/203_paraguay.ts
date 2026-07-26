@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const paraguay_agrikultur = {
   padi: 280,
   gandum: 175,
@@ -11,7 +11,5 @@ const paraguay_agrikultur = {
   teh: 340,
   kakao: 0,
   tebu: 270,
-  karet: 0,
-  kapas: 360,
-  tembakau: 85,
+  karet: 0
 };

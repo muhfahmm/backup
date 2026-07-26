@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const malawi_agrikultur = {
   padi: 64,
   gandum: 148,
@@ -11,7 +11,5 @@ const malawi_agrikultur = {
   teh: 300,
   kakao: 0,
   tebu: 156,
-  karet: 0,
-  kapas: 60,
-  tembakau: 256,
+  karet: 0
 };

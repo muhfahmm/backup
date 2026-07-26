@@ -6,7 +6,7 @@ const makedonia_utara_olahan_pangan = {
   pengolahan_daging: 60,
   mie_instan: 129,
   minyak_goreng: 66,
-  susu: 66,
-  pakan_ternak: 93,
-  ikan_kaleng: 147,
+  susu: 66
+  
+  
 };

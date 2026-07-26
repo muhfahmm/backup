@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const belanda_agrikultur = {
   padi: 5265,
   gandum: 4455,
@@ -11,7 +11,5 @@ const belanda_agrikultur = {
   teh: 6615,
   kakao: 0,
   tebu: 9180,
-  karet: 0,
-  kapas: 2295,
-  tembakau: 8640,
+  karet: 0
 };

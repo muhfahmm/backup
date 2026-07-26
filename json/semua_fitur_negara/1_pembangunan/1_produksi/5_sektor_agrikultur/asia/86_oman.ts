@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const oman_agrikultur = {
   padi: 715,
   gandum: 616,
@@ -11,7 +11,5 @@ const oman_agrikultur = {
   teh: 176,
   kakao: 0,
   tebu: 594,
-  karet: 0,
-  kapas: 165,
-  tembakau: 704,
+  karet: 0
 };

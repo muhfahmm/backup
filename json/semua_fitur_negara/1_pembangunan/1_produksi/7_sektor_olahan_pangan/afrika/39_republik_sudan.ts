@@ -6,7 +6,7 @@ const republik_sudan_olahan_pangan = {
   pengolahan_daging: 108,
   mie_instan: 42,
   minyak_goreng: 111,
-  susu: 57,
-  pakan_ternak: 150,
-  ikan_kaleng: 48,
+  susu: 57
+  
+  
 };

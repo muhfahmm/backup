@@ -6,7 +6,7 @@ const nauru_olahan_pangan = {
   pengolahan_daging: 135,
   mie_instan: 102,
   minyak_goreng: 54,
-  susu: 114,
-  pakan_ternak: 42,
-  ikan_kaleng: 39,
+  susu: 114
+  
+  
 };

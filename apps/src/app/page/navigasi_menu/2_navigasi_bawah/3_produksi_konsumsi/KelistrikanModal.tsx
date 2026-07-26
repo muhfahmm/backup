@@ -1,6 +1,17 @@
 "use client"
-import React from "react";
-import { X, Zap, BatteryCharging, MapPin, TrendingUp, TrendingDown } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { 
+  X, 
+  Zap, 
+  BatteryCharging, 
+  MapPin, 
+  TrendingUp, 
+  TrendingDown, 
+  Search, 
+  ArrowUpDown, 
+  ChevronUp,   // PERBAIKAN: Tambahkan ChevronUp
+  ChevronDown  // PERBAIKAN: Tambahkan ChevronDown
+} from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,6 +19,11 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   metadata: any; // Jika tidak dikirim, nilainya undefined
+}
+
+interface SortConfig {
+  key: 'name' | 'production' | 'consumption' | 'balance';
+  direction: 'asc' | 'desc';
 }
 
 const SOURCE_ORDER = [
@@ -20,6 +36,38 @@ const SOURCE_ORDER = [
 ];
 
 export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCountryDetail, metadata }: ModalProps) {
+  // PERUBAHAN: Tambahkan state untuk Tab, Sort, dan Search
+  const [activeTab, setActiveTab] = useState<"user" | "global">("user");
+  const [allCountries, setAllCountries] = useState<any[]>([]);
+  const [loadingAllCountries, setLoadingAllCountries] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
+
+  // Fetch data 206 negara ketika modal dibuka dan tab global dipilih
+  useEffect(() => {
+    if (isOpen && activeTab === "global" && allCountries.length === 0) {
+      fetchAllCountriesData();
+    }
+  }, [isOpen, activeTab]);
+
+  const fetchAllCountriesData = async () => {
+    if (loadingAllCountries || allCountries.length > 0) return;
+    
+    setLoadingAllCountries(true);
+    try {
+      const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
+      const data = await res.json();
+      if (Array.isArray(data)) {
+        setAllCountries(data);
+      }
+    } catch (error) {
+      console.error('Error fetching all countries data:', error);
+      setAllCountries([]);
+    } finally {
+      setLoadingAllCountries(false);
+    }
+  };
+
   if (!isOpen) return null;
 
   // --- LOGIKA findMeta (sama seperti di ProduksiModal) ---
@@ -38,19 +86,17 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   const anggaran = countryDetail?.anggaran || 0;
 
   // --- Bangun daftar pembangkit dengan fallback aman ---
-  // Jika metadata null/undefined, bMeta akan undefined, dan unitProduction = 0
   const powerSources = SOURCE_ORDER
     .map((key) => {
       const bMeta = findMeta(key);
       const count = Number(countryDetail?.[key]) || 0;
-      // Fallback ke 0 jika metadata tidak ditemukan
       const unitProduction = Number(bMeta?.produksi) || 0; 
       
       return {
         key,
         label: bMeta?.label || key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase()),
         desc: bMeta?.desc || "Sumber energi listrik nasional.",
-        value: count, // jumlah unit
+        value: count,
         unitProduction: unitProduction,
       };
     })
@@ -61,11 +107,144 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   const totalSources = powerSources.filter((source) => source.value > 0).length;
 
   // --- Estimasi konsumsi ---
-  const estimatedConsumptionMW = Math.min(
-    totalCapacityMW,
-    Math.max(0, Math.round(totalCapacityMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
-  );
+  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const baseConsumption = totalCapacityMW * 0.7;
+  const estimatedConsumptionMW = Math.max(0, Math.round(baseConsumption + populationDemand));
   const balanceMW = totalCapacityMW - estimatedConsumptionMW;
+
+  // --- Helper function untuk menghitung elektrisitas per negara ---
+  const calculateCountryElectricity = (country: any) => {
+    const totalProduction = SOURCE_ORDER.reduce((sum, key) => {
+      const bMeta = findMeta(key);
+      const count = Number(country?.[key]) || 0;
+      const unitProduction = Number(bMeta?.produksi) || 0;
+      const result = sum + (count * unitProduction);
+      // Ensure result is valid number, not NaN
+      return isNaN(result) ? sum : result;
+    }, 0);
+
+    // Consumption = 70% produksi + beban populasi
+    // Tidak selalu capped ke production (negara bisa punya deficit)
+    const population = Number(country?.jumlah_penduduk) || 0;
+    const baseConsumption = totalProduction * 0.7;
+    const populationDemand = population / 50000;
+    const estimatedConsumption = baseConsumption + populationDemand;
+    
+    // Clamp ke minimal 0, tapi allow lebih besar dari production (deficit)
+    const consumption = Math.max(0, Math.round(estimatedConsumption));
+
+    const balance = totalProduction - consumption;
+
+    // Safeguard untuk ensure semua nilai adalah valid numbers
+    return {
+      totalProduction: isNaN(totalProduction) ? 0 : totalProduction,
+      consumption: isNaN(consumption) ? 0 : consumption,
+      balance: isNaN(balance) ? 0 : balance,
+    };
+  };
+
+  // --- Hitung data untuk semua negara ---
+  const userCountryName = (countryDetail?.name_id || countryDetail?.nama || countryDetail?.country || countryDetail?.name_en || '').toLowerCase().trim();
+
+  const globalElectricityData = allCountries
+    .map((country, index) => {
+      const { totalProduction, consumption, balance } = calculateCountryElectricity(country);
+      
+      // Extract country name dynamically from available keys or clean filename fallback
+      let rawName = country?.name_id || country?.name_en || country?.nama || country?.country;
+      if (!rawName && country?.__fileName) {
+        rawName = country.__fileName
+          .replace(/^\d+_/, '')
+          .replace(/\.(ts|js|json)$/i, '')
+          .replace(/_/g, ' ')
+          .replace(/\b\w/g, (char: string) => char.toUpperCase());
+      }
+      const countryName = rawName || 'Unknown';
+
+      const isUser = Boolean(
+        userCountryName && (
+          countryName.toLowerCase().trim() === userCountryName ||
+          (country?.name_id && country.name_id.toLowerCase().trim() === userCountryName) ||
+          (country?.name_en && country.name_en.toLowerCase().trim() === userCountryName) ||
+          (country?.country && country.country.toLowerCase().trim() === userCountryName)
+        )
+      );
+      
+      return {
+        index: index + 1,
+        name: countryName,
+        production: totalProduction,
+        consumption,
+        balance,
+        isUser,
+      };
+    })
+    .sort((a, b) => b.production - a.production); // Sort by production descending
+
+  // --- Apply sorting ---
+  let sortedData = [...globalElectricityData].sort((a, b) => {
+    let aVal: any, bVal: any;
+    
+    switch (sortConfig.key) {
+      case 'name':
+        aVal = a.name.toLowerCase();
+        bVal = b.name.toLowerCase();
+        break;
+      case 'production':
+        aVal = a.production;
+        bVal = b.production;
+        break;
+      case 'consumption':
+        aVal = a.consumption;
+        bVal = b.consumption;
+        break;
+      case 'balance':
+        aVal = a.balance;
+        bVal = b.balance;
+        break;
+      default:
+        return 0;
+    }
+
+    if (sortConfig.direction === 'asc') {
+      return aVal > bVal ? 1 : aVal < bVal ? -1 : 0;
+    } else {
+      return aVal < bVal ? 1 : aVal > bVal ? -1 : 0;
+    }
+  });
+
+  // --- Apply search filter ---
+  const filteredData = searchQuery.trim() === '' 
+    ? sortedData 
+    : sortedData.filter(country => 
+        country.name.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+
+  // --- Handle sort column header click ---
+  const handleSort = (column: SortConfig['key']) => {
+    if (sortConfig.key === column) {
+      setSortConfig({
+        key: column,
+        direction: sortConfig.direction === 'asc' ? 'desc' : 'asc'
+      });
+    } else {
+      setSortConfig({
+        key: column,
+        direction: 'desc'
+      });
+    }
+  };
+
+  // --- Sort indicator component ---
+  const SortIndicator = ({ column }: { column: SortConfig['key'] }) => {
+    if (sortConfig.key !== column) {
+      return <span className="text-[#8b7e66]/30 ml-1 text-xs">⇅</span>;
+    }
+    if (sortConfig.direction === 'asc') {
+      return <ChevronUp className="h-3 w-3 ml-1 inline text-emerald-700" />;
+    }
+    return <ChevronDown className="h-3 w-3 ml-1 inline text-emerald-700" />;
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -111,85 +290,241 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
 
         {/* BODY */}
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.95fr] gap-4">
-            
-            {/* KOLOM KIRI: STATISTIK GRID */}
-            <div className="bg-[#e4dac3]/25 border-2 border-[#C4B49C]/40 p-4 rounded-2xl shadow-sm">
-              <div className="flex items-center gap-3 mb-3">
-                <div className="p-3 rounded-2xl bg-[#c77a00]/10 text-[#c77a00]">
-                  <BatteryCharging className="h-5 w-5" />
+          
+          {/* PERUBAHAN: TAB NAVIGASI */}
+          <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-6 shadow-sm">
+            <button
+              onClick={() => setActiveTab("user")}
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+                activeTab === "user" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"
+              }`}
+            >
+              Neraca User
+            </button>
+            <button
+              onClick={() => setActiveTab("global")}
+              className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+                activeTab === "global" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"
+              }`}
+            >
+              Neraca {allCountries.length || 207} Negara
+            </button>
+          </div>
+
+          {/* PERUBAHAN: KONTEN DINAMIS BERDASARKAN TAB */}
+          
+          {/* KONTEN TAB 1: NERACA USER */}
+          {activeTab === "user" && (
+            <div className="grid grid-cols-1 lg:grid-cols-[1.25fr_0.95fr] gap-4">
+              
+              {/* KOLOM KIRI: STATISTIK GRID */}
+              <div className="bg-[#e4dac3]/25 border-2 border-[#C4B49C]/40 p-4 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="p-3 rounded-2xl bg-[#c77a00]/10 text-[#c77a00]">
+                    <BatteryCharging className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-base font-black text-[#5c3c10] uppercase tracking-wide">Statistik Grid</h3>
+                    <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Ringkasan kapasitas dan beban listrik nasional</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-base font-black text-[#5c3c10] uppercase tracking-wide">Statistik Grid</h3>
-                  <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Ringkasan kapasitas dan beban listrik nasional</p>
+
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="bg-emerald-50 border-2 border-emerald-300 p-3 rounded-2xl">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-emerald-700">✓ Total Produksi Listrik</p>
+                    <p className="text-2xl font-black text-emerald-700 mt-3">{totalCapacityMW.toLocaleString('id-ID')} MW</p>
+                  </div>
+                  <div className="bg-rose-50 border-2 border-rose-300 p-3 rounded-2xl">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-rose-700">✗ Konsumsi Terestimasi</p>
+                    <p className="text-2xl font-black text-rose-700 mt-3">{estimatedConsumptionMW.toLocaleString('id-ID')} MW</p>
+                  </div>
+                  <div className={`p-3 rounded-2xl border-2 ${balanceMW >= 0 ? 'bg-emerald-50 border-emerald-300' : 'bg-rose-50 border-rose-300'}`}>
+                    <p className={`text-[10px] font-black uppercase tracking-widest ${balanceMW >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>Neraca Daya</p>
+                    <p className={`text-2xl font-black mt-3 ${balanceMW >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                      {balanceMW >= 0 ? '+' : '-'}{Math.abs(balanceMW).toLocaleString('id-ID')} MW
+                    </p>
+                  </div>
+                  <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/30 p-3 rounded-2xl">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Kas Anggaran Negara</p>
+                    <p className="text-2xl font-black text-[#2e261a] mt-3">{anggaran.toLocaleString('id-ID')}</p>
+                  </div>
+                </div>
+
+                <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div className="bg-[#FAF6EE] border border-[#C4B49C]/30 p-3 rounded-2xl">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Jumlah Sumber Energi Aktif</p>
+                    <p className="text-lg font-black text-[#2e261a] mt-2">{totalSources}</p>
+                  </div>
+                  <div className="bg-[#FAF6EE] border border-[#C4B49C]/30 p-3 rounded-2xl">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Perkiraan Beban Warga</p>
+                    <p className="text-lg font-black text-[#2e261a] mt-2">{((countryDetail?.jumlah_penduduk ?? 0) / 1000000).toFixed(1)} Juta Jiwa</p>
+                  </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 gap-3">
-                <div className="bg-emerald-50 border-2 border-emerald-300 p-3 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-emerald-700">✓ Total Produksi Listrik</p>
-                  <p className="text-2xl font-black text-emerald-700 mt-3">{totalCapacityMW.toLocaleString('id-ID')} MW</p>
+              {/* KOLOM KANAN: RINGKASAN SUMBER DAYA */}
+              <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Ringkasan Sumber Daya</h3>
+                    <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Detail berdasarkan data metadata</p>
+                  </div>
                 </div>
-                <div className="bg-rose-50 border-2 border-rose-300 p-3 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-rose-700">✗ Konsumsi Terestimasi</p>
-                  <p className="text-2xl font-black text-rose-700 mt-3">{estimatedConsumptionMW.toLocaleString('id-ID')} MW</p>
-                </div>
-                <div className={`p-3 rounded-2xl border-2 ${balanceMW >= 0 ? 'bg-emerald-50 border-emerald-300' : 'bg-rose-50 border-rose-300'}`}>
-                  <p className={`text-[10px] font-black uppercase tracking-widest ${balanceMW >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>Neraca Daya</p>
-                  <p className={`text-2xl font-black mt-3 ${balanceMW >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                    {balanceMW >= 0 ? '+' : '-'}{Math.abs(balanceMW).toLocaleString('id-ID')} MW
-                  </p>
-                </div>
-                <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/30 p-3 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Kas Anggaran Negara</p>
-                  <p className="text-2xl font-black text-[#2e261a] mt-3">{anggaran.toLocaleString('id-ID')}</p>
-                </div>
-              </div>
-
-              <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div className="bg-[#FAF6EE] border border-[#C4B49C]/30 p-3 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Jumlah Sumber Energi Aktif</p>
-                  <p className="text-lg font-black text-[#2e261a] mt-2">{totalSources}</p>
-                </div>
-                <div className="bg-[#FAF6EE] border border-[#C4B49C]/30 p-3 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Perkiraan Beban Warga</p>
-                  <p className="text-lg font-black text-[#2e261a] mt-2">{((countryDetail?.jumlah_penduduk ?? 0) / 1000000).toFixed(1)} Juta Jiwa</p>
+                
+                <div className="space-y-3">
+                  {powerSources.length > 0 ? powerSources.map((source) => (
+                    <div key={source.key} className="flex items-center justify-between gap-3 p-4 bg-[#FAF6EE] border border-[#C4B49C]/20 rounded-2xl">
+                      <div>
+                        <p className="text-sm font-black text-[#5c3c10] uppercase tracking-wide">{source.label}</p>
+                        <p className="text-[10px] text-[#8b7e66]">{source.desc}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-sm font-black text-[#2e261a]">{(source.value * source.unitProduction).toLocaleString('id-ID')} MW</p>
+                        <p className="text-[10px] text-[#8b7e66]">{source.value > 0 ? `${source.value} unit` : 'Tidak tersedia'}</p>
+                      </div>
+                    </div>
+                  )) : (
+                    <div className="rounded-2xl border border-[#C4B49C]/20 bg-[#FAF6EE] p-4 text-sm text-[#8b7e66]">
+                      Data pembangkit listrik tidak tersedia.
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
+          )}
 
-            {/* KOLOM KANAN: RINGKASAN SUMBER DAYA */}
-            <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm">
+          {/* KONTEN TAB 2: NERACA 207 NEGARA */}
+          {activeTab === "global" && (
+            <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm w-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]">
-                  <MapPin className="h-5 w-5" />
+                  <Zap className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Ringkasan Sumber Daya</h3>
-                  <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Detail berdasarkan data metadata</p>
+                  <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Neraca {allCountries.length || 207} Negara</h3>
+                  <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Data produksi, konsumsi, dan neraca daya listrik global</p>
                 </div>
               </div>
-              
-              <div className="space-y-3">
-                {powerSources.length > 0 ? powerSources.map((source) => (
-                  <div key={source.key} className="flex items-center justify-between gap-3 p-4 bg-[#FAF6EE] border border-[#C4B49C]/20 rounded-2xl">
-                    <div>
-                      <p className="text-sm font-black text-[#5c3c10] uppercase tracking-wide">{source.label}</p>
-                      <p className="text-[10px] text-[#8b7e66]">{source.desc}</p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm font-black text-[#2e261a]">{(source.value * source.unitProduction).toLocaleString('id-ID')} MW</p>
-                      <p className="text-[10px] text-[#8b7e66]">{source.value > 0 ? `${source.value} unit` : 'Tidak tersedia'}</p>
-                    </div>
-                  </div>
-                )) : (
-                  <div className="rounded-2xl border border-[#C4B49C]/20 bg-[#FAF6EE] p-4 text-sm text-[#8b7e66]">
-                    Data pembangkit listrik tidak tersedia.
-                  </div>
+
+              {/* SEARCH BOX */}
+              <div className="mb-4 relative">
+                <Search className="absolute left-3 top-3 h-4 w-4 text-[#8b7e66] pointer-events-none" />
+                <input
+                  type="text"
+                  placeholder="Cari nama negara..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-10 pr-4 py-2.5 rounded-lg border-2 border-[#C4B49C]/40 bg-[#FAF6EE] text-[#5c3c10] placeholder-[#8b7e66] focus:outline-none focus:border-[#5c3c10] focus:ring-2 focus:ring-[#5c3c10]/20 transition-all font-semibold text-sm"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-3 text-[#8b7e66] hover:text-[#5c3c10] transition-colors"
+                  >
+                    ✕
+                  </button>
                 )}
               </div>
+              
+              {loadingAllCountries ? (
+                <div className="text-center py-8 text-[#8b7e66]">
+                  <p className="text-sm font-bold">Memuat data {allCountries.length || 207} negara...</p>
+                </div>
+              ) : (
+                <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[60vh] overflow-y-auto">
+                  <table className="w-full text-xs">
+                    <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30 sticky top-0">
+                      <tr>
+                        <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">No</th>
+                        <th 
+                          onClick={() => handleSort('name')}
+                          className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors"
+                        >
+                          Negara <SortIndicator column="name" />
+                        </th>
+                        <th 
+                          onClick={() => handleSort('production')}
+                          className="px-4 py-3 text-right font-black text-emerald-700 uppercase tracking-wider cursor-pointer hover:bg-emerald-700/10 transition-colors"
+                        >
+                          Produksi (MW) <SortIndicator column="production" />
+                        </th>
+                        <th 
+                          onClick={() => handleSort('consumption')}
+                          className="px-4 py-3 text-right font-black text-rose-700 uppercase tracking-wider cursor-pointer hover:bg-rose-700/10 transition-colors"
+                        >
+                          Konsumsi (MW) <SortIndicator column="consumption" />
+                        </th>
+                        <th 
+                          onClick={() => handleSort('balance')}
+                          className="px-4 py-3 text-right font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors"
+                        >
+                          Neraca Daya <SortIndicator column="balance" />
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-[#C4B49C]/20">
+                      {filteredData.length > 0 ? (
+                        filteredData.map((country, rowIndex) => {
+                          const isUserCountry = country.isUser;
+                          return (
+                            <tr
+                              key={`country-${country.index}-${rowIndex}`}
+                              className={`transition-colors ${
+                                isUserCountry
+                                  ? 'bg-emerald-100/80 hover:bg-emerald-200/80 font-black border-l-4 border-l-emerald-600'
+                                  : rowIndex % 2 === 0
+                                  ? 'bg-[#FAF6EE]'
+                                  : 'bg-[#e4dac3]/10 hover:bg-[#e4dac3]/20'
+                              }`}
+                            >
+                              <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black' : 'text-[#8b7e66]'}`}>
+                                {country.index}
+                              </td>
+                              <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black flex items-center gap-2' : 'text-[#5c3c10]'}`}>
+                                <span>{country.name}</span>
+                                {isUserCountry && (
+                                  <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-black uppercase tracking-wider shadow-sm">
+                                    Negara Anda
+                                  </span>
+                                )}
+                              </td>
+                              <td className="px-4 py-3 font-bold text-emerald-700 text-right">
+                                {isNaN(country.production) || country.production <= 0 ? '0' : country.production.toLocaleString('id-ID')}
+                              </td>
+                              <td className="px-4 py-3 font-bold text-rose-700 text-right">
+                                {isNaN(country.consumption) || country.consumption <= 0 ? '0' : country.consumption.toLocaleString('id-ID')}
+                              </td>
+                              <td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                                {isNaN(country.balance) ? '0' : (country.balance >= 0 ? '+' : '-') + Math.abs(country.balance).toLocaleString('id-ID')}
+                              </td>
+                            </tr>
+                          );
+                        })
+                      ) : (
+                        <tr>
+                          <td colSpan={5} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">
+                            {searchQuery ? `Tidak ada negara yang cocok dengan "${searchQuery}"` : 'Tidak ada data tersedia'}
+                          </td>
+                        </tr>
+                      )}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+              
+              {!loadingAllCountries && filteredData.length > 0 && (
+                <div className="mt-4 p-4 bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg text-xs text-[#8b7e66]">
+                  <p className="font-bold">📊 Total: {filteredData.length} negara {searchQuery && `(difilter dari ${globalElectricityData.length})`}</p>
+                  <p className="mt-1">Produksi: <span className="font-black text-emerald-700">{filteredData.reduce((sum, c) => sum + c.production, 0).toLocaleString('id-ID')} MW</span></p>
+                  <p>Konsumsi: <span className="font-black text-rose-700">{filteredData.reduce((sum, c) => sum + c.consumption, 0).toLocaleString('id-ID')} MW</span></p>
+                </div>
+              )}
             </div>
-          </div>
+          )}
+          
         </div>
       </div>
     </div>

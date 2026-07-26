@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const greenland_agrikultur = {
   padi: 192,
   gandum: 156,
@@ -11,7 +11,5 @@ const greenland_agrikultur = {
   teh: 160,
   kakao: 0,
   tebu: 52,
-  karet: 0,
-  kapas: 112,
-  tembakau: 100,
+  karet: 0
 };

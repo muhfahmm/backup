@@ -28,7 +28,6 @@ async function loadJsonCategoryFiles(baseDir: string): Promise<Record<string, an
     '1_pembangunan/1_produksi/5_sektor_agrikultur/5_metadata_agrikultur.json',
     '1_pembangunan/1_produksi/6_sektor_perikanan/6_metadata_perikanan.json',
     '1_pembangunan/1_produksi/7_sektor_olahan_pangan/7_metadata_olahan_pangan.json',
-    '1_pembangunan/1_produksi/8_sektor_farmasi/8_metadata_farmasi.json',
     // Tempat Umum (Public Places)
     '1_pembangunan/3_tempat_umum/1_Layanan Publik/1_infrastruktur/metadata_infrastruktur.json',
     '1_pembangunan/3_tempat_umum/1_Layanan Publik/2_pendidikan/metadata_pendidikan.json',

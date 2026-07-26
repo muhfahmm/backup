@@ -18,10 +18,6 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'nikel', resourceKey: 'nikel' },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi' },
       { group: 'bahan bakar', label: 'gas alam', resourceKey: 'gas_alam', amount: 2 },
     ],
   },
@@ -30,9 +26,6 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'ltj', resourceKey: 'logam_tanah_jarang' },
     ],
   },
   {
@@ -40,20 +33,16 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'nikel', resourceKey: 'nikel' },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi' },
       { group: 'bahan bakar', label: 'uranium', resourceKey: 'uranium', amount: 1 },
     ],
   },
   {
     buildingKey: 'pembangkit_listrik_tenaga_surya',
     requirements: [
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'nikel', resourceKey: 'nikel' },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'ltj', resourceKey: 'logam_tanah_jarang' },
+      { group: 'pembangunan', label: 'bijih besi', resourceKey: 'bijih_besi' },
     ],
   },
   {
@@ -61,10 +50,6 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'nikel', resourceKey: 'nikel' },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi' },
       { group: 'bahan bakar', label: 'batu bara', resourceKey: 'batu_bara', amount: 50 },
       { group: 'bahan bakar', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 5 },
     ],
@@ -74,10 +59,6 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
-      { group: 'pembangunan', label: 'tembaga', resourceKey: 'tembaga' },
-      { group: 'pembangunan', label: 'aluminium', resourceKey: 'aluminium' },
-      { group: 'pembangunan', label: 'nikel', resourceKey: 'nikel' },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi' },
     ],
   },
 ];

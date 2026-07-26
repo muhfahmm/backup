@@ -6,7 +6,7 @@ const tuvalu_olahan_pangan = {
   pengolahan_daging: 69,
   mie_instan: 150,
   minyak_goreng: 42,
-  susu: 60,
-  pakan_ternak: 126,
-  ikan_kaleng: 126,
+  susu: 60
+  
+  
 };

@@ -6,11 +6,10 @@ const argentina_ekstraksi = {
   minyak_bumi: 10,
   gas_alam: 10,
   garam: 15,
-  nikel: 0,
+  
   litium: 20,
-  tembaga: 5,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 48,
+  bijih_besi: 48
 };
 

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const jerman_agrikultur = {
   padi: 9030,
   gandum: 17028,
@@ -11,7 +11,5 @@ const jerman_agrikultur = {
   teh: 10320,
   kakao: 0,
   tebu: 18060,
-  karet: 0,
-  kapas: 20382,
-  tembakau: 4902,
+  karet: 0
 };

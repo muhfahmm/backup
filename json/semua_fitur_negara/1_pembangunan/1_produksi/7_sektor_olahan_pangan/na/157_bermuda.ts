@@ -6,7 +6,7 @@ const bermuda_olahan_pangan = {
   pengolahan_daging: 90,
   mie_instan: 26,
   minyak_goreng: 22,
-  susu: 26,
-  pakan_ternak: 24,
-  ikan_kaleng: 34,
+  susu: 26
+  
+  
 };

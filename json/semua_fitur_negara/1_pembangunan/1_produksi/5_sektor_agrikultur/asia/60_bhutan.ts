@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bhutan_agrikultur = {
   padi: 57,
   gandum: 228,
@@ -11,7 +11,5 @@ const bhutan_agrikultur = {
   teh: 174,
   kakao: 0,
   tebu: 111,
-  karet: 0,
-  kapas: 30,
-  tembakau: 159,
+  karet: 0
 };

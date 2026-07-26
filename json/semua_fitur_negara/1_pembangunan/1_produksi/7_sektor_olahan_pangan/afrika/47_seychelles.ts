@@ -6,7 +6,7 @@ const seychelles_olahan_pangan = {
   pengolahan_daging: 82,
   mie_instan: 28,
   minyak_goreng: 60,
-  susu: 36,
-  pakan_ternak: 70,
-  ikan_kaleng: 70,
+  susu: 36
+  
+  
 };

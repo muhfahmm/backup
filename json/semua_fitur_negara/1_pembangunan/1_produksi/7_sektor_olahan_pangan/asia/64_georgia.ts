@@ -6,7 +6,7 @@ const georgia_olahan_pangan = {
   pengolahan_daging: 100,
   mie_instan: 76,
   minyak_goreng: 80,
-  susu: 140,
-  pakan_ternak: 200,
-  ikan_kaleng: 152,
+  susu: 140
+  
+  
 };

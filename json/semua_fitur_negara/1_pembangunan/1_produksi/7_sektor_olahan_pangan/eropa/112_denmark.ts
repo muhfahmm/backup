@@ -6,7 +6,7 @@ const denmark_olahan_pangan = {
   pengolahan_daging: 660,
   mie_instan: 1936,
   minyak_goreng: 1276,
-  susu: 660,
-  pakan_ternak: 792,
-  ikan_kaleng: 1980,
+  susu: 660
+  
+  
 };

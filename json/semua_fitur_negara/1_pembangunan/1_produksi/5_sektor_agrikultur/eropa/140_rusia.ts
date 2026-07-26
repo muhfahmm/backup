@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const rusia_agrikultur = {
   padi: 6426,
   gandum: 14742,
@@ -11,7 +11,5 @@ const rusia_agrikultur = {
   teh: 2457,
   kakao: 0,
   tebu: 14931,
-  karet: 0,
-  kapas: 13797,
-  tembakau: 7371,
+  karet: 0
 };

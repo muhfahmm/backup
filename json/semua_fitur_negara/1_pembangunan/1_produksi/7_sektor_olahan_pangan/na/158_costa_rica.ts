@@ -6,7 +6,7 @@ const costa_rica_olahan_pangan = {
   pengolahan_daging: 135,
   mie_instan: 75,
   minyak_goreng: 63,
-  susu: 39,
-  pakan_ternak: 57,
-  ikan_kaleng: 102,
+  susu: 39
+  
+  
 };

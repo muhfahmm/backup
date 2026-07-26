@@ -6,7 +6,7 @@ const bahama_olahan_pangan = {
   pengolahan_daging: 156,
   mie_instan: 84,
   minyak_goreng: 116,
-  susu: 152,
-  pakan_ternak: 92,
-  ikan_kaleng: 144,
+  susu: 152
+  
+  
 };

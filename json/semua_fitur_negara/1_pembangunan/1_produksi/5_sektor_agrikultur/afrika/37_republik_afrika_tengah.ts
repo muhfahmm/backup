@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_afrika_tengah_agrikultur = {
   padi: 75,
   gandum: 213,
@@ -11,7 +11,5 @@ const republik_afrika_tengah_agrikultur = {
   teh: 141,
   kakao: 0,
   tebu: 219,
-  karet: 0,
-  kapas: 144,
-  tembakau: 108,
+  karet: 0
 };

@@ -6,10 +6,9 @@ const turki_ekstraksi = {
   minyak_bumi: 2,
   gas_alam: 1,
   garam: 5,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 2,
-  aluminium: 2,
+  
   logam_tanah_jarang: 1,
-  bijih_besi: 8,
+  bijih_besi: 8
 };

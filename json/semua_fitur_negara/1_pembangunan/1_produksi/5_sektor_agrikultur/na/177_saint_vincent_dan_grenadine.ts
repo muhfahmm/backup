@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const saint_vincent_dan_grenadine_agrikultur = {
   padi: 47,
   gandum: 70,
@@ -11,7 +11,5 @@ const saint_vincent_dan_grenadine_agrikultur = {
   teh: 23,
   kakao: 0,
   tebu: 77,
-  karet: 0,
-  kapas: 31,
-  tembakau: 50,
+  karet: 0
 };

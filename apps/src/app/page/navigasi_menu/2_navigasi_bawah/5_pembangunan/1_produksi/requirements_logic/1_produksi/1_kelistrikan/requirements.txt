@@ -4,10 +4,6 @@
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
  > bahan bakar:
  gas alam (dari gas_alam)
  
@@ -16,8 +12,6 @@
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
  ltj (dari logam_tanah_jarang)
 
 3. pembangkit_listrik_tenaga_nuklir
@@ -25,30 +19,18 @@
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
  > bahan bakar
  uranium
 
 4. pembangkit_listrik_tenaga_surya
  > pembangunan
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
 
 5. pembangkit_listrik_tenaga_uap
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
  > bahan bakar
  batu bara
  minyak bumi
@@ -58,7 +40,4 @@
  semen beton (dari semen_beton)
  kayu (dari kayu)
  baja (dari baja)
- tembaga (dari tembaga)
- aluminium (dari aluminium)
- nikel (dari nikel)
- besi (dari bijih_besi)
+

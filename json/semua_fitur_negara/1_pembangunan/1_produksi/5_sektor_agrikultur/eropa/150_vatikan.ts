@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const vatikan_agrikultur = {
   padi: 320,
   gandum: 244,
@@ -11,7 +11,5 @@ const vatikan_agrikultur = {
   teh: 112,
   kakao: 0,
   tebu: 284,
-  karet: 0,
-  kapas: 224,
-  tembakau: 268,
+  karet: 0
 };

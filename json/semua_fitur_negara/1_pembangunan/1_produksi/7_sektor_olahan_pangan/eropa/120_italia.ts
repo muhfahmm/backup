@@ -6,7 +6,7 @@ const italia_olahan_pangan = {
   pengolahan_daging: 6482,
   mie_instan: 7408,
   minyak_goreng: 13427,
-  susu: 21298,
-  pakan_ternak: 14353,
-  ikan_kaleng: 21298,
+  susu: 21298
+  
+  
 };

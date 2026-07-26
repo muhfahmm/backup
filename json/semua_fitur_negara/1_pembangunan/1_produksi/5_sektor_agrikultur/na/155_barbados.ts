@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const barbados_agrikultur = {
   padi: 26,
   gandum: 71,
@@ -11,7 +11,5 @@ const barbados_agrikultur = {
   teh: 52,
   kakao: 0,
   tebu: 10,
-  karet: 0,
-  kapas: 14,
-  tembakau: 71,
+  karet: 0
 };

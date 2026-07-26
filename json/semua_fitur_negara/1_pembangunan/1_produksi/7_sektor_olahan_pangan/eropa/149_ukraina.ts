@@ -6,7 +6,7 @@ const ukraina_olahan_pangan = {
   pengolahan_daging: 100,
   mie_instan: 185,
   minyak_goreng: 110,
-  susu: 125,
-  pakan_ternak: 185,
-  ikan_kaleng: 75,
+  susu: 125
+  
+  
 };

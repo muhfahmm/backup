@@ -6,10 +6,9 @@ const qatar_ekstraksi = {
   minyak_bumi: 15,
   gas_alam: 95,
   garam: 0,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 0,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 135,
+  bijih_besi: 135
 };

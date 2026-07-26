@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bulgaria_agrikultur = {
   padi: 180,
   gandum: 580,
@@ -11,7 +11,5 @@ const bulgaria_agrikultur = {
   teh: 370,
   kakao: 0,
   tebu: 180,
-  karet: 0,
-  kapas: 180,
-  tembakau: 350,
+  karet: 0
 };

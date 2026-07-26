@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const pantai_gading_agrikultur = {
   padi: 250,
   gandum: 330,
@@ -11,7 +11,5 @@ const pantai_gading_agrikultur = {
   teh: 180,
   kakao: 305,
   tebu: 260,
-  karet: 270,
-  kapas: 330,
-  tembakau: 280,
+  karet: 270
 };

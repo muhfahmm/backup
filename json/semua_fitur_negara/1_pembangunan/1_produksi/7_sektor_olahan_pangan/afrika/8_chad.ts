@@ -6,7 +6,7 @@ const chad_olahan_pangan = {
   pengolahan_daging: 114,
   mie_instan: 120,
   minyak_goreng: 81,
-  susu: 84,
-  pakan_ternak: 123,
-  ikan_kaleng: 42,
+  susu: 84
+  
+  
 };

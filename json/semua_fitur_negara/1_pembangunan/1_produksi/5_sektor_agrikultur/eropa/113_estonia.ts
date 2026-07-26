@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const estonia_agrikultur = {
   padi: 180,
   gandum: 115,
@@ -11,7 +11,5 @@ const estonia_agrikultur = {
   teh: 75,
   kakao: 0,
   tebu: 295,
-  karet: 0,
-  kapas: 130,
-  tembakau: 305,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const myanmar_olahan_pangan = {
   pengolahan_daging: 120,
   mie_instan: 222,
   minyak_goreng: 150,
-  susu: 78,
-  pakan_ternak: 228,
-  ikan_kaleng: 90,
+  susu: 78
+  
+  
 };

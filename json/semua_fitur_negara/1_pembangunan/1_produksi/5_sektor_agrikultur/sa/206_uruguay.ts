@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const uruguay_agrikultur = {
   padi: 82,
   gandum: 106,
@@ -11,7 +11,5 @@ const uruguay_agrikultur = {
   teh: 40,
   kakao: 0,
   tebu: 98,
-  karet: 0,
-  kapas: 38,
-  tembakau: 142,
+  karet: 0
 };

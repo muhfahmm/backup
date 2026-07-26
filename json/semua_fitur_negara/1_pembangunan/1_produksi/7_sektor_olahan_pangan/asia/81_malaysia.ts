@@ -6,7 +6,7 @@ const malaysia_olahan_pangan = {
   pengolahan_daging: 1044,
   mie_instan: 900,
   minyak_goreng: 1548,
-  susu: 1440,
-  pakan_ternak: 936,
-  ikan_kaleng: 1296,
+  susu: 1440
+  
+  
 };

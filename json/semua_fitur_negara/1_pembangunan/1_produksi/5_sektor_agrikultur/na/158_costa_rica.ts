@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const costa_rica_agrikultur = {
   padi: 171,
   gandum: 57,
@@ -11,7 +11,5 @@ const costa_rica_agrikultur = {
   teh: 171,
   kakao: 0,
   tebu: 195,
-  karet: 0,
-  kapas: 201,
-  tembakau: 237,
+  karet: 0
 };

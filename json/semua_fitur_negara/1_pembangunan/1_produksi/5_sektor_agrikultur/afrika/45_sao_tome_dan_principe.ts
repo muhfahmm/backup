@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const sao_tome_dan_principe_agrikultur = {
   padi: 244,
   gandum: 172,
@@ -11,7 +11,5 @@ const sao_tome_dan_principe_agrikultur = {
   teh: 312,
   kakao: 0,
   tebu: 84,
-  karet: 0,
-  kapas: 84,
-  tembakau: 156,
+  karet: 0
 };

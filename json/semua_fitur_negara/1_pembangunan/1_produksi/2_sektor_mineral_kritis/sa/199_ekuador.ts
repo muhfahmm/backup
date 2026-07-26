@@ -6,10 +6,9 @@ const ekuador_ekstraksi = {
   minyak_bumi: 5,
   gas_alam: 1,
   garam: 0,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 1,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 90,
+  bijih_besi: 90
 };

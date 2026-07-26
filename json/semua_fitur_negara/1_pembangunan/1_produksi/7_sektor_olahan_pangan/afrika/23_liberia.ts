@@ -6,7 +6,7 @@ const liberia_olahan_pangan = {
   pengolahan_daging: 129,
   mie_instan: 78,
   minyak_goreng: 87,
-  susu: 138,
-  pakan_ternak: 78,
-  ikan_kaleng: 69,
+  susu: 138
+  
+  
 };

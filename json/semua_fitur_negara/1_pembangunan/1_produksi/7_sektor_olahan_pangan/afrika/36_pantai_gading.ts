@@ -6,7 +6,7 @@ const pantai_gading_olahan_pangan = {
   pengolahan_daging: 65,
   mie_instan: 50,
   minyak_goreng: 140,
-  susu: 85,
-  pakan_ternak: 205,
-  ikan_kaleng: 105,
+  susu: 85
+  
+  
 };

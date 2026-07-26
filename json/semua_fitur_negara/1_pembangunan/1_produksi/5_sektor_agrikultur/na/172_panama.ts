@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const panama_agrikultur = {
   padi: 80,
   gandum: 290,
@@ -11,7 +11,5 @@ const panama_agrikultur = {
   teh: 380,
   kakao: 0,
   tebu: 180,
-  karet: 0,
-  kapas: 70,
-  tembakau: 350,
+  karet: 0
 };

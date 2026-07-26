@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const saint_lucia_agrikultur = {
   padi: 71,
   gandum: 56,
@@ -11,7 +11,5 @@ const saint_lucia_agrikultur = {
   teh: 27,
   kakao: 0,
   tebu: 48,
-  karet: 0,
-  kapas: 48,
-  tembakau: 17,
+  karet: 0
 };

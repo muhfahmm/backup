@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const trinidad_dan_tobago_agrikultur = {
   padi: 140,
   gandum: 32,
@@ -11,7 +11,5 @@ const trinidad_dan_tobago_agrikultur = {
   teh: 158,
   kakao: 0,
   tebu: 106,
-  karet: 0,
-  kapas: 76,
-  tembakau: 92,
+  karet: 0
 };

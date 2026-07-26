@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const peru_agrikultur = {
   padi: 420,
   gandum: 91,
@@ -11,7 +11,5 @@ const peru_agrikultur = {
   teh: 406,
   kakao: 0,
   tebu: 203,
-  karet: 0,
-  kapas: 434,
-  tembakau: 217,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const selandia_baru_agrikultur = {
   padi: 630,
   gandum: 546,
@@ -11,7 +11,5 @@ const selandia_baru_agrikultur = {
   teh: 819,
   kakao: 0,
   tebu: 1449,
-  karet: 0,
-  kapas: 1218,
-  tembakau: 588,
+  karet: 0
 };

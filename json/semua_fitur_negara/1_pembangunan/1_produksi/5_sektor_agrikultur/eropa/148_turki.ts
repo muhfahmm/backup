@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const turki_agrikultur = {
   padi: 268,
   gandum: 92,
@@ -11,7 +11,5 @@ const turki_agrikultur = {
   teh: 84,
   kakao: 0,
   tebu: 204,
-  karet: 0,
-  kapas: 296,
-  tembakau: 180,
+  karet: 0
 };

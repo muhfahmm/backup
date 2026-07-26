@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const siprus_agrikultur = {
   padi: 124,
   gandum: 80,
@@ -11,7 +11,5 @@ const siprus_agrikultur = {
   teh: 240,
   kakao: 0,
   tebu: 280,
-  karet: 0,
-  kapas: 140,
-  tembakau: 172,
+  karet: 0
 };

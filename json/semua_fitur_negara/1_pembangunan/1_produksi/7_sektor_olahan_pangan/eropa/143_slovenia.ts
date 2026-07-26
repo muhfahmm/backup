@@ -6,7 +6,7 @@ const slovenia_olahan_pangan = {
   pengolahan_daging: 88,
   mie_instan: 62,
   minyak_goreng: 32,
-  susu: 48,
-  pakan_ternak: 20,
-  ikan_kaleng: 84,
+  susu: 48
+  
+  
 };

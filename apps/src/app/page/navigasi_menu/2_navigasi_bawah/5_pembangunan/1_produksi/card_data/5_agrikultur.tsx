@@ -4,7 +4,7 @@ import BaseProduksiGrid from "../BaseProduksiGrid";
 
 const KEYS = [
   "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", 
-  "kopi", "teh", "kakao", "tebu", "karet", "kapas", "tembakau"
+  "kopi", "teh", "kakao", "tebu", "karet"
 ];
 
 export default function AgrikulturTab(props: any) {

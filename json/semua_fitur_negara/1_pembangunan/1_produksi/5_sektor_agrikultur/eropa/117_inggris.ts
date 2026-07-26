@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const inggris_agrikultur = {
   padi: 4500,
   gandum: 12300,
@@ -11,7 +11,5 @@ const inggris_agrikultur = {
   teh: 11100,
   kakao: 0,
   tebu: 10800,
-  karet: 0,
-  kapas: 20700,
-  tembakau: 5100,
+  karet: 0
 };

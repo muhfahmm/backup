@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const spanyol_agrikultur = {
   padi: 5452,
   gandum: 3828,
@@ -11,7 +11,5 @@ const spanyol_agrikultur = {
   teh: 1392,
   kakao: 0,
   tebu: 4988,
-  karet: 0,
-  kapas: 8932,
-  tembakau: 6032,
+  karet: 0
 };

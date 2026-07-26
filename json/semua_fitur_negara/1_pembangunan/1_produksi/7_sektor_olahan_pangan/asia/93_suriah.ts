@@ -6,7 +6,7 @@ const suriah_olahan_pangan = {
   pengolahan_daging: 26,
   mie_instan: 35,
   minyak_goreng: 46,
-  susu: 49,
-  pakan_ternak: 30,
-  ikan_kaleng: 37,
+  susu: 49
+  
+  
 };

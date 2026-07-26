@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kuba_agrikultur = {
   padi: 646,
   gandum: 1406,
@@ -11,7 +11,5 @@ const kuba_agrikultur = {
   teh: 893,
   kakao: 0,
   tebu: 1330,
-  karet: 0,
-  kapas: 1254,
-  tembakau: 494,
+  karet: 0
 };

@@ -6,7 +6,7 @@ const ceko_olahan_pangan = {
   pengolahan_daging: 851,
   mie_instan: 782,
   minyak_goreng: 437,
-  susu: 897,
-  pakan_ternak: 1012,
-  ikan_kaleng: 690,
+  susu: 897
+  
+  
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const guam_agrikultur = {
   padi: 158,
   gandum: 76,
@@ -11,7 +11,5 @@ const guam_agrikultur = {
   teh: 96,
   kakao: 0,
   tebu: 54,
-  karet: 0,
-  kapas: 90,
-  tembakau: 140,
+  karet: 0
 };

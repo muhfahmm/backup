@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const moldova_agrikultur = {
   padi: 68,
   gandum: 276,
@@ -11,7 +11,5 @@ const moldova_agrikultur = {
   teh: 320,
   kakao: 0,
   tebu: 160,
-  karet: 0,
-  kapas: 220,
-  tembakau: 212,
+  karet: 0
 };

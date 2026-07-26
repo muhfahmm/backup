@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const ghana_agrikultur = {
   padi: 77,
   gandum: 182,
@@ -11,7 +11,5 @@ const ghana_agrikultur = {
   teh: 84,
   kakao: 182,
   tebu: 301,
-  karet: 329,
-  kapas: 518,
-  tembakau: 301,
+  karet: 329
 };

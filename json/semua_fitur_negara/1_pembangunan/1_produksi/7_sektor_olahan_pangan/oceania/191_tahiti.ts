@@ -6,7 +6,7 @@ const tahiti_olahan_pangan = {
   pengolahan_daging: 15,
   mie_instan: 46,
   minyak_goreng: 41,
-  susu: 44,
-  pakan_ternak: 19,
-  ikan_kaleng: 12,
+  susu: 44
+  
+  
 };

@@ -6,7 +6,7 @@ const sierra_leone_olahan_pangan = {
   pengolahan_daging: 176,
   mie_instan: 116,
   minyak_goreng: 68,
-  susu: 88,
-  pakan_ternak: 120,
-  ikan_kaleng: 188,
+  susu: 88
+  
+  
 };

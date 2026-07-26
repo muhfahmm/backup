@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const bahrain_agrikultur = {
   padi: 480,
   gandum: 512,
@@ -11,7 +11,5 @@ const bahrain_agrikultur = {
   teh: 536,
   kakao: 0,
   tebu: 304,
-  karet: 0,
-  kapas: 632,
-  tembakau: 136,
+  karet: 0
 };

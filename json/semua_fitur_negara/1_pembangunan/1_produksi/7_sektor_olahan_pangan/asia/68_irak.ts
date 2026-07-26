@@ -6,7 +6,7 @@ const irak_olahan_pangan = {
   pengolahan_daging: 270,
   mie_instan: 180,
   minyak_goreng: 210,
-  susu: 78,
-  pakan_ternak: 114,
-  ikan_kaleng: 84,
+  susu: 78
+  
+  
 };

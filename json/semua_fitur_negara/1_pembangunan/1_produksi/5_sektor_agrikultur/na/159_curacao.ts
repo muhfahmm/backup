@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const curacao_agrikultur = {
   padi: 78,
   gandum: 142,
@@ -11,7 +11,5 @@ const curacao_agrikultur = {
   teh: 104,
   kakao: 0,
   tebu: 48,
-  karet: 0,
-  kapas: 68,
-  tembakau: 108,
+  karet: 0
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const filipina_agrikultur = {
   padi: 600,
   gandum: 720,
@@ -11,7 +11,5 @@ const filipina_agrikultur = {
   teh: 240,
   kakao: 280,
   tebu: 1220,
-  karet: 1180,
-  kapas: 1540,
-  tembakau: 780,
+  karet: 1180
 };

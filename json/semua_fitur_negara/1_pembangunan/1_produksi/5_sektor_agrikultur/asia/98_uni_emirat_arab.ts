@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const uni_emirat_arab_agrikultur = {
   padi: 4356,
   gandum: 2244,
@@ -11,7 +11,5 @@ const uni_emirat_arab_agrikultur = {
   teh: 2640,
   kakao: 0,
   tebu: 4620,
-  karet: 0,
-  kapas: 4950,
-  tembakau: 1320,
+  karet: 0
 };

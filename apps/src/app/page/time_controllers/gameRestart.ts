@@ -51,21 +51,19 @@ export function handleGameRestart(options: RestartOptions): void {
             // Buildings keys that can have count > 0
             const buildingKeys = [
                 // Agrikultur
-                'padi', 'gandum', 'jagung', 'sayur', 'umbi', 'kedelai', 'kelapa_sawit', 'kopi', 'teh', 'kakao', 'tebu', 'karet', 'kapas', 'tembakau',
+                'padi', 'gandum', 'jagung', 'sayur', 'umbi', 'kedelai', 'kelapa_sawit', 'kopi', 'teh', 'kakao', 'tebu', 'karet',
                 // Peternakan
                 'ayam_unggas', 'sapi_perah', 'sapi_potong', 'domba_kambing',
                 // Perikanan
                 'udang', 'mutiara', 'ikan',
                 // Olahan Pangan
-                'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu', 'pakan_ternak', 'ikan_kaleng',
+                'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu',
                 // Kelistrikan
                 'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
                 // Mineral & Energi
-                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'nikel', 'litium', 'tembaga', 'aluminium', 'logam_tanah_jarang', 'bijih_besi',
+                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi',
                 // Manufaktur
-                'semikonduktor', 'mobil', 'sepeda_motor', 'smelter', 'semen_beton', 'kayu', 'pupuk',
-                // Farmasi
-                'farmasi'
+                'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'
             ];
             
             buildingKeys.forEach(key => {

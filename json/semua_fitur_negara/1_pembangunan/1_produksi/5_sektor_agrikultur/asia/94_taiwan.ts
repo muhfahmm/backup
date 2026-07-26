@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const taiwan_agrikultur = {
   padi: 1632,
   gandum: 600,
@@ -11,7 +11,5 @@ const taiwan_agrikultur = {
   teh: 624,
   kakao: 0,
   tebu: 1008,
-  karet: 0,
-  kapas: 1200,
-  tembakau: 456,
+  karet: 0
 };

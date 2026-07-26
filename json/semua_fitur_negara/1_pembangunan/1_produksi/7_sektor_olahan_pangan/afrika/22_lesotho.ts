@@ -6,7 +6,7 @@ const lesotho_olahan_pangan = {
   pengolahan_daging: 135,
   mie_instan: 60,
   minyak_goreng: 123,
-  susu: 132,
-  pakan_ternak: 117,
-  ikan_kaleng: 30,
+  susu: 132
+  
+  
 };

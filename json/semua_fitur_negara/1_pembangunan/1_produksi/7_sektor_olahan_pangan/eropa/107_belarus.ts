@@ -6,7 +6,7 @@ const belarus_olahan_pangan = {
   pengolahan_daging: 180,
   mie_instan: 155,
   minyak_goreng: 175,
-  susu: 100,
-  pakan_ternak: 140,
-  ikan_kaleng: 160,
+  susu: 100
+  
+  
 };

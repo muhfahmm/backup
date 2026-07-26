@@ -6,7 +6,7 @@ const burundi_olahan_pangan = {
   pengolahan_daging: 78,
   mie_instan: 22,
   minyak_goreng: 36,
-  susu: 44,
-  pakan_ternak: 74,
-  ikan_kaleng: 82,
+  susu: 44
+  
+  
 };

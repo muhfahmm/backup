@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const kroasia_agrikultur = {
   padi: 120,
   gandum: 153,
@@ -11,7 +11,5 @@ const kroasia_agrikultur = {
   teh: 39,
   kakao: 0,
   tebu: 108,
-  karet: 0,
-  kapas: 156,
-  tembakau: 177,
+  karet: 0
 };

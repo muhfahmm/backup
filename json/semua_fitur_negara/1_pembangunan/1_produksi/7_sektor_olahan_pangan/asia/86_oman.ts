@@ -6,7 +6,7 @@ const oman_olahan_pangan = {
   pengolahan_daging: 330,
   mie_instan: 132,
   minyak_goreng: 528,
-  susu: 396,
-  pakan_ternak: 231,
-  ikan_kaleng: 363,
+  susu: 396
+  
+  
 };

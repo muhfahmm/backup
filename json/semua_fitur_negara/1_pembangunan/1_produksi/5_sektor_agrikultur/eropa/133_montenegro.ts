@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const montenegro_agrikultur = {
   padi: 28,
   gandum: 16,
@@ -11,7 +11,5 @@ const montenegro_agrikultur = {
   teh: 41,
   kakao: 0,
   tebu: 17,
-  karet: 0,
-  kapas: 58,
-  tembakau: 48,
+  karet: 0
 };

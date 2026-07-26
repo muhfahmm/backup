@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const jamaika_agrikultur = {
   padi: 48,
   gandum: 252,
@@ -11,7 +11,5 @@ const jamaika_agrikultur = {
   teh: 212,
   kakao: 0,
   tebu: 40,
-  karet: 0,
-  kapas: 64,
-  tembakau: 108,
+  karet: 0
 };

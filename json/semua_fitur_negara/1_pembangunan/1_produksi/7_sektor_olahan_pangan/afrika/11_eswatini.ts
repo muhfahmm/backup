@@ -6,7 +6,7 @@ const eswatini_olahan_pangan = {
   pengolahan_daging: 25,
   mie_instan: 32,
   minyak_goreng: 28,
-  susu: 46,
-  pakan_ternak: 11,
-  ikan_kaleng: 46,
+  susu: 46
+  
+  
 };

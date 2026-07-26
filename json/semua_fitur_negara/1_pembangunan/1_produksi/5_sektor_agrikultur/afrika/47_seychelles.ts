@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const seychelles_agrikultur = {
   padi: 132,
   gandum: 142,
@@ -11,7 +11,5 @@ const seychelles_agrikultur = {
   teh: 38,
   kakao: 0,
   tebu: 154,
-  karet: 0,
-  kapas: 26,
-  tembakau: 36,
+  karet: 0
 };

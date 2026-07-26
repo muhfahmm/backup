@@ -6,7 +6,7 @@ const bulgaria_olahan_pangan = {
   pengolahan_daging: 230,
   mie_instan: 100,
   minyak_goreng: 270,
-  susu: 240,
-  pakan_ternak: 380,
-  ikan_kaleng: 160,
+  susu: 240
+  
+  
 };

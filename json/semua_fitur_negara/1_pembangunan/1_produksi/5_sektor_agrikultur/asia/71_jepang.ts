@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const jepang_agrikultur = {
   padi: 6902,
   gandum: 11186,
@@ -11,7 +11,5 @@ const jepang_agrikultur = {
   teh: 10710,
   kakao: 0,
   tebu: 17612,
-  karet: 0,
-  kapas: 12852,
-  tembakau: 18802,
+  karet: 0
 };

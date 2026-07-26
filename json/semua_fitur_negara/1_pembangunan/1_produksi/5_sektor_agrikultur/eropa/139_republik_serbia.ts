@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const republik_serbia_agrikultur = {
   padi: 180,
   gandum: 160,
@@ -11,7 +11,5 @@ const republik_serbia_agrikultur = {
   teh: 305,
   kakao: 0,
   tebu: 110,
-  karet: 0,
-  kapas: 275,
-  tembakau: 135,
+  karet: 0
 };

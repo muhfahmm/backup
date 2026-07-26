@@ -6,7 +6,7 @@ const inggris_olahan_pangan = {
   pengolahan_daging: 9900,
   mie_instan: 14100,
   minyak_goreng: 4200,
-  susu: 13500,
-  pakan_ternak: 13200,
-  ikan_kaleng: 6600,
+  susu: 13500
+  
+  
 };

@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const ethiopia_agrikultur = {
   padi: 1422,
   gandum: 1224,
@@ -11,7 +11,5 @@ const ethiopia_agrikultur = {
   teh: 1278,
   kakao: 0,
   tebu: 828,
-  karet: 0,
-  kapas: 684,
-  tembakau: 1242,
+  karet: 0
 };

@@ -1,6 +1,6 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 // ===================
-// DETAIL TOTAL BANGUNAN: Manufaktur (Total: 7 Bangunan)
+// DETAIL TOTAL BANGUNAN: Manufaktur (Total: 4 Bangunan)
 // ===================
 const manufakturRate = {
   "1_pabrik_elektronik": {
@@ -39,19 +39,7 @@ const manufakturRate = {
     lowongan_kerja: 22000,
     konsumsi_listrik: 280
   },
-  "4_smelter": {
-    key: "4_smelter",
-    dataKey: "smelter",
-    label: "Pabrik Logam (Smelter)",
-    deskripsi: "Pabrik Logam (Smelter)",
-    produksi: 35000,
-    satuan: "TON",
-    waktu_pembangunan: 180,
-    biaya_pembangunan: 7500,
-    lowongan_kerja: 12000,
-    konsumsi_listrik: 950
-  },
-  "5_pabrik_semen": {
+  "4_pabrik_semen": {
     key: "5_pabrik_semen",
     dataKey: "semen_beton",
     label: "Pabrik Beton & Semen",
@@ -63,7 +51,7 @@ const manufakturRate = {
     lowongan_kerja: 8000,
     konsumsi_listrik: 580
   },
-  "6_penggergajian_kayu": {
+  "5_penggergajian_kayu": {
     key: "6_penggergajian_kayu",
     dataKey: "kayu",
     label: "Penggergajian Kayu",
@@ -74,17 +62,5 @@ const manufakturRate = {
     biaya_pembangunan: 1500,
     lowongan_kerja: 5000,
     konsumsi_listrik: 150
-  },
-  "7_pabrik_pupuk": {
-    key: "7_pabrik_pupuk",
-    dataKey: "pupuk",
-    label: "Pabrik Pupuk",
-    deskripsi: "Pabrik Pupuk",
-    produksi: 42000,
-    satuan: "TON",
-    waktu_pembangunan: 90,
-    biaya_pembangunan: 2000,
-    lowongan_kerja: 7000,
-    konsumsi_listrik: 320
-  },
+  }
 };

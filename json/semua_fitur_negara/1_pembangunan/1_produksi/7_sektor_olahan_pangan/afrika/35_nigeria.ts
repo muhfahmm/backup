@@ -6,7 +6,7 @@ const nigeria_olahan_pangan = {
   pengolahan_daging: 616,
   mie_instan: 560,
   minyak_goreng: 1792,
-  susu: 1344,
-  pakan_ternak: 896,
-  ikan_kaleng: 2688,
+  susu: 1344
+  
+  
 };

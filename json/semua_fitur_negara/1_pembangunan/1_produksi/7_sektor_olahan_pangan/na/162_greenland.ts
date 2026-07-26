@@ -6,7 +6,7 @@ const greenland_olahan_pangan = {
   pengolahan_daging: 52,
   mie_instan: 200,
   minyak_goreng: 92,
-  susu: 152,
-  pakan_ternak: 120,
-  ikan_kaleng: 196,
+  susu: 152
+  
+  
 };

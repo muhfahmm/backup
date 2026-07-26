@@ -6,10 +6,9 @@ const kuwait_ekstraksi = {
   minyak_bumi: 60,
   gas_alam: 30,
   garam: 1,
-  nikel: 0,
+  
   litium: 0,
-  tembaga: 0,
-  aluminium: 0,
+  
   logam_tanah_jarang: 0,
-  bijih_besi: 100,
+  bijih_besi: 100
 };

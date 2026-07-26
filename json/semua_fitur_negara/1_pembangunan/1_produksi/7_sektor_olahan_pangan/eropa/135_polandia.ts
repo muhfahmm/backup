@@ -6,7 +6,7 @@ const polandia_olahan_pangan = {
   pengolahan_daging: 1749,
   mie_instan: 1537,
   minyak_goreng: 2014,
-  susu: 742,
-  pakan_ternak: 1484,
-  ikan_kaleng: 1272,
+  susu: 742
+  
+  
 };

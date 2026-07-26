@@ -1,4 +1,4 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const pakistan_agrikultur = {
   padi: 2704,
   gandum: 2704,
@@ -11,7 +11,5 @@ const pakistan_agrikultur = {
   teh: 780,
   kakao: 0,
   tebu: 1924,
-  karet: 0,
-  kapas: 1196,
-  tembakau: 4160,
+  karet: 0
 };
