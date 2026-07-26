@@ -1,12 +1,12 @@
 // @ts-nocheck
 const prancis_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: true,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: true
+  emas: 26,
+  uranium: 0,
+  batu_bara: 0,
+  minyak_bumi: 1,
+  gas_alam: 1,
+  garam: 2,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 2096
 };

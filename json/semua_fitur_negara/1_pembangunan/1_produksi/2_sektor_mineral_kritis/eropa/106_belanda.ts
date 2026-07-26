@@ -1,12 +1,12 @@
 // @ts-nocheck
 const belanda_ekstraksi = {
-  bijih_besi: false,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: false,
-  batu_bara: false,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: false,
-  garam: false
+  emas: 31,
+  uranium: 0,
+  batu_bara: 0,
+  minyak_bumi: 1,
+  gas_alam: 5,
+  garam: 2,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 1350
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const yunani_ekstraksi = {
-  bijih_besi: true,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: false,
-  gas_alam: false,
-  uranium: false,
-  garam: true
+  emas: 27,
+  uranium: 0,
+  batu_bara: 1,
+  minyak_bumi: 0,
+  gas_alam: 0,
+  garam: 1,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 70
 };

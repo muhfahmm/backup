@@ -9,7 +9,7 @@
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 6000,
     "lowongan_kerja": 1000,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 80
   },
   "uranium": {
     "key": "2_tambang_uranium",
@@ -21,7 +21,7 @@
     "waktu_pembangunan": 240,
     "biaya_pembangunan": 7500,
     "lowongan_kerja": 500,
-    "konsumsi_listrik": 20
+    "konsumsi_listrik": 150
   },
   "batu_bara": {
     "key": "3_tambang_batu_bara",
@@ -33,7 +33,7 @@
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 1500,
     "lowongan_kerja": 2000,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 120
   },
   "minyak_bumi": {
     "key": "4_sumur_minyak",
@@ -45,7 +45,7 @@
     "waktu_pembangunan": 150,
     "biaya_pembangunan": 4500,
     "lowongan_kerja": 300,
-    "konsumsi_listrik": 15
+    "konsumsi_listrik": 150
   },
   "gas_alam": {
     "key": "5_sumur_gas",
@@ -57,7 +57,7 @@
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 4000,
     "lowongan_kerja": 200,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 130
   },
   "garam": {
     "key": "6_tambang_garam",
@@ -69,7 +69,7 @@
     "waktu_pembangunan": 45,
     "biaya_pembangunan": 500,
     "lowongan_kerja": 400,
-    "konsumsi_listrik": 5
+    "konsumsi_listrik": 45
   },
   "litium": {
     "key": "8_tambang_litium",
@@ -93,7 +93,7 @@
     "waktu_pembangunan": 360,
     "biaya_pembangunan": 9000,
     "lowongan_kerja": 800,
-    "konsumsi_listrik": 15
+    "konsumsi_listrik": 380
   },
   "bijih_besi": {
     "key": "12_tambang_bijih_besi",
@@ -105,6 +105,6 @@
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 2500,
     "lowongan_kerja": 1800,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 180
   }
 }

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bangladesh_ekstraksi = {
-  bijih_besi: false,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: false,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: false,
-  garam: false
+  emas: 20,
+  uranium: 0,
+  batu_bara: 1,
+  minyak_bumi: 0,
+  gas_alam: 2,
+  garam: 1,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 700
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const india_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: false
+  emas: 21,
+  uranium: 3,
+  batu_bara: 80,
+  minyak_bumi: 20,
+  gas_alam: 15,
+  garam: 90,
+  litium: 5,
+  logam_tanah_jarang: 7,
+  bijih_besi: 2358
 };

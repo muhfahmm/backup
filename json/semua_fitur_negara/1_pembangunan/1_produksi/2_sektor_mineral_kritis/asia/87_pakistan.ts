@@ -1,12 +1,12 @@
 // @ts-nocheck
 const pakistan_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: true,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: true
+  emas: 19,
+  uranium: 0,
+  batu_bara: 5,
+  minyak_bumi: 1,
+  gas_alam: 3,
+  garam: 3,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 520
 };

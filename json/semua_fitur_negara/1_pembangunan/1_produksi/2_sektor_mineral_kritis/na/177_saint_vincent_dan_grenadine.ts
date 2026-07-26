@@ -1,12 +1,12 @@
 // @ts-nocheck
 const saint_vincent_dan_grenadine_ekstraksi = {
-  bijih_besi: false,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: false,
-  batu_bara: false,
-  minyak_bumi: false,
-  gas_alam: false,
-  uranium: false,
-  garam: false
+  emas: 23,
+  uranium: 0,
+  batu_bara: 1,
+  minyak_bumi: 1,
+  gas_alam: 1,
+  garam: 1,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 5
 };

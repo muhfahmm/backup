@@ -1,12 +1,12 @@
 // @ts-nocheck
 const finlandia_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: false,
-  minyak_bumi: false,
-  gas_alam: false,
-  uranium: false,
-  garam: false
+  emas: 29,
+  uranium: 0,
+  batu_bara: 0,
+  minyak_bumi: 0,
+  gas_alam: 0,
+  garam: 0,
+  litium: 1,
+  logam_tanah_jarang: 1,
+  bijih_besi: 36
 };

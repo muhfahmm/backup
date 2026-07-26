@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kolombia_ekstraksi = {
-  bijih_besi: true,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: true
+  emas: 17,
+  uranium: 0,
+  batu_bara: 10,
+  minyak_bumi: 10,
+  gas_alam: 5,
+  garam: 2,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 72
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const brazil_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: true,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: false
+  emas: 21,
+  uranium: 5,
+  batu_bara: 5,
+  minyak_bumi: 15,
+  gas_alam: 10,
+  garam: 50,
+  litium: 15,
+  logam_tanah_jarang: 21,
+  bijih_besi: 1455
 };

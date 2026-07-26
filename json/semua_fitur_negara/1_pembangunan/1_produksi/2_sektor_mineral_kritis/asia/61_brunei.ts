@@ -1,12 +1,12 @@
 // @ts-nocheck
 const brunei_ekstraksi = {
-  bijih_besi: false,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: false,
-  batu_bara: false,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: false,
-  garam: false
+  emas: 22,
+  uranium: 0,
+  batu_bara: 0,
+  minyak_bumi: 2,
+  gas_alam: 4,
+  garam: 1,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 3
 };

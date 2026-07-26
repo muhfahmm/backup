@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_serbia_ekstraksi = {
-  bijih_besi: true,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: false,
-  gas_alam: false,
-  uranium: false,
-  garam: false
+  emas: 25,
+  uranium: 0,
+  batu_bara: 2,
+  minyak_bumi: 1,
+  gas_alam: 1,
+  garam: 0,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 5
 };

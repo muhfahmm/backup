@@ -1,12 +1,12 @@
 // @ts-nocheck
 const argentina_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: true,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: false
+  emas: 21,
+  uranium: 0,
+  batu_bara: 0,
+  minyak_bumi: 10,
+  gas_alam: 10,
+  garam: 15,
+  litium: 20,
+  logam_tanah_jarang: 0,
+  bijih_besi: 48
 };

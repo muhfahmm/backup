@@ -1,12 +1,12 @@
 // @ts-nocheck
 const uzbekistan_ekstraksi = {
-  bijih_besi: true,
-  litium: false,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: false
+  emas: 21,
+  uranium: 15,
+  batu_bara: 5,
+  minyak_bumi: 2,
+  gas_alam: 10,
+  garam: 1,
+  litium: 0,
+  logam_tanah_jarang: 0,
+  bijih_besi: 21
 };

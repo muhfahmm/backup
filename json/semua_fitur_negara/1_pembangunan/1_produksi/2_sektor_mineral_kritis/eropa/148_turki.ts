@@ -1,12 +1,12 @@
 // @ts-nocheck
 const turki_ekstraksi = {
-  bijih_besi: true,
-  litium: true,
-  logam_tanah_jarang: false,
-  emas: true,
-  batu_bara: true,
-  minyak_bumi: true,
-  gas_alam: true,
-  uranium: true,
-  garam: true
+  emas: 25,
+  uranium: 0,
+  batu_bara: 10,
+  minyak_bumi: 2,
+  gas_alam: 1,
+  garam: 5,
+  litium: 0,
+  logam_tanah_jarang: 1,
+  bijih_besi: 8
 };
