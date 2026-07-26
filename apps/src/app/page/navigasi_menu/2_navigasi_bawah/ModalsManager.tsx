@@ -69,6 +69,7 @@ interface ModalsManagerProps {
   resetTrigger?: boolean;
   productionDeepLink?: { tab: string; key: string } | null;
   setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
+  onOpenCountryDetail?: (countryName: string) => void;
 }
 
 function ModalsManager({
@@ -81,6 +82,7 @@ function ModalsManager({
   resetTrigger,
   productionDeepLink,
   setProductionDeepLink,
+  onOpenCountryDetail,
 }: ModalsManagerProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
 
@@ -339,6 +341,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          onOpenCountryDetail={onOpenCountryDetail}
         />
       );
     case "Menu:OrganisasiInternasional:organisasi_pbb":

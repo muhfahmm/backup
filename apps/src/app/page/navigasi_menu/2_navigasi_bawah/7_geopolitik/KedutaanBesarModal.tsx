@@ -24,9 +24,10 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onOpenCountryDetail?: (countryName: string) => void;
 }
 
-export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, setCountryDetail, onOpenCountryDetail }: ModalProps) {
   if (!isOpen) return null;
   const anggaran = countryDetail?.anggaran || 0;
   const directEmbassies = Array.isArray(countryDetail?.embassies) ? countryDetail.embassies : [];
@@ -70,7 +71,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
 
   const playerName = countryDetail?.country || countryDetail?.nama || countryDetail?.country_name || 'Negara Anda';
 
-  // PERBAIKAN: State untuk Modal Konfirmasi & Modal Sukses
+  // State untuk Modal Konfirmasi & Modal Sukses
   const [confirmModal, setConfirmModal] = useState<{ isOpen: boolean; partnerName: string | null }>({ isOpen: false, partnerName: null });
   const [successModal, setSuccessModal] = useState<{ isOpen: boolean; message: string | null }>({ isOpen: false, message: null });
 
@@ -97,12 +98,19 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
     );
   };
 
-  // PERBAIKAN: Logika membuka modal konfirmasi
+  const handleOpenCountryDetail = (partnerName: string) => {
+    onClose();
+    if (onOpenCountryDetail) {
+      onOpenCountryDetail(partnerName);
+    }
+  };
+
+  // Logika membuka modal konfirmasi
   const handleDestroyEmbassy = (partnerName: string) => {
     setConfirmModal({ isOpen: true, partnerName });
   };
 
-  // PERBAIKAN: Eksekusi penghancuran setelah dikonfirmasi
+  // Eksekusi penghancuran setelah dikonfirmasi
   const handleConfirmDestroy = () => {
     if (!confirmModal.partnerName) return;
     const partnerName = confirmModal.partnerName;
@@ -118,7 +126,6 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
       removedTradePartners: Array.from(new Set([...existingRemovedTrade, partnerName])),
     });
 
-    // Tutup modal konfirmasi & tampilkan modal sukses
     setConfirmModal({ isOpen: false, partnerName: null });
     setSuccessModal({
       isOpen: true,
@@ -162,7 +169,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
               {embassies.map((item: any, idx: number) => {
                 const iso = getIsoFromName(item.mitra);
                 return (
-                  <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-col justify-between w-full gap-4">
+                  <div key={idx} className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex flex-row items-center justify-between w-full gap-4">
                     
                     {/* Bagian Informasi Kedutaan */}
                     <div>
@@ -182,8 +189,18 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
                       )}
                     </div>
 
-                    {/* Bagian Tombol Aksi (Di Kanan) */}
-                    <div className="flex justify-end">
+                    {/* Bagian Tombol Aksi (Flex Layout: Hijau & Merah) */}
+                    <div className="flex flex-row items-center gap-2 flex-shrink-0">
+                      {/* Tombol Lihat Detail Negara (Border Hijau) */}
+                      <button
+                        onClick={() => handleOpenCountryDetail(item.mitra)}
+                        className="border-2 border-emerald-500 bg-transparent text-emerald-700 hover:bg-emerald-50 hover:border-emerald-600 px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer flex items-center gap-1.5 shadow-sm"
+                      >
+                        <Globe className="w-3.5 h-3.5" />
+                        Lihat Detail Negara
+                      </button>
+
+                      {/* Tombol Hancurkan Kedutaan Besar (Border Merah) */}
                       <button
                         onClick={() => handleDestroyEmbassy(item.mitra)}
                         className="border-2 border-rose-500 bg-transparent text-rose-700 hover:bg-rose-50 hover:border-rose-600 px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-wider transition-all cursor-pointer"
@@ -198,7 +215,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
           )}
         </div>
 
-        {/* PERBAIKAN: Modal Konfirmasi Hancurkan Kedutaan */}
+        {/* Modal Konfirmasi Hancurkan Kedutaan */}
         {confirmModal.isOpen && (
           <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
             <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-md w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
@@ -230,7 +247,7 @@ export default function KedutaanBesarModal({ isOpen, onClose, countryDetail, set
           </div>
         )}
 
-        {/* PERBAIKAN: Modal Notifikasi Sukses */}
+        {/* Modal Notifikasi Sukses */}
         {successModal.isOpen && (
           <div className="absolute inset-0 bg-black/60 z-30 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
             <div className="bg-[#FAF6EE] border-4 border-emerald-500 rounded-2xl max-w-md w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">

@@ -565,6 +565,10 @@ export default function MapPage() {
                 resetTrigger={resetTrigger}
                 productionDeepLink={productionDeepLink}
                 setProductionDeepLink={setProductionDeepLink}
+                onOpenCountryDetail={(targetCountry: string) => {
+                    setCountryDetailModalName(targetCountry);
+                    setCountryDetailModalOpen(true);
+                }}
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}
