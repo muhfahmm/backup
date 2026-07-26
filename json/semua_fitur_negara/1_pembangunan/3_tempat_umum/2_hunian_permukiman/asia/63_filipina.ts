@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const filipina_hunian = {
-  rumah_subsidi: 1439800,
-  apartemen: 21597,
-  mansion: 719900,
+  rumah_subsidi: 240993,
+  apartemen: 78161,
+  mansion: 15697,
 };

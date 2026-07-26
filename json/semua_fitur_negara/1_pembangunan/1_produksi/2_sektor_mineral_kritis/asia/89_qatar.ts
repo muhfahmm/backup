@@ -1,14 +1,12 @@
 // @ts-nocheck
 const qatar_ekstraksi = {
-  emas: 30,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 15,
-  gas_alam: 95,
-  garam: 0,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 135
+  bijih_besi: false,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: false,
+  batu_bara: false,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: false,
+  garam: false
 };

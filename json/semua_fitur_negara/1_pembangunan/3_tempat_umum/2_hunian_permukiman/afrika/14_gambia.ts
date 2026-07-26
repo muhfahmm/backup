@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const gambia_hunian = {
-  rumah_subsidi: 30781,
-  apartemen: 461,
-  mansion: 15390,
+  rumah_subsidi: 241585,
+  apartemen: 82253,
+  mansion: 4897,
 };

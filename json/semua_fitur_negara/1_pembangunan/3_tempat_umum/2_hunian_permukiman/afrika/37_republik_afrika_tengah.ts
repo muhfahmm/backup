@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const republik_afrika_tengah_hunian = {
-  rumah_subsidi: 62996,
-  apartemen: 944,
-  mansion: 31498,
+  rumah_subsidi: 146567,
+  apartemen: 61094,
+  mansion: 4521,
 };

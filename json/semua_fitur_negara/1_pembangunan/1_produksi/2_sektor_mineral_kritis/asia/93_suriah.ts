@@ -1,14 +1,12 @@
 // @ts-nocheck
 const suriah_ekstraksi = {
-  emas: 22,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 3,
-  gas_alam: 2,
-  garam: 0,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 5
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: false,
+  batu_bara: false,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: false,
+  garam: false
 };

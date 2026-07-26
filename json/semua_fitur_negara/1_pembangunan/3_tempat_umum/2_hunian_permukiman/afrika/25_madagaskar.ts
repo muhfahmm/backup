@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const madagaskar_hunian = {
-  rumah_subsidi: 354541,
-  apartemen: 5318,
-  mansion: 177270,
+  rumah_subsidi: 126899,
+  apartemen: 85529,
+  mansion: 2869,
 };

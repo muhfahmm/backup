@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const pantai_gading_hunian = {
-  rumah_subsidi: 338434,
-  apartemen: 5076,
-  mansion: 169217,
+  rumah_subsidi: 169864,
+  apartemen: 77528,
+  mansion: 3467,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const selandia_baru_hunian = {
-  rumah_subsidi: 65353,
-  apartemen: 980,
-  mansion: 32676,
+  rumah_subsidi: 172618,
+  apartemen: 79847,
+  mansion: 48823,
 };

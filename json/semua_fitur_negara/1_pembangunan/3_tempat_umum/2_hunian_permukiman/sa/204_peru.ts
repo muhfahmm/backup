@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const peru_hunian = {
-  rumah_subsidi: 431854,
-  apartemen: 6477,
-  mansion: 215927,
+  rumah_subsidi: 228288,
+  apartemen: 54156,
+  mansion: 30927,
 };

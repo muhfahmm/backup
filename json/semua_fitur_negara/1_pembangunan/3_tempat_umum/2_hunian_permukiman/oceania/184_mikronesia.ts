@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const mikronesia_hunian = {
-  rumah_subsidi: 1520,
-  apartemen: 22,
-  mansion: 760,
+  rumah_subsidi: 216201,
+  apartemen: 71683,
+  mansion: 3496,
 };

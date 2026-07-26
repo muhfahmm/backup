@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const sudan_selatan_hunian = {
-  rumah_subsidi: 148174,
-  apartemen: 2222,
-  mansion: 74087,
+  rumah_subsidi: 105227,
+  apartemen: 70598,
+  mansion: 1016,
 };

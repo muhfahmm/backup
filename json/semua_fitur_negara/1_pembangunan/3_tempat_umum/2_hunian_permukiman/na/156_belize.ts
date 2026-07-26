@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const belize_hunian = {
-  rumah_subsidi: 5171,
-  apartemen: 77,
-  mansion: 2585,
+  rumah_subsidi: 202981,
+  apartemen: 72495,
+  mansion: 1516,
 };

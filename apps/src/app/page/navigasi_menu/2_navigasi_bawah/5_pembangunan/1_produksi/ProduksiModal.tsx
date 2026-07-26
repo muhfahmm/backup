@@ -344,9 +344,44 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     return sum + perUnit * count;
   }, 0);
 
-  const estimatedConsumption = Math.min(
-    totalProductionMW,
-    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+  const totalBuildingElectricityConsumption = useMemo(() => {
+    if (!metadata || !countryDetail) return 0;
+    let total = 0;
+    Object.keys(metadata).forEach((key) => {
+      const bMeta = metadata[key];
+      const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
+      if (konsumsi <= 0) return;
+
+      const possibleKeys = [
+        key,
+        bMeta?.dataKey,
+        key.replace(/^\d+_/, ''),
+        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
+      ].filter(Boolean) as string[];
+
+      let count = 0;
+      for (const pKey of possibleKeys) {
+        if (countryDetail[pKey] !== undefined && countryDetail[pKey] !== null) {
+          count = Number(countryDetail[pKey]) || 0;
+          break;
+        }
+      }
+
+      if (count > 0) {
+        total += count * konsumsi;
+      }
+    });
+    return total;
+  }, [metadata, countryDetail]);
+
+  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const estimatedConsumption = Math.max(
+    0,
+    Math.round(
+      totalBuildingElectricityConsumption > 0
+        ? totalBuildingElectricityConsumption + populationDemand
+        : totalProductionMW * 0.7 + populationDemand
+    )
   );
 
   return (

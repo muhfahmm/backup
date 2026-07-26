@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const hong_kong_hunian = {
-  rumah_subsidi: 100588,
-  apartemen: 1508,
-  mansion: 50294,
+  rumah_subsidi: 232287,
+  apartemen: 54112,
+  mansion: 2776,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const rwanda_hunian = {
-  rumah_subsidi: 166076,
-  apartemen: 2491,
-  mansion: 83038,
+  rumah_subsidi: 149321,
+  apartemen: 60901,
+  mansion: 4546,
 };

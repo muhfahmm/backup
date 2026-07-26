@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const denmark_hunian = {
-  rumah_subsidi: 78214,
-  apartemen: 1173,
-  mansion: 39107,
+  rumah_subsidi: 103218,
+  apartemen: 83255,
+  mansion: 20893,
 };

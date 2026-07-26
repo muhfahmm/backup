@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const uruguay_hunian = {
-  rumah_subsidi: 46565,
-  apartemen: 698,
-  mansion: 23282,
+  rumah_subsidi: 234012,
+  apartemen: 54695,
+  mansion: 3752,
 };

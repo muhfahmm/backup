@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
-import { X, Home, TrendingUp, TrendingDown, Hammer, Eye, EyeOff, AlertCircle } from "lucide-react";
+import { X, Home, TrendingUp, TrendingDown, Hammer, Eye, EyeOff, AlertCircle, Info } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -77,6 +77,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
+  const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
 
   // --- FUNGSI findMeta (SAMA SEPERTI DI ProduksiModal) ---
   const findMeta = (key: string) => {
@@ -212,9 +213,45 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
     return sum + perUnit * count;
   }, 0);
 
-  const estimatedConsumption = Math.min(
-    totalProductionMW,
-    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+  const totalBuildingElectricityConsumption = () => {
+    if (!metadata || !countryDetail) return 0;
+    let total = 0;
+    Object.keys(metadata).forEach((key) => {
+      const bMeta = metadata[key];
+      const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
+      if (konsumsi <= 0) return;
+
+      const possibleKeys = [
+        key,
+        bMeta?.dataKey,
+        key.replace(/^\d+_/, ''),
+        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
+      ].filter(Boolean) as string[];
+
+      let count = 0;
+      for (const pKey of possibleKeys) {
+        if (countryDetail[pKey] !== undefined && countryDetail[pKey] !== null) {
+          count = Number(countryDetail[pKey]) || 0;
+          break;
+        }
+      }
+
+      if (count > 0) {
+        total += count * konsumsi;
+      }
+    });
+    return total;
+  };
+
+  const buildingCons = totalBuildingElectricityConsumption();
+  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const estimatedConsumption = Math.max(
+    0,
+    Math.round(
+      buildingCons > 0
+        ? buildingCons + populationDemand
+        : totalProductionMW * 0.7 + populationDemand
+    )
   );
   // ------------------------------------------------------------------------
 
@@ -298,9 +335,75 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                       </div>
                     </div>
 
-                    <div className="bg-white/90 border border-[#C4B49C]/30 rounded-3xl p-6 shadow-sm max-w-sm">
-                      <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">Total Terdaftar</p>
-                      <p className="text-4xl font-black text-[#2e261a] mt-3">{activeItem.value.toLocaleString('id-ID')}</p>
+                    <div className="bg-white/90 border border-[#C4B49C]/30 rounded-3xl p-6 shadow-sm max-w-sm relative overflow-visible">
+                      {/* Info Tooltip */}
+                      {hoveredBuildingKey === activeItem.key && (() => {
+                        const bMeta = findMeta(activeItem.key) || {};
+                        const perCount = activeItem.value || 0;
+                        const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+                        const biaya = Number(bMeta?.biaya_pembangunan) || 0;
+                        const waktu = bMeta?.waktu_pembangunan;
+
+                        return (
+                          <div 
+                            className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150"
+                            onClick={(e) => e.stopPropagation()}
+                          >
+                            <div className="flex justify-between items-start mb-2">
+                              <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE]">
+                                ℹ️ Info Bangunan
+                              </div>
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setHoveredBuildingKey(null);
+                                }}
+                                className="text-[#FAF6EE]/70 hover:text-[#FAF6EE] transition-colors ml-2"
+                                aria-label="Tutup info"
+                              >
+                                ✕
+                              </button>
+                            </div>
+
+                            <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
+                              <div className="flex justify-between">
+                                <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
+                                <span className="text-rose-300 font-bold">{konsumsiUnit.toLocaleString('id-ID')} MW</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
+                                <span className="text-rose-300 font-bold">{(konsumsiUnit * perCount).toLocaleString('id-ID')} MW</span>
+                              </div>
+                              <div className="flex justify-between">
+                                <span className="text-[#C4B49C]">Biaya:</span>
+                                <span className="text-amber-300 font-bold">{biaya.toLocaleString('id-ID')} EM</span>
+                              </div>
+                              {waktu !== undefined && (
+                                <div className="flex justify-between">
+                                  <span className="text-[#C4B49C]">Waktu:</span>
+                                  <span className="text-amber-300 font-bold">{waktu} hari</span>
+                                </div>
+                              )}
+                            </div>
+                            <div className="text-[9px] text-[#C4B49C] mt-2 pt-2 border-t border-[#8b7e66]/30 italic">Klik untuk mulai pembangunan</div>
+                          </div>
+                        );
+                      })()}
+
+                      <div className="flex items-center justify-between gap-2 mb-1">
+                        <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">Total Terdaftar</p>
+                        <button
+                          className="flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-help bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10]"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setHoveredBuildingKey(hoveredBuildingKey === activeItem.key ? null : activeItem.key);
+                          }}
+                          title="Info bangunan"
+                        >
+                          <Info className="w-3 h-3" />
+                        </button>
+                      </div>
+                      <p className="text-4xl font-black text-[#2e261a] mt-2">{activeItem.value.toLocaleString('id-ID')}</p>
                       <div className="border-t border-[#C4B49C]/20 mt-6 pt-3">
                         <button
                           onClick={() => handleBuild(activeItem.key, activeItem.label)}
@@ -324,6 +427,29 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                   <p className="text-xs text-[#8b7e66] mt-1">Data hunian direkap dari registrasi kepemilikan dan pajak bumi bangunan.</p>
                 </div>
               </div>
+
+              {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI (PALING BAWAH MENU) --- */}
+              {activeItem && (() => {
+                const bMeta = findMeta(activeItem.key);
+                const count = Number(countryDetail?.[activeItem.key]) || 0;
+                const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+                const categoryElectricityConsumption = count * konsumsiUnit;
+
+                return (
+                  <div className="mt-4 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
+                        ⚡ Total Konsumsi Listrik {activeItem.label}
+                      </span>
+                    </div>
+                    <div className="px-4 py-1.5 rounded-lg bg-rose-50 border border-rose-300">
+                      <span className="text-sm font-black text-rose-700">
+                        {categoryElectricityConsumption.toLocaleString('id-ID')} MW
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>

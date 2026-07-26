@@ -1,14 +1,12 @@
 // @ts-nocheck
 const guiana_prancis_ekstraksi = {
-  emas: 16,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 0,
-  gas_alam: 0,
-  garam: 1,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 9
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: true,
+  batu_bara: false,
+  minyak_bumi: false,
+  gas_alam: false,
+  uranium: false,
+  garam: false
 };

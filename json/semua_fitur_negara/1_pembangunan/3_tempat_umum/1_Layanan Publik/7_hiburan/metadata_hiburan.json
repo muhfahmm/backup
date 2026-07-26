@@ -9,7 +9,7 @@
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 26250,
     "lowongan_kerja": 2500,
-    "konsumsi_listrik": 120,
+    "konsumsi_listrik": 30,
     "efek": "Meningkatkan kas negara"
   },
   "gedung_teater": {
@@ -22,7 +22,7 @@
     "waktu_pembangunan": 150,
     "biaya_pembangunan": 48750,
     "lowongan_kerja": 3500,
-    "konsumsi_listrik": 150,
+    "konsumsi_listrik": 30,
     "efek": "Meningkatkan kas negara"
   }
 }

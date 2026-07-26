@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const mauritius_hunian = {
-  rumah_subsidi: 17081,
-  apartemen: 256,
-  mansion: 8540,
+  rumah_subsidi: 233289,
+  apartemen: 68247,
+  mansion: 2069,
 };

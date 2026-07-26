@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
-import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown, Hammer } from "lucide-react";
+import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown, Hammer, Info } from "lucide-react";
 
 // --- IMPOR MODUL REQUIREMENTS MATERIAL ---
 import * as infrastrukturRequirements from "./requirements_logic/1_infrastruktur/requirements";
@@ -72,17 +72,23 @@ const RESOURCE_KEY_ALIASES: Record<string, string> = {
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 const formatNumber = (value: number) => value.toLocaleString("id-ID");
 
-export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction }: ModalProps) {
-  const [activeTabId, setActiveTabId] = useState("infrastruktur");
+export default function TempatUmumModal({
+  isOpen,
+  onClose,
+  countryDetail,
+  setCountryDetail,
+  onGotoProduction,
+}: ModalProps) {
+  const [activeTabId, setActiveTabId] = useState<string>("infrastruktur");
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [metadata, setMetadata] = useState<Record<string, any>>({});
-  const [loadingMetadata, setLoadingMetadata] = useState(true);
-  const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
-
-  const [toast, setToast] = useState<string | null>(null);
-  const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
+  const [showConfirm, setShowConfirm] = useState<boolean>(false);
+  const [metadata, setMetadata] = useState<any>(null);
+  const [loadingMetadata, setLoadingMetadata] = useState<boolean>(false);
+  const [showMaterialWarningModal, setShowMaterialWarningModal] = useState<boolean>(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
+  const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
+  const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
+  const [toast, setToast] = useState<string | null>(null);
 
   // --- FUNGSI findMeta (SAMA SEPERTI DI ProduksiModal) ---
   const findMeta = (key: string) => {
@@ -212,9 +218,45 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
     return sum + perUnit * count;
   }, 0);
 
-  const estimatedConsumption = Math.min(
-    totalProductionMW,
-    Math.max(0, Math.round(totalProductionMW * 0.7 + ((countryDetail?.jumlah_penduduk ?? 0) / 50000)))
+  const totalBuildingElectricityConsumption = () => {
+    if (!metadata || !countryDetail) return 0;
+    let total = 0;
+    Object.keys(metadata).forEach((key) => {
+      const bMeta = metadata[key];
+      const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
+      if (konsumsi <= 0) return;
+
+      const possibleKeys = [
+        key,
+        bMeta?.dataKey,
+        key.replace(/^\d+_/, ''),
+        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
+      ].filter(Boolean) as string[];
+
+      let count = 0;
+      for (const pKey of possibleKeys) {
+        if (countryDetail[pKey] !== undefined && countryDetail[pKey] !== null) {
+          count = Number(countryDetail[pKey]) || 0;
+          break;
+        }
+      }
+
+      if (count > 0) {
+        total += count * konsumsi;
+      }
+    });
+    return total;
+  };
+
+  const buildingCons = totalBuildingElectricityConsumption();
+  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const estimatedConsumption = Math.max(
+    0,
+    Math.round(
+      buildingCons > 0
+        ? buildingCons + populationDemand
+        : totalProductionMW * 0.7 + populationDemand
+    )
   );
   // ------------------------------------------------------------------------
 
@@ -296,24 +338,90 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
                     </div>
 
                     <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                      {activeGroup.items.map((it) => (
-                        <div key={it.key} className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-hidden flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
-                          <div className="p-4 flex flex-col flex-grow justify-between">
-                            <div>
-                              <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
-                              <p className="text-2xl font-black text-[#2e261a] mt-2">{formatNumber(it.value || 0)}</p>
-                            </div>
-                            <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
-                              <button
-                                onClick={() => handleBuild(it.key, it.label)}
-                                className="w-full py-1.5 rounded-xl bg-[#7A5230] text-[#FAF6EE] border border-[#7A5230] text-[9px] font-black uppercase cursor-pointer hover:bg-[#8f6544] hover:border-[#8f6544] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:scale-[0.98]"
+                      {activeGroup.items.map((it) => {
+                        const bMeta = findMeta(it.key) || {};
+                        const perCount = it.value || 0;
+                        const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+                        const biaya = Number(bMeta?.biaya_pembangunan) || 0;
+                        const waktu = bMeta?.waktu_pembangunan;
+
+                        return (
+                          <div key={it.key} className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-visible flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative">
+                            {/* Info Tooltip */}
+                            {hoveredBuildingKey === it.key && (
+                              <div 
+                                className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150"
+                                onClick={(e) => e.stopPropagation()}
                               >
-                                Bangun
-                              </button>
+                                <div className="flex justify-between items-start mb-2">
+                                  <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE]">
+                                    ℹ️ Info Bangunan
+                                  </div>
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setHoveredBuildingKey(null);
+                                    }}
+                                    className="text-[#FAF6EE]/70 hover:text-[#FAF6EE] transition-colors ml-2"
+                                    aria-label="Tutup info"
+                                  >
+                                    ✕
+                                  </button>
+                                </div>
+
+                                <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
+                                  <div className="flex justify-between">
+                                    <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
+                                    <span className="text-rose-300 font-bold">{konsumsiUnit.toLocaleString('id-ID')} MW</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
+                                    <span className="text-rose-300 font-bold">{(konsumsiUnit * perCount).toLocaleString('id-ID')} MW</span>
+                                  </div>
+                                  <div className="flex justify-between">
+                                    <span className="text-[#C4B49C]">Biaya:</span>
+                                    <span className="text-amber-300 font-bold">{biaya.toLocaleString('id-ID')} EM</span>
+                                  </div>
+                                  {waktu !== undefined && (
+                                    <div className="flex justify-between">
+                                      <span className="text-[#C4B49C]">Waktu:</span>
+                                      <span className="text-amber-300 font-bold">{waktu} hari</span>
+                                    </div>
+                                  )}
+                                </div>
+                                <div className="text-[9px] text-[#C4B49C] mt-2 pt-2 border-t border-[#8b7e66]/30 italic">Klik untuk mulai pembangunan</div>
+                              </div>
+                            )}
+
+                            <div className="p-4 flex flex-col flex-grow justify-between">
+                              <div>
+                                <div className="flex items-center justify-between gap-2 mb-1">
+                                  <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{it.label}</p>
+                                  <button
+                                    className="flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-help bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10]"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      setHoveredBuildingKey(hoveredBuildingKey === it.key ? null : it.key);
+                                    }}
+                                    title="Info bangunan"
+                                  >
+                                    <Info className="w-3 h-3" />
+                                  </button>
+                                </div>
+                                <p className="text-2xl font-black text-[#2e261a] mt-2">{formatNumber(perCount)}</p>
+                              </div>
+                              <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
+                                <button
+                                  onClick={() => handleBuild(it.key, it.label)}
+                                  className="w-full py-1.5 rounded-xl bg-[#7A5230] text-[#FAF6EE] border border-[#7A5230] text-[9px] font-black uppercase cursor-pointer hover:bg-[#8f6544] hover:border-[#8f6544] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:scale-[0.98]"
+                                >
+                                  Bangun
+                                </button>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
                     </div>
                   </>
                 )}
@@ -329,6 +437,31 @@ export default function TempatUmumModal({ isOpen, onClose, countryDetail, setCou
                   <p className="text-xs text-[#8b7e66] mt-1">Data fasilitas umum disinkronisasi berkala dari laporan statistik nasional.</p>
                 </div>
               </div>
+
+              {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI (PALING BAWAH MENU) --- */}
+              {activeGroup && (() => {
+                const categoryElectricityConsumption = activeGroup.keys.reduce((sum, key) => {
+                  const bMeta = findMeta(key);
+                  const count = Number(countryDetail?.[key]) || 0;
+                  const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+                  return sum + (count * konsumsiUnit);
+                }, 0);
+
+                return (
+                  <div className="mt-4 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
+                        ⚡ Total Konsumsi Listrik {activeGroup.label}
+                      </span>
+                    </div>
+                    <div className="px-4 py-1.5 rounded-lg bg-rose-50 border border-rose-300">
+                      <span className="text-sm font-black text-rose-700">
+                        {categoryElectricityConsumption.toLocaleString('id-ID')} MW
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
             </div>
           </div>
         </div>

@@ -1,14 +1,12 @@
 // @ts-nocheck
 const meksiko_ekstraksi = {
-  emas: 25,
-  uranium: 0,
-  batu_bara: 5,
-  minyak_bumi: 25,
-  gas_alam: 15,
-  garam: 45,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 363
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

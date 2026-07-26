@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const nikaragua_hunian = {
-  rumah_subsidi: 87284,
-  apartemen: 1309,
-  mansion: 43642,
+  rumah_subsidi: 225548,
+  apartemen: 84253,
+  mansion: 3455,
 };

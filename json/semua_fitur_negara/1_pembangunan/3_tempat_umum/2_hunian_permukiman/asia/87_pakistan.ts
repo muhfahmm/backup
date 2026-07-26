@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const pakistan_hunian = {
-  rumah_subsidi: 2864902,
-  apartemen: 42973,
-  mansion: 1432451,
+  rumah_subsidi: 135670,
+  apartemen: 59468,
+  mansion: 49583,
 };

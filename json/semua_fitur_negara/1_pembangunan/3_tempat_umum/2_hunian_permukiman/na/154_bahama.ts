@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const bahama_hunian = {
-  rumah_subsidi: 5206,
-  apartemen: 78,
-  mansion: 2603,
+  rumah_subsidi: 189816,
+  apartemen: 73144,
+  mansion: 2085,
 };

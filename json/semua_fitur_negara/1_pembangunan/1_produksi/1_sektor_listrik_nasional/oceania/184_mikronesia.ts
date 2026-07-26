@@ -1,9 +1,9 @@
 // @ts-nocheck
 const mikronesia_listrik = {
-  pembangkit_listrik_tenaga_gas: 0,
-  pembangkit_listrik_tenaga_air: 50,
+  pembangkit_listrik_tenaga_gas: 1,
+  pembangkit_listrik_tenaga_air: 0,
   pembangkit_listrik_tenaga_nuklir: 0,
-  pembangkit_listrik_tenaga_surya: 30,
+  pembangkit_listrik_tenaga_surya: 0,
   pembangkit_listrik_tenaga_uap: 0,
-  pembangkit_listrik_tenaga_angin: 20,
+  pembangkit_listrik_tenaga_angin: 0,
 };

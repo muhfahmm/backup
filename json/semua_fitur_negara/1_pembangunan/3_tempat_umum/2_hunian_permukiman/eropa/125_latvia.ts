@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const latvia_hunian = {
-  rumah_subsidi: 26016,
-  apartemen: 390,
-  mansion: 13008,
+  rumah_subsidi: 232796,
+  apartemen: 82557,
+  mansion: 3599,
 };

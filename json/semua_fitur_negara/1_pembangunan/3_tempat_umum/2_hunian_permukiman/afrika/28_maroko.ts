@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const maroko_hunian = {
-  rumah_subsidi: 486393,
-  apartemen: 7295,
-  mansion: 243196,
+  rumah_subsidi: 151436,
+  apartemen: 86276,
+  mansion: 37295,
 };

@@ -1,14 +1,12 @@
 // @ts-nocheck
 const chile_ekstraksi = {
-  emas: 20,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 1,
-  gas_alam: 1,
-  garam: 50,
-  
-  litium: 25,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 378
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: false,
+  garam: true
 };

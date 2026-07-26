@@ -1,14 +1,12 @@
 // @ts-nocheck
 const republik_demokratik_kongo_ekstraksi = {
-  
-  bijih_besi: 90,
-  litium: 0,
-  logam_tanah_jarang: 0,
-  
-  emas: 18,
-  batu_bara: 0,
-  minyak_bumi: 1,
-  gas_alam: 0,
-  uranium: 0,
-  garam: 0
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: false
 };

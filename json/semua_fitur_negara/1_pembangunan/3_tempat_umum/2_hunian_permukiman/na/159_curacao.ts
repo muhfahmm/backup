@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const curacao_hunian = {
-  rumah_subsidi: 135000,
-  apartemen: 2025,
-  mansion: 67500,
+  rumah_subsidi: 119543,
+  apartemen: 58744,
+  mansion: 3407,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const jepang_hunian = {
-  rumah_subsidi: 1708142,
-  apartemen: 25622,
-  mansion: 854071,
+  rumah_subsidi: 174348,
+  apartemen: 70283,
+  mansion: 15313,
 };

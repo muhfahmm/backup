@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const oman_hunian = {
-  rumah_subsidi: 65198,
-  apartemen: 977,
-  mansion: 32599,
+  rumah_subsidi: 214996,
+  apartemen: 74001,
+  mansion: 41504,
 };

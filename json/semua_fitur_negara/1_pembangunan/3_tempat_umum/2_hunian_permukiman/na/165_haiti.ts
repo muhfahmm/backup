@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const haiti_hunian = {
-  rumah_subsidi: 150162,
-  apartemen: 2252,
-  mansion: 75081,
+  rumah_subsidi: 120753,
+  apartemen: 63295,
+  mansion: 2091,
 };

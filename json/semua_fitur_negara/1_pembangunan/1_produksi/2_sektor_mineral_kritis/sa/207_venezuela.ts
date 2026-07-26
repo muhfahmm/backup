@@ -1,15 +1,12 @@
 // @ts-nocheck
 const venezuela_ekstraksi = {
-  emas: 15,
-  uranium: 0,
-  batu_bara: 2,
-  minyak_bumi: 150,
-  gas_alam: 20,
-  garam: 2,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 16
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: false,
+  garam: false
 };
-

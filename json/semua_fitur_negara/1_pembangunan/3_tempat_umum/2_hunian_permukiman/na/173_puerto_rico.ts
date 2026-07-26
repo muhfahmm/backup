@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const puerto_rico_hunian = {
-  rumah_subsidi: 43134,
-  apartemen: 647,
-  mansion: 21567,
+  rumah_subsidi: 207440,
+  apartemen: 89315,
+  mansion: 4745,
 };

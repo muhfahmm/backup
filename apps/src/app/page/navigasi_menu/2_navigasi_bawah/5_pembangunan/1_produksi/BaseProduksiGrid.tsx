@@ -155,10 +155,16 @@ export default function BaseProduksiGrid({
                           <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')} MW</span>
                         </div>
                         {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
-                          <div className="flex justify-between">
-                            <span className="text-[#C4B49C]">Konsumsi Listrik:</span>
-                            <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik} MW</span>
-                          </div>
+                          <>
+                            <div className="flex justify-between">
+                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
+                              <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
+                              <span className="text-rose-300 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                            </div>
+                          </>
                         )}
                       </>
                     ) : (
@@ -167,6 +173,18 @@ export default function BaseProduksiGrid({
                           <span className="text-[#C4B49C]">Produksi Per Hari:</span>
                           <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
                         </div>
+                        {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
+                          <>
+                            <div className="flex justify-between">
+                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
+                              <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
+                            </div>
+                            <div className="flex justify-between">
+                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
+                              <span className="text-rose-300 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                            </div>
+                          </>
+                        )}
                       </>
                     )}
                     <div className="flex justify-between">
@@ -282,6 +300,31 @@ export default function BaseProduksiGrid({
           </div>
         )}
       </div>
+
+      {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI (PALING BAWAH MENU) --- */}
+      {(() => {
+        const categoryElectricityConsumption = keys.reduce((sum, key) => {
+          const bMeta = findMeta(key);
+          const count = Number(countryDetail?.[key]) || 0;
+          const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+          return sum + (count * konsumsiUnit);
+        }, 0);
+
+        return (
+          <div className="mt-6 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
+                ⚡ Total Konsumsi Listrik {title}
+              </span>
+            </div>
+            <div className="px-4 py-1.5 rounded-lg bg-rose-50 border border-rose-300">
+              <span className="text-sm font-black text-rose-700">
+                {categoryElectricityConsumption.toLocaleString('id-ID')} MW
+              </span>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 }

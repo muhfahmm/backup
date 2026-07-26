@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const saint_lucia_hunian = {
-  rumah_subsidi: 2455,
-  apartemen: 36,
-  mansion: 1227,
+  rumah_subsidi: 140775,
+  apartemen: 62948,
+  mansion: 3580,
 };

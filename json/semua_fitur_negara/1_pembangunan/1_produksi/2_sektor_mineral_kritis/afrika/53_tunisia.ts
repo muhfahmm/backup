@@ -1,14 +1,12 @@
 // @ts-nocheck
 const tunisia_ekstraksi = {
-  
-  bijih_besi: 90,
-  litium: 0,
-  logam_tanah_jarang: 0,
-  
-  emas: 18,
-  batu_bara: 0,
-  minyak_bumi: 1,
-  gas_alam: 1,
-  uranium: 0,
-  garam: 1
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: true,
+  batu_bara: false,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

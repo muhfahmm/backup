@@ -1,14 +1,12 @@
 // @ts-nocheck
 const irak_ekstraksi = {
-  emas: 22,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 80,
-  gas_alam: 40,
-  garam: 1,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 24
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: false,
+  batu_bara: false,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

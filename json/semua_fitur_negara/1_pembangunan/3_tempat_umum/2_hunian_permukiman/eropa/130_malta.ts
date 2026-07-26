@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const malta_hunian = {
-  rumah_subsidi: 6542,
-  apartemen: 98,
-  mansion: 3271,
+  rumah_subsidi: 107880,
+  apartemen: 88969,
+  mansion: 1922,
 };

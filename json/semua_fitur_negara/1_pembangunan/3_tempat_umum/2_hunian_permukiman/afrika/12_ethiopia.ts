@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const ethiopia_hunian = {
-  rumah_subsidi: 1474531,
-  apartemen: 22117,
-  mansion: 737265,
+  rumah_subsidi: 147454,
+  apartemen: 76133,
+  mansion: 14252,
 };

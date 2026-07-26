@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const taiwan_hunian = {
-  rumah_subsidi: 135000,
-  apartemen: 2025,
-  mansion: 67500,
+  rumah_subsidi: 146108,
+  apartemen: 76455,
+  mansion: 33394,
 };

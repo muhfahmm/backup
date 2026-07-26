@@ -39,34 +39,26 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   // PERUBAHAN: Tambahkan state untuk Tab, Sort, dan Search
   const [activeTab, setActiveTab] = useState<"user" | "global">("user");
   const [allCountries, setAllCountries] = useState<any[]>([]);
-  const [loadingAllCountries, setLoadingAllCountries] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
 
-  // Fetch data 206 negara ketika modal dibuka dan tab global dipilih
+  // Load country data when modal opens
   useEffect(() => {
-    if (isOpen && activeTab === "global" && allCountries.length === 0) {
-      fetchAllCountriesData();
+    if (isOpen && allCountries.length === 0) {
+      // Fetch asynchronously but don't block rendering
+      (async () => {
+        try {
+          const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
+          const data = await res.json();
+          if (Array.isArray(data) && data.length > 0) {
+            setAllCountries(data);
+          }
+        } catch (error) {
+          console.error('Error fetching all countries data:', error);
+        }
+      })();
     }
-  }, [isOpen, activeTab]);
-
-  const fetchAllCountriesData = async () => {
-    if (loadingAllCountries || allCountries.length > 0) return;
-    
-    setLoadingAllCountries(true);
-    try {
-      const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
-      const data = await res.json();
-      if (Array.isArray(data)) {
-        setAllCountries(data);
-      }
-    } catch (error) {
-      console.error('Error fetching all countries data:', error);
-      setAllCountries([]);
-    } finally {
-      setLoadingAllCountries(false);
-    }
-  };
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -106,10 +98,44 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   const totalCapacityMW = powerSources.reduce((sum, source) => sum + (source.value * source.unitProduction), 0);
   const totalSources = powerSources.filter((source) => source.value > 0).length;
 
-  // --- Estimasi konsumsi ---
+  // --- Helper function untuk menghitung total konsumsi listrik dari bangunan ---
+  const calculateBuildingElectricityConsumption = (country: any) => {
+    if (!metadata || !country) return 0;
+    let totalBuildingConsumption = 0;
+
+    Object.keys(metadata).forEach((key) => {
+      const bMeta = metadata[key];
+      const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
+      if (konsumsi <= 0) return;
+
+      // Cek variasi key yang tersimpan di data negara
+      const possibleKeys = [
+        key,
+        bMeta?.dataKey,
+        key.replace(/^\d+_/, ''),
+        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
+      ].filter(Boolean) as string[];
+
+      let count = 0;
+      for (const pKey of possibleKeys) {
+        if (country[pKey] !== undefined && country[pKey] !== null) {
+          count = Number(country[pKey]) || 0;
+          break;
+        }
+      }
+
+      if (count > 0) {
+        totalBuildingConsumption += count * konsumsi;
+      }
+    });
+
+    return totalBuildingConsumption;
+  };
+
+  // --- Estimasi konsumsi user ---
+  const userBuildingConsumption = calculateBuildingElectricityConsumption(countryDetail);
   const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
-  const baseConsumption = totalCapacityMW * 0.7;
-  const estimatedConsumptionMW = Math.max(0, Math.round(baseConsumption + populationDemand));
+  const estimatedConsumptionMW = Math.max(0, Math.round(userBuildingConsumption + populationDemand));
   const balanceMW = totalCapacityMW - estimatedConsumptionMW;
 
   // --- Helper function untuk menghitung elektrisitas per negara ---
@@ -119,23 +145,21 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
       const count = Number(country?.[key]) || 0;
       const unitProduction = Number(bMeta?.produksi) || 0;
       const result = sum + (count * unitProduction);
-      // Ensure result is valid number, not NaN
       return isNaN(result) ? sum : result;
     }, 0);
 
-    // Consumption = 70% produksi + beban populasi
-    // Tidak selalu capped ke production (negara bisa punya deficit)
+    const buildingConsumption = calculateBuildingElectricityConsumption(country);
     const population = Number(country?.jumlah_penduduk) || 0;
-    const baseConsumption = totalProduction * 0.7;
     const populationDemand = population / 50000;
-    const estimatedConsumption = baseConsumption + populationDemand;
     
-    // Clamp ke minimal 0, tapi allow lebih besar dari production (deficit)
-    const consumption = Math.max(0, Math.round(estimatedConsumption));
-
+    // Jika tidak ada data konsumsi bangunan spesifik, fallback ke 70% dari produksi + beban populasi
+    const totalConsumptionCalc = buildingConsumption > 0 
+      ? buildingConsumption + populationDemand
+      : (totalProduction * 0.7) + populationDemand;
+      
+    const consumption = Math.max(0, Math.round(totalConsumptionCalc));
     const balance = totalProduction - consumption;
 
-    // Safeguard untuk ensure semua nilai adalah valid numbers
     return {
       totalProduction: isNaN(totalProduction) ? 0 : totalProduction,
       consumption: isNaN(consumption) ? 0 : consumption,
@@ -429,12 +453,7 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
                 )}
               </div>
               
-              {loadingAllCountries ? (
-                <div className="text-center py-8 text-[#8b7e66]">
-                  <p className="text-sm font-bold">Memuat data {allCountries.length || 207} negara...</p>
-                </div>
-              ) : (
-                <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[60vh] overflow-y-auto">
+              <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[60vh] overflow-y-auto">
                   <table className="w-full text-xs">
                     <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30 sticky top-0">
                       <tr>
@@ -466,7 +485,13 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-[#C4B49C]/20">
-                      {filteredData.length > 0 ? (
+                      {allCountries.length === 0 ? (
+                        <tr>
+                          <td colSpan={5} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">
+                            📡 Memuat data {globalElectricityData.length || 207} negara...
+                          </td>
+                        </tr>
+                      ) : filteredData.length > 0 ? (
                         filteredData.map((country, rowIndex) => {
                           const isUserCountry = country.isUser;
                           return (
@@ -513,9 +538,8 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
                     </tbody>
                   </table>
                 </div>
-              )}
               
-              {!loadingAllCountries && filteredData.length > 0 && (
+              {filteredData.length > 0 && (
                 <div className="mt-4 p-4 bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg text-xs text-[#8b7e66]">
                   <p className="font-bold">📊 Total: {filteredData.length} negara {searchQuery && `(difilter dari ${globalElectricityData.length})`}</p>
                   <p className="mt-1">Produksi: <span className="font-black text-emerald-700">{filteredData.reduce((sum, c) => sum + c.production, 0).toLocaleString('id-ID')} MW</span></p>

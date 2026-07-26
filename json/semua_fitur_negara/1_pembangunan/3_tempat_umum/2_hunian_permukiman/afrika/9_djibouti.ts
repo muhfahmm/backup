@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const djibouti_hunian = {
-  rumah_subsidi: 12945,
-  apartemen: 194,
-  mansion: 6472,
+  rumah_subsidi: 171479,
+  apartemen: 51598,
+  mansion: 4382,
 };

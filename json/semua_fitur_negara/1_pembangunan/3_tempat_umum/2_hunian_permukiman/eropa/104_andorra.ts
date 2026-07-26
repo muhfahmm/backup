@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const andorra_hunian = {
-  rumah_subsidi: 1039,
-  apartemen: 15,
-  mansion: 519,
+  rumah_subsidi: 118176,
+  apartemen: 66980,
+  mansion: 4156,
 };

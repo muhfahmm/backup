@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const irak_hunian = {
-  rumah_subsidi: 518853,
-  apartemen: 7782,
-  mansion: 259426,
+  rumah_subsidi: 177984,
+  apartemen: 86663,
+  mansion: 17034,
 };

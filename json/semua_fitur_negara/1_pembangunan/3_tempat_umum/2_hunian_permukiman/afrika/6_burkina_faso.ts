@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const burkina_faso_hunian = {
-  rumah_subsidi: 266645,
-  apartemen: 3999,
-  mansion: 133322,
+  rumah_subsidi: 109821,
+  apartemen: 52334,
+  mansion: 4251,
 };

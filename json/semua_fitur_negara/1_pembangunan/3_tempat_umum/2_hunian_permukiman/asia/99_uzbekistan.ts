@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const uzbekistan_hunian = {
-  rumah_subsidi: 444897,
-  apartemen: 6673,
-  mansion: 222448,
+  rumah_subsidi: 218700,
+  apartemen: 69631,
+  mansion: 3905,
 };

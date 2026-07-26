@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const republik_zimbabwe_hunian = {
-  rumah_subsidi: 194926,
-  apartemen: 2923,
-  mansion: 97463,
+  rumah_subsidi: 245402,
+  apartemen: 75726,
+  mansion: 1656,
 };

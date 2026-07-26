@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const kuba_hunian = {
-  rumah_subsidi: 153064,
-  apartemen: 2295,
-  mansion: 76532,
+  rumah_subsidi: 223120,
+  apartemen: 74581,
+  mansion: 24668,
 };

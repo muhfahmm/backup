@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const palestina_hunian = {
-  rumah_subsidi: 61682,
-  apartemen: 925,
-  mansion: 30841,
+  rumah_subsidi: 221367,
+  apartemen: 90744,
+  mansion: 2381,
 };

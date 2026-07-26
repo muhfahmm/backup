@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const bulgaria_hunian = {
-  rumah_subsidi: 94837,
-  apartemen: 1422,
-  mansion: 47418,
+  rumah_subsidi: 146571,
+  apartemen: 57645,
+  mansion: 40299,
 };

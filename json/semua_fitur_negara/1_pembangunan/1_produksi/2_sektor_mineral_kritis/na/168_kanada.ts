@@ -1,14 +1,12 @@
 // @ts-nocheck
 const kanada_ekstraksi = {
-  emas: 30,
-  uranium: 35,
-  batu_bara: 10,
-  minyak_bumi: 30,
-  gas_alam: 60,
-  garam: 60,
-  
-  litium: 3,
-  
-  logam_tanah_jarang: 1,
-  bijih_besi: 0
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

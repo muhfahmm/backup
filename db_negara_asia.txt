@@ -1,0 +1,52 @@
+=== ASIA ===
+1. afganistan
+2. arab saudi
+3. armenia
+4. azerbaijan
+5. bahrain
+6. bangladesh
+7. bhutan
+8. brunei
+9. china
+10. filipina
+11. georgia
+12. hong kong
+13. india
+14. indonesia
+15. irak
+16. iran
+17. israel
+18. jepang
+19. kamboja
+20. kazakhstan
+21. kirgizstan
+22. korea selatan
+23. korea utara
+24. kuwait
+25. laos
+26. lebanon
+27. makau
+28. malaysia
+29. maldives
+30. mongolia
+31. myanmar
+32. nepal
+33. oman
+34. pakistan
+35. palestina
+36. qatar
+37. republik timor leste
+38. singapura
+39. siprus
+40. sri lanka
+41. suriah
+42. taiwan
+43. tajikistan
+44. thailand
+45. turki
+46. turkmenistan
+47. uni emirat arab
+48. uzbekistan
+49. vietnam
+50. yaman
+51. yordania

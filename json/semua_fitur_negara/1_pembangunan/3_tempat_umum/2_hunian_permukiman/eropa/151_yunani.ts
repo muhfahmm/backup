@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const yunani_hunian = {
-  rumah_subsidi: 144878,
-  apartemen: 2173,
-  mansion: 72439,
+  rumah_subsidi: 136194,
+  apartemen: 62910,
+  mansion: 33316,
 };

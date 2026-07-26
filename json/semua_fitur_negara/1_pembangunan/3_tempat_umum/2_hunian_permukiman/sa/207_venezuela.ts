@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const venezuela_hunian = {
-  rumah_subsidi: 389747,
-  apartemen: 5846,
-  mansion: 194873,
+  rumah_subsidi: 229970,
+  apartemen: 53940,
+  mansion: 3527,
 };

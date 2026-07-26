@@ -1,14 +1,12 @@
 // @ts-nocheck
 const montenegro_ekstraksi = {
-  emas: 22,
-  uranium: 0,
-  batu_bara: 1,
-  minyak_bumi: 0,
-  gas_alam: 0,
-  garam: 0,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 0
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: false,
+  batu_bara: true,
+  minyak_bumi: false,
+  gas_alam: false,
+  uranium: false,
+  garam: false
 };

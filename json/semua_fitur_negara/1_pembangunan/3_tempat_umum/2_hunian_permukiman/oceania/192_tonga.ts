@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const tonga_hunian = {
-  rumah_subsidi: 1393,
-  apartemen: 20,
-  mansion: 696,
+  rumah_subsidi: 109609,
+  apartemen: 80040,
+  mansion: 4640,
 };

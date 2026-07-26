@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const suriname_hunian = {
-  rumah_subsidi: 7775,
-  apartemen: 116,
-  mansion: 3887,
+  rumah_subsidi: 214330,
+  apartemen: 71390,
+  mansion: 1751,
 };

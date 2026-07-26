@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const kamerun_hunian = {
-  rumah_subsidi: 340419,
-  apartemen: 5106,
-  mansion: 170209,
+  rumah_subsidi: 202348,
+  apartemen: 68026,
+  mansion: 4088,
 };

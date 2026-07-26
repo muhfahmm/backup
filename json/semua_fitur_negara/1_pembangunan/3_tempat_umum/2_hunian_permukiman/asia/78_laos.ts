@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const laos_hunian = {
-  rumah_subsidi: 95330,
-  apartemen: 1429,
-  mansion: 47665,
+  rumah_subsidi: 183026,
+  apartemen: 59447,
+  mansion: 3198,
 };

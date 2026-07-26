@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const australia_hunian = {
-  rumah_subsidi: 337266,
-  apartemen: 5058,
-  mansion: 168633,
+  rumah_subsidi: 159271,
+  apartemen: 79487,
+  mansion: 32739,
 };

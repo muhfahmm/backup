@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const qatar_hunian = {
-  rumah_subsidi: 37552,
-  apartemen: 563,
-  mansion: 18776,
+  rumah_subsidi: 190033,
+  apartemen: 58608,
+  mansion: 24597,
 };

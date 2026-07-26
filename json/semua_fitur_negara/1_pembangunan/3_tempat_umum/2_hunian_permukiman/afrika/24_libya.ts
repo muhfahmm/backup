@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const libya_hunian = {
-  rumah_subsidi: 90160,
-  apartemen: 1352,
-  mansion: 45080,
+  rumah_subsidi: 117366,
+  apartemen: 91418,
+  mansion: 4372,
 };

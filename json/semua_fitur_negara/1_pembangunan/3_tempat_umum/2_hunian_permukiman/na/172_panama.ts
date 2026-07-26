@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const panama_hunian = {
-  rumah_subsidi: 56387,
-  apartemen: 845,
-  mansion: 28193,
+  rumah_subsidi: 213851,
+  apartemen: 75003,
+  mansion: 3206,
 };

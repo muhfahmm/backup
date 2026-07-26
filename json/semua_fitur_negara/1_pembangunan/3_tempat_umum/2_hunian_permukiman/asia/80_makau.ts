@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const makau_hunian = {
-  rumah_subsidi: 135000,
-  apartemen: 2025,
-  mansion: 67500,
+  rumah_subsidi: 222930,
+  apartemen: 84194,
+  mansion: 3963,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const burundi_hunian = {
-  rumah_subsidi: 150867,
-  apartemen: 2263,
-  mansion: 75433,
+  rumah_subsidi: 124103,
+  apartemen: 64978,
+  mansion: 4052,
 };

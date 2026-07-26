@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const republik_sudan_hunian = {
-  rumah_subsidi: 564320,
-  apartemen: 8464,
-  mansion: 282160,
+  rumah_subsidi: 230399,
+  apartemen: 88548,
+  mansion: 2867,
 };

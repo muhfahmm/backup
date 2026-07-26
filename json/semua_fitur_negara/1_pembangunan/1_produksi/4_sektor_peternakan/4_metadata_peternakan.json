@@ -9,7 +9,7 @@
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 1000,
     "lowongan_kerja": 1500,
-    "konsumsi_listrik": 15
+    "konsumsi_listrik": 5
   },
   "sapi_perah": {
     "key": "2_peternakan_sapi_perah",
@@ -21,7 +21,7 @@
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 2500,
     "lowongan_kerja": 2500,
-    "konsumsi_listrik": 25
+    "konsumsi_listrik": 5
   },
   "sapi_potong": {
     "key": "3_peternakan_sapi_potong",
@@ -33,7 +33,7 @@
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 3000,
     "lowongan_kerja": 2800,
-    "konsumsi_listrik": 20
+    "konsumsi_listrik": 5
   },
   "domba_kambing": {
     "key": "4_peternakan_domba_kambing",
@@ -45,6 +45,6 @@
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 1500,
     "lowongan_kerja": 1800,
-    "konsumsi_listrik": 18
+    "konsumsi_listrik": 5
   }
 }

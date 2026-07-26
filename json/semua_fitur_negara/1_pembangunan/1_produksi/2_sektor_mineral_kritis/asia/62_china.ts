@@ -1,14 +1,12 @@
 // @ts-nocheck
 const china_ekstraksi = {
-  emas: 19,
-  uranium: 10,
-  batu_bara: 100,
-  minyak_bumi: 50,
-  gas_alam: 65,
-  garam: 120,
-  
-  litium: 20,
-  
-  logam_tanah_jarang: 44,
-  bijih_besi: 0
+  bijih_besi: true,
+  litium: true,
+  logam_tanah_jarang: true,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

@@ -9,7 +9,7 @@
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 1200,
     "lowongan_kerja": 8500,
-    "konsumsi_listrik": 12
+    "konsumsi_listrik": 5
   },
   "gandum": {
     "key": "2_ladang_gandum",
@@ -22,7 +22,7 @@
     "biaya_pembangunan": 1000,
     "lowongan_kerja": 6000,
     "item": "Gandum",
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 5
   },
   "jagung": {
     "key": "3_ladang_jagung",
@@ -34,7 +34,7 @@
     "waktu_pembangunan": 12,
     "biaya_pembangunan": 850,
     "lowongan_kerja": 5000,
-    "konsumsi_listrik": 8
+    "konsumsi_listrik": 5
   },
   "umbi": {
     "key": "4_ladang_umbi",
@@ -58,7 +58,7 @@
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 750,
     "lowongan_kerja": 4000,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 5
   },
   "kelapa_sawit": {
     "key": "6_perkebunan_sawit",
@@ -70,7 +70,7 @@
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 6000,
     "lowongan_kerja": 18000,
-    "konsumsi_listrik": 45
+    "konsumsi_listrik": 5
   },
   "teh": {
     "key": "7_perkebunan_teh",
@@ -82,7 +82,7 @@
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 2500,
     "lowongan_kerja": 12000,
-    "konsumsi_listrik": 15
+    "konsumsi_listrik": 5
   },
   "kopi": {
     "key": "8_perkebunan_kopi",
@@ -94,7 +94,7 @@
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 2800,
     "lowongan_kerja": 10000,
-    "konsumsi_listrik": 18
+    "konsumsi_listrik": 5
   },
   "kakao": {
     "key": "9_perkebunan_kakao",
@@ -106,7 +106,7 @@
     "waktu_pembangunan": 35,
     "biaya_pembangunan": 3500,
     "lowongan_kerja": 9000,
-    "konsumsi_listrik": 20
+    "konsumsi_listrik": 5
   },
   "tebu": {
     "key": "10_perkebunan_tebu",
@@ -118,7 +118,7 @@
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 1800,
     "lowongan_kerja": 11000,
-    "konsumsi_listrik": 22
+    "konsumsi_listrik": 5
   },
   "sayur": {
     "key": "11_kebun_sayur",
@@ -130,7 +130,7 @@
     "waktu_pembangunan": 5,
     "biaya_pembangunan": 500,
     "lowongan_kerja": 5500,
-    "konsumsi_listrik": 10
+    "konsumsi_listrik": 5
   },
   "karet": {
     "key": "12_perkebunan_karet",
@@ -142,6 +142,6 @@
     "waktu_pembangunan": 40,
     "biaya_pembangunan": 3200,
     "lowongan_kerja": 12000,
-    "konsumsi_listrik": 25
+    "konsumsi_listrik": 5
   }
 }

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const greenland_hunian = {
-  rumah_subsidi: 756,
-  apartemen: 11,
-  mansion: 378,
+  rumah_subsidi: 248310,
+  apartemen: 60343,
+  mansion: 1448,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const hungaria_hunian = {
-  rumah_subsidi: 131970,
-  apartemen: 1979,
-  mansion: 65985,
+  rumah_subsidi: 249918,
+  apartemen: 84882,
+  mansion: 43098,
 };

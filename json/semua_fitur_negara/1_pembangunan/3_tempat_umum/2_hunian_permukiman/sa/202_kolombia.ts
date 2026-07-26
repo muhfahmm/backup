@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const kolombia_hunian = {
-  rumah_subsidi: 670257,
-  apartemen: 10053,
-  mansion: 335128,
+  rumah_subsidi: 221545,
+  apartemen: 87553,
+  mansion: 36770,
 };

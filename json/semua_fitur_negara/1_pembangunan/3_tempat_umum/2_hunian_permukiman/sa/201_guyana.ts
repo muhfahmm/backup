@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const guyana_hunian = {
-  rumah_subsidi: 10516,
-  apartemen: 157,
-  mansion: 5258,
+  rumah_subsidi: 107581,
+  apartemen: 64706,
+  mansion: 4101,
 };

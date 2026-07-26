@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const moldova_hunian = {
-  rumah_subsidi: 36531,
-  apartemen: 547,
-  mansion: 18265,
+  rumah_subsidi: 204632,
+  apartemen: 58352,
+  mansion: 2122,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const slovenia_hunian = {
-  rumah_subsidi: 27997,
-  apartemen: 419,
-  mansion: 13998,
+  rumah_subsidi: 158947,
+  apartemen: 58463,
+  mansion: 4492,
 };

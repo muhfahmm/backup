@@ -1,14 +1,12 @@
 // @ts-nocheck
 const malawi_ekstraksi = {
-  
-  bijih_besi: 90,
-  litium: 0,
-  logam_tanah_jarang: 1,
-  
-  emas: 13,
-  batu_bara: 0,
-  minyak_bumi: 0,
-  gas_alam: 0,
-  uranium: 0,
-  garam: 0
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: false,
+  gas_alam: false,
+  uranium: true,
+  garam: false
 };

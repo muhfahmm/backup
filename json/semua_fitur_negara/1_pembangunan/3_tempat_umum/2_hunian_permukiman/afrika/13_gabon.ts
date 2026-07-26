@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const gabon_hunian = {
-  rumah_subsidi: 28610,
-  apartemen: 429,
-  mansion: 14305,
+  rumah_subsidi: 168305,
+  apartemen: 94638,
+  mansion: 2317,
 };

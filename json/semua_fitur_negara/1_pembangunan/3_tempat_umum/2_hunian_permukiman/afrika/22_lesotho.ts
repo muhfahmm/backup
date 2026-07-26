@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const lesotho_hunian = {
-  rumah_subsidi: 28459,
-  apartemen: 426,
-  mansion: 14229,
+  rumah_subsidi: 120869,
+  apartemen: 56682,
+  mansion: 2584,
 };

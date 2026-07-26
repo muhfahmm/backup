@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const irlandia_hunian = {
-  rumah_subsidi: 65708,
-  apartemen: 985,
-  mansion: 32854,
+  rumah_subsidi: 237882,
+  apartemen: 69084,
+  mansion: 17370,
 };

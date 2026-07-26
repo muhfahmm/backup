@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const afganistan_hunian = {
-  rumah_subsidi: 501827,
-  apartemen: 7527,
-  mansion: 250913,
+  rumah_subsidi: 112358,
+  apartemen: 52333,
+  mansion: 3752,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const maldives_hunian = {
-  rumah_subsidi: 6961,
-  apartemen: 104,
-  mansion: 3480,
+  rumah_subsidi: 217810,
+  apartemen: 75754,
+  mansion: 3164,
 };

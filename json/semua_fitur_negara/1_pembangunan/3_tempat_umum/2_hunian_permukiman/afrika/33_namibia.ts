@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const namibia_hunian = {
-  rumah_subsidi: 33051,
-  apartemen: 495,
-  mansion: 16525,
+  rumah_subsidi: 141351,
+  apartemen: 68252,
+  mansion: 1209,
 };

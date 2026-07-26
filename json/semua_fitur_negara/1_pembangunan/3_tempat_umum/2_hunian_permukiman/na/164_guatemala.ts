@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const guatemala_hunian = {
-  rumah_subsidi: 232845,
-  apartemen: 3492,
-  mansion: 116422,
+  rumah_subsidi: 225570,
+  apartemen: 50603,
+  mansion: 3713,
 };

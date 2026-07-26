@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const republik_tanzania_hunian = {
-  rumah_subsidi: 760297,
-  apartemen: 11404,
-  mansion: 380148,
+  rumah_subsidi: 147552,
+  apartemen: 76672,
+  mansion: 1212,
 };

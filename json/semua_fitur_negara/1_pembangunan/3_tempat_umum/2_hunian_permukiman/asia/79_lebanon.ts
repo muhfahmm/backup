@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const lebanon_hunian = {
-  rumah_subsidi: 92460,
-  apartemen: 1386,
-  mansion: 46230,
+  rumah_subsidi: 123538,
+  apartemen: 60561,
+  mansion: 1461,
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const samoa_hunian = {
-  rumah_subsidi: 2647,
-  apartemen: 39,
-  mansion: 1323,
+  rumah_subsidi: 188839,
+  apartemen: 71140,
+  mansion: 4825,
 };

@@ -9,7 +9,7 @@
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 63750,
     "lowongan_kerja": 5500,
-    "konsumsi_listrik": 150,
+    "konsumsi_listrik": 10,
     "efek": "Mengurangi kriminalitas 0.5%"
   },
   "legal_aid": {
@@ -22,7 +22,7 @@
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 18750,
     "lowongan_kerja": 1200,
-    "konsumsi_listrik": 45,
+    "konsumsi_listrik": 10,
     "efek": "Mengurangi kriminalitas 0.3%"
   }
 }

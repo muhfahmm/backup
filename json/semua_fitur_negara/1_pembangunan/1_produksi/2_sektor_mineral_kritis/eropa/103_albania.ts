@@ -1,14 +1,12 @@
 // @ts-nocheck
 const albania_ekstraksi = {
-  emas: 26,
-  uranium: 0,
-  batu_bara: 0,
-  minyak_bumi: 1,
-  gas_alam: 0,
-  garam: 0,
-  
-  litium: 0,
-  
-  logam_tanah_jarang: 0,
-  bijih_besi: 5
+  bijih_besi: true,
+  litium: false,
+  logam_tanah_jarang: false,
+  emas: true,
+  batu_bara: true,
+  minyak_bumi: true,
+  gas_alam: true,
+  uranium: true,
+  garam: true
 };

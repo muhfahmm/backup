@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const bangladesh_hunian = {
-  rumah_subsidi: 2178306,
-  apartemen: 32674,
-  mansion: 1089153,
+  rumah_subsidi: 103225,
+  apartemen: 64255,
+  mansion: 13312,
 };

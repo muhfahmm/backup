@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const republik_timor_leste_hunian = {
-  rumah_subsidi: 135000,
-  apartemen: 2025,
-  mansion: 67500,
+  rumah_subsidi: 131324,
+  apartemen: 56855,
+  mansion: 1429,
 };

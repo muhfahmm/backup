@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const belanda_hunian = {
-  rumah_subsidi: 232626,
-  apartemen: 3489,
-  mansion: 116313,
+  rumah_subsidi: 167065,
+  apartemen: 99812,
+  mansion: 24637,
 };

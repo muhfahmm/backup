@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const bhutan_hunian = {
-  rumah_subsidi: 10184,
-  apartemen: 152,
-  mansion: 5092,
+  rumah_subsidi: 131978,
+  apartemen: 66731,
+  mansion: 3363,
 };

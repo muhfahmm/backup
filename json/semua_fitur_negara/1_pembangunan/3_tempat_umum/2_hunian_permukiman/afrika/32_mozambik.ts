@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const mozambik_hunian = {
-  rumah_subsidi: 398195,
-  apartemen: 5972,
-  mansion: 199097,
+  rumah_subsidi: 114973,
+  apartemen: 76395,
+  mansion: 2756,
 };

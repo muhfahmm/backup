@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const jamaika_hunian = {
-  rumah_subsidi: 39620,
-  apartemen: 594,
-  mansion: 19810,
+  rumah_subsidi: 114879,
+  apartemen: 77274,
+  mansion: 3694,
 };

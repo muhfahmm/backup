@@ -21,7 +21,7 @@
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 5500,
     "lowongan_kerja": 8000,
-    "konsumsi_listrik": 95
+    "konsumsi_listrik": 30
   },
   "roti": {
     "key": "3_pabrik_roti",
@@ -33,7 +33,7 @@
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 1400,
     "lowongan_kerja": 3500,
-    "konsumsi_listrik": 42
+    "konsumsi_listrik": 30
   },
   "pengolahan_daging": {
     "key": "4_pabrik_pengolahan_daging",
@@ -45,7 +45,7 @@
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 6000,
     "lowongan_kerja": 6500,
-    "konsumsi_listrik": 120
+    "konsumsi_listrik": 20
   },
   "mie_instan": {
     "key": "5_pabrik_mie_instan",
@@ -57,7 +57,7 @@
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 3500,
     "lowongan_kerja": 7500,
-    "konsumsi_listrik": 85
+    "konsumsi_listrik": 25
   },
   "minyak_goreng": {
     "key": "6_pabrik_minyak_goreng",
@@ -69,7 +69,7 @@
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 4500,
     "lowongan_kerja": 6000,
-    "konsumsi_listrik": 75
+    "konsumsi_listrik": 30
   },
   "susu": {
     "key": "7_pabrik_pengolahan_susu",
@@ -81,6 +81,6 @@
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 2800,
     "lowongan_kerja": 5000,
-    "konsumsi_listrik": 60
+    "konsumsi_listrik": 30
   }
 }

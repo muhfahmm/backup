@@ -1,0 +1,48 @@
+=== EROPA ===
+1. albania
+2. andorra
+3. austria
+4. belanda
+5. belarus
+6. belgia
+7. bosnia dan hercegovina
+8. bulgaria
+9. ceko
+10. denmark
+11. estonia
+12. finlandia
+13. gibraltar
+14. hungaria
+15. inggris
+16. irlandia
+17. islandia
+18. italia
+19. jerman
+20. kepulauan faroe
+21. kosovo
+22. kroasia
+23. latvia
+24. liechtenstein
+25. lithuania
+26. luksemburg
+27. makedonia utara
+28. malta
+29. moldova
+30. monako
+31. montenegro
+32. norwegia
+33. polandia
+34. portugal
+35. prancis
+36. republik rumania
+37. republik serbia
+38. rusia
+39. san marino
+40. slovenia
+41. slowakia
+42. spanyol
+43. swedia
+44. swiss
+45. ukraina
+46. vatikan
+47. yunani

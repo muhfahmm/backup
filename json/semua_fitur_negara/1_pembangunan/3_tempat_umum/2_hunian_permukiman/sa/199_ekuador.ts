@@ -1,7 +1,7 @@
 // @ts-nocheck
 
 const ekuador_hunian = {
-  rumah_subsidi: 230638,
-  apartemen: 3459,
-  mansion: 115319,
+  rumah_subsidi: 197963,
+  apartemen: 91077,
+  mansion: 14027,
 };
