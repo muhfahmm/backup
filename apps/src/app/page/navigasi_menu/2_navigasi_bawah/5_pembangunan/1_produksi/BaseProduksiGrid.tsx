@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { Info } from "lucide-react";
+import { Info, X } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
@@ -9,13 +9,6 @@ const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "batu_bara",
   "minyak_bumi",
 ];
-
-const ELECTRICITY_FUEL_LABELS: Record<string, string> = {
-  gas_alam: "Gas Alam",
-  uranium: "Uranium",
-  batu_bara: "Batu Bara",
-  minyak_bumi: "Minyak Bumi",
-};
 
 const electricityFuelBuildings = [
   "pembangkit_listrik_tenaga_gas",
@@ -49,6 +42,39 @@ const calculateTotalFuelConsumption = (countryDetail: any) => {
   });
 
   return totals;
+};
+
+const FOOD_CONSUMPTION_PER_CAPITA: Record<string, { prodPerUnit: number; consumptionPerCapita: number }> = {
+  // Peternakan
+  ayam_unggas: { prodPerUnit: 15, consumptionPerCapita: 0.15 },
+  sapi_potong: { prodPerUnit: 5, consumptionPerCapita: 0.08 },
+  sapi_perah: { prodPerUnit: 10, consumptionPerCapita: 0.12 },
+  domba_kambing: { prodPerUnit: 7, consumptionPerCapita: 0.05 },
+  // Agrikultur
+  padi: { prodPerUnit: 20, consumptionPerCapita: 0.35 },
+  gandum: { prodPerUnit: 18, consumptionPerCapita: 0.24 },
+  jagung: { prodPerUnit: 22, consumptionPerCapita: 0.18 },
+  sayur: { prodPerUnit: 30, consumptionPerCapita: 0.30 },
+  umbi: { prodPerUnit: 25, consumptionPerCapita: 0.20 },
+  kedelai: { prodPerUnit: 15, consumptionPerCapita: 0.15 },
+  kelapa_sawit: { prodPerUnit: 40, consumptionPerCapita: 0.10 },
+  kopi: { prodPerUnit: 10, consumptionPerCapita: 0.05 },
+  teh: { prodPerUnit: 12, consumptionPerCapita: 0.06 },
+  kakao: { prodPerUnit: 8, consumptionPerCapita: 0.04 },
+  tebu: { prodPerUnit: 35, consumptionPerCapita: 0.15 },
+  karet: { prodPerUnit: 15, consumptionPerCapita: 0.02 },
+  // Perikanan
+  udang: { prodPerUnit: 12, consumptionPerCapita: 0.08 },
+  ikan: { prodPerUnit: 25, consumptionPerCapita: 0.25 },
+  mutiara: { prodPerUnit: 2, consumptionPerCapita: 0.01 },
+  // Olahan Pangan
+  air_mineral: { prodPerUnit: 25, consumptionPerCapita: 0.35 },
+  gula: { prodPerUnit: 20, consumptionPerCapita: 0.20 },
+  roti: { prodPerUnit: 15, consumptionPerCapita: 0.18 },
+  pengolahan_daging: { prodPerUnit: 12, consumptionPerCapita: 0.10 },
+  mie_instan: { prodPerUnit: 30, consumptionPerCapita: 0.25 },
+  minyak_goreng: { prodPerUnit: 10, consumptionPerCapita: 0.10 },
+  susu: { prodPerUnit: 18, consumptionPerCapita: 0.15 },
 };
 
 interface BaseProduksiGridProps {
@@ -113,7 +139,6 @@ export default function BaseProduksiGrid({
           const fuelRequirements = isElectricityTab ? getKelistrikanFuelRequirements(key) : [];
           const hasFuelConsumption = fuelRequirements.length > 0;
           const isFuelResource = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(key);
-          const currentFuelConsumption = isFuelResource ? calculateTotalFuelConsumption(countryDetail)[key] : 0;
 
           return (
             <div
@@ -124,107 +149,166 @@ export default function BaseProduksiGrid({
               aria-disabled={!isAvailable}
               className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'} ${isHighlighted ? 'border-emerald-500 border-2 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]' : ''}`}
             >
-              {/* Info Tooltip – hanya muncul jika hoveredBuildingKey === key */}
+              {/* Modal Info Bangunan */}
               {hoveredBuildingKey === key && (
-                <div 
-                  className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  {/* Header dengan judul dan tombol close (X) */}
-                  <div className="flex justify-between items-start mb-2">
-                    <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE]">
-                      ℹ️ Info Bangunan
-                    </div>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setHoveredBuildingKey(null);
-                      }}
-                      className="text-[#FAF6EE]/70 hover:text-[#FAF6EE] transition-colors ml-2"
-                      aria-label="Tutup info"
-                    >
-                      ✕
-                    </button>
-                  </div>
-
-                  <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
-                    {isElectricityTab ? (
-                      <>
-                        <div className="flex justify-between">
-                          <span className="text-[#C4B49C]">Produksi Listrik:</span>
-                          <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')} MW</span>
-                        </div>
-                        {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
-                          <>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
-                              <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
-                              <span className="text-rose-300 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    ) : (
-                      <>
-                        <div className="flex justify-between">
-                          <span className="text-[#C4B49C]">Produksi Per Hari:</span>
-                          <span className="text-emerald-300 font-bold">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
-                        </div>
-                        {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
-                          <>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
-                              <span className="text-rose-300 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
-                            </div>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
-                              <span className="text-rose-300 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
-                            </div>
-                          </>
-                        )}
-                      </>
-                    )}
-                    <div className="flex justify-between">
-                      <span className="text-[#C4B49C]">Biaya:</span>
-                      <span className="text-amber-300 font-bold">{(Number(bMeta?.biaya_pembangunan) || 0).toLocaleString('id-ID')} EM</span>
-                    </div>
-                    {bMeta?.waktu_pembangunan !== undefined && (
-                      <div className="flex justify-between">
-                        <span className="text-[#C4B49C]">Waktu:</span>
-                        <span className="text-amber-300 font-bold">{bMeta.waktu_pembangunan} hari</span>
+                <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+                  <div 
+                    className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto"
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                    
+                    <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+                      <div className="flex items-center gap-2 text-[#5c3c10]">
+                        <Info className="h-5 w-5" />
+                        <h3 className="text-base font-bold uppercase tracking-tight">ℹ️ Info Bangunan - {label}</h3>
                       </div>
-                    )}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setHoveredBuildingKey(null);
+                        }}
+                        className="text-[#8b7e66] hover:text-[#5c3c10] transition-colors p-1 cursor-pointer"
+                        aria-label="Tutup info"
+                      >
+                        <X className="h-5 w-5" />
+                      </button>
+                    </div>
 
-                    {/* --- RANTAI PASOK BAHAN BAKAR (TOOLTIP) --- */}
-                    {isFuelResource && (
-                        <div className="mt-2 rounded-xl bg-[#fff1f0] border border-[#f87171]/30 p-2 text-[10px] text-[#b91c1c]">
-                          <div className="font-black uppercase tracking-[0.15em] mb-1">Total Konsumsi</div>
-                          <div className="space-y-1">
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Produksi:</span>
-                              <span className="font-black">{(calculateProductionAmount(key) || 0).toLocaleString('id-ID')}</span>
+                    <div className="p-6 relative z-10 flex-1 space-y-4 text-xs font-semibold text-[#5c3c10]">
+                      <div className="bg-white/80 border border-[#C4B49C]/40 rounded-xl p-4 space-y-2 shadow-xs">
+                        {isElectricityTab ? (
+                          <>
+                            <div className="flex justify-between items-center">
+                              <span className="text-[#8b7e66]">Produksi Listrik:</span>
+                              <span className="text-emerald-700 font-black text-sm">{(bMeta?.produksi || 0).toLocaleString('id-ID')} MW</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Konsumsi:</span>
-                              <span className="font-black">{currentFuelConsumption.toLocaleString('id-ID')}</span>
+                            {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
+                              <>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
+                                  <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
+                                  <span className="text-rose-700 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                                </div>
+                              </>
+                            )}
+                          </>
+                        ) : (
+                          <>
+                            <div className="flex justify-between items-center">
+                              <span className="text-[#8b7e66]">Produksi Per Hari:</span>
+                              <span className="text-emerald-700 font-black text-sm">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
                             </div>
-                            <div className="flex justify-between">
-                              <span className="text-[#C4B49C]">Saldo (Prod - Konsumsi):</span>
-                              <span className={`font-black ${((calculateProductionAmount(key)||0) - currentFuelConsumption) < 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
-                                {((calculateProductionAmount(key) || 0) - currentFuelConsumption).toLocaleString('id-ID')}
+                            {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
+                              <>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
+                                  <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
+                                </div>
+                                <div className="flex justify-between items-center">
+                                  <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
+                                  <span className="text-rose-700 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                                </div>
+                              </>
+                            )}
+                          </>
+                        )}
+
+                        <div className="flex justify-between items-center border-t border-[#C4B49C]/20 pt-2 mt-2">
+                          <span className="text-[#8b7e66]">Biaya Pembangunan:</span>
+                          <span className="text-[#5c3c10] font-black">{(Number(bMeta?.biaya_pembangunan) || 0).toLocaleString('id-ID')} EM</span>
+                        </div>
+                        {bMeta?.waktu_pembangunan !== undefined && (
+                          <div className="flex justify-between items-center">
+                            <span className="text-[#8b7e66]">Waktu Pembangunan:</span>
+                            <span className="text-[#5c3c10] font-bold">{bMeta.waktu_pembangunan} hari</span>
+                          </div>
+                        )}
+                        <div className="flex justify-between items-center">
+                          <span className="text-[#8b7e66]">Jumlah Bangunan Saat Ini:</span>
+                          <span className="text-[#2e261a] font-black">{perCount} unit</span>
+                        </div>
+                      </div>
+
+                      {FOOD_CONSUMPTION_PER_CAPITA[key] && (() => {
+                        const fMeta = FOOD_CONSUMPTION_PER_CAPITA[key];
+                        const pop = Number(countryDetail?.jumlah_penduduk) || 0;
+                        const baseProd = Number(bMeta?.produksi) || fMeta.prodPerUnit;
+                        const totProd = baseProd * perCount;
+                        const totCons = Math.round((pop / 1000) * fMeta.consumptionPerCapita);
+                        const netto = totProd - totCons;
+                        return (
+                          <div className="rounded-xl bg-white border border-[#C4B49C]/40 p-4 space-y-2 shadow-xs">
+                            <div className="font-black uppercase tracking-wider text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2 mb-1 flex items-center gap-1.5 text-sm">
+                              🍽️ Neraca Pangan Nasional
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-[#8b7e66]">Total Produksi:</span>
+                              <span className="text-emerald-700 font-black">+{totProd.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="flex justify-between items-center">
+                              <span className="text-[#8b7e66]">Total Konsumsi:</span>
+                              <span className="text-rose-700 font-black">-{totCons.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="flex justify-between items-center pt-2 border-t border-[#C4B49C]/30 mt-1">
+                              <span className="text-[#5c3c10] font-black uppercase">Netto:</span>
+                              <span className={`font-black text-sm ${netto >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                                {netto >= 0 ? `+${netto.toLocaleString('id-ID')}` : netto.toLocaleString('id-ID')}
                               </span>
                             </div>
                           </div>
-                        </div>
-                    )}
+                        );
+                      })()}
+
+                      {/* --- PERBAIKAN RANTAI PASOK BAHAN BAKAR --- */}
+                      {hasFuelConsumption && (() => {
+                        const prodVal = calculateProductionAmount(key) || 0;
+                        // PERBAIKAN: Hitung konsumsi langsung dari fuelRequirements x perCount
+                        const consVal = fuelRequirements.reduce((sum, req) => sum + (req.amount * perCount), 0);
+                        const saldoVal = prodVal - consVal;
+                        return (
+                          <div className="rounded-xl bg-rose-50 border border-rose-300 p-4 space-y-2 shadow-xs mt-3">
+                            <div className="font-black uppercase tracking-wider text-rose-900 border-b border-rose-200 pb-2 mb-1 flex items-center gap-1.5 text-sm">
+                              ⚡ Total Konsumsi Bahan Bakar
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                              <span className="text-rose-900 font-bold">Produksi:</span>
+                              <span className="font-black text-emerald-800">+{prodVal.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="flex justify-between items-center text-xs">
+                              <span className="text-rose-900 font-bold">Konsumsi:</span>
+                              <span className="font-black text-rose-800">-{consVal.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="flex justify-between items-center pt-2 border-t border-rose-200 mt-1 text-xs">
+                              <span className="text-rose-900 font-black uppercase">Saldo (Prod - Konsumsi):</span>
+                              <span className={`font-black ${saldoVal < 0 ? 'text-rose-800' : 'text-emerald-800'}`}>
+                                {saldoVal >= 0 ? `+${saldoVal.toLocaleString('id-ID')}` : saldoVal.toLocaleString('id-ID')}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })()}
+                    </div>
+
+                    <div className="px-4 py-2 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setHoveredBuildingKey(null);
+                        }}
+                        className="flex-1 py-2 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66] text-[10px] font-black uppercase transition-all cursor-pointer shadow-sm text-center"
+                      >
+                        Tutup Info
+                      </button>
+                      <div className="flex-1"></div>
+                    </div>
                   </div>
-                  <div className="text-[9px] text-[#C4B49C] mt-2 pt-2 border-t border-[#8b7e66]/30 italic">Klik untuk mulai pembangunan</div>
                 </div>
               )}
-              
+
               <div className="p-4 flex flex-col flex-grow justify-between">
                 <div>
                   <div className="flex items-center justify-between gap-2 mb-1">
@@ -242,25 +326,9 @@ export default function BaseProduksiGrid({
                   </div>
                   <p className="text-2xl font-black mt-2 text-[#2e261a]">{perCount}</p>
                   <p className="text-[10px] mt-1 font-bold text-[#8b7e66]">{perCount} bangunan</p>
-                  
-                  {/* --- KONSUMSI BAHAN BAKAR (TANPA PERKALIAN, LANGSUNG JUMLAH) --- */}
-                  {hasFuelConsumption && perCount > 0 && (
-                    <div className="text-[10px] mt-1 text-[#b02a37] font-semibold space-y-1">
-                      {fuelRequirements.map((rule) => {
-                        const totalConsumption = rule.amount * perCount;
-                        return (
-                          <div key={rule.resourceKey} className="flex justify-between">
-                            <span>{rule.label}</span>
-                            <span className="font-black">{totalConsumption.toLocaleString('id-ID')}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                  {/* --------------------------------------------------------- */}
                 </div>
-                
-                {/* --- FOOTER KARTU LISTRIK (HANYA ANGKA & LABEL, TANPA x MW) --- */}
+
+                {/* --- FOOTER KARTU LISTRIK --- */}
                 {isElectricityTab && (
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
                     <span className="font-black text-xl text-[#2e261a]">
@@ -268,13 +336,13 @@ export default function BaseProduksiGrid({
                     </span>
                   </div>
                 )}
-                
-                {/* --- FOOTER KARTU NON-LISTRIK (SEJAJAR DENGAN min-height) --- */}
+
+                {/* --- FOOTER KARTU NON-LISTRIK --- */}
                 {!isElectricityTab && (
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
                     {isFuelResource ? (() => {
                       const totalProd = calculateProductionAmount(key);
-                      const totalCons = currentFuelConsumption;
+                      const totalCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
                       const netBalance = totalProd === 0 ? 0 : totalProd - totalCons;
                       const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
                       return (
@@ -293,38 +361,13 @@ export default function BaseProduksiGrid({
             </div>
           );
         })}
-        
+
         {keys.length === 0 && (
           <div className="rounded-xl border border-[#C4B49C]/30 bg-[#FAF6EE] p-4 text-sm text-[#8b7e66]">
             Data untuk kategori ini tidak tersedia.
           </div>
         )}
       </div>
-
-      {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI (PALING BAWAH MENU) --- */}
-      {(() => {
-        const categoryElectricityConsumption = keys.reduce((sum, key) => {
-          const bMeta = findMeta(key);
-          const count = Number(countryDetail?.[key]) || 0;
-          const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
-          return sum + (count * konsumsiUnit);
-        }, 0);
-
-        return (
-          <div className="mt-6 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
-            <div className="flex items-center gap-2">
-              <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
-                ⚡ Total Konsumsi Listrik {title}
-              </span>
-            </div>
-            <div className="px-4 py-1.5 rounded-lg bg-rose-50 border border-rose-300">
-              <span className="text-sm font-black text-rose-700">
-                {categoryElectricityConsumption.toLocaleString('id-ID')} MW
-              </span>
-            </div>
-          </div>
-        );
-      })()}
     </div>
   );
 }

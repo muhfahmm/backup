@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { 
-  X, Plus, Beef, Milk, Wheat, Fish, Cookie, Utensils 
+  X, Plus, Beef, Wheat, Fish, Cookie, Utensils 
 } from "lucide-react";
 
 interface ModalProps {
@@ -13,17 +13,18 @@ interface ModalProps {
   onGotoProduction?: (tab: string, key: string) => void;
 }
 
-// Data sektor pangan dan konsumsi per kapita (unit/1.000 penduduk)
+// Data lengkap 4 Sektor Pangan sesuai data sistem produksi:
+// Peternakan (4), Agrikultur (12), Perikanan (3), Olahan Pangan (7)
 const FOOD_SECTORS = [
   {
     id: "peternakan",
     label: "🐄 Peternakan",
     icon: Beef,
     items: [
-      { key: "ayam_unggas", label: "Daging Ayam", buildingKey: "ayam_unggas", prodPerUnit: 15, consumptionPerCapita: 1.2, tab: "peternakan" },
-      { key: "sapi_potong", label: "Daging Sapi", buildingKey: "sapi_potong", prodPerUnit: 5, consumptionPerCapita: 0.8, tab: "peternakan" },
-      { key: "sapi_perah", label: "Susu Sapi", buildingKey: "sapi_perah", prodPerUnit: 10, consumptionPerCapita: 1.5, tab: "peternakan" },
-      { key: "domba_kambing", label: "Daging Domba", buildingKey: "domba_kambing", prodPerUnit: 7, consumptionPerCapita: 0.5, tab: "peternakan" },
+      { key: "ayam_unggas", label: "Daging Ayam", buildingKey: "ayam_unggas", prodPerUnit: 15, consumptionPerCapita: 0.15, tab: "peternakan" },
+      { key: "sapi_potong", label: "Daging Sapi", buildingKey: "sapi_potong", prodPerUnit: 5, consumptionPerCapita: 0.08, tab: "peternakan" },
+      { key: "sapi_perah", label: "Susu Sapi", buildingKey: "sapi_perah", prodPerUnit: 10, consumptionPerCapita: 0.12, tab: "peternakan" },
+      { key: "domba_kambing", label: "Daging Domba", buildingKey: "domba_kambing", prodPerUnit: 7, consumptionPerCapita: 0.05, tab: "peternakan" },
     ]
   },
   {
@@ -31,10 +32,18 @@ const FOOD_SECTORS = [
     label: "🌾 Agrikultur",
     icon: Wheat,
     items: [
-      { key: "padi", label: "Beras", buildingKey: "padi", prodPerUnit: 20, consumptionPerCapita: 5.0, tab: "agrikultur" },
-      { key: "gandum", label: "Gandum", buildingKey: "gandum", prodPerUnit: 18, consumptionPerCapita: 2.0, tab: "agrikultur" },
-      { key: "jagung", label: "Jagung", buildingKey: "jagung", prodPerUnit: 22, consumptionPerCapita: 1.5, tab: "agrikultur" },
-      { key: "sayur", label: "Sayur Mayur", buildingKey: "sayur", prodPerUnit: 30, consumptionPerCapita: 3.0, tab: "agrikultur" },
+      { key: "padi", label: "Beras", buildingKey: "padi", prodPerUnit: 20, consumptionPerCapita: 0.35, tab: "agrikultur" },
+      { key: "gandum", label: "Gandum", buildingKey: "gandum", prodPerUnit: 18, consumptionPerCapita: 0.24, tab: "agrikultur" },
+      { key: "jagung", label: "Jagung", buildingKey: "jagung", prodPerUnit: 22, consumptionPerCapita: 0.18, tab: "agrikultur" },
+      { key: "sayur", label: "Sayur Mayur", buildingKey: "sayur", prodPerUnit: 30, consumptionPerCapita: 0.30, tab: "agrikultur" },
+      { key: "umbi", label: "Umbi-umbian", buildingKey: "umbi", prodPerUnit: 25, consumptionPerCapita: 0.20, tab: "agrikultur" },
+      { key: "kedelai", label: "Kedelai", buildingKey: "kedelai", prodPerUnit: 15, consumptionPerCapita: 0.15, tab: "agrikultur" },
+      { key: "kelapa_sawit", label: "Kelapa Sawit", buildingKey: "kelapa_sawit", prodPerUnit: 40, consumptionPerCapita: 0.10, tab: "agrikultur" },
+      { key: "kopi", label: "Kopi", buildingKey: "kopi", prodPerUnit: 10, consumptionPerCapita: 0.05, tab: "agrikultur" },
+      { key: "teh", label: "Teh", buildingKey: "teh", prodPerUnit: 12, consumptionPerCapita: 0.06, tab: "agrikultur" },
+      { key: "kakao", label: "Kakao", buildingKey: "kakao", prodPerUnit: 8, consumptionPerCapita: 0.04, tab: "agrikultur" },
+      { key: "tebu", label: "Tebu", buildingKey: "tebu", prodPerUnit: 35, consumptionPerCapita: 0.15, tab: "agrikultur" },
+      { key: "karet", label: "Karet Olahan", buildingKey: "karet", prodPerUnit: 15, consumptionPerCapita: 0.02, tab: "agrikultur" },
     ]
   },
   {
@@ -42,9 +51,9 @@ const FOOD_SECTORS = [
     label: "🐟 Perikanan",
     icon: Fish,
     items: [
-      { key: "udang", label: "Udang", buildingKey: "udang", prodPerUnit: 12, consumptionPerCapita: 0.8, tab: "perikanan" },
-      { key: "ikan", label: "Ikan Segar", buildingKey: "ikan", prodPerUnit: 25, consumptionPerCapita: 2.5, tab: "perikanan" },
-      { key: "mutiara", label: "Mutiara", buildingKey: "mutiara", prodPerUnit: 2, consumptionPerCapita: 0.1, tab: "perikanan" },
+      { key: "udang", label: "Udang", buildingKey: "udang", prodPerUnit: 12, consumptionPerCapita: 0.08, tab: "perikanan" },
+      { key: "ikan", label: "Ikan Segar", buildingKey: "ikan", prodPerUnit: 25, consumptionPerCapita: 0.25, tab: "perikanan" },
+      { key: "mutiara", label: "Mutiara", buildingKey: "mutiara", prodPerUnit: 2, consumptionPerCapita: 0.01, tab: "perikanan" },
     ]
   },
   {
@@ -52,10 +61,13 @@ const FOOD_SECTORS = [
     label: "🥫 Olahan Pangan",
     icon: Cookie,
     items: [
-      { key: "roti", label: "Roti", buildingKey: "roti", prodPerUnit: 15, consumptionPerCapita: 1.8, tab: "olahan pangan" },
-      { key: "gula", label: "Gula", buildingKey: "gula", prodPerUnit: 20, consumptionPerCapita: 2.0, tab: "olahan pangan" },
-      { key: "minyak_goreng", label: "Minyak Goreng", buildingKey: "minyak_goreng", prodPerUnit: 10, consumptionPerCapita: 1.0, tab: "olahan pangan" },
-      { key: "air_mineral", label: "Air Mineral", buildingKey: "air_mineral", prodPerUnit: 25, consumptionPerCapita: 3.5, tab: "olahan pangan" },
+      { key: "air_mineral", label: "Air Mineral", buildingKey: "air_mineral", prodPerUnit: 25, consumptionPerCapita: 0.35, tab: "olahan pangan" },
+      { key: "gula", label: "Gula", buildingKey: "gula", prodPerUnit: 20, consumptionPerCapita: 0.20, tab: "olahan pangan" },
+      { key: "roti", label: "Roti", buildingKey: "roti", prodPerUnit: 15, consumptionPerCapita: 0.18, tab: "olahan pangan" },
+      { key: "pengolahan_daging", label: "Daging Olahan", buildingKey: "pengolahan_daging", prodPerUnit: 12, consumptionPerCapita: 0.10, tab: "olahan pangan" },
+      { key: "mie_instan", label: "Mie Instan", buildingKey: "mie_instan", prodPerUnit: 30, consumptionPerCapita: 0.25, tab: "olahan pangan" },
+      { key: "minyak_goreng", label: "Minyak Goreng", buildingKey: "minyak_goreng", prodPerUnit: 10, consumptionPerCapita: 0.10, tab: "olahan pangan" },
+      { key: "susu", label: "Susu Olahan", buildingKey: "susu", prodPerUnit: 18, consumptionPerCapita: 0.15, tab: "olahan pangan" },
     ]
   }
 ];
@@ -133,7 +145,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               {/* HEADER SEKTOR */}
               <div className="flex items-center gap-3 px-6 py-3.5 bg-[#4a7a7a] border-b border-[#3d6868] text-white">
                 <sector.icon className="h-5 w-5 opacity-90" />
-                <h4 className="text-sm font-black uppercase tracking-wider">{sector.label}</h4>
+                <h4 className="text-sm font-black uppercase tracking-wider">{sector.label} ({sector.items.length} Komoditas)</h4>
               </div>
 
               {/* GRID ITEM MAKANAN */}
@@ -144,44 +156,43 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                   const netBalance = production - consumption;
 
                   return (
-                    <div key={item.key} className="bg-[#f7f3e8] p-4 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
+                    <div key={item.key} className="bg-[#f7f3e8] p-3.5 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
                       
-                      {/* Baris Atas: Nama */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-[11px] text-[#5c3c10] font-black uppercase tracking-wider">
-                          <span>{item.label}</span>
-                        </div>
-                      </div>
-
-                      {/* Angka Produksi & Tombol + */}
-                      <div className="flex items-center justify-between gap-2 bg-white/80 border border-[#C4B49C]/30 rounded-lg p-2 shadow-xs">
-                        <div className="flex flex-col">
-                          <span className="text-[9px] text-[#8b7e66] font-bold uppercase">Produksi</span>
-                          <span className="text-base font-black text-[#2e261a]">
-                            {production.toLocaleString('id-ID')}
-                          </span>
-                        </div>
+                      {/* Baris Atas: Nama Komoditas & Tombol + */}
+                      <div className="flex items-center justify-between pb-1 border-b border-[#C4B49C]/20">
+                        <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider">{item.label}</span>
                         {onGotoProduction && (
                           <button
                             onClick={() => handleBuildClick(item.tab, item.buildingKey)}
                             title={`Bangun ${item.label}`}
-                            className="p-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs"
+                            className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs"
                           >
-                            <Plus className="w-4 h-4" />
+                            <Plus className="w-3.5 h-3.5" />
                           </button>
                         )}
                       </div>
 
-                      {/* Baris Bawah: Konsumsi & Neraca */}
-                      <div className="flex justify-between items-center text-[10px] border-t border-[#C4B49C]/20 pt-1.5 mt-0.5">
-                        <div className="flex items-center gap-1 text-[#8b7e66] font-semibold">
-                          <span>Kebutuhan: <span className="font-bold text-[#5c3c10]">{consumption.toLocaleString('id-ID')}</span></span>
+                      {/* Stat Block */}
+                      <div className="space-y-1 text-xs">
+                        {/* Total Produksi (Warna Hijau) */}
+                        <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60">
+                          <span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>
+                          <span className="font-black text-emerald-700">+{production.toLocaleString('id-ID')}</span>
                         </div>
-                        
-                        {/* Neraca */}
-                        <div className={`font-black text-xs ${netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+
+                        {/* Total Konsumsi (Warna Merah) */}
+                        <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60">
+                          <span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>
+                          <span className="font-black text-rose-700">-{consumption.toLocaleString('id-ID')}</span>
+                        </div>
+                      </div>
+
+                      {/* Requirements (Hasil Produksi - Konsumsi) */}
+                      <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5">
+                        <span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>
+                        <span className={`font-black text-xs ${netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
                           {netBalance >= 0 ? `+${netBalance.toLocaleString('id-ID')}` : netBalance.toLocaleString('id-ID')}
-                        </div>
+                        </span>
                       </div>
 
                     </div>

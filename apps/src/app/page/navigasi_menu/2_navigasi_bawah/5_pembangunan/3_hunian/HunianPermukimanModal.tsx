@@ -11,7 +11,6 @@ interface ModalProps {
   onGotoProduction?: (tab: string, key: string) => void;
 }
 
-// --- TIPE DATA MATERIAL ---
 interface MaterialRequirement {
   resourceKey: string;
   label: string;
@@ -22,7 +21,6 @@ interface BuildingRequirements {
   requirements: MaterialRequirement[];
 }
 
-// --- DUMMY REQUIREMENTS MATERIAL ---
 const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
   rumah_subsidi: {
     requirements: [
@@ -45,7 +43,6 @@ const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
   }
 };
 
-// --- PEMETAAN TAB MATERIAL KE TAB PRODUKSI ---
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
@@ -63,7 +60,6 @@ const CARD_TAB_MAP: Record<string, string> = {
   sepeda_motor: 'manufaktur',
 };
 
-// PERBAIKAN: Tambahkan deklarasi RESOURCE_KEY_ALIASES agar error "Cannot find name" hilang
 const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
@@ -79,7 +75,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
 
-  // --- FUNGSI findMeta (SAMA SEPERTI DI ProduksiModal) ---
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
     if (metadata[key]) return metadata[key];
@@ -196,7 +191,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
   const activeItem = items.find((it) => it.key === activeTab) || items[0];
   const totalValue = items.reduce((sum, item) => sum + item.value, 0);
 
-  // --- PERBAIKAN LOGIKA PRODUKSI & KONSUMSI (SAMA SEPERTI PRODUKSI MODAL) ---
+  // --- PERBAIKAN LOGIKA PRODUKSI & KONSUMSI ---
   const ELECTRICITY_BUILDINGS_LIST = [
     'pembangkit_listrik_tenaga_nuklir',
     'pembangkit_listrik_tenaga_air',
@@ -253,7 +248,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
         : totalProductionMW * 0.7 + populationDemand
     )
   );
-  // ------------------------------------------------------------------------
 
   return (
     <>
@@ -336,7 +330,8 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                     </div>
 
                     <div className="bg-white/90 border border-[#C4B49C]/30 rounded-3xl p-6 shadow-sm max-w-sm relative overflow-visible">
-                      {/* Info Tooltip */}
+                      
+                      {/* MODAL INFO BANGUNAN (BESAR SEPERTI KONFIRMASI) */}
                       {hoveredBuildingKey === activeItem.key && (() => {
                         const bMeta = findMeta(activeItem.key) || {};
                         const perCount = activeItem.value || 0;
@@ -345,47 +340,70 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                         const waktu = bMeta?.waktu_pembangunan;
 
                         return (
-                          <div 
-                            className="absolute -top-2 -right-2 z-50 bg-[#5c3c10] text-[#FAF6EE] rounded-lg shadow-lg border border-[#8b7e66]/50 p-3 w-56 animate-in fade-in duration-150"
-                            onClick={(e) => e.stopPropagation()}
-                          >
-                            <div className="flex justify-between items-start mb-2">
-                              <div className="text-[11px] font-black uppercase tracking-widest text-[#FAF6EE]">
-                                ℹ️ Info Bangunan
-                              </div>
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setHoveredBuildingKey(null);
-                                }}
-                                className="text-[#FAF6EE]/70 hover:text-[#FAF6EE] transition-colors ml-2"
-                                aria-label="Tutup info"
-                              >
-                                ✕
-                              </button>
-                            </div>
-
-                            <div className="border-t border-[#8b7e66]/30 pt-2 space-y-1.5 text-[10px]">
-                              <div className="flex justify-between">
-                                <span className="text-[#C4B49C]">Listrik Dikonsumsi (Satuan):</span>
-                                <span className="text-rose-300 font-bold">{konsumsiUnit.toLocaleString('id-ID')} MW</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-[#C4B49C]">Listrik Dikonsumsi (Total):</span>
-                                <span className="text-rose-300 font-bold">{(konsumsiUnit * perCount).toLocaleString('id-ID')} MW</span>
-                              </div>
-                              <div className="flex justify-between">
-                                <span className="text-[#C4B49C]">Biaya:</span>
-                                <span className="text-amber-300 font-bold">{biaya.toLocaleString('id-ID')} EM</span>
-                              </div>
-                              {waktu !== undefined && (
-                                <div className="flex justify-between">
-                                  <span className="text-[#C4B49C]">Waktu:</span>
-                                  <span className="text-amber-300 font-bold">{waktu} hari</span>
+                          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+                            <div 
+                              className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto"
+                              onClick={(e) => e.stopPropagation()}
+                            >
+                              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                              
+                              <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+                                <div className="flex items-center gap-2 text-[#5c3c10]">
+                                  <Info className="h-5 w-5" />
+                                  <h3 className="text-base font-bold uppercase tracking-tight">ℹ️ Info Bangunan - {activeItem.label}</h3>
                                 </div>
-                              )}
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setHoveredBuildingKey(null);
+                                  }}
+                                  className="text-[#8b7e66] hover:text-[#5c3c10] transition-colors p-1 cursor-pointer"
+                                  aria-label="Tutup info"
+                                >
+                                  <X className="h-5 w-5" />
+                                </button>
+                              </div>
+
+                              <div className="p-6 relative z-10 flex-1 space-y-4 text-xs font-semibold text-[#5c3c10]">
+                                <div className="bg-white/80 border border-[#C4B49C]/40 rounded-xl p-4 space-y-2 shadow-xs">
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
+                                    <span className="text-rose-700 font-black text-sm">{konsumsiUnit.toLocaleString('id-ID')} MW</span>
+                                  </div>
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
+                                    <span className="text-rose-700 font-black text-sm">{(konsumsiUnit * perCount).toLocaleString('id-ID')} MW</span>
+                                  </div>
+                                  <div className="flex justify-between items-center border-t border-[#C4B49C]/20 pt-2 mt-2">
+                                    <span className="text-[#8b7e66]">Biaya Pembangunan:</span>
+                                    <span className="text-[#5c3c10] font-black text-sm">{biaya.toLocaleString('id-ID')} EM</span>
+                                  </div>
+                                  {waktu !== undefined && (
+                                    <div className="flex justify-between items-center">
+                                      <span className="text-[#8b7e66]">Estimasi Waktu Pembangunan:</span>
+                                      <span className="text-[#5c3c10] font-bold text-sm">{waktu} hari</span>
+                                    </div>
+                                  )}
+                                  <div className="flex justify-between items-center">
+                                    <span className="text-[#8b7e66]">Jumlah Bangunan Saat Ini:</span>
+                                    <span className="text-[#2e261a] font-black text-sm">{perCount} unit</span>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="px-4 py-2 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation();
+                                    setHoveredBuildingKey(null);
+                                  }}
+                                  className="flex-1 py-2 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66] text-[10px] font-black uppercase transition-all cursor-pointer shadow-sm text-center"
+                                >
+                                  Tutup Info
+                                </button>
+                                <div className="flex-1"></div>
+                              </div>
                             </div>
-                            <div className="text-[9px] text-[#C4B49C] mt-2 pt-2 border-t border-[#8b7e66]/30 italic">Klik untuk mulai pembangunan</div>
                           </div>
                         );
                       })()}
@@ -428,7 +446,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                 </div>
               </div>
 
-              {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI (PALING BAWAH MENU) --- */}
+              {/* --- RINGKASAN KONSUMSI LISTRIK SEKTOR INI --- */}
               {activeItem && (() => {
                 const bMeta = findMeta(activeItem.key);
                 const count = Number(countryDetail?.[activeItem.key]) || 0;
@@ -442,8 +460,8 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                         ⚡ Total Konsumsi Listrik {activeItem.label}
                       </span>
                     </div>
-                    <div className="px-4 py-1.5 rounded-lg bg-rose-50 border border-rose-300">
-                      <span className="text-sm font-black text-rose-700">
+                    <div className="px-4 py-1.5 rounded-lg bg-pink-300 border-pink-400">
+                      <span className="text-sm font-black text-pink-900">
                         {categoryElectricityConsumption.toLocaleString('id-ID')} MW
                       </span>
                     </div>
@@ -458,7 +476,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
       {/* TOAST GLOBAL */}
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
       
-      {/* MODAL KONFIRMASI PEMBANGUNAN */}
+      {/* MODAL KONFIRMASI PEMBANGUNAN (Tidak diubah) */}
       {showConfirm && selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
@@ -481,13 +499,12 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                   <X className="h-5 w-5" />
                 </button>
               </div>
-
+              {/* ... sisa konten konfirmasi sama persis seperti sebelumnya ... */}
               <div className="p-6 relative z-10 flex-1 space-y-4">
                 <div>
                   <h4 className="text-lg font-black text-[#2e261a]">{selectedBuilding.label}</h4>
                   <p className="text-xs text-[#8b7e66] mt-1">{bMeta?.deskripsi || bMeta?.desc || 'Tidak ada deskripsi tersedia.'}</p>
                 </div>
-
                 <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
                   <div className="flex justify-between font-bold">
                     <span>Biaya Pembangunan:</span>
@@ -505,8 +522,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                       <span className="text-emerald-700 font-bold">+1.5</span>
                     </div>
                   )}
-
-                  {/* SECTION MATERIAL */}
                   {buildingReq?.requirements && buildingReq.requirements.length > 0 ? (
                     <div className="space-y-3 text-xs pt-2 border-t border-[#C4B49C]/30 mt-2">
                       <div className="flex items-center justify-between">
@@ -534,7 +549,7 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                           showMaterialGrid ? 'max-h-[1500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
                         }`}
                       >
-                        {buildingReq.requirements.map((material: MaterialRequirement) => {
+                        {buildingReq.requirements.map((material) => {
                           const stock = getMaterialStock(material.resourceKey);
                           return (
                             <button
@@ -560,13 +575,11 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
                     <div className="text-[#8b7e66]">Tidak ada material yang dibutuhkan untuk bangunan ini.</div>
                   )}
                 </div>
-
                 <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
                   <span>Kas Negara Saat Ini:</span>
                   <span>{(Number(countryDetail?.anggaran) || 0).toLocaleString('id-ID')}</span>
                 </div>
               </div>
-
               <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
                 <button onClick={() => { setShowConfirm(false); setSelectedBuilding(null); }} className="flex-1 py-2 rounded-xl border-2 border-[#C4B49C] text-[#8b7e66] text-[10px] font-black uppercase cursor-pointer hover:bg-black/5 transition-all text-center">Batal</button>
                 <button 
@@ -591,7 +604,6 @@ export default function HunianPermukimanModal({ isOpen, onClose, countryDetail, 
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
-            
             <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
               <div className="flex items-center gap-2 text-rose-600">
                 <AlertCircle className="h-5 w-5" />
