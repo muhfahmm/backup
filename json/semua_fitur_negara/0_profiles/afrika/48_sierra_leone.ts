@@ -1,5 +1,5 @@
 // @ts-nocheck
-const sierra_leone_profile = {
+export const sierra_leone_profile = {
   "name_en": "Sierra Leone",
   "capital": "Freetown",
   "name_id": "Sierra leone",

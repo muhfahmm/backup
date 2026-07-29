@@ -1,5 +1,5 @@
 // @ts-nocheck
-const mikronesia_profile = {
+export const mikronesia_profile = {
   "name_en": "Micronesia",
   "capital": "Palikir",
   "name_id": "Mikronesia",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const nepal_profile = {
+export const nepal_profile = {
   "name_en": "Nepal",
   "capital": "Kathmandu",
   "name_id": "Nepal",

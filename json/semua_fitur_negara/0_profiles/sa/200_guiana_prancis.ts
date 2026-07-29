@@ -1,5 +1,5 @@
 // @ts-nocheck
-const guiana_prancis_profile = {
+export const guiana_prancis_profile = {
   "name_en": "French Guiana",
   "capital": "Cayenne",
   "name_id": "Guiana prancis",

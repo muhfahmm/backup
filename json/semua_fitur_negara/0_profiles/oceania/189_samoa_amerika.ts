@@ -1,5 +1,5 @@
 // @ts-nocheck
-const samoa_amerika_profile = {
+export const samoa_amerika_profile = {
   "name_en": "American Samoa",
   "capital": "Pago Pago",
   "name_id": "Samoa amerika",

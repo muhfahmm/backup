@@ -1,5 +1,5 @@
 // @ts-nocheck
-const tanjung_verde_profile = {
+export const tanjung_verde_profile = {
   "name_en": "Cape Verde",
   "capital": "Praia",
   "name_id": "Tanjung verde",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const korea_utara_profile = {
+export const korea_utara_profile = {
   "name_en": "North Korea",
   "capital": "Pyongyang",
   "name_id": "Korea Utara",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const saint_kitts_dan_nevis_profile = {
+export const saint_kitts_dan_nevis_profile = {
   "name_en": "Saint Kitts and Nevis",
   "capital": "Basseterre",
   "name_id": "Saint kitts dan nevis",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const antigua_dan_barbuda_profile = {
+export const antigua_dan_barbuda_profile = {
   "name_en": "Antigua and Barbuda",
   "capital": "Saint John's",
   "name_id": "Antigua dan Barbuda",

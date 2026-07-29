@@ -1,5 +1,5 @@
 // @ts-nocheck
-const liechtenstein_profile = {
+export const liechtenstein_profile = {
   "name_en": "Liechtenstein",
   "capital": "Vaduz",
   "name_id": "Liechtenstein",

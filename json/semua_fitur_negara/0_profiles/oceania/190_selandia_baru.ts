@@ -1,5 +1,5 @@
 // @ts-nocheck
-const selandia_baru_profile = {
+export const selandia_baru_profile = {
   "name_en": "New Zealand",
   "capital": "Wellington",
   "name_id": "Selandia baru",

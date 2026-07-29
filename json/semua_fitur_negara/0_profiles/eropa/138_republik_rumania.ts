@@ -1,5 +1,5 @@
 // @ts-nocheck
-const republik_rumania_profile = {
+export const republik_rumania_profile = {
   "name_en": "Romania",
   "capital": "Bucharest",
   "name_id": "Republik rumania",

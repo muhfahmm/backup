@@ -1,5 +1,5 @@
 // @ts-nocheck
-const kepulauan_faroe_profile = {
+export const kepulauan_faroe_profile = {
   "name_en": "Faroe Islands",
   "capital": "Tórshavn",
   "name_id": "Kepulauan faroe",

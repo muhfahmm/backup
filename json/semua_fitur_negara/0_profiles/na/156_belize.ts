@@ -1,5 +1,5 @@
 // @ts-nocheck
-const belize_profile = {
+export const belize_profile = {
   "name_en": "Belize",
   "capital": "Belmopan",
   "name_id": "Belize",

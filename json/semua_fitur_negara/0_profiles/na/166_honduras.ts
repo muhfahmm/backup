@@ -1,5 +1,5 @@
 // @ts-nocheck
-const honduras_profile = {
+export const honduras_profile = {
   "name_en": "Honduras",
   "capital": "Tegucigalpa",
   "name_id": "Honduras",

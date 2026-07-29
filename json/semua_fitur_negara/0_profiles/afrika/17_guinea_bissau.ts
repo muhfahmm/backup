@@ -1,8 +1,8 @@
 // @ts-nocheck
-const guinea_bissau_profile = {
+export const guinea_bissau_profile = {
   "name_en": "Guinea-Bissau",
   "capital": "Bissau",
-  "name_id": "Guinea-bissau",
+  "name_id": "Guinea bissau",
   "lon": -15,
   "lat": 12,
   "flag": "🇬🇼",

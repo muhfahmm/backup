@@ -1,5 +1,5 @@
 // @ts-nocheck
-const korea_selatan_profile = {
+export const korea_selatan_profile = {
   "name_en": "South Korea",
   "capital": "Seoul",
   "name_id": "Korea Selatan",

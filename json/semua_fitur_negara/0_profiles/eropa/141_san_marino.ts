@@ -1,5 +1,5 @@
 // @ts-nocheck
-const san_marino_profile = {
+export const san_marino_profile = {
   "name_en": "San Marino",
   "capital": "City of San Marino",
   "name_id": "San marino",

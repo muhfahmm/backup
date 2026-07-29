@@ -1,5 +1,5 @@
 // @ts-nocheck
-const grenada_profile = {
+export const grenada_profile = {
   "name_en": "Grenada",
   "capital": "St. George's",
   "name_id": "Grenada",

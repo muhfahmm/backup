@@ -1,5 +1,5 @@
 // @ts-nocheck
-const pantai_gading_profile = {
+export const pantai_gading_profile = {
   "name_en": "Ivory Coast",
   "capital": "Yamoussoukro",
   "name_id": "Pantai gading",

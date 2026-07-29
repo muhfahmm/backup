@@ -1,5 +1,5 @@
 // @ts-nocheck
-const vatikan_profile = {
+export const vatikan_profile = {
   "name_en": "Vatican City",
   "capital": "Vatican City",
   "name_id": "Vatikan",

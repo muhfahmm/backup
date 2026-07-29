@@ -1,5 +1,5 @@
 // @ts-nocheck
-const puerto_rico_profile = {
+export const puerto_rico_profile = {
   "name_en": "Puerto Rico",
   "capital": "San Juan",
   "name_id": "Puerto rico",

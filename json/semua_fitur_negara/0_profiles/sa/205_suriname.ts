@@ -1,5 +1,5 @@
 // @ts-nocheck
-const suriname_profile = {
+export const suriname_profile = {
   "name_en": "Suriname",
   "capital": "Paramaribo",
   "name_id": "Suriname",

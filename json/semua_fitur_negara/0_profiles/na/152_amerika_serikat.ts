@@ -1,5 +1,5 @@
 // @ts-nocheck
-const amerika_serikat_profile = {
+export const amerika_serikat_profile = {
   "name_en": "United States",
   "capital": "Washington, D.C.",
   "name_id": "Amerika Serikat",

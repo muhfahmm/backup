@@ -1,5 +1,5 @@
 // @ts-nocheck
-const yaman_profile = {
+export const yaman_profile = {
   "name_en": "Yemen",
   "capital": "Sana'a",
   "name_id": "Yaman",

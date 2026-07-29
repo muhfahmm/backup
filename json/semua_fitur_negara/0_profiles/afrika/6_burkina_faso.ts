@@ -1,5 +1,5 @@
 // @ts-nocheck
-const burkina_faso_profile = {
+export const burkina_faso_profile = {
   "name_en": "Burkina Faso",
   "capital": "Ouagadougou",
   "name_id": "Burkina faso",

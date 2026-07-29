@@ -1,5 +1,5 @@
 // @ts-nocheck
-const papua_nugini_profile = {
+export const papua_nugini_profile = {
   "name_en": "Papua New Guinea",
   "capital": "Port Moresby",
   "name_id": "Papua nugini",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const tonga_profile = {
+export const tonga_profile = {
   "name_en": "Tonga",
   "capital": "Nuku'alofa",
   "name_id": "Tonga",

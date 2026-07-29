@@ -1,5 +1,5 @@
 // @ts-nocheck
-const vanuatu_profile = {
+export const vanuatu_profile = {
   "name_en": "Vanuatu",
   "capital": "Port Vila",
   "name_id": "Vanuatu",

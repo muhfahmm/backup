@@ -1,5 +1,5 @@
 // @ts-nocheck
-const trinidad_dan_tobago_profile = {
+export const trinidad_dan_tobago_profile = {
   "name_en": "Trinidad and Tobago",
   "capital": "Port of Spain",
   "name_id": "Trinidad dan tobago",

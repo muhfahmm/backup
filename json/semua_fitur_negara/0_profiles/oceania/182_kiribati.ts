@@ -1,5 +1,5 @@
 // @ts-nocheck
-const kiribati_profile = {
+export const kiribati_profile = {
   "name_en": "Kiribati",
   "capital": "South Tarawa",
   "name_id": "Kiribati",

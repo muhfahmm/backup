@@ -1,5 +1,5 @@
 // @ts-nocheck
-const brunei_profile = {
+export const brunei_profile = {
   "name_en": "Brunei",
   "capital": "Bandar Seri Begawan",
   "name_id": "Brunei",

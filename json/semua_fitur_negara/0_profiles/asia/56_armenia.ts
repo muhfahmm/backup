@@ -1,5 +1,5 @@
 // @ts-nocheck
-const armenia_profile = {
+export const armenia_profile = {
   "name_en": "Armenia",
   "capital": "Yerevan",
   "name_id": "Armenia",

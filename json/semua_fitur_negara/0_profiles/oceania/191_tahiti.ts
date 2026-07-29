@@ -1,5 +1,5 @@
 // @ts-nocheck
-const tahiti_profile = {
+export const tahiti_profile = {
   "name_en": "French Polynesia",
   "capital": "Papeetē",
   "name_id": "Tahiti",

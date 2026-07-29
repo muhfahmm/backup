@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-    Power, MapPin, Users, Landmark, Scale, Home, Save, RotateCcw, Smile
+    Power, Users, Landmark, Save, RotateCcw, Smile
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
 
@@ -44,7 +44,7 @@ export function Navbar({
         <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto bg-[#e6d8b9] border-b border-[#c4b49c] px-2 sm:px-6 lg:px-8 py-2 sm:py-3.5 flex items-center justify-between shadow-md min-h-[56px] sm:min-h-[64px] lg:min-h-[80px] select-none backdrop-blur-none">
             
             {/* 1. Left Side: Circular Menu & Selected Badge */}
-            <div className="flex items-center gap-1.5 sm:gap-3.5 shrink-0">
+            <div className="flex items-center gap-1.5 sm:gap-3.5 shrink-0 relative z-20">
                 {/* Circle Power Button */}
                 <div className="relative group shrink-0">
                     <button
@@ -78,6 +78,7 @@ export function Navbar({
                         <span className="text-[9px] sm:text-[12px] font-black text-black tracking-tight uppercase">
                             {selectedCountry ? selectedCountry.country : 'Main Simulation'}
                         </span>
+                        {/* IBUKOTA TETAP DIPERTAHANKAN DI SINI */}
                         <span className="text-[7px] sm:text-[10px] font-bold text-black/60 uppercase tracking-widest">
                             {selectedCountry ? selectedCountry.capital : 'Global Map'}
                         </span>
@@ -85,14 +86,9 @@ export function Navbar({
                 </div>
             </div>
 
-            {/* 2. Center: Live Stats Items */}
-            <div className="flex items-center gap-1 sm:gap-4 lg:gap-6 mx-1 sm:mx-4 lg:mx-8 flex-1 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth">
+            {/* 2. Center: Live Stats Items (DIPOSISIKAN TEPAT DI TENGAH LAYAR) */}
+            <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1 sm:gap-4 lg:gap-6 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth z-10">
                 <div className="flex items-center gap-1 sm:gap-4 lg:gap-6 min-w-max">
-                    <StatusItem 
-                        icon={<MapPin className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} 
-                        label="IBUKOTA" 
-                        value={countryDetail?.capital || selectedCountry?.capital || '-'} 
-                    />
                     <StatusItem 
                         icon={<Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} 
                         label="POPULASI" 
@@ -112,16 +108,6 @@ export function Navbar({
                             '-'
                         )}
                     />
-                    
-                    {/* 
-                        AGAMA & IDEOLOGI DISEMBUNYIKAN PADA LAYAR DI BAWAH 1536px (2xl).
-                    */}
-                    <div className="hidden 2xl:flex">
-                        <StatusItem icon={<Scale className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} label="IDEOLOGI" value={countryDetail?.ideology || '-'} />
-                    </div>
-                    <div className="hidden 2xl:flex">
-                        <StatusItem icon={<Home className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} label="AGAMA MAYORITAS" value={countryDetail?.religion || '-'} />
-                    </div>
 
                     <button 
                         onClick={onOpenKepuasan}
@@ -135,18 +121,11 @@ export function Navbar({
                             color={getKepuasanColor(countryDetail?.kepuasan ?? 50)} 
                         />
                     </button>
-                    
-                    <StatusItem
-                        icon={<Power className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
-                        label="SUARA PBB"
-                        value={countryDetail?.un_vote || '-'}
-                        color="text-[#5ea3b1]"
-                    />
                 </div>
             </div>
 
             {/* 3. Right Side: Save & Restart Buttons */}
-            <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+            <div className="flex items-center gap-1 sm:gap-2 shrink-0 relative z-20">
                 <button
                     onClick={onOpenSaveModal}
                     title="Simpan Game"

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const makau_profile = {
+export const makau_profile = {
   "name_en": "Macau",
   "capital": "N/A",
   "name_id": "Makau",

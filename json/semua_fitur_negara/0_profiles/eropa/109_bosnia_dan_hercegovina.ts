@@ -1,5 +1,5 @@
 // @ts-nocheck
-const bosnia_dan_hercegovina_profile = {
+export const bosnia_dan_hercegovina_profile = {
   "name_en": "Bosnia and Herzegovina",
   "capital": "Sarajevo",
   "name_id": "Bosnia dan hercegovina",

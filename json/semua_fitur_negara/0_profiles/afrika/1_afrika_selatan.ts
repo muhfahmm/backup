@@ -1,5 +1,5 @@
 // @ts-nocheck
-const afrika_selatan_profile = {
+export const afrika_selatan_profile = {
   "name_en": "South Africa",
   "capital": "Pretoria",
   "name_id": "Afrika Selatan",

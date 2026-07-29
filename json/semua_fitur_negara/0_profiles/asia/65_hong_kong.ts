@@ -1,5 +1,5 @@
 // @ts-nocheck
-const hong_kong_profile = {
+export const hong_kong_profile = {
   "name_en": "Hong Kong",
   "capital": "City of Victoria",
   "name_id": "Hong kong",

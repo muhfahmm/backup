@@ -1,7 +1,8 @@
 "use client"
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react"; // <--- TAMBAH useMemo
 import { X, Star, Globe } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../map_system/map-data";
+import { PROFILES_RELIGION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
 interface ModalProps {
   isOpen: boolean;
@@ -24,6 +25,25 @@ const RELIGION_OPTIONS = [
 
 const RELIGION_CHANGE_COST = 50000;
 
+// Color palette for each religion
+const RELIGION_COLORS: Record<string, { bg: string; text: string; border: string; dot: string }> = {
+  'Islam':            { bg: 'bg-emerald-50',   text: 'text-emerald-800',  border: 'border-emerald-300',  dot: 'bg-emerald-500'  },
+  'Katolik':          { bg: 'bg-yellow-50',    text: 'text-yellow-800',   border: 'border-yellow-300',   dot: 'bg-yellow-500'   },
+  'Protestan':        { bg: 'bg-blue-50',      text: 'text-blue-800',     border: 'border-blue-300',     dot: 'bg-blue-500'     },
+  'Kristen Ortodoks': { bg: 'bg-purple-50',    text: 'text-purple-800',   border: 'border-purple-300',   dot: 'bg-purple-500'   },
+  'Hindu':            { bg: 'bg-orange-50',    text: 'text-orange-800',   border: 'border-orange-300',   dot: 'bg-orange-500'   },
+  'Buddha':           { bg: 'bg-amber-50',     text: 'text-amber-800',    border: 'border-amber-300',    dot: 'bg-amber-500'    },
+  'Yahudi':           { bg: 'bg-sky-50',       text: 'text-sky-800',      border: 'border-sky-300',      dot: 'bg-sky-500'      },
+  'Shinto':           { bg: 'bg-rose-50',      text: 'text-rose-800',     border: 'border-rose-300',     dot: 'bg-rose-500'     },
+  'Ateisme':          { bg: 'bg-slate-50',     text: 'text-slate-700',    border: 'border-slate-300',    dot: 'bg-slate-500'    },
+};
+
+const DEFAULT_RELIGION_COLOR = { bg: 'bg-gray-50', text: 'text-gray-500', border: 'border-gray-200', dot: 'bg-gray-400' };
+
+function getReligionColor(religion: string) {
+  return RELIGION_COLORS[religion] || DEFAULT_RELIGION_COLOR;
+}
+
 export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"agama" | "dunia">("agama");
   const [selectedReligion, setSelectedReligion] = useState<string | null>(null);
@@ -33,16 +53,56 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
 
   // Data untuk tab "Agama Dunia"
   const [worldReligions, setWorldReligions] = useState<{ country: string; religion: string }[]>([]);
+  
+  // <--- TAMBAH: State untuk mengatur urutan sorting
+  const [sortOption, setSortOption] = useState<"default" | "unavailable-last" | "az" | "za">("default");
 
   useEffect(() => {
     if (!isOpen) return;
-    // Simulasi data agama global
-    const data = COUNTRIES_DATA.map((c) => ({
-      country: c.country,
-      religion: (countryDetail?.country === c.country && countryDetail?.religion) || 'Belum tersedia'
-    }));
+
+    // Build a normalized lookup map from profiles data: name_id (lowercase) -> religion
+    const profileLookup = new Map<string, string>();
+    for (const p of PROFILES_RELIGION_DATA) {
+      profileLookup.set(p.name_id.toLowerCase().trim(), p.religion);
+    }
+
+    const data = COUNTRIES_DATA.map((c) => {
+      const countryNameLower = c.country.toLowerCase().trim();
+      // Check if this is the user's country and has an updated religion
+      if (
+        countryDetail?.country &&
+        c.country.toLowerCase().trim() === countryDetail.country.toLowerCase().trim() &&
+        countryDetail?.religion
+      ) {
+        return { country: c.country, religion: countryDetail.religion };
+      }
+      // Lookup from profiles data
+      const profileReligion = profileLookup.get(countryNameLower);
+      return { country: c.country, religion: profileReligion || 'Belum tersedia' };
+    });
     setWorldReligions(data);
   }, [isOpen, countryDetail]);
+
+  // <--- TAMBAH: Logika sorting menggunakan useMemo agar performa tetap ringan
+  const sortedWorldReligions = useMemo(() => {
+    if (sortOption === "default") return worldReligions;
+
+    return [...worldReligions].sort((a, b) => {
+      const aUnav = a.religion === 'Belum tersedia';
+      const bUnav = b.religion === 'Belum tersedia';
+
+      // Opsi: "Belum tersedia" di akhir, sisanya diurutkan alfabetis
+      if (sortOption === "unavailable-last") {
+        if (aUnav && !bUnav) return 1;  // a ke bawah
+        if (!aUnav && bUnav) return -1; // b ke bawah
+        return a.religion.localeCompare(b.religion); // Jika sama-sama avail atau unav, urut alfabetis
+      }
+
+      // Opsi A-Z dan Z-A (termasuk "Belum tersedia" akan ikut terurut sesuai alfabet)
+      const compare = a.religion.localeCompare(b.religion);
+      return sortOption === "az" ? compare : -compare;
+    });
+  }, [worldReligions, sortOption]);
 
   if (!isOpen) return null;
   const religion = countryDetail?.religion || "Mayoritas Muslim";
@@ -202,12 +262,40 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
             </div>
           )}
 
-          {/* TAB 2: Agama Dunia (Diubah menjadi TABEL dengan nomor urut) */}
+          {/* TAB 2: Agama Dunia - DIMODIFIKASI DENGAN SORTING */}
           {activeTab === "dunia" && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 pb-3 border-b border-[#C4B49C]/20 mb-4">
-                <Globe className="h-5 w-5 text-[#5c3c10]" />
-                <h4 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">Daftar Agama Seluruh Negara</h4>
+              {/* Legend */}
+              <div className="flex flex-wrap gap-2 mb-3">
+                {Object.entries(RELIGION_COLORS).map(([rel, colors]) => (
+                  <div key={rel} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-bold ${colors.bg} ${colors.text} ${colors.border}`}>
+                    <span className={`w-2 h-2 rounded-full ${colors.dot}`} />
+                    {rel}
+                  </div>
+                ))}
+              </div>
+
+              {/* <--- UBAH Bagian Header ini agar memiliki Dropdown Sorting */}
+              <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#C4B49C]/20 mb-4">
+                <div className="flex items-center gap-2">
+                  <Globe className="h-5 w-5 text-[#5c3c10]" />
+                  <h4 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">Daftar Agama Seluruh Negara ({worldReligions.length} Negara)</h4>
+                </div>
+                
+                {/* Dropdown Sorting */}
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-bold text-[#8b7e66] uppercase tracking-wider hidden sm:inline">Urutkan:</span>
+                  <select
+                    value={sortOption}
+                    onChange={(e) => setSortOption(e.target.value as any)}
+                    className="px-3 py-1.5 rounded-lg border border-[#C4B49C]/40 bg-[#FAF6EE] text-xs font-bold text-[#5c3c10] outline-none cursor-pointer hover:bg-[#e4dac3]/50 transition"
+                  >
+                    <option value="default">Default</option>
+                    <option value="unavailable-last">Belum tersedia di akhir</option>
+                    <option value="az">Agama A-Z</option>
+                    <option value="za">Agama Z-A</option>
+                  </select>
+                </div>
               </div>
               
               <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[400px]">
@@ -220,13 +308,34 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-[#C4B49C]/20">
-                    {worldReligions.map((item, idx) => (
-                      <tr key={idx} className="hover:bg-[#e4dac3]/20 transition-colors">
-                        <td className="px-4 py-3 text-center font-bold text-[#8b7e66]">{idx + 1}</td>
-                        <td className="px-4 py-3 font-bold text-[#5c3c10]">{item.country}</td>
-                        <td className="px-4 py-3 font-bold text-[#8b7e66]">{item.religion}</td>
-                      </tr>
-                    ))}
+                    {/* <--- GANTI worldReligions MENJADI sortedWorldReligions */}
+                    {sortedWorldReligions.map((item, idx) => {
+                      const colors = getReligionColor(item.religion);
+                      const isUserCountry = countryDetail?.country &&
+                        item.country.toLowerCase().trim() === countryDetail.country.toLowerCase().trim();
+                      return (
+                        <tr
+                          key={idx}
+                          className={`transition-colors ${isUserCountry ? 'bg-[#ffe07d]/30 border-l-4 border-[#fcae1e]' : 'hover:bg-[#e4dac3]/20'}`}
+                        >
+                          <td className="px-4 py-2.5 text-center font-bold text-[#8b7e66]">{idx + 1}</td>
+                          <td className="px-4 py-2.5 font-bold text-[#5c3c10]">
+                            {isUserCountry && <span className="mr-1 text-[#c77a00]">★</span>}
+                            {item.country}
+                          </td>
+                          <td className="px-4 py-2.5">
+                            {item.religion === 'Belum tersedia' ? (
+                              <span className="text-[#C4B49C] italic font-medium">Belum tersedia</span>
+                            ) : (
+                              <span className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-bold ${colors.bg} ${colors.text} ${colors.border}`}>
+                                <span className={`w-1.5 h-1.5 rounded-full ${colors.dot}`} />
+                                {item.religion}
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>

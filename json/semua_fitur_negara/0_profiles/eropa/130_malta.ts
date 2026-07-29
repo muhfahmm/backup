@@ -1,5 +1,5 @@
 // @ts-nocheck
-const malta_profile = {
+export const malta_profile = {
   "name_en": "Malta",
   "capital": "Valletta",
   "name_id": "Malta",

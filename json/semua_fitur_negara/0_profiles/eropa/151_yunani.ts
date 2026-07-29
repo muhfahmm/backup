@@ -1,5 +1,5 @@
 // @ts-nocheck
-const yunani_profile = {
+export const yunani_profile = {
   "name_en": "Greece",
   "capital": "Athens",
   "name_id": "Yunani",

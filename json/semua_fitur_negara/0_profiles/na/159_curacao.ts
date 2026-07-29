@@ -1,5 +1,5 @@
 // @ts-nocheck
-const curacao_profile = {
+export const curacao_profile = {
   "name_en": "Curaçao",
   "capital": "Willemstad",
   "name_id": "Curacao",

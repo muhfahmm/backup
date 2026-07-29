@@ -1,5 +1,5 @@
 // @ts-nocheck
-const mauritania_profile = {
+export const mauritania_profile = {
   "name_en": "Mauritania",
   "capital": "Nouakchott",
   "name_id": "Mauritania",

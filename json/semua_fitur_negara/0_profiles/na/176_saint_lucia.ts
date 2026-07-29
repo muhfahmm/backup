@@ -1,5 +1,5 @@
 // @ts-nocheck
-const saint_lucia_profile = {
+export const saint_lucia_profile = {
   "name_en": "Saint Lucia",
   "capital": "Castries",
   "name_id": "Saint lucia",

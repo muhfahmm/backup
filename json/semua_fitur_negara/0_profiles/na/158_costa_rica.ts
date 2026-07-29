@@ -1,5 +1,5 @@
 // @ts-nocheck
-const costa_rica_profile = {
+export const costa_rica_profile = {
   "name_en": "Costa Rica",
   "capital": "San José",
   "name_id": "Costa rica",

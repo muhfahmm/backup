@@ -1,5 +1,5 @@
 // @ts-nocheck
-const malawi_profile = {
+export const malawi_profile = {
   "name_en": "Malawi",
   "capital": "Lilongwe",
   "name_id": "Malawi",

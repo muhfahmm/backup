@@ -1,5 +1,5 @@
 // @ts-nocheck
-const andorra_profile = {
+export const andorra_profile = {
   "name_en": "Andorra",
   "capital": "Andorra la Vella",
   "name_id": "Andorra",

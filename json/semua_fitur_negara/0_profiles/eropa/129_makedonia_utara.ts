@@ -1,5 +1,5 @@
 // @ts-nocheck
-const makedonia_utara_profile = {
+export const makedonia_utara_profile = {
   "name_en": "North Macedonia",
   "capital": "Skopje",
   "name_id": "Makedonia utara",

@@ -1,5 +1,5 @@
 // @ts-nocheck
-const djibouti_profile = {
+export const djibouti_profile = {
   "name_en": "Djibouti",
   "capital": "Djibouti",
   "name_id": "Djibouti",

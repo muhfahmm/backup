@@ -1,5 +1,5 @@
 // @ts-nocheck
-const uni_emirat_arab_profile = {
+export const uni_emirat_arab_profile = {
   "name_en": "United Arab Emirates",
   "capital": "Abu Dhabi",
   "name_id": "Uni emirat arab",

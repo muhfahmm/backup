@@ -1,5 +1,5 @@
 // @ts-nocheck
-const tuvalu_profile = {
+export const tuvalu_profile = {
   "name_en": "Tuvalu",
   "capital": "Funafuti",
   "name_id": "Tuvalu",

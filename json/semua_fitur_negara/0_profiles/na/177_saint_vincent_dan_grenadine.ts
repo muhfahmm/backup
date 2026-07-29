@@ -1,5 +1,5 @@
 // @ts-nocheck
-const saint_vincent_dan_grenadine_profile = {
+export const saint_vincent_dan_grenadine_profile = {
   "name_en": "Saint Vincent and the Grenadines",
   "capital": "Kingstown",
   "name_id": "Saint vincent dan grenadine",

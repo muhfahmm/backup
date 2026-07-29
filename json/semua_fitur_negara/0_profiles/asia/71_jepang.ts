@@ -1,5 +1,5 @@
 // @ts-nocheck
-const jepang_profile = {
+export const jepang_profile = {
   "name_en": "Japan",
   "capital": "Tokyo",
   "name_id": "Jepang",
