@@ -45,8 +45,8 @@ import TingkatHubunganModal from "./7_geopolitik/TingkatHubunganModal";
 import BantuanModal from "./7_geopolitik/BantuanModal";
 
 // 8. Sosial & Budaya
-import AgamaModal from "./8_sosial_budaya/AgamaModal";
-import IdeologiModal from "./8_sosial_budaya/IdeologiModal";
+import AgamaModal from "./8_sosial_budaya/agama/AgamaModal";
+import IdeologiModal from "./8_sosial_budaya/ideologi/IdeologiModal";
 
 // 9. Kementerian
 import KementerianModal from "./9_kementrian/KementerianModal";
