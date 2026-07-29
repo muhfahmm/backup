@@ -93,9 +93,9 @@ function AllCountriesGDP({ playerCountryName }: { playerCountryName: string }) {
       const listOrder = extractFileOrder(country.__fileName || country.filename || name);
       const continent = normalizeContinent(
         country.__continent ||
-          country.continent ||
-          countryToContinentMap.get(name.toLowerCase()) ||
-          getContinentFromOrder(listOrder)
+        country.continent ||
+        countryToContinentMap.get(name.toLowerCase()) ||
+        getContinentFromOrder(listOrder)
       );
       return { ...country, __displayName: name, continent, __fileOrder: listOrder, __loaded: true };
     });
@@ -230,8 +230,8 @@ function AllCountriesGDP({ playerCountryName }: { playerCountryName: string }) {
             isPlayer
               ? 'bg-emerald-500/15 border-l-4 border-l-emerald-600 font-bold'
               : index % 2 === 0
-              ? 'bg-[#f5efdf]/50'
-              : 'bg-white/50'
+                ? 'bg-[#f5efdf]/50'
+                : 'bg-white/50'
           }
         >
           <td className="px-4 py-3 text-sm font-bold text-[#2e261a] border-b border-[#C4B49C]/10">
@@ -370,7 +370,7 @@ export default function PDBModal({ isOpen, onClose, countryDetail, selectedCount
 
         <div className="flex-1 min-h-0 flex flex-col p-8 bg-[#FAF6EE]/40 relative z-10">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-4 flex-shrink-0">
-            PDB mengukur kekuatan ekonomi makro kedaulatan {countryName}. Pertumbuhan positif meningkatkan daya tawar diplomasi Anda. 
+            PDB mengukur kekuatan ekonomi makro kedaulatan {countryName}. Pertumbuhan positif meningkatkan daya tawar diplomasi Anda.
             <span className="ml-1 text-[#5c3c10] font-black">(Data APBN Seluruh Negara Di Bawah Ini)</span>
           </p>
 
