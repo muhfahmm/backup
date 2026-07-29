@@ -124,8 +124,8 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
             <Shield className="h-6 w-6 text-purple-700" />
             <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Ideologi Dasar Kedaulatan</h2>
           </div>
-          <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] transition-all cursor-pointer font-black text-xs uppercase">
-            <span className="text-[10px] tracking-widest pl-1">Tutup</span>
+          <button onClick={onClose} className="flex items-center gap-1.5 p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] transition-all cursor-pointer font-black text-xs uppercase">
+            <span className="text-[10px] tracking-widest">Tutup</span>
             <X className="h-5 w-5" />
           </button>
         </div>
