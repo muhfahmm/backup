@@ -121,12 +121,12 @@ export default function BaseProduksiGrid({
               {/* Modal Info Bangunan */}
               {hoveredBuildingKey === key && (
                 <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
-                  <div 
+                  <div
                     className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
-                    
+
                     <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
                       <div className="flex items-center gap-2 text-[#5c3c10]">
                         <Info className="h-5 w-5" />
@@ -240,7 +240,7 @@ export default function BaseProduksiGrid({
                             <div className="font-black uppercase tracking-wider text-rose-900 border-b border-rose-200 pb-2 mb-2 flex items-center gap-1.5 text-sm">
                               ⚡ Total Konsumsi Bahan Bakar
                             </div>
-                            
+
                             {/* Loop per jenis bahan bakar agar terpisah */}
                             {fuelRequirements.map((req, idx) => {
                               // Hitung produksi bahan bakar dari sumber daya (tambang)
@@ -248,7 +248,7 @@ export default function BaseProduksiGrid({
                               const fMeta = findMeta(req.resourceKey);
                               const fProd = Number(fMeta?.produksi) || 0;
                               const totalFuelProd = fCount * fProd;
-                              
+
                               // Hitung konsumsi bahan bakar dari pembangkit ini
                               const totalFuelCons = req.amount * perCount;
                               const saldo = totalFuelProd - totalFuelCons;
@@ -356,21 +356,35 @@ export default function BaseProduksiGrid({
                 {/* --- FOOTER KARTU NON-LISTRIK --- */}
                 {!isElectricityTab && (
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
-                    {isFuelResource ? (() => {
+                    {(() => {
+                      // Hitung total produksi
                       const totalProd = calculateProductionAmount(key);
-                      const totalCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
-                      const netBalance = totalProd === 0 ? 0 : totalProd - totalCons;
-                      const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
+
+                      // Hitung total konsumsi
+                      let totalCons = 0;
+
+                      // 1) Jika komoditas pangan (ada di FOOD_CONSUMPTION_PER_CAPITA)
+                      if (FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined) {
+                        const consumptionPerCapita = FOOD_CONSUMPTION_PER_CAPITA[key]; // unit per 1000 penduduk
+                        const pop = Number(countryDetail?.jumlah_penduduk) || 0;
+                        totalCons = Math.round((pop / 1000) * consumptionPerCapita);
+                      }
+                      // 2) Jika bahan bakar (gunakan fungsi yang sudah ada)
+                      else if (isFuelResource) {
+                        totalCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
+                      }
+                      // 3) Lainnya: konsumsi 0 (tidak ada data)
+
+                      const netBalance = totalProd - totalCons;
+                      const displayValue = netBalance > 0 ? netBalance : 0; // batas bawah 0
+                      const colorClass = netBalance > 0 ? 'text-emerald-600' : 'text-[#2e261a]';
+
                       return (
                         <span className={`font-black text-xl ${colorClass}`}>
-                          {netBalance.toLocaleString('id-ID')}
+                          {displayValue.toLocaleString('id-ID')}
                         </span>
                       );
-                    })() : (
-                      <span className="font-black text-xl text-[#2e261a]">
-                        {calculateProductionAmount(key).toLocaleString('id-ID')}
-                      </span>
-                    )}
+                    })()}
                   </div>
                 )}
               </div>
