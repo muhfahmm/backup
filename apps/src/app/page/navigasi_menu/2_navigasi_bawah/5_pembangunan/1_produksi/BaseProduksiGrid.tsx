@@ -2,6 +2,8 @@
 import React from "react";
 import { Info, X } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
+// PERUBAHAN: Import data konsumsi pangan dari file logika eksternal
+import { FOOD_CONSUMPTION_PER_CAPITA } from "../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
@@ -42,39 +44,6 @@ const calculateTotalFuelConsumption = (countryDetail: any) => {
   });
 
   return totals;
-};
-
-const FOOD_CONSUMPTION_PER_CAPITA: Record<string, { prodPerUnit: number; consumptionPerCapita: number }> = {
-  // Peternakan
-  ayam_unggas: { prodPerUnit: 15, consumptionPerCapita: 0.15 },
-  sapi_potong: { prodPerUnit: 5, consumptionPerCapita: 0.08 },
-  sapi_perah: { prodPerUnit: 10, consumptionPerCapita: 0.12 },
-  domba_kambing: { prodPerUnit: 7, consumptionPerCapita: 0.05 },
-  // Agrikultur
-  padi: { prodPerUnit: 20, consumptionPerCapita: 0.35 },
-  gandum: { prodPerUnit: 18, consumptionPerCapita: 0.24 },
-  jagung: { prodPerUnit: 22, consumptionPerCapita: 0.18 },
-  sayur: { prodPerUnit: 30, consumptionPerCapita: 0.30 },
-  umbi: { prodPerUnit: 25, consumptionPerCapita: 0.20 },
-  kedelai: { prodPerUnit: 15, consumptionPerCapita: 0.15 },
-  kelapa_sawit: { prodPerUnit: 40, consumptionPerCapita: 0.10 },
-  kopi: { prodPerUnit: 10, consumptionPerCapita: 0.05 },
-  teh: { prodPerUnit: 12, consumptionPerCapita: 0.06 },
-  kakao: { prodPerUnit: 8, consumptionPerCapita: 0.04 },
-  tebu: { prodPerUnit: 35, consumptionPerCapita: 0.15 },
-  karet: { prodPerUnit: 15, consumptionPerCapita: 0.02 },
-  // Perikanan
-  udang: { prodPerUnit: 12, consumptionPerCapita: 0.08 },
-  ikan: { prodPerUnit: 25, consumptionPerCapita: 0.25 },
-  mutiara: { prodPerUnit: 2, consumptionPerCapita: 0.01 },
-  // Olahan Pangan
-  air_mineral: { prodPerUnit: 25, consumptionPerCapita: 0.35 },
-  gula: { prodPerUnit: 20, consumptionPerCapita: 0.20 },
-  roti: { prodPerUnit: 15, consumptionPerCapita: 0.18 },
-  pengolahan_daging: { prodPerUnit: 12, consumptionPerCapita: 0.10 },
-  mie_instan: { prodPerUnit: 30, consumptionPerCapita: 0.25 },
-  minyak_goreng: { prodPerUnit: 10, consumptionPerCapita: 0.10 },
-  susu: { prodPerUnit: 18, consumptionPerCapita: 0.15 },
 };
 
 interface BaseProduksiGridProps {
@@ -199,7 +168,7 @@ export default function BaseProduksiGrid({
                         ) : (
                           <>
                             <div className="flex justify-between items-center">
-                              <span className="text-[#8b7e66]">Produksi Per Hari:</span>
+                              <span className="text-[#8b7e66]">Produksi ({label}) Per Hari:</span>
                               <span className="text-emerald-700 font-black text-sm">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
                             </div>
                             {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
@@ -233,12 +202,13 @@ export default function BaseProduksiGrid({
                         </div>
                       </div>
 
-                      {FOOD_CONSUMPTION_PER_CAPITA[key] && (() => {
-                        const fMeta = FOOD_CONSUMPTION_PER_CAPITA[key];
+                      {/* Menggunakan FOOD_CONSUMPTION_PER_CAPITA yang sudah di-import */}
+                      {FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined && (() => {
+                        const consumptionPerCapita = FOOD_CONSUMPTION_PER_CAPITA[key]; // number
                         const pop = Number(countryDetail?.jumlah_penduduk) || 0;
-                        const baseProd = Number(bMeta?.produksi) || fMeta.prodPerUnit;
+                        const baseProd = Number(bMeta?.produksi) || 0; // produksi dari JSON metadata
                         const totProd = baseProd * perCount;
-                        const totCons = Math.round((pop / 1000) * fMeta.consumptionPerCapita);
+                        const totCons = Math.round((pop / 1000) * consumptionPerCapita);
                         const netto = totProd - totCons;
                         return (
                           <div className="rounded-xl bg-white border border-[#C4B49C]/40 p-4 space-y-2 shadow-xs">
@@ -263,11 +233,57 @@ export default function BaseProduksiGrid({
                         );
                       })()}
 
-                      {/* --- PERBAIKAN RANTAI PASOK BAHAN BAKAR --- */}
+                      {/* --- RANTAI PASOK BAHAN BAKAR (DIPISAHKAN PER JENIS BAHAN BAKAR) --- */}
                       {hasFuelConsumption && (() => {
-                        const prodVal = calculateProductionAmount(key) || 0;
-                        // PERBAIKAN: Hitung konsumsi langsung dari fuelRequirements x perCount
-                        const consVal = fuelRequirements.reduce((sum, req) => sum + (req.amount * perCount), 0);
+                        return (
+                          <div className="rounded-xl bg-rose-50 border border-rose-300 p-4 space-y-3 shadow-xs mt-3">
+                            <div className="font-black uppercase tracking-wider text-rose-900 border-b border-rose-200 pb-2 mb-2 flex items-center gap-1.5 text-sm">
+                              ⚡ Total Konsumsi Bahan Bakar
+                            </div>
+                            
+                            {/* Loop per jenis bahan bakar agar terpisah */}
+                            {fuelRequirements.map((req, idx) => {
+                              // Hitung produksi bahan bakar dari sumber daya (tambang)
+                              const fCount = Number(countryDetail?.[req.resourceKey]) || 0;
+                              const fMeta = findMeta(req.resourceKey);
+                              const fProd = Number(fMeta?.produksi) || 0;
+                              const totalFuelProd = fCount * fProd;
+                              
+                              // Hitung konsumsi bahan bakar dari pembangkit ini
+                              const totalFuelCons = req.amount * perCount;
+                              const saldo = totalFuelProd - totalFuelCons;
+
+                              return (
+                                <div key={idx} className={`flex flex-col gap-1 ${idx > 0 ? 'pt-2 border-t border-rose-200' : ''}`}>
+                                  <div className="font-bold text-rose-800 text-[11px] uppercase tracking-tight">
+                                    {req.label}
+                                  </div>
+                                  <div className="flex justify-between items-center text-xs pl-2">
+                                    <span className="text-rose-900">Produksi:</span>
+                                    <span className="font-black text-emerald-800">+{totalFuelProd.toLocaleString('id-ID')}</span>
+                                  </div>
+                                  <div className="flex justify-between items-center text-xs pl-2">
+                                    <span className="text-rose-900">Konsumsi:</span>
+                                    <span className="font-black text-rose-800">-{totalFuelCons.toLocaleString('id-ID')}</span>
+                                  </div>
+                                  <div className="flex justify-between items-center text-xs pl-2 pt-1 border-t border-rose-200/50 mt-0.5">
+                                    <span className="text-rose-900 font-black uppercase">Saldo:</span>
+                                    <span className={`font-black ${saldo < 0 ? 'text-rose-800' : 'text-emerald-800'}`}>
+                                      {saldo >= 0 ? `+${saldo.toLocaleString('id-ID')}` : saldo.toLocaleString('id-ID')}
+                                    </span>
+                                  </div>
+                                </div>
+                              );
+                            })}
+                          </div>
+                        );
+                      })()}
+
+                      {/* --- RANTAI PASOK BAHAN BAKAR (SUMBER DAYA: URANIUM, GAS ALAM, BATU BARA, MINYAK BUMI) --- */}
+                      {isFuelResource && (() => {
+                        const fuelName = label.toLowerCase();
+                        const prodVal = perCount * (Number(bMeta?.produksi) || 0);
+                        const consVal = calculateTotalFuelConsumption(countryDetail)[key] || 0;
                         const saldoVal = prodVal - consVal;
                         return (
                           <div className="rounded-xl bg-rose-50 border border-rose-300 p-4 space-y-2 shadow-xs mt-3">
@@ -275,11 +291,11 @@ export default function BaseProduksiGrid({
                               ⚡ Total Konsumsi Bahan Bakar
                             </div>
                             <div className="flex justify-between items-center text-xs">
-                              <span className="text-rose-900 font-bold">Produksi:</span>
+                              <span className="text-rose-900 font-bold">Total Produksi ({fuelName}):</span>
                               <span className="font-black text-emerald-800">+{prodVal.toLocaleString('id-ID')}</span>
                             </div>
                             <div className="flex justify-between items-center text-xs">
-                              <span className="text-rose-900 font-bold">Konsumsi:</span>
+                              <span className="text-rose-900 font-bold">Konsumsi ({fuelName}):</span>
                               <span className="font-black text-rose-800">-{consVal.toLocaleString('id-ID')}</span>
                             </div>
                             <div className="flex justify-between items-center pt-2 border-t border-rose-200 mt-1 text-xs">

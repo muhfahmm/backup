@@ -6,7 +6,7 @@ import { isBuildingAvailable } from '../../../../../logic';
 import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../../../../logic/production_logic';
 import { logger } from '../../../../../../lib/logger';
 
-// Import 8 Komponen Tab yang sudah dipisah
+// Import 7 Komponen Tab yang sudah dipisah
 import KelistrikanTab from "./card_data/1_kelistrikan";
 import MineralEnergiTab from "./card_data/2_mineral_energi";
 import ManufakturTab from "./card_data/3_manufaktur";
@@ -116,6 +116,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     return Number(countryDetail?.[normalizedKey]) || 0;
   };
 
+  // --- BLOK INI TETAP DIGUNAKAN UNTUK LOGIKA LAIN, TAPI TIDAK DITAMPILKAN LAGI ---
   const ELECTRICITY_FUEL_BUILDINGS = [
     'pembangkit_listrik_tenaga_gas',
     'pembangkit_listrik_tenaga_nuklir',
@@ -156,6 +157,7 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
 
     return totals;
   };
+  // --------------------------------------------------------------------------
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
     const normalizedKey = normalizeResourceKey(resourceKey);
@@ -264,7 +266,6 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
     { id: "agrikultur", label: "Agrikultur", component: AgrikulturTab },
     { id: "perikanan", label: "Perikanan", component: PerikananTab },
     { id: "olahan pangan", label: "Olahan Pangan", component: OlahanPanganTab },
-
   ];
 
   if (!isOpen) return null;
@@ -503,28 +504,13 @@ export default function ProduksiModal({ isOpen, onClose, countryDetail, setCount
                   )}
                   {bMeta?.produksi !== undefined && (
                     <div className="flex justify-between">
-                      <span>Produksi per hari:</span>
+                      <span>Produksi ({bMeta.label || selectedBuilding.label}) per hari:</span>
                       <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')}</span>
                     </div>
                   )}
-                  <div className="flex justify-between">
-                    <span>Total Produksi (semua unit):</span>
-                    <span className="text-[#2e261a] font-semibold">{selectedBuildingProduction.toLocaleString('id-ID')}</span>
-                  </div>
-                  {ELECTRICITY_FUEL_BUILDINGS.includes(selectedBuilding.key) && (
-                    <div className="mt-3 rounded-xl bg-[#f7f3e8]/80 border border-[#C4B49C]/30 p-3 text-xs text-[#5c3c10]">
-                      <div className="mb-2 font-black uppercase tracking-[0.2em]">Total Konsumsi</div>
-                      <div className="space-y-1">
-                        {Object.entries(getTotalElectricityFuelConsumption()).map(([resourceKey, amount]) => (
-                          <div key={resourceKey} className="flex justify-between">
-                            <span>{ELECTRICITY_FUEL_LABELS[resourceKey] || resourceKey}</span>
-                            <span className="font-black">{amount.toLocaleString('id-ID')}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                   
+                  {/* === PERBAIKAN: BAGIAN TOTAL KONSUMSI DI SINI TELAH DIHAPUS === */}
+
                   {/* SECTION MATERIAL DENGAN TOMBOL SHOW/HIDE */}
                   {selectedBuildingRequirements?.requirements && selectedBuildingRequirements.requirements.length > 0 ? (
                     <div className="space-y-3 text-xs">

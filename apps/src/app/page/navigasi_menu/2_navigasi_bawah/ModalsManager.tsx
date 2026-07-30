@@ -16,7 +16,7 @@ import StatistikPopulasiModal from "./2_populasi/2_statistik/StatistikPopulasiMo
 import KelistrikanModal from "./3_produksi_konsumsi/KelistrikanModal";
 import PerminyakanModal from "./3_produksi_konsumsi/PerminyakanModal";
 import UraniumModal from "./3_produksi_konsumsi/UraniumModal";
-import IndustriPanganModal from "./3_produksi_konsumsi/IndustriPanganModal";
+import IndustriPanganModal from "./3_produksi_konsumsi/2_industri_pangan/IndustriPanganModal";
 
 // 4. Ekonomi
 import PerdaganganModal from "./4_ekonomi/1_perdagangan/PerdaganganModal";
