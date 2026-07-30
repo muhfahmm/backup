@@ -377,7 +377,6 @@ export default function BaseProduksiGrid({
             </div>
           );
         })}
-
         {keys.length === 0 && (
           <div className="rounded-xl border border-[#C4B49C]/30 bg-[#FAF6EE] p-4 text-sm text-[#8b7e66]">
             Data untuk kategori ini tidak tersedia.
