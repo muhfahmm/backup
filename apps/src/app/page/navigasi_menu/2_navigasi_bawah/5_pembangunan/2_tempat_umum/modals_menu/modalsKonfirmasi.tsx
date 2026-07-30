@@ -6,6 +6,7 @@ interface MaterialRequirement {
   resourceKey: string;
   label: string;
   group: string;
+  amount?: number; // 🔥 Pastikan ini ada
 }
 
 interface KonfirmasiPembangunanProps {
@@ -16,6 +17,8 @@ interface KonfirmasiPembangunanProps {
   cost: number;
   waktuPembangunan?: number;
   dampakKepuasan?: number; // untuk tempat umum
+  produksiPerHari?: number;
+  produksiLabel?: string;
   requirements: MaterialRequirement[];
   materialStocks: Record<string, number>;
   anggaran: number;
@@ -34,6 +37,8 @@ export default function KonfirmasiPembangunanModal({
   cost,
   waktuPembangunan,
   dampakKepuasan,
+  produksiPerHari,
+  produksiLabel,
   requirements,
   materialStocks,
   anggaran,
@@ -88,6 +93,13 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
+            {produksiPerHari !== undefined && (
+              <div className="flex justify-between">
+                <span>Produksi {produksiLabel || ''} per hari:</span>
+                <span className="text-emerald-700 font-bold">+{produksiPerHari.toLocaleString('id-ID')}</span>
+              </div>
+            )}
+
             {dampakKepuasan !== undefined && (
               <div className="flex justify-between">
                 <span>Dampak ke Kepuasan:</span>
@@ -137,6 +149,12 @@ export default function KonfirmasiPembangunanModal({
                         }`}
                       >
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
+                        
+                        {/* 🔥 BAGIAN UNTUK X1000 (SUDAH 100% BENAR) */}
+                        {material.amount !== undefined && (
+                          <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">x{material.amount}</div>
+                        )}
+                        
                         <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-[#8b7e66]'}`}>
                           {stock.toLocaleString('id-ID')}
                         </div>

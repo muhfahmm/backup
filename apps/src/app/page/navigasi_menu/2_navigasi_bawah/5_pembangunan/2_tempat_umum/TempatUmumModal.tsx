@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown, Hammer, Info } from "lucide-react";
 
@@ -11,11 +11,15 @@ import * as penegakanHukumRequirements from "./requirements_logic/4_penegakan_hu
 import * as olahragaHiburanRequirements from "./requirements_logic/5_olahraga_hiburan/requirements";
 import * as komersialRequirements from "./requirements_logic/6_komersial/requirements";
 
-// --- IMPOR KOMPONEN MODAL INFO BANGUNAN ---
+// --- IMPOR KOMPONEN MODAL ---
 import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
+<<<<<<< HEAD
 
 // --- IMPOR KOMPONEN KONFIRMASI PEMBANGUNAN ---
 import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi";
+=======
+import KonfirmasiPembangunanModal from "./modals_menu/konfirmasi_pembangunan_modals";
+>>>>>>> 9b9a416ec2a5fe5525467cb0e41768b2e42ab622
 
 interface ModalProps {
   isOpen: boolean;
@@ -23,12 +27,14 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
+  currentDate?: string | Date; // Penting untuk kalkulasi tanggal
 }
 
 interface MaterialRequirement {
   resourceKey: string;
   label: string;
   group: string;
+  amount?: number; 
 }
 
 interface BuildingRequirements {
@@ -53,6 +59,11 @@ const REQUIREMENTS_MODULES: Record<string, any> = {
   komersial: komersialRequirements,
 };
 
+const RESOURCE_KEY_ALIASES: Record<string, string> = {};
+const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
+const formatNumber = (value: number) => value.toLocaleString("id-ID");
+
+// 🔥 Tambahkan CARD_TAB_MAP untuk navigasi material ke tab produksi
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
@@ -70,30 +81,33 @@ const CARD_TAB_MAP: Record<string, string> = {
   sepeda_motor: 'manufaktur',
 };
 
-const RESOURCE_KEY_ALIASES: Record<string, string> = {};
-
-const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
-const formatNumber = (value: number) => value.toLocaleString("id-ID");
-
 export default function TempatUmumModal({
   isOpen,
   onClose,
   countryDetail,
   setCountryDetail,
   onGotoProduction,
+  currentDate,
 }: ModalProps) {
   const [activeTabId, setActiveTabId] = useState<string>("infrastruktur");
+  // 🔥 PERBAIKAN 1: Hanya gunakan selectedBuilding (sama seperti ProduksiModal, hilangkan showConfirm)
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
-  const [showConfirm, setShowConfirm] = useState<boolean>(false);
   const [metadata, setMetadata] = useState<any>(null);
   const [loadingMetadata, setLoadingMetadata] = useState<boolean>(false);
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState<boolean>(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
-  const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
-  // --- FUNGSI findMeta ---
+  // 🔥 KONVERSI TANGGAL JADI STRING AMAN
+  const safeDateString = useMemo(() => {
+    if (typeof currentDate === 'string') return currentDate;
+    if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
+      return currentDate.toISOString().split('T')[0];
+    }
+    return new Date().toISOString().split('T')[0];
+  }, [currentDate]);
+
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
     if (metadata[key]) return metadata[key];
@@ -112,9 +126,11 @@ export default function TempatUmumModal({
     return module?.findRequirements?.(selectedBuilding.key);
   };
 
+  // 🔥 BACA STOK LANGSUNG DARI DATA TERBARU countryDetail
   const getMaterialStock = (resourceKey: string): number => {
     const normalizedKey = normalizeResourceKey(resourceKey);
-    return Number(countryDetail?.[normalizedKey]) || 0;
+    const inventoryKey = `inventory_${normalizedKey}`;
+    return Number(countryDetail?.[inventoryKey]) || 0;
   };
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
@@ -125,19 +141,25 @@ export default function TempatUmumModal({
       setTimeout(() => setToast(null), 2000);
       return;
     }
-    setHighlightedCardKey(normalizedKey);
-    setShowConfirm(false);
-    setSelectedBuilding(null);
-    setToast(`🔗 ${label} dipilih. Buka tab ${tabId.toUpperCase()}.`);
-    setTimeout(() => setToast(null), 2500);
+    setSelectedBuilding(null); // Tutup modal
     onGotoProduction?.(tabId, normalizedKey);
   };
 
   const handleBuild = (key: string, label: string) => {
     setShowMaterialWarningModal(false);
     setInsufficientMaterials([]);
+    // 🔥 PERBAIKAN 2: Langsung set selectedBuilding tanpa showConfirm
     setSelectedBuilding({ key, label });
-    setShowConfirm(true);
+  };
+
+  const addDays = (dateString: string, days: number) => {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() + days);
+    const yy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yy}-${mm}-${dd}`;
   };
 
   const confirmBuild = () => {
@@ -145,6 +167,7 @@ export default function TempatUmumModal({
     const { key, label } = selectedBuilding;
     const bMeta = metadata[key] || {};
 
+    // Cek stok terbaru
     const buildingReq = getSelectedBuildingRequirements();
     const missingMaterials = buildingReq?.requirements?.filter(
       (material) => getMaterialStock(material.resourceKey) <= 0
@@ -164,19 +187,95 @@ export default function TempatUmumModal({
       return;
     }
 
-    setCountryDetail({
-      ...countryDetail,
-      anggaran: anggaran - cost,
-      [key]: (Number(countryDetail?.[key]) || 0) + 1,
-      kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.0)
+    const updatedDetail = { ...countryDetail };
+    updatedDetail.anggaran = anggaran - cost;
+
+    // Potong Material dari Inventory
+    buildingReq?.requirements?.forEach((material) => {
+      const invKey = `inventory_${normalizeResourceKey(material.resourceKey)}`;
+      const currentInv = Number(updatedDetail[invKey]) || 0;
+      const amount = material.amount || 0;
+      updatedDetail[invKey] = Math.max(0, currentInv - amount);
     });
-    
-    setShowConfirm(false);
-    setSelectedBuilding(null);
-    setToast(`✅ Berhasil! ${label} dibangun.`);
-    setTimeout(() => setToast(null), 2500);
+
+    const waktu = Number(bMeta.waktu_pembangunan) || 0;
+
+    if (waktu <= 0) {
+      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+      updatedDetail.kepuasan = Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.0);
+      setCountryDetail(updatedDetail);
+      setSelectedBuilding(null);
+      return;
+    }
+
+    // Logika Antrean Kumulatif
+    const ongoing = updatedDetail.ongoingConstructions || [];
+    const existingForThisKey = ongoing.filter((c: any) => c.buildingKey === key);
+
+    let startDateStr = safeDateString;
+    if (existingForThisKey.length > 0) {
+      startDateStr = existingForThisKey[existingForThisKey.length - 1].endDate;
+    }
+
+    const endDateStr = addDays(startDateStr, waktu);
+
+    const newOngoing = [
+      ...ongoing,
+      { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
+    ];
+    updatedDetail.ongoingConstructions = newOngoing;
+
+    setCountryDetail(updatedDetail);
+    setSelectedBuilding(null); // 🔥 Tutup modal setelah berhasil diproses
   };
 
+  // CEK KONSTRUKSI YANG SELESAI
+  useEffect(() => {
+    if (!isOpen || !safeDateString || !countryDetail || !metadata) return;
+
+    let now: Date;
+    try {
+      now = new Date(safeDateString + 'T00:00:00');
+      if (isNaN(now.getTime())) throw new Error('Invalid date');
+    } catch {
+      now = new Date();
+    }
+
+    const ongoing = countryDetail.ongoingConstructions || [];
+    let updated = false;
+    let newConstructions = [...ongoing];
+    let newDetail = { ...countryDetail };
+
+    const completed = newConstructions.filter((c) => {
+      let endDate: Date;
+      try {
+        endDate = new Date(c.endDate + 'T00:00:00');
+        if (isNaN(endDate.getTime())) throw new Error('Invalid endDate');
+      } catch {
+        return false;
+      }
+      return endDate <= now;
+    });
+
+    if (completed.length > 0) {
+      completed.forEach((c) => {
+        const key = c.buildingKey;
+        newDetail[key] = (Number(newDetail[key]) || 0) + 1;
+        newDetail.kepuasan = Math.min(100, (Number(newDetail?.kepuasan) || 65.0) + 1.0);
+      });
+
+      const completedIds = completed.map((c) => c.id);
+      newConstructions = newConstructions.filter((c) => !completedIds.includes(c.id));
+      newDetail.ongoingConstructions = newConstructions;
+      updated = true;
+    }
+
+    if (updated) {
+      setCountryDetail(newDetail);
+    }
+  }, [safeDateString, isOpen, countryDetail, setCountryDetail, metadata]);
+
+  // FETCH METADATA
   useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
@@ -204,7 +303,7 @@ export default function TempatUmumModal({
   const activeGroup = groups.find((g) => g.id === activeTabId) || groups[0];
   const totalValue = groups.reduce((sum, group) => sum + group.items.reduce((inner, item) => inner + (item.value || 0), 0), 0);
 
-  // --- LOGIKA PRODUKSI & KONSUMSI LISTRIK ---
+  // --- HEADER LISTRIK ---
   const ELECTRICITY_BUILDINGS_LIST = [
     'pembangkit_listrik_tenaga_nuklir',
     'pembangkit_listrik_tenaga_air',
@@ -228,43 +327,20 @@ export default function TempatUmumModal({
       const bMeta = metadata[key];
       const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
       if (konsumsi <= 0) return;
-
-      const possibleKeys = [
-        key,
-        bMeta?.dataKey,
-        key.replace(/^\d+_/, ''),
-        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
-      ].filter(Boolean) as string[];
-
-      let count = 0;
-      for (const pKey of possibleKeys) {
-        if (countryDetail[pKey] !== undefined && countryDetail[pKey] !== null) {
-          count = Number(countryDetail[pKey]) || 0;
-          break;
-        }
-      }
-
-      if (count > 0) {
-        total += count * konsumsi;
-      }
+      const count = Number(countryDetail?.[key]) || 0;
+      if (count > 0) total += count * konsumsi;
     });
     return total;
   };
 
   const buildingCons = totalBuildingElectricityConsumption();
   const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
-  const estimatedConsumption = Math.max(
-    0,
-    Math.round(
-      buildingCons > 0
-        ? buildingCons + populationDemand
-        : totalProductionMW * 0.7 + populationDemand
-    )
-  );
+  const estimatedConsumption = Math.max(0, Math.round(buildingCons > 0 ? buildingCons + populationDemand : totalProductionMW * 0.7 + populationDemand));
+
+  const ongoingConstructions = countryDetail?.ongoingConstructions || [];
 
   return (
     <>
-      {/* MODAL UTAMA */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
@@ -281,7 +357,6 @@ export default function TempatUmumModal({
                   <p className="text-xs text-[#8b7e66]">Fasilitas sosial, kesehatan, pendidikan, dan penegakan hukum</p>
                 </div>
               </div>
-              
               <div className="flex items-center gap-4 pl-8 border-l-2 border-[#C4B49C]/30">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
@@ -307,29 +382,37 @@ export default function TempatUmumModal({
 
           {/* BODY */}
           <div className="flex-1 flex min-h-0 relative z-10">
-            {/* SIDEBAR TABS */}
             <div className="w-64 border-r-2 border-[#C4B49C]/30 bg-[#FAF6EE] p-4 flex flex-col gap-2 overflow-y-auto">
-              {groups.map((group) => (
-                <button
-                  key={group.id}
-                  onClick={() => setActiveTabId(group.id)}
-                  className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                    activeTabId === group.id
-                      ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
-                      : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
-                  }`}
-                >
-                  <span className="text-xs font-bold uppercase tracking-wider">{group.label}</span>
-                  <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
-                    activeTabId === group.id ? "bg-[#FAF6EE] text-[#5c3c10]" : "bg-[#5c3c10]/10 text-[#5c3c10]"
-                  }`}>
-                    {group.activeCount}
-                  </span>
-                </button>
-              ))}
+              {groups.map((group) => {
+                const hasConstruction = group.keys.some((key) => 
+                  ongoingConstructions.some((c: any) => c.buildingKey === key)
+                );
+                return (
+                  <button
+                    key={group.id}
+                    onClick={() => setActiveTabId(group.id)}
+                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${
+                      activeTabId === group.id
+                        ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
+                        : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
+                    }`}
+                  >
+                    <span className="text-xs font-bold uppercase tracking-wider">{group.label}</span>
+                    <div className="flex items-center gap-1.5">
+                       {hasConstruction && (
+                         <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                       )}
+                       <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
+                         activeTabId === group.id ? "bg-[#FAF6EE] text-[#5c3c10]" : "bg-[#5c3c10]/10 text-[#5c3c10]"
+                       }`}>
+                         {group.activeCount}
+                       </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* KONTEN UTAMA */}
             <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 flex flex-col justify-between">
               <div>
                 {activeGroup && (
@@ -343,19 +426,39 @@ export default function TempatUmumModal({
                       {activeGroup.items.map((it) => {
                         const bMeta = findMeta(it.key) || {};
                         const perCount = it.value || 0;
-                        const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
                         const biaya = Number(bMeta?.biaya_pembangunan) || 0;
                         const waktu = bMeta?.waktu_pembangunan;
+                        
+                        const buildingConstruction = ongoingConstructions.filter(
+                          (c: any) => c.buildingKey === it.key
+                        );
+                        const queueCount = buildingConstruction.length;
+                        const isBuilding = queueCount > 0;
 
                         return (
                           <div key={it.key} className="bg-white/90 border border-[#C4B49C]/30 rounded-2xl overflow-visible flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative">
                             
-                            {/* MODAL INFO BANGUNAN - menggunakan komponen terpisah */}
+                            {isBuilding && (() => {
+                               const lastEndDate = buildingConstruction[buildingConstruction.length - 1].endDate;
+                               const [y, m, d] = lastEndDate.split('-').map(Number);
+                               const date = new Date(y, m - 1, d);
+                               const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+                               const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(date);
+                               const day = parts.find((p) => p.type === 'day')?.value || '';
+                               const month = parts.find((p) => p.type === 'month')?.value || '';
+                               const year = parts.find((p) => p.type === 'year')?.value || '';
+                               return (
+                                 <div className="absolute -top-5 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[9px] font-bold px-2 py-0.5 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap">
+                                   {`${day} ${month}, ${year}`}
+                                 </div>
+                               );
+                            })()}
+                            
                             {hoveredBuildingKey === it.key && (
                               <InfoBangunanModal
                                 label={it.label}
                                 perCount={perCount}
-                                konsumsiUnit={konsumsiUnit}
+                                konsumsiUnit={Number(bMeta?.konsumsi_listrik) || 0}
                                 biaya={biaya}
                                 waktu={waktu}
                                 onClose={() => setHoveredBuildingKey(null)}
@@ -377,7 +480,12 @@ export default function TempatUmumModal({
                                     <Info className="w-3 h-3" />
                                   </button>
                                 </div>
-                                <p className="text-2xl font-black text-[#2e261a] mt-2">{formatNumber(perCount)}</p>
+                                <div className="flex items-end gap-1.5 mt-2">
+                                  <p className="text-2xl font-black text-[#2e261a]">{formatNumber(perCount)}</p>
+                                  {isBuilding && (
+                                    <span className="text-xl font-bold text-emerald-600 leading-none">+{queueCount}</span>
+                                  )}
+                                </div>
                               </div>
                               <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
                                 <button
@@ -406,47 +514,26 @@ export default function TempatUmumModal({
                   <p className="text-xs text-[#8b7e66] mt-1">Data fasilitas umum disinkronisasi berkala dari laporan statistik nasional.</p>
                 </div>
               </div>
-
-              {/* RINGKASAN KONSUMSI LISTRIK SEKTOR */}
-              {activeGroup && (() => {
-                const categoryElectricityConsumption = activeGroup.keys.reduce((sum, key) => {
-                  const bMeta = findMeta(key);
-                  const count = Number(countryDetail?.[key]) || 0;
-                  const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
-                  return sum + (count * konsumsiUnit);
-                }, 0);
-
-                return (
-                  <div className="mt-4 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
-                        ⚡ Total Konsumsi Listrik {activeGroup.label}
-                      </span>
-                    </div>
-                    <div className="px-4 py-1.5 rounded-lg bg-pink-300 border-pink-400">
-                      <span className="text-sm font-black text-pink-900">
-                        {categoryElectricityConsumption.toLocaleString('id-ID')} MW
-                      </span>
-                    </div>
-                  </div>
-                );
-              })()}
             </div>
           </div>
         </div>
       </div>
 
-      {/* MODAL KONFIRMASI PEMBANGUNAN - menggunakan komponen terpisah */}
-      {showConfirm && selectedBuilding && (() => {
+      {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
+
+      {/* 🔥 PERBAIKAN 3: MODAL KONFIRMASI DENGAN STRUKTUR YANG SAMA PERSIS SEPERTI ProduksiModal */}
+      {/* Hanya di-render ketika selectedBuilding ada, tanpa showConfirm, dan tanpa paksaan key={renderTrigger} */}
+      {selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
         const buildingReq = getSelectedBuildingRequirements();
         const requirements = buildingReq?.requirements || [];
+        
+        // 🔥 Kalkulasi data material dilakukan disini, dan akan otomatis ter-update setiap kali parent (countryDetail) berubah
         const missingMaterials = requirements.filter(
           (mat) => getMaterialStock(mat.resourceKey) <= 0
         );
 
-        // Buat object stok material
         const materialStocks: Record<string, number> = {};
         requirements.forEach((mat) => {
           materialStocks[mat.resourceKey] = getMaterialStock(mat.resourceKey);
@@ -455,7 +542,7 @@ export default function TempatUmumModal({
         return (
           <KonfirmasiPembangunanModal
             isOpen={true}
-            onClose={() => { setShowConfirm(false); setSelectedBuilding(null); }}
+            onClose={() => setSelectedBuilding(null)} // Cukup null kan selectedBuilding untuk menutup
             buildingLabel={selectedBuilding.label}
             buildingDescription={bMeta?.deskripsi || bMeta?.desc}
             cost={cost}
@@ -472,7 +559,6 @@ export default function TempatUmumModal({
         );
       })()}
 
-      {/* MODAL PERINGATAN MATERIAL KURANG */}
       {showMaterialWarningModal && insufficientMaterials.length > 0 && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
@@ -508,8 +594,6 @@ export default function TempatUmumModal({
           </div>
         </div>
       )}
-
-      {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
     </>
   );
 }
