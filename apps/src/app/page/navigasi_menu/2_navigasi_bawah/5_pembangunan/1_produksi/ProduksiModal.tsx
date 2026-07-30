@@ -41,7 +41,7 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
-  currentDate?: Date;
+  currentDate?: string | Date;
   targetTab?: string | null;
   targetHighlightedKey?: string | null;
   onProductionDeepLinkHandled?: () => void;
@@ -117,9 +117,6 @@ export default function ProduksiModal({
   const selectedBuildingRequirements = getSelectedBuildingRequirements();
   const selectedBuildingProduction = getSelectedBuildingProduction();
 
-  // =========================================================================
-  // 🟢 PERBAIKAN: Fungsi ini mengambil data INVENTORY (stok produksi) yang benar.
-  // =========================================================================
   const getMaterialStock = (resourceKey: string): number => {
     const normalizedKey = normalizeResourceKey(resourceKey);
     const inventoryKey = `inventory_${normalizedKey}`;
@@ -197,8 +194,6 @@ export default function ProduksiModal({
     setActiveTab(tabId);
     setHighlightedCardKey(normalizedKey);
     setSelectedBuilding(null);
-    setToast(`${label} dipilih di tab ${tabId}`);
-    setTimeout(() => setToast(null), 2000);
   };
 
   const findMeta = (key: string) => {
@@ -213,6 +208,15 @@ export default function ProduksiModal({
     return undefined;
   };
 
+  // 🔥 KONVERSI TANGGAL JADI STRING AMAN DI SINI
+  const safeDateString = useMemo(() => {
+    if (typeof currentDate === 'string') return currentDate;
+    if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
+      return formatDate(currentDate);
+    }
+    return formatDate(new Date());
+  }, [currentDate]);
+
   const calculateProductionAmount = useMemo(() => {
     return (resourceKey: string): number => {
       if (ELECTRICITY_BUILDINGS_LIST.includes(resourceKey)) {
@@ -224,14 +228,14 @@ export default function ProduksiModal({
       const bMeta = findMeta(resourceKey);
       if (!bMeta || !bMeta.produksi) return 0;
       if (resourceKey === 'emas') return bMeta.produksi * buildingCount;
-      if (!currentDate) return 0;
+      if (!safeDateString) return 0;
+      
       const buildDateKey = `build_date_${resourceKey}`;
       const buildDate = countryDetail?.[buildDateKey];
-      const currentDateStr = formatDate(currentDate);
-      const finalBuildDate = buildDate || currentDateStr;
-      return calculateProductionIncrement(bMeta.produksi, buildingCount, finalBuildDate, currentDateStr);
+      const finalBuildDate = buildDate || safeDateString;
+      return calculateProductionIncrement(bMeta.produksi, buildingCount, finalBuildDate, safeDateString);
     };
-  }, [countryDetail, currentDate, metadata, getEffectiveElectricityProduction]);
+  }, [countryDetail, safeDateString, metadata, getEffectiveElectricityProduction]);
 
   useEffect(() => {
     if (!isOpen) return;
@@ -252,13 +256,10 @@ export default function ProduksiModal({
     if (targetTab || targetHighlightedKey) onProductionDeepLinkHandled?.();
   }, [isOpen, targetTab, targetHighlightedKey, onProductionDeepLinkHandled]);
 
-  // =========================================================================
-  // 🟢 PERBAIKAN LOGIKA INVENTORY: Menghitung penambahan stok berdasarkan hari yang terlewat (INCREMENTAL).
-  // Kini stok akan bertambah 1.600, menjadi 3.200 (bukan 4.800)!
-  // =========================================================================
+  // --- Logika Produksi Harian (Inventaris) ---
   useEffect(() => {
-    if (!currentDate || !metadata || Object.keys(metadata).length === 0) return;
-    const currentDateStr = formatDate(currentDate);
+    if (!safeDateString || !metadata || Object.keys(metadata).length === 0) return;
+    const currentDateStr = safeDateString;
     let hasUpdates = false;
     let updates: Record<string, any> = {};
     const allKeys = Object.keys(metadata);
@@ -275,18 +276,14 @@ export default function ProduksiModal({
       const lastUpdateDate = countryDetail?.[lastUpdateKey] || buildDate;
       const inventoryKey = `inventory_${resourceKey}`;
 
-      // Jika sudah terupdate hari ini, skip
       if (lastUpdateDate === currentDateStr) continue;
 
-      // Hitung selisih hari dari tanggal update terakhir sampai sekarang
       const daysPassed = getDaysElapsed(lastUpdateDate, currentDateStr);
       if (daysPassed <= 0) continue;
 
-      // Hitung produksi harian
       const dailyProduction = Number(bMeta.produksi) * buildingCount;
       const productionAdded = dailyProduction * daysPassed;
 
-      // Tambahkan ke stok yang sudah ada
       const currentStock = Number(countryDetail?.[inventoryKey]) || 0;
       updates[inventoryKey] = currentStock + productionAdded;
       updates[lastUpdateKey] = currentDateStr;
@@ -297,39 +294,78 @@ export default function ProduksiModal({
       setCountryDetail((prev: any) => ({ ...prev, ...updates }));
       lastCalculatedDateRef.current = currentDateStr;
     }
-  }, [currentDate, metadata]);
+  }, [safeDateString, metadata]);
 
-  const TABS = [
-    { id: "kelistrikan", label: "Kelistrikan", component: KelistrikanTab },
-    { id: "mineral", label: "Mineral & Energi", component: MineralEnergiTab },
-    { id: "manufaktur", label: "Manufaktur", component: ManufakturTab },
-    { id: "peternakan", label: "Peternakan", component: PeternakanTab },
-    { id: "agrikultur", label: "Agrikultur", component: AgrikulturTab },
-    { id: "perikanan", label: "Perikanan", component: PerikananTab },
-    { id: "olahan pangan", label: "Olahan Pangan", component: OlahanPanganTab },
-  ];
+  // --- CEK KONSTRUKSI YANG SELESAI (TANPA TOAST) ---
+  useEffect(() => {
+    if (!isOpen || !safeDateString || !countryDetail || !metadata) return;
 
-  if (!isOpen) return null;
-
-  const handleBuild = (key: string, label: string) => {
-    if (!isBuildingAvailable(key, countryDetail?.country || '')) {
-      setToast(`❌ ${label} tidak tersedia untuk negara ini`);
-      setTimeout(() => setToast(null), 2000);
-      return;
+    let now: Date;
+    try {
+      now = new Date(safeDateString + 'T00:00:00');
+      if (isNaN(now.getTime())) throw new Error('Invalid date');
+    } catch {
+      now = new Date();
+      console.warn('⚠️ safeDateString tidak valid di useEffect produksi, menggunakan sekarang');
     }
-    setSelectedBuilding({ key, label });
-    setToast(`${label} dipilih`);
-    setTimeout(() => setToast(null), 1500);
+
+    const ongoing = countryDetail.ongoingConstructions || [];
+    let updated = false;
+    let newConstructions = [...ongoing];
+    let newDetail = { ...countryDetail };
+
+    const completed = newConstructions.filter((c) => {
+      let endDate: Date;
+      try {
+        endDate = new Date(c.endDate + 'T00:00:00');
+        if (isNaN(endDate.getTime())) throw new Error('Invalid endDate');
+      } catch {
+        return false;
+      }
+      return endDate <= now;
+    });
+
+    if (completed.length > 0) {
+      completed.forEach((c) => {
+        const key = c.buildingKey;
+        newDetail[key] = (Number(newDetail[key]) || 0) + 1;
+        // JANGAN reset build_date agar output tidak 0!
+        // const buildDateKey = `build_date_${key}`;
+        // (newDetail as any)[buildDateKey] = c.endDate; // DIHAPUS!
+        
+        // Update last_update_date agar inventaris tidak double counting
+        const lastUpdateKey = `last_update_date_${key}`;
+        (newDetail as any)[lastUpdateKey] = c.endDate;
+      });
+
+      const completedIds = completed.map((c) => c.id);
+      newConstructions = newConstructions.filter((c) => !completedIds.includes(c.id));
+      newDetail.ongoingConstructions = newConstructions;
+      updated = true;
+    }
+
+    if (updated) {
+      setCountryDetail(newDetail);
+      // TOAST NOTIFIKASI SELESAI DIHAPUS TOTAL!
+    }
+  }, [safeDateString, isOpen, countryDetail, setCountryDetail, metadata]);
+
+  // 🔥 Fungsi penambah hari murni
+  const addDays = (dateString: string, days: number) => {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() + days);
+    const yy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yy}-${mm}-${dd}`;
   };
 
-  // =========================================================================
-  // 🟢 PERBAIKAN: Saat bangun, stok material (inventory) dikurangi jumlah yang dibutuhkan.
-  // =========================================================================
   const confirmBuild = () => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
     const bMeta = findMeta(key);
-    if (loadingMetadata || !bMeta || !currentDate) {
+    if (loadingMetadata || !bMeta || !safeDateString) {
       setToast("Metadata bangunan masih dimuat atau tanggal tidak tersedia.");
       setTimeout(() => setToast(null), 2500);
       return;
@@ -353,14 +389,10 @@ export default function ProduksiModal({
       return;
     }
 
-    const buildDateKey = `build_date_${key}`;
-    const buildDateValue = formatDate(currentDate);
     const updatedDetail = { ...countryDetail };
 
-    // 1. Kurangi Anggaran
     updatedDetail.anggaran = anggaran - cost;
 
-    // 2. Kurangi Material yang Dibutuhkan dari Inventory (stok produksi)
     selectedBuildingRequirements?.requirements?.forEach((material) => {
       const invKey = `inventory_${material.resourceKey}`;
       const currentInv = Number(updatedDetail[invKey]) || 0;
@@ -368,18 +400,63 @@ export default function ProduksiModal({
       updatedDetail[invKey] = Math.max(0, currentInv - amount);
     });
 
-    // 3. Tambah Jumlah Bangunan
-    updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+    const waktu = Number(bMeta.waktu_pembangunan) || 0;
+
+    if (waktu <= 0) {
+      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+      const buildDateKey = `build_date_${key}`;
+      updatedDetail[buildDateKey] = safeDateString;
+      updatedDetail[`accumulated_${key}`] = 0;
+      updatedDetail[`last_prod_date_${key}`] = safeDateString;
+
+      setCountryDetail(updatedDetail);
+      setSelectedBuilding(null);
+      setToast(`✅ Berhasil! ${label} dibangun secara instan.`);
+      setTimeout(() => setToast(null), 3000);
+      return;
+    }
+
+    let startDateStr = safeDateString;
     
-    // 4. Atur Tanggal Bangun
-    updatedDetail[buildDateKey] = buildDateValue;
-    updatedDetail[`accumulated_${key}`] = 0;
-    updatedDetail[`last_prod_date_${key}`] = buildDateValue;
+    const ongoing = updatedDetail.ongoingConstructions || [];
+    const existingForThisKey = ongoing.filter((c: any) => c.buildingKey === key);
+
+    if (existingForThisKey.length > 0) {
+      const lastEndDateStr = existingForThisKey[existingForThisKey.length - 1].endDate;
+      startDateStr = lastEndDateStr;
+    }
+
+    const endDateStr = addDays(startDateStr, waktu);
+
+    const newOngoing = [
+      ...ongoing,
+      { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
+    ];
+    updatedDetail.ongoingConstructions = newOngoing;
 
     setCountryDetail(updatedDetail);
     setSelectedBuilding(null);
-    setToast(`✅ Berhasil! ${label} dibangun pada ${buildDateValue}.`);
-    setTimeout(() => setToast(null), 3000);
+  };
+
+  const TABS = [
+    { id: "kelistrikan", label: "Kelistrikan", component: KelistrikanTab },
+    { id: "mineral", label: "Mineral & Energi", component: MineralEnergiTab },
+    { id: "manufaktur", label: "Manufaktur", component: ManufakturTab },
+    { id: "peternakan", label: "Peternakan", component: PeternakanTab },
+    { id: "agrikultur", label: "Agrikultur", component: AgrikulturTab },
+    { id: "perikanan", label: "Perikanan", component: PerikananTab },
+    { id: "olahan pangan", label: "Olahan Pangan", component: OlahanPanganTab },
+  ];
+
+  if (!isOpen) return null;
+
+  const handleBuild = (key: string, label: string) => {
+    if (!isBuildingAvailable(key, countryDetail?.country || '')) {
+      setToast(`❌ ${label} tidak tersedia untuk negara ini`);
+      setTimeout(() => setToast(null), 2000);
+      return;
+    }
+    setSelectedBuilding({ key, label });
   };
 
   const activeSection = TABS.find((tab) => tab.id === activeTab) || TABS[0];
@@ -431,11 +508,15 @@ export default function ProduksiModal({
   const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
   const estimatedConsumption = Math.max(0, Math.round(totalBuildingElectricityConsumption > 0 ? totalBuildingElectricityConsumption + populationDemand : totalProductionMW * 0.7 + populationDemand));
 
+  const ongoingConstructions = countryDetail?.ongoingConstructions || [];
+
   return (
     <>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-3">
@@ -472,7 +553,11 @@ export default function ProduksiModal({
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md" : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"}`}
+                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${
+                      activeTab === tab.id
+                        ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
+                        : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
+                    }`}
                   >
                     <span className="text-xs font-bold uppercase tracking-wider">{tab.label}</span>
                   </button>
@@ -493,6 +578,7 @@ export default function ProduksiModal({
                   loadingMetadata={loadingMetadata}
                   selectedBuilding={selectedBuilding}
                   currentDate={currentDate}
+                  ongoingConstructions={ongoingConstructions}
                 />
               </div>
             </div>
@@ -502,7 +588,6 @@ export default function ProduksiModal({
 
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
 
-      {/* MODAL KONFIRMASI PEMBANGUNAN */}
       {selectedBuilding && (() => {
         const bMeta = findMeta(selectedBuilding.key);
         const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
@@ -534,7 +619,6 @@ export default function ProduksiModal({
         );
       })()}
 
-      {/* MODAL PERINGATAN MATERIAL KURANG */}
       {showMaterialWarningModal && insufficientMaterials.length > 0 && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">

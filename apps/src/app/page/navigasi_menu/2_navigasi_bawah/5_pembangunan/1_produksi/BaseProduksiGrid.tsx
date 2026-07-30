@@ -2,7 +2,7 @@
 import React from "react";
 import { Info } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import InfoBangunan from "./modals_menu/info_bangunan_modals"; // <-- import komponen baru
+import InfoBangunan from "./modals_menu/info_bangunan_modals";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
@@ -59,6 +59,7 @@ interface BaseProduksiGridProps {
   isBuildingAvailable?: (buildingKey: string, countryName: string) => boolean;
   isElectricityTab: boolean;
   highlightedCardKey?: string | null;
+  ongoingConstructions?: any[];
 }
 
 export default function BaseProduksiGrid({
@@ -75,6 +76,7 @@ export default function BaseProduksiGrid({
   highlightedCardKey,
   isBuildingAvailable,
   isElectricityTab,
+  ongoingConstructions = [],
 }: BaseProduksiGridProps) {
   const formatLabel = (key: string) => {
     const customLabels: Record<string, string> = {
@@ -89,6 +91,24 @@ export default function BaseProduksiGrid({
     return key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
   };
 
+  // Format tanggal menjadi DD MMM, YYYY
+  const formatBadgeDate = (dateString: string) => {
+    if (!dateString) return '';
+    try {
+      const [y, m, d] = dateString.split('-').map(Number);
+      const date = new Date(y, m - 1, d);
+      if (isNaN(date.getTime())) return dateString;
+      const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+      const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(date);
+      const day = parts.find((p) => p.type === 'day')?.value || '';
+      const month = parts.find((p) => p.type === 'month')?.value || '';
+      const year = parts.find((p) => p.type === 'year')?.value || '';
+      return `${day} ${month}, ${year}`;
+    } catch {
+      return dateString;
+    }
+  };
+
   return (
     <div>
       <div className="flex items-center gap-3 mb-6">
@@ -96,7 +116,7 @@ export default function BaseProduksiGrid({
         <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">{title}</h3>
       </div>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         {keys.map((key) => {
           const bMeta = findMeta(key) || {};
           const perCount = Number(countryDetail?.[key]) || 0;
@@ -104,23 +124,43 @@ export default function BaseProduksiGrid({
           const isHighlighted = highlightedCardKey === key;
           const isAvailable = isBuildingAvailable ? isBuildingAvailable(key, countryDetail?.country || '') : true;
           const fuelRequirements = isElectricityTab ? getKelistrikanFuelRequirements(key) : [];
-          const hasFuelConsumption = fuelRequirements.length > 0;
           const isFuelResource = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(key);
 
           const effectiveProduction = calculateProductionAmount(key);
           const isProductionZero = effectiveProduction === 0 && perCount > 0;
           const rawProduction = perCount * Number(bMeta?.produksi || 0);
 
+          // Hitung jumlah antrean
+          const buildingConstructions = ongoingConstructions.filter(
+            (c: any) => c.buildingKey === key
+          );
+          const queueCount = buildingConstructions.length;
+          const isBuilding = queueCount > 0;
+          
+          // Tampilkan tanggal selesai dari unit PALING AKHIR
+          const lastEndDate = isBuilding ? buildingConstructions[buildingConstructions.length - 1].endDate : null;
+
           return (
             <div
               key={key}
-              onClick={() => isAvailable && onBuildClick(key, label)}
+              onClick={() => {
+                if (!isAvailable) return;
+                onBuildClick(key, label);
+              }}
               role="button"
               tabIndex={0}
-              aria-disabled={!isAvailable}
-              className={`rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all relative bg-white/90 border shadow-sm ${isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'} ${isHighlighted ? 'border-emerald-500 border-2 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]' : ''}`}
+              className={`relative rounded-2xl overflow-visible flex flex-col flex-grow justify-between transition-all bg-white/90 border shadow-sm ${
+                isAvailable ? 'border-[#C4B49C]/30 hover:shadow-md cursor-pointer' : 'border-rose-300 bg-rose-50/60 opacity-90 cursor-not-allowed'
+              } ${isHighlighted ? 'border-emerald-500 border-2 shadow-[0_0_0_3px_rgba(16,185,129,0.18)]' : ''}`}
             >
-              {/* Modal Info Bangunan - dipisah ke komponen InfoBangunan */}
+              {/* Badge Tanggal */}
+              {isBuilding && (
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap">
+                  {formatBadgeDate(lastEndDate)}
+                </div>
+              )}
+
+              {/* Modal Info Bangunan */}
               {hoveredBuildingKey === key && (
                 <InfoBangunan
                   buildingKey={key}
@@ -141,7 +181,9 @@ export default function BaseProduksiGrid({
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{label}</p>
                     <button
-                      className={`flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-help ${isFuelResource ? 'bg-[#7f1d1d]/10 hover:bg-[#7f1d1d]/20 text-[#7f1d1d]' : 'bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10]'}`}
+                      className={`flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-help ${
+                        isFuelResource ? 'bg-[#7f1d1d]/10 hover:bg-[#7f1d1d]/20 text-[#7f1d1d]' : 'bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10]'
+                      }`}
                       onClick={(e) => {
                         e.stopPropagation();
                         setHoveredBuildingKey(hoveredBuildingKey === key ? null : key);
@@ -151,7 +193,16 @@ export default function BaseProduksiGrid({
                       <Info className="w-3 h-3" />
                     </button>
                   </div>
-                  <p className="text-2xl font-black mt-2 text-[#2e261a]">{perCount}</p>
+
+                  {/* Indikator +1, +2 */}
+                  <div className="flex items-end gap-1.5 mt-2">
+                    <span className="text-2xl font-black text-[#2e261a]">{perCount}</span>
+                    {isBuilding && (
+                      <span className="text-xl font-bold text-emerald-600 leading-none">
+                        +{queueCount}
+                      </span>
+                    )}
+                  </div>
                   <p className="text-[10px] mt-1 font-bold text-[#8b7e66]">{perCount} bangunan</p>
                 </div>
 
