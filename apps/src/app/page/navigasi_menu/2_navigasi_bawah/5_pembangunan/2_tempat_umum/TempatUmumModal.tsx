@@ -15,7 +15,7 @@ import * as komersialRequirements from "./requirements_logic/6_komersial/require
 import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
 
 // --- IMPOR KOMPONEN KONFIRMASI PEMBANGUNAN ---
-import KonfirmasiPembangunanModal from "./modals_menu/konfirmasi_pembangunan_modals";
+import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi";
 
 interface ModalProps {
   isOpen: boolean;
