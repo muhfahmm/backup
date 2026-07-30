@@ -12,10 +12,10 @@ import * as olahragaHiburanRequirements from "./requirements_logic/5_olahraga_hi
 import * as komersialRequirements from "./requirements_logic/6_komersial/requirements";
 
 // --- IMPOR KOMPONEN MODAL INFO BANGUNAN ---
-import InfoBangunanModal from "./info_bangunan_modals";
+import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
 
 // --- IMPOR KOMPONEN KONFIRMASI PEMBANGUNAN ---
-import KonfirmasiPembangunanModal from "./konfirmasi_pembangunan_modals";
+import KonfirmasiPembangunanModal from "./modals_menu/konfirmasi_pembangunan_modals";
 
 interface ModalProps {
   isOpen: boolean;

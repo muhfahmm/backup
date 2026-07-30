@@ -23,7 +23,7 @@ import * as perikananRequirements from "./requirements_logic/1_produksi/6_perika
 import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_olahan_pangan/requirements";
 
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import KonfirmasiPembangunanModal from "./konfirmasi_pembangunan_modals";
+import KonfirmasiPembangunanModal from "./modals_menu/konfirmasi_pembangunan_modals";
 
 interface MaterialRequirement {
   resourceKey: string;
@@ -453,11 +453,10 @@ export default function ProduksiModal({
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${
-                      activeTab === tab.id
+                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id
                         ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
                         : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
-                    }`}
+                      }`}
                   >
                     <span className="text-xs font-bold uppercase tracking-wider">{tab.label}</span>
                   </button>

@@ -1,8 +1,8 @@
 "use client";
 import React from "react";
 import { Info, X } from "lucide-react";
-import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import { FOOD_CONSUMPTION_PER_CAPITA } from "../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
+import { getKelistrikanFuelRequirements } from "../requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
+import { FOOD_CONSUMPTION_PER_CAPITA } from "../../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
