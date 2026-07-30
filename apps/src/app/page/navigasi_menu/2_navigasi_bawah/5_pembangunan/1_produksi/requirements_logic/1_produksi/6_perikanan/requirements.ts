@@ -2,6 +2,7 @@ export type RequirementItem = {
   group: string;
   label: string;
   resourceKey: string;
+  amount: number;
 };
 
 export type BuildingRequirements = {
@@ -15,22 +16,22 @@ export const REQUIREMENTS: BuildingRequirements[] = [
   {
     buildingKey: 'udang',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 450 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 350 },
     ],
   },
   {
     buildingKey: 'mutiara',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 600 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 400 },
     ],
   },
   {
     buildingKey: 'ikan',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 380 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 300 },
     ],
   },
 ];

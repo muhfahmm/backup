@@ -2,6 +2,7 @@ export type RequirementItem = {
   group: string;
   label: string;
   resourceKey: string;
+  amount: number;
 };
 
 export type BuildingRequirements = {
@@ -15,36 +16,36 @@ export const REQUIREMENTS: BuildingRequirements[] = [
   {
     buildingKey: 'semikonduktor',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 850 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 400 },
     ],
   },
   {
     buildingKey: 'mobil',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 750 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 500 },
     ],
   },
   {
     buildingKey: 'sepeda_motor',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 500 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 300 },
     ],
   },
   {
     buildingKey: 'semen_beton',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 600 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 350 },
     ],
   },
   {
     buildingKey: 'kayu',
     requirements: [
-      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton' },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu' },
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 300 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 200 },
     ],
   },
 ];
