@@ -66,7 +66,6 @@ export default function ProduksiModal({
   const [productionCache, setProductionCache] = useState<Record<string, number>>({});
   const [lastCalculationDate, setLastCalculationDate] = useState<string>("");
   const lastCalculatedDateRef = useRef<string>("");
-
   const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
@@ -118,9 +117,13 @@ export default function ProduksiModal({
   const selectedBuildingRequirements = getSelectedBuildingRequirements();
   const selectedBuildingProduction = getSelectedBuildingProduction();
 
+  // =========================================================================
+  // 🟢 PERBAIKAN: Fungsi ini mengambil data INVENTORY (stok produksi) yang benar.
+  // =========================================================================
   const getMaterialStock = (resourceKey: string): number => {
     const normalizedKey = normalizeResourceKey(resourceKey);
-    return Number(countryDetail?.[normalizedKey]) || 0;
+    const inventoryKey = `inventory_${normalizedKey}`;
+    return Number(countryDetail?.[inventoryKey]) || 0;
   };
 
   const ELECTRICITY_FUEL_BUILDINGS = [
@@ -249,27 +252,47 @@ export default function ProduksiModal({
     if (targetTab || targetHighlightedKey) onProductionDeepLinkHandled?.();
   }, [isOpen, targetTab, targetHighlightedKey, onProductionDeepLinkHandled]);
 
+  // =========================================================================
+  // 🟢 PERBAIKAN LOGIKA INVENTORY: Menghitung penambahan stok berdasarkan hari yang terlewat (INCREMENTAL).
+  // Kini stok akan bertambah 1.600, menjadi 3.200 (bukan 4.800)!
+  // =========================================================================
   useEffect(() => {
     if (!currentDate || !metadata || Object.keys(metadata).length === 0) return;
     const currentDateStr = formatDate(currentDate);
     let hasUpdates = false;
-    let updates: Record<string, string> = {};
+    let updates: Record<string, any> = {};
     const allKeys = Object.keys(metadata);
+
     for (const resourceKey of allKeys) {
       const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
       if (buildingCount === 0) continue;
       const bMeta = findMeta(resourceKey);
       if (!bMeta || !bMeta.produksi) continue;
+
       const buildDateKey = `build_date_${resourceKey}`;
-      const buildDate = countryDetail?.[buildDateKey];
-      const finalBuildDate = buildDate || currentDateStr;
-      const production = calculateProductionIncrement(bMeta.produksi, buildingCount, finalBuildDate, currentDateStr);
+      const buildDate = countryDetail?.[buildDateKey] || currentDateStr;
       const lastUpdateKey = `last_update_date_${resourceKey}`;
-      if (production > 0) {
-        updates[lastUpdateKey] = currentDateStr;
-        hasUpdates = true;
-      }
+      const lastUpdateDate = countryDetail?.[lastUpdateKey] || buildDate;
+      const inventoryKey = `inventory_${resourceKey}`;
+
+      // Jika sudah terupdate hari ini, skip
+      if (lastUpdateDate === currentDateStr) continue;
+
+      // Hitung selisih hari dari tanggal update terakhir sampai sekarang
+      const daysPassed = getDaysElapsed(lastUpdateDate, currentDateStr);
+      if (daysPassed <= 0) continue;
+
+      // Hitung produksi harian
+      const dailyProduction = Number(bMeta.produksi) * buildingCount;
+      const productionAdded = dailyProduction * daysPassed;
+
+      // Tambahkan ke stok yang sudah ada
+      const currentStock = Number(countryDetail?.[inventoryKey]) || 0;
+      updates[inventoryKey] = currentStock + productionAdded;
+      updates[lastUpdateKey] = currentDateStr;
+      hasUpdates = true;
     }
+
     if (hasUpdates) {
       setCountryDetail((prev: any) => ({ ...prev, ...updates }));
       lastCalculatedDateRef.current = currentDateStr;
@@ -299,6 +322,9 @@ export default function ProduksiModal({
     setTimeout(() => setToast(null), 1500);
   };
 
+  // =========================================================================
+  // 🟢 PERBAIKAN: Saat bangun, stok material (inventory) dikurangi jumlah yang dibutuhkan.
+  // =========================================================================
   const confirmBuild = () => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
@@ -309,10 +335,9 @@ export default function ProduksiModal({
       return;
     }
 
-    const missingMaterials =
-      selectedBuildingRequirements?.requirements?.filter(
-        (material) => getMaterialStock(material.resourceKey) <= 0
-      ) || [];
+    const missingMaterials = selectedBuildingRequirements?.requirements?.filter(
+      (material) => getMaterialStock(material.resourceKey) <= 0
+    ) || [];
 
     if (missingMaterials.length > 0) {
       setInsufficientMaterials(missingMaterials);
@@ -327,21 +352,33 @@ export default function ProduksiModal({
       setTimeout(() => setToast(null), 2500);
       return;
     }
+
     const buildDateKey = `build_date_${key}`;
     const buildDateValue = formatDate(currentDate);
-    const updatedDetail = {
-      ...countryDetail,
-      anggaran: anggaran - cost,
-      [key]: (Number(countryDetail?.[key]) || 0) + 1,
-      [buildDateKey]: buildDateValue,
-      [`accumulated_${key}`]: 0,
-      [`last_prod_date_${key}`]: buildDateValue,
-    };
+    const updatedDetail = { ...countryDetail };
+
+    // 1. Kurangi Anggaran
+    updatedDetail.anggaran = anggaran - cost;
+
+    // 2. Kurangi Material yang Dibutuhkan dari Inventory (stok produksi)
+    selectedBuildingRequirements?.requirements?.forEach((material) => {
+      const invKey = `inventory_${material.resourceKey}`;
+      const currentInv = Number(updatedDetail[invKey]) || 0;
+      const amount = material.amount || 0;
+      updatedDetail[invKey] = Math.max(0, currentInv - amount);
+    });
+
+    // 3. Tambah Jumlah Bangunan
+    updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+    
+    // 4. Atur Tanggal Bangun
+    updatedDetail[buildDateKey] = buildDateValue;
+    updatedDetail[`accumulated_${key}`] = 0;
+    updatedDetail[`last_prod_date_${key}`] = buildDateValue;
+
     setCountryDetail(updatedDetail);
     setSelectedBuilding(null);
-    setToast(
-      `✅ Berhasil! ${label} dibangun pada ${buildDateValue}. Sekarang ada ${updatedDetail[key]} bangunan.`
-    );
+    setToast(`✅ Berhasil! ${label} dibangun pada ${buildDateValue}.`);
     setTimeout(() => setToast(null), 3000);
   };
 
@@ -392,21 +429,13 @@ export default function ProduksiModal({
   }, [metadata, countryDetail]);
 
   const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
-  const estimatedConsumption = Math.max(
-    0,
-    Math.round(
-      totalBuildingElectricityConsumption > 0
-        ? totalBuildingElectricityConsumption + populationDemand
-        : totalProductionMW * 0.7 + populationDemand
-    )
-  );
+  const estimatedConsumption = Math.max(0, Math.round(totalBuildingElectricityConsumption > 0 ? totalBuildingElectricityConsumption + populationDemand : totalProductionMW * 0.7 + populationDemand));
 
   return (
     <>
       {isOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
-            {/* HEADER */}
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
               <div className="flex items-center gap-8">
                 <div className="flex items-center gap-3">
@@ -414,9 +443,7 @@ export default function ProduksiModal({
                     <Hammer className="h-6 w-6 text-[#5c3c10]" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">
-                      Produksi & Pembangunan
-                    </h2>
+                    <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Produksi & Pembangunan</h2>
                     <p className="text-xs text-[#8b7e66]">Kelola industri, pertanian, dan komoditas negara</p>
                   </div>
                 </div>
@@ -424,45 +451,33 @@ export default function ProduksiModal({
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-50 border border-emerald-300 rounded-lg">
                     <TrendingUp className="h-4 w-4 text-emerald-700" />
                     <span className="text-[11px] font-black text-emerald-700 uppercase tracking-wider">Produksi</span>
-                    <span className="text-[11px] font-black text-emerald-700">
-                      {totalProductionMW.toLocaleString('id-ID')} MW
-                    </span>
+                    <span className="text-[11px] font-black text-emerald-700">{totalProductionMW.toLocaleString('id-ID')} MW</span>
                   </div>
                   <div className="flex items-center gap-1.5 px-3 py-1.5 bg-rose-50 border border-rose-300 rounded-lg">
                     <TrendingDown className="h-4 w-4 text-rose-700" />
                     <span className="text-[11px] font-black text-rose-700 uppercase tracking-wider">Konsumsi</span>
-                    <span className="text-[11px] font-black text-rose-700">
-                      {estimatedConsumption.toLocaleString('id-ID')} MW
-                    </span>
+                    <span className="text-[11px] font-black text-rose-700">{estimatedConsumption.toLocaleString('id-ID')} MW</span>
                   </div>
                 </div>
               </div>
-              <button
-                onClick={onClose}
-                className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
-              >
+              <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
                 <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
                 <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* BODY */}
             <div className="flex-1 flex min-h-0 relative z-10">
               <div className="w-64 border-r-2 border-[#C4B49C]/30 bg-[#FAF6EE] p-4 flex flex-col gap-2 overflow-y-auto">
                 {TABS.map((tab) => (
                   <button
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id
-                        ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md"
-                        : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"
-                      }`}
+                    className={`flex items-center justify-between w-full p-3 rounded-xl border-2 text-left transition-all cursor-pointer ${activeTab === tab.id ? "bg-[#5c3c10] border-[#5c3c10] text-[#FAF6EE] shadow-md" : "bg-white/80 border-[#C4B49C]/30 text-[#5c3c10] hover:bg-white hover:border-[#5c3c10]/50"}`}
                   >
                     <span className="text-xs font-bold uppercase tracking-wider">{tab.label}</span>
                   </button>
                 ))}
               </div>
-
               <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40">
                 <ComponentToRender
                   countryDetail={countryDetail}
@@ -485,20 +500,13 @@ export default function ProduksiModal({
         </div>
       )}
 
-      {toast && (
-        <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">
-          {toast}
-        </div>
-      )}
+      {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
 
       {/* MODAL KONFIRMASI PEMBANGUNAN */}
       {selectedBuilding && (() => {
         const bMeta = findMeta(selectedBuilding.key);
         const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
-        const missingMaterials =
-          selectedBuildingRequirements?.requirements?.filter(
-            (mat) => getMaterialStock(mat.resourceKey) <= 0
-          ) || [];
+        const missingMaterials = selectedBuildingRequirements?.requirements?.filter((mat) => getMaterialStock(mat.resourceKey) <= 0) || [];
 
         const materialStocks: Record<string, number> = {};
         (selectedBuildingRequirements?.requirements || []).forEach((mat) => {
@@ -531,21 +539,15 @@ export default function ProduksiModal({
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
-
             <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
               <div className="flex items-center gap-2 text-rose-600">
                 <AlertCircle className="h-5 w-5" />
                 <h3 className="text-base font-bold uppercase tracking-tight">⚠️ Stok Material Kosong</h3>
               </div>
-              <button onClick={() => setShowMaterialWarningModal(false)} className="text-[#8b7e66] hover:text-[#5c3c10]">
-                <X className="h-5 w-5" />
-              </button>
+              <button onClick={() => setShowMaterialWarningModal(false)} className="text-[#8b7e66] hover:text-[#5c3c10]"><X className="h-5 w-5" /></button>
             </div>
             <div className="p-6 relative z-10 flex-1 space-y-4">
-              <p className="text-sm text-[#5c3c10]">
-                Pembangunan <strong className="font-black text-[#2e261a]">{selectedBuilding?.label}</strong> tidak dapat
-                dilanjutkan karena material berikut ini stoknya kosong (0):
-              </p>
+              <p className="text-sm text-[#5c3c10]">Pembangunan <strong className="font-black text-[#2e261a]">{selectedBuilding?.label}</strong> tidak dapat dilanjutkan karena material berikut ini stoknya kosong (0):</p>
               <div className="bg-rose-50/60 border border-rose-300 rounded-xl p-4 flex flex-col gap-2 text-xs font-bold text-[#5c3c10]">
                 {insufficientMaterials.map((mat, idx) => (
                   <div key={idx} className="flex justify-between items-center">
@@ -554,15 +556,10 @@ export default function ProduksiModal({
                   </div>
                 ))}
               </div>
-              <p className="text-[10px] text-[#8b7e66] italic">
-                Klik nama material pada daftar di atas untuk menambah stok (kembali ke tab terkait).
-              </p>
+              <p className="text-[10px] text-[#8b7e66] italic">Klik nama material pada daftar di atas untuk menambah stok (kembali ke tab terkait).</p>
             </div>
             <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex justify-end relative z-10">
-              <button
-                onClick={() => setShowMaterialWarningModal(false)}
-                className="py-2 px-6 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]"
-              >
+              <button onClick={() => setShowMaterialWarningModal(false)} className="py-2 px-6 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]">
                 Tutup & Lengkapi Stok
               </button>
             </div>
