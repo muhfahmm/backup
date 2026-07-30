@@ -1,12 +1,11 @@
 "use client";
 import React, { useState, useEffect, useMemo, useRef } from "react";
-import { X, Hammer, TrendingUp, TrendingDown, Eye, EyeOff, AlertCircle } from "lucide-react";
+import { X, Hammer, TrendingUp, TrendingDown, AlertCircle } from "lucide-react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { isBuildingAvailable } from '../../../../../logic';
 import { calculateProductionIncrement, formatDate, getDaysElapsed } from '../../../../../logic/production_logic';
 import { logger } from '../../../../../../lib/logger';
 
-// Import 7 Komponen Tab
 import KelistrikanTab from "./card_data/1_kelistrikan";
 import MineralEnergiTab from "./card_data/2_mineral_energi";
 import ManufakturTab from "./card_data/3_manufaktur";
@@ -15,7 +14,6 @@ import AgrikulturTab from "./card_data/5_agrikultur";
 import PerikananTab from "./card_data/6_perikanan";
 import OlahanPanganTab from "./card_data/7_olahan_pangan";
 
-// Import logic requirements
 import * as kelistrikanRequirements from "./requirements_logic/1_produksi/1_kelistrikan/requirements";
 import * as mineralKritisRequirements from "./requirements_logic/1_produksi/2_mineral_kritis/requirements";
 import * as manufakturRequirements from "./requirements_logic/1_produksi/3_manufaktur/requirements";
@@ -24,8 +22,8 @@ import * as agrikulturRequirements from "./requirements_logic/1_produksi/5_agrik
 import * as perikananRequirements from "./requirements_logic/1_produksi/6_perikanan/requirements";
 import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_olahan_pangan/requirements";
 
-// Import fuelLogic untuk mendapatkan daftar bahan bakar per pembangkit
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
+import KonfirmasiPembangunanModal from "./konfirmasi_pembangunan_modals";
 
 interface MaterialRequirement {
   resourceKey: string;
@@ -69,9 +67,7 @@ export default function ProduksiModal({
   const [lastCalculationDate, setLastCalculationDate] = useState<string>("");
   const lastCalculatedDateRef = useRef<string>("");
 
-  const [showMaterialGrid, setShowMaterialGrid] = useState(true);
   const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
-
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
 
@@ -127,7 +123,6 @@ export default function ProduksiModal({
     return Number(countryDetail?.[normalizedKey]) || 0;
   };
 
-  // ========== BLOK UNTUK KONSUMSI BAHAN BAKAR ==========
   const ELECTRICITY_FUEL_BUILDINGS = [
     'pembangkit_listrik_tenaga_gas',
     'pembangkit_listrik_tenaga_nuklir',
@@ -161,7 +156,6 @@ export default function ProduksiModal({
     return totals;
   };
 
-  // Fungsi untuk menghitung saldo (produksi - konsumsi) suatu bahan bakar
   const getFuelBalance = (fuelKey: string) => {
     const totalCons = getTotalElectricityFuelConsumption()[fuelKey] || 0;
     const count = Number(countryDetail?.[fuelKey]) || 0;
@@ -171,7 +165,6 @@ export default function ProduksiModal({
     return { totalProd, totalCons, balance: totalProd - totalCons };
   };
 
-  // Fungsi untuk mendapatkan produksi listrik efektif dari pembangkit (0 jika bahan bakar defisit)
   const getEffectiveElectricityProduction = (buildingKey: string) => {
     const count = Number(countryDetail?.[buildingKey]) || 0;
     const bMeta = findMeta(buildingKey);
@@ -180,18 +173,15 @@ export default function ProduksiModal({
 
     const fuelRequirements = getKelistrikanFuelRequirements(buildingKey);
     if (!fuelRequirements || fuelRequirements.length === 0) {
-      // Jika tidak butuh bahan bakar (misal PLTA, PLTS), produksi normal
       return perUnit * count;
     }
 
-    // Cek saldo tiap bahan bakar; jika ada yang negatif, produksi 0
     for (const req of fuelRequirements) {
       const balance = getFuelBalance(req.resourceKey).balance;
       if (balance < 0) return 0;
     }
     return perUnit * count;
   };
-  // ===================================================
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
     const normalizedKey = normalizeResourceKey(resourceKey);
@@ -220,15 +210,12 @@ export default function ProduksiModal({
     return undefined;
   };
 
-  // ===== MODIFIKASI calculateProductionAmount =====
   const calculateProductionAmount = useMemo(() => {
     return (resourceKey: string): number => {
-      // Jika resourceKey adalah pembangkit listrik, gunakan logika efektif
       if (ELECTRICITY_BUILDINGS_LIST.includes(resourceKey)) {
         return getEffectiveElectricityProduction(resourceKey);
       }
 
-      // Logika lama untuk non-listrik (termasuk bahan bakar dan komoditas lain)
       const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
       if (buildingCount === 0 || !metadata || Object.keys(metadata).length === 0) return 0;
       const bMeta = findMeta(resourceKey);
@@ -242,13 +229,6 @@ export default function ProduksiModal({
       return calculateProductionIncrement(bMeta.produksi, buildingCount, finalBuildDate, currentDateStr);
     };
   }, [countryDetail, currentDate, metadata, getEffectiveElectricityProduction]);
-  // ===============================================
-
-  const calculateDaysElapsed = (startDate: string, endDate: string): number => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    return Math.max(0, Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)));
-  };
 
   useEffect(() => {
     if (!isOpen) return;
@@ -377,7 +357,6 @@ export default function ProduksiModal({
     'pembangkit_listrik_tenaga_angin',
   ];
 
-  // ===== PERBAIKAN totalProductionMW menggunakan calculateProductionAmount =====
   const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
     return sum + calculateProductionAmount(bKey);
   }, 0);
@@ -513,150 +492,40 @@ export default function ProduksiModal({
         </div>
       )}
 
-      {/* POPUP KONFIRMASI */}
-      {selectedBuilding &&
-        (() => {
-          const bMeta = findMeta(selectedBuilding.key);
-          const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
-          const missingMaterials =
-            selectedBuildingRequirements?.requirements?.filter(
-              (mat) => getMaterialStock(mat.resourceKey) <= 0
-            ) || [];
+      {/* MODAL KONFIRMASI PEMBANGUNAN */}
+      {selectedBuilding && (() => {
+        const bMeta = findMeta(selectedBuilding.key);
+        const cost = bMeta?.biaya_pembangunan !== undefined ? Number(bMeta.biaya_pembangunan) : 0;
+        const missingMaterials =
+          selectedBuildingRequirements?.requirements?.filter(
+            (mat) => getMaterialStock(mat.resourceKey) <= 0
+          ) || [];
 
-          return (
-            <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
-              <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+        const materialStocks: Record<string, number> = {};
+        (selectedBuildingRequirements?.requirements || []).forEach((mat) => {
+          materialStocks[mat.resourceKey] = getMaterialStock(mat.resourceKey);
+        });
 
-                <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-                  <div className="flex items-center gap-2 text-[#5c3c10]">
-                    <Hammer className="h-5 w-5" />
-                    <h3 className="text-base font-bold uppercase tracking-tight">Konfirmasi Pembangunan</h3>
-                  </div>
-                  <button onClick={() => setSelectedBuilding(null)} className="text-[#8b7e66] hover:text-[#5c3c10]">
-                    <X className="h-5 w-5" />
-                  </button>
-                </div>
-                <div className="p-6 relative z-10 flex-1 space-y-4">
-                  <div>
-                    <h4 className="text-lg font-black text-[#2e261a]">{selectedBuilding.label}</h4>
-                    <p className="text-xs text-[#8b7e66] mt-1">
-                      {bMeta?.deskripsi || bMeta?.desc || 'Tidak ada deskripsi tersedia.'}
-                    </p>
-                  </div>
-                  <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
-                    <div className="flex justify-between font-bold">
-                      <span>Biaya Pembangunan:</span>
-                      <span className="text-[#2e261a]">
-                        {loadingMetadata || !bMeta ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
-                      </span>
-                    </div>
-                    {bMeta?.waktu_pembangunan !== undefined && (
-                      <div className="flex justify-between">
-                        <span>Estimasi Waktu Pembangunan:</span>
-                        <span className="text-[#2e261a] font-semibold">{bMeta.waktu_pembangunan} Hari</span>
-                      </div>
-                    )}
-                    {bMeta?.produksi !== undefined && (
-                      <div className="flex justify-between">
-                        <span>Produksi ({bMeta.label || selectedBuilding.label}) per hari:</span>
-                        <span className="text-emerald-700 font-bold">+{bMeta.produksi.toLocaleString('id-ID')}</span>
-                      </div>
-                    )}
-
-                    {selectedBuildingRequirements?.requirements &&
-                    selectedBuildingRequirements.requirements.length > 0 ? (
-                      <div className="space-y-3 text-xs">
-                        <div className="flex items-center justify-between">
-                          <div className="font-black uppercase tracking-[0.2em] text-[#5c3c10]">
-                            Material Dibutuhkan
-                          </div>
-                          <button
-                            onClick={() => setShowMaterialGrid(!showMaterialGrid)}
-                            className="flex items-center gap-1.5 px-2 py-1 bg-white/80 border border-[#C4B49C]/30 rounded-lg text-[#5c3c10] hover:bg-[#5c3c10]/10 transition-all cursor-pointer"
-                          >
-                            {showMaterialGrid ? (
-                              <>
-                                <EyeOff className="h-3 w-3" />
-                                <span className="text-[8px] font-bold uppercase">Sembunyikan</span>
-                              </>
-                            ) : (
-                              <>
-                                <Eye className="h-3 w-3" />
-                                <span className="text-[8px] font-bold uppercase">Tampilkan</span>
-                              </>
-                            )}
-                          </button>
-                        </div>
-
-                        <div
-                          className={`grid grid-cols-4 gap-2 overflow-hidden transition-all duration-500 ease-in-out ${
-                            showMaterialGrid ? 'max-h-[1500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
-                          }`}
-                        >
-                          {selectedBuildingRequirements.requirements.map((material: MaterialRequirement) => {
-                            const stock = getMaterialStock(material.resourceKey);
-                            return (
-                              <button
-                                key={`${material.resourceKey}-${material.group}`}
-                                type="button"
-                                onClick={() => handleMaterialClick(material.resourceKey, material.label)}
-                                className={`flex flex-col items-center justify-center bg-white/80 border rounded-xl p-2.5 min-h-[50px] cursor-pointer hover:border-[#5c3c10]/60 transition-all ${
-                                  stock <= 0
-                                    ? 'border-red-400 bg-red-50/70 text-red-800'
-                                    : 'border-[#C4B49C]/30'
-                                }`}
-                              >
-                                <div className="font-bold text-[10px] text-center">{material.label}</div>
-                                {material.amount !== undefined && (
-                                  <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
-                                    x{material.amount}
-                                  </div>
-                                )}
-                                <div
-                                  className={`text-[10px] font-black mt-0.5 ${
-                                    stock <= 0 ? 'text-red-600' : 'text-[#8b7e66]'
-                                  }`}
-                                >
-                                  {stock.toLocaleString('id-ID')}
-                                </div>
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    ) : (
-                      <div className="text-[#8b7e66]">Tidak ada material yang dibutuhkan untuk bangunan ini.</div>
-                    )}
-                  </div>
-                  <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
-                    <span>Kas Negara Saat Ini:</span>
-                    <span>{(Number(countryDetail?.anggaran) || 0).toLocaleString('id-ID')}</span>
-                  </div>
-                </div>
-                <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
-                  <button
-                    onClick={() => setSelectedBuilding(null)}
-                    className="flex-1 py-2 rounded-xl border-2 border-[#C4B49C] text-[#8b7e66] text-[10px] font-black uppercase cursor-pointer hover:bg-black/5 transition-all text-center"
-                  >
-                    Batal
-                  </button>
-                  <button
-                    onClick={confirmBuild}
-                    disabled={loadingMetadata || !bMeta || cost === 0 ? true : (Number(countryDetail?.anggaran) || 0) < cost}
-                    className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
-                      missingMaterials.length > 0
-                        ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70'
-                        : 'bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]'
-                    }`}
-                  >
-                    {missingMaterials.length > 0 ? 'Material Kurang' : 'Mulai Pembangunan'}
-                  </button>
-                </div>
-              </div>
-            </div>
-          );
-        })()}
+        return (
+          <KonfirmasiPembangunanModal
+            isOpen={true}
+            onClose={() => setSelectedBuilding(null)}
+            buildingLabel={selectedBuilding.label}
+            buildingDescription={bMeta?.deskripsi || bMeta?.desc}
+            cost={cost}
+            waktuPembangunan={bMeta?.waktu_pembangunan}
+            produksiPerHari={bMeta?.produksi}
+            produksiLabel={bMeta?.label || selectedBuilding.label}
+            requirements={selectedBuildingRequirements?.requirements || []}
+            materialStocks={materialStocks}
+            anggaran={Number(countryDetail?.anggaran) || 0}
+            missingMaterials={missingMaterials}
+            onConfirm={confirmBuild}
+            onMaterialClick={handleMaterialClick}
+            loadingMetadata={loadingMetadata}
+          />
+        );
+      })()}
 
       {/* MODAL PERINGATAN MATERIAL KURANG */}
       {showMaterialWarningModal && insufficientMaterials.length > 0 && (
