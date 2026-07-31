@@ -66,7 +66,8 @@ export default function KonfirmasiPembangunanModal({
             <Hammer className="h-5 w-5" />
             <h3 className="text-base font-bold uppercase tracking-tight">Konfirmasi Pembangunan</h3>
           </div>
-          <button onClick={onClose} className="text-[#8b7e66] hover:text-[#5c3c10]">
+          {/* 🔥 PERBAIKAN: Tambahkan cursor-pointer di sini */}
+          <button onClick={onClose} className="text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer">
             <X className="h-5 w-5" />
           </button>
         </div>
