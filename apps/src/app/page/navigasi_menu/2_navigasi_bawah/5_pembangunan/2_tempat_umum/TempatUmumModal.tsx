@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
-import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown, Hammer, Info } from "lucide-react";
+// 🔥 FIX 1: Tambahkan MapPin, DollarSign, BarChart3 (untuk mengatasi error Cannot find name)
+import { X, Landmark, AlertTriangle, TrendingUp, TrendingDown, Hammer, Info, MapPin, DollarSign, BarChart3 } from "lucide-react";
 
 // --- IMPOR MODUL REQUIREMENTS MATERIAL ---
 import * as infrastrukturRequirements from "./requirements_logic/1_infrastruktur/requirements";
@@ -13,13 +14,8 @@ import * as komersialRequirements from "./requirements_logic/6_komersial/require
 
 // --- IMPOR KOMPONEN MODAL ---
 import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
-<<<<<<< HEAD
-
-// --- IMPOR KOMPONEN KONFIRMASI PEMBANGUNAN ---
+// 🔥 FIX 2: Hapus baris duplikat import konfirmasi_pembangunan_modals
 import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi";
-=======
-import KonfirmasiPembangunanModal from "./modals_menu/konfirmasi_pembangunan_modals";
->>>>>>> 9b9a416ec2a5fe5525467cb0e41768b2e42ab622
 
 interface ModalProps {
   isOpen: boolean;
@@ -27,7 +23,7 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
-  currentDate?: string | Date; // Penting untuk kalkulasi tanggal
+  currentDate?: string | Date;
 }
 
 interface MaterialRequirement {
@@ -63,22 +59,10 @@ const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 const formatNumber = (value: number) => value.toLocaleString("id-ID");
 
-// 🔥 Tambahkan CARD_TAB_MAP untuk navigasi material ke tab produksi
 const CARD_TAB_MAP: Record<string, string> = {
-  kayu: 'manufaktur',
-  semen_beton: 'manufaktur',
-  bijih_besi: 'mineral',
-  gas_alam: 'mineral',
-  emas: 'mineral',
-  uranium: 'mineral',
-  batu_bara: 'mineral',
-  minyak_bumi: 'mineral',
-  garam: 'mineral',
-  litium: 'mineral',
-  logam_tanah_jarang: 'mineral',
-  semikonduktor: 'manufaktur',
-  mobil: 'manufaktur',
-  sepeda_motor: 'manufaktur',
+  kayu: 'manufaktur', semen_beton: 'manufaktur', bijih_besi: 'mineral', gas_alam: 'mineral', emas: 'mineral',
+  uranium: 'mineral', batu_bara: 'mineral', minyak_bumi: 'mineral', garam: 'mineral', litium: 'mineral',
+  logam_tanah_jarang: 'mineral', semikonduktor: 'manufaktur', mobil: 'manufaktur', sepeda_motor: 'manufaktur',
 };
 
 export default function TempatUmumModal({
@@ -89,8 +73,8 @@ export default function TempatUmumModal({
   onGotoProduction,
   currentDate,
 }: ModalProps) {
+  // 🔥 FIX 3: Pastikan nama state adalah activeTabId dan setActiveTabId
   const [activeTabId, setActiveTabId] = useState<string>("infrastruktur");
-  // 🔥 PERBAIKAN 1: Hanya gunakan selectedBuilding (sama seperti ProduksiModal, hilangkan showConfirm)
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
   const [metadata, setMetadata] = useState<any>(null);
   const [loadingMetadata, setLoadingMetadata] = useState<boolean>(false);
@@ -99,7 +83,6 @@ export default function TempatUmumModal({
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
-  // 🔥 KONVERSI TANGGAL JADI STRING AMAN
   const safeDateString = useMemo(() => {
     if (typeof currentDate === 'string') return currentDate;
     if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
@@ -126,7 +109,6 @@ export default function TempatUmumModal({
     return module?.findRequirements?.(selectedBuilding.key);
   };
 
-  // 🔥 BACA STOK LANGSUNG DARI DATA TERBARU countryDetail
   const getMaterialStock = (resourceKey: string): number => {
     const normalizedKey = normalizeResourceKey(resourceKey);
     const inventoryKey = `inventory_${normalizedKey}`;
@@ -141,14 +123,13 @@ export default function TempatUmumModal({
       setTimeout(() => setToast(null), 2000);
       return;
     }
-    setSelectedBuilding(null); // Tutup modal
+    setSelectedBuilding(null);
     onGotoProduction?.(tabId, normalizedKey);
   };
 
   const handleBuild = (key: string, label: string) => {
     setShowMaterialWarningModal(false);
     setInsufficientMaterials([]);
-    // 🔥 PERBAIKAN 2: Langsung set selectedBuilding tanpa showConfirm
     setSelectedBuilding({ key, label });
   };
 
@@ -167,7 +148,6 @@ export default function TempatUmumModal({
     const { key, label } = selectedBuilding;
     const bMeta = metadata[key] || {};
 
-    // Cek stok terbaru
     const buildingReq = getSelectedBuildingRequirements();
     const missingMaterials = buildingReq?.requirements?.filter(
       (material) => getMaterialStock(material.resourceKey) <= 0
@@ -190,7 +170,6 @@ export default function TempatUmumModal({
     const updatedDetail = { ...countryDetail };
     updatedDetail.anggaran = anggaran - cost;
 
-    // Potong Material dari Inventory
     buildingReq?.requirements?.forEach((material) => {
       const invKey = `inventory_${normalizeResourceKey(material.resourceKey)}`;
       const currentInv = Number(updatedDetail[invKey]) || 0;
@@ -208,7 +187,6 @@ export default function TempatUmumModal({
       return;
     }
 
-    // Logika Antrean Kumulatif
     const ongoing = updatedDetail.ongoingConstructions || [];
     const existingForThisKey = ongoing.filter((c: any) => c.buildingKey === key);
 
@@ -226,10 +204,9 @@ export default function TempatUmumModal({
     updatedDetail.ongoingConstructions = newOngoing;
 
     setCountryDetail(updatedDetail);
-    setSelectedBuilding(null); // 🔥 Tutup modal setelah berhasil diproses
+    setSelectedBuilding(null);
   };
 
-  // CEK KONSTRUKSI YANG SELESAI
   useEffect(() => {
     if (!isOpen || !safeDateString || !countryDetail || !metadata) return;
 
@@ -275,7 +252,6 @@ export default function TempatUmumModal({
     }
   }, [safeDateString, isOpen, countryDetail, setCountryDetail, metadata]);
 
-  // FETCH METADATA
   useEffect(() => {
     if (!isOpen) return;
     setLoadingMetadata(true);
@@ -303,14 +279,10 @@ export default function TempatUmumModal({
   const activeGroup = groups.find((g) => g.id === activeTabId) || groups[0];
   const totalValue = groups.reduce((sum, group) => sum + group.items.reduce((inner, item) => inner + (item.value || 0), 0), 0);
 
-  // --- HEADER LISTRIK ---
   const ELECTRICITY_BUILDINGS_LIST = [
-    'pembangkit_listrik_tenaga_nuklir',
-    'pembangkit_listrik_tenaga_air',
-    'pembangkit_listrik_tenaga_surya',
-    'pembangkit_listrik_tenaga_uap',
-    'pembangkit_listrik_tenaga_gas',
-    'pembangkit_listrik_tenaga_angin',
+    'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air',
+    'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap',
+    'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
   ];
 
   const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
@@ -345,7 +317,6 @@ export default function TempatUmumModal({
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
           
-          {/* HEADER */}
           <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-3">
@@ -380,7 +351,6 @@ export default function TempatUmumModal({
             </button>
           </div>
 
-          {/* BODY */}
           <div className="flex-1 flex min-h-0 relative z-10">
             <div className="w-64 border-r-2 border-[#C4B49C]/30 bg-[#FAF6EE] p-4 flex flex-col gap-2 overflow-y-auto">
               {groups.map((group) => {
@@ -488,6 +458,7 @@ export default function TempatUmumModal({
                                 </div>
                               </div>
                               <div className="border-t border-[#C4B49C]/20 mt-4 pt-2">
+                                {/* 🔥 FIX 4: Kembalikan text-[9px] (bukan [#9px]) agar ukuran tombol persis seperti semula */}
                                 <button
                                   onClick={() => handleBuild(it.key, it.label)}
                                   className="w-full py-1.5 rounded-xl bg-[#7A5230] text-[#FAF6EE] border border-[#7A5230] text-[9px] font-black uppercase cursor-pointer hover:bg-[#8f6544] hover:border-[#8f6544] transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:scale-[0.98]"
@@ -521,15 +492,12 @@ export default function TempatUmumModal({
 
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
 
-      {/* 🔥 PERBAIKAN 3: MODAL KONFIRMASI DENGAN STRUKTUR YANG SAMA PERSIS SEPERTI ProduksiModal */}
-      {/* Hanya di-render ketika selectedBuilding ada, tanpa showConfirm, dan tanpa paksaan key={renderTrigger} */}
       {selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
         const buildingReq = getSelectedBuildingRequirements();
         const requirements = buildingReq?.requirements || [];
         
-        // 🔥 Kalkulasi data material dilakukan disini, dan akan otomatis ter-update setiap kali parent (countryDetail) berubah
         const missingMaterials = requirements.filter(
           (mat) => getMaterialStock(mat.resourceKey) <= 0
         );
@@ -542,7 +510,7 @@ export default function TempatUmumModal({
         return (
           <KonfirmasiPembangunanModal
             isOpen={true}
-            onClose={() => setSelectedBuilding(null)} // Cukup null kan selectedBuilding untuk menutup
+            onClose={() => setSelectedBuilding(null)}
             buildingLabel={selectedBuilding.label}
             buildingDescription={bMeta?.deskripsi || bMeta?.desc}
             cost={cost}
