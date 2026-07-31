@@ -31,7 +31,7 @@ export default function InfoBangunanModal({
         <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-2 text-[#5c3c10]">
             <Info className="h-5 w-5" />
-            <h3 className="text-base font-bold uppercase tracking-tight">ℹ️ Info Bangunan - {label}</h3>
+            <h3 className="text-base font-bold uppercase tracking-tight">Info Bangunan - {label}</h3>
           </div>
           <button
             onClick={(e) => {
