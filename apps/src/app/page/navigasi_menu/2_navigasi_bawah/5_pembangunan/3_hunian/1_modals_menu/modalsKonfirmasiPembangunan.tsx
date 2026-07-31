@@ -6,6 +6,7 @@ interface MaterialRequirement {
   resourceKey: string;
   label: string;
   group: string;
+  amount?: number; // <-- Properti ini wajib agar x... muncul!
 }
 
 interface KonfirmasiPembangunanProps {
@@ -137,6 +138,14 @@ export default function KonfirmasiPembangunanModal({
                         }`}
                       >
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
+                        
+                        {/* 🔥 BAGIAN INI YANG AKAN MEMUNCULKAN ANGKA X200, X100, DLL */}
+                        {material.amount !== undefined && (
+                          <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
+                            x{material.amount}
+                          </div>
+                        )}
+                        
                         <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-[#8b7e66]'}`}>
                           {stock.toLocaleString('id-ID')}
                         </div>
