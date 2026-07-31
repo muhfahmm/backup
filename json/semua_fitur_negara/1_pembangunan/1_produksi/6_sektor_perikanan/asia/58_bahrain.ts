@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bahrain_perikanan = {
-  udang: 1,
-  mutiara: 498,
-  ikan: 10
+  udang: 232,
+  mutiara: 40,
+  ikan: 160
 };

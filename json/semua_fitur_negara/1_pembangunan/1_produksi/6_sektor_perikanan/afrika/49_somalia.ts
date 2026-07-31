@@ -1,6 +1,6 @@
 // @ts-nocheck
 const somalia_perikanan = {
-  udang: 277,
-  mutiara: 418,
-  ikan: 361
+  udang: 72,
+  mutiara: 87,
+  ikan: 36
 };

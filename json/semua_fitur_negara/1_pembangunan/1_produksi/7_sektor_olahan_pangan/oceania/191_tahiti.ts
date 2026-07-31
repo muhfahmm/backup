@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tahiti_olahan_pangan = {
-  air_mineral: 52,
-  gula: 236,
-  roti: 335,
-  pengolahan_daging: 203,
-  mie_instan: 69,
-  minyak_goreng: 200,
-  susu: 105
+  air_mineral: 37,
+  gula: 47,
+  roti: 32,
+  pengolahan_daging: 15,
+  mie_instan: 46,
+  minyak_goreng: 41,
+  susu: 44
   
   
 };

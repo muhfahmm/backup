@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const sri_lanka_agrikultur = {
-  padi: 355,
-  gandum: 352,
-  jagung: 386,
-  sayur: 167,
-  umbi: 289,
-  kedelai: 211,
-  kelapa_sawit: 40,
-  kopi: 506,
-  teh: 30,
-  kakao: 91,
-  tebu: 176,
-  karet: 259
+  padi: 380,
+  gandum: 60,
+  jagung: 50,
+  sayur: 360,
+  umbi: 230,
+  kedelai: 395,
+  kelapa_sawit: 0,
+  kopi: 265,
+  teh: 255,
+  kakao: 0,
+  tebu: 70,
+  karet: 0
 };

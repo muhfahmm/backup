@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const libya_agrikultur = {
-  padi: 235,
-  gandum: 130,
-  jagung: 55,
-  sayur: 161,
-  umbi: 194,
-  kedelai: 34,
-  kelapa_sawit: 128,
-  kopi: 402,
-  teh: 12,
-  kakao: 12,
-  tebu: 10,
-  karet: 167
+  padi: 231,
+  gandum: 469,
+  jagung: 448,
+  sayur: 182,
+  umbi: 462,
+  kedelai: 539,
+  kelapa_sawit: 0,
+  kopi: 315,
+  teh: 196,
+  kakao: 0,
+  tebu: 280,
+  karet: 0
 };

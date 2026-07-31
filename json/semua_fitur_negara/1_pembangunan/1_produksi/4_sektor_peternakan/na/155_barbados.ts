@@ -1,7 +1,7 @@
 // @ts-nocheck
 const barbados_peternakan = {
-  ayam_unggas: 212,
-  sapi_perah: 155,
-  sapi_potong: 588,
-  domba_kambing: 328
+  ayam_unggas: 41,
+  sapi_perah: 16,
+  sapi_potong: 26,
+  domba_kambing: 17
 };

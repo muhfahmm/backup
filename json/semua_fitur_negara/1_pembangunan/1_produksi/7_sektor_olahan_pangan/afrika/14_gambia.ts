@@ -1,12 +1,12 @@
 // @ts-nocheck
 const gambia_olahan_pangan = {
-  air_mineral: 157,
-  gula: 17,
-  roti: 169,
-  pengolahan_daging: 332,
-  mie_instan: 1,
-  minyak_goreng: 9,
-  susu: 13
+  air_mineral: 44,
+  gula: 60,
+  roti: 92,
+  pengolahan_daging: 42,
+  mie_instan: 34,
+  minyak_goreng: 20,
+  susu: 30
   
   
 };

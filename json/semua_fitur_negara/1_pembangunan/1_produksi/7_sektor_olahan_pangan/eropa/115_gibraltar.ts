@@ -1,12 +1,12 @@
 // @ts-nocheck
 const gibraltar_olahan_pangan = {
-  air_mineral: 57,
-  gula: 37,
-  roti: 216,
-  pengolahan_daging: 69,
-  mie_instan: 65,
-  minyak_goreng: 274,
-  susu: 43
+  air_mineral: 76,
+  gula: 38,
+  roti: 52,
+  pengolahan_daging: 38,
+  mie_instan: 78,
+  minyak_goreng: 32,
+  susu: 66
   
   
 };

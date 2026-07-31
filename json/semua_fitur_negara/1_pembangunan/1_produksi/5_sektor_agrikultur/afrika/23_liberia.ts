@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const liberia_agrikultur = {
-  padi: 246,
-  gandum: 1,
-  jagung: 7,
-  sayur: 220,
-  umbi: 181,
-  kedelai: 385,
-  kelapa_sawit: 93,
-  kopi: 16,
-  teh: 242,
-  kakao: 8,
-  tebu: 11,
-  karet: 303
+  padi: 195,
+  gandum: 138,
+  jagung: 186,
+  sayur: 207,
+  umbi: 240,
+  kedelai: 33,
+  kelapa_sawit: 0,
+  kopi: 198,
+  teh: 141,
+  kakao: 0,
+  tebu: 57,
+  karet: 0
 };

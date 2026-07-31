@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kosovo_perikanan = {
-  udang: 1,
-  mutiara: 767,
-  ikan: 3
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

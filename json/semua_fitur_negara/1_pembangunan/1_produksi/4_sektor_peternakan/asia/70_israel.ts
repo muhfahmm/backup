@@ -1,7 +1,7 @@
 // @ts-nocheck
 const israel_peternakan = {
-  ayam_unggas: 361,
-  sapi_perah: 217,
-  sapi_potong: 715,
-  domba_kambing: 704
+  ayam_unggas: 1827,
+  sapi_perah: 2835,
+  sapi_potong: 2898,
+  domba_kambing: 2709
 };

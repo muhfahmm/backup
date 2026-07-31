@@ -1,7 +1,7 @@
 // @ts-nocheck
 const india_peternakan = {
-  ayam_unggas: 14098,
-  sapi_perah: 16916,
-  sapi_potong: 23558,
-  domba_kambing: 9883
+  ayam_unggas: 18078,
+  sapi_perah: 9039,
+  sapi_potong: 15327,
+  domba_kambing: 5502
 };

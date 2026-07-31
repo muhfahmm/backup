@@ -1,6 +1,6 @@
 // @ts-nocheck
 const lesotho_perikanan = {
-  udang: 162,
-  mutiara: 467,
-  ikan: 122
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const inggris_agrikultur = {
-  padi: 1158,
-  gandum: 905,
-  jagung: 742,
-  sayur: 662,
-  umbi: 517,
-  kedelai: 562,
-  kelapa_sawit: 160,
-  kopi: 194,
-  teh: 316,
-  kakao: 514,
-  tebu: 333,
-  karet: 246
+  padi: 4500,
+  gandum: 12300,
+  jagung: 5700,
+  sayur: 16800,
+  umbi: 6900,
+  kedelai: 10500,
+  kelapa_sawit: 0,
+  kopi: 5700,
+  teh: 11100,
+  kakao: 0,
+  tebu: 10800,
+  karet: 0
 };

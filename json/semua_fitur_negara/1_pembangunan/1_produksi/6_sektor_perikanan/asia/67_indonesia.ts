@@ -1,6 +1,6 @@
 // @ts-nocheck
 const indonesia_perikanan = {
-  udang: 2247,
-  mutiara: 2068,
-  ikan: 2848
+  udang: 553,
+  mutiara: 948,
+  ikan: 1027
 };

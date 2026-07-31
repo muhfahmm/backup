@@ -1,12 +1,12 @@
 // @ts-nocheck
 const burkina_faso_olahan_pangan = {
-  air_mineral: 240,
-  gula: 183,
-  roti: 452,
-  pengolahan_daging: 565,
-  mie_instan: 320,
-  minyak_goreng: 37,
-  susu: 264
+  air_mineral: 34,
+  gula: 58,
+  roti: 22,
+  pengolahan_daging: 56,
+  mie_instan: 48,
+  minyak_goreng: 20,
+  susu: 92
   
   
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_sudan_peternakan = {
-  ayam_unggas: 397,
-  sapi_perah: 886,
-  sapi_potong: 530,
-  domba_kambing: 212
+  ayam_unggas: 72,
+  sapi_perah: 33,
+  sapi_potong: 54,
+  domba_kambing: 63
 };

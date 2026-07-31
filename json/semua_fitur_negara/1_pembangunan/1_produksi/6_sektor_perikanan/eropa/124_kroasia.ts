@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kroasia_perikanan = {
-  udang: 291,
-  mutiara: 937,
-  ikan: 191
+  udang: 63,
+  mutiara: 15,
+  ikan: 39
 };

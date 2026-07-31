@@ -6,9 +6,9 @@ export const tanjung_verde_profile = {
   "lon": -24,
   "lat": 16,
   "flag": "🇨🇻",
-  "jumlah_penduduk": 600000, // Diperbaiki: 600 Ribu (realistis)
+  "jumlah_penduduk": "10M",
   "anggaran": 97,
-  "pendapatan_nasional": 278, // Diperbaiki: Hapus tanda kutip
+  "pendapatan_nasional": "278",
   "religion": "Katolik",
   "ideology": "Liberalisme"
 }
@@ -23,5 +23,5 @@ const tanjung_verde_geopolitik = {
       "kekuatan_lunak": 38,
       "kekuatan_keras": 30,
       "prestise_diplomatik": 57
-    }
-}
+  }
+  }

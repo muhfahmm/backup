@@ -1,6 +1,6 @@
 // @ts-nocheck
 const selandia_baru_perikanan = {
-  udang: 3,
-  mutiara: 1011,
-  ikan: 9
+  udang: 231,
+  mutiara: 525,
+  ikan: 504
 };

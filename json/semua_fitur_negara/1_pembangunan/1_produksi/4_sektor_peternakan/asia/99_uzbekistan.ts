@@ -1,7 +1,7 @@
 // @ts-nocheck
 const uzbekistan_peternakan = {
-  ayam_unggas: 577,
-  sapi_perah: 437,
-  sapi_potong: 807,
-  domba_kambing: 36
+  ayam_unggas: 140,
+  sapi_perah: 70,
+  sapi_potong: 315,
+  domba_kambing: 147
 };

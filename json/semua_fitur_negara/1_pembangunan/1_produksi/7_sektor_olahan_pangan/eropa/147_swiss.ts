@@ -1,12 +1,12 @@
 // @ts-nocheck
 const swiss_olahan_pangan = {
-  air_mineral: 245,
-  gula: 274,
-  roti: 279,
-  pengolahan_daging: 473,
-  mie_instan: 18,
-  minyak_goreng: 288,
-  susu: 46
+  air_mineral: 2303,
+  gula: 1551,
+  roti: 2162,
+  pengolahan_daging: 1363,
+  mie_instan: 987,
+  minyak_goreng: 2115,
+  susu: 1974
   
   
 };

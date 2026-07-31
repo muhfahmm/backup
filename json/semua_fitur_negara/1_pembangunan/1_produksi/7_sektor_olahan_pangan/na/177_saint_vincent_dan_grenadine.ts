@@ -1,12 +1,12 @@
 // @ts-nocheck
 const saint_vincent_dan_grenadine_olahan_pangan = {
-  air_mineral: 127,
-  gula: 130,
-  roti: 293,
-  pengolahan_daging: 180,
-  mie_instan: 146,
-  minyak_goreng: 410,
-  susu: 36
+  air_mineral: 20,
+  gula: 48,
+  roti: 17,
+  pengolahan_daging: 17,
+  mie_instan: 15,
+  minyak_goreng: 24,
+  susu: 45
   
   
 };

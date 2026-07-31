@@ -1,12 +1,12 @@
 // @ts-nocheck
 const fiji_olahan_pangan = {
-  air_mineral: 8,
-  gula: 0,
-  roti: 295,
-  pengolahan_daging: 156,
-  mie_instan: 1,
-  minyak_goreng: 242,
-  susu: 0
+  air_mineral: 94,
+  gula: 90,
+  roti: 58,
+  pengolahan_daging: 54,
+  mie_instan: 52,
+  minyak_goreng: 40,
+  susu: 86
   
   
 };

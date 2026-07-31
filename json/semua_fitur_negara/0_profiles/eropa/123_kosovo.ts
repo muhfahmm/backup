@@ -6,9 +6,9 @@ export const kosovo_profile = {
   "lon": 21.166667,
   "lat": 42.666667,
   "flag": "🇽🇰",
-  "jumlah_penduduk": 1800000, // Diperbaiki: 1.8 Juta (realistis)
+  "jumlah_penduduk": "10M",
   "anggaran": 97,
-  "pendapatan_nasional": 278, // Diperbaiki: Hapus tanda kutip
+  "pendapatan_nasional": "278",
   "religion": "Islam",
   "ideology": "Demokrasi"
 }
@@ -24,4 +24,4 @@ const kosovo_geopolitik = {
       "kekuatan_keras": 3,
       "prestise_diplomatik": 57
     }
-}
+  }

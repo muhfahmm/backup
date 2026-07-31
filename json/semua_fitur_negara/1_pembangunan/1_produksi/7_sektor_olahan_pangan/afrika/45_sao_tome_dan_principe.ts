@@ -1,12 +1,12 @@
 // @ts-nocheck
 const sao_tome_dan_principe_olahan_pangan = {
-  air_mineral: 198,
-  gula: 110,
-  roti: 67,
-  pengolahan_daging: 416,
-  mie_instan: 119,
-  minyak_goreng: 160,
-  susu: 204
+  air_mineral: 136,
+  gula: 100,
+  roti: 184,
+  pengolahan_daging: 112,
+  mie_instan: 120,
+  minyak_goreng: 44,
+  susu: 192
   
   
 };

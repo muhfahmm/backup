@@ -1,7 +1,7 @@
 // @ts-nocheck
 const saint_lucia_peternakan = {
-  ayam_unggas: 48,
-  sapi_perah: 407,
-  sapi_potong: 356,
-  domba_kambing: 487
+  ayam_unggas: 14,
+  sapi_perah: 41,
+  sapi_potong: 26,
+  domba_kambing: 38
 };

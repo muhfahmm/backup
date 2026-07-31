@@ -1,12 +1,12 @@
 // @ts-nocheck
 const swedia_olahan_pangan = {
-  air_mineral: 198,
-  gula: 20,
-  roti: 454,
-  pengolahan_daging: 36,
-  mie_instan: 24,
-  minyak_goreng: 531,
-  susu: 53
+  air_mineral: 1776,
+  gula: 3552,
+  roti: 1924,
+  pengolahan_daging: 2738,
+  mie_instan: 1850,
+  minyak_goreng: 1702,
+  susu: 1554
   
   
 };

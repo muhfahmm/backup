@@ -1,12 +1,12 @@
 // @ts-nocheck
 const armenia_olahan_pangan = {
-  air_mineral: 28,
-  gula: 170,
-  roti: 8,
-  pengolahan_daging: 80,
-  mie_instan: 135,
-  minyak_goreng: 14,
-  susu: 251
+  air_mineral: 141,
+  gula: 138,
+  roti: 138,
+  pengolahan_daging: 69,
+  mie_instan: 147,
+  minyak_goreng: 96,
+  susu: 48
   
   
 };

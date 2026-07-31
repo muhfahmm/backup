@@ -1,6 +1,6 @@
 // @ts-nocheck
 const myanmar_perikanan = {
-  udang: 473,
-  mutiara: 732,
-  ikan: 491
+  udang: 144,
+  mutiara: 138,
+  ikan: 198
 };

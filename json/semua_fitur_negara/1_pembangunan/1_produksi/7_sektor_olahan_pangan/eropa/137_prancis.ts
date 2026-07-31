@@ -1,12 +1,12 @@
 // @ts-nocheck
 const prancis_olahan_pangan = {
-  air_mineral: 1157,
-  gula: 882,
-  roti: 820,
-  pengolahan_daging: 531,
-  mie_instan: 646,
-  minyak_goreng: 775,
-  susu: 850
+  air_mineral: 9956,
+  gula: 13100,
+  roti: 11528,
+  pengolahan_daging: 4978,
+  mie_instan: 11528,
+  minyak_goreng: 11528,
+  susu: 12838
   
   
 };

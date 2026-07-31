@@ -1,12 +1,12 @@
 // @ts-nocheck
 const laos_olahan_pangan = {
-  air_mineral: 36,
-  gula: 15,
-  roti: 159,
-  pengolahan_daging: 219,
-  mie_instan: 19,
-  minyak_goreng: 43,
-  susu: 121
+  air_mineral: 84,
+  gula: 96,
+  roti: 99,
+  pengolahan_daging: 66,
+  mie_instan: 84,
+  minyak_goreng: 60,
+  susu: 72
   
   
 };

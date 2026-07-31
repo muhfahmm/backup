@@ -1,12 +1,12 @@
 // @ts-nocheck
 const chad_olahan_pangan = {
-  air_mineral: 342,
-  gula: 379,
-  roti: 150,
-  pengolahan_daging: 418,
-  mie_instan: 108,
-  minyak_goreng: 378,
-  susu: 87
+  air_mineral: 108,
+  gula: 111,
+  roti: 66,
+  pengolahan_daging: 114,
+  mie_instan: 120,
+  minyak_goreng: 81,
+  susu: 84
   
   
 };

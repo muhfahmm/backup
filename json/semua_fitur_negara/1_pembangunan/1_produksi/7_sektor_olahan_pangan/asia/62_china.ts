@@ -1,12 +1,12 @@
 // @ts-nocheck
 const china_olahan_pangan = {
-  air_mineral: 19624,
-  gula: 14037,
-  roti: 16830,
-  pengolahan_daging: 11588,
-  mie_instan: 11693,
-  minyak_goreng: 14004,
-  susu: 11679
+  air_mineral: 4554,
+  gula: 8096,
+  roti: 10120,
+  pengolahan_daging: 5566,
+  mie_instan: 10626,
+  minyak_goreng: 3795,
+  susu: 3795
   
   
 };

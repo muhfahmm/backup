@@ -1,6 +1,6 @@
 // @ts-nocheck
 const chad_perikanan = {
-  udang: 321,
-  mutiara: 37,
-  ikan: 156
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

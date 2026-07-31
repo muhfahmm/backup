@@ -1,7 +1,7 @@
 // @ts-nocheck
 const vanuatu_peternakan = {
-  ayam_unggas: 127,
-  sapi_perah: 271,
-  sapi_potong: 139,
-  domba_kambing: 442
+  ayam_unggas: 33,
+  sapi_perah: 49,
+  sapi_potong: 29,
+  domba_kambing: 34
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const sri_lanka_perikanan = {
-  udang: 15,
-  mutiara: 907,
-  ikan: 255
+  udang: 75,
+  mutiara: 40,
+  ikan: 115
 };

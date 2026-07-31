@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const qatar_agrikultur = {
-  padi: 8,
-  gandum: 229,
-  jagung: 105,
-  sayur: 8,
-  umbi: 54,
-  kedelai: 14,
-  kelapa_sawit: 4,
-  kopi: 3,
-  teh: 230,
-  kakao: 1,
-  tebu: 122,
-  karet: 333
+  padi: 360,
+  gandum: 780,
+  jagung: 450,
+  sayur: 405,
+  umbi: 975,
+  kedelai: 1080,
+  kelapa_sawit: 0,
+  kopi: 435,
+  teh: 480,
+  kakao: 0,
+  tebu: 465,
+  karet: 0
 };

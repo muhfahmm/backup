@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bhutan_olahan_pangan = {
-  air_mineral: 83,
-  gula: 0,
-  roti: 0,
-  pengolahan_daging: 268,
-  mie_instan: 111,
-  minyak_goreng: 343,
-  susu: 0
+  air_mineral: 102,
+  gula: 93,
+  roti: 81,
+  pengolahan_daging: 69,
+  mie_instan: 78,
+  minyak_goreng: 132,
+  susu: 39
   
   
 };

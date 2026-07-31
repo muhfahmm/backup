@@ -1,5 +1,4 @@
 // Data konsumsi per 1.000 penduduk per hari.
-// Nilai prodPerUnit TIDAK ada di sini — produksi diambil langsung dari metadata JSON bangunan.
 export const FOOD_CONSUMPTION_PER_CAPITA: Record<string, number> = {
   // Peternakan
   ayam_unggas: 0.15,
@@ -46,11 +45,11 @@ export const findMeta = (key: string, metadata: any) => {
   return undefined;
 };
 
-// Calculate production based on building count and metadata or fallback prodPerUnit
-export const calculateProduction = (buildingKey: string, prodPerUnit: number, countryDetail: any, metadata: any) => {
+// Calculate production based on building count and metadata
+export const calculateProduction = (buildingKey: string, countryDetail: any, metadata: any) => {
   const count = Number(countryDetail?.[buildingKey]) || 0;
   const bMeta = findMeta(buildingKey, metadata);
-  const baseProd = Number(bMeta?.produksi) || prodPerUnit;
+  const baseProd = Number(bMeta?.produksi) || 0;
   return baseProd * count;
 };
 
@@ -59,12 +58,11 @@ export const calculateConsumption = (population: number, consumptionPerCapita: n
   return Math.round((population / 1000) * consumptionPerCapita);
 };
 
-// Calculate total production, consumption and balance for a country
-export const calculateCountryFoodAggregate = (country: any, foodSectors: any[], metadata: any) => {
+// Calculate total production, consumption and balance for a country (Flat list)
+export const calculateCountryFoodAggregate = (country: any, metadata: any) => {
   let totalProduction = 0;
   let totalConsumption = 0;
   
-  // Extract population
   const population = Number(
     country?.jumlah_penduduk ?? 
     country?.population ?? 
@@ -74,13 +72,11 @@ export const calculateCountryFoodAggregate = (country: any, foodSectors: any[], 
     0
   );
 
-  foodSectors.forEach(sektor => {
-    sektor.items.forEach((item: any) => {
-      const prod = calculateProduction(item.buildingKey, item.prodPerUnit, country, metadata);
-      const cons = calculateConsumption(population, item.consumptionPerCapita);
-      totalProduction += prod;
-      totalConsumption += cons;
-    });
+  Object.entries(FOOD_CONSUMPTION_PER_CAPITA).forEach(([key, consumptionPerCapita]) => {
+    const prod = calculateProduction(key, country, metadata);
+    const cons = calculateConsumption(population, consumptionPerCapita);
+    totalProduction += prod;
+    totalConsumption += cons;
   });
 
   return {
@@ -90,8 +86,8 @@ export const calculateCountryFoodAggregate = (country: any, foodSectors: any[], 
   };
 };
 
-// Calculate detailed sector and commodity food info for a country
-export const calculateCountryFoodDetails = (country: any, foodSectors: any[], metadata: any) => {
+// Calculate detailed commodity food info for a country (Flat list)
+export const calculateCountryFoodDetails = (country: any, metadata: any) => {
   const population = Number(
     country?.jumlah_penduduk ?? 
     country?.population ?? 
@@ -101,17 +97,15 @@ export const calculateCountryFoodDetails = (country: any, foodSectors: any[], me
     0
   );
 
-  return foodSectors.map(sektor => ({
-    ...sektor,
-    items: sektor.items.map((item: any) => {
-      const production = calculateProduction(item.buildingKey, item.prodPerUnit, country, metadata);
-      const consumption = calculateConsumption(population, item.consumptionPerCapita);
-      return {
-        ...item,
-        production: isNaN(production) ? 0 : production,
-        consumption: isNaN(consumption) ? 0 : consumption,
-        balance: isNaN(production - consumption) ? 0 : (production - consumption)
-      };
-    })
-  }));
+  return Object.entries(FOOD_CONSUMPTION_PER_CAPITA).map(([key, consumptionPerCapita]) => {
+    const production = calculateProduction(key, country, metadata);
+    const consumption = calculateConsumption(population, consumptionPerCapita);
+    return {
+      key,
+      label: metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase()),
+      production: isNaN(production) ? 0 : production,
+      consumption: isNaN(consumption) ? 0 : consumption,
+      balance: isNaN(production - consumption) ? 0 : (production - consumption)
+    };
+  });
 };

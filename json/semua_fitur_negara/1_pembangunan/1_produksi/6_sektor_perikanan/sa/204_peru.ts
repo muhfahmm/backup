@@ -1,6 +1,6 @@
 // @ts-nocheck
 const peru_perikanan = {
-  udang: 211,
-  mutiara: 618,
-  ikan: 310
+  udang: 98,
+  mutiara: 203,
+  ikan: 266
 };

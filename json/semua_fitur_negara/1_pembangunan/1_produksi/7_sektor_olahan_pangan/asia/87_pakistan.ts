@@ -1,12 +1,12 @@
 // @ts-nocheck
 const pakistan_olahan_pangan = {
-  air_mineral: 3557,
-  gula: 2352,
-  roti: 3196,
-  pengolahan_daging: 2305,
-  mie_instan: 1993,
-  minyak_goreng: 2638,
-  susu: 1904
+  air_mineral: 2288,
+  gula: 1716,
+  roti: 728,
+  pengolahan_daging: 520,
+  mie_instan: 2028,
+  minyak_goreng: 1976,
+  susu: 1352
   
   
 };

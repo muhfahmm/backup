@@ -1,6 +1,6 @@
 // @ts-nocheck
 const makedonia_utara_perikanan = {
-  udang: 3,
-  mutiara: 788,
-  ikan: 6
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

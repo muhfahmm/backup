@@ -1,12 +1,12 @@
 // @ts-nocheck
 const afrika_selatan_olahan_pangan = {
-  air_mineral: 812,
-  gula: 610,
-  roti: 644,
-  pengolahan_daging: 374,
-  mie_instan: 559,
-  minyak_goreng: 532,
-  susu: 506
+  air_mineral: 1800,
+  gula: 760,
+  roti: 1320,
+  pengolahan_daging: 1280,
+  mie_instan: 600,
+  minyak_goreng: 720,
+  susu: 1520
   
   
 };

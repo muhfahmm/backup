@@ -1,12 +1,12 @@
 // @ts-nocheck
 const guinea_bissau_olahan_pangan = {
-  air_mineral: 16,
-  gula: 243,
-  roti: 224,
-  pengolahan_daging: 315,
-  mie_instan: 72,
-  minyak_goreng: 484,
-  susu: 254
+  air_mineral: 60,
+  gula: 52,
+  roti: 68,
+  pengolahan_daging: 80,
+  mie_instan: 46,
+  minyak_goreng: 68,
+  susu: 22
   
   
 };

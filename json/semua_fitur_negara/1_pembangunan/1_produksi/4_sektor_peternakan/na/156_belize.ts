@@ -1,7 +1,7 @@
 // @ts-nocheck
 const belize_peternakan = {
-  ayam_unggas: 146,
-  sapi_perah: 201,
-  sapi_potong: 141,
-  domba_kambing: 229
+  ayam_unggas: 36,
+  sapi_perah: 76,
+  sapi_potong: 26,
+  domba_kambing: 60
 };

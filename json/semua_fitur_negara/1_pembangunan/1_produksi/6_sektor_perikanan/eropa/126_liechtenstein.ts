@@ -1,6 +1,6 @@
 // @ts-nocheck
 const liechtenstein_perikanan = {
-  udang: 255,
-  mutiara: 1000,
-  ikan: 198
+  udang: 148,
+  mutiara: 48,
+  ikan: 156
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const suriah_perikanan = {
-  udang: 310,
-  mutiara: 404,
-  ikan: 210
+  udang: 8,
+  mutiara: 23,
+  ikan: 9
 };

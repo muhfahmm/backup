@@ -1,12 +1,12 @@
 // @ts-nocheck
 const siprus_olahan_pangan = {
-  air_mineral: 7,
-  gula: 3,
-  roti: 314,
-  pengolahan_daging: 150,
-  mie_instan: 0,
-  minyak_goreng: 399,
-  susu: 182
+  air_mineral: 180,
+  gula: 60,
+  roti: 200,
+  pengolahan_daging: 164,
+  mie_instan: 200,
+  minyak_goreng: 192,
+  susu: 200
   
   
 };

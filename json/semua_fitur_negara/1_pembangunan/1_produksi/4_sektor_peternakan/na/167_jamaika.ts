@@ -1,7 +1,7 @@
 // @ts-nocheck
 const jamaika_peternakan = {
-  ayam_unggas: 220,
-  sapi_perah: 20,
-  sapi_potong: 20,
-  domba_kambing: 228
+  ayam_unggas: 56,
+  sapi_perah: 72,
+  sapi_potong: 40,
+  domba_kambing: 80
 };

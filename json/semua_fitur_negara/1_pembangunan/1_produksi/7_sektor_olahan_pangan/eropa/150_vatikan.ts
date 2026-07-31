@@ -1,12 +1,12 @@
 // @ts-nocheck
 const vatikan_olahan_pangan = {
-  air_mineral: 88,
-  gula: 153,
-  roti: 84,
-  pengolahan_daging: 187,
-  mie_instan: 67,
-  minyak_goreng: 454,
-  susu: 101
+  air_mineral: 164,
+  gula: 148,
+  roti: 44,
+  pengolahan_daging: 140,
+  mie_instan: 192,
+  minyak_goreng: 172,
+  susu: 60
   
   
 };

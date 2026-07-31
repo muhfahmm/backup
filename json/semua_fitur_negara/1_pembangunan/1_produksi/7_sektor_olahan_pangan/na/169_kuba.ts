@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kuba_olahan_pangan = {
-  air_mineral: 123,
-  gula: 73,
-  roti: 51,
-  pengolahan_daging: 29,
-  mie_instan: 36,
-  minyak_goreng: 339,
-  susu: 115
+  air_mineral: 741,
+  gula: 399,
+  roti: 399,
+  pengolahan_daging: 741,
+  mie_instan: 437,
+  minyak_goreng: 912,
+  susu: 361
   
   
 };

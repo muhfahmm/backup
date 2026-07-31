@@ -6,9 +6,9 @@ export const republik_timor_leste_profile = {
   "lon": 125.91666666,
   "lat": -8.83333333,
   "flag": "🇹🇱",
-  "jumlah_penduduk": 1300000, // Diperbaiki: 1.3 Juta (realistis)
+  "jumlah_penduduk": "10M",
   "anggaran": 19,
-  "pendapatan_nasional": 56, // Diperbaiki: Hapus tanda kutip
+  "pendapatan_nasional": "56",
   "religion": "Katolik",
   "ideology": "Demokrasi"
 }
@@ -24,4 +24,4 @@ const republik_timor_leste_geopolitik = {
       "kekuatan_keras": 27,
       "prestise_diplomatik": 57
     }
-}
+  }

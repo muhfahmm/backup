@@ -1,7 +1,7 @@
 // @ts-nocheck
 const liberia_peternakan = {
-  ayam_unggas: 18,
-  sapi_perah: 318,
-  sapi_potong: 21,
-  domba_kambing: 498
+  ayam_unggas: 93,
+  sapi_perah: 147,
+  sapi_potong: 39,
+  domba_kambing: 54
 };

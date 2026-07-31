@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bosnia_dan_hercegovina_perikanan = {
-  udang: 13,
-  mutiara: 327,
-  ikan: 3
+  udang: 148,
+  mutiara: 84,
+  ikan: 52
 };

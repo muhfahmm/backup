@@ -1,12 +1,12 @@
 // @ts-nocheck
 const montenegro_olahan_pangan = {
-  air_mineral: 1,
-  gula: 0,
-  roti: 83,
-  pengolahan_daging: 346,
-  mie_instan: 169,
-  minyak_goreng: 390,
-  susu: 117
+  air_mineral: 35,
+  gula: 12,
+  roti: 29,
+  pengolahan_daging: 42,
+  mie_instan: 32,
+  minyak_goreng: 37,
+  susu: 34
   
   
 };

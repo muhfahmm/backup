@@ -1,6 +1,6 @@
 // @ts-nocheck
 const botswana_perikanan = {
-  udang: 5,
-  mutiara: 611,
-  ikan: 168
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

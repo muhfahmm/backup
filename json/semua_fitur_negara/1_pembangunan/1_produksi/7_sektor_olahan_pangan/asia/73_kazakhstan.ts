@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kazakhstan_olahan_pangan = {
-  air_mineral: 486,
-  gula: 236,
-  roti: 233,
-  pengolahan_daging: 240,
-  mie_instan: 303,
-  minyak_goreng: 298,
-  susu: 225
+  air_mineral: 143,
+  gula: 533,
+  roti: 429,
+  pengolahan_daging: 598,
+  mie_instan: 533,
+  minyak_goreng: 637,
+  susu: 403
   
   
 };

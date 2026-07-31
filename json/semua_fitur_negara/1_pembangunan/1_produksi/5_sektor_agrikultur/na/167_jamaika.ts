@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const jamaika_agrikultur = {
-  padi: 93,
-  gandum: 222,
-  jagung: 111,
-  sayur: 23,
-  umbi: 110,
-  kedelai: 131,
-  kelapa_sawit: 1,
-  kopi: 432,
-  teh: 0,
-  kakao: 231,
-  tebu: 4,
-  karet: 166
+  padi: 48,
+  gandum: 252,
+  jagung: 72,
+  sayur: 64,
+  umbi: 124,
+  kedelai: 252,
+  kelapa_sawit: 0,
+  kopi: 204,
+  teh: 212,
+  kakao: 0,
+  tebu: 40,
+  karet: 0
 };

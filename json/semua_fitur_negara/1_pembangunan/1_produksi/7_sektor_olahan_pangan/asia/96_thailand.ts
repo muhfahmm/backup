@@ -1,12 +1,12 @@
 // @ts-nocheck
 const thailand_olahan_pangan = {
-  air_mineral: 892,
-  gula: 863,
-  roti: 831,
-  pengolahan_daging: 431,
-  mie_instan: 633,
-  minyak_goreng: 474,
-  susu: 449
+  air_mineral: 1681,
+  gula: 1681,
+  roti: 1435,
+  pengolahan_daging: 1148,
+  mie_instan: 1312,
+  minyak_goreng: 1886,
+  susu: 1271
   
   
 };

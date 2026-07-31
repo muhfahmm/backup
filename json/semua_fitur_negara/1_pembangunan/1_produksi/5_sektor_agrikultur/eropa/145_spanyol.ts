@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const spanyol_agrikultur = {
-  padi: 778,
-  gandum: 740,
-  jagung: 532,
-  sayur: 487,
-  umbi: 351,
-  kedelai: 473,
-  kelapa_sawit: 86,
-  kopi: 564,
-  teh: 462,
-  kakao: 848,
-  tebu: 196,
-  karet: 251
+  padi: 5452,
+  gandum: 3828,
+  jagung: 1856,
+  sayur: 6264,
+  umbi: 7888,
+  kedelai: 6264,
+  kelapa_sawit: 0,
+  kopi: 4640,
+  teh: 1392,
+  kakao: 0,
+  tebu: 4988,
+  karet: 0
 };

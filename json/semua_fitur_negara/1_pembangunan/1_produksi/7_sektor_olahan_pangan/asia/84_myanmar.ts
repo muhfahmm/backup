@@ -1,12 +1,12 @@
 // @ts-nocheck
 const myanmar_olahan_pangan = {
-  air_mineral: 658,
-  gula: 414,
-  roti: 607,
-  pengolahan_daging: 745,
-  mie_instan: 404,
-  minyak_goreng: 916,
-  susu: 415
+  air_mineral: 234,
+  gula: 258,
+  roti: 288,
+  pengolahan_daging: 120,
+  mie_instan: 222,
+  minyak_goreng: 150,
+  susu: 78
   
   
 };

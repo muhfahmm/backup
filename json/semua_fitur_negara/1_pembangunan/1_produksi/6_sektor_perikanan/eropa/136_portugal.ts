@@ -1,6 +1,6 @@
 // @ts-nocheck
 const portugal_perikanan = {
-  udang: 197,
-  mutiara: 942,
-  ikan: 243
+  udang: 646,
+  mutiara: 680,
+  ikan: 442
 };

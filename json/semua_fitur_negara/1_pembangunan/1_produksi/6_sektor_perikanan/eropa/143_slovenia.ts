@@ -1,6 +1,6 @@
 // @ts-nocheck
 const slovenia_perikanan = {
-  udang: 3,
-  mutiara: 514,
-  ikan: 166
+  udang: 28,
+  mutiara: 32,
+  ikan: 80
 };

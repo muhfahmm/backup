@@ -1,12 +1,12 @@
 // @ts-nocheck
 const lebanon_olahan_pangan = {
-  air_mineral: 276,
-  gula: 7,
-  roti: 336,
-  pengolahan_daging: 444,
-  mie_instan: 11,
-  minyak_goreng: 22,
-  susu: 38
+  air_mineral: 19,
+  gula: 32,
+  roti: 29,
+  pengolahan_daging: 19,
+  mie_instan: 28,
+  minyak_goreng: 34,
+  susu: 16
   
   
 };

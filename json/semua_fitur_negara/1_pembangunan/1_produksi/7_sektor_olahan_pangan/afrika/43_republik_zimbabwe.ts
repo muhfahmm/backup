@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_zimbabwe_olahan_pangan = {
-  air_mineral: 173,
-  gula: 139,
-  roti: 150,
-  pengolahan_daging: 443,
-  mie_instan: 243,
-  minyak_goreng: 37,
-  susu: 105
+  air_mineral: 72,
+  gula: 84,
+  roti: 44,
+  pengolahan_daging: 70,
+  mie_instan: 94,
+  minyak_goreng: 74,
+  susu: 56
   
   
 };

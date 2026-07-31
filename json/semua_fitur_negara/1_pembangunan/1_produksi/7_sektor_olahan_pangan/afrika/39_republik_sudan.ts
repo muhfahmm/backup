@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_sudan_olahan_pangan = {
-  air_mineral: 718,
-  gula: 643,
-  roti: 558,
-  pengolahan_daging: 316,
-  mie_instan: 457,
-  minyak_goreng: 481,
-  susu: 606
+  air_mineral: 90,
+  gula: 117,
+  roti: 126,
+  pengolahan_daging: 108,
+  mie_instan: 42,
+  minyak_goreng: 111,
+  susu: 57
   
   
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tuvalu_perikanan = {
-  udang: 264,
-  mutiara: 298,
-  ikan: 117
+  udang: 39,
+  mutiara: 66,
+  ikan: 114
 };

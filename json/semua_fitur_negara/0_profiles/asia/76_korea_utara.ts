@@ -6,13 +6,12 @@ export const korea_utara_profile = {
   "lon": 125.75,
   "lat": 39.03,
   "flag": "🇰🇵",
-  "jumlah_penduduk": 26000000, // Perbaikan: Hapus tanda kutip & ubah "10M" menjadi 26.000.000
+  "jumlah_penduduk": "10M",
   "anggaran": 175,
-  "pendapatan_nasional": 500, // Perbaikan: Hapus tanda kutip
+  "pendapatan_nasional": "500",
   "religion": "Ateisme",
   "ideology": "Komunisme"
 }
-
 const korea_utara_geopolitik = {
     "un_vote": 56,
     "reputasi_diplomatik": "Netral",
@@ -25,4 +24,4 @@ const korea_utara_geopolitik = {
       "kekuatan_keras": 37,
       "prestise_diplomatik": 57
     }
-}
+  }

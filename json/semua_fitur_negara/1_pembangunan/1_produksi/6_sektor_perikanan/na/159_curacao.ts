@@ -1,6 +1,6 @@
 // @ts-nocheck
 const curacao_perikanan = {
-  udang: 337,
-  mutiara: 986,
-  ikan: 169
+  udang: 56,
+  mutiara: 46,
+  ikan: 60
 };

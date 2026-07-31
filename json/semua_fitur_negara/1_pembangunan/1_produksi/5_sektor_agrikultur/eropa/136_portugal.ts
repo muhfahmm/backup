@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const portugal_agrikultur = {
-  padi: 221,
-  gandum: 56,
-  jagung: 293,
-  sayur: 53,
-  umbi: 19,
-  kedelai: 351,
-  kelapa_sawit: 123,
-  kopi: 4,
-  teh: 27,
-  kakao: 12,
-  tebu: 30,
-  karet: 4
+  padi: 782,
+  gandum: 884,
+  jagung: 527,
+  sayur: 714,
+  umbi: 1241,
+  kedelai: 187,
+  kelapa_sawit: 0,
+  kopi: 1343,
+  teh: 1020,
+  kakao: 0,
+  tebu: 629,
+  karet: 0
 };

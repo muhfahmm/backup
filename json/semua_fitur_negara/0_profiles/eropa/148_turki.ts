@@ -6,9 +6,9 @@ export const turki_profile = {
   "lon": 32.85,
   "lat": 39.93,
   "flag": "🇹🇷",
-  "jumlah_penduduk": 85000000, // Diperbaiki: 85 Juta (realistis)
+  "jumlah_penduduk": "10M",
   "anggaran": 97,
-  "pendapatan_nasional": 278, // Diperbaiki: Hapus tanda kutip
+  "pendapatan_nasional": "278",
   "religion": "Islam",
   "ideology": "Konservatisme"
 }
@@ -24,4 +24,4 @@ const turki_geopolitik = {
       "kekuatan_keras": 28,
       "prestise_diplomatik": 57
     }
-}
+  }

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kepulauan_faroe_peternakan = {
-  ayam_unggas: 190,
-  sapi_perah: 53,
-  sapi_potong: 852,
-  domba_kambing: 658
+  ayam_unggas: 29,
+  sapi_perah: 18,
+  sapi_potong: 21,
+  domba_kambing: 18
 };

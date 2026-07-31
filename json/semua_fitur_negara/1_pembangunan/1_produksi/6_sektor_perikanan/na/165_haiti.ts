@@ -1,6 +1,6 @@
 // @ts-nocheck
 const haiti_perikanan = {
-  udang: 27,
-  mutiara: 441,
-  ikan: 80
+  udang: 75,
+  mutiara: 48,
+  ikan: 21
 };

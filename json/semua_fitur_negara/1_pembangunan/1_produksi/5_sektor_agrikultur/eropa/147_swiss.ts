@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const swiss_agrikultur = {
-  padi: 292,
-  gandum: 308,
-  jagung: 30,
-  sayur: 169,
-  umbi: 131,
-  kedelai: 230,
-  kelapa_sawit: 64,
-  kopi: 518,
-  teh: 19,
-  kakao: 371,
-  tebu: 11,
-  karet: 279
+  padi: 1692,
+  gandum: 2209,
+  jagung: 1880,
+  sayur: 1457,
+  umbi: 2491,
+  kedelai: 3149,
+  kelapa_sawit: 0,
+  kopi: 2444,
+  teh: 1739,
+  kakao: 0,
+  tebu: 1786,
+  karet: 0
 };

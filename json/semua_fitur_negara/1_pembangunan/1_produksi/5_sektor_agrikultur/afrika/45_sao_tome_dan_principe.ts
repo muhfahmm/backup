@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const sao_tome_dan_principe_agrikultur = {
-  padi: 143,
-  gandum: 265,
-  jagung: 53,
-  sayur: 58,
-  umbi: 117,
-  kedelai: 136,
-  kelapa_sawit: 32,
-  kopi: 412,
-  teh: 65,
-  kakao: 216,
-  tebu: 58,
-  karet: 159
+  padi: 244,
+  gandum: 172,
+  jagung: 292,
+  sayur: 260,
+  umbi: 128,
+  kedelai: 192,
+  kelapa_sawit: 0,
+  kopi: 152,
+  teh: 312,
+  kakao: 0,
+  tebu: 84,
+  karet: 0
 };

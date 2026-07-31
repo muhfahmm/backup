@@ -1,6 +1,6 @@
 // @ts-nocheck
 const libya_perikanan = {
-  udang: 5,
-  mutiara: 638,
-  ikan: 11
+  udang: 147,
+  mutiara: 182,
+  ikan: 203
 };

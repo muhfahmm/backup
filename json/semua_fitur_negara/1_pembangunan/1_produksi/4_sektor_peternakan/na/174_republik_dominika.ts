@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_dominika_peternakan = {
-  ayam_unggas: 194,
-  sapi_perah: 352,
-  sapi_potong: 1006,
-  domba_kambing: 34
+  ayam_unggas: 364,
+  sapi_perah: 154,
+  sapi_potong: 252,
+  domba_kambing: 224
 };

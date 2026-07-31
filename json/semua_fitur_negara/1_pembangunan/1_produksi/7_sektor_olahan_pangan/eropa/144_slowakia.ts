@@ -1,12 +1,12 @@
 // @ts-nocheck
 const slowakia_olahan_pangan = {
-  air_mineral: 17,
-  gula: 23,
-  roti: 29,
-  pengolahan_daging: 17,
-  mie_instan: 1,
-  minyak_goreng: 436,
-  susu: 157
+  air_mineral: 299,
+  gula: 429,
+  roti: 494,
+  pengolahan_daging: 273,
+  mie_instan: 156,
+  minyak_goreng: 234,
+  susu: 403
   
   
 };

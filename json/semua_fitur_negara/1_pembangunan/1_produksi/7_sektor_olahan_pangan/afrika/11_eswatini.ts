@@ -1,12 +1,12 @@
 // @ts-nocheck
 const eswatini_olahan_pangan = {
-  air_mineral: 4,
-  gula: 7,
-  roti: 335,
-  pengolahan_daging: 1,
-  mie_instan: 3,
-  minyak_goreng: 0,
-  susu: 175
+  air_mineral: 13,
+  gula: 50,
+  roti: 15,
+  pengolahan_daging: 25,
+  mie_instan: 32,
+  minyak_goreng: 28,
+  susu: 46
   
   
 };

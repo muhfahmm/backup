@@ -1,7 +1,7 @@
 // @ts-nocheck
 const bolivia_peternakan = {
-  ayam_unggas: 305,
-  sapi_perah: 14,
-  sapi_potong: 114,
-  domba_kambing: 637
+  ayam_unggas: 200,
+  sapi_perah: 230,
+  sapi_potong: 80,
+  domba_kambing: 190
 };

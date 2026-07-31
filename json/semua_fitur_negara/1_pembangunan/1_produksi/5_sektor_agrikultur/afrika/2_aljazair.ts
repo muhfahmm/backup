@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const aljazair_agrikultur = {
-  padi: 792,
-  gandum: 877,
-  jagung: 358,
-  sayur: 468,
-  umbi: 364,
-  kedelai: 454,
-  kelapa_sawit: 94,
-  kopi: 648,
-  teh: 611,
-  kakao: 424,
-  tebu: 177,
-  karet: 27
+  padi: 231,
+  gandum: 297,
+  jagung: 704,
+  sayur: 143,
+  umbi: 286,
+  kedelai: 781,
+  kelapa_sawit: 0,
+  kopi: 572,
+  teh: 759,
+  kakao: 0,
+  tebu: 319,
+  karet: 0
 };

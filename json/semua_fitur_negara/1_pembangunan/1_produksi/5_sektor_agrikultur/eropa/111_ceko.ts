@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ceko_agrikultur = {
-  padi: 325,
-  gandum: 181,
-  jagung: 69,
-  sayur: 48,
-  umbi: 261,
-  kedelai: 25,
-  kelapa_sawit: 58,
-  kopi: 0,
-  teh: 32,
-  kakao: 25,
-  tebu: 79,
-  karet: 337
+  padi: 1817,
+  gandum: 529,
+  jagung: 920,
+  sayur: 989,
+  umbi: 667,
+  kedelai: 1104,
+  kelapa_sawit: 0,
+  kopi: 253,
+  teh: 1403,
+  kakao: 0,
+  tebu: 1564,
+  karet: 0
 };

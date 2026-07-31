@@ -1,6 +1,6 @@
 // @ts-nocheck
 const jerman_perikanan = {
-  udang: 530,
-  mutiara: 79,
-  ikan: 936
+  udang: 3096,
+  mutiara: 3870,
+  ikan: 8256
 };

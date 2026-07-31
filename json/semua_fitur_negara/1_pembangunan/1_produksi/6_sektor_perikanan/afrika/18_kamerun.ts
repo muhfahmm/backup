@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kamerun_perikanan = {
-  udang: 371,
-  mutiara: 65,
-  ikan: 215
+  udang: 224,
+  mutiara: 144,
+  ikan: 240
 };

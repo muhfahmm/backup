@@ -1,6 +1,6 @@
 // @ts-nocheck
 const brunei_perikanan = {
-  udang: 91,
-  mutiara: 831,
-  ikan: 0
+  udang: 81,
+  mutiara: 105,
+  ikan: 54
 };

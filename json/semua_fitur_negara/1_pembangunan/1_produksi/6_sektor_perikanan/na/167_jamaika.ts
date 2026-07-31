@@ -1,6 +1,6 @@
 // @ts-nocheck
 const jamaika_perikanan = {
-  udang: 127,
-  mutiara: 732,
-  ikan: 59
+  udang: 68,
+  mutiara: 148,
+  ikan: 148
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const spanyol_olahan_pangan = {
-  air_mineral: 655,
-  gula: 469,
-  roti: 566,
-  pengolahan_daging: 376,
-  mie_instan: 389,
-  minyak_goreng: 563,
-  susu: 337
+  air_mineral: 3016,
+  gula: 4872,
+  roti: 3828,
+  pengolahan_daging: 3828,
+  mie_instan: 1624,
+  minyak_goreng: 2204,
+  susu: 3712
   
   
 };

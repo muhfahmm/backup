@@ -1,12 +1,12 @@
 // @ts-nocheck
 const islandia_olahan_pangan = {
-  air_mineral: 141,
-  gula: 113,
-  roti: 106,
-  pengolahan_daging: 320,
-  mie_instan: 48,
-  minyak_goreng: 454,
-  susu: 217
+  air_mineral: 180,
+  gula: 176,
+  roti: 92,
+  pengolahan_daging: 148,
+  mie_instan: 148,
+  minyak_goreng: 40,
+  susu: 176
   
   
 };

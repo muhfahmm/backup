@@ -1,7 +1,7 @@
 // @ts-nocheck
 const nauru_peternakan = {
-  ayam_unggas: 131,
-  sapi_perah: 76,
-  sapi_potong: 851,
-  domba_kambing: 554
+  ayam_unggas: 129,
+  sapi_perah: 120,
+  sapi_potong: 75,
+  domba_kambing: 123
 };

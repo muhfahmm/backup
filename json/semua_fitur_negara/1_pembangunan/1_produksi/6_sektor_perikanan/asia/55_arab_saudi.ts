@@ -1,6 +1,6 @@
 // @ts-nocheck
 const arab_saudi_perikanan = {
-  udang: 172,
-  mutiara: 78,
-  ikan: 333
+  udang: 1995,
+  mutiara: 1995,
+  ikan: 3591
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const inggris_perikanan = {
-  udang: 397,
-  mutiara: 910,
-  ikan: 834
+  udang: 2700,
+  mutiara: 5100,
+  ikan: 12000
 };

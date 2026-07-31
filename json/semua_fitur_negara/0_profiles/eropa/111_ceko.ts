@@ -6,13 +6,12 @@ export const ceko_profile = {
   "lon": 15.5,
   "lat": 49.75,
   "flag": "🇨🇿",
-  "jumlah_penduduk": 10600000, // 🔥 Perbaikan: Hapus tanda kutip & ganti "10M" menjadi 10.600.000
+  "jumlah_penduduk": "10M",
   "anggaran": 3209,
-  "pendapatan_nasional": 9167, // 🔥 Perbaikan: Hapus tanda kutip
+  "pendapatan_nasional": "9167",
   "religion": "Ateisme",
   "ideology": "Demokrasi"
 }
-
 const ceko_geopolitik = {
     "un_vote": 26,
     "reputasi_diplomatik": "Netral",
@@ -25,4 +24,4 @@ const ceko_geopolitik = {
       "kekuatan_keras": 26,
       "prestise_diplomatik": 57
     }
-}
+  }

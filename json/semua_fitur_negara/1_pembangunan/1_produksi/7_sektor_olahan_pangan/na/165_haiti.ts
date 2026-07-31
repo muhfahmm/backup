@@ -1,12 +1,12 @@
 // @ts-nocheck
 const haiti_olahan_pangan = {
-  air_mineral: 117,
-  gula: 79,
-  roti: 33,
-  pengolahan_daging: 27,
-  mie_instan: 69,
-  minyak_goreng: 607,
-  susu: 343
+  air_mineral: 114,
+  gula: 33,
+  roti: 84,
+  pengolahan_daging: 144,
+  mie_instan: 42,
+  minyak_goreng: 63,
+  susu: 51
   
   
 };

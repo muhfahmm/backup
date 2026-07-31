@@ -1,7 +1,7 @@
 // @ts-nocheck
 const makau_peternakan = {
-  ayam_unggas: 231,
-  sapi_perah: 400,
-  sapi_potong: 292,
-  domba_kambing: 689
+  ayam_unggas: 76,
+  sapi_perah: 48,
+  sapi_potong: 60,
+  domba_kambing: 172
 };

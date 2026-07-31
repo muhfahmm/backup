@@ -1,12 +1,12 @@
 // @ts-nocheck
 const guyana_olahan_pangan = {
-  air_mineral: 98,
-  gula: 2,
-  roti: 3,
-  pengolahan_daging: 401,
-  mie_instan: 139,
-  minyak_goreng: 266,
-  susu: 283
+  air_mineral: 80,
+  gula: 34,
+  roti: 32,
+  pengolahan_daging: 30,
+  mie_instan: 46,
+  minyak_goreng: 76,
+  susu: 32
   
   
 };

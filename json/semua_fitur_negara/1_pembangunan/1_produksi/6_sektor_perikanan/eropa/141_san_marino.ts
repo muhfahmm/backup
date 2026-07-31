@@ -1,6 +1,6 @@
 // @ts-nocheck
 const san_marino_perikanan = {
-  udang: 333,
-  mutiara: 869,
-  ikan: 175
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const inggris_olahan_pangan = {
-  air_mineral: 1068,
-  gula: 941,
-  roti: 727,
-  pengolahan_daging: 767,
-  mie_instan: 688,
-  minyak_goreng: 1151,
-  susu: 650
+  air_mineral: 12900,
+  gula: 7800,
+  roti: 12900,
+  pengolahan_daging: 9900,
+  mie_instan: 14100,
+  minyak_goreng: 4200,
+  susu: 13500
   
   
 };

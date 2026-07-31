@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const meksiko_agrikultur = {
-  padi: 2360,
-  gandum: 1840,
-  jagung: 1167,
-  sayur: 1306,
-  umbi: 1016,
-  kedelai: 1274,
-  kelapa_sawit: 320,
-  kopi: 780,
-  teh: 527,
-  kakao: 1080,
-  tebu: 546,
-  karet: 246
+  padi: 5203,
+  gandum: 9196,
+  jagung: 1452,
+  sayur: 2057,
+  umbi: 1452,
+  kedelai: 3509,
+  kelapa_sawit: 0,
+  kopi: 8349,
+  teh: 3751,
+  kakao: 0,
+  tebu: 2057,
+  karet: 0
 };

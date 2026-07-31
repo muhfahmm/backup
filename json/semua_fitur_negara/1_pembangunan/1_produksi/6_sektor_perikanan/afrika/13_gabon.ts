@@ -1,6 +1,6 @@
 // @ts-nocheck
 const gabon_perikanan = {
-  udang: 110,
-  mutiara: 943,
-  ikan: 54
+  udang: 28,
+  mutiara: 27,
+  ikan: 30
 };

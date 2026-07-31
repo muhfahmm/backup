@@ -1,7 +1,7 @@
 // @ts-nocheck
 const taiwan_peternakan = {
-  ayam_unggas: 547,
-  sapi_perah: 104,
-  sapi_potong: 205,
-  domba_kambing: 110
+  ayam_unggas: 744,
+  sapi_perah: 984,
+  sapi_potong: 768,
+  domba_kambing: 408
 };

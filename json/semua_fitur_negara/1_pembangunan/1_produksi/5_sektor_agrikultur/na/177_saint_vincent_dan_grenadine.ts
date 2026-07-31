@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const saint_vincent_dan_grenadine_agrikultur = {
-  padi: 48,
-  gandum: 244,
-  jagung: 42,
-  sayur: 53,
-  umbi: 93,
-  kedelai: 41,
-  kelapa_sawit: 46,
-  kopi: 396,
-  teh: 380,
-  kakao: 483,
-  tebu: 142,
-  karet: 251
+  padi: 47,
+  gandum: 70,
+  jagung: 70,
+  sayur: 56,
+  umbi: 29,
+  kedelai: 54,
+  kelapa_sawit: 0,
+  kopi: 39,
+  teh: 23,
+  kakao: 0,
+  tebu: 77,
+  karet: 0
 };

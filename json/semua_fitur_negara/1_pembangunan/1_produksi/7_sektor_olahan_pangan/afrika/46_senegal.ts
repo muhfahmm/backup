@@ -1,12 +1,12 @@
 // @ts-nocheck
 const senegal_olahan_pangan = {
-  air_mineral: 439,
-  gula: 99,
-  roti: 177,
-  pengolahan_daging: 345,
-  mie_instan: 138,
-  minyak_goreng: 166,
-  susu: 149
+  air_mineral: 11,
+  gula: 12,
+  roti: 24,
+  pengolahan_daging: 25,
+  mie_instan: 35,
+  minyak_goreng: 35,
+  susu: 16
   
   
 };

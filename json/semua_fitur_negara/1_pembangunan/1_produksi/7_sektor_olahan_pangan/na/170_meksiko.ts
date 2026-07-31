@@ -1,12 +1,12 @@
 // @ts-nocheck
 const meksiko_olahan_pangan = {
-  air_mineral: 1828,
-  gula: 1520,
-  roti: 1818,
-  pengolahan_daging: 1012,
-  mie_instan: 1111,
-  minyak_goreng: 1286,
-  susu: 1198
+  air_mineral: 2420,
+  gula: 3630,
+  roti: 3993,
+  pengolahan_daging: 3267,
+  mie_instan: 3872,
+  minyak_goreng: 5687,
+  susu: 2783
   
   
 };

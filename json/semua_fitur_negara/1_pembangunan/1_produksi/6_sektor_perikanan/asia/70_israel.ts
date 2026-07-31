@@ -1,6 +1,6 @@
 // @ts-nocheck
 const israel_perikanan = {
-  udang: 49,
-  mutiara: 0,
-  ikan: 266
+  udang: 2331,
+  mutiara: 945,
+  ikan: 1827
 };

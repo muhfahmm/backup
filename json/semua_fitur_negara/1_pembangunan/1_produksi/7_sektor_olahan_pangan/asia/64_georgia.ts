@@ -1,12 +1,12 @@
 // @ts-nocheck
 const georgia_olahan_pangan = {
-  air_mineral: 20,
-  gula: 23,
-  roti: 113,
-  pengolahan_daging: 6,
-  mie_instan: 20,
-  minyak_goreng: 477,
-  susu: 7
+  air_mineral: 140,
+  gula: 100,
+  roti: 104,
+  pengolahan_daging: 100,
+  mie_instan: 76,
+  minyak_goreng: 80,
+  susu: 140
   
   
 };

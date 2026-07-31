@@ -1,12 +1,12 @@
 // @ts-nocheck
 const amerika_serikat_olahan_pangan = {
-  air_mineral: 4963,
-  gula: 3362,
-  roti: 4080,
-  pengolahan_daging: 3036,
-  mie_instan: 2925,
-  minyak_goreng: 3554,
-  susu: 2927
+  air_mineral: 2784,
+  gula: 4988,
+  roti: 1624,
+  pengolahan_daging: 4408,
+  mie_instan: 3248,
+  minyak_goreng: 5220,
+  susu: 3944
   
   
 };

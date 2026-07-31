@@ -1,12 +1,12 @@
 // @ts-nocheck
 const argentina_olahan_pangan = {
-  air_mineral: 736,
-  gula: 450,
-  roti: 765,
-  pengolahan_daging: 477,
-  mie_instan: 501,
-  minyak_goreng: 947,
-  susu: 517
+  air_mineral: 1344,
+  gula: 1872,
+  roti: 2112,
+  pengolahan_daging: 768,
+  mie_instan: 2160,
+  minyak_goreng: 624,
+  susu: 2208
   
   
 };

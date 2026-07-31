@@ -1,7 +1,7 @@
 // @ts-nocheck
 const hong_kong_peternakan = {
-  ayam_unggas: 134,
-  sapi_perah: 185,
-  sapi_potong: 1055,
-  domba_kambing: 12
+  ayam_unggas: 22,
+  sapi_perah: 27,
+  sapi_potong: 36,
+  domba_kambing: 41
 };

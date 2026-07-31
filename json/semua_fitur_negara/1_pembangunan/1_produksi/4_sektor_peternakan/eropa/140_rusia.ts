@@ -1,7 +1,7 @@
 // @ts-nocheck
 const rusia_peternakan = {
-  ayam_unggas: 1332,
-  sapi_perah: 2180,
-  sapi_potong: 2767,
-  domba_kambing: 1006
+  ayam_unggas: 7749,
+  sapi_perah: 7560,
+  sapi_potong: 8883,
+  domba_kambing: 2268
 };

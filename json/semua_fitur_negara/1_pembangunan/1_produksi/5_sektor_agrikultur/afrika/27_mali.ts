@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mali_agrikultur = {
-  padi: 310,
-  gandum: 357,
-  jagung: 353,
-  sayur: 206,
-  umbi: 136,
-  kedelai: 455,
-  kelapa_sawit: 172,
-  kopi: 93,
-  teh: 34,
-  kakao: 336,
-  tebu: 194,
+  padi: 159,
+  gandum: 213,
+  jagung: 186,
+  sayur: 54,
+  umbi: 198,
+  kedelai: 114,
+  kelapa_sawit: 0,
+  kopi: 72,
+  teh: 102,
+  kakao: 0,
+  tebu: 63,
   karet: 0
 };

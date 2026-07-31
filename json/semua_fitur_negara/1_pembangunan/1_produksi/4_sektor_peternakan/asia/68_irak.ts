@@ -1,7 +1,7 @@
 // @ts-nocheck
 const irak_peternakan = {
-  ayam_unggas: 413,
-  sapi_perah: 1045,
-  sapi_potong: 1400,
-  domba_kambing: 436
+  ayam_unggas: 108,
+  sapi_perah: 210,
+  sapi_potong: 114,
+  domba_kambing: 258
 };

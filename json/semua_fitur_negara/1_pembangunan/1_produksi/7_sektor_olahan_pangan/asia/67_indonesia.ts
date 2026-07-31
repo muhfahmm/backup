@@ -1,12 +1,12 @@
 // @ts-nocheck
 const indonesia_olahan_pangan = {
-  air_mineral: 4230,
-  gula: 2863,
-  roti: 3562,
-  pengolahan_daging: 2367,
-  mie_instan: 2458,
-  minyak_goreng: 2822,
-  susu: 2638
+  air_mineral: 2370,
+  gula: 3002,
+  roti: 3397,
+  pengolahan_daging: 3002,
+  mie_instan: 1975,
+  minyak_goreng: 1106,
+  susu: 1343
   
   
 };

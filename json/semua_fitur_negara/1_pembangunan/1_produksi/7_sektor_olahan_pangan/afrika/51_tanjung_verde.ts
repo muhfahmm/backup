@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tanjung_verde_olahan_pangan = {
-  air_mineral: 115,
-  gula: 0,
-  roti: 0,
-  pengolahan_daging: 274,
-  mie_instan: 98,
-  minyak_goreng: 315,
-  susu: 218
+  air_mineral: 108,
+  gula: 69,
+  roti: 105,
+  pengolahan_daging: 45,
+  mie_instan: 99,
+  minyak_goreng: 114,
+  susu: 123
   
   
 };

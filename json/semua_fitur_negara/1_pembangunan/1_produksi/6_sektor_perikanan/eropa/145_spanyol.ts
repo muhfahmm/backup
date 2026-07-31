@@ -1,6 +1,6 @@
 // @ts-nocheck
 const spanyol_perikanan = {
-  udang: 663,
-  mutiara: 137,
-  ikan: 436
+  udang: 2552,
+  mutiara: 3828,
+  ikan: 1740
 };

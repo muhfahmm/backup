@@ -1,6 +1,6 @@
 // @ts-nocheck
 const vatikan_perikanan = {
-  udang: 398,
-  mutiara: 268,
-  ikan: 118
+  udang: 0,
+  mutiara: 0,
+  ikan: 0
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const korea_utara_olahan_pangan = {
-  air_mineral: 537,
-  gula: 230,
-  roti: 363,
-  pengolahan_daging: 58,
-  mie_instan: 157,
-  minyak_goreng: 543,
-  susu: 385
+  air_mineral: 68,
+  gula: 200,
+  roti: 120,
+  pengolahan_daging: 176,
+  mie_instan: 72,
+  minyak_goreng: 188,
+  susu: 156
   
   
 };

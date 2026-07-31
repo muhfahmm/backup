@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const jepang_agrikultur = {
-  padi: 2271,
-  gandum: 1590,
-  jagung: 984,
-  sayur: 1392,
-  umbi: 1144,
-  kedelai: 1112,
-  kelapa_sawit: 421,
-  kopi: 986,
-  teh: 585,
-  kakao: 1084,
-  tebu: 669,
-  karet: 471
+  padi: 6902,
+  gandum: 11186,
+  jagung: 5950,
+  sayur: 4998,
+  umbi: 13090,
+  kedelai: 17374,
+  kelapa_sawit: 0,
+  kopi: 8568,
+  teh: 10710,
+  kakao: 0,
+  tebu: 17612,
+  karet: 0
 };

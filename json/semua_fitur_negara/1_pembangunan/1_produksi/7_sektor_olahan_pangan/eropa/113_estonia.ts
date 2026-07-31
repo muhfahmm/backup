@@ -1,12 +1,12 @@
 // @ts-nocheck
 const estonia_olahan_pangan = {
-  air_mineral: 160,
-  gula: 6,
-  roti: 161,
-  pengolahan_daging: 87,
-  mie_instan: 124,
-  minyak_goreng: 209,
-  susu: 1
+  air_mineral: 70,
+  gula: 140,
+  roti: 200,
+  pengolahan_daging: 175,
+  mie_instan: 90,
+  minyak_goreng: 205,
+  susu: 160
   
   
 };

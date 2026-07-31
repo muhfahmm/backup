@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_serbia_olahan_pangan = {
-  air_mineral: 144,
-  gula: 179,
-  roti: 34,
-  pengolahan_daging: 36,
-  mie_instan: 41,
-  minyak_goreng: 383,
-  susu: 239
+  air_mineral: 160,
+  gula: 190,
+  roti: 60,
+  pengolahan_daging: 120,
+  mie_instan: 80,
+  minyak_goreng: 210,
+  susu: 50
   
   
 };
