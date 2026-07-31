@@ -2,7 +2,7 @@
 import React from "react";
 import { Info } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import InfoBangunan from "./modals_menu/info_bangunan_modals";
+import InfoBangunan from "./1_modals_menu/info_bangunan_modals";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
