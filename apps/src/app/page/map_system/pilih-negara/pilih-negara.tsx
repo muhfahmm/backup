@@ -95,6 +95,8 @@ export default function PilihNegaraPage() {
   const [countryDetail, setCountryDetail] = useState<any>(null);
   const isMapClickRef = useRef(false);
   const dragStartPosRef = useRef({ x: 0, y: 0 });
+  // Ref untuk menyimpan ISO negara yang diklik dari peta (fix bug klik pertama)
+  const pendingIsoRef = useRef<string | null>(null);
 
   // State untuk Modal Debug
   const [isDebugOpen, setIsDebugOpen] = useState(false);
@@ -304,22 +306,42 @@ export default function PilihNegaraPage() {
     if (clickedCountry && clickedCountry.iso) {
       isMapClickRef.current = true;
       const iso = clickedCountry.iso;
+
+      // Simpan ISO di ref terlebih dahulu
+      pendingIsoRef.current = iso;
+
+      // Cari di filteredCountries dulu
       const filteredIndex = filteredCountries.findIndex(
         (c) => c.iso.toLowerCase() === iso.toLowerCase()
       );
 
       if (filteredIndex !== -1) {
+        // Sudah ada di filtered list, langsung set
+        pendingIsoRef.current = null;
         setCurrentIndex(filteredIndex);
+        setHasInteracted(true);
       } else {
+        // Perlu clear search dulu, biarkan useEffect handle pencarian via pendingIsoRef
         setSearchQuery('');
-        const fullIndex = countries.findIndex((c) => c.iso.toLowerCase() === iso.toLowerCase());
-        if (fullIndex !== -1) {
-          setCurrentIndex(fullIndex);
-        }
+        setHasInteracted(true);
       }
-      setHasInteracted(true);
     }
   };
+
+  // Effect untuk menangani klik pertama / setelah search di-reset
+  // Saat pendingIsoRef ada, cari country di countries (full list) dan set index
+  useEffect(() => {
+    if (!pendingIsoRef.current || countries.length === 0) return;
+    const iso = pendingIsoRef.current;
+    const fullIndex = countries.findIndex(
+      (c) => c.iso.toLowerCase() === iso.toLowerCase()
+    );
+    if (fullIndex !== -1) {
+      pendingIsoRef.current = null;
+      setCurrentIndex(fullIndex);
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [hasInteracted, countries, searchQuery]);
 
   const getVisibleItems = () => {
     if (filteredCountries.length === 0) return [];
@@ -488,7 +510,6 @@ export default function PilihNegaraPage() {
           id="map-canvas-bg"
           className="w-full h-full block cursor-pointer"
           onMouseDown={(e) => {
-            setHasInteracted(true);
             dragStartPosRef.current = { x: e.clientX, y: e.clientY };
           }}
           onClick={handleCanvasClick}
