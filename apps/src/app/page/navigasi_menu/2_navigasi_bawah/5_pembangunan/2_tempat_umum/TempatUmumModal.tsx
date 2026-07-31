@@ -15,7 +15,7 @@ import * as komersialRequirements from "./requirements_logic/6_komersial/require
 // --- IMPOR KOMPONEN MODAL ---
 import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
 // 🔥 FIX 2: Hapus baris duplikat import konfirmasi_pembangunan_modals
-import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi";
+import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasiPembangunan";
 
 interface ModalProps {
   isOpen: boolean;

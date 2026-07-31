@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Home, TrendingUp, TrendingDown, Hammer, AlertCircle, Info } from "lucide-react";
 import InfoBangunanModal from "./modals_menu/info_bangunan_modals";
-import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi"; // <-- import komponen konfirmasi
+import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasiPembangunan"; // <-- import komponen konfirmasi
 
 interface ModalProps {
   isOpen: boolean;

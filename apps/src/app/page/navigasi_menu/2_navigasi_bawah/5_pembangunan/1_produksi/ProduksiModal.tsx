@@ -23,7 +23,7 @@ import * as perikananRequirements from "./requirements_logic/1_produksi/6_perika
 import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_olahan_pangan/requirements";
 
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasi";
+import KonfirmasiPembangunanModal from "./modals_menu/modalsKonfirmasiPembangunan";
 
 interface MaterialRequirement {
   resourceKey: string;
