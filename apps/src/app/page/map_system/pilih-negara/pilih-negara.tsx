@@ -554,43 +554,58 @@ export default function PilihNegaraPage() {
       </p>
     </div>
 
-    {/* Badge Indikator Tersedia */}
-    <div className="flex items-center gap-1.5 bg-[#2e261a]/5 px-2.5 py-1 rounded-full border border-[#C4B49C]/30">
-      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-      <span className="text-[9px] font-bold text-[#8b7e66] uppercase tracking-wide">Tersedia</span>
-    </div>
+    {/* Badge Indikator Tersedia - dinamis */}
+    {hasInteracted && getCurrentSDA ? (
+      <div className="flex items-center gap-1.5 bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-400/40">
+        <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span className="text-[9px] font-bold text-emerald-700 uppercase tracking-wide">
+          {Object.values(getCurrentSDA).filter(Boolean).length}/{resourceMap.length} Tersedia
+        </span>
+      </div>
+    ) : (
+      <div className="flex items-center gap-1.5 bg-[#2e261a]/5 px-2.5 py-1 rounded-full border border-[#C4B49C]/30">
+        <span className="w-1.5 h-1.5 rounded-full bg-gray-400"></span>
+        <span className="text-[9px] font-bold text-[#8b7e66] uppercase tracking-wide">Pilih Negara</span>
+      </div>
+    )}
   </div>
   
-  {/* LOGIKA MAPPING SDA - TIDAK DIUBAH */}
+  {/* LOGIKA MAPPING SDA - warna border dari database_SDA (true=hijau, false=merah) */}
   {resourceMap.map((resource) => {
     const Icon = resource.icon;
-    const value = hasInteracted && countryDetail ? (countryDetail[resource.key] || 0) : '-';
-    
-    // Cek status SDA dari database (true/false)
+
+    // Status SDA langsung dari database_SDA json
     const sdaStatus = getCurrentSDA?.[resource.key as keyof SDAData];
-    let borderClass = 'border border-white/20'; // default (belum ada data)
-    let dotColor = 'bg-gray-400';
-    
+
+    // Border & dot warna berdasarkan true/false database
+    let borderClass = 'border border-white/10 opacity-60'; // default: belum ada data
+    let dotColor = 'bg-gray-500';
+    let statusLabel: string | null = null;
+    let statusColor = '';
+    let cardBg = 'bg-black/50';
+
     if (sdaStatus === true) {
-      borderClass = 'border-2 border-green-500 shadow-[0_0_6px_rgba(34,197,94,0.4)]';
+      borderClass = 'border-2 border-green-500 shadow-[0_0_8px_rgba(34,197,94,0.5)]';
       dotColor = 'bg-green-400';
+      statusColor = 'text-green-400';
+      cardBg = 'bg-black/70';
     } else if (sdaStatus === false) {
-      borderClass = 'border-2 border-red-500 shadow-[0_0_6px_rgba(239,68,68,0.3)]';
+      borderClass = 'border-2 border-red-500 shadow-[0_0_6px_rgba(239,68,68,0.35)]';
       dotColor = 'bg-red-400';
+      statusColor = 'text-red-400';
+      cardBg = 'bg-black/40';
     }
 
     return (
       <div
         key={resource.key}
-        className={`flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-xl text-white/80 transition-all hover:bg-black/80 ${borderClass}`}
+        className={`flex items-center gap-2 px-3 py-1.5 ${cardBg} backdrop-blur-md rounded-xl text-white/80 transition-all hover:brightness-110 ${borderClass}`}
       >
-        <div className={`w-1.5 h-1.5 rounded-full ${dotColor} shrink-0`} />
-        <Icon className="w-3.5 h-3.5 text-cyan-400/80" />
-        <span className="text-[9px] font-bold uppercase tracking-wider">{resource.label}</span>
-        {hasInteracted && value !== '-' && (
-          <span className="text-[10px] font-black text-white/70 ml-1">
-            {typeof value === 'number' ? value.toLocaleString('id-ID') : value}
-          </span>
+        <div className={`w-1.5 h-1.5 rounded-full ${dotColor} shrink-0 ${sdaStatus === true ? 'animate-pulse' : ''}`} />
+        <Icon className={`w-3.5 h-3.5 ${sdaStatus === true ? 'text-cyan-400' : sdaStatus === false ? 'text-white/30' : 'text-white/40'}`} />
+        <span className={`text-[9px] font-bold uppercase tracking-wider ${sdaStatus === false ? 'text-white/40' : ''}`}>{resource.label}</span>
+        {statusLabel && (
+          <span className={`text-[8px] font-black ml-1 ${statusColor}`}>{statusLabel}</span>
         )}
       </div>
     );
