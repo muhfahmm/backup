@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const argentina_agrikultur = {
-  padi: 2544,
-  gandum: 3840,
-  jagung: 3024,
-  sayur: 1392,
-  umbi: 3648,
-  kedelai: 2064,
-  kelapa_sawit: 0,
-  kopi: 2784,
-  teh: 1440,
-  kakao: 0,
-  tebu: 624,
-  karet: 0
+  padi: 850,
+  gandum: 555,
+  jagung: 292,
+  sayur: 429,
+  umbi: 338,
+  kedelai: 516,
+  kelapa_sawit: 232,
+  kopi: 574,
+  teh: 198,
+  kakao: 186,
+  tebu: 265,
+  karet: 191
 };

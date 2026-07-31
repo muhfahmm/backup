@@ -1,6 +1,6 @@
 // @ts-nocheck
 const iran_perikanan = {
-  udang: 1748,
-  mutiara: 414,
-  ikan: 828
+  udang: 547,
+  mutiara: 85,
+  ikan: 960
 };

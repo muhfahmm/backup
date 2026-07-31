@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_tanzania_perikanan = {
-  udang: 96,
-  mutiara: 57,
-  ikan: 114
+  udang: 392,
+  mutiara: 1212,
+  ikan: 660
 };

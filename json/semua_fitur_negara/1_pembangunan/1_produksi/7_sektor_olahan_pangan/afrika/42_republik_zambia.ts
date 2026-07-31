@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_zambia_olahan_pangan = {
-  air_mineral: 30,
-  gula: 26,
-  roti: 88,
-  pengolahan_daging: 56,
-  mie_instan: 90,
-  minyak_goreng: 84,
-  susu: 98
+  air_mineral: 437,
+  gula: 269,
+  roti: 196,
+  pengolahan_daging: 442,
+  mie_instan: 118,
+  minyak_goreng: 398,
+  susu: 92
   
   
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const nigeria_perikanan = {
-  udang: 1232,
-  mutiara: 1512,
-  ikan: 1736
+  udang: 1451,
+  mutiara: 1000,
+  ikan: 2210
 };

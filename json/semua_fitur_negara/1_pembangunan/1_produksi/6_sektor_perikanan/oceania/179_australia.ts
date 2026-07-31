@@ -1,6 +1,6 @@
 // @ts-nocheck
 const australia_perikanan = {
-  udang: 2142,
-  mutiara: 2346,
-  ikan: 2754
+  udang: 574,
+  mutiara: 485,
+  ikan: 423
 };

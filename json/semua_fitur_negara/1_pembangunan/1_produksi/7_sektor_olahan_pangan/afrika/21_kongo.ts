@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kongo_olahan_pangan = {
-  air_mineral: 112,
-  gula: 168,
-  roti: 140,
-  pengolahan_daging: 84,
-  mie_instan: 104,
-  minyak_goreng: 196,
-  susu: 128
+  air_mineral: 38,
+  gula: 31,
+  roti: 390,
+  pengolahan_daging: 37,
+  mie_instan: 192,
+  minyak_goreng: 26,
+  susu: 205
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tajikistan_agrikultur = {
-  padi: 168,
-  gandum: 304,
-  jagung: 52,
-  sayur: 284,
-  umbi: 252,
-  kedelai: 84,
-  kelapa_sawit: 0,
-  kopi: 140,
-  teh: 72,
-  kakao: 0,
-  tebu: 228,
-  karet: 0
+  padi: 344,
+  gandum: 255,
+  jagung: 41,
+  sayur: 133,
+  umbi: 21,
+  kedelai: 35,
+  kelapa_sawit: 10,
+  kopi: 29,
+  teh: 425,
+  kakao: 31,
+  tebu: 58,
+  karet: 2
 };

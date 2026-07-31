@@ -1,7 +1,7 @@
 // @ts-nocheck
 const montenegro_peternakan = {
-  ayam_unggas: 25,
-  sapi_perah: 31,
-  sapi_potong: 11,
-  domba_kambing: 19
+  ayam_unggas: 182,
+  sapi_perah: 207,
+  sapi_potong: 857,
+  domba_kambing: 548
 };

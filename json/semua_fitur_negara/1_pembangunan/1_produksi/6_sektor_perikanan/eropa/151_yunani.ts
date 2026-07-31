@@ -1,6 +1,6 @@
 // @ts-nocheck
 const yunani_perikanan = {
-  udang: 250,
-  mutiara: 400,
-  ikan: 400
+  udang: 1,
+  mutiara: 2,
+  ikan: 258
 };

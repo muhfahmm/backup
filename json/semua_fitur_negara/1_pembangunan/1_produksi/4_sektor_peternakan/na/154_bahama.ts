@@ -1,7 +1,7 @@
 // @ts-nocheck
 const bahama_peternakan = {
-  ayam_unggas: 60,
-  sapi_perah: 120,
-  sapi_potong: 192,
-  domba_kambing: 192
+  ayam_unggas: 288,
+  sapi_perah: 236,
+  sapi_potong: 949,
+  domba_kambing: 604
 };

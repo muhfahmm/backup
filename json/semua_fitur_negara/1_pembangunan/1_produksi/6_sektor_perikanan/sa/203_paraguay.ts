@@ -1,6 +1,6 @@
 // @ts-nocheck
 const paraguay_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 429,
+  mutiara: 471,
+  ikan: 30
 };

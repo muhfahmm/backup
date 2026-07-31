@@ -1,7 +1,7 @@
 // @ts-nocheck
 const bangladesh_peternakan = {
-  ayam_unggas: 1680,
-  sapi_perah: 2520,
-  sapi_potong: 1960,
-  domba_kambing: 1820
+  ayam_unggas: 1652,
+  sapi_perah: 2217,
+  sapi_potong: 2977,
+  domba_kambing: 985
 };

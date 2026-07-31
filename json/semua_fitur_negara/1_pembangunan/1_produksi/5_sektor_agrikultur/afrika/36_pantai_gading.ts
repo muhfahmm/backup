@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const pantai_gading_agrikultur = {
-  padi: 250,
-  gandum: 330,
-  jagung: 125,
-  sayur: 165,
-  umbi: 135,
-  kedelai: 185,
-  kelapa_sawit: 55,
-  kopi: 315,
-  teh: 180,
-  kakao: 305,
-  tebu: 260,
-  karet: 270
+  padi: 550,
+  gandum: 544,
+  jagung: 212,
+  sayur: 413,
+  umbi: 312,
+  kedelai: 177,
+  kelapa_sawit: 101,
+  kopi: 121,
+  teh: 13,
+  kakao: 753,
+  tebu: 152,
+  karet: 17
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const nauru_agrikultur = {
-  padi: 102,
-  gandum: 126,
-  jagung: 57,
-  sayur: 138,
-  umbi: 216,
-  kedelai: 153,
-  kelapa_sawit: 0,
-  kopi: 237,
-  teh: 186,
-  kakao: 0,
-  tebu: 234,
-  karet: 0
+  padi: 195,
+  gandum: 83,
+  jagung: 149,
+  sayur: 74,
+  umbi: 68,
+  kedelai: 264,
+  kelapa_sawit: 46,
+  kopi: 323,
+  teh: 141,
+  kakao: 407,
+  tebu: 22,
+  karet: 228
 };

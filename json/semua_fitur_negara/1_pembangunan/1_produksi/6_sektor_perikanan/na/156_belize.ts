@@ -1,6 +1,6 @@
 // @ts-nocheck
 const belize_perikanan = {
-  udang: 40,
-  mutiara: 56,
-  ikan: 80
+  udang: 174,
+  mutiara: 443,
+  ikan: 104
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_afrika_tengah_peternakan = {
-  ayam_unggas: 69,
-  sapi_perah: 39,
-  sapi_potong: 111,
-  domba_kambing: 39
+  ayam_unggas: 15,
+  sapi_perah: 15,
+  sapi_potong: 24,
+  domba_kambing: 0
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const antigua_dan_barbuda_perikanan = {
-  udang: 52,
-  mutiara: 66,
-  ikan: 32
+  udang: 224,
+  mutiara: 613,
+  ikan: 137
 };

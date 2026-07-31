@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const slovenia_agrikultur = {
-  padi: 130,
-  gandum: 110,
-  jagung: 120,
-  sayur: 68,
-  umbi: 42,
-  kedelai: 44,
+  padi: 262,
+  gandum: 11,
+  jagung: 43,
+  sayur: 10,
+  umbi: 47,
+  kedelai: 1,
   kelapa_sawit: 0,
-  kopi: 60,
-  teh: 142,
-  kakao: 0,
-  tebu: 104,
-  karet: 0
+  kopi: 0,
+  teh: 130,
+  kakao: 625,
+  tebu: 52,
+  karet: 294
 };

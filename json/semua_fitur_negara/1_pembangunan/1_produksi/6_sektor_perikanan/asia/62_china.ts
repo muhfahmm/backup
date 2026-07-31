@@ -1,6 +1,6 @@
 // @ts-nocheck
 const china_perikanan = {
-  udang: 5060,
-  mutiara: 4048,
-  ikan: 7590
+  udang: 9347,
+  mutiara: 6790,
+  ikan: 14170
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const rusia_agrikultur = {
-  padi: 6426,
-  gandum: 14742,
-  jagung: 10017,
-  sayur: 2079,
-  umbi: 10395,
-  kedelai: 8127,
-  kelapa_sawit: 0,
-  kopi: 10773,
-  teh: 2457,
-  kakao: 0,
-  tebu: 14931,
-  karet: 0
+  padi: 2751,
+  gandum: 2198,
+  jagung: 1121,
+  sayur: 1395,
+  umbi: 1259,
+  kedelai: 1602,
+  kelapa_sawit: 431,
+  kopi: 686,
+  teh: 1023,
+  kakao: 558,
+  tebu: 658,
+  karet: 88
 };

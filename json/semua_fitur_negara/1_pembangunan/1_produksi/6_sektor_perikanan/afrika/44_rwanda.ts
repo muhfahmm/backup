@@ -1,6 +1,6 @@
 // @ts-nocheck
 const rwanda_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 37,
+  mutiara: 598,
+  ikan: 132
 };

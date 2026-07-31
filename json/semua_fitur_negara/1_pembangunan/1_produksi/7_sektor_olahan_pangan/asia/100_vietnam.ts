@@ -1,12 +1,12 @@
 // @ts-nocheck
 const vietnam_olahan_pangan = {
-  air_mineral: 1836,
-  gula: 3128,
-  roti: 2244,
-  pengolahan_daging: 1632,
-  mie_instan: 1836,
-  minyak_goreng: 2856,
-  susu: 2720
+  air_mineral: 1426,
+  gula: 1256,
+  roti: 1178,
+  pengolahan_daging: 1015,
+  mie_instan: 802,
+  minyak_goreng: 897,
+  susu: 982
   
   
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const ethiopia_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 1076,
+  mutiara: 11,
+  ikan: 1167
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const yordania_agrikultur = {
-  padi: 96,
-  gandum: 90,
-  jagung: 24,
-  sayur: 38,
-  umbi: 104,
-  kedelai: 68,
-  kelapa_sawit: 0,
-  kopi: 146,
-  teh: 52,
-  kakao: 0,
-  tebu: 148,
-  karet: 0
+  padi: 293,
+  gandum: 109,
+  jagung: 296,
+  sayur: 112,
+  umbi: 235,
+  kedelai: 396,
+  kelapa_sawit: 81,
+  kopi: 330,
+  teh: 170,
+  kakao: 144,
+  tebu: 156,
+  karet: 9
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const costa_rica_agrikultur = {
-  padi: 171,
-  gandum: 57,
-  jagung: 216,
-  sayur: 36,
-  umbi: 105,
-  kedelai: 81,
-  kelapa_sawit: 0,
-  kopi: 87,
-  teh: 171,
-  kakao: 0,
-  tebu: 195,
-  karet: 0
+  padi: 57,
+  gandum: 0,
+  jagung: 187,
+  sayur: 17,
+  umbi: 23,
+  kedelai: 280,
+  kelapa_sawit: 68,
+  kopi: 491,
+  teh: 9,
+  kakao: 286,
+  tebu: 14,
+  karet: 63
 };

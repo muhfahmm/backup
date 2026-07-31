@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const turki_agrikultur = {
-  padi: 268,
-  gandum: 92,
-  jagung: 108,
-  sayur: 288,
-  umbi: 84,
-  kedelai: 68,
-  kelapa_sawit: 0,
-  kopi: 80,
-  teh: 84,
-  kakao: 0,
-  tebu: 204,
-  karet: 0
+  padi: 1471,
+  gandum: 1398,
+  jagung: 908,
+  sayur: 869,
+  umbi: 609,
+  kedelai: 741,
+  kelapa_sawit: 309,
+  kopi: 328,
+  teh: 373,
+  kakao: 577,
+  tebu: 341,
+  karet: 83
 };

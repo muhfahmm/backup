@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_timor_leste_perikanan = {
-  udang: 14,
-  mutiara: 23,
-  ikan: 40
+  udang: 148,
+  mutiara: 518,
+  ikan: 9
 };

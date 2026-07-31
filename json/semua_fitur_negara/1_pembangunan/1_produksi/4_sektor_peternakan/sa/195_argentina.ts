@@ -1,7 +1,7 @@
 // @ts-nocheck
 const argentina_peternakan = {
-  ayam_unggas: 768,
-  sapi_perah: 1488,
-  sapi_potong: 1344,
-  domba_kambing: 1632
+  ayam_unggas: 531,
+  sapi_perah: 463,
+  sapi_potong: 468,
+  domba_kambing: 70
 };

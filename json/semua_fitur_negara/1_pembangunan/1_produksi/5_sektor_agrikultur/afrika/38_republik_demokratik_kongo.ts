@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_demokratik_kongo_agrikultur = {
-  padi: 105,
-  gandum: 60,
-  jagung: 75,
-  sayur: 84,
-  umbi: 156,
-  kedelai: 87,
-  kelapa_sawit: 0,
-  kopi: 228,
-  teh: 153,
-  kakao: 0,
-  tebu: 123,
-  karet: 0
+  padi: 1741,
+  gandum: 1273,
+  jagung: 970,
+  sayur: 992,
+  umbi: 777,
+  kedelai: 1268,
+  kelapa_sawit: 241,
+  kopi: 407,
+  teh: 729,
+  kakao: 289,
+  tebu: 482,
+  karet: 279
 };

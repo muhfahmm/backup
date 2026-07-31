@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const belanda_agrikultur = {
-  padi: 5265,
-  gandum: 4455,
-  jagung: 9045,
-  sayur: 8775,
-  umbi: 8235,
-  kedelai: 7290,
-  kelapa_sawit: 0,
-  kopi: 10800,
-  teh: 6615,
-  kakao: 0,
-  tebu: 9180,
-  karet: 0
+  padi: 382,
+  gandum: 159,
+  jagung: 332,
+  sayur: 336,
+  umbi: 117,
+  kedelai: 418,
+  kelapa_sawit: 8,
+  kopi: 14,
+  teh: 19,
+  kakao: 76,
+  tebu: 48,
+  karet: 264
 };

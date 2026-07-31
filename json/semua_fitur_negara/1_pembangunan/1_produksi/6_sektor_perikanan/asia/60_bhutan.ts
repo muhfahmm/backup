@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bhutan_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 241,
+  mutiara: 659,
+  ikan: 2
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kongo_perikanan = {
-  udang: 108,
-  mutiara: 24,
-  ikan: 28
+  udang: 12,
+  mutiara: 671,
+  ikan: 23
 };

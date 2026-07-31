@@ -1,12 +1,12 @@
 // @ts-nocheck
 const togo_olahan_pangan = {
-  air_mineral: 40,
-  gula: 78,
-  roti: 20,
-  pengolahan_daging: 46,
-  mie_instan: 82,
-  minyak_goreng: 62,
-  susu: 22
+  air_mineral: 156,
+  gula: 76,
+  roti: 52,
+  pengolahan_daging: 307,
+  mie_instan: 18,
+  minyak_goreng: 506,
+  susu: 350
   
   
 };

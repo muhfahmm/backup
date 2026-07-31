@@ -1,12 +1,12 @@
 // @ts-nocheck
 const trinidad_dan_tobago_olahan_pangan = {
-  air_mineral: 40,
-  gula: 64,
-  roti: 64,
-  pengolahan_daging: 20,
-  mie_instan: 24,
-  minyak_goreng: 36,
-  susu: 42
+  air_mineral: 180,
+  gula: 68,
+  roti: 8,
+  pengolahan_daging: 83,
+  mie_instan: 9,
+  minyak_goreng: 178,
+  susu: 290
   
   
 };

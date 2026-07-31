@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const guinea_bissau_agrikultur = {
-  padi: 112,
-  gandum: 44,
-  jagung: 52,
-  sayur: 46,
-  umbi: 134,
-  kedelai: 136,
-  kelapa_sawit: 0,
-  kopi: 148,
-  teh: 98,
-  kakao: 0,
-  tebu: 50,
-  karet: 0
+  padi: 262,
+  gandum: 10,
+  jagung: 63,
+  sayur: 12,
+  umbi: 146,
+  kedelai: 318,
+  kelapa_sawit: 3,
+  kopi: 0,
+  teh: 150,
+  kakao: 437,
+  tebu: 139,
+  karet: 191
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kuba_agrikultur = {
-  padi: 646,
-  gandum: 1406,
-  jagung: 1349,
-  sayur: 209,
-  umbi: 798,
-  kedelai: 589,
-  kelapa_sawit: 0,
-  kopi: 1501,
-  teh: 893,
-  kakao: 0,
-  tebu: 1330,
-  karet: 0
+  padi: 121,
+  gandum: 263,
+  jagung: 69,
+  sayur: 75,
+  umbi: 44,
+  kedelai: 44,
+  kelapa_sawit: 2,
+  kopi: 186,
+  teh: 262,
+  kakao: 534,
+  tebu: 0,
+  karet: 162
 };

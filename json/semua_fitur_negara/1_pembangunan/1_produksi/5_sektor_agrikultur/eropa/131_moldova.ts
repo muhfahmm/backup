@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const moldova_agrikultur = {
-  padi: 68,
-  gandum: 276,
-  jagung: 56,
-  sayur: 88,
-  umbi: 236,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 268,
-  teh: 320,
-  kakao: 0,
-  tebu: 160,
-  karet: 0
+  padi: 6,
+  gandum: 256,
+  jagung: 20,
+  sayur: 3,
+  umbi: 108,
+  kedelai: 280,
+  kelapa_sawit: 36,
+  kopi: 0,
+  teh: 5,
+  kakao: 1,
+  tebu: 1,
+  karet: 174
 };

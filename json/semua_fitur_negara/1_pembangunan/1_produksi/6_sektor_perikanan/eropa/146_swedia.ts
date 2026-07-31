@@ -1,6 +1,6 @@
 // @ts-nocheck
 const swedia_perikanan = {
-  udang: 666,
-  mutiara: 2590,
-  ikan: 1036
+  udang: 412,
+  mutiara: 969,
+  ikan: 211
 };

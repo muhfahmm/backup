@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kamboja_perikanan = {
-  udang: 72,
-  mutiara: 96,
-  ikan: 87
+  udang: 257,
+  mutiara: 1087,
+  ikan: 106
 };

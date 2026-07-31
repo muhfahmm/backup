@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const korea_utara_agrikultur = {
-  padi: 300,
-  gandum: 212,
-  jagung: 312,
-  sayur: 108,
-  umbi: 164,
-  kedelai: 256,
-  kelapa_sawit: 0,
-  kopi: 44,
-  teh: 116,
-  kakao: 0,
-  tebu: 148,
-  karet: 0
+  padi: 491,
+  gandum: 584,
+  jagung: 292,
+  sayur: 281,
+  umbi: 268,
+  kedelai: 524,
+  kelapa_sawit: 61,
+  kopi: 380,
+  teh: 371,
+  kakao: 637,
+  tebu: 176,
+  karet: 204
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const haiti_peternakan = {
-  ayam_unggas: 93,
-  sapi_perah: 39,
-  sapi_potong: 141,
-  domba_kambing: 39
+  ayam_unggas: 64,
+  sapi_perah: 331,
+  sapi_potong: 149,
+  domba_kambing: 43
 };

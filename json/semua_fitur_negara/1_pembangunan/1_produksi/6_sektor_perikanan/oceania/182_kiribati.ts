@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kiribati_perikanan = {
-  udang: 20,
-  mutiara: 56,
-  ikan: 14
+  udang: 391,
+  mutiara: 469,
+  ikan: 183
 };

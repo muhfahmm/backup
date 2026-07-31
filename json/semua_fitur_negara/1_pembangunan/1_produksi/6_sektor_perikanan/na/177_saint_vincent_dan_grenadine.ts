@@ -1,6 +1,6 @@
 // @ts-nocheck
 const saint_vincent_dan_grenadine_perikanan = {
-  udang: 31,
-  mutiara: 16,
-  ikan: 9
+  udang: 139,
+  mutiara: 962,
+  ikan: 30
 };

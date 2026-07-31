@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_afrika_tengah_agrikultur = {
-  padi: 75,
-  gandum: 213,
-  jagung: 129,
-  sayur: 69,
-  umbi: 99,
-  kedelai: 93,
-  kelapa_sawit: 0,
-  kopi: 213,
-  teh: 141,
+  padi: 200,
+  gandum: 35,
+  jagung: 37,
+  sayur: 8,
+  umbi: 168,
+  kedelai: 31,
+  kelapa_sawit: 78,
+  kopi: 11,
+  teh: 181,
   kakao: 0,
-  tebu: 219,
+  tebu: 68,
   karet: 0
 };

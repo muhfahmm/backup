@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bahama_agrikultur = {
-  padi: 292,
-  gandum: 76,
-  jagung: 172,
-  sayur: 248,
-  umbi: 40,
-  kedelai: 152,
-  kelapa_sawit: 0,
-  kopi: 144,
-  teh: 308,
-  kakao: 0,
-  tebu: 180,
-  karet: 0
+  padi: 32,
+  gandum: 150,
+  jagung: 184,
+  sayur: 0,
+  umbi: 193,
+  kedelai: 219,
+  kelapa_sawit: 95,
+  kopi: 55,
+  teh: 376,
+  kakao: 209,
+  tebu: 71,
+  karet: 198
 };

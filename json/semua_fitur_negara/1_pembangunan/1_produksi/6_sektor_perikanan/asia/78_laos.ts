@@ -1,6 +1,6 @@
 // @ts-nocheck
 const laos_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 36,
+  mutiara: 675,
+  ikan: 234
 };

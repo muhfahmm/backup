@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const eritrea_agrikultur = {
-  padi: 59,
-  gandum: 22,
-  jagung: 41,
-  sayur: 25,
-  umbi: 35,
-  kedelai: 38,
-  kelapa_sawit: 0,
-  kopi: 73,
-  teh: 76,
-  kakao: 0,
-  tebu: 74,
-  karet: 0
+  padi: 4,
+  gandum: 6,
+  jagung: 13,
+  sayur: 11,
+  umbi: 148,
+  kedelai: 6,
+  kelapa_sawit: 120,
+  kopi: 6,
+  teh: 141,
+  kakao: 516,
+  tebu: 142,
+  karet: 303
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_sudan_agrikultur = {
-  padi: 168,
-  gandum: 231,
-  jagung: 168,
-  sayur: 141,
-  umbi: 213,
-  kedelai: 75,
-  kelapa_sawit: 0,
-  kopi: 102,
-  teh: 222,
-  kakao: 0,
-  tebu: 105,
-  karet: 0
+  padi: 969,
+  gandum: 771,
+  jagung: 533,
+  sayur: 663,
+  umbi: 338,
+  kedelai: 641,
+  kelapa_sawit: 235,
+  kopi: 147,
+  teh: 570,
+  kakao: 875,
+  tebu: 298,
+  karet: 367
 };

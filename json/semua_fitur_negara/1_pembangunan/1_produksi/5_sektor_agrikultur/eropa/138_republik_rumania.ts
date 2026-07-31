@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_rumania_agrikultur = {
-  padi: 576,
-  gandum: 912,
-  jagung: 1512,
-  sayur: 864,
-  umbi: 1536,
-  kedelai: 1704,
-  kelapa_sawit: 0,
-  kopi: 864,
-  teh: 288,
-  kakao: 0,
-  tebu: 552,
-  karet: 0
+  padi: 478,
+  gandum: 356,
+  jagung: 250,
+  sayur: 129,
+  umbi: 109,
+  kedelai: 149,
+  kelapa_sawit: 13,
+  kopi: 8,
+  teh: 85,
+  kakao: 665,
+  tebu: 38,
+  karet: 255
 };

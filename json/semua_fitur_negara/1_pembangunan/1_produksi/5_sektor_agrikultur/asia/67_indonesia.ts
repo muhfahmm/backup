@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const indonesia_agrikultur = {
-  padi: 5609,
-  gandum: 1501,
-  jagung: 4345,
-  sayur: 2291,
-  umbi: 2370,
-  kedelai: 6320,
-  kelapa_sawit: 5846,
-  kopi: 5609,
-  teh: 2765,
-  kakao: 3002,
-  tebu: 6320,
-  karet: 5846
+  padi: 4986,
+  gandum: 3809,
+  jagung: 2547,
+  sayur: 3036,
+  umbi: 2375,
+  kedelai: 2864,
+  kelapa_sawit: 687,
+  kopi: 1559,
+  teh: 1504,
+  kakao: 1793,
+  tebu: 1319,
+  karet: 308
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const belgia_peternakan = {
-  ayam_unggas: 1845,
-  sapi_perah: 1886,
-  sapi_potong: 1640,
-  domba_kambing: 1681
+  ayam_unggas: 404,
+  sapi_perah: 457,
+  sapi_potong: 694,
+  domba_kambing: 8
 };

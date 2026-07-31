@@ -1,12 +1,12 @@
 // @ts-nocheck
 const papua_nugini_olahan_pangan = {
-  air_mineral: 39,
-  gula: 105,
-  roti: 114,
-  pengolahan_daging: 45,
-  mie_instan: 63,
-  minyak_goreng: 102,
-  susu: 84
+  air_mineral: 122,
+  gula: 73,
+  roti: 190,
+  pengolahan_daging: 40,
+  mie_instan: 75,
+  minyak_goreng: 187,
+  susu: 66
   
   
 };

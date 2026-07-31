@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bermuda_perikanan = {
-  udang: 10,
-  mutiara: 68,
-  ikan: 28
+  udang: 339,
+  mutiara: 971,
+  ikan: 191
 };

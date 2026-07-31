@@ -1,7 +1,7 @@
 // @ts-nocheck
 const jerman_peternakan = {
-  ayam_unggas: 3612,
-  sapi_perah: 6192,
-  sapi_potong: 9030,
-  domba_kambing: 3354
+  ayam_unggas: 1071,
+  sapi_perah: 963,
+  sapi_potong: 1316,
+  domba_kambing: 1191
 };

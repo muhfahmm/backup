@@ -1,6 +1,6 @@
 // @ts-nocheck
 const sao_tome_dan_principe_perikanan = {
-  udang: 20,
-  mutiara: 152,
-  ikan: 88
+  udang: 382,
+  mutiara: 988,
+  ikan: 173
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const saint_kitts_dan_nevis_perikanan = {
-  udang: 81,
-  mutiara: 90,
-  ikan: 21
+  udang: 307,
+  mutiara: 649,
+  ikan: 37
 };

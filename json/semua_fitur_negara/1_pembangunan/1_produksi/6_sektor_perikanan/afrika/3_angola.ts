@@ -1,6 +1,6 @@
 // @ts-nocheck
 const angola_perikanan = {
-  udang: 112,
-  mutiara: 40,
-  ikan: 120
+  udang: 571,
+  mutiara: 87,
+  ikan: 439
 };

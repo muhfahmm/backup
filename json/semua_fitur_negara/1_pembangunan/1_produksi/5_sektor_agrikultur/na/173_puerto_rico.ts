@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const puerto_rico_agrikultur = {
-  padi: 168,
-  gandum: 284,
-  jagung: 168,
-  sayur: 128,
-  umbi: 168,
-  kedelai: 192,
-  kelapa_sawit: 0,
-  kopi: 284,
-  teh: 144,
-  kakao: 0,
-  tebu: 96,
-  karet: 0
+  padi: 24,
+  gandum: 95,
+  jagung: 20,
+  sayur: 149,
+  umbi: 118,
+  kedelai: 217,
+  kelapa_sawit: 3,
+  kopi: 298,
+  teh: 240,
+  kakao: 1,
+  tebu: 110,
+  karet: 61
 };

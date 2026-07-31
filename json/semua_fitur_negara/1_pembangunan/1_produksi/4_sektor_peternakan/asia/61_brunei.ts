@@ -1,7 +1,7 @@
 // @ts-nocheck
 const brunei_peternakan = {
-  ayam_unggas: 30,
-  sapi_perah: 135,
-  sapi_potong: 105,
-  domba_kambing: 102
+  ayam_unggas: 285,
+  sapi_perah: 76,
+  sapi_potong: 911,
+  domba_kambing: 614
 };

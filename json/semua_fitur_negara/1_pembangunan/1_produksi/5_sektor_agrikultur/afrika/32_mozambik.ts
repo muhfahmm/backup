@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mozambik_agrikultur = {
-  padi: 55,
-  gandum: 47,
-  jagung: 49,
-  sayur: 17,
-  umbi: 65,
-  kedelai: 23,
-  kelapa_sawit: 0,
-  kopi: 52,
-  teh: 27,
-  kakao: 0,
-  tebu: 26,
-  karet: 0
+  padi: 483,
+  gandum: 345,
+  jagung: 184,
+  sayur: 257,
+  umbi: 369,
+  kedelai: 590,
+  kelapa_sawit: 36,
+  kopi: 136,
+  teh: 429,
+  kakao: 600,
+  tebu: 156,
+  karet: 1
 };

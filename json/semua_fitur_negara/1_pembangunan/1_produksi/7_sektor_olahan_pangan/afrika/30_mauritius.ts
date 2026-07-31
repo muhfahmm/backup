@@ -1,12 +1,12 @@
 // @ts-nocheck
 const mauritius_olahan_pangan = {
-  air_mineral: 44,
-  gula: 13,
-  roti: 14,
-  pengolahan_daging: 32,
-  mie_instan: 14,
-  minyak_goreng: 48,
-  susu: 34
+  air_mineral: 11,
+  gula: 64,
+  roti: 4,
+  pengolahan_daging: 362,
+  mie_instan: 3,
+  minyak_goreng: 120,
+  susu: 4
   
   
 };

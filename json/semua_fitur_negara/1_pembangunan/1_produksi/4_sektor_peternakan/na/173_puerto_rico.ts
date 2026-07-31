@@ -1,7 +1,7 @@
 // @ts-nocheck
 const puerto_rico_peternakan = {
-  ayam_unggas: 44,
-  sapi_perah: 184,
-  sapi_potong: 84,
-  domba_kambing: 140
+  ayam_unggas: 2,
+  sapi_perah: 2,
+  sapi_potong: 27,
+  domba_kambing: 229
 };

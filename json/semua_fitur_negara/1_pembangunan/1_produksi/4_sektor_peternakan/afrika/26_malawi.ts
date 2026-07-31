@@ -1,7 +1,7 @@
 // @ts-nocheck
 const malawi_peternakan = {
-  ayam_unggas: 136,
-  sapi_perah: 48,
-  sapi_potong: 92,
-  domba_kambing: 120
+  ayam_unggas: 180,
+  sapi_perah: 66,
+  sapi_potong: 7,
+  domba_kambing: 366
 };

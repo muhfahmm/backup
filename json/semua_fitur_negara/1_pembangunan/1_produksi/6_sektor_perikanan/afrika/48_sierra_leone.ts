@@ -1,6 +1,6 @@
 // @ts-nocheck
 const sierra_leone_perikanan = {
-  udang: 40,
-  mutiara: 84,
-  ikan: 80
+  udang: 23,
+  mutiara: 749,
+  ikan: 284
 };

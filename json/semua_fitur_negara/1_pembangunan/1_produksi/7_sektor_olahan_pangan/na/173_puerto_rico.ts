@@ -1,12 +1,12 @@
 // @ts-nocheck
 const puerto_rico_olahan_pangan = {
-  air_mineral: 200,
-  gula: 164,
-  roti: 144,
-  pengolahan_daging: 64,
-  mie_instan: 76,
-  minyak_goreng: 108,
-  susu: 180
+  air_mineral: 9,
+  gula: 8,
+  roti: 24,
+  pengolahan_daging: 318,
+  mie_instan: 99,
+  minyak_goreng: 152,
+  susu: 251
   
   
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const jerman_olahan_pangan = {
-  air_mineral: 9030,
-  gula: 5160,
-  roti: 3096,
-  pengolahan_daging: 12126,
-  mie_instan: 7482,
-  minyak_goreng: 4128,
-  susu: 5418
+  air_mineral: 1121,
+  gula: 781,
+  roti: 869,
+  pengolahan_daging: 1005,
+  mie_instan: 750,
+  minyak_goreng: 1088,
+  susu: 848
   
   
 };

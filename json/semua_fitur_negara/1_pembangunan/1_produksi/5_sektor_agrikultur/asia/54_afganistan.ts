@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const afganistan_agrikultur = {
-  padi: 48,
-  gandum: 72,
-  jagung: 160,
-  sayur: 276,
-  umbi: 276,
-  kedelai: 276,
-  kelapa_sawit: 0,
-  kopi: 48,
-  teh: 280,
-  kakao: 0,
-  tebu: 76,
-  karet: 0
+  padi: 720,
+  gandum: 785,
+  jagung: 313,
+  sayur: 417,
+  umbi: 308,
+  kedelai: 500,
+  kelapa_sawit: 68,
+  kopi: 453,
+  teh: 393,
+  kakao: 29,
+  tebu: 313,
+  karet: 25
 };

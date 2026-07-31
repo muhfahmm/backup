@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kirgizstan_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 17,
+  mutiara: 490,
+  ikan: 30
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const maldives_olahan_pangan = {
-  air_mineral: 66,
-  gula: 66,
-  roti: 52,
-  pengolahan_daging: 82,
-  mie_instan: 66,
-  minyak_goreng: 90,
-  susu: 26
+  air_mineral: 1,
+  gula: 0,
+  roti: 224,
+  pengolahan_daging: 303,
+  mie_instan: 138,
+  minyak_goreng: 223,
+  susu: 191
   
   
 };

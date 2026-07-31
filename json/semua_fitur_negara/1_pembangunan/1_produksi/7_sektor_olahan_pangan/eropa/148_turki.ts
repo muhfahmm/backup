@@ -1,12 +1,12 @@
 // @ts-nocheck
 const turki_olahan_pangan = {
-  air_mineral: 152,
-  gula: 188,
-  roti: 160,
-  pengolahan_daging: 188,
-  mie_instan: 148,
-  minyak_goreng: 192,
-  susu: 104
+  air_mineral: 1110,
+  gula: 906,
+  roti: 1234,
+  pengolahan_daging: 662,
+  mie_instan: 801,
+  minyak_goreng: 1180,
+  susu: 679
   
   
 };

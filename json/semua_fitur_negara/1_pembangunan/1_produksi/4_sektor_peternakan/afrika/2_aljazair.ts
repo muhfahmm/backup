@@ -1,7 +1,7 @@
 // @ts-nocheck
 const aljazair_peternakan = {
-  ayam_unggas: 198,
-  sapi_perah: 154,
-  sapi_potong: 506,
-  domba_kambing: 407
+  ayam_unggas: 381,
+  sapi_perah: 433,
+  sapi_potong: 1240,
+  domba_kambing: 1022
 };

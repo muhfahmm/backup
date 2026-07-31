@@ -1,6 +1,6 @@
 // @ts-nocheck
 const nikaragua_perikanan = {
-  udang: 7,
-  mutiara: 23,
-  ikan: 11
+  udang: 20,
+  mutiara: 1029,
+  ikan: 21
 };

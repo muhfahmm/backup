@@ -1,7 +1,7 @@
 // @ts-nocheck
 const angola_peternakan = {
-  ayam_unggas: 224,
-  sapi_perah: 264,
-  sapi_potong: 120,
-  domba_kambing: 136
+  ayam_unggas: 481,
+  sapi_perah: 411,
+  sapi_potong: 223,
+  domba_kambing: 222
 };

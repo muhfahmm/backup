@@ -1,6 +1,6 @@
 // @ts-nocheck
 const togo_perikanan = {
-  udang: 40,
-  mutiara: 66,
-  ikan: 78
+  udang: 350,
+  mutiara: 399,
+  ikan: 39
 };

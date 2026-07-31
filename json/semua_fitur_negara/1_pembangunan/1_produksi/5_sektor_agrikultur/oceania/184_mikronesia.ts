@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mikronesia_agrikultur = {
-  padi: 132,
-  gandum: 96,
-  jagung: 200,
-  sayur: 240,
-  umbi: 304,
-  kedelai: 224,
-  kelapa_sawit: 0,
-  kopi: 268,
-  teh: 192,
-  kakao: 0,
-  tebu: 60,
-  karet: 0
+  padi: 157,
+  gandum: 237,
+  jagung: 195,
+  sayur: 77,
+  umbi: 41,
+  kedelai: 65,
+  kelapa_sawit: 76,
+  kopi: 423,
+  teh: 193,
+  kakao: 185,
+  tebu: 16,
+  karet: 128
 };

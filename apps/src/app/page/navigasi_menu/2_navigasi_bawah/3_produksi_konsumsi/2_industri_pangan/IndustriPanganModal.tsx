@@ -81,7 +81,10 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const [allCountries, setAllCountries] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
-  const [expandedCountryIndex, setExpandedCountryIndex] = useState<number | null>(null);
+  
+  // 🔥 PERUBAHAN UTAMA: Ubah state menjadi Set atau string 'all'
+  // Sekarang default-nya 'all', artinya semua baris akan terbuka!
+  const [expandedRows, setExpandedRows] = useState<'all' | Set<number>>('all');
 
   useEffect(() => {
     if (isOpen && allCountries.length === 0) {
@@ -133,7 +136,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   // 🔥 LOGIKA DATA GLOBAL (BERSIH, TANPA PERINGATAN)
   // ==========================================================================
   
-  // 🔥 Helper yang bersih: Cari populasi, jika tidak ada return 0.
   const extractPopulation = (country: any) => {
     const found = 
       country?.jumlah_penduduk ?? 
@@ -254,7 +256,22 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
     return <ChevronDown className="h-3 w-3 ml-1 inline text-emerald-700" />;
   };
 
-  // ==========================================================================
+  // 🔥 LOGIKA TOGGLE BARU
+  const toggleRow = (index: number) => {
+    if (expandedRows === 'all') {
+      // Jika sedang dalam mode 'all', klik baris akan mengubah state menjadi hanya baris itu yang terbuka
+      setExpandedRows(new Set([index]));
+    } else {
+      // Jika mode selektif, tambah/hapus indeks dari Set
+      const newSet = new Set(expandedRows);
+      if (newSet.has(index)) {
+        newSet.delete(index);
+      } else {
+        newSet.add(index);
+      }
+      setExpandedRows(newSet);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -418,12 +435,13 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                   <tbody className="divide-y divide-[#C4B49C]/20">
                     {allCountries.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data {globalFoodData.length || 207} negara...</td>
+                        <td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data 207 negara...</td>
                       </tr>
                     ) : filteredData.length > 0 ? (
                       filteredData.map((country, rowIndex) => {
                         const isUserCountry = country.isUser;
-                        const isExpanded = expandedCountryIndex === country.index;
+                        // 🔥 PERBAIKAN: Cek apakah baris ini terbuka
+                        const isExpanded = expandedRows === 'all' || (expandedRows instanceof Set && expandedRows.has(country.index));
                         const details = calculateCountryFoodDetails(country.rawData);
 
                         return (
@@ -435,18 +453,18 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                   ? 'bg-emerald-100/80 font-black border-l-4 border-l-emerald-600'
                                   : rowIndex % 2 === 0 ? 'bg-[#FAF6EE]' : 'bg-[#e4dac3]/10'
                               }`}
-                              onClick={() => setExpandedCountryIndex(isExpanded ? null : country.index)}
+                              // 🔥 PERBAIKAN: Gunakan fungsi toggle baru
+                              onClick={() => toggleRow(country.index)}
                             >
                               <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black' : 'text-[#8b7e66]'}`}>{country.index}</td>
                               <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black flex items-center gap-2' : 'text-[#5c3c10] flex items-center gap-2'}`}>
                                 <span>{country.name}</span>
                                 {isUserCountry && <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-black uppercase tracking-wider shadow-sm">Negara Anda</span>}
-                                <span className="ml-auto text-[#8b7e66] opacity-50">
-                                  {isExpanded ? <ChevronDownIcon className="w-3.5 h-3.5" /> : <ChevronRight className="w-3.5 h-3.5" />}
+                                <span className="ml-auto text-[#5c3c10] opacity-80 hover:opacity-100 transition-opacity">
+                                  {isExpanded ? <ChevronDownIcon className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                                 </span>
                               </td>
                               
-                              {/* 🔥 PERBAIKAN: Tampilkan 0 jika data hilang, tidak ada peringatan */}
                               <td className="px-4 py-3 font-bold text-[#5c3c10] text-right">
                                 {country.population.toLocaleString('id-ID')}
                               </td>
@@ -455,7 +473,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                 {country.production > 0 ? country.production.toLocaleString('id-ID') : '0'}
                               </td>
 
-                              {/* 🔥 PERBAIKAN: Tampilkan 0 jika konsumsi 0, tidak ada peringatan */}
                               <td className="px-4 py-3 font-bold text-rose-700 text-right">
                                 {country.consumption > 0 ? country.consumption.toLocaleString('id-ID') : '0'}
                               </td>

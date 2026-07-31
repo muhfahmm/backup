@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const botswana_agrikultur = {
-  padi: 82,
-  gandum: 136,
-  jagung: 158,
-  sayur: 76,
-  umbi: 72,
-  kedelai: 68,
-  kelapa_sawit: 0,
-  kopi: 32,
-  teh: 88,
+  padi: 3,
+  gandum: 84,
+  jagung: 14,
+  sayur: 13,
+  umbi: 14,
+  kedelai: 129,
+  kelapa_sawit: 3,
+  kopi: 3,
+  teh: 0,
   kakao: 0,
-  tebu: 82,
-  karet: 0
+  tebu: 6,
+  karet: 329
 };

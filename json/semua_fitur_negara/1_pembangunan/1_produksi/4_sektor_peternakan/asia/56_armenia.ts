@@ -1,7 +1,7 @@
 // @ts-nocheck
 const armenia_peternakan = {
-  ayam_unggas: 102,
-  sapi_perah: 123,
-  sapi_potong: 105,
-  domba_kambing: 48
+  ayam_unggas: 13,
+  sapi_perah: 7,
+  sapi_potong: 3,
+  domba_kambing: 6
 };

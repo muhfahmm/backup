@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const selandia_baru_agrikultur = {
-  padi: 630,
-  gandum: 546,
-  jagung: 882,
-  sayur: 735,
-  umbi: 1008,
-  kedelai: 231,
-  kelapa_sawit: 0,
-  kopi: 525,
-  teh: 819,
-  kakao: 0,
-  tebu: 1449,
+  padi: 32,
+  gandum: 9,
+  jagung: 123,
+  sayur: 203,
+  umbi: 230,
+  kedelai: 114,
+  kelapa_sawit: 95,
+  kopi: 16,
+  teh: 2,
+  kakao: 9,
+  tebu: 4,
   karet: 0
 };

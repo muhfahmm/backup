@@ -1,6 +1,6 @@
 // @ts-nocheck
 const finlandia_perikanan = {
-  udang: 45,
-  mutiara: 153,
-  ikan: 333
+  udang: 21,
+  mutiara: 849,
+  ikan: 35
 };

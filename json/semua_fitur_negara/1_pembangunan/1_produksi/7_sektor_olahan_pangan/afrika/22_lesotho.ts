@@ -1,12 +1,12 @@
 // @ts-nocheck
 const lesotho_olahan_pangan = {
-  air_mineral: 42,
-  gula: 72,
-  roti: 141,
-  pengolahan_daging: 135,
-  mie_instan: 60,
-  minyak_goreng: 123,
-  susu: 132
+  air_mineral: 8,
+  gula: 6,
+  roti: 165,
+  pengolahan_daging: 11,
+  mie_instan: 148,
+  minyak_goreng: 4,
+  susu: 0
   
   
 };

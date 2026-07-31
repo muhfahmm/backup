@@ -1,6 +1,6 @@
 // @ts-nocheck
 const armenia_perikanan = {
-  udang: 48,
-  mutiara: 60,
-  ikan: 72
+  udang: 2,
+  mutiara: 726,
+  ikan: 91
 };

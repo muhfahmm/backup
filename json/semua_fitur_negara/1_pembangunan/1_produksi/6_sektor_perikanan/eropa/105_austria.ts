@@ -1,6 +1,6 @@
 // @ts-nocheck
 const austria_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 191,
+  mutiara: 297,
+  ikan: 266
 };

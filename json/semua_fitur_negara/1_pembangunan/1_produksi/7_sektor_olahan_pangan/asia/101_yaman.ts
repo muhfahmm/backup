@@ -1,12 +1,12 @@
 // @ts-nocheck
 const yaman_olahan_pangan = {
-  air_mineral: 164,
-  gula: 176,
-  roti: 112,
-  pengolahan_daging: 64,
-  mie_instan: 112,
-  minyak_goreng: 96,
-  susu: 116
+  air_mineral: 649,
+  gula: 259,
+  roti: 713,
+  pengolahan_daging: 327,
+  mie_instan: 217,
+  minyak_goreng: 237,
+  susu: 272
   
   
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bolivia_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 119,
+  mutiara: 2,
+  ikan: 89
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kolombia_perikanan = {
-  udang: 432,
-  mutiara: 684,
-  ikan: 288
+  udang: 305,
+  mutiara: 550,
+  ikan: 629
 };

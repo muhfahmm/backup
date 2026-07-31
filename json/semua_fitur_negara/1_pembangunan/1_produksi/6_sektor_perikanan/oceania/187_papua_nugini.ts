@@ -1,6 +1,6 @@
 // @ts-nocheck
 const papua_nugini_perikanan = {
-  udang: 111,
-  mutiara: 36,
-  ikan: 78
+  udang: 24,
+  mutiara: 461,
+  ikan: 268
 };

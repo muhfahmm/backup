@@ -1,6 +1,6 @@
 // @ts-nocheck
 const hong_kong_perikanan = {
-  udang: 28,
-  mutiara: 34,
-  ikan: 31
+  udang: 338,
+  mutiara: 1013,
+  ikan: 267
 };

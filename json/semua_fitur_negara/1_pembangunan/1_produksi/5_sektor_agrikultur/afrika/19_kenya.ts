@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kenya_agrikultur = {
-  padi: 560,
-  gandum: 518,
-  jagung: 539,
-  sayur: 245,
-  umbi: 497,
-  kedelai: 84,
-  kelapa_sawit: 0,
-  kopi: 161,
-  teh: 406,
-  kakao: 0,
-  tebu: 252,
-  karet: 0
+  padi: 960,
+  gandum: 901,
+  jagung: 604,
+  sayur: 519,
+  umbi: 391,
+  kedelai: 517,
+  kelapa_sawit: 156,
+  kopi: 162,
+  teh: 198,
+  kakao: 123,
+  tebu: 195,
+  karet: 404
 };

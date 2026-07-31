@@ -1,6 +1,6 @@
 // @ts-nocheck
 const georgia_perikanan = {
-  udang: 112,
-  mutiara: 112,
-  ikan: 68
+  udang: 6,
+  mutiara: 616,
+  ikan: 174
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const iran_agrikultur = {
-  padi: 966,
-  gandum: 2254,
-  jagung: 1610,
-  sayur: 782,
-  umbi: 2346,
-  kedelai: 1334,
-  kelapa_sawit: 0,
-  kopi: 690,
-  teh: 2484,
-  kakao: 0,
-  tebu: 1334,
-  karet: 0
+  padi: 1761,
+  gandum: 1095,
+  jagung: 642,
+  sayur: 1024,
+  umbi: 687,
+  kedelai: 978,
+  kelapa_sawit: 194,
+  kopi: 297,
+  teh: 847,
+  kakao: 778,
+  tebu: 418,
+  karet: 334
 };

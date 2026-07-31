@@ -1,6 +1,6 @@
 // @ts-nocheck
 const marshall_perikanan = {
-  udang: 104,
-  mutiara: 100,
-  ikan: 148
+  udang: 313,
+  mutiara: 461,
+  ikan: 83
 };

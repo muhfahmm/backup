@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kamerun_agrikultur = {
-  padi: 328,
-  gandum: 160,
-  jagung: 424,
-  sayur: 344,
-  umbi: 240,
-  kedelai: 368,
-  kelapa_sawit: 632,
-  kopi: 616,
-  teh: 416,
-  kakao: 576,
-  tebu: 568,
-  karet: 328
+  padi: 522,
+  gandum: 358,
+  jagung: 170,
+  sayur: 240,
+  umbi: 218,
+  kedelai: 589,
+  kelapa_sawit: 190,
+  kopi: 202,
+  teh: 4,
+  kakao: 415,
+  tebu: 255,
+  karet: 12
 };

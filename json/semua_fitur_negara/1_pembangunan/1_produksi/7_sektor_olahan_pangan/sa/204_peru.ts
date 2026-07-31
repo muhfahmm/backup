@@ -1,12 +1,12 @@
 // @ts-nocheck
 const peru_olahan_pangan = {
-  air_mineral: 105,
-  gula: 308,
-  roti: 336,
-  pengolahan_daging: 231,
-  mie_instan: 161,
-  minyak_goreng: 105,
-  susu: 301
+  air_mineral: 437,
+  gula: 547,
+  roti: 387,
+  pengolahan_daging: 141,
+  mie_instan: 326,
+  minyak_goreng: 465,
+  susu: 337
   
   
 };

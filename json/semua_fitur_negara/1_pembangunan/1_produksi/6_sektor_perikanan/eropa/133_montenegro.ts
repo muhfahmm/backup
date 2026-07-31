@@ -1,6 +1,6 @@
 // @ts-nocheck
 const montenegro_perikanan = {
-  udang: 34,
-  mutiara: 6,
-  ikan: 24
+  udang: 268,
+  mutiara: 870,
+  ikan: 0
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const antigua_dan_barbuda_peternakan = {
-  ayam_unggas: 32,
-  sapi_perah: 42,
-  sapi_potong: 62,
-  domba_kambing: 64
+  ayam_unggas: 127,
+  sapi_perah: 102,
+  sapi_potong: 211,
+  domba_kambing: 561
 };

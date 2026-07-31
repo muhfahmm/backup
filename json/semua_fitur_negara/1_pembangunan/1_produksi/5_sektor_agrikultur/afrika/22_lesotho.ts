@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const lesotho_agrikultur = {
-  padi: 171,
-  gandum: 129,
-  jagung: 201,
-  sayur: 30,
-  umbi: 66,
-  kedelai: 177,
-  kelapa_sawit: 0,
-  kopi: 192,
-  teh: 210,
-  kakao: 0,
-  tebu: 207,
-  karet: 0
+  padi: 142,
+  gandum: 20,
+  jagung: 0,
+  sayur: 112,
+  umbi: 2,
+  kedelai: 15,
+  kelapa_sawit: 52,
+  kopi: 0,
+  teh: 292,
+  kakao: 433,
+  tebu: 68,
+  karet: 146
 };

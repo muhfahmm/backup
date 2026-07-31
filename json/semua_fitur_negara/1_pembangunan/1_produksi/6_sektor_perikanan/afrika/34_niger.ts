@@ -1,6 +1,6 @@
 // @ts-nocheck
 const niger_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 441,
+  mutiara: 1074,
+  ikan: 224
 };

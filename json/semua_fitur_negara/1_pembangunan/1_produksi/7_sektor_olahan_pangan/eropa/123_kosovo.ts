@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kosovo_olahan_pangan = {
-  air_mineral: 57,
-  gula: 111,
-  roti: 81,
-  pengolahan_daging: 84,
-  mie_instan: 42,
-  minyak_goreng: 84,
-  susu: 60
+  air_mineral: 114,
+  gula: 136,
+  roti: 227,
+  pengolahan_daging: 412,
+  mie_instan: 11,
+  minyak_goreng: 5,
+  susu: 8
   
   
 };

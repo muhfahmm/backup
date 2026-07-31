@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const lithuania_agrikultur = {
-  padi: 205,
-  gandum: 175,
-  jagung: 110,
-  sayur: 200,
-  umbi: 210,
-  kedelai: 325,
-  kelapa_sawit: 0,
-  kopi: 155,
-  teh: 320,
-  kakao: 0,
-  tebu: 365,
-  karet: 0
+  padi: 243,
+  gandum: 19,
+  jagung: 16,
+  sayur: 139,
+  umbi: 201,
+  kedelai: 270,
+  kelapa_sawit: 1,
+  kopi: 2,
+  teh: 110,
+  kakao: 1,
+  tebu: 8,
+  karet: 280
 };

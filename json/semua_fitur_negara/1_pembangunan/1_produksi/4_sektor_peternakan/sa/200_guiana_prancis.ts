@@ -1,7 +1,7 @@
 // @ts-nocheck
 const guiana_prancis_peternakan = {
-  ayam_unggas: 32,
-  sapi_perah: 11,
-  sapi_potong: 33,
-  domba_kambing: 50
+  ayam_unggas: 329,
+  sapi_perah: 446,
+  sapi_potong: 187,
+  domba_kambing: 587
 };

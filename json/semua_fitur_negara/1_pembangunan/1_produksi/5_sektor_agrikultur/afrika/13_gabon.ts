@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const gabon_agrikultur = {
-  padi: 67,
-  gandum: 35,
-  jagung: 33,
-  sayur: 32,
-  umbi: 66,
-  kedelai: 58,
-  kelapa_sawit: 0,
-  kopi: 54,
-  teh: 36,
-  kakao: 0,
-  tebu: 31,
-  karet: 0
+  padi: 24,
+  gandum: 10,
+  jagung: 54,
+  sayur: 70,
+  umbi: 5,
+  kedelai: 5,
+  kelapa_sawit: 92,
+  kopi: 409,
+  teh: 358,
+  kakao: 553,
+  tebu: 4,
+  karet: 327
 };

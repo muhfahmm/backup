@@ -1,7 +1,7 @@
 // @ts-nocheck
 const namibia_peternakan = {
-  ayam_unggas: 14,
-  sapi_perah: 32,
-  sapi_potong: 24,
-  domba_kambing: 24
+  ayam_unggas: 228,
+  sapi_perah: 513,
+  sapi_potong: 518,
+  domba_kambing: 156
 };

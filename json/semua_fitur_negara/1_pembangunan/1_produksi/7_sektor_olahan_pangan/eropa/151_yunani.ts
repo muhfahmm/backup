@@ -1,12 +1,12 @@
 // @ts-nocheck
 const yunani_olahan_pangan = {
-  air_mineral: 150,
-  gula: 500,
-  roti: 360,
-  pengolahan_daging: 110,
-  mie_instan: 330,
-  minyak_goreng: 420,
-  susu: 220
+  air_mineral: 140,
+  gula: 13,
+  roti: 46,
+  pengolahan_daging: 166,
+  mie_instan: 218,
+  minyak_goreng: 77,
+  susu: 7
   
   
 };

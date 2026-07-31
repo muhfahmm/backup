@@ -1,7 +1,7 @@
 // @ts-nocheck
 const senegal_peternakan = {
-  ayam_unggas: 32,
-  sapi_perah: 18,
-  sapi_potong: 36,
-  domba_kambing: 27
+  ayam_unggas: 292,
+  sapi_perah: 201,
+  sapi_potong: 150,
+  domba_kambing: 704
 };

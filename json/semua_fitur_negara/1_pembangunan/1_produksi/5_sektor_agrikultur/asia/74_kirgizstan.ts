@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kirgizstan_agrikultur = {
-  padi: 219,
-  gandum: 63,
-  jagung: 114,
-  sayur: 84,
-  umbi: 180,
-  kedelai: 108,
-  kelapa_sawit: 0,
-  kopi: 126,
-  teh: 192,
-  kakao: 0,
-  tebu: 174,
-  karet: 0
+  padi: 147,
+  gandum: 276,
+  jagung: 31,
+  sayur: 2,
+  umbi: 16,
+  kedelai: 23,
+  kelapa_sawit: 10,
+  kopi: 0,
+  teh: 16,
+  kakao: 263,
+  tebu: 22,
+  karet: 116
 };

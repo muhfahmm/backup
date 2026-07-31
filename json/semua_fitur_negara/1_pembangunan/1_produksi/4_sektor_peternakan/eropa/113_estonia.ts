@@ -1,7 +1,7 @@
 // @ts-nocheck
 const estonia_peternakan = {
-  ayam_unggas: 95,
-  sapi_perah: 65,
-  sapi_potong: 90,
-  domba_kambing: 55
+  ayam_unggas: 94,
+  sapi_perah: 2,
+  sapi_potong: 524,
+  domba_kambing: 358
 };

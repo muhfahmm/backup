@@ -1,7 +1,7 @@
 // @ts-nocheck
 const ghana_peternakan = {
-  ayam_unggas: 245,
-  sapi_perah: 329,
-  sapi_potong: 238,
-  domba_kambing: 133
+  ayam_unggas: 179,
+  sapi_perah: 273,
+  sapi_potong: 808,
+  domba_kambing: 76
 };

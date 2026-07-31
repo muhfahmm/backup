@@ -1,12 +1,12 @@
 // @ts-nocheck
 const saint_lucia_olahan_pangan = {
-  air_mineral: 39,
-  gula: 42,
-  roti: 13,
-  pengolahan_daging: 41,
-  mie_instan: 36,
-  minyak_goreng: 26,
-  susu: 20
+  air_mineral: 80,
+  gula: 217,
+  roti: 134,
+  pengolahan_daging: 320,
+  mie_instan: 162,
+  minyak_goreng: 233,
+  susu: 207
   
   
 };

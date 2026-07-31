@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_zimbabwe_perikanan = {
-  udang: 64,
-  mutiara: 32,
-  ikan: 24
+  udang: 354,
+  mutiara: 1015,
+  ikan: 258
 };

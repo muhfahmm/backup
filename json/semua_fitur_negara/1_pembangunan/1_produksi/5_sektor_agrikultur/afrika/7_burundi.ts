@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const burundi_agrikultur = {
-  padi: 120,
-  gandum: 134,
-  jagung: 146,
-  sayur: 76,
-  umbi: 28,
-  kedelai: 132,
-  kelapa_sawit: 0,
-  kopi: 80,
-  teh: 142,
-  kakao: 0,
-  tebu: 28,
-  karet: 0
+  padi: 372,
+  gandum: 89,
+  jagung: 202,
+  sayur: 63,
+  umbi: 212,
+  kedelai: 57,
+  kelapa_sawit: 134,
+  kopi: 285,
+  teh: 37,
+  kakao: 151,
+  tebu: 157,
+  karet: 9
 };

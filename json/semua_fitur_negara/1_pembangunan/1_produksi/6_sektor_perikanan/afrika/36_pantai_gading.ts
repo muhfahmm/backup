@@ -1,6 +1,6 @@
 // @ts-nocheck
 const pantai_gading_perikanan = {
-  udang: 95,
-  mutiara: 45,
-  ikan: 185
+  udang: 568,
+  mutiara: 799,
+  ikan: 259
 };

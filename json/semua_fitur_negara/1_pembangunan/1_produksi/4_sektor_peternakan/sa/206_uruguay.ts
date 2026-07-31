@@ -1,7 +1,7 @@
 // @ts-nocheck
 const uruguay_peternakan = {
-  ayam_unggas: 96,
-  sapi_perah: 90,
-  sapi_potong: 32,
-  domba_kambing: 54
+  ayam_unggas: 198,
+  sapi_perah: 514,
+  sapi_potong: 27,
+  domba_kambing: 234
 };
