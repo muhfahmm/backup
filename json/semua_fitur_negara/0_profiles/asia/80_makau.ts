@@ -6,9 +6,9 @@ export const makau_profile = {
   "lon": 113.55,
   "lat": 22.16666666,
   "flag": "🇲🇴",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 700000, // Diperbaiki: 700 Ribu (realistis)
   "anggaran": 97,
-  "pendapatan_nasional": "278",
+  "pendapatan_nasional": 278, // Diperbaiki: Hapus tanda kutip
   "religion": "Buddha",
   "ideology": "Kapitalisme"
 }
@@ -24,4 +24,4 @@ const makau_geopolitik = {
       "kekuatan_keras": 2,
       "prestise_diplomatik": 57
     }
-  }
+}

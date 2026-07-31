@@ -110,38 +110,48 @@ export default function InfoBangunan({
                     {isProductionZero && ' (bahan bakar defisit)'}
                   </span>
                 </div>
-                <div className="flex justify-between items-center text-[#8b7e66]">
+                <div className="flex justify-between items-center pl-4 text-[#8b7e66]">
                   <span>Per Unit:</span>
                   <span>{(bMeta?.produksi || 0).toLocaleString('id-ID')} MW</span>
                 </div>
                 {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
                   <>
                     <div className="flex justify-between items-center">
-                      <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
-                      <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
-                    </div>
-                    <div className="flex justify-between items-center">
                       <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
                       <span className="text-rose-700 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                    </div>
+                    <div className="flex justify-between items-center pl-4">
+                      <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
+                      <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
                     </div>
                   </>
                 )}
               </>
             ) : (
               <>
+                {/* 🔥 PERUBAHAN UTAMA: Bagian ini */}
                 <div className="flex justify-between items-center">
-                  <span className="text-[#8b7e66]">Produksi ({label}) Per Hari:</span>
-                  <span className="text-emerald-700 font-black text-sm">{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
+                  <span className="text-[#8b7e66]">Total Produksi ({label}) Per Hari:</span>
+                  <span className="text-emerald-700 font-black text-sm">
+                    {((bMeta?.produksi || 0) * perCount).toLocaleString('id-ID')}
+                  </span>
                 </div>
+                {/* 🔥 PERUBAHAN LABEL: "Per Unit:" menjadi "Total Produksi Per Unit:" */}
+                <div className="flex justify-between items-center pl-4 text-[#8b7e66]">
+                  <span>Total Produksi Per Unit:</span>
+                  <span>{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
+                </div>
+
                 {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
                   <>
-                    <div className="flex justify-between items-center">
-                      <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
-                      <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
-                    </div>
+                    {/* 🔥 BAGIAN INI SUDAH BENAR SESUAI MINTA ANDA (Total rata kiri, Satuan menjorok) */}
                     <div className="flex justify-between items-center">
                       <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
                       <span className="text-rose-700 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
+                    </div>
+                    <div className="flex justify-between items-center pl-4">
+                      <span className="text-[#8b7e66]">Listrik Dikonsumsi (Satuan):</span>
+                      <span className="text-rose-700 font-bold">{bMeta.konsumsi_listrik.toLocaleString('id-ID')} MW</span>
                     </div>
                   </>
                 )}
@@ -217,15 +227,15 @@ export default function InfoBangunan({
                         <div className="font-bold text-rose-800 text-[11px] uppercase tracking-tight">
                           {req.label}
                         </div>
-                        <div className="flex justify-between items-center text-xs pl-2">
+                        <div className="flex justify-between items-center text-xs">
                           <span className="text-rose-900">Produksi:</span>
                           <span className="font-black text-emerald-800">+{totalFuelProd.toLocaleString('id-ID')}</span>
                         </div>
-                        <div className="flex justify-between items-center text-xs pl-2">
+                        <div className="flex justify-between items-center text-xs">
                           <span className="text-rose-900">Konsumsi:</span>
                           <span className="font-black text-rose-800">-{totalFuelCons.toLocaleString('id-ID')}</span>
                         </div>
-                        <div className="flex justify-between items-center text-xs pl-2 pt-1 border-t border-rose-200/50 mt-0.5">
+                        <div className="flex justify-between items-center text-xs pt-1 border-t border-rose-200/50 mt-0.5">
                           <span className="text-rose-900 font-black uppercase">Saldo:</span>
                           <span className={`font-black ${saldo < 0 ? 'text-rose-800' : 'text-emerald-800'}`}>
                             {saldo >= 0 ? `+${saldo.toLocaleString('id-ID')}` : saldo.toLocaleString('id-ID')}

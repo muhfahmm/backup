@@ -6,12 +6,13 @@ export const korea_selatan_profile = {
   "lon": 126.97,
   "lat": 37.56,
   "flag": "🇰🇷",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 51000000, // Perbaikan: Hapus tanda kutip & ubah "10M" menjadi 51.000.000
   "anggaran": 17112,
-  "pendapatan_nasional": "48893",
+  "pendapatan_nasional": 48893, // Perbaikan: Hapus tanda kutip
   "religion": "Ateisme",
   "ideology": "Kapitalisme"
 }
+
 const korea_selatan_geopolitik = {
     "un_vote": 185,
     "reputasi_diplomatik": "Netral",
@@ -24,4 +25,4 @@ const korea_selatan_geopolitik = {
       "kekuatan_keras": 29,
       "prestise_diplomatik": 57
     }
-  }
+}

@@ -13,7 +13,7 @@ import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiMo
 import StatistikPopulasiModal from "./2_populasi/2_statistik/StatistikPopulasiModal";
 
 // 3. Produksi & Konsumsi
-import KelistrikanModal from "./3_produksi_konsumsi/KelistrikanModal";
+import KelistrikanModal from "./3_produksi_konsumsi/1_grid_nasional/KelistrikanModal";
 import PerminyakanModal from "./3_produksi_konsumsi/PerminyakanModal";
 import UraniumModal from "./3_produksi_konsumsi/UraniumModal";
 import IndustriPanganModal from "./3_produksi_konsumsi/2_industri_pangan/IndustriPanganModal";

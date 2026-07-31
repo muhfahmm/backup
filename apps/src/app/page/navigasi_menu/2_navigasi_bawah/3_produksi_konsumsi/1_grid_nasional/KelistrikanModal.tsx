@@ -130,19 +130,17 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   };
 
   // ==========================================================================
-  // 🔥 LOGIKA DATA GLOBAL (BERSIH, TANPA PERINGATAN)
+  // 🔥 LOGIKA DATA GLOBAL (SAMA SEPERTI KODE KELISTRIKAN ANDA)
   // ==========================================================================
   
-  // 🔥 Helper yang bersih: Cari populasi, jika tidak ada return 0.
+  // Helper untuk mencari Populasi (mirip dengan KelistrikanModal).
+  // Jika data tidak ditemukan, return 0. TIDAK ADA PERINGATAN VISUAL DI UI.
   const extractPopulation = (country: any) => {
-    const found = 
+    return Number(
       country?.jumlah_penduduk ?? 
       country?.population ?? 
-      country?.pop ?? 
-      country?.penduduk ?? 
-      country?.total_population ?? 
-      0;
-    return Number(found) || 0;
+      0
+    );
   };
 
   const calculateCountryFoodAggregate = (country: any) => {
@@ -365,7 +363,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               </div>
             </>
           ) : (
-            // ------- TAB 2: DATA GLOBAL (207 Negara) - BERSIH & PROFESIONAL -------
+            // ------- TAB 2: DATA GLOBAL (207 Negara) - RAPI & BERSIH SEPERTI KELISTRIKAN -------
             <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm w-full">
               <div className="flex items-center gap-3 mb-4">
                 <div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]">
@@ -373,7 +371,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 </div>
                 <div>
                   <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Neraca Pangan {allCountries.length || 207} Negara</h3>
-                  <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Klik nama negara untuk melihat rincian 26 komoditas.</p>
+                  <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Data total produksi dan konsumsi pangan global.</p>
                 </div>
               </div>
 
@@ -392,7 +390,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 )}
               </div>
               
-              {/* TABEL DATA DENGAN EXPANDABLE ROW */}
+              {/* TABEL DATA */}
               <div className="border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm">
                 <table className="w-full text-xs">
                   <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30">
@@ -418,7 +416,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                   <tbody className="divide-y divide-[#C4B49C]/20">
                     {allCountries.length === 0 ? (
                       <tr>
-                        <td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data {globalFoodData.length || 207} negara...</td>
+                        <td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data 207 negara...</td>
                       </tr>
                     ) : filteredData.length > 0 ? (
                       filteredData.map((country, rowIndex) => {
@@ -446,7 +444,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                 </span>
                               </td>
                               
-                              {/* 🔥 PERBAIKAN: Tampilkan 0 jika data hilang, tidak ada peringatan */}
+                              {/* 🔥 PERBAIKAN: Tampilkan 0 jika data tidak ada (Persis Kelistrikan) */}
                               <td className="px-4 py-3 font-bold text-[#5c3c10] text-right">
                                 {country.population.toLocaleString('id-ID')}
                               </td>
@@ -455,7 +453,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                 {country.production > 0 ? country.production.toLocaleString('id-ID') : '0'}
                               </td>
 
-                              {/* 🔥 PERBAIKAN: Tampilkan 0 jika konsumsi 0, tidak ada peringatan */}
                               <td className="px-4 py-3 font-bold text-rose-700 text-right">
                                 {country.consumption > 0 ? country.consumption.toLocaleString('id-ID') : '0'}
                               </td>
