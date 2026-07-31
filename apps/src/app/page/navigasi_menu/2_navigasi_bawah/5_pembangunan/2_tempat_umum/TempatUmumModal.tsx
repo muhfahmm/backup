@@ -16,6 +16,7 @@ import * as komersialRequirements from "./requirements_logic/6_komersial/require
 import InfoBangunanModal from "./1_modals_menu/info_bangunan_modals";
 // 🔥 FIX 2: Hapus baris duplikat import konfirmasi_pembangunan_modals
 import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan";
+import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
 
 interface ModalProps {
   isOpen: boolean;
@@ -83,13 +84,12 @@ export default function TempatUmumModal({
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
 
-  const safeDateString = useMemo(() => {
-    if (typeof currentDate === 'string') return currentDate;
-    if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
-      return currentDate.toISOString().split('T')[0];
-    }
-    return new Date().toISOString().split('T')[0];
-  }, [currentDate]);
+  const { safeDateString } = useMaterialProduction(
+    countryDetail,
+    setCountryDetail,
+    metadata,
+    currentDate
+  );
 
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
@@ -110,9 +110,7 @@ export default function TempatUmumModal({
   };
 
   const getMaterialStock = (resourceKey: string): number => {
-    const normalizedKey = normalizeResourceKey(resourceKey);
-    const inventoryKey = `inventory_${normalizedKey}`;
-    return Number(countryDetail?.[inventoryKey]) || 0;
+    return getMaterialStockFromBuildLogic(countryDetail, resourceKey);
   };
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
@@ -167,15 +165,10 @@ export default function TempatUmumModal({
       return;
     }
 
-    const updatedDetail = { ...countryDetail };
-    updatedDetail.anggaran = anggaran - cost;
-
-    buildingReq?.requirements?.forEach((material) => {
-      const invKey = `inventory_${normalizeResourceKey(material.resourceKey)}`;
-      const currentInv = Number(updatedDetail[invKey]) || 0;
-      const amount = material.amount || 0;
-      updatedDetail[invKey] = Math.max(0, currentInv - amount);
-    });
+    const updatedDetail = deductBuildingMaterials(
+      { ...countryDetail, anggaran: anggaran - cost },
+      buildingReq?.requirements
+    );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;
 

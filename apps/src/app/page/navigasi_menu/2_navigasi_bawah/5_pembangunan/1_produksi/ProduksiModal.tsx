@@ -24,6 +24,7 @@ import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_ola
 
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
 import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan";
+import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
 
 interface MaterialRequirement {
   resourceKey: string;
@@ -118,9 +119,7 @@ export default function ProduksiModal({
   const selectedBuildingProduction = getSelectedBuildingProduction();
 
   const getMaterialStock = (resourceKey: string): number => {
-    const normalizedKey = normalizeResourceKey(resourceKey);
-    const inventoryKey = `inventory_${normalizedKey}`;
-    return Number(countryDetail?.[inventoryKey]) || 0;
+    return getMaterialStockFromBuildLogic(countryDetail, resourceKey);
   };
 
   const ELECTRICITY_FUEL_BUILDINGS = [
@@ -208,15 +207,24 @@ export default function ProduksiModal({
     return undefined;
   };
 
-  // 🔥 KONVERSI TANGGAL JADI STRING AMAN DI SINI
-  const safeDateString = useMemo(() => {
-    if (typeof currentDate === 'string') return currentDate;
-    if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
-      return formatDate(currentDate);
-    }
-    return formatDate(new Date());
-  }, [currentDate]);
+  const { safeDateString } = useMaterialProduction(
+    countryDetail,
+    setCountryDetail,
+    metadata,
+    currentDate
+  );
 
+  // 🟢 PERBAIKAN: Daftar bangunan listrik harus didefinisikan SEBELUM calculateProductionAmount
+  const ELECTRICITY_BUILDINGS_LIST = [
+    'pembangkit_listrik_tenaga_nuklir',
+    'pembangkit_listrik_tenaga_air',
+    'pembangkit_listrik_tenaga_surya',
+    'pembangkit_listrik_tenaga_uap',
+    'pembangkit_listrik_tenaga_gas',
+    'pembangkit_listrik_tenaga_angin',
+  ];
+
+  // 🟢 PERBAIKAN: Mengembalikan definisi calculateProductionAmount
   const calculateProductionAmount = useMemo(() => {
     return (resourceKey: string): number => {
       if (ELECTRICITY_BUILDINGS_LIST.includes(resourceKey)) {
@@ -229,7 +237,7 @@ export default function ProduksiModal({
       if (!bMeta || !bMeta.produksi) return 0;
       if (resourceKey === 'emas') return bMeta.produksi * buildingCount;
       if (!safeDateString) return 0;
-      
+
       const buildDateKey = `build_date_${resourceKey}`;
       const buildDate = countryDetail?.[buildDateKey];
       const finalBuildDate = buildDate || safeDateString;
@@ -255,46 +263,6 @@ export default function ProduksiModal({
     if (targetHighlightedKey) setHighlightedCardKey(targetHighlightedKey);
     if (targetTab || targetHighlightedKey) onProductionDeepLinkHandled?.();
   }, [isOpen, targetTab, targetHighlightedKey, onProductionDeepLinkHandled]);
-
-  // --- Logika Produksi Harian (Inventaris) ---
-  useEffect(() => {
-    if (!safeDateString || !metadata || Object.keys(metadata).length === 0) return;
-    const currentDateStr = safeDateString;
-    let hasUpdates = false;
-    let updates: Record<string, any> = {};
-    const allKeys = Object.keys(metadata);
-
-    for (const resourceKey of allKeys) {
-      const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
-      if (buildingCount === 0) continue;
-      const bMeta = findMeta(resourceKey);
-      if (!bMeta || !bMeta.produksi) continue;
-
-      const buildDateKey = `build_date_${resourceKey}`;
-      const buildDate = countryDetail?.[buildDateKey] || currentDateStr;
-      const lastUpdateKey = `last_update_date_${resourceKey}`;
-      const lastUpdateDate = countryDetail?.[lastUpdateKey] || buildDate;
-      const inventoryKey = `inventory_${resourceKey}`;
-
-      if (lastUpdateDate === currentDateStr) continue;
-
-      const daysPassed = getDaysElapsed(lastUpdateDate, currentDateStr);
-      if (daysPassed <= 0) continue;
-
-      const dailyProduction = Number(bMeta.produksi) * buildingCount;
-      const productionAdded = dailyProduction * daysPassed;
-
-      const currentStock = Number(countryDetail?.[inventoryKey]) || 0;
-      updates[inventoryKey] = currentStock + productionAdded;
-      updates[lastUpdateKey] = currentDateStr;
-      hasUpdates = true;
-    }
-
-    if (hasUpdates) {
-      setCountryDetail((prev: any) => ({ ...prev, ...updates }));
-      lastCalculatedDateRef.current = currentDateStr;
-    }
-  }, [safeDateString, metadata]);
 
   // --- CEK KONSTRUKSI YANG SELESAI (TANPA TOAST) ---
   useEffect(() => {
@@ -329,11 +297,6 @@ export default function ProduksiModal({
       completed.forEach((c) => {
         const key = c.buildingKey;
         newDetail[key] = (Number(newDetail[key]) || 0) + 1;
-        // JANGAN reset build_date agar output tidak 0!
-        // const buildDateKey = `build_date_${key}`;
-        // (newDetail as any)[buildDateKey] = c.endDate; // DIHAPUS!
-        
-        // Update last_update_date agar inventaris tidak double counting
         const lastUpdateKey = `last_update_date_${key}`;
         (newDetail as any)[lastUpdateKey] = c.endDate;
       });
@@ -346,7 +309,6 @@ export default function ProduksiModal({
 
     if (updated) {
       setCountryDetail(newDetail);
-      // TOAST NOTIFIKASI SELESAI DIHAPUS TOTAL!
     }
   }, [safeDateString, isOpen, countryDetail, setCountryDetail, metadata]);
 
@@ -389,16 +351,10 @@ export default function ProduksiModal({
       return;
     }
 
-    const updatedDetail = { ...countryDetail };
-
-    updatedDetail.anggaran = anggaran - cost;
-
-    selectedBuildingRequirements?.requirements?.forEach((material) => {
-      const invKey = `inventory_${material.resourceKey}`;
-      const currentInv = Number(updatedDetail[invKey]) || 0;
-      const amount = material.amount || 0;
-      updatedDetail[invKey] = Math.max(0, currentInv - amount);
-    });
+    const updatedDetail = deductBuildingMaterials(
+      { ...countryDetail, anggaran: anggaran - cost },
+      selectedBuildingRequirements?.requirements
+    );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;
 
@@ -461,15 +417,6 @@ export default function ProduksiModal({
 
   const activeSection = TABS.find((tab) => tab.id === activeTab) || TABS[0];
   const ComponentToRender = activeSection.component;
-
-  const ELECTRICITY_BUILDINGS_LIST = [
-    'pembangkit_listrik_tenaga_nuklir',
-    'pembangkit_listrik_tenaga_air',
-    'pembangkit_listrik_tenaga_surya',
-    'pembangkit_listrik_tenaga_uap',
-    'pembangkit_listrik_tenaga_gas',
-    'pembangkit_listrik_tenaga_angin',
-  ];
 
   const totalProductionMW = ELECTRICITY_BUILDINGS_LIST.reduce((sum, bKey) => {
     return sum + calculateProductionAmount(bKey);

@@ -3,7 +3,13 @@ import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Home, TrendingUp, TrendingDown, Hammer, AlertCircle, Info } from "lucide-react";
 import InfoBangunanModal from "./1_modals_menu/info_bangunan_modals";
-import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan"; // <-- import komponen konfirmasi
+import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan";
+import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
+
+// 🟢 PERBAIKAN NAMA IMPOR AGAR KONSISTEN DENGAN NAMA FOLDER
+import * as perumahanSubsidiRequirements from "./requirements_logic/1_perumahan_subsidi/requirements";
+import * as apartemenRequirements from "./requirements_logic/2_apartement/requirements";
+import * as mansionRequirements from "./requirements_logic/3_mansion/requirements";
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,43 +17,32 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
+  currentDate?: string | Date;
 }
 
 interface MaterialRequirement {
   resourceKey: string;
   label: string;
   group: string;
+  amount?: number;
 }
 
 interface BuildingRequirements {
   requirements: MaterialRequirement[];
 }
 
-const DUMMY_HUNIAN_REQUIREMENTS: Record<string, BuildingRequirements> = {
-  rumah_subsidi: {
-    requirements: [
-      { resourceKey: 'semen_beton', label: 'Semen Beton', group: 'Manufaktur' },
-      { resourceKey: 'kayu', label: 'Kayu', group: 'Manufaktur' },
-      { resourceKey: 'bijih_besi', label: 'Besi', group: 'Mineral' },
-    ]
-  },
-  apartemen: {
-    requirements: [
-      { resourceKey: 'semen_beton', label: 'Semen Beton', group: 'Manufaktur' },
-      { resourceKey: 'kayu', label: 'Kayu', group: 'Manufaktur' },
-    ]
-  },
-  mansion: {
-    requirements: [
-      { resourceKey: 'semen_beton', label: 'Semen Beton', group: 'Manufaktur' },
-      { resourceKey: 'kayu', label: 'Kayu', group: 'Manufaktur' },
-    ]
-  }
+// 🟢 PERBAIKAN MAPPING MODULES
+const REQUIREMENTS_MODULES: Record<string, any> = {
+  rumah_subsidi: perumahanSubsidiRequirements,
+  perumahan_subsidi: perumahanSubsidiRequirements,
+  apartemen: apartemenRequirements,
+  mansion: mansionRequirements,
 };
 
 const CARD_TAB_MAP: Record<string, string> = {
   kayu: 'manufaktur',
   semen_beton: 'manufaktur',
+  batu_bata: 'manufaktur',
   bijih_besi: 'mineral',
   gas_alam: 'mineral',
   emas: 'mineral',
@@ -63,7 +58,6 @@ const CARD_TAB_MAP: Record<string, string> = {
 };
 
 const RESOURCE_KEY_ALIASES: Record<string, string> = {};
-
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
 
 export default function HunianPermukimanModal({
@@ -72,6 +66,7 @@ export default function HunianPermukimanModal({
   countryDetail,
   setCountryDetail,
   onGotoProduction,
+  currentDate,
 }: ModalProps) {
   const [activeTab, setActiveTab] = useState("rumah_subsidi");
   const [metadata, setMetadata] = useState<Record<string, any>>({});
@@ -81,6 +76,13 @@ export default function HunianPermukimanModal({
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
   const [hoveredBuildingKey, setHoveredBuildingKey] = useState<string | null>(null);
+
+  const { safeDateString } = useMaterialProduction(
+    countryDetail,
+    setCountryDetail,
+    metadata,
+    currentDate
+  );
 
   const findMeta = (key: string) => {
     if (!metadata) return undefined;
@@ -103,12 +105,13 @@ export default function HunianPermukimanModal({
 
   const getSelectedBuildingRequirements = (): BuildingRequirements | undefined => {
     if (!selectedBuilding) return undefined;
-    return DUMMY_HUNIAN_REQUIREMENTS[selectedBuilding.key];
+    // 🟢 PERBAIKAN: Ambil data berdasarkan selectedBuilding.key dengan fallback yang lebih rapi
+    const module = REQUIREMENTS_MODULES[activeTab];
+    return module?.findRequirements?.(selectedBuilding.key) || module?.findRequirements?.(activeTab);
   };
 
   const getMaterialStock = (resourceKey: string): number => {
-    const normalizedKey = normalizeResourceKey(resourceKey);
-    return Number(countryDetail?.[normalizedKey]) || 0;
+    return getMaterialStockFromBuildLogic(countryDetail, resourceKey);
   };
 
   const handleMaterialClick = (resourceKey: string, label: string) => {
@@ -157,12 +160,17 @@ export default function HunianPermukimanModal({
       return;
     }
 
-    setCountryDetail({
-      ...countryDetail,
-      anggaran: anggaran - cost,
-      [key]: (Number(countryDetail?.[key]) || 0) + 1,
-      kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.5)
-    });
+    const updatedDetail = deductBuildingMaterials(
+      {
+        ...countryDetail,
+        anggaran: anggaran - cost,
+        [key]: (Number(countryDetail?.[key]) || 0) + 1,
+        kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.5)
+      },
+      buildingReq?.requirements
+    );
+
+    setCountryDetail(updatedDetail);
     
     setShowConfirm(false);
     setSelectedBuilding(null);
@@ -459,7 +467,7 @@ export default function HunianPermukimanModal({
             missingMaterials={missingMaterials}
             onConfirm={confirmBuild}
             onMaterialClick={handleMaterialClick}
-            loadingMetadata={false} // tidak ada loading metadata spesifik untuk hunian
+            loadingMetadata={false}
           />
         );
       })()}

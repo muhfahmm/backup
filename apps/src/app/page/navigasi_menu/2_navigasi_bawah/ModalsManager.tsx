@@ -278,6 +278,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
           onGotoProduction={(tab, key) => {
             setActiveMenu("Menu:Produksi");
             setProductionDeepLink?.({ tab, key });
@@ -291,6 +292,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
           onGotoProduction={(tab, key) => {
             setActiveMenu("Menu:Produksi");
             setProductionDeepLink?.({ tab, key });

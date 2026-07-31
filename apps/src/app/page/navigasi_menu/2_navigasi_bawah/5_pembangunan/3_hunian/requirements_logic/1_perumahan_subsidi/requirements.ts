@@ -14,11 +14,11 @@ export const CATEGORY = 'perumahan_subsidi';
 
 export const REQUIREMENTS: BuildingRequirements[] = [
   {
-    buildingKey: 'perumahan_subsidi',
+    // 🔥 PERBAIKAN: Ubah 'perumahan_subsidi' menjadi 'rumah_subsidi' agar cocok dengan state React Anda
+    buildingKey: 'rumah_subsidi', 
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 200 },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 100 },
-      { group: 'pembangunan', label: 'batu bata', resourceKey: 'batu_bata', amount: 50 },
     ],
   },
 ];

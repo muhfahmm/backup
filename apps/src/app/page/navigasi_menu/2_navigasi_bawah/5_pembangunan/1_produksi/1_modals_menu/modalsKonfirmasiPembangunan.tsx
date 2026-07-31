@@ -82,6 +82,18 @@ export default function KonfirmasiPembangunanModal({
               </span>
             </div>
 
+            {hasMissingMaterials && (
+              <div className="pt-2 border-t border-[#C4B49C]/30">
+                <p className="font-bold text-rose-800 mb-2">Material Kurang:</p>
+                {missingMaterials.map((mat, idx) => (
+                  <div key={idx} className="flex justify-between items-center">
+                    <span className="text-[#2e261a]">{mat.label} (x{mat.amount ?? 0})</span>
+                    <span className="text-rose-600 font-black">0</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
             {waktuPembangunan !== undefined && (
               <div className="flex justify-between">
                 <span>Estimasi Waktu Pembangunan:</span>

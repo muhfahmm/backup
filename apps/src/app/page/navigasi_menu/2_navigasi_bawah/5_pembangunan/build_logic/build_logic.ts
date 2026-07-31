@@ -1,0 +1,121 @@
+"use client";
+
+import { useEffect, useMemo } from "react";
+import { formatDate, getDaysElapsed } from "@/app/logic/production_logic";
+
+export const RESOURCE_KEY_ALIASES: Record<string, string> = {};
+
+export const normalizeResourceKey = (key: string): string => {
+  return RESOURCE_KEY_ALIASES[key] || key;
+};
+
+export const getMaterialStock = (countryDetail: any, resourceKey: string): number => {
+  if (!countryDetail) return 0;
+  const normalizedKey = normalizeResourceKey(resourceKey);
+  const inventoryKey = `inventory_${normalizedKey}`;
+  return Number(countryDetail?.[inventoryKey]) || 0;
+};
+
+export const findBuildingMetadata = (metadata: Record<string, any>, key: string) => {
+  if (!metadata) return undefined;
+  if (metadata[key]) return metadata[key];
+  for (const k of Object.keys(metadata)) {
+    const entry = metadata[k];
+    if (!entry) continue;
+    if (entry.dataKey === key) return entry;
+    if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+  }
+  return undefined;
+};
+
+export function calculateDailyMaterialProduction(
+  countryDetail: any,
+  metadata: Record<string, any>,
+  currentDateStr: string
+) {
+  if (!currentDateStr || !metadata || Object.keys(metadata).length === 0 || !countryDetail) {
+    return { hasUpdates: false, updates: {} as Record<string, any> };
+  }
+
+  let hasUpdates = false;
+  const updates: Record<string, any> = {};
+  const allKeys = Object.keys(metadata);
+
+  for (const resourceKey of allKeys) {
+    const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
+    if (buildingCount === 0) continue;
+    const bMeta = findBuildingMetadata(metadata, resourceKey);
+    if (!bMeta || !bMeta.produksi) continue;
+
+    const buildDateKey = `build_date_${resourceKey}`;
+    const buildDate = countryDetail?.[buildDateKey] || currentDateStr;
+    const lastUpdateKey = `last_update_date_${resourceKey}`;
+    const lastUpdateDate = countryDetail?.[lastUpdateKey] || buildDate;
+    const inventoryKey = `inventory_${resourceKey}`;
+
+    if (lastUpdateDate === currentDateStr) continue;
+
+    const daysPassed = getDaysElapsed(lastUpdateDate, currentDateStr);
+    if (daysPassed <= 0) continue;
+
+    const dailyProduction = Number(bMeta.produksi) * buildingCount;
+    const productionAdded = dailyProduction * daysPassed;
+
+    const currentStock = Number(countryDetail?.[inventoryKey]) || 0;
+    updates[inventoryKey] = currentStock + productionAdded;
+    updates[lastUpdateKey] = currentDateStr;
+    hasUpdates = true;
+  }
+
+  return { hasUpdates, updates };
+}
+
+export function useMaterialProduction(
+  countryDetail: any,
+  setCountryDetail: (detail: any) => void,
+  metadata: Record<string, any>,
+  currentDate?: string | Date
+) {
+  const safeDateString = useMemo(() => {
+    if (!currentDate) return formatDate(new Date());
+    if (typeof currentDate === "string") return currentDate;
+    if (currentDate instanceof Date && !isNaN(currentDate.getTime())) {
+      return formatDate(currentDate);
+    }
+    return formatDate(new Date());
+  }, [currentDate]);
+
+  useEffect(() => {
+    if (!safeDateString || !metadata || Object.keys(metadata).length === 0 || !countryDetail) return;
+    
+    const { hasUpdates, updates } = calculateDailyMaterialProduction(
+      countryDetail,
+      metadata,
+      safeDateString
+    );
+
+    if (hasUpdates) {
+      setCountryDetail((prev: any) => ({ ...prev, ...updates }));
+    }
+  }, [safeDateString, metadata, countryDetail, setCountryDetail]);
+
+  return { safeDateString };
+}
+
+export function deductBuildingMaterials(
+  countryDetail: any,
+  requirements?: { resourceKey: string; amount?: number }[]
+) {
+  if (!countryDetail || !requirements || requirements.length === 0) return countryDetail;
+  const updatedDetail = { ...countryDetail };
+
+  requirements.forEach((material) => {
+    const normalizedKey = normalizeResourceKey(material.resourceKey);
+    const invKey = `inventory_${normalizedKey}`;
+    const currentInv = getMaterialStock(updatedDetail, material.resourceKey);
+    const amount = material.amount || 0;
+    updatedDetail[invKey] = Math.max(0, currentInv - amount);
+  });
+
+  return updatedDetail;
+}
