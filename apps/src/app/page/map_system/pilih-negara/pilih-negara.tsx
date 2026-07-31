@@ -1,5 +1,6 @@
 'use client';
 
+import { Layers } from "lucide-react";
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
@@ -290,7 +291,7 @@ export default function PilihNegaraPage() {
 
     const dragDistance = Math.sqrt(
       Math.pow(e.clientX - dragStartPosRef.current.x, 2) +
-        Math.pow(e.clientY - dragStartPosRef.current.y, 2)
+      Math.pow(e.clientY - dragStartPosRef.current.y, 2)
     );
     if (dragDistance > 5) return;
 
@@ -504,23 +505,21 @@ export default function PilihNegaraPage() {
       </div>
 
       <div className="relative z-10 flex flex-col items-center justify-end min-h-screen pb-12 pointer-events-none">
-        
+
         {/* Tab & Search Kembali ke Tengah */}
         <div className="mb-6 flex items-center justify-center gap-6 pointer-events-auto">
           <div className="flex bg-black/60 backdrop-blur-md p-1 rounded-2xl border border-white/10">
             <button
               onClick={() => setActiveTab('utama')}
-              className={`px-6 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all ${
-                activeTab === 'utama' ? 'bg-white text-black shadow-lg' : 'text-slate-400 hover:text-white'
-              }`}
+              className={`px-6 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all ${activeTab === 'utama' ? 'bg-white text-black shadow-lg' : 'text-slate-400 hover:text-white'
+                }`}
             >
               PETA UTAMA
             </button>
             <button
               onClick={() => setActiveTab('hubungan')}
-              className={`px-6 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all ${
-                activeTab === 'hubungan' ? 'bg-white text-black shadow-lg' : 'text-slate-400 hover:text-white'
-              }`}
+              className={`px-6 py-2 rounded-xl text-[10px] font-black tracking-widest transition-all ${activeTab === 'hubungan' ? 'bg-white text-black shadow-lg' : 'text-slate-400 hover:text-white'
+                }`}
             >
               HUBUNGAN
             </button>
@@ -541,42 +540,62 @@ export default function PilihNegaraPage() {
           </div>
         </div>
 
-        {/* RESOURCE MENU DENGAN BORDER BERDASARKAN DATABASE_SDA */}
-        <div className="absolute right-6 top-[88px] z-30 flex flex-wrap items-center justify-end gap-2 max-w-2xl pointer-events-auto p-3 bg-[#e6d8b9]/90 backdrop-blur-md border-2 border-[#C4B49C] rounded-2xl shadow-lg">
-          {resourceMap.map((resource) => {
-            const Icon = resource.icon;
-            const value = hasInteracted && countryDetail ? (countryDetail[resource.key] || 0) : '-';
-            
-            // PERUBAHAN: Cek status SDA dari database (true/false)
-            // SDA status: true=hijau, false=merah, undefined=abu-abu default
-            const sdaStatus = getCurrentSDA?.[resource.key as keyof SDAData];
-            let borderClass = 'border border-white/20'; // default (belum ada data)
-            let dotColor = 'bg-gray-400';
-            if (sdaStatus === true) {
-              borderClass = 'border-2 border-green-500 shadow-[0_0_6px_rgba(34,197,94,0.4)]';
-              dotColor = 'bg-green-400';
-            } else if (sdaStatus === false) {
-              borderClass = 'border-2 border-red-500 shadow-[0_0_6px_rgba(239,68,68,0.3)]';
-              dotColor = 'bg-red-400';
-            }
+{/* RESOURCE MENU DENGAN BORDER BERDASARKAN DATABASE_SDA */}
+<div className="absolute right-6 top-[88px] z-30 flex flex-wrap items-center justify-end gap-2 max-w-2xl pointer-events-auto p-3 bg-[#e6d8b9]/90 backdrop-blur-md border-2 border-[#C4B49C] rounded-2xl shadow-lg">
+  
+  {/* MODERN HEADER - Menggantikan tag <p> polos */}
+  <div className="flex items-center justify-between w-full mb-3 pb-3 border-b border-[#C4B49C]/30">
+    <div className="flex items-center gap-3">
+      <div className="p-1.5 bg-gradient-to-br from-[#5c3c10]/10 to-[#8b7e66]/10 rounded-lg border border-[#C4B49C]/40 shadow-sm">
+        <Layers className="w-4 h-4 text-[#5c3c10]" />
+      </div>
+      <p className="text-xs font-black text-[#2e261a] uppercase tracking-wider leading-none">
+        Sumber Daya Alam
+      </p>
+    </div>
 
-            return (
-              <div
-                key={resource.key}
-                className={`flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-xl text-white/80 transition-all hover:bg-black/80 ${borderClass}`}
-              >
-                <div className={`w-1.5 h-1.5 rounded-full ${dotColor} shrink-0`} />
-                <Icon className="w-3.5 h-3.5 text-cyan-400/80" />
-                <span className="text-[9px] font-bold uppercase tracking-wider">{resource.label}</span>
-                {hasInteracted && value !== '-' && (
-                  <span className="text-[10px] font-black text-white/70 ml-1">
-                    {typeof value === 'number' ? value.toLocaleString('id-ID') : value}
-                  </span>
-                )}
-              </div>
-            );
-          })}
-        </div>
+    {/* Badge Indikator Tersedia */}
+    <div className="flex items-center gap-1.5 bg-[#2e261a]/5 px-2.5 py-1 rounded-full border border-[#C4B49C]/30">
+      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span className="text-[9px] font-bold text-[#8b7e66] uppercase tracking-wide">Tersedia</span>
+    </div>
+  </div>
+  
+  {/* LOGIKA MAPPING SDA - TIDAK DIUBAH */}
+  {resourceMap.map((resource) => {
+    const Icon = resource.icon;
+    const value = hasInteracted && countryDetail ? (countryDetail[resource.key] || 0) : '-';
+    
+    // Cek status SDA dari database (true/false)
+    const sdaStatus = getCurrentSDA?.[resource.key as keyof SDAData];
+    let borderClass = 'border border-white/20'; // default (belum ada data)
+    let dotColor = 'bg-gray-400';
+    
+    if (sdaStatus === true) {
+      borderClass = 'border-2 border-green-500 shadow-[0_0_6px_rgba(34,197,94,0.4)]';
+      dotColor = 'bg-green-400';
+    } else if (sdaStatus === false) {
+      borderClass = 'border-2 border-red-500 shadow-[0_0_6px_rgba(239,68,68,0.3)]';
+      dotColor = 'bg-red-400';
+    }
+
+    return (
+      <div
+        key={resource.key}
+        className={`flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-xl text-white/80 transition-all hover:bg-black/80 ${borderClass}`}
+      >
+        <div className={`w-1.5 h-1.5 rounded-full ${dotColor} shrink-0`} />
+        <Icon className="w-3.5 h-3.5 text-cyan-400/80" />
+        <span className="text-[9px] font-bold uppercase tracking-wider">{resource.label}</span>
+        {hasInteracted && value !== '-' && (
+          <span className="text-[10px] font-black text-white/70 ml-1">
+            {typeof value === 'number' ? value.toLocaleString('id-ID') : value}
+          </span>
+        )}
+      </div>
+    );
+  })}
+</div>
 
         {/* Slider Negara */}
         <div className="relative w-full max-w-6xl flex items-center justify-center mb-8 pointer-events-auto">
@@ -610,18 +629,16 @@ export default function PilihNegaraPage() {
                   transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                   className={`
                     relative w-36 h-28 rounded-2xl p-4 flex flex-col items-center justify-center text-center cursor-pointer
-                    ${
-                      item.offset === 0 && hasInteracted
-                        ? 'bg-white shadow-[0_0_30px_rgba(255,255,255,0.3)]'
-                        : 'bg-black/40 border border-white/5'
+                    ${item.offset === 0 && hasInteracted
+                      ? 'bg-white shadow-[0_0_30px_rgba(255,255,255,0.3)]'
+                      : 'bg-black/40 border border-white/5'
                     }
                     backdrop-blur-xl transition-all duration-300
                   `}
                 >
                   <div
-                    className={`w-12 h-8 rounded-sm mb-3 overflow-hidden border ${
-                      item.offset === 0 && hasInteracted ? 'border-black/10' : 'border-white/10'
-                    }`}
+                    className={`w-12 h-8 rounded-sm mb-3 overflow-hidden border ${item.offset === 0 && hasInteracted ? 'border-black/10' : 'border-white/10'
+                      }`}
                   >
                     <img
                       src={`https://flagcdn.com/w80/${(item as any).iso}.png`}
@@ -634,16 +651,14 @@ export default function PilihNegaraPage() {
                   </div>
 
                   <h3
-                    className={`text-[9px] font-black leading-tight uppercase mb-0.5 ${
-                      item.offset === 0 && hasInteracted ? 'text-black' : 'text-white/60'
-                    }`}
+                    className={`text-[9px] font-black leading-tight uppercase mb-0.5 ${item.offset === 0 && hasInteracted ? 'text-black' : 'text-white/60'
+                      }`}
                   >
                     {item.country}
                   </h3>
                   <p
-                    className={`text-[7px] font-bold uppercase ${
-                      item.offset === 0 && hasInteracted ? 'text-black/40' : 'text-slate-500'
-                    }`}
+                    className={`text-[7px] font-bold uppercase ${item.offset === 0 && hasInteracted ? 'text-black/40' : 'text-slate-500'
+                      }`}
                   >
                     {item.capital}
                   </p>
@@ -687,11 +702,10 @@ export default function PilihNegaraPage() {
                 window.localStorage.setItem('presiden_simulator_new_game', '1');
               }
             }}
-            className={`flex items-center gap-3 px-8 py-2.5 ${
-              hasInteracted
+            className={`flex items-center gap-3 px-8 py-2.5 ${hasInteracted
                 ? 'bg-cyan-500 hover:bg-cyan-400 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]'
                 : 'bg-slate-700 opacity-50 cursor-not-allowed'
-            } text-white font-black tracking-widest rounded-xl text-[10px] transition-all`}
+              } text-white font-black tracking-widest rounded-xl text-[10px] transition-all`}
             aria-disabled={!hasInteracted}
           >
             MULAI SIMULASI
