@@ -429,7 +429,6 @@ export default function HunianPermukimanModal({
       {/* TOAST */}
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
       
-      {/* MODAL KONFIRMASI PEMBANGUNAN - menggunakan komponen terpisah */}
       {showConfirm && selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
