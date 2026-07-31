@@ -5,7 +5,7 @@ import {
   mapActiveTabToRequirementsFolder,
   parseRequirementsFile,
   findBuildingRequirements,
-} from '../../page/navigasi_menu/2_navigasi_bawah/5_pembangunan/1_produksi/requirements_logic/requirements';
+} from '../../page/navigasi_menu/2_navigasi_bawah/5_pembangunan/1_produksi/requirements_logic/indexRequirements';
 
 async function resolveRequirementsBasePath(): Promise<string> {
   const candidate = path.join(process.cwd(), 'src', 'app', 'page', 'navigasi_menu', '2_navigasi_bawah', '5_pembangunan', '1_produksi', 'requirements_logic', '1_produksi');

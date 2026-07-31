@@ -1,7 +1,9 @@
+// index.ts
 export interface RequirementItem {
   group: string;
   label: string;
   resourceKey: string;
+  amount: number; // ✅ Ditambahkan ke interface global
 }
 
 export interface BuildingRequirements {

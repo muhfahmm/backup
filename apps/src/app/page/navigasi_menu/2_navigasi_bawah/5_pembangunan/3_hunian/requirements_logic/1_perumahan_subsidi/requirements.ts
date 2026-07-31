@@ -1,0 +1,38 @@
+export type RequirementItem = {
+  group: string;
+  label: string;
+  resourceKey: string;
+  amount: number;   // wajib
+};
+
+export type BuildingRequirements = {
+  buildingKey: string;
+  requirements: RequirementItem[];
+};
+
+export const CATEGORY = 'perumahan_subsidi';
+
+export const REQUIREMENTS: BuildingRequirements[] = [
+  {
+    buildingKey: 'perumahan_subsidi',
+    requirements: [
+      { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 200 },
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 100 },
+      { group: 'pembangunan', label: 'batu bata', resourceKey: 'batu_bata', amount: 50 },
+    ],
+  },
+];
+
+export function findRequirements(buildingKey: string) {
+  return REQUIREMENTS.find((entry) => entry.buildingKey === buildingKey);
+}
+
+export function getTotalProduction(
+  buildingKey: string,
+  countryDetail: Record<string, any> | null,
+  metadata: Record<string, any> | null,
+) {
+  const count = Number(countryDetail?.[buildingKey] ?? 0);
+  const productionPerUnit = Number(metadata?.[buildingKey]?.produksi ?? 0);
+  return count * productionPerUnit;
+}
