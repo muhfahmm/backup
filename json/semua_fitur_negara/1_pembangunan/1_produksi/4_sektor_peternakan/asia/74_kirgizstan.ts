@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kirgizstan_peternakan = {
-  ayam_unggas: 117,
-  sapi_perah: 57,
-  sapi_potong: 111,
-  domba_kambing: 144
+  ayam_unggas: 69,
+  sapi_perah: 0,
+  sapi_potong: 62,
+  domba_kambing: 100
 };

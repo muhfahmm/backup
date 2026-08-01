@@ -1,7 +1,7 @@
 // @ts-nocheck
 const liechtenstein_peternakan = {
   ayam_unggas: 200,
-  sapi_perah: 176,
-  sapi_potong: 88,
-  domba_kambing: 136
+  sapi_perah: 179,
+  sapi_potong: 100,
+  domba_kambing: 143
 };

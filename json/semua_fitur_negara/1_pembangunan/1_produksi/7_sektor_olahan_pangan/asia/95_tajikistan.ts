@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tajikistan_olahan_pangan = {
-  air_mineral: 52,
-  gula: 156,
-  roti: 184,
-  pengolahan_daging: 156,
-  mie_instan: 148,
-  minyak_goreng: 176,
-  susu: 168
+  air_mineral: 100,
+  gula: 179,
+  roti: 200,
+  pengolahan_daging: 179,
+  mie_instan: 173,
+  minyak_goreng: 194,
+  susu: 188
   
   
 };

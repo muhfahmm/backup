@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const islandia_agrikultur = {
-  padi: 52,
-  gandum: 288,
-  jagung: 236,
-  sayur: 180,
-  umbi: 196,
-  kedelai: 108,
+  padi: 18,
+  gandum: 100,
+  jagung: 82,
+  sayur: 63,
+  umbi: 68,
+  kedelai: 38,
   kelapa_sawit: 0,
-  kopi: 120,
-  teh: 72,
+  kopi: 42,
+  teh: 25,
   kakao: 0,
-  tebu: 224,
+  tebu: 78,
   karet: 0
 };

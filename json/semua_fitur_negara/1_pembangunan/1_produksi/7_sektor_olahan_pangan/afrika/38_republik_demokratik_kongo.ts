@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_demokratik_kongo_olahan_pangan = {
-  air_mineral: 51,
-  gula: 90,
-  roti: 150,
-  pengolahan_daging: 45,
-  mie_instan: 123,
-  minyak_goreng: 57,
-  susu: 66
+  air_mineral: 6,
+  gula: 43,
+  roti: 100,
+  pengolahan_daging: 0,
+  mie_instan: 74,
+  minyak_goreng: 11,
+  susu: 20
   
   
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const thailand_peternakan = {
-  ayam_unggas: 615,
-  sapi_perah: 1804,
-  sapi_potong: 1845,
-  domba_kambing: 1476
+  ayam_unggas: 100,
+  sapi_perah: 197,
+  sapi_potong: 200,
+  domba_kambing: 170
 };

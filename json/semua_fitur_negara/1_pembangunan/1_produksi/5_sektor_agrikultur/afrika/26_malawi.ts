@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const malawi_agrikultur = {
-  padi: 64,
-  gandum: 148,
-  jagung: 148,
-  sayur: 148,
-  umbi: 212,
-  kedelai: 168,
-  kelapa_sawit: 0,
-  kopi: 224,
-  teh: 300,
-  kakao: 0,
-  tebu: 156,
-  karet: 0
+  padi: 121,
+  gandum: 149,
+  jagung: 149,
+  sayur: 149,
+  umbi: 171,
+  kedelai: 156,
+  kelapa_sawit: 100,
+  kopi: 175,
+  teh: 200,
+  kakao: 100,
+  tebu: 152,
+  karet: 100
 };

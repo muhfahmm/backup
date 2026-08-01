@@ -1,6 +1,6 @@
 // @ts-nocheck
 const irlandia_perikanan = {
-  udang: 1421,
-  mutiara: 1715,
-  ikan: 637
+  udang: 173,
+  mutiara: 200,
+  ikan: 100
 };

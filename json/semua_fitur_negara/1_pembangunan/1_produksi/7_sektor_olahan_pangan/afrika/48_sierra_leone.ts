@@ -1,12 +1,12 @@
 // @ts-nocheck
 const sierra_leone_olahan_pangan = {
-  air_mineral: 144,
-  gula: 116,
-  roti: 136,
-  pengolahan_daging: 176,
-  mie_instan: 116,
-  minyak_goreng: 68,
-  susu: 88
+  air_mineral: 170,
+  gula: 144,
+  roti: 163,
+  pengolahan_daging: 200,
+  mie_instan: 144,
+  minyak_goreng: 100,
+  susu: 119
   
   
 };

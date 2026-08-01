@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bermuda_agrikultur = {
-  padi: 108,
-  gandum: 108,
-  jagung: 106,
-  sayur: 84,
-  umbi: 22,
-  kedelai: 142,
+  padi: 68,
+  gandum: 68,
+  jagung: 67,
+  sayur: 53,
+  umbi: 14,
+  kedelai: 90,
   kelapa_sawit: 0,
-  kopi: 158,
-  teh: 140,
+  kopi: 100,
+  teh: 89,
   kakao: 0,
-  tebu: 102,
+  tebu: 65,
   karet: 0
 };

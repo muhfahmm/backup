@@ -1,6 +1,6 @@
 // @ts-nocheck
 const afrika_selatan_perikanan = {
-  udang: 1240,
-  mutiara: 840,
-  ikan: 720
+  udang: 200,
+  mutiara: 123,
+  ikan: 100
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const guiana_prancis_agrikultur = {
-  padi: 51,
-  gandum: 23,
-  jagung: 20,
-  sayur: 57,
-  umbi: 55,
-  kedelai: 22,
+  padi: 67,
+  gandum: 30,
+  jagung: 26,
+  sayur: 75,
+  umbi: 72,
+  kedelai: 29,
   kelapa_sawit: 0,
-  kopi: 27,
-  teh: 76,
+  kopi: 36,
+  teh: 100,
   kakao: 0,
-  tebu: 73,
+  tebu: 96,
   karet: 0
 };

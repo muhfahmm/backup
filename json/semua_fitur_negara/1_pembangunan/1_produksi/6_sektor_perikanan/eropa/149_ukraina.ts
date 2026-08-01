@@ -1,6 +1,6 @@
 // @ts-nocheck
 const ukraina_perikanan = {
-  udang: 165,
-  mutiara: 55,
-  ikan: 100
+  udang: 200,
+  mutiara: 100,
+  ikan: 141
 };

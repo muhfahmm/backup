@@ -1,7 +1,7 @@
 // @ts-nocheck
 const curacao_peternakan = {
-  ayam_unggas: 66,
-  sapi_perah: 62,
-  sapi_potong: 86,
-  domba_kambing: 66
+  ayam_unggas: 17,
+  sapi_perah: 0,
+  sapi_potong: 100,
+  domba_kambing: 17
 };

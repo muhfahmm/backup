@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_dominika_perikanan = {
-  udang: 294,
-  mutiara: 434,
-  ikan: 280
+  udang: 109,
+  mutiara: 200,
+  ikan: 100
 };

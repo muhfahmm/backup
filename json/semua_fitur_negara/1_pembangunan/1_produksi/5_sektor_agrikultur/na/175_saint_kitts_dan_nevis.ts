@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const saint_kitts_dan_nevis_agrikultur = {
-  padi: 240,
-  gandum: 186,
-  jagung: 198,
-  sayur: 162,
-  umbi: 36,
-  kedelai: 108,
+  padi: 100,
+  gandum: 78,
+  jagung: 83,
+  sayur: 68,
+  umbi: 15,
+  kedelai: 45,
   kelapa_sawit: 0,
-  kopi: 141,
-  teh: 186,
+  kopi: 59,
+  teh: 78,
   kakao: 0,
-  tebu: 138,
+  tebu: 57,
   karet: 0
 };

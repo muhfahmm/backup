@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const gambia_agrikultur = {
-  padi: 72,
-  gandum: 144,
-  jagung: 108,
-  sayur: 152,
-  umbi: 140,
-  kedelai: 126,
+  padi: 47,
+  gandum: 95,
+  jagung: 71,
+  sayur: 100,
+  umbi: 92,
+  kedelai: 83,
   kelapa_sawit: 0,
-  kopi: 100,
-  teh: 78,
+  kopi: 66,
+  teh: 51,
   kakao: 0,
-  tebu: 40,
+  tebu: 26,
   karet: 0
 };

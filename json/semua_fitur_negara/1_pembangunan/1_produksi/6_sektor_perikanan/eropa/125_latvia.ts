@@ -1,6 +1,6 @@
 // @ts-nocheck
 const latvia_perikanan = {
-  udang: 132,
-  mutiara: 156,
-  ikan: 88
+  udang: 165,
+  mutiara: 200,
+  ikan: 100
 };

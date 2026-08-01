@@ -1,6 +1,6 @@
 // @ts-nocheck
 const siprus_perikanan = {
-  udang: 156,
-  mutiara: 140,
-  ikan: 116
+  udang: 200,
+  mutiara: 160,
+  ikan: 100
 };

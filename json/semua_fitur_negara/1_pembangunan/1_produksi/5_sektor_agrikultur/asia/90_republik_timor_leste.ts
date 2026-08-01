@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_timor_leste_agrikultur = {
-  padi: 22,
-  gandum: 11,
-  jagung: 29,
-  sayur: 69,
-  umbi: 34,
-  kedelai: 70,
+  padi: 31,
+  gandum: 16,
+  jagung: 41,
+  sayur: 99,
+  umbi: 49,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 55,
-  teh: 58,
+  kopi: 79,
+  teh: 83,
   kakao: 0,
-  tebu: 34,
+  tebu: 49,
   karet: 0
 };

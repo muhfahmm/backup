@@ -1,12 +1,12 @@
 // @ts-nocheck
 const rwanda_olahan_pangan = {
-  air_mineral: 40,
-  gula: 38,
-  roti: 50,
-  pengolahan_daging: 36,
-  mie_instan: 20,
-  minyak_goreng: 39,
-  susu: 15
+  air_mineral: 71,
+  gula: 66,
+  roti: 100,
+  pengolahan_daging: 60,
+  mie_instan: 14,
+  minyak_goreng: 69,
+  susu: 0
   
   
 };

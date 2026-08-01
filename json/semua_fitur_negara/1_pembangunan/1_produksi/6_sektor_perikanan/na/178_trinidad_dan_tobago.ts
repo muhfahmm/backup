@@ -1,6 +1,6 @@
 // @ts-nocheck
 const trinidad_dan_tobago_perikanan = {
-  udang: 74,
-  mutiara: 16,
-  ikan: 42
+  udang: 100,
+  mutiara: 0,
+  ikan: 45
 };

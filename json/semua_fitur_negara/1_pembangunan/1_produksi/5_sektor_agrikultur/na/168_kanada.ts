@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kanada_agrikultur = {
-  padi: 17664,
-  gandum: 24192,
-  jagung: 8832,
-  sayur: 14592,
-  umbi: 22272,
-  kedelai: 14208,
-  kelapa_sawit: 0,
-  kopi: 30336,
-  teh: 6144,
-  kakao: 0,
-  tebu: 16896,
-  karet: 0
+  padi: 158,
+  gandum: 180,
+  jagung: 129,
+  sayur: 148,
+  umbi: 173,
+  kedelai: 147,
+  kelapa_sawit: 100,
+  kopi: 200,
+  teh: 120,
+  kakao: 100,
+  tebu: 156,
+  karet: 100
 };

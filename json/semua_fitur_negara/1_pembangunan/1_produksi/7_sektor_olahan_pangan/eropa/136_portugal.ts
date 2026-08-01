@@ -1,12 +1,12 @@
 // @ts-nocheck
 const portugal_olahan_pangan = {
-  air_mineral: 714,
-  gula: 765,
-  roti: 714,
-  pengolahan_daging: 272,
-  mie_instan: 765,
-  minyak_goreng: 510,
-  susu: 697
+  air_mineral: 190,
+  gula: 200,
+  roti: 190,
+  pengolahan_daging: 100,
+  mie_instan: 200,
+  minyak_goreng: 148,
+  susu: 186
   
   
 };

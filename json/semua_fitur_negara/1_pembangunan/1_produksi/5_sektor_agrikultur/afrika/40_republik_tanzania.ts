@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_tanzania_agrikultur = {
-  padi: 216,
-  gandum: 33,
-  jagung: 156,
-  sayur: 141,
-  umbi: 90,
-  kedelai: 54,
+  padi: 100,
+  gandum: 15,
+  jagung: 72,
+  sayur: 65,
+  umbi: 42,
+  kedelai: 25,
   kelapa_sawit: 0,
-  kopi: 36,
-  teh: 39,
+  kopi: 17,
+  teh: 18,
   kakao: 0,
-  tebu: 48,
+  tebu: 22,
   karet: 0
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const iran_olahan_pangan = {
-  air_mineral: 874,
-  gula: 1058,
-  roti: 1978,
-  pengolahan_daging: 920,
-  mie_instan: 920,
-  minyak_goreng: 2300,
-  susu: 828
+  air_mineral: 103,
+  gula: 116,
+  roti: 178,
+  pengolahan_daging: 106,
+  mie_instan: 106,
+  minyak_goreng: 200,
+  susu: 100
   
   
 };

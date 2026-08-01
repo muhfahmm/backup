@@ -1,12 +1,12 @@
 // @ts-nocheck
 const djibouti_olahan_pangan = {
-  air_mineral: 23,
-  gula: 31,
-  roti: 39,
-  pengolahan_daging: 44,
-  mie_instan: 23,
-  minyak_goreng: 35,
-  susu: 16
+  air_mineral: 25,
+  gula: 54,
+  roti: 82,
+  pengolahan_daging: 100,
+  mie_instan: 25,
+  minyak_goreng: 68,
+  susu: 0
   
   
 };

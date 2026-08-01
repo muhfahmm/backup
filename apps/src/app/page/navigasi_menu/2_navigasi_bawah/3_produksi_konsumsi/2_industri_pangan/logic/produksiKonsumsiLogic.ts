@@ -1,3 +1,36 @@
+const parsePopulationText = (value: any): number => {
+  if (value === null || value === undefined || value === '') return 0;
+
+  if (typeof value === 'number') {
+    return Number.isFinite(value) ? value : 0;
+  }
+
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+    const compact = trimmed.replace(/\s+/g, '').replace(/,/g, '.');
+
+    const millionMatch = compact.match(/^([0-9]+(?:\.[0-9]+)?)\s*M$/i);
+    if (millionMatch) {
+      return Number(millionMatch[1]) * 1000000;
+    }
+
+    const thousandMatch = compact.match(/^([0-9]+(?:\.[0-9]+)?)\s*K$/i);
+    if (thousandMatch) {
+      return Number(thousandMatch[1]) * 1000;
+    }
+
+    const normalized = compact.replace(/[^0-9.\-]/g, '');
+    if (normalized === '' || normalized === '-' || normalized === '.') return 0;
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const safeNumber = (value: any): number => parsePopulationText(value);
+
 // Data konsumsi per 1.000 penduduk per hari.
 export const FOOD_CONSUMPTION_PER_CAPITA: Record<string, number> = {
   // Peternakan
@@ -47,15 +80,17 @@ export const findMeta = (key: string, metadata: any) => {
 
 // Calculate production based on building count and metadata
 export const calculateProduction = (buildingKey: string, countryDetail: any, metadata: any) => {
-  const count = Number(countryDetail?.[buildingKey]) || 0;
+  const count = safeNumber(countryDetail?.[buildingKey]);
   const bMeta = findMeta(buildingKey, metadata);
-  const baseProd = Number(bMeta?.produksi) || 0;
+  const baseProd = safeNumber(bMeta?.produksi);
   return baseProd * count;
 };
 
 // Calculate consumption based on population and consumption per capita
 export const calculateConsumption = (population: number, consumptionPerCapita: number) => {
-  return Math.round((population / 1000) * consumptionPerCapita);
+  const safePopulation = safeNumber(population);
+  const safePerCapita = safeNumber(consumptionPerCapita);
+  return Math.round((safePopulation / 1000) * safePerCapita);
 };
 
 // Calculate total production, consumption and balance for a country (Flat list)
@@ -63,7 +98,7 @@ export const calculateCountryFoodAggregate = (country: any, metadata: any) => {
   let totalProduction = 0;
   let totalConsumption = 0;
   
-  const population = Number(
+  const population = safeNumber(
     country?.jumlah_penduduk ?? 
     country?.population ?? 
     country?.pop ?? 
@@ -80,15 +115,15 @@ export const calculateCountryFoodAggregate = (country: any, metadata: any) => {
   });
 
   return {
-    totalProduction: isNaN(totalProduction) ? 0 : totalProduction,
-    totalConsumption: isNaN(totalConsumption) ? 0 : totalConsumption,
-    balance: isNaN(totalProduction - totalConsumption) ? 0 : (totalProduction - totalConsumption),
+    totalProduction: Number.isFinite(totalProduction) ? totalProduction : 0,
+    totalConsumption: Number.isFinite(totalConsumption) ? totalConsumption : 0,
+    balance: Number.isFinite(totalProduction - totalConsumption) ? (totalProduction - totalConsumption) : 0,
   };
 };
 
 // Calculate detailed commodity food info for a country (Flat list)
 export const calculateCountryFoodDetails = (country: any, metadata: any) => {
-  const population = Number(
+  const population = safeNumber(
     country?.jumlah_penduduk ?? 
     country?.population ?? 
     country?.pop ?? 

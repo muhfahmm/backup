@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const azerbaijan_agrikultur = {
-  padi: 141,
-  gandum: 228,
-  jagung: 69,
-  sayur: 81,
-  umbi: 105,
-  kedelai: 210,
+  padi: 62,
+  gandum: 100,
+  jagung: 30,
+  sayur: 36,
+  umbi: 46,
+  kedelai: 92,
   kelapa_sawit: 0,
-  kopi: 216,
-  teh: 66,
+  kopi: 95,
+  teh: 29,
   kakao: 0,
-  tebu: 75,
+  tebu: 33,
   karet: 0
 };

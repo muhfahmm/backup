@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const paraguay_agrikultur = {
-  padi: 280,
-  gandum: 175,
-  jagung: 390,
-  sayur: 275,
-  umbi: 385,
-  kedelai: 395,
-  kelapa_sawit: 0,
-  kopi: 265,
-  teh: 340,
-  kakao: 0,
-  tebu: 270,
-  karet: 0
+  padi: 171,
+  gandum: 144,
+  jagung: 199,
+  sayur: 170,
+  umbi: 197,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 167,
+  teh: 186,
+  kakao: 100,
+  tebu: 168,
+  karet: 100
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const siprus_agrikultur = {
-  padi: 124,
-  gandum: 80,
-  jagung: 44,
-  sayur: 108,
-  umbi: 176,
-  kedelai: 308,
-  kelapa_sawit: 0,
-  kopi: 260,
-  teh: 240,
-  kakao: 0,
-  tebu: 280,
-  karet: 0
+  padi: 140,
+  gandum: 126,
+  jagung: 114,
+  sayur: 135,
+  umbi: 157,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 184,
+  teh: 178,
+  kakao: 100,
+  tebu: 191,
+  karet: 100
 };

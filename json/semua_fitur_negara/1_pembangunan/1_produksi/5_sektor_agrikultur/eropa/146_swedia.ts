@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const swedia_agrikultur = {
-  padi: 5180,
-  gandum: 1554,
-  jagung: 5550,
-  sayur: 5402,
-  umbi: 1480,
-  kedelai: 3034,
-  kelapa_sawit: 0,
-  kopi: 2886,
-  teh: 2812,
-  kakao: 0,
-  tebu: 5402,
-  karet: 0
+  padi: 193,
+  gandum: 128,
+  jagung: 200,
+  sayur: 197,
+  umbi: 127,
+  kedelai: 155,
+  kelapa_sawit: 100,
+  kopi: 152,
+  teh: 151,
+  kakao: 100,
+  tebu: 197,
+  karet: 100
 };

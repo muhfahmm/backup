@@ -1,7 +1,7 @@
 // @ts-nocheck
 const spanyol_peternakan = {
-  ayam_unggas: 3944,
-  sapi_perah: 3944,
-  sapi_potong: 4408,
-  domba_kambing: 3248
+  ayam_unggas: 160,
+  sapi_perah: 160,
+  sapi_potong: 200,
+  domba_kambing: 100
 };

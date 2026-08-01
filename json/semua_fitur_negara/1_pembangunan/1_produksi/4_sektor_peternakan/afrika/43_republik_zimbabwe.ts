@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_zimbabwe_peternakan = {
-  ayam_unggas: 40,
-  sapi_perah: 84,
-  sapi_potong: 92,
-  domba_kambing: 56
+  ayam_unggas: 0,
+  sapi_perah: 85,
+  sapi_potong: 100,
+  domba_kambing: 31
 };

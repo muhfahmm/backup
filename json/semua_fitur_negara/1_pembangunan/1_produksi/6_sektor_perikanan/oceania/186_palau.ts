@@ -1,6 +1,6 @@
 // @ts-nocheck
 const palau_perikanan = {
-  udang: 74,
-  mutiara: 40,
-  ikan: 80
+  udang: 85,
+  mutiara: 0,
+  ikan: 100
 };

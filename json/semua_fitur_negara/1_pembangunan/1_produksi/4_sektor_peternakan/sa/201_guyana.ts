@@ -1,7 +1,7 @@
 // @ts-nocheck
 const guyana_peternakan = {
-  ayam_unggas: 96,
-  sapi_perah: 42,
-  sapi_potong: 46,
-  domba_kambing: 84
+  ayam_unggas: 100,
+  sapi_perah: 0,
+  sapi_potong: 7,
+  domba_kambing: 78
 };

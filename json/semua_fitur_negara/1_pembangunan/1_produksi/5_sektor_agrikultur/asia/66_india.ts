@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const india_agrikultur = {
-  padi: 27117,
-  gandum: 8646,
-  jagung: 30261,
-  sayur: 30654,
-  umbi: 6288,
-  kedelai: 15720,
-  kelapa_sawit: 0,
-  kopi: 29082,
-  teh: 9432,
-  kakao: 0,
-  tebu: 17292,
-  karet: 0
+  padi: 188,
+  gandum: 128,
+  jagung: 199,
+  sayur: 200,
+  umbi: 121,
+  kedelai: 151,
+  kelapa_sawit: 100,
+  kopi: 195,
+  teh: 131,
+  kakao: 100,
+  tebu: 156,
+  karet: 100
 };

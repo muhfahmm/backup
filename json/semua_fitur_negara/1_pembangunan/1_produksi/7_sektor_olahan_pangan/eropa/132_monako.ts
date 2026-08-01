@@ -1,12 +1,12 @@
 // @ts-nocheck
 const monako_olahan_pangan = {
-  air_mineral: 48,
-  gula: 29,
-  roti: 27,
-  pengolahan_daging: 38,
-  mie_instan: 12,
-  minyak_goreng: 37,
-  susu: 40
+  air_mineral: 100,
+  gula: 47,
+  roti: 42,
+  pengolahan_daging: 72,
+  mie_instan: 0,
+  minyak_goreng: 69,
+  susu: 78
   
   
 };

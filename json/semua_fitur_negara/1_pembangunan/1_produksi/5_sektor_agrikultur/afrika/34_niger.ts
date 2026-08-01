@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const niger_agrikultur = {
-  padi: 55,
-  gandum: 50,
-  jagung: 59,
-  sayur: 74,
-  umbi: 64,
-  kedelai: 63,
+  padi: 70,
+  gandum: 63,
+  jagung: 75,
+  sayur: 94,
+  umbi: 81,
+  kedelai: 80,
   kelapa_sawit: 0,
-  kopi: 70,
-  teh: 79,
+  kopi: 89,
+  teh: 100,
   kakao: 0,
-  tebu: 69,
+  tebu: 87,
   karet: 0
 };

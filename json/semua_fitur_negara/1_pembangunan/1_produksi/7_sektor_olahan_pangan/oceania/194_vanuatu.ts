@@ -1,12 +1,12 @@
 // @ts-nocheck
 const vanuatu_olahan_pangan = {
-  air_mineral: 48,
-  gula: 17,
-  roti: 22,
-  pengolahan_daging: 48,
-  mie_instan: 33,
-  minyak_goreng: 21,
-  susu: 37
+  air_mineral: 100,
+  gula: 0,
+  roti: 16,
+  pengolahan_daging: 100,
+  mie_instan: 52,
+  minyak_goreng: 13,
+  susu: 65
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const austria_agrikultur = {
-  padi: 1258,
-  gandum: 3330,
-  jagung: 1332,
-  sayur: 5772,
-  umbi: 3182,
-  kedelai: 1998,
-  kelapa_sawit: 0,
-  kopi: 5106,
-  teh: 740,
-  kakao: 0,
-  tebu: 1628,
-  karet: 0
+  padi: 122,
+  gandum: 158,
+  jagung: 123,
+  sayur: 200,
+  umbi: 155,
+  kedelai: 135,
+  kelapa_sawit: 100,
+  kopi: 188,
+  teh: 113,
+  kakao: 100,
+  tebu: 128,
+  karet: 100
 };

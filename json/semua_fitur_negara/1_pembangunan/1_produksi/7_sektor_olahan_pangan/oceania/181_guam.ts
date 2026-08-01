@@ -1,12 +1,12 @@
 // @ts-nocheck
 const guam_olahan_pangan = {
-  air_mineral: 88,
-  gula: 66,
-  roti: 80,
-  pengolahan_daging: 20,
-  mie_instan: 60,
-  minyak_goreng: 28,
-  susu: 42
+  air_mineral: 100,
+  gula: 68,
+  roti: 88,
+  pengolahan_daging: 0,
+  mie_instan: 59,
+  minyak_goreng: 12,
+  susu: 32
   
   
 };

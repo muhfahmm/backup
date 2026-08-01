@@ -1,6 +1,6 @@
 // @ts-nocheck
 const mauritania_perikanan = {
-  udang: 22,
-  mutiara: 24,
-  ikan: 26
+  udang: 0,
+  mutiara: 50,
+  ikan: 100
 };

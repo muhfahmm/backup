@@ -1,6 +1,6 @@
 // @ts-nocheck
 const mozambik_perikanan = {
-  udang: 9,
-  mutiara: 19,
-  ikan: 34
+  udang: 0,
+  mutiara: 40,
+  ikan: 100
 };

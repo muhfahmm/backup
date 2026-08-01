@@ -1,6 +1,6 @@
 // @ts-nocheck
 const jepang_perikanan = {
-  udang: 1428,
-  mutiara: 5950,
-  ikan: 4998
+  udang: 100,
+  mutiara: 200,
+  ikan: 179
 };

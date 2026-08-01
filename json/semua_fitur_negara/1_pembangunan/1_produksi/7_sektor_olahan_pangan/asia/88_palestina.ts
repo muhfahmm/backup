@@ -1,12 +1,12 @@
 // @ts-nocheck
 const palestina_olahan_pangan = {
-  air_mineral: 76,
-  gula: 66,
-  roti: 94,
-  pengolahan_daging: 70,
+  air_mineral: 29,
+  gula: 0,
+  roti: 82,
+  pengolahan_daging: 12,
   mie_instan: 100,
-  minyak_goreng: 98,
-  susu: 82
+  minyak_goreng: 94,
+  susu: 47
   
   
 };

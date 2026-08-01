@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bangladesh_olahan_pangan = {
-  air_mineral: 1960,
-  gula: 3150,
-  roti: 1260,
-  pengolahan_daging: 770,
-  mie_instan: 2590,
-  minyak_goreng: 770,
-  susu: 3430
+  air_mineral: 145,
+  gula: 189,
+  roti: 118,
+  pengolahan_daging: 100,
+  mie_instan: 168,
+  minyak_goreng: 100,
+  susu: 200
   
   
 };

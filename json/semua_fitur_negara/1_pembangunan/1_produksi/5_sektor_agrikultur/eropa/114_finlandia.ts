@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const finlandia_agrikultur = {
-  padi: 342,
-  gandum: 189,
-  jagung: 531,
-  sayur: 711,
-  umbi: 693,
-  kedelai: 243,
-  kelapa_sawit: 0,
-  kopi: 243,
-  teh: 207,
-  kakao: 0,
-  tebu: 234,
-  karet: 0
+  padi: 148,
+  gandum: 127,
+  jagung: 175,
+  sayur: 200,
+  umbi: 197,
+  kedelai: 134,
+  kelapa_sawit: 100,
+  kopi: 134,
+  teh: 129,
+  kakao: 100,
+  tebu: 133,
+  karet: 100
 };

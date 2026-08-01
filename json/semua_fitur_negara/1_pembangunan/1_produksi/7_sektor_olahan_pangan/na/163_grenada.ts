@@ -1,12 +1,12 @@
 // @ts-nocheck
 const grenada_olahan_pangan = {
-  air_mineral: 15,
-  gula: 21,
-  roti: 16,
-  pengolahan_daging: 17,
-  mie_instan: 27,
-  minyak_goreng: 41,
-  susu: 33
+  air_mineral: 0,
+  gula: 23,
+  roti: 4,
+  pengolahan_daging: 8,
+  mie_instan: 46,
+  minyak_goreng: 100,
+  susu: 69
   
   
 };

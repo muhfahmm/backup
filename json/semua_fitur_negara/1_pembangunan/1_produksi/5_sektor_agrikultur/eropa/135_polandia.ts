@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const polandia_agrikultur = {
-  padi: 1272,
-  gandum: 3233,
-  jagung: 2862,
-  sayur: 3286,
-  umbi: 3710,
-  kedelai: 2014,
-  kelapa_sawit: 0,
-  kopi: 3816,
-  teh: 1484,
-  kakao: 0,
-  tebu: 1537,
-  karet: 0
+  padi: 133,
+  gandum: 185,
+  jagung: 175,
+  sayur: 186,
+  umbi: 197,
+  kedelai: 153,
+  kelapa_sawit: 100,
+  kopi: 200,
+  teh: 139,
+  kakao: 100,
+  tebu: 140,
+  karet: 100
 };

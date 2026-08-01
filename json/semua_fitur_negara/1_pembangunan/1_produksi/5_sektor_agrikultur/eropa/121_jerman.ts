@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const jerman_agrikultur = {
-  padi: 9030,
-  gandum: 17028,
-  jagung: 14448,
-  sayur: 5160,
-  umbi: 10836,
-  kedelai: 18834,
-  kelapa_sawit: 0,
-  kopi: 7482,
-  teh: 10320,
-  kakao: 0,
-  tebu: 18060,
-  karet: 0
+  padi: 148,
+  gandum: 190,
+  jagung: 177,
+  sayur: 127,
+  umbi: 158,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 140,
+  teh: 155,
+  kakao: 100,
+  tebu: 196,
+  karet: 100
 };

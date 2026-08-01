@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bermuda_olahan_pangan = {
-  air_mineral: 90,
-  gula: 36,
-  roti: 60,
-  pengolahan_daging: 90,
-  mie_instan: 26,
-  minyak_goreng: 22,
-  susu: 26
+  air_mineral: 100,
+  gula: 21,
+  roti: 56,
+  pengolahan_daging: 100,
+  mie_instan: 6,
+  minyak_goreng: 0,
+  susu: 6
   
   
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const singapura_olahan_pangan = {
-  air_mineral: 572,
-  gula: 1100,
-  roti: 968,
-  pengolahan_daging: 968,
-  mie_instan: 1892,
-  minyak_goreng: 1012,
-  susu: 1320
+  air_mineral: 100,
+  gula: 140,
+  roti: 130,
+  pengolahan_daging: 130,
+  mie_instan: 200,
+  minyak_goreng: 133,
+  susu: 157
   
   
 };

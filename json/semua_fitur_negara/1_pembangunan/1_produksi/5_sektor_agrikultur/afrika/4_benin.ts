@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const benin_agrikultur = {
-  padi: 26,
-  gandum: 148,
-  jagung: 150,
-  sayur: 72,
-  umbi: 70,
-  kedelai: 160,
+  padi: 16,
+  gandum: 93,
+  jagung: 94,
+  sayur: 45,
+  umbi: 44,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 66,
-  teh: 104,
+  kopi: 41,
+  teh: 65,
   kakao: 0,
-  tebu: 20,
+  tebu: 13,
   karet: 0
 };

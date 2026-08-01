@@ -1,7 +1,7 @@
 // @ts-nocheck
 const suriname_peternakan = {
-  ayam_unggas: 52,
-  sapi_perah: 76,
-  sapi_potong: 58,
-  domba_kambing: 50
+  ayam_unggas: 8,
+  sapi_perah: 100,
+  sapi_potong: 31,
+  domba_kambing: 0
 };

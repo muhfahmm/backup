@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const makedonia_utara_agrikultur = {
-  padi: 99,
-  gandum: 162,
-  jagung: 228,
-  sayur: 126,
-  umbi: 213,
-  kedelai: 216,
+  padi: 43,
+  gandum: 71,
+  jagung: 100,
+  sayur: 55,
+  umbi: 93,
+  kedelai: 95,
   kelapa_sawit: 0,
-  kopi: 138,
-  teh: 108,
+  kopi: 61,
+  teh: 47,
   kakao: 0,
-  tebu: 186,
+  tebu: 82,
   karet: 0
 };

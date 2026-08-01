@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const makau_agrikultur = {
-  padi: 208,
-  gandum: 176,
-  jagung: 128,
-  sayur: 308,
-  umbi: 48,
-  kedelai: 176,
-  kelapa_sawit: 0,
-  kopi: 188,
-  teh: 164,
-  kakao: 0,
-  tebu: 180,
-  karet: 0
+  padi: 168,
+  gandum: 157,
+  jagung: 142,
+  sayur: 200,
+  umbi: 116,
+  kedelai: 157,
+  kelapa_sawit: 100,
+  kopi: 161,
+  teh: 153,
+  kakao: 100,
+  tebu: 158,
+  karet: 100
 };

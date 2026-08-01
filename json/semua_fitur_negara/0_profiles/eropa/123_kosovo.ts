@@ -6,7 +6,7 @@ export const kosovo_profile = {
   "lon": 21.166667,
   "lat": 42.666667,
   "flag": "🇽🇰",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 1574000,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Islam",

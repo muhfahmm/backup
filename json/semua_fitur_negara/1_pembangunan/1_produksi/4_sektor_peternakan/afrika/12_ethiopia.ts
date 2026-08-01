@@ -1,7 +1,7 @@
 // @ts-nocheck
 const ethiopia_peternakan = {
-  ayam_unggas: 450,
-  sapi_perah: 684,
-  sapi_potong: 360,
-  domba_kambing: 774
+  ayam_unggas: 122,
+  sapi_perah: 178,
+  sapi_potong: 100,
+  domba_kambing: 200
 };

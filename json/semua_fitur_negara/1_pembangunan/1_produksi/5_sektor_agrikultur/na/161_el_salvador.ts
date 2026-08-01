@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const el_salvador_agrikultur = {
-  padi: 65,
-  gandum: 315,
-  jagung: 335,
-  sayur: 90,
-  umbi: 90,
-  kedelai: 330,
-  kelapa_sawit: 0,
-  kopi: 400,
-  teh: 115,
-  kakao: 0,
-  tebu: 370,
-  karet: 0
+  padi: 116,
+  gandum: 179,
+  jagung: 184,
+  sayur: 123,
+  umbi: 123,
+  kedelai: 183,
+  kelapa_sawit: 100,
+  kopi: 200,
+  teh: 129,
+  kakao: 100,
+  tebu: 193,
+  karet: 100
 };

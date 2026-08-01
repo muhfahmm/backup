@@ -1,6 +1,6 @@
 // @ts-nocheck
 const honduras_perikanan = {
-  udang: 120,
-  mutiara: 24,
-  ikan: 81
+  udang: 200,
+  mutiara: 100,
+  ikan: 159
 };

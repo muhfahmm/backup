@@ -1,6 +1,6 @@
 // @ts-nocheck
 const estonia_perikanan = {
-  udang: 140,
-  mutiara: 150,
-  ikan: 185
+  udang: 100,
+  mutiara: 122,
+  ikan: 200
 };

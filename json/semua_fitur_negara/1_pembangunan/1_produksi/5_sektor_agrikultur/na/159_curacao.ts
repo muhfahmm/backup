@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const curacao_agrikultur = {
-  padi: 78,
-  gandum: 142,
-  jagung: 140,
-  sayur: 100,
-  umbi: 160,
-  kedelai: 54,
+  padi: 49,
+  gandum: 89,
+  jagung: 88,
+  sayur: 63,
+  umbi: 100,
+  kedelai: 34,
   kelapa_sawit: 0,
-  kopi: 158,
-  teh: 104,
+  kopi: 99,
+  teh: 65,
   kakao: 0,
-  tebu: 48,
+  tebu: 30,
   karet: 0
 };

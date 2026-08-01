@@ -1,7 +1,7 @@
 // @ts-nocheck
 const niger_peternakan = {
-  ayam_unggas: 14,
-  sapi_perah: 33,
-  sapi_potong: 34,
-  domba_kambing: 46
+  ayam_unggas: 0,
+  sapi_perah: 59,
+  sapi_potong: 63,
+  domba_kambing: 100
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_tanzania_olahan_pangan = {
-  air_mineral: 48,
-  gula: 63,
-  roti: 120,
-  pengolahan_daging: 57,
-  mie_instan: 102,
-  minyak_goreng: 87,
-  susu: 42
+  air_mineral: 8,
+  gula: 27,
+  roti: 100,
+  pengolahan_daging: 19,
+  mie_instan: 77,
+  minyak_goreng: 58,
+  susu: 0
   
   
 };

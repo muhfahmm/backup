@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kosovo_agrikultur = {
-  padi: 237,
-  gandum: 153,
-  jagung: 117,
-  sayur: 207,
-  umbi: 165,
-  kedelai: 78,
+  padi: 100,
+  gandum: 65,
+  jagung: 49,
+  sayur: 87,
+  umbi: 70,
+  kedelai: 33,
   kelapa_sawit: 0,
-  kopi: 234,
-  teh: 156,
+  kopi: 99,
+  teh: 66,
   kakao: 0,
-  tebu: 171,
+  tebu: 72,
   karet: 0
 };

@@ -14,6 +14,13 @@ const allProfiles = [
   ...sa_profiles,
 ];
 
+export const PROFILES_POPULATION_DATA: { name_id: string; name_en: string; jumlah_penduduk: number | string }[] =
+  allProfiles.map((p) => ({
+    name_id: p.name_id,
+    name_en: p.name_en,
+    jumlah_penduduk: p.jumlah_penduduk,
+  }));
+
 export const PROFILES_RELIGION_DATA: { name_id: string; religion: string }[] =
   allProfiles.map((p) => ({ name_id: p.name_id, religion: p.religion }));
 

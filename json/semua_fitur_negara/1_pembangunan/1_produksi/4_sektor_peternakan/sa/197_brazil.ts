@@ -1,7 +1,7 @@
 // @ts-nocheck
 const brazil_peternakan = {
-  ayam_unggas: 3201,
-  sapi_perah: 9894,
-  sapi_potong: 6402,
-  domba_kambing: 11931
+  ayam_unggas: 100,
+  sapi_perah: 177,
+  sapi_potong: 137,
+  domba_kambing: 200
 };

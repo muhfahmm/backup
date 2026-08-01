@@ -1,6 +1,6 @@
 // @ts-nocheck
 const islandia_perikanan = {
-  udang: 160,
-  mutiara: 28,
-  ikan: 160
+  udang: 200,
+  mutiara: 100,
+  ikan: 200
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const honduras_agrikultur = {
-  padi: 192,
-  gandum: 138,
-  jagung: 36,
-  sayur: 156,
-  umbi: 123,
-  kedelai: 189,
+  padi: 94,
+  gandum: 68,
+  jagung: 18,
+  sayur: 76,
+  umbi: 60,
+  kedelai: 93,
   kelapa_sawit: 0,
-  kopi: 165,
-  teh: 204,
+  kopi: 81,
+  teh: 100,
   kakao: 0,
-  tebu: 33,
+  tebu: 16,
   karet: 0
 };

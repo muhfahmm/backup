@@ -1,7 +1,7 @@
 // @ts-nocheck
 const chad_peternakan = {
-  ayam_unggas: 114,
-  sapi_perah: 81,
-  sapi_potong: 114,
-  domba_kambing: 90
+  ayam_unggas: 100,
+  sapi_perah: 0,
+  sapi_potong: 100,
+  domba_kambing: 27
 };

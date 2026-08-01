@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const prancis_agrikultur = {
-  padi: 4978,
-  gandum: 19126,
-  jagung: 13362,
-  sayur: 11004,
-  umbi: 19912,
-  kedelai: 10742,
-  kelapa_sawit: 0,
-  kopi: 9170,
-  teh: 2620,
-  kakao: 0,
-  tebu: 16506,
-  karet: 0
+  padi: 125,
+  gandum: 196,
+  jagung: 167,
+  sayur: 155,
+  umbi: 200,
+  kedelai: 154,
+  kelapa_sawit: 100,
+  kopi: 146,
+  teh: 113,
+  kakao: 100,
+  tebu: 183,
+  karet: 100
 };

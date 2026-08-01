@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kamboja_agrikultur = {
-  padi: 135,
-  gandum: 36,
-  jagung: 45,
-  sayur: 165,
-  umbi: 132,
-  kedelai: 72,
+  padi: 58,
+  gandum: 15,
+  jagung: 19,
+  sayur: 71,
+  umbi: 56,
+  kedelai: 31,
   kelapa_sawit: 0,
-  kopi: 126,
-  teh: 234,
+  kopi: 54,
+  teh: 100,
   kakao: 0,
-  tebu: 114,
+  tebu: 49,
   karet: 0
 };

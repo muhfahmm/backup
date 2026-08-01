@@ -1,6 +1,6 @@
 // @ts-nocheck
 const ghana_perikanan = {
-  udang: 203,
-  mutiara: 196,
-  ikan: 70
+  udang: 200,
+  mutiara: 195,
+  ikan: 100
 };

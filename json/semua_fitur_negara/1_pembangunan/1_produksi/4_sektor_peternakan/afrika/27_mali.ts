@@ -1,7 +1,7 @@
 // @ts-nocheck
 const mali_peternakan = {
-  ayam_unggas: 36,
-  sapi_perah: 57,
-  sapi_potong: 126,
-  domba_kambing: 138
+  ayam_unggas: 0,
+  sapi_perah: 21,
+  sapi_potong: 88,
+  domba_kambing: 100
 };

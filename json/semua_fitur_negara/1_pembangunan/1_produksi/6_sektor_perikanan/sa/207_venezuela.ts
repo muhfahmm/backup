@@ -1,6 +1,6 @@
 // @ts-nocheck
 const venezuela_perikanan = {
-  udang: 64,
-  mutiara: 56,
-  ikan: 96
+  udang: 120,
+  mutiara: 100,
+  ikan: 200
 };

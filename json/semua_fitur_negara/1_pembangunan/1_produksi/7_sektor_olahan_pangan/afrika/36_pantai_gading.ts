@@ -1,12 +1,12 @@
 // @ts-nocheck
 const pantai_gading_olahan_pangan = {
-  air_mineral: 85,
-  gula: 105,
-  roti: 50,
-  pengolahan_daging: 65,
-  mie_instan: 50,
-  minyak_goreng: 140,
-  susu: 85
+  air_mineral: 39,
+  gula: 61,
+  roti: 0,
+  pengolahan_daging: 17,
+  mie_instan: 0,
+  minyak_goreng: 100,
+  susu: 39
   
   
 };

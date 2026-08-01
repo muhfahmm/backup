@@ -1,7 +1,7 @@
 // @ts-nocheck
 const afganistan_peternakan = {
-  ayam_unggas: 108,
-  sapi_perah: 96,
-  sapi_potong: 104,
-  domba_kambing: 140
+  ayam_unggas: 127,
+  sapi_perah: 100,
+  sapi_potong: 118,
+  domba_kambing: 200
 };

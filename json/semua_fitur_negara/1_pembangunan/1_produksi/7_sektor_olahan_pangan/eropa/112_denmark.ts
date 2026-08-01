@@ -1,12 +1,12 @@
 // @ts-nocheck
 const denmark_olahan_pangan = {
-  air_mineral: 616,
-  gula: 748,
-  roti: 1232,
-  pengolahan_daging: 660,
-  mie_instan: 1936,
-  minyak_goreng: 1276,
-  susu: 660
+  air_mineral: 100,
+  gula: 110,
+  roti: 147,
+  pengolahan_daging: 103,
+  mie_instan: 200,
+  minyak_goreng: 150,
+  susu: 103
   
   
 };

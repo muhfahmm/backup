@@ -6,7 +6,7 @@ export const makau_profile = {
   "lon": 113.55,
   "lat": 22.16666666,
   "flag": "🇲🇴",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 723188,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Buddha",

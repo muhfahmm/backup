@@ -1,6 +1,6 @@
 // @ts-nocheck
 const lebanon_perikanan = {
-  udang: 16,
-  mutiara: 20,
-  ikan: 6
+  udang: 71,
+  mutiara: 100,
+  ikan: 0
 };

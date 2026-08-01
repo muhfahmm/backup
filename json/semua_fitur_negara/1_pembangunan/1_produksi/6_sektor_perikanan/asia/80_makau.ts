@@ -1,6 +1,6 @@
 // @ts-nocheck
 const makau_perikanan = {
-  udang: 108,
-  mutiara: 148,
-  ikan: 124
+  udang: 100,
+  mutiara: 200,
+  ikan: 140
 };

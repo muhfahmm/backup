@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kepulauan_faroe_agrikultur = {
-  padi: 43,
-  gandum: 51,
-  jagung: 14,
-  sayur: 36,
-  umbi: 48,
-  kedelai: 30,
+  padi: 70,
+  gandum: 84,
+  jagung: 23,
+  sayur: 59,
+  umbi: 79,
+  kedelai: 49,
   kelapa_sawit: 0,
-  kopi: 61,
-  teh: 39,
+  kopi: 100,
+  teh: 64,
   kakao: 0,
-  tebu: 60,
+  tebu: 98,
   karet: 0
 };

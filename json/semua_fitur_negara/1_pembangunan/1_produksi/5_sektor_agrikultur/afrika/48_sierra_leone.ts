@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const sierra_leone_agrikultur = {
-  padi: 124,
-  gandum: 296,
-  jagung: 220,
-  sayur: 288,
-  umbi: 156,
-  kedelai: 212,
+  padi: 42,
+  gandum: 100,
+  jagung: 74,
+  sayur: 97,
+  umbi: 53,
+  kedelai: 72,
   kelapa_sawit: 0,
-  kopi: 88,
-  teh: 40,
+  kopi: 30,
+  teh: 14,
   kakao: 0,
-  tebu: 88,
+  tebu: 30,
   karet: 0
 };

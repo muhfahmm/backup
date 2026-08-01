@@ -1,12 +1,12 @@
 // @ts-nocheck
 const selandia_baru_olahan_pangan = {
-  air_mineral: 630,
-  gula: 483,
-  roti: 1029,
-  pengolahan_daging: 462,
-  mie_instan: 315,
-  minyak_goreng: 378,
-  susu: 210
+  air_mineral: 151,
+  gula: 133,
+  roti: 200,
+  pengolahan_daging: 131,
+  mie_instan: 113,
+  minyak_goreng: 121,
+  susu: 100
   
   
 };

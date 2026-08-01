@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const slowakia_agrikultur = {
-  padi: 910,
-  gandum: 832,
-  jagung: 624,
-  sayur: 494,
-  umbi: 260,
-  kedelai: 1027,
-  kelapa_sawit: 0,
-  kopi: 221,
-  teh: 416,
-  kakao: 0,
-  tebu: 702,
-  karet: 0
+  padi: 189,
+  gandum: 181,
+  jagung: 161,
+  sayur: 148,
+  umbi: 125,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 122,
+  teh: 141,
+  kakao: 100,
+  tebu: 168,
+  karet: 100
 };

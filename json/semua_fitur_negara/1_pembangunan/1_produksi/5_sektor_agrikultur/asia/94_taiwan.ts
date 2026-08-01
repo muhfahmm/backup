@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const taiwan_agrikultur = {
-  padi: 1632,
-  gandum: 600,
-  jagung: 1152,
-  sayur: 528,
-  umbi: 1536,
-  kedelai: 1872,
-  kelapa_sawit: 0,
-  kopi: 1152,
-  teh: 624,
-  kakao: 0,
-  tebu: 1008,
-  karet: 0
+  padi: 187,
+  gandum: 132,
+  jagung: 162,
+  sayur: 128,
+  umbi: 182,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 162,
+  teh: 133,
+  kakao: 100,
+  tebu: 154,
+  karet: 100
 };

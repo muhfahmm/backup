@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tuvalu_agrikultur = {
-  padi: 228,
-  gandum: 144,
-  jagung: 231,
-  sayur: 36,
-  umbi: 204,
-  kedelai: 177,
+  padi: 99,
+  gandum: 62,
+  jagung: 100,
+  sayur: 16,
+  umbi: 88,
+  kedelai: 77,
   kelapa_sawit: 0,
-  kopi: 147,
-  teh: 114,
+  kopi: 64,
+  teh: 49,
   kakao: 0,
-  tebu: 105,
+  tebu: 45,
   karet: 0
 };

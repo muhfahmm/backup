@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_timor_leste_olahan_pangan = {
-  air_mineral: 36,
-  gula: 27,
-  roti: 45,
-  pengolahan_daging: 17,
-  mie_instan: 32,
-  minyak_goreng: 30,
-  susu: 14
+  air_mineral: 71,
+  gula: 42,
+  roti: 100,
+  pengolahan_daging: 10,
+  mie_instan: 58,
+  minyak_goreng: 52,
+  susu: 0
   
   
 };

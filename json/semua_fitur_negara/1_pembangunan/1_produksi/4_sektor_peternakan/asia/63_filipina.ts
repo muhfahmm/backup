@@ -1,7 +1,7 @@
 // @ts-nocheck
 const filipina_peternakan = {
-  ayam_unggas: 380,
-  sapi_perah: 420,
-  sapi_potong: 920,
-  domba_kambing: 680
+  ayam_unggas: 100,
+  sapi_perah: 107,
+  sapi_potong: 200,
+  domba_kambing: 156
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tunisia_olahan_pangan = {
-  air_mineral: 44,
-  gula: 60,
-  roti: 24,
-  pengolahan_daging: 38,
-  mie_instan: 84,
-  minyak_goreng: 20,
-  susu: 64
+  air_mineral: 38,
+  gula: 63,
+  roti: 6,
+  pengolahan_daging: 28,
+  mie_instan: 100,
+  minyak_goreng: 0,
+  susu: 69
   
   
 };

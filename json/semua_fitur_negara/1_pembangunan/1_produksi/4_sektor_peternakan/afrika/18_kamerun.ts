@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kamerun_peternakan = {
-  ayam_unggas: 392,
-  sapi_perah: 376,
-  sapi_potong: 216,
-  domba_kambing: 304
+  ayam_unggas: 200,
+  sapi_perah: 191,
+  sapi_potong: 100,
+  domba_kambing: 150
 };

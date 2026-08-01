@@ -1,12 +1,12 @@
 // @ts-nocheck
 const israel_olahan_pangan = {
-  air_mineral: 1386,
-  gula: 1134,
-  roti: 2205,
-  pengolahan_daging: 819,
-  mie_instan: 2898,
-  minyak_goreng: 1323,
-  susu: 1134
+  air_mineral: 127,
+  gula: 115,
+  roti: 167,
+  pengolahan_daging: 100,
+  mie_instan: 200,
+  minyak_goreng: 124,
+  susu: 115
   
   
 };

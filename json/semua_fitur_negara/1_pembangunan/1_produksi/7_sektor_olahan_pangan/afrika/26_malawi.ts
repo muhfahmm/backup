@@ -1,12 +1,12 @@
 // @ts-nocheck
 const malawi_olahan_pangan = {
-  air_mineral: 200,
-  gula: 192,
-  roti: 72,
-  pengolahan_daging: 128,
-  mie_instan: 48,
-  minyak_goreng: 60,
-  susu: 52
+  air_mineral: 100,
+  gula: 95,
+  roti: 16,
+  pengolahan_daging: 53,
+  mie_instan: 0,
+  minyak_goreng: 8,
+  susu: 3
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const rwanda_agrikultur = {
-  padi: 62,
-  gandum: 10,
-  jagung: 77,
-  sayur: 22,
-  umbi: 60,
-  kedelai: 37,
+  padi: 81,
+  gandum: 13,
+  jagung: 100,
+  sayur: 29,
+  umbi: 78,
+  kedelai: 48,
   kelapa_sawit: 0,
-  kopi: 32,
-  teh: 71,
+  kopi: 42,
+  teh: 92,
   kakao: 0,
-  tebu: 46,
+  tebu: 60,
   karet: 0
 };

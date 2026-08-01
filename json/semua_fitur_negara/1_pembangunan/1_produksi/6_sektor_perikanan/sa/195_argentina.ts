@@ -1,6 +1,6 @@
 // @ts-nocheck
 const argentina_perikanan = {
-  udang: 1584,
-  mutiara: 912,
-  ikan: 576
+  udang: 200,
+  mutiara: 133,
+  ikan: 100
 };

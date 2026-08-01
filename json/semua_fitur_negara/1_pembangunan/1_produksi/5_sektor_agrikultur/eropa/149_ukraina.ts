@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ukraina_agrikultur = {
-  padi: 300,
-  gandum: 160,
-  jagung: 320,
-  sayur: 295,
-  umbi: 365,
-  kedelai: 230,
-  kelapa_sawit: 0,
-  kopi: 240,
-  teh: 195,
-  kakao: 0,
-  tebu: 395,
-  karet: 0
+  padi: 176,
+  gandum: 141,
+  jagung: 181,
+  sayur: 175,
+  umbi: 192,
+  kedelai: 158,
+  kelapa_sawit: 100,
+  kopi: 161,
+  teh: 149,
+  kakao: 100,
+  tebu: 200,
+  karet: 100
 };

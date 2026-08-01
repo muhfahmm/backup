@@ -1,12 +1,12 @@
 // @ts-nocheck
 const jamaika_olahan_pangan = {
-  air_mineral: 48,
-  gula: 128,
-  roti: 128,
-  pengolahan_daging: 56,
-  mie_instan: 180,
-  minyak_goreng: 76,
-  susu: 80
+  air_mineral: 0,
+  gula: 61,
+  roti: 61,
+  pengolahan_daging: 6,
+  mie_instan: 100,
+  minyak_goreng: 21,
+  susu: 24
   
   
 };

@@ -6,7 +6,7 @@ export const ceko_profile = {
   "lon": 15.5,
   "lat": 49.75,
   "flag": "🇨🇿",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 10897000,
   "anggaran": 3209,
   "pendapatan_nasional": "9167",
   "religion": "Ateisme",

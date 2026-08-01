@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const italia_agrikultur = {
-  padi: 21761,
-  gandum: 30558,
-  jagung: 36114,
-  sayur: 18983,
-  umbi: 25928,
-  kedelai: 31484,
-  kelapa_sawit: 0,
-  kopi: 11112,
-  teh: 6482,
-  kakao: 0,
-  tebu: 28243,
-  karet: 0
+  padi: 160,
+  gandum: 185,
+  jagung: 200,
+  sayur: 153,
+  umbi: 172,
+  kedelai: 187,
+  kelapa_sawit: 100,
+  kopi: 131,
+  teh: 118,
+  kakao: 100,
+  tebu: 178,
+  karet: 100
 };

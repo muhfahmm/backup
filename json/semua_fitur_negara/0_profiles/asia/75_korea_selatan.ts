@@ -6,7 +6,7 @@ export const korea_selatan_profile = {
   "lon": 126.97,
   "lat": 37.56,
   "flag": "🇰🇷",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 51615587,
   "anggaran": 17112,
   "pendapatan_nasional": "48893",
   "religion": "Ateisme",

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const latvia_agrikultur = {
-  padi: 148,
-  gandum: 52,
-  jagung: 68,
-  sayur: 304,
-  umbi: 264,
-  kedelai: 260,
+  padi: 49,
+  gandum: 17,
+  jagung: 22,
+  sayur: 100,
+  umbi: 87,
+  kedelai: 86,
   kelapa_sawit: 0,
-  kopi: 116,
-  teh: 152,
+  kopi: 38,
+  teh: 50,
   kakao: 0,
-  tebu: 96,
+  tebu: 32,
   karet: 0
 };

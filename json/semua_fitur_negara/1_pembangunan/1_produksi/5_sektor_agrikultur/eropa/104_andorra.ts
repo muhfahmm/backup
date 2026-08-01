@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const andorra_agrikultur = {
-  padi: 68,
-  gandum: 92,
-  jagung: 110,
-  sayur: 78,
-  umbi: 20,
-  kedelai: 132,
+  padi: 52,
+  gandum: 70,
+  jagung: 83,
+  sayur: 59,
+  umbi: 15,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 126,
-  teh: 114,
+  kopi: 95,
+  teh: 86,
   kakao: 0,
-  tebu: 24,
+  tebu: 18,
   karet: 0
 };

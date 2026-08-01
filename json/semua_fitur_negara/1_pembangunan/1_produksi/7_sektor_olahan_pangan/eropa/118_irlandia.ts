@@ -1,12 +1,12 @@
 // @ts-nocheck
 const irlandia_olahan_pangan = {
-  air_mineral: 1029,
-  gula: 833,
-  roti: 1274,
-  pengolahan_daging: 833,
-  mie_instan: 1372,
-  minyak_goreng: 1960,
-  susu: 1813
+  air_mineral: 117,
+  gula: 100,
+  roti: 139,
+  pengolahan_daging: 100,
+  mie_instan: 148,
+  minyak_goreng: 200,
+  susu: 187
   
   
 };

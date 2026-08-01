@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const hungaria_agrikultur = {
-  padi: 296,
-  gandum: 328,
-  jagung: 136,
-  sayur: 584,
-  umbi: 624,
-  kedelai: 472,
-  kelapa_sawit: 0,
-  kopi: 464,
-  teh: 448,
-  kakao: 0,
-  tebu: 408,
-  karet: 0
+  padi: 147,
+  gandum: 153,
+  jagung: 122,
+  sayur: 194,
+  umbi: 200,
+  kedelai: 176,
+  kelapa_sawit: 100,
+  kopi: 174,
+  teh: 172,
+  kakao: 100,
+  tebu: 165,
+  karet: 100
 };

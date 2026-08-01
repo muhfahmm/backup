@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const papua_nugini_agrikultur = {
-  padi: 99,
-  gandum: 198,
-  jagung: 90,
-  sayur: 198,
-  umbi: 63,
-  kedelai: 213,
+  padi: 46,
+  gandum: 93,
+  jagung: 42,
+  sayur: 93,
+  umbi: 30,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 36,
-  teh: 201,
+  kopi: 17,
+  teh: 94,
   kakao: 0,
-  tebu: 165,
+  tebu: 77,
   karet: 0
 };

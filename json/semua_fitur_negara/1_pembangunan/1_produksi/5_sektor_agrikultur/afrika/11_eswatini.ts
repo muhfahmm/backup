@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const eswatini_agrikultur = {
-  padi: 58,
-  gandum: 73,
-  jagung: 70,
-  sayur: 14,
-  umbi: 14,
-  kedelai: 32,
+  padi: 79,
+  gandum: 100,
+  jagung: 96,
+  sayur: 19,
+  umbi: 19,
+  kedelai: 44,
   kelapa_sawit: 0,
-  kopi: 45,
-  teh: 28,
+  kopi: 62,
+  teh: 38,
   kakao: 0,
-  tebu: 26,
+  tebu: 36,
   karet: 0
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const libya_olahan_pangan = {
-  air_mineral: 266,
-  gula: 196,
-  roti: 196,
-  pengolahan_daging: 252,
-  mie_instan: 308,
-  minyak_goreng: 84,
-  susu: 133
+  air_mineral: 181,
+  gula: 150,
+  roti: 150,
+  pengolahan_daging: 175,
+  mie_instan: 200,
+  minyak_goreng: 100,
+  susu: 122
   
   
 };

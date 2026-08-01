@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bermuda_perikanan = {
-  udang: 10,
-  mutiara: 68,
-  ikan: 28
+  udang: 0,
+  mutiara: 100,
+  ikan: 31
 };

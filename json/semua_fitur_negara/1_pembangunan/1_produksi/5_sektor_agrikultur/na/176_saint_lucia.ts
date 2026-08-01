@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const saint_lucia_agrikultur = {
-  padi: 71,
-  gandum: 56,
-  jagung: 56,
-  sayur: 29,
-  umbi: 14,
-  kedelai: 45,
+  padi: 100,
+  gandum: 79,
+  jagung: 79,
+  sayur: 41,
+  umbi: 20,
+  kedelai: 63,
   kelapa_sawit: 0,
-  kopi: 15,
-  teh: 27,
+  kopi: 21,
+  teh: 38,
   kakao: 0,
-  tebu: 48,
+  tebu: 68,
   karet: 0
 };

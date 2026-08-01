@@ -1,7 +1,7 @@
 // @ts-nocheck
 const swedia_peternakan = {
-  ayam_unggas: 740,
-  sapi_perah: 3700,
-  sapi_potong: 1924,
-  domba_kambing: 3108
+  ayam_unggas: 100,
+  sapi_perah: 200,
+  sapi_potong: 140,
+  domba_kambing: 180
 };

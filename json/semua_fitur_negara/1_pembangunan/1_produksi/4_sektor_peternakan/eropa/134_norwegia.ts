@@ -1,7 +1,7 @@
 // @ts-nocheck
 const norwegia_peternakan = {
-  ayam_unggas: 480,
-  sapi_perah: 860,
-  sapi_potong: 700,
-  domba_kambing: 340
+  ayam_unggas: 127,
+  sapi_perah: 200,
+  sapi_potong: 169,
+  domba_kambing: 100
 };

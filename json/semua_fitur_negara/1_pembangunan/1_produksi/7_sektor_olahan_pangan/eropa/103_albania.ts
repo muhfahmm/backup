@@ -1,12 +1,12 @@
 // @ts-nocheck
 const albania_olahan_pangan = {
-  air_mineral: 31,
-  gula: 44,
-  roti: 19,
-  pengolahan_daging: 15,
-  mie_instan: 41,
-  minyak_goreng: 38,
-  susu: 24
+  air_mineral: 55,
+  gula: 100,
+  roti: 14,
+  pengolahan_daging: 0,
+  mie_instan: 90,
+  minyak_goreng: 79,
+  susu: 31
   
   
 };

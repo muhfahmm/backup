@@ -1,12 +1,12 @@
 // @ts-nocheck
 const burundi_olahan_pangan = {
-  air_mineral: 32,
-  gula: 30,
-  roti: 24,
-  pengolahan_daging: 78,
-  mie_instan: 22,
-  minyak_goreng: 36,
-  susu: 44
+  air_mineral: 18,
+  gula: 14,
+  roti: 4,
+  pengolahan_daging: 100,
+  mie_instan: 0,
+  minyak_goreng: 25,
+  susu: 39
   
   
 };

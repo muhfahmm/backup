@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kolombia_agrikultur = {
-  padi: 1656,
-  gandum: 1980,
-  jagung: 432,
-  sayur: 1800,
-  umbi: 432,
-  kedelai: 684,
-  kelapa_sawit: 1476,
-  kopi: 612,
-  teh: 2628,
-  kakao: 1692,
-  tebu: 1476,
-  karet: 2736
+  padi: 153,
+  gandum: 167,
+  jagung: 100,
+  sayur: 159,
+  umbi: 100,
+  kedelai: 111,
+  kelapa_sawit: 145,
+  kopi: 108,
+  teh: 195,
+  kakao: 155,
+  tebu: 145,
+  karet: 200
 };

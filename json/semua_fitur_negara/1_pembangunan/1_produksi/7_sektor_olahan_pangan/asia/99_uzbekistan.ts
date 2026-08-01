@@ -1,12 +1,12 @@
 // @ts-nocheck
 const uzbekistan_olahan_pangan = {
-  air_mineral: 308,
-  gula: 266,
-  roti: 161,
-  pengolahan_daging: 273,
-  mie_instan: 168,
-  minyak_goreng: 112,
-  susu: 329
+  air_mineral: 190,
+  gula: 171,
+  roti: 123,
+  pengolahan_daging: 174,
+  mie_instan: 126,
+  minyak_goreng: 100,
+  susu: 200
   
   
 };

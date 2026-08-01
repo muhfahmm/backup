@@ -1,12 +1,12 @@
 // @ts-nocheck
 const belgia_olahan_pangan = {
-  air_mineral: 533,
-  gula: 779,
-  roti: 492,
-  pengolahan_daging: 738,
-  mie_instan: 1312,
-  minyak_goreng: 1353,
-  susu: 861
+  air_mineral: 105,
+  gula: 133,
+  roti: 100,
+  pengolahan_daging: 129,
+  mie_instan: 195,
+  minyak_goreng: 200,
+  susu: 143
   
   
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const fiji_perikanan = {
-  udang: 38,
-  mutiara: 24,
-  ikan: 26
+  udang: 100,
+  mutiara: 0,
+  ikan: 14
 };

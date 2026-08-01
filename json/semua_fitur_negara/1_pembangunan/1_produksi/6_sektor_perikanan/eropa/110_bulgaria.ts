@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bulgaria_perikanan = {
-  udang: 180,
-  mutiara: 220,
-  ikan: 140
+  udang: 150,
+  mutiara: 200,
+  ikan: 100
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const madagaskar_perikanan = {
-  udang: 20,
-  mutiara: 30,
-  ikan: 58
+  udang: 0,
+  mutiara: 26,
+  ikan: 100
 };

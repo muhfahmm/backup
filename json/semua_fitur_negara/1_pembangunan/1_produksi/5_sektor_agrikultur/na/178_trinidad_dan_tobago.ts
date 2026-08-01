@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const trinidad_dan_tobago_agrikultur = {
-  padi: 140,
-  gandum: 32,
-  jagung: 38,
-  sayur: 64,
-  umbi: 154,
-  kedelai: 124,
+  padi: 89,
+  gandum: 20,
+  jagung: 24,
+  sayur: 41,
+  umbi: 97,
+  kedelai: 78,
   kelapa_sawit: 0,
-  kopi: 150,
-  teh: 158,
+  kopi: 95,
+  teh: 100,
   kakao: 0,
-  tebu: 106,
+  tebu: 67,
   karet: 0
 };

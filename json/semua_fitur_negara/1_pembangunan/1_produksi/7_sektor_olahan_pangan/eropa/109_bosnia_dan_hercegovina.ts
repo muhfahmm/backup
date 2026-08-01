@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bosnia_dan_hercegovina_olahan_pangan = {
-  air_mineral: 128,
-  gula: 188,
-  roti: 160,
-  pengolahan_daging: 168,
-  mie_instan: 128,
-  minyak_goreng: 104,
-  susu: 160
+  air_mineral: 129,
+  gula: 200,
+  roti: 167,
+  pengolahan_daging: 176,
+  mie_instan: 129,
+  minyak_goreng: 100,
+  susu: 167
   
   
 };

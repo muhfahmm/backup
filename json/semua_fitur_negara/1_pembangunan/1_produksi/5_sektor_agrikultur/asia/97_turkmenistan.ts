@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const turkmenistan_agrikultur = {
-  padi: 124,
-  gandum: 158,
-  jagung: 76,
-  sayur: 98,
-  umbi: 102,
-  kedelai: 68,
+  padi: 78,
+  gandum: 100,
+  jagung: 48,
+  sayur: 62,
+  umbi: 65,
+  kedelai: 43,
   kelapa_sawit: 0,
-  kopi: 156,
-  teh: 136,
+  kopi: 99,
+  teh: 86,
   kakao: 0,
-  tebu: 150,
+  tebu: 95,
   karet: 0
 };

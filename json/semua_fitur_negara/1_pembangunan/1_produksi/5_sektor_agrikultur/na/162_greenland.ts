@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const greenland_agrikultur = {
-  padi: 192,
-  gandum: 156,
-  jagung: 248,
-  sayur: 124,
-  umbi: 288,
-  kedelai: 68,
+  padi: 67,
+  gandum: 54,
+  jagung: 86,
+  sayur: 43,
+  umbi: 100,
+  kedelai: 24,
   kelapa_sawit: 0,
-  kopi: 56,
-  teh: 160,
+  kopi: 19,
+  teh: 56,
   kakao: 0,
-  tebu: 52,
+  tebu: 18,
   karet: 0
 };

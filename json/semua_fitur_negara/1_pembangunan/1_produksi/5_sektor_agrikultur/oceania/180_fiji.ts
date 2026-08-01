@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const fiji_agrikultur = {
-  padi: 156,
-  gandum: 58,
-  jagung: 108,
-  sayur: 88,
-  umbi: 26,
-  kedelai: 140,
+  padi: 100,
+  gandum: 37,
+  jagung: 69,
+  sayur: 56,
+  umbi: 17,
+  kedelai: 90,
   kelapa_sawit: 0,
-  kopi: 68,
-  teh: 70,
+  kopi: 44,
+  teh: 45,
   kakao: 0,
-  tebu: 122,
+  tebu: 78,
   karet: 0
 };

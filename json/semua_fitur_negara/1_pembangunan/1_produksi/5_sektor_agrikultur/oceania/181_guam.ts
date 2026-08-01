@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const guam_agrikultur = {
-  padi: 158,
-  gandum: 76,
-  jagung: 66,
-  sayur: 76,
-  umbi: 24,
-  kedelai: 28,
+  padi: 100,
+  gandum: 48,
+  jagung: 42,
+  sayur: 48,
+  umbi: 15,
+  kedelai: 18,
   kelapa_sawit: 0,
-  kopi: 104,
-  teh: 96,
+  kopi: 66,
+  teh: 61,
   kakao: 0,
-  tebu: 54,
+  tebu: 34,
   karet: 0
 };

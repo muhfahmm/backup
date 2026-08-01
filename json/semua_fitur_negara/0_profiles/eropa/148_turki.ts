@@ -6,7 +6,7 @@ export const turki_profile = {
   "lon": 32.85,
   "lat": 39.93,
   "flag": "🇹🇷",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 87926082,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Islam",

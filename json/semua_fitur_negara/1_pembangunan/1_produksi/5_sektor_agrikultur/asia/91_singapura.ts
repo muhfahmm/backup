@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const singapura_agrikultur = {
-  padi: 1276,
-  gandum: 1232,
-  jagung: 792,
-  sayur: 1056,
-  umbi: 1672,
-  kedelai: 1056,
-  kelapa_sawit: 0,
-  kopi: 2464,
-  teh: 704,
-  kakao: 0,
-  tebu: 836,
-  karet: 0
+  padi: 152,
+  gandum: 150,
+  jagung: 132,
+  sayur: 143,
+  umbi: 168,
+  kedelai: 143,
+  kelapa_sawit: 100,
+  kopi: 200,
+  teh: 129,
+  kakao: 100,
+  tebu: 134,
+  karet: 100
 };

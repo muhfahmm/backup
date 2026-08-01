@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tonga_olahan_pangan = {
-  air_mineral: 41,
-  gula: 26,
-  roti: 31,
-  pengolahan_daging: 33,
-  mie_instan: 18,
-  minyak_goreng: 24,
-  susu: 41
+  air_mineral: 100,
+  gula: 35,
+  roti: 57,
+  pengolahan_daging: 65,
+  mie_instan: 0,
+  minyak_goreng: 26,
+  susu: 100
   
   
 };

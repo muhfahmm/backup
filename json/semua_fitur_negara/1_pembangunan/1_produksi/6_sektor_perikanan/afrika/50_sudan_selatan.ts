@@ -1,6 +1,6 @@
 // @ts-nocheck
 const sudan_selatan_perikanan = {
-  udang: 156,
-  mutiara: 72,
-  ikan: 76
+  udang: 200,
+  mutiara: 100,
+  ikan: 105
 };

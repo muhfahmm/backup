@@ -1,7 +1,7 @@
 // @ts-nocheck
 const nepal_peternakan = {
-  ayam_unggas: 148,
-  sapi_perah: 68,
-  sapi_potong: 144,
-  domba_kambing: 104
+  ayam_unggas: 200,
+  sapi_perah: 100,
+  sapi_potong: 195,
+  domba_kambing: 145
 };

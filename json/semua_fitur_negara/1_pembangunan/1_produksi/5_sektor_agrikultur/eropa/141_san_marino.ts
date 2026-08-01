@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const san_marino_agrikultur = {
-  padi: 40,
-  gandum: 148,
-  jagung: 52,
-  sayur: 172,
-  umbi: 284,
-  kedelai: 256,
-  kelapa_sawit: 0,
-  kopi: 108,
-  teh: 320,
-  kakao: 0,
-  tebu: 168,
-  karet: 0
+  padi: 113,
+  gandum: 146,
+  jagung: 116,
+  sayur: 154,
+  umbi: 189,
+  kedelai: 180,
+  kelapa_sawit: 100,
+  kopi: 134,
+  teh: 200,
+  kakao: 100,
+  tebu: 153,
+  karet: 100
 };

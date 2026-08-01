@@ -1,12 +1,12 @@
 // @ts-nocheck
 const liechtenstein_olahan_pangan = {
-  air_mineral: 64,
-  gula: 152,
-  roti: 88,
-  pengolahan_daging: 88,
-  mie_instan: 160,
-  minyak_goreng: 76,
-  susu: 60
+  air_mineral: 4,
+  gula: 92,
+  roti: 28,
+  pengolahan_daging: 28,
+  mie_instan: 100,
+  minyak_goreng: 16,
+  susu: 0
   
   
 };

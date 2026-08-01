@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const pakistan_agrikultur = {
-  padi: 2704,
-  gandum: 2704,
-  jagung: 3380,
-  sayur: 3172,
-  umbi: 2808,
-  kedelai: 2444,
-  kelapa_sawit: 0,
-  kopi: 2496,
-  teh: 780,
-  kakao: 0,
-  tebu: 1924,
-  karet: 0
+  padi: 180,
+  gandum: 180,
+  jagung: 200,
+  sayur: 194,
+  umbi: 183,
+  kedelai: 172,
+  kelapa_sawit: 100,
+  kopi: 174,
+  teh: 123,
+  kakao: 100,
+  tebu: 157,
+  karet: 100
 };

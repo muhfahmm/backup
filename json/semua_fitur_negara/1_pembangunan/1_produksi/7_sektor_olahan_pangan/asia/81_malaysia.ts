@@ -1,12 +1,12 @@
 // @ts-nocheck
 const malaysia_olahan_pangan = {
-  air_mineral: 756,
-  gula: 396,
-  roti: 1512,
-  pengolahan_daging: 1044,
-  mie_instan: 900,
-  minyak_goreng: 1548,
-  susu: 1440
+  air_mineral: 131,
+  gula: 100,
+  roti: 197,
+  pengolahan_daging: 156,
+  mie_instan: 144,
+  minyak_goreng: 200,
+  susu: 191
   
   
 };

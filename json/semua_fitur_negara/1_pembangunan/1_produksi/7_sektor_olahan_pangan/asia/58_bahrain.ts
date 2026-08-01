@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bahrain_olahan_pangan = {
-  air_mineral: 392,
-  gula: 376,
-  roti: 216,
-  pengolahan_daging: 304,
-  mie_instan: 208,
-  minyak_goreng: 312,
-  susu: 280
+  air_mineral: 200,
+  gula: 191,
+  roti: 104,
+  pengolahan_daging: 152,
+  mie_instan: 100,
+  minyak_goreng: 157,
+  susu: 139
   
   
 };

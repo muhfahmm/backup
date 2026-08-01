@@ -1,7 +1,7 @@
 // @ts-nocheck
 const austria_peternakan = {
-  ayam_unggas: 1998,
-  sapi_perah: 2072,
-  sapi_potong: 1480,
-  domba_kambing: 2072
+  ayam_unggas: 188,
+  sapi_perah: 200,
+  sapi_potong: 100,
+  domba_kambing: 200
 };

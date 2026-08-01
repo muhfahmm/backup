@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const angola_agrikultur = {
-  padi: 400,
-  gandum: 336,
-  jagung: 296,
-  sayur: 408,
-  umbi: 168,
-  kedelai: 208,
-  kelapa_sawit: 0,
-  kopi: 184,
-  teh: 376,
-  kakao: 0,
-  tebu: 432,
-  karet: 0
+  padi: 193,
+  gandum: 178,
+  jagung: 169,
+  sayur: 194,
+  umbi: 139,
+  kedelai: 148,
+  kelapa_sawit: 100,
+  kopi: 143,
+  teh: 187,
+  kakao: 100,
+  tebu: 200,
+  karet: 100
 };

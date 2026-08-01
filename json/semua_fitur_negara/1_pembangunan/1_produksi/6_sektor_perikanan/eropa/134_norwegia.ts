@@ -1,6 +1,6 @@
 // @ts-nocheck
 const norwegia_perikanan = {
-  udang: 580,
-  mutiara: 360,
-  ikan: 320
+  udang: 200,
+  mutiara: 115,
+  ikan: 100
 };

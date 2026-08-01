@@ -1,7 +1,7 @@
 // @ts-nocheck
 const venezuela_peternakan = {
-  ayam_unggas: 384,
-  sapi_perah: 224,
-  sapi_potong: 384,
-  domba_kambing: 304
+  ayam_unggas: 200,
+  sapi_perah: 100,
+  sapi_potong: 200,
+  domba_kambing: 150
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const ekuador_olahan_pangan = {
-  air_mineral: 690,
-  gula: 540,
-  roti: 510,
-  pengolahan_daging: 180,
-  mie_instan: 225,
-  minyak_goreng: 345,
-  susu: 240
+  air_mineral: 200,
+  gula: 171,
+  roti: 165,
+  pengolahan_daging: 100,
+  mie_instan: 109,
+  minyak_goreng: 132,
+  susu: 112
   
   
 };

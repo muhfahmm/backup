@@ -1,6 +1,6 @@
 // @ts-nocheck
 const uni_emirat_arab_perikanan = {
-  udang: 1848,
-  mutiara: 1782,
-  ikan: 528
+  udang: 200,
+  mutiara: 195,
+  ikan: 100
 };

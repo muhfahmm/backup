@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const barbados_agrikultur = {
-  padi: 26,
-  gandum: 71,
-  jagung: 70,
-  sayur: 14,
-  umbi: 49,
-  kedelai: 75,
+  padi: 35,
+  gandum: 95,
+  jagung: 93,
+  sayur: 19,
+  umbi: 65,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 18,
-  teh: 52,
+  kopi: 24,
+  teh: 69,
   kakao: 0,
-  tebu: 10,
+  tebu: 13,
   karet: 0
 };

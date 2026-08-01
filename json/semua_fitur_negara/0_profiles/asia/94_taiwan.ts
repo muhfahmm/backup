@@ -6,7 +6,7 @@ export const taiwan_profile = {
   "lon": 121,
   "lat": 23.5,
   "flag": "🇹🇼",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 23243565,
   "anggaran": 7681,
   "pendapatan_nasional": "21946",
   "religion": "Buddha",

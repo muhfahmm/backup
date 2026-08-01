@@ -1,7 +1,7 @@
 // @ts-nocheck
 const bhutan_peternakan = {
-  ayam_unggas: 108,
-  sapi_perah: 114,
-  sapi_potong: 90,
-  domba_kambing: 60
+  ayam_unggas: 89,
+  sapi_perah: 100,
+  sapi_potong: 56,
+  domba_kambing: 0
 };

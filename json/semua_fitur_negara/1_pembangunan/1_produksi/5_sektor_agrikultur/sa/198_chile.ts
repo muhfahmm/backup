@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const chile_agrikultur = {
-  padi: 2484,
-  gandum: 2646,
-  jagung: 3888,
-  sayur: 540,
-  umbi: 3078,
-  kedelai: 3294,
-  kelapa_sawit: 0,
-  kopi: 2916,
-  teh: 1296,
-  kakao: 0,
-  tebu: 2484,
-  karet: 0
+  padi: 164,
+  gandum: 168,
+  jagung: 200,
+  sayur: 114,
+  umbi: 179,
+  kedelai: 185,
+  kelapa_sawit: 100,
+  kopi: 175,
+  teh: 133,
+  kakao: 100,
+  tebu: 164,
+  karet: 100
 };

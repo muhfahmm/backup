@@ -1,7 +1,7 @@
 // @ts-nocheck
 const vietnam_peternakan = {
-  ayam_unggas: 2448,
-  sapi_perah: 2788,
-  sapi_potong: 2380,
-  domba_kambing: 1156
+  ayam_unggas: 179,
+  sapi_perah: 200,
+  sapi_potong: 175,
+  domba_kambing: 100
 };

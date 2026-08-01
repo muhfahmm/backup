@@ -1,6 +1,6 @@
 // @ts-nocheck
 const dominika_perikanan = {
-  udang: 48,
-  mutiara: 68,
-  ikan: 92
+  udang: 100,
+  mutiara: 145,
+  ikan: 200
 };

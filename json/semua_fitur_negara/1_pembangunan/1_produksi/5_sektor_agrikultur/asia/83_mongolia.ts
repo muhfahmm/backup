@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mongolia_agrikultur = {
-  padi: 280,
-  gandum: 260,
-  jagung: 256,
-  sayur: 168,
-  umbi: 232,
-  kedelai: 112,
-  kelapa_sawit: 0,
-  kopi: 112,
-  teh: 48,
-  kakao: 0,
-  tebu: 224,
-  karet: 0
+  padi: 200,
+  gandum: 193,
+  jagung: 191,
+  sayur: 160,
+  umbi: 183,
+  kedelai: 140,
+  kelapa_sawit: 100,
+  kopi: 140,
+  teh: 117,
+  kakao: 100,
+  tebu: 180,
+  karet: 100
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const peru_agrikultur = {
-  padi: 420,
-  gandum: 91,
-  jagung: 413,
-  sayur: 371,
-  umbi: 539,
-  kedelai: 539,
-  kelapa_sawit: 0,
-  kopi: 112,
-  teh: 406,
-  kakao: 0,
-  tebu: 203,
-  karet: 0
+  padi: 178,
+  gandum: 117,
+  jagung: 177,
+  sayur: 169,
+  umbi: 200,
+  kedelai: 200,
+  kelapa_sawit: 100,
+  kopi: 121,
+  teh: 175,
+  kakao: 100,
+  tebu: 138,
+  karet: 100
 };

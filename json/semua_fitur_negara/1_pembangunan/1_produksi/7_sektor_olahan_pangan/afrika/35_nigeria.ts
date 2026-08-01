@@ -1,12 +1,12 @@
 // @ts-nocheck
 const nigeria_olahan_pangan = {
-  air_mineral: 1904,
-  gula: 2296,
-  roti: 1624,
-  pengolahan_daging: 616,
-  mie_instan: 560,
-  minyak_goreng: 1792,
-  susu: 1344
+  air_mineral: 177,
+  gula: 200,
+  roti: 161,
+  pengolahan_daging: 103,
+  mie_instan: 100,
+  minyak_goreng: 171,
+  susu: 145
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const marshall_agrikultur = {
-  padi: 188,
-  gandum: 212,
-  jagung: 256,
-  sayur: 64,
-  umbi: 308,
-  kedelai: 208,
-  kelapa_sawit: 0,
-  kopi: 44,
-  teh: 228,
-  kakao: 0,
-  tebu: 120,
-  karet: 0
+  padi: 161,
+  gandum: 169,
+  jagung: 183,
+  sayur: 121,
+  umbi: 200,
+  kedelai: 168,
+  kelapa_sawit: 100,
+  kopi: 114,
+  teh: 174,
+  kakao: 100,
+  tebu: 139,
+  karet: 100
 };

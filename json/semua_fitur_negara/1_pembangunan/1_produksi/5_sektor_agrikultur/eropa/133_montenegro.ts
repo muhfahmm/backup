@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const montenegro_agrikultur = {
-  padi: 28,
-  gandum: 16,
-  jagung: 26,
-  sayur: 27,
-  umbi: 11,
-  kedelai: 65,
+  padi: 43,
+  gandum: 25,
+  jagung: 40,
+  sayur: 42,
+  umbi: 17,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 32,
-  teh: 41,
+  kopi: 49,
+  teh: 63,
   kakao: 0,
-  tebu: 17,
+  tebu: 26,
   karet: 0
 };

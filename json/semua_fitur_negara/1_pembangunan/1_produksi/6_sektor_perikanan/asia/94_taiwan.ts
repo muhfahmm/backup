@@ -1,6 +1,6 @@
 // @ts-nocheck
 const taiwan_perikanan = {
-  udang: 264,
-  mutiara: 312,
-  ikan: 696
+  udang: 100,
+  mutiara: 111,
+  ikan: 200
 };

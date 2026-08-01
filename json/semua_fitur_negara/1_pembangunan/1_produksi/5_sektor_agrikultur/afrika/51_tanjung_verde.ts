@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tanjung_verde_agrikultur = {
-  padi: 87,
-  gandum: 129,
-  jagung: 177,
-  sayur: 240,
-  umbi: 45,
-  kedelai: 240,
+  padi: 36,
+  gandum: 54,
+  jagung: 74,
+  sayur: 100,
+  umbi: 19,
+  kedelai: 100,
   kelapa_sawit: 0,
-  kopi: 162,
-  teh: 75,
+  kopi: 68,
+  teh: 31,
   kakao: 0,
-  tebu: 150,
+  tebu: 63,
   karet: 0
 };

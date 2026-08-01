@@ -1,7 +1,7 @@
 // @ts-nocheck
 const singapura_peternakan = {
-  ayam_unggas: 1452,
-  sapi_perah: 528,
-  sapi_potong: 1804,
-  domba_kambing: 616
+  ayam_unggas: 172,
+  sapi_perah: 100,
+  sapi_potong: 200,
+  domba_kambing: 107
 };

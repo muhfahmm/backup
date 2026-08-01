@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const filipina_agrikultur = {
-  padi: 600,
-  gandum: 720,
-  jagung: 680,
-  sayur: 1260,
-  umbi: 220,
-  kedelai: 760,
-  kelapa_sawit: 720,
-  kopi: 1360,
-  teh: 240,
-  kakao: 280,
-  tebu: 1220,
-  karet: 1180
+  padi: 133,
+  gandum: 144,
+  jagung: 140,
+  sayur: 191,
+  umbi: 100,
+  kedelai: 147,
+  kelapa_sawit: 144,
+  kopi: 200,
+  teh: 102,
+  kakao: 105,
+  tebu: 188,
+  karet: 184
 };

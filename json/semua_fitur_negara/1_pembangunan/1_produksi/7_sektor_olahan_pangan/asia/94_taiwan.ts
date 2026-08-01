@@ -1,12 +1,12 @@
 // @ts-nocheck
 const taiwan_olahan_pangan = {
-  air_mineral: 336,
-  gula: 432,
-  roti: 768,
-  pengolahan_daging: 528,
-  mie_instan: 960,
-  minyak_goreng: 600,
-  susu: 432
+  air_mineral: 100,
+  gula: 115,
+  roti: 169,
+  pengolahan_daging: 131,
+  mie_instan: 200,
+  minyak_goreng: 142,
+  susu: 115
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const belarus_agrikultur = {
-  padi: 195,
-  gandum: 290,
-  jagung: 150,
-  sayur: 120,
-  umbi: 275,
-  kedelai: 160,
-  kelapa_sawit: 0,
-  kopi: 65,
-  teh: 120,
-  kakao: 0,
-  tebu: 330,
-  karet: 0
+  padi: 159,
+  gandum: 188,
+  jagung: 145,
+  sayur: 136,
+  umbi: 183,
+  kedelai: 148,
+  kelapa_sawit: 100,
+  kopi: 120,
+  teh: 136,
+  kakao: 100,
+  tebu: 200,
+  karet: 100
 };

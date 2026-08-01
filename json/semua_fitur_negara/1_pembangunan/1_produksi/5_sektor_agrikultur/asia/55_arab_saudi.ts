@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const arab_saudi_agrikultur = {
-  padi: 5320,
-  gandum: 6384,
-  jagung: 6118,
-  sayur: 3059,
-  umbi: 3990,
-  kedelai: 3458,
-  kelapa_sawit: 0,
-  kopi: 2660,
-  teh: 7049,
-  kakao: 0,
-  tebu: 6118,
-  karet: 0
+  padi: 175,
+  gandum: 191,
+  jagung: 187,
+  sayur: 143,
+  umbi: 157,
+  kedelai: 149,
+  kelapa_sawit: 100,
+  kopi: 138,
+  teh: 200,
+  kakao: 100,
+  tebu: 187,
+  karet: 100
 };

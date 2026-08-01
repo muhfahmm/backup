@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tahiti_perikanan = {
-  udang: 24,
-  mutiara: 12,
-  ikan: 27
+  udang: 80,
+  mutiara: 0,
+  ikan: 100
 };

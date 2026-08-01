@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_rumania_peternakan = {
-  ayam_unggas: 768,
-  sapi_perah: 912,
-  sapi_potong: 360,
-  domba_kambing: 720
+  ayam_unggas: 174,
+  sapi_perah: 200,
+  sapi_potong: 100,
+  domba_kambing: 165
 };

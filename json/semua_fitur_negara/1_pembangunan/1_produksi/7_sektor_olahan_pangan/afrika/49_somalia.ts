@@ -1,12 +1,12 @@
 // @ts-nocheck
 const somalia_olahan_pangan = {
-  air_mineral: 66,
-  gula: 48,
-  roti: 132,
-  pengolahan_daging: 42,
-  mie_instan: 57,
-  minyak_goreng: 102,
-  susu: 81
+  air_mineral: 27,
+  gula: 7,
+  roti: 100,
+  pengolahan_daging: 0,
+  mie_instan: 17,
+  minyak_goreng: 67,
+  susu: 43
   
   
 };

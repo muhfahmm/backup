@@ -6,7 +6,7 @@ export const republik_timor_leste_profile = {
   "lon": 125.91666666,
   "lat": -8.83333333,
   "flag": "🇹🇱",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 1436923,
   "anggaran": 19,
   "pendapatan_nasional": "56",
   "religion": "Katolik",

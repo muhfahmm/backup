@@ -6,7 +6,7 @@ export const tanjung_verde_profile = {
   "lon": -24,
   "lat": 16,
   "flag": "🇨🇻",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 529630,
   "anggaran": 97,
   "pendapatan_nasional": "278",
   "religion": "Katolik",

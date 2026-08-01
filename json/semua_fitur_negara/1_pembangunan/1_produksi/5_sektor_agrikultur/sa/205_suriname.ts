@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const suriname_agrikultur = {
-  padi: 36,
-  gandum: 154,
-  jagung: 144,
-  sayur: 124,
-  umbi: 64,
-  kedelai: 40,
-  kelapa_sawit: 82,
-  kopi: 114,
-  teh: 138,
-  kakao: 46,
-  tebu: 150,
-  karet: 54
+  padi: 0,
+  gandum: 100,
+  jagung: 92,
+  sayur: 75,
+  umbi: 24,
+  kedelai: 3,
+  kelapa_sawit: 39,
+  kopi: 66,
+  teh: 86,
+  kakao: 8,
+  tebu: 97,
+  karet: 15
 };

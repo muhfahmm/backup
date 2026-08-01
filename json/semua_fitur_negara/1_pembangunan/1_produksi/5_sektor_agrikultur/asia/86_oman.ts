@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const oman_agrikultur = {
-  padi: 715,
-  gandum: 616,
-  jagung: 110,
-  sayur: 286,
-  umbi: 308,
-  kedelai: 627,
-  kelapa_sawit: 0,
-  kopi: 715,
-  teh: 176,
-  kakao: 0,
-  tebu: 594,
-  karet: 0
+  padi: 200,
+  gandum: 186,
+  jagung: 115,
+  sayur: 140,
+  umbi: 143,
+  kedelai: 188,
+  kelapa_sawit: 100,
+  kopi: 200,
+  teh: 125,
+  kakao: 100,
+  tebu: 183,
+  karet: 100
 };

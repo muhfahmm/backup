@@ -8,83 +8,83 @@ const olahanPanganRate = {
     dataKey: "air_mineral",
     label: "Pabrik Air Mineral",
     deskripsi: "Pabrik Air Mineral",
-    produksi: 250000,
+    produksi: 102,
     satuan: "LITER",
-    waktu_pembangunan: 7,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 1500, // Reduced to 1.5M
-    lowongan_kerja: 4500,
-    konsumsi_listrik: 35
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "2_pabrik_gula": {
     key: "2_pabrik_gula",
     dataKey: "gula",
     label: "Pabrik Gula",
     deskripsi: "Pabrik Gula",
-    produksi: 45000,
+    produksi: 102,
     satuan: "TON",
-    waktu_pembangunan: 20,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 5500, // Reduced to 5.5M
-    lowongan_kerja: 8000,
-    konsumsi_listrik: 95
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "3_pabrik_roti": {
     key: "3_pabrik_roti",
     dataKey: "roti",
     label: "Pabrik Roti",
     deskripsi: "Pabrik Roti",
-    produksi: 150000,
+    produksi: 102,
     satuan: "UNIT",
-    waktu_pembangunan: 7,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 1400, // Reduced to 1.4M
-    lowongan_kerja: 3500,
-    konsumsi_listrik: 42
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "4_pabrik_pengolahan_daging": {
     key: "4_pabrik_pengolahan_daging",
     dataKey: "pengolahan_daging",
     label: "Pabrik Pengolahan Daging",
     deskripsi: "Pabrik Pengolahan Daging",
-    produksi: 12000,
+    produksi: 102,
     satuan: "TON",
-    waktu_pembangunan: 30,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 6000, // Reduced to 6M
-    lowongan_kerja: 6500,
-    konsumsi_listrik: 120
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "5_pabrik_mie_instan": {
     key: "5_pabrik_mie_instan",
     dataKey: "mie_instan",
     label: "Pabrik Mie Instan",
     deskripsi: "Pabrik Mie Instan",
-    produksi: 550000,
+    produksi: 103,
     satuan: "UNIT",
-    waktu_pembangunan: 15,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 3500, // Reduced to 3.5M
-    lowongan_kerja: 7500,
-    konsumsi_listrik: 85
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "6_pabrik_minyak_goreng": {
     key: "6_pabrik_minyak_goreng",
     dataKey: "minyak_goreng",
     label: "Pabrik Minyak Goreng",
     deskripsi: "Pabrik Minyak Goreng",
-    produksi: 95000,
+    produksi: 102,
     satuan: "TON",
-    waktu_pembangunan: 20,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 4500, // Reduced to 4.5M
-    lowongan_kerja: 6000,
-    konsumsi_listrik: 75
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   },
   "7_pabrik_pengolahan_susu": {
     key: "7_pabrik_pengolahan_susu",
     dataKey: "susu",
     label: "Pabrik Pengolahan Susu",
     deskripsi: "Pabrik Pengolahan Susu",
-    produksi: 180000,
+    produksi: 102,
     satuan: "LITER",
-    waktu_pembangunan: 10,
+    waktu_pembangunan: 102,
     biaya_pembangunan: 2800, // Reduced to 2.8M
-    lowongan_kerja: 5000,
-    konsumsi_listrik: 60
+    lowongan_kerja: 102,
+    konsumsi_listrik: 102
   }
 };

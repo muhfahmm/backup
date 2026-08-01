@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kiribati_agrikultur = {
-  padi: 146,
-  gandum: 80,
-  jagung: 128,
-  sayur: 88,
-  umbi: 120,
-  kedelai: 24,
+  padi: 92,
+  gandum: 51,
+  jagung: 81,
+  sayur: 56,
+  umbi: 76,
+  kedelai: 15,
   kelapa_sawit: 0,
-  kopi: 62,
-  teh: 86,
+  kopi: 39,
+  teh: 54,
   kakao: 0,
-  tebu: 158,
+  tebu: 100,
   karet: 0
 };

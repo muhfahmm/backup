@@ -1,12 +1,12 @@
 // @ts-nocheck
 const aljazair_olahan_pangan = {
-  air_mineral: 319,
-  gula: 231,
-  roti: 473,
-  pengolahan_daging: 341,
-  mie_instan: 451,
-  minyak_goreng: 275,
-  susu: 220
+  air_mineral: 139,
+  gula: 104,
+  roti: 200,
+  pengolahan_daging: 148,
+  mie_instan: 191,
+  minyak_goreng: 122,
+  susu: 100
   
   
 };

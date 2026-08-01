@@ -1,7 +1,7 @@
 // @ts-nocheck
 const finlandia_peternakan = {
-  ayam_unggas: 225,
-  sapi_perah: 234,
-  sapi_potong: 423,
-  domba_kambing: 297
+  ayam_unggas: 100,
+  sapi_perah: 105,
+  sapi_potong: 200,
+  domba_kambing: 136
 };

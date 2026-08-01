@@ -1,6 +1,6 @@
 // @ts-nocheck
 const oman_perikanan = {
-  udang: 220,
-  mutiara: 231,
-  ikan: 297
+  udang: 100,
+  mutiara: 114,
+  ikan: 200
 };

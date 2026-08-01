@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kolombia_olahan_pangan = {
-  air_mineral: 1476,
-  gula: 540,
-  roti: 828,
-  pengolahan_daging: 1224,
-  mie_instan: 1260,
-  minyak_goreng: 792,
-  susu: 756
+  air_mineral: 200,
+  gula: 100,
+  roti: 131,
+  pengolahan_daging: 173,
+  mie_instan: 177,
+  minyak_goreng: 127,
+  susu: 123
   
   
 };

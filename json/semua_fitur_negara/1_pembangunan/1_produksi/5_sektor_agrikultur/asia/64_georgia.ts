@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const georgia_agrikultur = {
-  padi: 136,
-  gandum: 240,
-  jagung: 68,
-  sayur: 176,
-  umbi: 296,
-  kedelai: 240,
+  padi: 46,
+  gandum: 81,
+  jagung: 23,
+  sayur: 59,
+  umbi: 100,
+  kedelai: 81,
   kelapa_sawit: 0,
-  kopi: 116,
-  teh: 140,
+  kopi: 39,
+  teh: 47,
   kakao: 0,
-  tebu: 112,
+  tebu: 38,
   karet: 0
 };

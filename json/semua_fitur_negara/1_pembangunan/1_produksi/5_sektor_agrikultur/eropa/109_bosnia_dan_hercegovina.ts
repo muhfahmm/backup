@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bosnia_dan_hercegovina_agrikultur = {
-  padi: 208,
-  gandum: 276,
-  jagung: 48,
-  sayur: 312,
-  umbi: 124,
-  kedelai: 292,
-  kelapa_sawit: 0,
-  kopi: 152,
-  teh: 228,
-  kakao: 0,
-  tebu: 184,
-  karet: 0
+  padi: 167,
+  gandum: 188,
+  jagung: 115,
+  sayur: 200,
+  umbi: 140,
+  kedelai: 194,
+  kelapa_sawit: 100,
+  kopi: 149,
+  teh: 173,
+  kakao: 100,
+  tebu: 159,
+  karet: 100
 };

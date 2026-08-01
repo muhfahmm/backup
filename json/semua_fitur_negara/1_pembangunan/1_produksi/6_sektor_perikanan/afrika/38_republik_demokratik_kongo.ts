@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_demokratik_kongo_perikanan = {
-  udang: 51,
-  mutiara: 120,
-  ikan: 57
+  udang: 100,
+  mutiara: 200,
+  ikan: 109
 };

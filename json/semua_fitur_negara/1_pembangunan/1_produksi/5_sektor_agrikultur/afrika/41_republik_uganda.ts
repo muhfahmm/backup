@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_uganda_agrikultur = {
-  padi: 72,
-  gandum: 213,
-  jagung: 159,
-  sayur: 39,
-  umbi: 39,
-  kedelai: 117,
+  padi: 31,
+  gandum: 92,
+  jagung: 69,
+  sayur: 17,
+  umbi: 17,
+  kedelai: 51,
   kelapa_sawit: 0,
-  kopi: 69,
-  teh: 33,
+  kopi: 30,
+  teh: 14,
   kakao: 0,
-  tebu: 231,
+  tebu: 100,
   karet: 0
 };

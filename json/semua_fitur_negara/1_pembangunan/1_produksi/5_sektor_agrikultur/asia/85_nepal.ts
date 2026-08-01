@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const nepal_agrikultur = {
-  padi: 276,
-  gandum: 188,
-  jagung: 220,
-  sayur: 132,
-  umbi: 236,
-  kedelai: 204,
-  kelapa_sawit: 0,
-  kopi: 200,
-  teh: 224,
-  kakao: 0,
-  tebu: 212,
-  karet: 0
+  padi: 200,
+  gandum: 168,
+  jagung: 180,
+  sayur: 148,
+  umbi: 186,
+  kedelai: 174,
+  kelapa_sawit: 100,
+  kopi: 172,
+  teh: 181,
+  kakao: 100,
+  tebu: 177,
+  karet: 100
 };

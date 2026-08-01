@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const samoa_amerika_agrikultur = {
-  padi: 88,
-  gandum: 110,
-  jagung: 134,
-  sayur: 46,
-  umbi: 102,
-  kedelai: 118,
+  padi: 66,
+  gandum: 82,
+  jagung: 100,
+  sayur: 34,
+  umbi: 76,
+  kedelai: 88,
   kelapa_sawit: 0,
-  kopi: 48,
-  teh: 130,
+  kopi: 36,
+  teh: 97,
   kakao: 0,
-  tebu: 90,
+  tebu: 67,
   karet: 0
 };

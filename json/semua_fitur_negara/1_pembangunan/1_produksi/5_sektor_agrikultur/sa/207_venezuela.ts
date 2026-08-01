@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const venezuela_agrikultur = {
-  padi: 592,
-  gandum: 408,
-  jagung: 592,
-  sayur: 200,
-  umbi: 192,
-  kedelai: 88,
-  kelapa_sawit: 328,
-  kopi: 128,
-  teh: 232,
-  kakao: 608,
-  tebu: 576,
-  karet: 272
+  padi: 197,
+  gandum: 162,
+  jagung: 197,
+  sayur: 122,
+  umbi: 120,
+  kedelai: 100,
+  kelapa_sawit: 146,
+  kopi: 108,
+  teh: 128,
+  kakao: 200,
+  tebu: 194,
+  karet: 135
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const estonia_agrikultur = {
-  padi: 180,
-  gandum: 115,
-  jagung: 150,
-  sayur: 140,
-  umbi: 310,
-  kedelai: 260,
-  kelapa_sawit: 0,
-  kopi: 225,
-  teh: 75,
-  kakao: 0,
-  tebu: 295,
-  karet: 0
+  padi: 158,
+  gandum: 137,
+  jagung: 148,
+  sayur: 145,
+  umbi: 200,
+  kedelai: 184,
+  kelapa_sawit: 100,
+  kopi: 173,
+  teh: 124,
+  kakao: 100,
+  tebu: 195,
+  karet: 100
 };

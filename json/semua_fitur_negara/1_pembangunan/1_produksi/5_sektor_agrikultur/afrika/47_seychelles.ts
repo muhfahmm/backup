@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const seychelles_agrikultur = {
-  padi: 132,
-  gandum: 142,
-  jagung: 40,
-  sayur: 122,
-  umbi: 114,
-  kedelai: 122,
+  padi: 86,
+  gandum: 92,
+  jagung: 26,
+  sayur: 79,
+  umbi: 74,
+  kedelai: 79,
   kelapa_sawit: 0,
-  kopi: 98,
-  teh: 38,
+  kopi: 64,
+  teh: 25,
   kakao: 0,
-  tebu: 154,
+  tebu: 100,
   karet: 0
 };

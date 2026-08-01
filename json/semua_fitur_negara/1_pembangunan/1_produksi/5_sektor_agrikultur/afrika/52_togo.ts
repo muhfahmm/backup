@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const togo_agrikultur = {
-  padi: 22,
-  gandum: 64,
-  jagung: 36,
-  sayur: 22,
-  umbi: 114,
-  kedelai: 36,
+  padi: 15,
+  gandum: 44,
+  jagung: 25,
+  sayur: 15,
+  umbi: 78,
+  kedelai: 25,
   kelapa_sawit: 0,
-  kopi: 118,
-  teh: 28,
+  kopi: 81,
+  teh: 19,
   kakao: 0,
-  tebu: 146,
+  tebu: 100,
   karet: 0
 };

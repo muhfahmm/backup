@@ -1,7 +1,7 @@
 // @ts-nocheck
 const prancis_peternakan = {
-  ayam_unggas: 6812,
-  sapi_perah: 7598,
-  sapi_potong: 9956,
-  domba_kambing: 5764
+  ayam_unggas: 125,
+  sapi_perah: 144,
+  sapi_potong: 200,
+  domba_kambing: 100
 };

@@ -10,6 +10,7 @@ import {
   calculateCountryFoodAggregate, 
   calculateCountryFoodDetails 
 } from "./logic/produksiKonsumsiLogic";
+import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
 interface ModalProps {
   isOpen: boolean;
@@ -25,12 +26,70 @@ interface SortConfig {
   direction: 'asc' | 'desc';
 }
 
+const safeNumber = (value: any): number => {
+  if (value === null || value === undefined || value === '') return 0;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string') {
+    const normalized = value
+      .replace(/\s+/g, '')
+      .replace(/,/g, '.')
+      .replace(/[^0-9.\-]/g, '');
+
+    if (normalized === '' || normalized === '-' || normalized === '.') return 0;
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const formatNumber = (value: any) => {
+  const parsed = safeNumber(value);
+  return Number.isFinite(parsed) ? parsed.toLocaleString('id-ID') : '0';
+};
+
+const normalizePopulationFromProfile = (country: any, profileMap: Map<string, number>) => {
+  const directPopulation = safeNumber(
+    country?.jumlah_penduduk ??
+    country?.population ??
+    country?.pop ??
+    country?.penduduk ??
+    country?.total_population
+  );
+
+  if (directPopulation > 0) {
+    return directPopulation;
+  }
+
+  const rawName = country?.name_id || country?.name_en || country?.nama || country?.country || '';
+  if (rawName) {
+    const profilePopulation = profileMap.get(rawName.toLowerCase().trim());
+    if (profilePopulation) {
+      return profilePopulation;
+    }
+  }
+
+  return 0;
+};
+
 export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"my" | "global">("my");
   const [allCountries, setAllCountries] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
   const [expandedRows, setExpandedRows] = useState<'all' | Set<number>>('all');
+  const profilePopulationMap = useMemo(() => {
+    const map = new Map<string, number>();
+    for (const profile of PROFILES_POPULATION_DATA) {
+      const key = (profile.name_id || profile.name_en || '').toLowerCase().trim();
+      const population = safeNumber(profile.jumlah_penduduk);
+      if (key && population > 0) {
+        map.set(key, population);
+      }
+    }
+    return map;
+  }, []);
 
   useEffect(() => {
     if (isOpen && allCountries.length === 0) {
@@ -50,7 +109,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   if (!isOpen) return null;
 
-  const population = Number(countryDetail?.jumlah_penduduk) || 0;
+  const population = safeNumber(countryDetail?.jumlah_penduduk);
 
   const handleBuildClick = (buildingKey: string) => {
     // Asumsi tab produksi untuk pangan adalah 'industri_pangan'
@@ -74,7 +133,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
     .map((country, index) => {
       // Panggil fungsi tanpa array sektor
       const { totalProduction, totalConsumption, balance } = calculateCountryFoodAggregate(country, metadata);
-      const countryPopulation = Number(country?.jumlah_penduduk ?? country?.population ?? country?.pop ?? country?.penduduk ?? country?.total_population ?? 0);
+      const countryPopulation = normalizePopulationFromProfile(country, profilePopulationMap);
       
       let rawName = country?.name_id || country?.name_en || country?.nama || country?.country;
       if (!rawName && country?.__fileName) {
@@ -195,17 +254,17 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                     <div className="space-y-1 text-xs">
                       <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60">
                         <span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>
-                        <span className="font-black text-emerald-700">+{production.toLocaleString('id-ID')}</span>
+                        <span className="font-black text-emerald-700">+{formatNumber(production)}</span>
                       </div>
                       <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60">
                         <span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>
-                        <span className="font-black text-rose-700">-{consumption.toLocaleString('id-ID')}</span>
+                        <span className="font-black text-rose-700">-{formatNumber(consumption)}</span>
                       </div>
                     </div>
                     <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5">
                       <span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>
                       <span className={`font-black text-xs ${netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                        {netBalance >= 0 ? `+${netBalance.toLocaleString('id-ID')}` : netBalance.toLocaleString('id-ID')}
+                        {netBalance >= 0 ? `+${formatNumber(netBalance)}` : formatNumber(netBalance)}
                       </span>
                     </div>
                   </div>
@@ -215,7 +274,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               <div className="col-span-full p-4 rounded-xl bg-[#e4dac3]/40 border-t-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm">
                 <div className="flex items-center gap-2 text-[#5c3c10] font-black text-xs uppercase tracking-wider">👥 Total Populasi & Kebutuhan Pangan Harian</div>
                 <div className="px-4 py-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE]">
-                  <span className="text-xs font-black tracking-wider">{population.toLocaleString('id-ID')} Jiwa</span>
+                  <span className="text-xs font-black tracking-wider">{formatNumber(population)} Jiwa</span>
                 </div>
               </div>
             </div>
@@ -271,10 +330,10 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                   {isExpanded ? <ChevronDownIcon className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                                 </span>
                               </td>
-                              <td className="px-4 py-3 font-bold text-[#5c3c10] text-right">{country.population.toLocaleString('id-ID')}</td>
-                              <td className="px-4 py-3 font-bold text-emerald-700 text-right">{country.production > 0 ? country.production.toLocaleString('id-ID') : '0'}</td>
-                              <td className="px-4 py-3 font-bold text-rose-700 text-right">{country.consumption > 0 ? country.consumption.toLocaleString('id-ID') : '0'}</td>
-                              <td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{country.balance >= 0 ? '+' : ''}{Math.abs(country.balance).toLocaleString('id-ID')}</td>
+                              <td className="px-4 py-3 font-bold text-[#5c3c10] text-right">{formatNumber(country.population)}</td>
+                              <td className="px-4 py-3 font-bold text-emerald-700 text-right">{formatNumber(country.production)}</td>
+                              <td className="px-4 py-3 font-bold text-rose-700 text-right">{formatNumber(country.consumption)}</td>
+                              <td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{country.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(country.balance))}</td>
                             </tr>
 
                             {/* EXPANDED DETAIL ROW (Flat list) */}
@@ -288,15 +347,15 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                           <span className="font-black text-[#5c3c10] uppercase tracking-tight">{item.label}</span>
                                           <div className="flex justify-between">
                                             <span className="text-[#8b7e66]">Produksi:</span>
-                                            <span className="font-black text-emerald-700">+{item.production.toLocaleString('id-ID')}</span>
+                                            <span className="font-black text-emerald-700">+{formatNumber(item.production)}</span>
                                           </div>
                                           <div className="flex justify-between">
                                             <span className="text-[#8b7e66]">Konsumsi:</span>
-                                            <span className="font-black text-rose-700">-{item.consumption.toLocaleString('id-ID')}</span>
+                                            <span className="font-black text-rose-700">-{formatNumber(item.consumption)}</span>
                                           </div>
                                           <div className="flex justify-between border-t border-[#C4B49C]/20 mt-1 pt-1">
                                             <span className="font-black text-[#5c3c10]">Netto:</span>
-                                            <span className={`font-black ${item.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{item.balance >= 0 ? '+' : ''}{item.balance.toLocaleString('id-ID')}</span>
+                                            <span className={`font-black ${item.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{item.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(item.balance))}</span>
                                           </div>
                                         </div>
                                       ))}
@@ -319,8 +378,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               {filteredData.length > 0 && (
                 <div className="mt-4 p-4 bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg text-xs text-[#8b7e66]">
                   <p className="font-bold">📊 Total: {filteredData.length} negara {searchQuery && `(difilter dari ${globalFoodData.length})`}</p>
-                  <p className="mt-1">Total Produksi Pangan: <span className="font-black text-emerald-700">{filteredData.reduce((sum, c) => sum + c.production, 0).toLocaleString('id-ID')}</span></p>
-                  <p>Total Konsumsi Pangan: <span className="font-black text-rose-700">{filteredData.reduce((sum, c) => sum + c.consumption, 0).toLocaleString('id-ID')}</span></p>
+                  <p className="mt-1">Total Produksi Pangan: <span className="font-black text-emerald-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.production), 0))}</span></p>
+                  <p>Total Konsumsi Pangan: <span className="font-black text-rose-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.consumption), 0))}</span></p>
                 </div>
               )}
             </div>

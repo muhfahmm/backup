@@ -6,7 +6,7 @@ export const korea_utara_profile = {
   "lon": 125.75,
   "lat": 39.03,
   "flag": "🇰🇵",
-  "jumlah_penduduk": "10M",
+  "jumlah_penduduk": 26633691,
   "anggaran": 175,
   "pendapatan_nasional": "500",
   "religion": "Ateisme",

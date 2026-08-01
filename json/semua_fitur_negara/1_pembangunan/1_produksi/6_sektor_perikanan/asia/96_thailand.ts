@@ -1,6 +1,6 @@
 // @ts-nocheck
 const thailand_perikanan = {
-  udang: 1558,
-  mutiara: 738,
-  ikan: 1435
+  udang: 200,
+  mutiara: 100,
+  ikan: 185
 };

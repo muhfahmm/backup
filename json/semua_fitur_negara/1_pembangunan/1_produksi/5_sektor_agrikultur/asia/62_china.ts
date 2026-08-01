@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const china_agrikultur = {
-  padi: 19987,
-  gandum: 15686,
-  jagung: 18469,
-  sayur: 17204,
-  umbi: 11891,
-  kedelai: 7337,
-  kelapa_sawit: 0,
-  kopi: 15939,
-  teh: 19228,
-  kakao: 0,
-  tebu: 7337,
-  karet: 0
+  padi: 200,
+  gandum: 178,
+  jagung: 192,
+  sayur: 186,
+  umbi: 159,
+  kedelai: 137,
+  kelapa_sawit: 100,
+  kopi: 180,
+  teh: 196,
+  kakao: 100,
+  tebu: 137,
+  karet: 100
 };

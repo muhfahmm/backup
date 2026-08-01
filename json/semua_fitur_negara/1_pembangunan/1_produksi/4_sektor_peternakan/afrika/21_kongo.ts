@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kongo_peternakan = {
-  ayam_unggas: 80,
-  sapi_perah: 100,
-  sapi_potong: 112,
-  domba_kambing: 40
+  ayam_unggas: 56,
+  sapi_perah: 83,
+  sapi_potong: 100,
+  domba_kambing: 0
 };

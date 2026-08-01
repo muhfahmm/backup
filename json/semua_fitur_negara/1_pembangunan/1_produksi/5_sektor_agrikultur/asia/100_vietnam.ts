@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const vietnam_agrikultur = {
-  padi: 4488,
-  gandum: 2040,
-  jagung: 1904,
-  sayur: 3536,
-  umbi: 3808,
-  kedelai: 5372,
-  kelapa_sawit: 3332,
-  kopi: 2856,
-  teh: 4352,
-  kakao: 3128,
-  tebu: 1632,
-  karet: 1904
+  padi: 176,
+  gandum: 111,
+  jagung: 107,
+  sayur: 151,
+  umbi: 158,
+  kedelai: 200,
+  kelapa_sawit: 145,
+  kopi: 133,
+  teh: 173,
+  kakao: 140,
+  tebu: 100,
+  karet: 107
 };

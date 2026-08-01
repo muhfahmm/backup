@@ -1,6 +1,6 @@
 // @ts-nocheck
 const maldives_perikanan = {
-  udang: 54,
-  mutiara: 24,
-  ikan: 18
+  udang: 100,
+  mutiara: 17,
+  ikan: 0
 };

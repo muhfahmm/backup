@@ -1,12 +1,12 @@
 // @ts-nocheck
 const niger_olahan_pangan = {
-  air_mineral: 25,
-  gula: 16,
-  roti: 16,
-  pengolahan_daging: 16,
-  mie_instan: 14,
-  minyak_goreng: 15,
-  susu: 40
+  air_mineral: 42,
+  gula: 8,
+  roti: 8,
+  pengolahan_daging: 8,
+  mie_instan: 0,
+  minyak_goreng: 4,
+  susu: 100
   
   
 };

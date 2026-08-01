@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ekuador_agrikultur = {
-  padi: 375,
-  gandum: 465,
-  jagung: 750,
-  sayur: 750,
-  umbi: 300,
-  kedelai: 1095,
-  kelapa_sawit: 0,
-  kopi: 615,
-  teh: 1185,
-  kakao: 0,
-  tebu: 225,
-  karet: 0
+  padi: 132,
+  gandum: 139,
+  jagung: 163,
+  sayur: 163,
+  umbi: 125,
+  kedelai: 192,
+  kelapa_sawit: 100,
+  kopi: 152,
+  teh: 200,
+  kakao: 100,
+  tebu: 119,
+  karet: 100
 };

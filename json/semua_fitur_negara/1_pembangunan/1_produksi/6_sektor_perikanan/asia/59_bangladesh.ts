@@ -1,6 +1,6 @@
 // @ts-nocheck
 const bangladesh_perikanan = {
-  udang: 2030,
-  mutiara: 700,
-  ikan: 840
+  udang: 200,
+  mutiara: 100,
+  ikan: 111
 };
