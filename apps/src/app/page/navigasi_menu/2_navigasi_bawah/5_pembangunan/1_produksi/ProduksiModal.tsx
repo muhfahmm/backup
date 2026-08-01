@@ -70,6 +70,7 @@ export default function ProduksiModal({
   const [highlightedCardKey, setHighlightedCardKey] = useState<string | null>(null);
   const [showMaterialWarningModal, setShowMaterialWarningModal] = useState(false);
   const [insufficientMaterials, setInsufficientMaterials] = useState<MaterialRequirement[]>([]);
+  const [sdaStatus, setSdaStatus] = useState<Record<string, boolean> | null>(null);
 
   const RESOURCE_KEY_ALIASES: Record<string, string> = {};
   const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
@@ -258,6 +259,25 @@ export default function ProduksiModal({
   }, [isOpen]);
 
   useEffect(() => {
+    if (!isOpen || !countryDetail?.country) {
+      setSdaStatus(null);
+      return;
+    }
+
+    const countryName = countryDetail.country;
+    fetch(`/api/sda-data?country=${encodeURIComponent(countryName)}`)
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => {
+        if (data && typeof data === 'object' && !Array.isArray(data)) {
+          setSdaStatus(data as Record<string, boolean>);
+        } else {
+          setSdaStatus(null);
+        }
+      })
+      .catch(() => setSdaStatus(null));
+  }, [isOpen, countryDetail?.country]);
+
+  useEffect(() => {
     if (!isOpen) return;
     if (targetTab) setActiveTab(targetTab);
     if (targetHighlightedKey) setHighlightedCardKey(targetHighlightedKey);
@@ -407,12 +427,16 @@ export default function ProduksiModal({
   if (!isOpen) return null;
 
   const handleBuild = (key: string, label: string) => {
-    if (!isBuildingAvailable(key, countryDetail?.country || '')) {
+    if (!isBuildingAvailable(key, countryDetail?.country || '', sdaStatus)) {
       setToast(`❌ ${label} tidak tersedia untuk negara ini`);
       setTimeout(() => setToast(null), 2000);
       return;
     }
     setSelectedBuilding({ key, label });
+  };
+
+  const availabilityChecker = (key: string, countryName: string) => {
+    return isBuildingAvailable(key, countryName, sdaStatus);
   };
 
   const activeSection = TABS.find((tab) => tab.id === activeTab) || TABS[0];
@@ -521,7 +545,7 @@ export default function ProduksiModal({
                   hoveredBuildingKey={hoveredBuildingKey}
                   setHoveredBuildingKey={setHoveredBuildingKey}
                   highlightedCardKey={highlightedCardKey}
-                  isBuildingAvailable={isBuildingAvailable}
+                  isBuildingAvailable={availabilityChecker}
                   loadingMetadata={loadingMetadata}
                   selectedBuilding={selectedBuilding}
                   currentDate={currentDate}

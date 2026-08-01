@@ -5,6 +5,7 @@
  */
 
 import { hasMaritimeAccessFromDB, getCountryMaritimeStatus } from './countryGeographyDatabase';
+import { isMineralBuildingAvailable, MINERAL_SDA_BUILDING_KEYS } from '../1_minerals_logic';
 
 /**
  * Check if a country has maritime access (can build fishing/pearl industries)
@@ -118,7 +119,19 @@ export function getDisabledBuildingsForCountry(countryName: string): Set<string>
  * @param countryName - Country name
  * @returns true if building can be built, false if disabled
  */
-export function isBuildingAvailable(buildingKey: string, countryName: string): boolean {
+export function isBuildingAvailable(
+  buildingKey: string,
+  countryName: string,
+  sdaStatus?: Record<string, boolean> | null
+): boolean {
   const disabledBuildings = getDisabledBuildingsForCountry(countryName);
-  return !disabledBuildings.has(buildingKey);
+  if (disabledBuildings.has(buildingKey)) {
+    return false;
+  }
+
+  if (MINERAL_SDA_BUILDING_KEYS.includes(buildingKey as (typeof MINERAL_SDA_BUILDING_KEYS)[number])) {
+    return isMineralBuildingAvailable(buildingKey, countryName, sdaStatus);
+  }
+
+  return true;
 }
