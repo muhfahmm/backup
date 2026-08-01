@@ -109,7 +109,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   if (!isOpen) return null;
 
-  const population = safeNumber(countryDetail?.jumlah_penduduk);
+  const population = normalizePopulationFromProfile(countryDetail, profilePopulationMap);
 
   const handleBuildClick = (buildingKey: string) => {
     // Asumsi tab produksi untuk pangan adalah 'industri_pangan'

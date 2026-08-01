@@ -1,3 +1,5 @@
+import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
+
 const parsePopulationText = (value: any): number => {
   if (value === null || value === undefined || value === '') return 0;
 
@@ -30,6 +32,62 @@ const parsePopulationText = (value: any): number => {
 };
 
 const safeNumber = (value: any): number => parsePopulationText(value);
+
+const normalizeNameKey = (value?: string) => `${(value || '').toLowerCase().trim().replace(/\s+/g, ' ')}`;
+
+const getProfilePopulationLookup = () => {
+  const map = new Map<string, number>();
+
+  for (const profile of PROFILES_POPULATION_DATA) {
+    const key = normalizeNameKey(profile.name_id || profile.name_en);
+    const population = safeNumber(profile.jumlah_penduduk);
+    if (key && population > 0) {
+      map.set(key, population);
+    }
+  }
+
+  return map;
+};
+
+const PROFILE_POPULATION_LOOKUP = getProfilePopulationLookup();
+
+const resolveCountryPopulation = (country: any) => {
+  const directPopulation = safeNumber(
+    country?.jumlah_penduduk ??
+    country?.population ??
+    country?.pop ??
+    country?.penduduk ??
+    country?.total_population
+  );
+
+  if (directPopulation > 0) {
+    return directPopulation;
+  }
+
+  const rawName = country?.name_id || country?.name_en || country?.nama || country?.country || '';
+  const lookupKey = normalizeNameKey(rawName);
+  const profilePopulation = PROFILE_POPULATION_LOOKUP.get(lookupKey);
+
+  if (profilePopulation && profilePopulation > 0) {
+    return profilePopulation;
+  }
+
+  const fileName = country?.__fileName || '';
+  if (fileName) {
+    const derivedFromFile = normalizeNameKey(
+      fileName
+        .replace(/^\d+_/, '')
+        .replace(/\.(ts|js|json)$/i, '')
+        .replace(/_/g, ' ')
+    );
+    const fileLookup = PROFILE_POPULATION_LOOKUP.get(derivedFromFile);
+    if (fileLookup && fileLookup > 0) {
+      return fileLookup;
+    }
+  }
+
+  return 0;
+};
 
 // Data konsumsi per 1.000 penduduk per hari.
 export const FOOD_CONSUMPTION_PER_CAPITA: Record<string, number> = {
@@ -90,7 +148,7 @@ export const calculateProduction = (buildingKey: string, countryDetail: any, met
 export const calculateConsumption = (population: number, consumptionPerCapita: number) => {
   const safePopulation = safeNumber(population);
   const safePerCapita = safeNumber(consumptionPerCapita);
-  return Math.round((safePopulation / 1000) * safePerCapita);
+  return (safePopulation / 1000) * safePerCapita;
 };
 
 // Calculate total production, consumption and balance for a country (Flat list)
@@ -98,14 +156,7 @@ export const calculateCountryFoodAggregate = (country: any, metadata: any) => {
   let totalProduction = 0;
   let totalConsumption = 0;
   
-  const population = safeNumber(
-    country?.jumlah_penduduk ?? 
-    country?.population ?? 
-    country?.pop ?? 
-    country?.penduduk ?? 
-    country?.total_population ?? 
-    0
-  );
+  const population = resolveCountryPopulation(country);
 
   Object.entries(FOOD_CONSUMPTION_PER_CAPITA).forEach(([key, consumptionPerCapita]) => {
     const prod = calculateProduction(key, country, metadata);
@@ -116,21 +167,14 @@ export const calculateCountryFoodAggregate = (country: any, metadata: any) => {
 
   return {
     totalProduction: Number.isFinite(totalProduction) ? totalProduction : 0,
-    totalConsumption: Number.isFinite(totalConsumption) ? totalConsumption : 0,
-    balance: Number.isFinite(totalProduction - totalConsumption) ? (totalProduction - totalConsumption) : 0,
+    totalConsumption: Number.isFinite(totalConsumption) ? Math.round(totalConsumption) : 0,
+    balance: Number.isFinite(totalProduction - totalConsumption) ? Math.round(totalProduction - totalConsumption) : 0,
   };
 };
 
 // Calculate detailed commodity food info for a country (Flat list)
 export const calculateCountryFoodDetails = (country: any, metadata: any) => {
-  const population = safeNumber(
-    country?.jumlah_penduduk ?? 
-    country?.population ?? 
-    country?.pop ?? 
-    country?.penduduk ?? 
-    country?.total_population ?? 
-    0
-  );
+  const population = resolveCountryPopulation(country);
 
   return Object.entries(FOOD_CONSUMPTION_PER_CAPITA).map(([key, consumptionPerCapita]) => {
     const production = calculateProduction(key, country, metadata);
@@ -138,9 +182,9 @@ export const calculateCountryFoodDetails = (country: any, metadata: any) => {
     return {
       key,
       label: metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase()),
-      production: isNaN(production) ? 0 : production,
-      consumption: isNaN(consumption) ? 0 : consumption,
-      balance: isNaN(production - consumption) ? 0 : (production - consumption)
+      production: Number.isFinite(production) ? production : 0,
+      consumption: Number.isFinite(consumption) ? Math.round(consumption) : 0,
+      balance: Number.isFinite(production - consumption) ? Math.round(production - consumption) : 0
     };
   });
 };
