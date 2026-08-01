@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const afrika_selatan_agrikultur = {
-  padi: 1280,
-  gandum: 1480,
-  jagung: 2840,
-  sayur: 2640,
-  umbi: 880,
-  kedelai: 1080,
+  padi: 108,
+  gandum: 186,
+  jagung: 22,
+  sayur: 37,
+  umbi: 68,
+  kedelai: 49,
   kelapa_sawit: 0,
-  kopi: 1760,
-  teh: 1200,
+  kopi: 0,
+  teh: 0,
   kakao: 0,
-  tebu: 800,
+  tebu: 0,
   karet: 0
 };
