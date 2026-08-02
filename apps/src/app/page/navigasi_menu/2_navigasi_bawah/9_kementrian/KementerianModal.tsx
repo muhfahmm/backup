@@ -27,6 +27,7 @@ import {
   ShieldAlert,
   Ship,
 } from "lucide-react";
+import { calculateCountryNetBalance } from "@/app/logic/economic_logic/treasuryUpdater";
 
 interface ModalProps {
   isOpen: boolean;
@@ -249,6 +250,28 @@ const getTotalUpgradeCost = (currentLevel: number, targetLevel: number) => {
   return total;
 };
 
+const getProjectedNetBalance = (detail: any, deptId: string, targetLevel: number) => {
+  const projectedDetail = { ...detail, [`level_${deptId}`]: targetLevel };
+  return calculateCountryNetBalance(projectedDetail);
+};
+
+const canAffordUpgrade = (
+  detail: any,
+  currentMoney: number,
+  dept: Department,
+  currentLevel: number,
+  targetLevel: number
+) => {
+  const totalCost = getTotalUpgradeCost(currentLevel, targetLevel);
+  const remainingCashAfterUpgrade = currentMoney - totalCost;
+  const projectedNetBalance = getProjectedNetBalance(detail, dept.id, targetLevel);
+
+  // Upgrade hanya diperbolehkan jika kas saat ini cukup untuk membayar biaya upgrade
+  // dan setelah upgrade pendapatan harian masih tidak negatif.
+  if (remainingCashAfterUpgrade < 0) return false;
+  return projectedNetBalance >= 0;
+};
+
 export default function KementerianModal({ isOpen, onClose, countryDetail, setCountryDetail, resetTrigger }: ModalProps) {
   const [activeTab, setActiveTab] = useState<TabKey>("kementerian");
   const [levels, setLevels] = useState<Record<string, number>>({});
@@ -298,7 +321,8 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
       // Upgrade
       if (targetLevel > MAX_LEVEL) return;
       const totalCost = getTotalUpgradeCost(currentLevel, targetLevel);
-      if (money < totalCost) return;
+      const affordable = canAffordUpgrade(countryDetail, money, dept, currentLevel, targetLevel);
+      if (!affordable) return;
       setConfirmUpgrade({ dept, fromLevel: currentLevel, targetLevel, cost: totalCost });
     } else if (targetLevel < currentLevel) {
       // Downgrade
@@ -311,6 +335,8 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
     if (!confirmUpgrade) return;
 
     const { dept, targetLevel, cost } = confirmUpgrade;
+    const canConfirm = canAffordUpgrade(countryDetail, money, dept, confirmUpgrade.fromLevel, targetLevel);
+    if (!canConfirm) return;
 
     const newAnggaran = money - cost;
     setCountryDetail({
@@ -441,7 +467,12 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                             const filled = boxLevel <= level;
                             const isJumpTarget = boxLevel > level;
                             const jumpCost = isJumpTarget ? getTotalUpgradeCost(level, boxLevel) : 0;
-                            const canAffordJump = isJumpTarget && money >= jumpCost;
+                            const projectedNetBalance = isJumpTarget
+                              ? getProjectedNetBalance(countryDetail, dept.id, boxLevel)
+                              : 0;
+                            const remainingCashAfterUpgrade = isJumpTarget ? money - jumpCost : 0;
+                            const willBeDailyNegative = isJumpTarget && projectedNetBalance < 0;
+                            const canAffordJump = isJumpTarget && canAffordUpgrade(countryDetail, money, dept, level, boxLevel);
                             const isDowngradeTarget = boxLevel < level;
 
                             return (
@@ -449,7 +480,7 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                                 key={i}
                                 type="button"
                                 onClick={() => handleLevelBoxClick(dept, boxLevel)}
-                                disabled={boxLevel === level}
+                                disabled={boxLevel === level || (isJumpTarget && !canAffordJump)}
                                 title={
                                   boxLevel === level
                                     ? `Level saat ini`
@@ -457,7 +488,11 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                                     ? `Klik untuk turun ke level ${boxLevel} (downgrade)`
                                     : canAffordJump
                                     ? `Lompat ke level ${boxLevel}: ${jumpCost.toLocaleString("id-ID")} EM`
-                                    : `Kas tidak cukup untuk level ${boxLevel} (butuh ${jumpCost.toLocaleString("id-ID")} EM)`
+                                    : willBeDailyNegative
+                                    ? `Upgrade ini akan membuat pendapatan harian menjadi negatif` 
+                                    : remainingCashAfterUpgrade < 0
+                                    ? `Kas saat ini tidak cukup untuk level ${boxLevel} (butuh ${jumpCost.toLocaleString("id-ID")} EM)`
+                                    : `Upgrade ini tidak didukung oleh kas dan pendapatan harian saat ini`
                                 }
                                 className={`h-4 flex-1 rounded-sm transition-all ${
                                   boxLevel === level
@@ -465,8 +500,8 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
                                     : filled
                                     ? "bg-amber-500 hover:bg-amber-600/60 cursor-pointer"
                                     : canAffordJump
-                                    ? "bg-[#1e3b39] hover:bg-amber-700/60 cursor-pointer"
-                                    : "bg-[#1e3b39] cursor-not-allowed opacity-60"
+                                    ? "bg-[#1e3b39] hover:bg-[#26604e] cursor-pointer"
+                                    : "bg-[#94a194] cursor-not-allowed opacity-70"
                                 }`}
                               />
                             );
