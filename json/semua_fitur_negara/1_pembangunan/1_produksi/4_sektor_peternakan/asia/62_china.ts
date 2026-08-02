@@ -1,7 +1,7 @@
 // @ts-nocheck
 const china_peternakan = {
-  ayam_unggas: 119,
-  sapi_perah: 109,
-  sapi_potong: 100,
-  domba_kambing: 200
+  ayam_unggas: 1415,
+  sapi_perah: 1121,
+  sapi_potong: 932,
+  domba_kambing: 387
 };

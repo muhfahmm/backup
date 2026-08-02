@@ -1,6 +1,6 @@
 // @ts-nocheck
 const burkina_faso_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 51,
+  mutiara: 1,
+  ikan: 168
 };

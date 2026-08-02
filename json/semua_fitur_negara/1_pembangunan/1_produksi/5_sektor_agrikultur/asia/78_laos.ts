@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const laos_agrikultur = {
-  padi: 23,
-  gandum: 95,
-  jagung: 42,
-  sayur: 97,
-  umbi: 45,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 70,
-  teh: 64,
-  kakao: 0,
-  tebu: 53,
-  karet: 0
+  padi: 10,
+  gandum: 8,
+  jagung: 34,
+  sayur: 24,
+  umbi: 18,
+  kedelai: 22,
+  kelapa_sawit: 15,
+  kopi: 74,
+  teh: 1,
+  kakao: 178,
+  tebu: 6,
+  karet: 47
 };

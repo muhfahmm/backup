@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const luksemburg_agrikultur = {
-  padi: 29,
-  gandum: 25,
-  jagung: 76,
-  sayur: 100,
-  umbi: 67,
-  kedelai: 88,
-  kelapa_sawit: 0,
-  kopi: 69,
-  teh: 52,
-  kakao: 0,
-  tebu: 27,
-  karet: 0
+  padi: 9,
+  gandum: 11,
+  jagung: 20,
+  sayur: 1,
+  umbi: 33,
+  kedelai: 64,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 62,
+  kakao: 153,
+  tebu: 19,
+  karet: 43
 };

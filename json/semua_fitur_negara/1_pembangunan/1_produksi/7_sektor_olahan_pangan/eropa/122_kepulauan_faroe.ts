@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kepulauan_faroe_olahan_pangan = {
-  air_mineral: 0,
-  gula: 52,
-  roti: 7,
-  pengolahan_daging: 11,
-  mie_instan: 96,
-  minyak_goreng: 63,
-  susu: 100
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

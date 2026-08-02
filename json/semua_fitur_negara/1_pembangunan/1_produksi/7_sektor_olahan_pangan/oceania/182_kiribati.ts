@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kiribati_olahan_pangan = {
-  air_mineral: 34,
-  gula: 3,
-  roti: 0,
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
   pengolahan_daging: 13,
-  mie_instan: 100,
-  minyak_goreng: 34,
-  susu: 84
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

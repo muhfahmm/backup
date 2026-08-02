@@ -1,6 +1,6 @@
 // @ts-nocheck
 const eritrea_perikanan = {
-  udang: 100,
-  mutiara: 0,
-  ikan: 19
+  udang: 71,
+  mutiara: 102,
+  ikan: 79
 };

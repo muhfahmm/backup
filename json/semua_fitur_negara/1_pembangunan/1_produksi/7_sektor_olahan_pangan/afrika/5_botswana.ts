@@ -1,12 +1,12 @@
 // @ts-nocheck
 const botswana_olahan_pangan = {
-  air_mineral: 100,
-  gula: 24,
-  roti: 48,
-  pengolahan_daging: 0,
-  mie_instan: 21,
-  minyak_goreng: 90,
-  susu: 24
+  air_mineral: 2,
+  gula: 6,
+  roti: 13,
+  pengolahan_daging: 1,
+  mie_instan: 4,
+  minyak_goreng: 7,
+  susu: 11
   
   
 };

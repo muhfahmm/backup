@@ -1,6 +1,6 @@
 // @ts-nocheck
 const vanuatu_perikanan = {
-  udang: 33,
+  udang: 61,
   mutiara: 100,
-  ikan: 0
+  ikan: 53
 };

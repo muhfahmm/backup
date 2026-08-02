@@ -1,6 +1,6 @@
 // @ts-nocheck
 const guyana_perikanan = {
-  udang: 100,
-  mutiara: 0,
-  ikan: 0
+  udang: 63,
+  mutiara: 101,
+  ikan: 58
 };

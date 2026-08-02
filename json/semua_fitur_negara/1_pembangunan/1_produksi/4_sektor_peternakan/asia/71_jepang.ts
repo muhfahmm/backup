@@ -1,7 +1,7 @@
 // @ts-nocheck
 const jepang_peternakan = {
-  ayam_unggas: 189,
-  sapi_perah: 200,
-  sapi_potong: 100,
-  domba_kambing: 136
+  ayam_unggas: 133,
+  sapi_perah: 95,
+  sapi_potong: 78,
+  domba_kambing: 31
 };

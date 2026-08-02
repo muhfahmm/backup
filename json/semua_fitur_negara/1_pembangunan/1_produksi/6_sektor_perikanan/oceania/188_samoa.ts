@@ -1,6 +1,6 @@
 // @ts-nocheck
 const samoa_perikanan = {
-  udang: 97,
+  udang: 61,
   mutiara: 100,
-  ikan: 0
+  ikan: 52
 };

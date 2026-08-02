@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const burkina_faso_agrikultur = {
-  padi: 93,
-  gandum: 59,
-  jagung: 34,
-  sayur: 77,
-  umbi: 53,
-  kedelai: 81,
-  kelapa_sawit: 0,
-  kopi: 100,
-  teh: 36,
-  kakao: 0,
-  tebu: 70,
-  karet: 0
+  padi: 36,
+  gandum: 32,
+  jagung: 69,
+  sayur: 95,
+  umbi: 79,
+  kedelai: 113,
+  kelapa_sawit: 25,
+  kopi: 104,
+  teh: 33,
+  kakao: 239,
+  tebu: 33,
+  karet: 56
 };

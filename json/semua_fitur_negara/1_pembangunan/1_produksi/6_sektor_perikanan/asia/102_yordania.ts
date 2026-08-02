@@ -1,6 +1,6 @@
 // @ts-nocheck
 const yordania_perikanan = {
-  udang: 9,
-  mutiara: 0,
-  ikan: 100
+  udang: 98,
+  mutiara: 108,
+  ikan: 149
 };

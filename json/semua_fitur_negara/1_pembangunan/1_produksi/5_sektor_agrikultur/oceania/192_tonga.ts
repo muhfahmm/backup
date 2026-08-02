@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tonga_agrikultur = {
-  padi: 95,
-  gandum: 83,
-  jagung: 49,
-  sayur: 33,
-  umbi: 59,
-  kedelai: 73,
-  kelapa_sawit: 0,
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 24,
+  umbi: 30,
+  kedelai: 61,
+  kelapa_sawit: 10,
   kopi: 60,
-  teh: 86,
-  kakao: 0,
-  tebu: 100,
-  karet: 0
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

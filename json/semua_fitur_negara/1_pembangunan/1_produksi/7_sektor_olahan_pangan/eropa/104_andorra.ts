@@ -1,12 +1,12 @@
 // @ts-nocheck
 const andorra_olahan_pangan = {
-  air_mineral: 0,
-  gula: 100,
-  roti: 95,
-  pengolahan_daging: 86,
-  mie_instan: 62,
-  minyak_goreng: 76,
-  susu: 57
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

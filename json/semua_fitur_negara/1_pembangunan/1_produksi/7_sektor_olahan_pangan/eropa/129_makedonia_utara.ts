@@ -1,12 +1,12 @@
 // @ts-nocheck
 const makedonia_utara_olahan_pangan = {
-  air_mineral: 100,
-  gula: 60,
-  roti: 73,
-  pengolahan_daging: 0,
-  mie_instan: 77,
+  air_mineral: 2,
+  gula: 6,
+  roti: 12,
+  pengolahan_daging: 14,
+  mie_instan: 4,
   minyak_goreng: 7,
-  susu: 7
+  susu: 10
   
   
 };

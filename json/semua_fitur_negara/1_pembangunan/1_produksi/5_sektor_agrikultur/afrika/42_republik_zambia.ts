@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_zambia_agrikultur = {
-  padi: 84,
-  gandum: 54,
-  jagung: 89,
-  sayur: 42,
-  umbi: 74,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 67,
-  teh: 39,
-  kakao: 0,
-  tebu: 46,
-  karet: 0
+  padi: 32,
+  gandum: 28,
+  jagung: 63,
+  sayur: 83,
+  umbi: 69,
+  kedelai: 98,
+  kelapa_sawit: 23,
+  kopi: 99,
+  teh: 27,
+  kakao: 229,
+  tebu: 29,
+  karet: 54
 };

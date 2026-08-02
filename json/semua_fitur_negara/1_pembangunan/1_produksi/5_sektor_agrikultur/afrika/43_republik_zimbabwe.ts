@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_zimbabwe_agrikultur = {
-  padi: 100,
-  gandum: 22,
-  jagung: 61,
-  sayur: 22,
-  umbi: 34,
-  kedelai: 49,
-  kelapa_sawit: 0,
-  kopi: 52,
-  teh: 90,
-  kakao: 0,
-  tebu: 19,
-  karet: 0
+  padi: 27,
+  gandum: 24,
+  jagung: 57,
+  sayur: 71,
+  umbi: 58,
+  kedelai: 82,
+  kelapa_sawit: 21,
+  kopi: 94,
+  teh: 21,
+  kakao: 218,
+  tebu: 24,
+  karet: 53
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const barbados_perikanan = {
-  udang: 100,
-  mutiara: 0,
-  ikan: 0
+  udang: 61,
+  mutiara: 100,
+  ikan: 52
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tanjung_verde_perikanan = {
-  udang: 133,
+  udang: 62,
   mutiara: 100,
-  ikan: 200
+  ikan: 54
 };

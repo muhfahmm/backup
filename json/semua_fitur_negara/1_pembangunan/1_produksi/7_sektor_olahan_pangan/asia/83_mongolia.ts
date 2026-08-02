@@ -1,12 +1,12 @@
 // @ts-nocheck
 const mongolia_olahan_pangan = {
-  air_mineral: 51,
-  gula: 54,
-  roti: 28,
-  pengolahan_daging: 0,
-  mie_instan: 49,
-  minyak_goreng: 100,
-  susu: 0
+  air_mineral: 2,
+  gula: 6,
+  roti: 14,
+  pengolahan_daging: 1,
+  mie_instan: 5,
+  minyak_goreng: 7,
+  susu: 11
   
   
 };

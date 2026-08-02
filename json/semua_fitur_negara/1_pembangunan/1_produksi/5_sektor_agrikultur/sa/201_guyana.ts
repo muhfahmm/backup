@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const guyana_agrikultur = {
-  padi: 66,
-  gandum: 3,
-  jagung: 84,
-  sayur: 84,
-  umbi: 0,
-  kedelai: 38,
-  kelapa_sawit: 97,
-  kopi: 57,
-  teh: 80,
-  kakao: 31,
-  tebu: 85,
-  karet: 100
+  padi: 1,
+  gandum: 12,
+  jagung: 21,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 11,
+  kopi: 62,
+  teh: 62,
+  kakao: 154,
+  tebu: 19,
+  karet: 43
 };

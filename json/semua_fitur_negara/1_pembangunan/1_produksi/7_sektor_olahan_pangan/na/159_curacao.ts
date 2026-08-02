@@ -1,12 +1,12 @@
 // @ts-nocheck
 const curacao_olahan_pangan = {
-  air_mineral: 56,
-  gula: 24,
-  roti: 0,
-  pengolahan_daging: 100,
-  mie_instan: 71,
-  minyak_goreng: 62,
-  susu: 12
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

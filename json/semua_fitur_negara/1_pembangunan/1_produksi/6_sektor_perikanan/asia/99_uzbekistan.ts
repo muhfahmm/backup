@@ -1,6 +1,6 @@
 // @ts-nocheck
 const uzbekistan_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 102,
+  mutiara: 1,
+  ikan: 302
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const mikronesia_perikanan = {
-  udang: 100,
-  mutiara: 200,
-  ikan: 197
+  udang: 60,
+  mutiara: 100,
+  ikan: 51
 };

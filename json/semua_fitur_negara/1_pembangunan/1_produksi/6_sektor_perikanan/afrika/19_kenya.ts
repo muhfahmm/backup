@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kenya_perikanan = {
-  udang: 140,
-  mutiara: 100,
-  ikan: 200
+  udang: 231,
+  mutiara: 136,
+  ikan: 494
 };

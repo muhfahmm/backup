@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kuwait_perikanan = {
-  udang: 117,
-  mutiara: 200,
-  ikan: 100
+  udang: 76,
+  mutiara: 103,
+  ikan: 91
 };

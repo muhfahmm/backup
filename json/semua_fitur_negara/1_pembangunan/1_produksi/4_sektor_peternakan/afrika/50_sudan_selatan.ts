@@ -1,7 +1,7 @@
 // @ts-nocheck
 const sudan_selatan_peternakan = {
-  ayam_unggas: 164,
-  sapi_perah: 100,
-  sapi_potong: 200,
-  domba_kambing: 133
+  ayam_unggas: 21,
+  sapi_perah: 6,
+  sapi_potong: 3,
+  domba_kambing: 1
 };

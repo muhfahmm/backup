@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const guatemala_agrikultur = {
-  padi: 75,
-  gandum: 43,
-  jagung: 100,
-  sayur: 47,
-  umbi: 72,
-  kedelai: 85,
-  kelapa_sawit: 0,
-  kopi: 40,
-  teh: 46,
-  kakao: 0,
-  tebu: 67,
-  karet: 0
+  padi: 30,
+  gandum: 26,
+  jagung: 60,
+  sayur: 77,
+  umbi: 63,
+  kedelai: 90,
+  kelapa_sawit: 22,
+  kopi: 97,
+  teh: 24,
+  kakao: 223,
+  tebu: 26,
+  karet: 53
 };

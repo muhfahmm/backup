@@ -1,6 +1,6 @@
 // @ts-nocheck
 const seychelles_perikanan = {
-  udang: 0,
-  mutiara: 11,
-  ikan: 100
+  udang: 60,
+  mutiara: 100,
+  ikan: 51
 };

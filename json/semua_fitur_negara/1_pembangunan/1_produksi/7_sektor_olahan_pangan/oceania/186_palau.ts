@@ -1,12 +1,12 @@
 // @ts-nocheck
 const palau_olahan_pangan = {
-  air_mineral: 65,
-  gula: 100,
-  roti: 58,
-  pengolahan_daging: 0,
-  mie_instan: 32,
-  minyak_goreng: 0,
-  susu: 90
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

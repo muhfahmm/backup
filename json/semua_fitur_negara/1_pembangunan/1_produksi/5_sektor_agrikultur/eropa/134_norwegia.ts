@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const norwegia_agrikultur = {
-  padi: 178,
-  gandum: 123,
-  jagung: 163,
-  sayur: 200,
-  umbi: 116,
-  kedelai: 173,
-  kelapa_sawit: 100,
-  kopi: 170,
-  teh: 148,
-  kakao: 100,
-  tebu: 170,
-  karet: 100
+  padi: 7,
+  gandum: 6,
+  jagung: 31,
+  sayur: 18,
+  umbi: 13,
+  kedelai: 14,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 4,
+  karet: 46
 };

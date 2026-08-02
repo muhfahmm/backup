@@ -1,12 +1,12 @@
 // @ts-nocheck
 const qatar_olahan_pangan = {
-  air_mineral: 200,
-  gula: 188,
-  roti: 124,
-  pengolahan_daging: 129,
-  mie_instan: 135,
-  minyak_goreng: 100,
-  susu: 106
+  air_mineral: 2,
+  gula: 6,
+  roti: 14,
+  pengolahan_daging: 1,
+  mie_instan: 5,
+  minyak_goreng: 7,
+  susu: 11
   
   
 };

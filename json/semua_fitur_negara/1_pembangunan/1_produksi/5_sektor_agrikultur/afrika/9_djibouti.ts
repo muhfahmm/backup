@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const djibouti_agrikultur = {
-  padi: 71,
-  gandum: 100,
-  jagung: 22,
-  sayur: 51,
-  umbi: 51,
-  kedelai: 25,
-  kelapa_sawit: 0,
-  kopi: 98,
-  teh: 56,
-  kakao: 0,
-  tebu: 95,
-  karet: 0
+  padi: 1,
+  gandum: 1,
+  jagung: 21,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 11,
+  kopi: 62,
+  teh: 63,
+  kakao: 155,
+  tebu: 20,
+  karet: 44
 };

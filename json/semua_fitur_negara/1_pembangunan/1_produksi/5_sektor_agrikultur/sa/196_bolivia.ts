@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bolivia_agrikultur = {
-  padi: 154,
-  gandum: 138,
-  jagung: 182,
-  sayur: 166,
-  umbi: 199,
-  kedelai: 200,
-  kelapa_sawit: 100,
-  kopi: 193,
-  teh: 169,
-  kakao: 100,
-  tebu: 183,
-  karet: 100
+  padi: 17,
+  gandum: 15,
+  jagung: 44,
+  sayur: 45,
+  umbi: 35,
+  kedelai: 48,
+  kelapa_sawit: 18,
+  kopi: 83,
+  teh: 7,
+  kakao: 195,
+  tebu: 14,
+  karet: 49
 };

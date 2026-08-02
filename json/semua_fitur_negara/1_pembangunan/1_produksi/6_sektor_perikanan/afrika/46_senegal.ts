@@ -1,6 +1,6 @@
 // @ts-nocheck
 const senegal_perikanan = {
-  udang: 100,
-  mutiara: 70,
-  ikan: 0
+  udang: 121,
+  mutiara: 113,
+  ikan: 209
 };

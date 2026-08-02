@@ -1,12 +1,12 @@
 // @ts-nocheck
 const guiana_prancis_olahan_pangan = {
-  air_mineral: 0,
-  gula: 30,
-  roti: 96,
-  pengolahan_daging: 100,
-  mie_instan: 70,
-  minyak_goreng: 85,
-  susu: 59
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

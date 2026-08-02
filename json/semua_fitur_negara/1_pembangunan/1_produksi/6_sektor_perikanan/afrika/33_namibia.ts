@@ -1,6 +1,6 @@
 // @ts-nocheck
 const namibia_perikanan = {
-  udang: 85,
-  mutiara: 100,
-  ikan: 0
+  udang: 70,
+  mutiara: 102,
+  ikan: 75
 };

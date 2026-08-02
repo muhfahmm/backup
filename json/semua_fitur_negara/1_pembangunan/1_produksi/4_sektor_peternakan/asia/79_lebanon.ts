@@ -1,7 +1,7 @@
 // @ts-nocheck
 const lebanon_peternakan = {
-  ayam_unggas: 10,
-  sapi_perah: 0,
-  sapi_potong: 55,
-  domba_kambing: 100
+  ayam_unggas: 16,
+  sapi_perah: 2,
+  sapi_potong: 1,
+  domba_kambing: 1
 };

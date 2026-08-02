@@ -1,6 +1,6 @@
 // @ts-nocheck
 const chile_perikanan = {
-  udang: 167,
-  mutiara: 200,
-  ikan: 100
+  udang: 125,
+  mutiara: 113,
+  ikan: 218
 };

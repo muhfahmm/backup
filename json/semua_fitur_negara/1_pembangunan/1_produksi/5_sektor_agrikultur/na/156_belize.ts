@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const belize_agrikultur = {
-  padi: 93,
-  gandum: 91,
-  jagung: 60,
-  sayur: 100,
-  umbi: 34,
-  kedelai: 66,
-  kelapa_sawit: 0,
-  kopi: 31,
-  teh: 46,
-  kakao: 0,
-  tebu: 76,
-  karet: 0
+  padi: 8,
+  gandum: 11,
+  jagung: 20,
+  sayur: 25,
+  umbi: 32,
+  kedelai: 63,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 61,
+  kakao: 152,
+  tebu: 18,
+  karet: 43
 };

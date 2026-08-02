@@ -1,12 +1,12 @@
 // @ts-nocheck
 const gabon_olahan_pangan = {
-  air_mineral: 66,
-  gula: 0,
-  roti: 74,
-  pengolahan_daging: 100,
-  mie_instan: 83,
-  minyak_goreng: 51,
-  susu: 40
+  air_mineral: 2,
+  gula: 6,
+  roti: 13,
+  pengolahan_daging: 1,
+  mie_instan: 4,
+  minyak_goreng: 7,
+  susu: 10
   
   
 };

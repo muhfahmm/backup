@@ -1,6 +1,6 @@
 // @ts-nocheck
 const amerika_serikat_perikanan = {
-  udang: 142,
-  mutiara: 200,
-  ikan: 100
+  udang: 1154,
+  mutiara: 328,
+  ikan: 2898
 };

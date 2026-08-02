@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const antigua_dan_barbuda_agrikultur = {
-  padi: 28,
-  gandum: 100,
-  jagung: 41,
-  sayur: 40,
-  umbi: 54,
-  kedelai: 54,
-  kelapa_sawit: 0,
-  kopi: 24,
-  teh: 81,
-  kakao: 0,
-  tebu: 70,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 24,
+  umbi: 30,
+  kedelai: 61,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

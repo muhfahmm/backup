@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const amerika_serikat_agrikultur = {
-  padi: 180,
-  gandum: 200,
-  jagung: 175,
-  sayur: 174,
-  umbi: 197,
-  kedelai: 190,
-  kelapa_sawit: 100,
-  kopi: 179,
-  teh: 187,
-  kakao: 100,
-  tebu: 161,
-  karet: 100
+  padi: 596,
+  gandum: 557,
+  jagung: 788,
+  sayur: 1570,
+  umbi: 1357,
+  kedelai: 2031,
+  kelapa_sawit: 225,
+  kopi: 664,
+  teh: 800,
+  kakao: 1317,
+  tebu: 597,
+  karet: 181
 };

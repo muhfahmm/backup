@@ -1,12 +1,12 @@
 // @ts-nocheck
 const eritrea_olahan_pangan = {
-  air_mineral: 81,
-  gula: 0,
-  roti: 37,
-  pengolahan_daging: 100,
-  mie_instan: 81,
-  minyak_goreng: 85,
-  susu: 41
+  air_mineral: 2,
+  gula: 6,
+  roti: 14,
+  pengolahan_daging: 1,
+  mie_instan: 5,
+  minyak_goreng: 7,
+  susu: 11
   
   
 };

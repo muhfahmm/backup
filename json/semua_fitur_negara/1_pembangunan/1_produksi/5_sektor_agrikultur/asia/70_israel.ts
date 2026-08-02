@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const israel_agrikultur = {
-  padi: 141,
-  gandum: 143,
-  jagung: 116,
-  sayur: 146,
-  umbi: 171,
-  kedelai: 181,
-  kelapa_sawit: 100,
-  kopi: 200,
-  teh: 166,
-  kakao: 100,
-  tebu: 146,
-  karet: 100
+  padi: 15,
+  gandum: 13,
+  jagung: 42,
+  sayur: 40,
+  umbi: 31,
+  kedelai: 41,
+  kelapa_sawit: 3,
+  kopi: 1,
+  teh: 5,
+  kakao: 1,
+  tebu: 12,
+  karet: 1
 };

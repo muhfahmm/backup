@@ -1,7 +1,7 @@
 // @ts-nocheck
 const rwanda_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 16,
-  sapi_potong: 0,
-  domba_kambing: 73
+  ayam_unggas: 24,
+  sapi_perah: 8,
+  sapi_potong: 5,
+  domba_kambing: 1
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const benin_olahan_pangan = {
-  air_mineral: 13,
-  gula: 100,
-  roti: 100,
-  pengolahan_daging: 0,
-  mie_instan: 63,
-  minyak_goreng: 21,
-  susu: 63
+  air_mineral: 2,
+  gula: 6,
+  roti: 26,
+  pengolahan_daging: 7,
+  mie_instan: 10,
+  minyak_goreng: 11,
+  susu: 19
   
   
 };

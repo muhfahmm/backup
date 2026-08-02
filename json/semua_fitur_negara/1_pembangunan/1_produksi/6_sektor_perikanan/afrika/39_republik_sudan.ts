@@ -1,6 +1,6 @@
 // @ts-nocheck
 const republik_sudan_perikanan = {
-  udang: 117,
-  mutiara: 69,
-  ikan: 21
+  udang: 225,
+  mutiara: 134,
+  ikan: 481
 };

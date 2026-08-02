@@ -1,12 +1,12 @@
 // @ts-nocheck
 const brunei_olahan_pangan = {
-  air_mineral: 0,
-  gula: 87,
-  roti: 100,
-  pengolahan_daging: 59,
-  mie_instan: 59,
-  minyak_goreng: 97,
-  susu: 23
+  air_mineral: 2,
+  gula: 6,
+  roti: 11,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

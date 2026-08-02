@@ -1,7 +1,7 @@
 // @ts-nocheck
 const paraguay_peternakan = {
-  ayam_unggas: 169,
-  sapi_perah: 148,
-  sapi_potong: 200,
-  domba_kambing: 100
+  ayam_unggas: 16,
+  sapi_perah: 2,
+  sapi_potong: 1,
+  domba_kambing: 1
 };

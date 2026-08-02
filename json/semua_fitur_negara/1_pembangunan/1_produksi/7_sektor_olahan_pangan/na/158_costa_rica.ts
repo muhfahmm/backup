@@ -1,12 +1,12 @@
 // @ts-nocheck
 const costa_rica_olahan_pangan = {
-  air_mineral: 53,
-  gula: 16,
-  roti: 56,
-  pengolahan_daging: 100,
-  mie_instan: 38,
-  minyak_goreng: 25,
-  susu: 0
+  air_mineral: 2,
+  gula: 6,
+  roti: 16,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 8,
+  susu: 13
   
   
 };

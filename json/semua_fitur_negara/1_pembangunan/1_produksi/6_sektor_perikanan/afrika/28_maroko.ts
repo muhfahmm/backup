@@ -1,6 +1,6 @@
 // @ts-nocheck
 const maroko_perikanan = {
-  udang: 100,
-  mutiara: 200,
-  ikan: 121
+  udang: 178,
+  mutiara: 125,
+  ikan: 357
 };

@@ -1,6 +1,6 @@
 // @ts-nocheck
 const slowakia_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 77,
+  mutiara: 104,
+  ikan: 95
 };

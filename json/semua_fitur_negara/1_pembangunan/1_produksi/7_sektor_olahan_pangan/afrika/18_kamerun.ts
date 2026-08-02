@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kamerun_olahan_pangan = {
-  air_mineral: 100,
-  gula: 161,
-  roti: 168,
-  pengolahan_daging: 200,
-  mie_instan: 158,
-  minyak_goreng: 137,
-  susu: 124
+  air_mineral: 3,
+  gula: 6,
+  roti: 44,
+  pengolahan_daging: 19,
+  mie_instan: 17,
+  minyak_goreng: 17,
+  susu: 32
   
   
 };

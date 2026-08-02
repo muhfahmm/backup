@@ -1,6 +1,6 @@
 // @ts-nocheck
 const benin_perikanan = {
-  udang: 0,
-  mutiara: 25,
-  ikan: 100
+  udang: 102,
+  mutiara: 109,
+  ikan: 160
 };

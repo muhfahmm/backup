@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const irak_agrikultur = {
-  padi: 193,
-  gandum: 133,
-  jagung: 200,
-  sayur: 131,
-  umbi: 150,
-  kedelai: 181,
-  kelapa_sawit: 100,
-  kopi: 181,
-  teh: 163,
-  kakao: 100,
-  tebu: 133,
-  karet: 100
+  padi: 78,
+  gandum: 70,
+  jagung: 123,
+  sayur: 205,
+  umbi: 174,
+  kedelai: 257,
+  kelapa_sawit: 27,
+  kopi: 72,
+  teh: 91,
+  kakao: 134,
+  tebu: 76,
+  karet: 12
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const guam_peternakan = {
-  ayam_unggas: 0,
-  sapi_perah: 100,
-  sapi_potong: 57,
-  domba_kambing: 71
+  ayam_unggas: 10,
+  sapi_perah: 10,
+  sapi_potong: 13,
+  domba_kambing: 8
 };

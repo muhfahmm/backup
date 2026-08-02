@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const brazil_agrikultur = {
-  padi: 116,
-  gandum: 125,
-  jagung: 178,
-  sayur: 192,
-  umbi: 191,
-  kedelai: 125,
-  kelapa_sawit: 172,
-  kopi: 144,
-  teh: 100,
-  kakao: 200,
-  tebu: 198,
-  karet: 134
+  padi: 371,
+  gandum: 338,
+  jagung: 499,
+  sayur: 977,
+  umbi: 844,
+  kedelai: 1261,
+  kelapa_sawit: 152,
+  kopi: 487,
+  teh: 492,
+  kakao: 1004,
+  tebu: 394,
+  karet: 165
 };

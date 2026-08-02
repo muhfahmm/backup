@@ -44,6 +44,28 @@ const safeNumber = (value: any): number => {
   return Number.isFinite(parsed) ? parsed : 0;
 };
 
+// 🔥 FUNGSI FORMAT ANGKA DENGAN DESIMAL KUNING
+const formatColoredNumber = (value: any, isPositive: boolean = true) => {
+  const parsed = safeNumber(value);
+  if (parsed === 0) return <span className="font-black text-[#8b7e66]">0</span>;
+  
+  const formatted = parsed.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 });
+  const parts = formatted.split(',');
+  
+  const mainColor = isPositive ? 'text-emerald-700' : 'text-rose-700';
+  const sign = isPositive ? '+' : '-';
+
+  if (parts.length === 1) {
+    return <span className={`font-black ${mainColor}`}>{sign}{parts[0]}</span>;
+  }
+
+  return (
+    <span className={`font-black ${mainColor}`}>
+      {sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span>
+    </span>
+  );
+};
+
 const formatNumber = (value: any) => {
   const parsed = safeNumber(value);
   return Number.isFinite(parsed) ? parsed.toLocaleString('id-ID') : '0';
@@ -71,6 +93,30 @@ const normalizePopulationFromProfile = (country: any, profileMap: Map<string, nu
   }
 
   return 0;
+};
+
+// 🔥 DATA PEMETAAN SEKTOR (JANGAN DIHAPUS, INI PENGELOMPOKKAN KOMODITAS)
+const SECTOR_MAP: Record<string, { label: string; icon: React.ReactNode; items: string[] }> = {
+  peternakan: {
+    label: "🐄 Peternakan",
+    icon: <span className="text-[#c77a00]">🐄</span>,
+    items: ["ayam_unggas", "sapi_potong", "sapi_perah", "domba_kambing"]
+  },
+  agrikultur: {
+    label: "🌾 Agrikultur",
+    icon: <span className="text-[#c77a00]">🌾</span>,
+    items: ["padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet"]
+  },
+  perikanan: {
+    label: "🐟 Perikanan",
+    icon: <span className="text-[#c77a00]">🐟</span>,
+    items: ["udang", "ikan", "mutiara"]
+  },
+  olahan_pangan: {
+    label: "🥫 Olahan Pangan",
+    icon: <span className="text-[#c77a00]">🥫</span>,
+    items: ["air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"]
+  }
 };
 
 export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction }: ModalProps) {
@@ -121,7 +167,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const population = normalizePopulationFromProfile(countryDetail, profilePopulationMap);
 
   const handleBuildClick = (buildingKey: string) => {
-    // Asumsi tab produksi untuk pangan adalah 'industri_pangan'
     if (onGotoProduction) onGotoProduction('industri_pangan', buildingKey);
   };
 
@@ -152,7 +197,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   const globalFoodData = allCountries
     .map((country, index) => {
-      // Panggil fungsi tanpa array sektor
       const { totalProduction, totalConsumption, balance } = calculateCountryFoodAggregate(country, metadata);
       const countryPopulation = normalizePopulationFromProfile(country, profilePopulationMap);
 
@@ -247,11 +291,11 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               <div className="grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-emerald-50/80 p-3 border border-emerald-200/60">
                   <div className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Produksi</div>
-                  <div className="mt-1 font-black text-emerald-700">+{formatNumber(selectedCommodityInfo.production)}</div>
+                  <div className="mt-1 font-black text-emerald-700">{formatColoredNumber(selectedCommodityInfo.production, true)}</div>
                 </div>
                 <div className="rounded-xl bg-rose-50/80 p-3 border border-rose-200/60">
                   <div className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Konsumsi</div>
-                  <div className="mt-1 font-black text-rose-700">-{formatNumber(selectedCommodityInfo.consumption)}</div>
+                  <div className="mt-1 font-black text-rose-700">{formatColoredNumber(selectedCommodityInfo.consumption, false)}</div>
                 </div>
               </div>
 
@@ -267,7 +311,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 <div className="mt-2 flex justify-between items-center border-t border-[#C4B49C]/30 pt-2">
                   <span className="font-black uppercase tracking-wider text-[#5c3c10]">Netto</span>
                   <span className={`font-black ${selectedCommodityInfo.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                    {selectedCommodityInfo.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(selectedCommodityInfo.balance))}
+                     {selectedCommodityInfo.balance >= 0 ? '+' : '-'}{formatColoredNumber(Math.abs(selectedCommodityInfo.balance), selectedCommodityInfo.balance >= 0)}
                   </span>
                 </div>
               </div>
@@ -310,58 +354,72 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
             {/* KONTEN DINAMIS */}
             {activeTab === "my" ? (
-              // ------- TAB 1: DATA SAYA (Flat Grid 26 Komoditas) -------
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#e6dcd0] border-2 border-[#4a7a7a] rounded-2xl overflow-hidden shadow-md bg-white">
-                {Object.entries(FOOD_CONSUMPTION_PER_CAPITA).map(([key, consumptionPerCapita]) => {
-                  const production = calculateProduction(key, countryDetail, metadata);
-                  const consumption = calculateConsumption(population, consumptionPerCapita);
-                  const netBalance = production - consumption;
-                  const label = metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
+              // ------- TAB 1: DATA SAYA (Grid Dinamis Berdasarkan Sektor) -------
+              <div className="space-y-6">
+                {Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => {
+                  const sectorItems = sectorData.items.filter(key => FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined);
+                  if (sectorItems.length === 0) return null;
 
                   return (
-                    <div key={key} className="bg-[#f7f3e8] p-3.5 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
-                      <div className="flex items-center justify-between pb-1 border-b border-[#C4B49C]/20">
-                        <div className="flex items-center gap-1.5 min-w-0">
-                          <button
-                            type="button"
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              openCommodityInfo(key, label, production, consumption, netBalance);
-                            }}
-                            title={`Detail konsumsi ${label}`}
-                            className="p-1 rounded-lg border border-[#C4B49C] bg-[#FAF6EE] text-[#5c3c10] hover:bg-[#e4dac3] transition-all cursor-pointer shrink-0"
-                          >
-                            <Info className="w-3.5 h-3.5" />
-                          </button>
-                          <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider truncate">{label}</span>
-                        </div>
-                        {onGotoProduction && (
-                          <button onClick={() => handleBuildClick(key)} title={`Bangun ${label}`} className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs">
-                            <Plus className="w-3.5 h-3.5" />
-                          </button>
-                        )}
+                    <div key={sectorId} className="border-2 border-[#4a7a7a] rounded-2xl overflow-hidden shadow-md bg-white">
+                      <div className="flex items-center gap-3 px-6 py-3.5 bg-[#4a7a7a] border-b border-[#3d6868] text-white">
+                        <span className="text-base">{sectorData.icon}</span>
+                        <h4 className="text-sm font-black uppercase tracking-wider">{sectorData.label} ({sectorItems.length} Komoditas)</h4>
                       </div>
-                      <div className="space-y-1 text-xs">
-                        <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60">
-                          <span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>
-                          <span className="font-black text-emerald-700">+{formatNumber(production)}</span>
-                        </div>
-                        <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60">
-                          <span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>
-                          <span className="font-black text-rose-700">-{formatNumber(consumption)}</span>
-                        </div>
-                      </div>
-                      <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5">
-                        <span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>
-                        <span className={`font-black text-xs ${netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                          {netBalance >= 0 ? `+${formatNumber(netBalance)}` : formatNumber(netBalance)}
-                        </span>
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#e6dcd0]">
+                        {sectorItems.map((key) => {
+                          const consumptionPerCapita = FOOD_CONSUMPTION_PER_CAPITA[key];
+                          const production = calculateProduction(key, countryDetail, metadata);
+                          const consumption = calculateConsumption(population, consumptionPerCapita);
+                          const netBalance = production - consumption;
+                          const label = metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
+
+                          return (
+                            <div key={key} className="bg-[#f7f3e8] p-3.5 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
+                              <div className="flex items-center justify-between pb-1 border-b border-[#C4B49C]/20">
+                                <div className="flex items-center gap-1.5 min-w-0">
+                                  <button
+                                    type="button"
+                                    onClick={(e) => {
+                                      e.stopPropagation();
+                                      openCommodityInfo(key, label, production, consumption, netBalance);
+                                    }}
+                                    title={`Detail konsumsi ${label}`}
+                                    className="p-1 rounded-lg border border-[#C4B49C] bg-[#FAF6EE] text-[#5c3c10] hover:bg-[#e4dac3] transition-all cursor-pointer shrink-0"
+                                  >
+                                    <Info className="w-3.5 h-3.5" />
+                                  </button>
+                                  <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider truncate">{label}</span>
+                                </div>
+                                {onGotoProduction && (
+                                  <button onClick={() => handleBuildClick(key)} title={`Bangun ${label}`} className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs">
+                                    <Plus className="w-3.5 h-3.5" />
+                                  </button>
+                                )}
+                              </div>
+                              <div className="space-y-1 text-xs">
+                                <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60">
+                                  <span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>
+                                  {formatColoredNumber(production, true)}
+                                </div>
+                                <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60">
+                                  <span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>
+                                  {formatColoredNumber(consumption, false)}
+                                </div>
+                              </div>
+                              <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5">
+                                <span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>
+                                {formatColoredNumber(netBalance, netBalance >= 0)}
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   );
                 })}
-
-                <div className="col-span-full p-4 rounded-xl bg-[#e4dac3]/40 border-t-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm">
+                
+                <div className="p-4 rounded-xl bg-[#e4dac3]/40 border-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm">
                   <div className="flex items-center gap-2 text-[#5c3c10] font-black text-xs uppercase tracking-wider">👥 Total Populasi & Kebutuhan Pangan Harian</div>
                   <div className="px-4 py-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE]">
                     <span className="text-xs font-black tracking-wider">{formatNumber(population)} Jiwa</span>
@@ -369,7 +427,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 </div>
               </div>
             ) : (
-              // ------- TAB 2: DATA GLOBAL (207 Negara) - Flat Detail Expand -------
+              // ------- TAB 2: DATA GLOBAL (207 Negara) - Detail Expand Berdasarkan Sektor -------
               <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm w-full">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]">
@@ -426,29 +484,47 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                   <td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{country.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(country.balance))}</td>
                                 </tr>
 
-                                {/* EXPANDED DETAIL ROW (Flat list) */}
+                                {/* EXPANDED DETAIL ROW (Group by SECTOR) */}
                                 {isExpanded && (
                                   <tr>
                                     <td colSpan={6} className="p-0 bg-[#FAF6EE] border-b-2 border-[#C4B49C]/20">
-                                      <div className="p-6 max-h-[40vh] overflow-y-auto">
-                                        <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                          {details.map((item) => (
-                                            <div key={item.key} className="bg-[#f7f3e8] p-3 flex flex-col gap-1 border border-[#C4B49C]/20 rounded-md text-[10px]">
-                                              <span className="font-black text-[#5c3c10] uppercase tracking-tight">{item.label}</span>
-                                              <div className="flex justify-between">
-                                                <span className="text-[#8b7e66]">Produksi:</span>
-                                                <span className="font-black text-emerald-700">+{formatNumber(item.production)}</span>
+                                      <div className="p-6 max-h-[50vh] overflow-y-auto">
+                                        <div className="space-y-4">
+                                          {Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => {
+                                            const sectorItems = sectorData.items
+                                              .map(key => details.find(d => d.key === key))
+                                              .filter(Boolean) as any[];
+                                            
+                                            if (sectorItems.length === 0) return null;
+
+                                            return (
+                                              <div key={sectorId} className="border border-[#C4B49C]/30 rounded-xl overflow-hidden shadow-sm bg-white">
+                                                <div className="bg-[#4a7a7a] text-white px-4 py-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-wider">
+                                                  {sectorData.icon}
+                                                  {sectorData.label} ({sectorItems.length} Komoditas)
+                                                </div>
+                                                <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[#e6dcd0]">
+                                                  {sectorItems.map((item: any) => (
+                                                    <div key={item.key} className="bg-[#f7f3e8] p-3 flex flex-col gap-1 border-r border-[#C4B49C]/20 last:border-r-0 text-[10px]">
+                                                      <span className="font-black text-[#5c3c10] uppercase tracking-tight">{item.label}</span>
+                                                      <div className="flex justify-between">
+                                                        <span className="text-[#8b7e66]">Produksi:</span>
+                                                        {formatColoredNumber(item.production, true)}
+                                                      </div>
+                                                      <div className="flex justify-between">
+                                                        <span className="text-[#8b7e66]">Konsumsi:</span>
+                                                        {formatColoredNumber(item.consumption, false)}
+                                                      </div>
+                                                      <div className="flex justify-between border-t border-[#C4B49C]/20 mt-1 pt-1">
+                                                        <span className="font-black text-[#5c3c10]">Netto:</span>
+                                                        {formatColoredNumber(item.balance, item.balance >= 0)}
+                                                      </div>
+                                                    </div>
+                                                  ))}
+                                                </div>
                                               </div>
-                                              <div className="flex justify-between">
-                                                <span className="text-[#8b7e66]">Konsumsi:</span>
-                                                <span className="font-black text-rose-700">-{formatNumber(item.consumption)}</span>
-                                              </div>
-                                              <div className="flex justify-between border-t border-[#C4B49C]/20 mt-1 pt-1">
-                                                <span className="font-black text-[#5c3c10]">Netto:</span>
-                                                <span className={`font-black ${item.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{item.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(item.balance))}</span>
-                                              </div>
-                                            </div>
-                                          ))}
+                                            );
+                                          })}
                                         </div>
                                       </div>
                                     </td>

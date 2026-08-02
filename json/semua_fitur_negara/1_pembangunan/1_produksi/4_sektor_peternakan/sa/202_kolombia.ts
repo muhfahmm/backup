@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kolombia_peternakan = {
-  ayam_unggas: 200,
-  sapi_perah: 100,
-  sapi_potong: 200,
-  domba_kambing: 153
+  ayam_unggas: 63,
+  sapi_perah: 39,
+  sapi_potong: 31,
+  domba_kambing: 12
 };

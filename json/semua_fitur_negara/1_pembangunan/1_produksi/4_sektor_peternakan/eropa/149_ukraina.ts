@@ -1,7 +1,7 @@
 // @ts-nocheck
 const ukraina_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 190,
-  sapi_potong: 110,
-  domba_kambing: 200
+  ayam_unggas: 47,
+  sapi_perah: 26,
+  sapi_potong: 20,
+  domba_kambing: 7
 };

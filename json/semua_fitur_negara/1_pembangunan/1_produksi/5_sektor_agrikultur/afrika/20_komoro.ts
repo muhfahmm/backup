@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const komoro_agrikultur = {
-  padi: 120,
-  gandum: 192,
-  jagung: 120,
-  sayur: 182,
-  umbi: 154,
-  kedelai: 158,
-  kelapa_sawit: 100,
-  kopi: 164,
-  teh: 157,
-  kakao: 100,
-  tebu: 200,
-  karet: 100
+  padi: 1,
+  gandum: 11,
+  jagung: 21,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 11,
+  kopi: 62,
+  teh: 62,
+  kakao: 153,
+  tebu: 19,
+  karet: 43
 };

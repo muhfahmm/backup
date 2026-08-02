@@ -1,6 +1,6 @@
 // @ts-nocheck
 const turki_perikanan = {
-  udang: 184,
-  mutiara: 200,
-  ikan: 100
+  udang: 341,
+  mutiara: 159,
+  ikan: 783
 };

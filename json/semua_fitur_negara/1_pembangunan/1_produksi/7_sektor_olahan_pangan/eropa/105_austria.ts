@@ -1,12 +1,12 @@
 // @ts-nocheck
 const austria_olahan_pangan = {
-  air_mineral: 100,
-  gula: 200,
-  roti: 189,
-  pengolahan_daging: 197,
-  mie_instan: 149,
-  minyak_goreng: 176,
-  susu: 197
+  air_mineral: 2,
+  gula: 6,
+  roti: 21,
+  pengolahan_daging: 3,
+  mie_instan: 8,
+  minyak_goreng: 10,
+  susu: 16
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const palestina_agrikultur = {
-  padi: 97,
-  gandum: 60,
-  jagung: 58,
-  sayur: 82,
-  umbi: 43,
-  kedelai: 88,
-  kelapa_sawit: 0,
-  kopi: 65,
-  teh: 100,
-  kakao: 0,
-  tebu: 25,
-  karet: 0
+  padi: 7,
+  gandum: 5,
+  jagung: 31,
+  sayur: 18,
+  umbi: 12,
+  kedelai: 13,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 4,
+  karet: 46
 };

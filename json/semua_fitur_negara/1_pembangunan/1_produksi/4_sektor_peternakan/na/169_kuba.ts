@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kuba_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 188,
-  sapi_potong: 177,
-  domba_kambing: 200
+  ayam_unggas: 20,
+  sapi_perah: 4,
+  sapi_potong: 2,
+  domba_kambing: 1
 };

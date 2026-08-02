@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const thailand_agrikultur = {
-  padi: 200,
-  gandum: 178,
-  jagung: 127,
-  sayur: 147,
-  umbi: 178,
-  kedelai: 154,
-  kelapa_sawit: 178,
-  kopi: 166,
-  teh: 100,
-  kakao: 169,
-  tebu: 136,
-  karet: 149
+  padi: 123,
+  gandum: 102,
+  jagung: 167,
+  sayur: 296,
+  umbi: 253,
+  kedelai: 375,
+  kelapa_sawit: 54,
+  kopi: 192,
+  teh: 138,
+  kakao: 413,
+  tebu: 134,
+  karet: 80
 };

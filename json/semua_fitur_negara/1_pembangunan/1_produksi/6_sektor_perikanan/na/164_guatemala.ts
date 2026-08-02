@@ -1,6 +1,6 @@
 // @ts-nocheck
 const guatemala_perikanan = {
-  udang: 100,
-  mutiara: 171,
-  ikan: 200
+  udang: 119,
+  mutiara: 112,
+  ikan: 203
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const inggris_peternakan = {
-  ayam_unggas: 200,
-  sapi_perah: 100,
-  sapi_potong: 100,
-  domba_kambing: 171
+  ayam_unggas: 79,
+  sapi_perah: 52,
+  sapi_potong: 42,
+  domba_kambing: 17
 };

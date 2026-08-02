@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ethiopia_agrikultur = {
-  padi: 200,
-  gandum: 186,
-  jagung: 124,
-  sayur: 120,
-  umbi: 191,
-  kedelai: 173,
-  kelapa_sawit: 100,
-  kopi: 143,
-  teh: 190,
-  kakao: 100,
-  tebu: 158,
-  karet: 100
+  padi: 193,
+  gandum: 175,
+  jagung: 270,
+  sayur: 508,
+  umbi: 437,
+  kedelai: 650,
+  kelapa_sawit: 84,
+  kopi: 283,
+  teh: 248,
+  kakao: 597,
+  tebu: 191,
+  karet: 107
 };

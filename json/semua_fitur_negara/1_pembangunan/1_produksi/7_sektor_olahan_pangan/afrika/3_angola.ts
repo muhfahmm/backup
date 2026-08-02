@@ -1,12 +1,12 @@
 // @ts-nocheck
 const angola_olahan_pangan = {
-  air_mineral: 153,
-  gula: 200,
-  roti: 100,
-  pengolahan_daging: 182,
-  mie_instan: 179,
-  minyak_goreng: 132,
-  susu: 168
+  air_mineral: 3,
+  gula: 6,
+  roti: 57,
+  pengolahan_daging: 28,
+  mie_instan: 22,
+  minyak_goreng: 22,
+  susu: 41
   
   
 };

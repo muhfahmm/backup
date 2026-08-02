@@ -1,7 +1,7 @@
 // @ts-nocheck
 const botswana_peternakan = {
-  ayam_unggas: 0,
-  sapi_perah: 25,
-  sapi_potong: 100,
-  domba_kambing: 79
+  ayam_unggas: 13,
+  sapi_perah: 1,
+  sapi_potong: 14,
+  domba_kambing: 9
 };

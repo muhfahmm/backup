@@ -1,12 +1,12 @@
 // @ts-nocheck
 const san_marino_olahan_pangan = {
-  air_mineral: 100,
-  gula: 36,
-  roti: 9,
-  pengolahan_daging: 55,
-  mie_instan: 94,
-  minyak_goreng: 0,
-  susu: 30
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

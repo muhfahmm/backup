@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mauritius_agrikultur = {
-  padi: 55,
-  gandum: 100,
-  jagung: 66,
-  sayur: 38,
-  umbi: 66,
-  kedelai: 40,
-  kelapa_sawit: 0,
-  kopi: 82,
-  teh: 44,
-  kakao: 0,
-  tebu: 99,
-  karet: 0
+  padi: 1,
+  gandum: 1,
+  jagung: 22,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 11,
+  kopi: 62,
+  teh: 63,
+  kakao: 155,
+  tebu: 1,
+  karet: 44
 };

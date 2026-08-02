@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const maldives_agrikultur = {
-  padi: 81,
-  gandum: 25,
-  jagung: 15,
-  sayur: 100,
-  umbi: 54,
-  kedelai: 81,
-  kelapa_sawit: 0,
-  kopi: 15,
-  teh: 60,
-  kakao: 0,
-  tebu: 15,
-  karet: 0
+  padi: 8,
+  gandum: 11,
+  jagung: 20,
+  sayur: 26,
+  umbi: 32,
+  kedelai: 63,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 61,
+  kakao: 152,
+  tebu: 19,
+  karet: 43
 };

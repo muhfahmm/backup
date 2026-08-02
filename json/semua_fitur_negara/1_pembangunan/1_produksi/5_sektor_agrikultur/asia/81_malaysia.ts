@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const malaysia_agrikultur = {
-  padi: 149,
-  gandum: 195,
-  jagung: 156,
-  sayur: 200,
-  umbi: 135,
-  kedelai: 127,
-  kelapa_sawit: 100,
-  kopi: 104,
-  teh: 142,
-  kakao: 115,
-  tebu: 124,
-  karet: 133
+  padi: 55,
+  gandum: 49,
+  jagung: 92,
+  sayur: 144,
+  umbi: 121,
+  kedelai: 177,
+  kelapa_sawit: 32,
+  kopi: 126,
+  teh: 59,
+  kakao: 281,
+  tebu: 52,
+  karet: 62
 };

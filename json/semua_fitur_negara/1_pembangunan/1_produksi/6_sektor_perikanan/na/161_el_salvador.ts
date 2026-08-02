@@ -1,6 +1,6 @@
 // @ts-nocheck
 const el_salvador_perikanan = {
-  udang: 100,
-  mutiara: 125,
-  ikan: 200
+  udang: 80,
+  mutiara: 104,
+  ikan: 103
 };

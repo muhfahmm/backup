@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const yunani_agrikultur = {
-  padi: 122,
-  gandum: 146,
-  jagung: 171,
-  sayur: 194,
-  umbi: 154,
-  kedelai: 130,
-  kelapa_sawit: 100,
-  kopi: 200,
-  teh: 151,
-  kakao: 100,
-  tebu: 196,
-  karet: 100
+  padi: 16,
+  gandum: 13,
+  jagung: 42,
+  sayur: 40,
+  umbi: 31,
+  kedelai: 42,
+  kelapa_sawit: 4,
+  kopi: 1,
+  teh: 5,
+  kakao: 1,
+  tebu: 12,
+  karet: 1
 };

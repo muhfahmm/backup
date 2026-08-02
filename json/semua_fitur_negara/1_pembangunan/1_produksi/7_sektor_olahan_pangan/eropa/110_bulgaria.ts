@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bulgaria_olahan_pangan = {
-  air_mineral: 136,
-  gula: 200,
-  roti: 124,
-  pengolahan_daging: 139,
-  mie_instan: 100,
-  minyak_goreng: 152,
-  susu: 142
+  air_mineral: 2,
+  gula: 6,
+  roti: 18,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 9,
+  susu: 14
   
   
 };

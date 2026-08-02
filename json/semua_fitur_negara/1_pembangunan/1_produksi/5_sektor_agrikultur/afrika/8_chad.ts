@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const chad_agrikultur = {
-  padi: 100,
-  gandum: 88,
-  jagung: 51,
-  sayur: 20,
-  umbi: 81,
-  kedelai: 55,
-  kelapa_sawit: 0,
-  kopi: 72,
-  teh: 86,
-  kakao: 0,
-  tebu: 61,
-  karet: 0
+  padi: 31,
+  gandum: 28,
+  jagung: 62,
+  sayur: 82,
+  umbi: 67,
+  kedelai: 96,
+  kelapa_sawit: 23,
+  kopi: 99,
+  teh: 26,
+  kakao: 227,
+  tebu: 28,
+  karet: 54
 };

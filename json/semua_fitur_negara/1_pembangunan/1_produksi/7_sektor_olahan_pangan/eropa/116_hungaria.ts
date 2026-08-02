@@ -1,12 +1,12 @@
 // @ts-nocheck
 const hungaria_olahan_pangan = {
-  air_mineral: 186,
-  gula: 100,
-  roti: 116,
-  pengolahan_daging: 200,
-  mie_instan: 149,
-  minyak_goreng: 200,
-  susu: 197
+  air_mineral: 2,
+  gula: 6,
+  roti: 21,
+  pengolahan_daging: 4,
+  mie_instan: 8,
+  minyak_goreng: 10,
+  susu: 16
   
   
 };

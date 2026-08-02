@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tahiti_agrikultur = {
-  padi: 53,
-  gandum: 85,
-  jagung: 56,
-  sayur: 77,
-  umbi: 35,
-  kedelai: 31,
-  kelapa_sawit: 0,
-  kopi: 100,
-  teh: 53,
-  kakao: 0,
-  tebu: 97,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 25,
+  umbi: 31,
+  kedelai: 62,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 61,
+  kakao: 151,
+  tebu: 18,
+  karet: 43
 };

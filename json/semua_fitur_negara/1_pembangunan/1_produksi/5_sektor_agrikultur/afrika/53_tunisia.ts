@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const tunisia_agrikultur = {
-  padi: 76,
-  gandum: 18,
-  jagung: 55,
-  sayur: 85,
-  umbi: 47,
-  kedelai: 24,
-  kelapa_sawit: 0,
-  kopi: 97,
-  teh: 22,
-  kakao: 0,
-  tebu: 100,
-  karet: 0
+  padi: 18,
+  gandum: 16,
+  jagung: 46,
+  sayur: 48,
+  umbi: 38,
+  kedelai: 52,
+  kelapa_sawit: 5,
+  kopi: 4,
+  teh: 9,
+  kakao: 1,
+  tebu: 15,
+  karet: 1
 };

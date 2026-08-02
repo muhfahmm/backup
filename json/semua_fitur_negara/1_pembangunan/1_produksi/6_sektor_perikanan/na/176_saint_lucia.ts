@@ -1,6 +1,6 @@
 // @ts-nocheck
 const saint_lucia_perikanan = {
-  udang: 47,
-  mutiara: 0,
-  ikan: 100
+  udang: 61,
+  mutiara: 100,
+  ikan: 52
 };

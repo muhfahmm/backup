@@ -1,7 +1,7 @@
 // @ts-nocheck
 const italia_peternakan = {
-  ayam_unggas: 136,
-  sapi_perah: 200,
-  sapi_potong: 123,
-  domba_kambing: 100
+  ayam_unggas: 69,
+  sapi_perah: 44,
+  sapi_potong: 35,
+  domba_kambing: 14
 };

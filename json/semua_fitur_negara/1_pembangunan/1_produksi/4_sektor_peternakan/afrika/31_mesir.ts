@@ -1,7 +1,7 @@
 // @ts-nocheck
 const mesir_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 171,
-  sapi_potong: 196,
-  domba_kambing: 200
+  ayam_unggas: 118,
+  sapi_perah: 83,
+  sapi_potong: 68,
+  domba_kambing: 27
 };

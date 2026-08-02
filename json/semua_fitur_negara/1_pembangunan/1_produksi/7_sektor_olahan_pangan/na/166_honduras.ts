@@ -1,12 +1,12 @@
 // @ts-nocheck
 const honduras_olahan_pangan = {
-  air_mineral: 9,
-  gula: 100,
-  roti: 24,
-  pengolahan_daging: 12,
-  mie_instan: 0,
-  minyak_goreng: 76,
-  susu: 24
+  air_mineral: 2,
+  gula: 6,
+  roti: 23,
+  pengolahan_daging: 5,
+  mie_instan: 8,
+  minyak_goreng: 10,
+  susu: 17
   
   
 };

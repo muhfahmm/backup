@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const malta_agrikultur = {
-  padi: 77,
-  gandum: 84,
-  jagung: 70,
-  sayur: 42,
-  umbi: 92,
-  kedelai: 46,
-  kelapa_sawit: 0,
-  kopi: 51,
-  teh: 100,
-  kakao: 0,
-  tebu: 85,
-  karet: 0
+  padi: 9,
+  gandum: 11,
+  jagung: 20,
+  sayur: 1,
+  umbi: 32,
+  kedelai: 63,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 61,
+  kakao: 152,
+  tebu: 19,
+  karet: 43
 };

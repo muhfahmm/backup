@@ -1,7 +1,7 @@
 // @ts-nocheck
 const madagaskar_peternakan = {
-  ayam_unggas: 0,
-  sapi_perah: 89,
-  sapi_potong: 50,
-  domba_kambing: 100
+  ayam_unggas: 39,
+  sapi_perah: 20,
+  sapi_potong: 15,
+  domba_kambing: 5
 };

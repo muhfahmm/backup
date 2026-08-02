@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bhutan_agrikultur = {
-  padi: 25,
-  gandum: 100,
-  jagung: 89,
-  sayur: 88,
-  umbi: 43,
-  kedelai: 58,
-  kelapa_sawit: 0,
-  kopi: 29,
-  teh: 76,
-  kakao: 0,
-  tebu: 49,
-  karet: 0
+  padi: 9,
+  gandum: 11,
+  jagung: 21,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 65,
+  kelapa_sawit: 11,
+  kopi: 62,
+  teh: 62,
+  kakao: 153,
+  tebu: 19,
+  karet: 43
 };

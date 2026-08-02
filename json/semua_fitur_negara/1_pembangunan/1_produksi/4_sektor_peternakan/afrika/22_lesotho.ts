@@ -1,7 +1,7 @@
 // @ts-nocheck
 const lesotho_peternakan = {
-  ayam_unggas: 167,
-  sapi_perah: 100,
-  sapi_potong: 200,
-  domba_kambing: 161
+  ayam_unggas: 12,
+  sapi_perah: 1,
+  sapi_potong: 14,
+  domba_kambing: 9
 };

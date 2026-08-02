@@ -1,6 +1,6 @@
 // @ts-nocheck
 const hungaria_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 10,
+  mutiara: 106,
+  ikan: 62
 };

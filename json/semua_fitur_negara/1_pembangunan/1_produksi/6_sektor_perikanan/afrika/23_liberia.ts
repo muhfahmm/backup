@@ -1,6 +1,6 @@
 // @ts-nocheck
 const liberia_perikanan = {
-  udang: 100,
-  mutiara: 162,
-  ikan: 200
+  udang: 78,
+  mutiara: 104,
+  ikan: 97
 };

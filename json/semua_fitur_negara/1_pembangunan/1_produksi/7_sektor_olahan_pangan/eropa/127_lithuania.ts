@@ -1,12 +1,12 @@
 // @ts-nocheck
 const lithuania_olahan_pangan = {
-  air_mineral: 103,
-  gula: 106,
-  roti: 197,
-  pengolahan_daging: 100,
-  mie_instan: 152,
-  minyak_goreng: 123,
-  susu: 200
+  air_mineral: 2,
+  gula: 6,
+  roti: 13,
+  pengolahan_daging: 1,
+  mie_instan: 4,
+  minyak_goreng: 7,
+  susu: 11
   
   
 };

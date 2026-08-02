@@ -1,7 +1,7 @@
 // @ts-nocheck
 const albania_peternakan = {
-  ayam_unggas: 88,
-  sapi_perah: 100,
-  sapi_potong: 65,
-  domba_kambing: 0
+  ayam_unggas: 13,
+  sapi_perah: 1,
+  sapi_potong: 1,
+  domba_kambing: 9
 };

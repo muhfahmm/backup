@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bolivia_olahan_pangan = {
-  air_mineral: 200,
-  gula: 143,
-  roti: 154,
-  pengolahan_daging: 100,
-  mie_instan: 139,
-  minyak_goreng: 186,
-  susu: 114
+  air_mineral: 2,
+  gula: 6,
+  roti: 24,
+  pengolahan_daging: 5,
+  mie_instan: 9,
+  minyak_goreng: 11,
+  susu: 18
   
   
 };

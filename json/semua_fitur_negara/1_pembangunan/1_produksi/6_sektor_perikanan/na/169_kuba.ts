@@ -1,6 +1,6 @@
 // @ts-nocheck
 const kuba_perikanan = {
-  udang: 200,
-  mutiara: 100,
-  ikan: 156
+  udang: 91,
+  mutiara: 106,
+  ikan: 131
 };

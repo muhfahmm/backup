@@ -1,12 +1,12 @@
 // @ts-nocheck
 const malta_olahan_pangan = {
-  air_mineral: 24,
-  gula: 0,
-  roti: 5,
-  pengolahan_daging: 55,
-  mie_instan: 100,
-  minyak_goreng: 53,
-  susu: 58
+  air_mineral: 2,
+  gula: 6,
+  roti: 11,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

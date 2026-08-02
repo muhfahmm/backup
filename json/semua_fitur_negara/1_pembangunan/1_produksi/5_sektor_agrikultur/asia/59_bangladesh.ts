@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bangladesh_agrikultur = {
-  padi: 140,
-  gandum: 170,
-  jagung: 195,
-  sayur: 175,
-  umbi: 123,
-  kedelai: 151,
-  kelapa_sawit: 100,
-  kopi: 156,
-  teh: 200,
-  kakao: 100,
-  tebu: 136,
-  karet: 100
+  padi: 305,
+  gandum: 268,
+  jagung: 401,
+  sayur: 776,
+  umbi: 669,
+  kedelai: 999,
+  kelapa_sawit: 123,
+  kopi: 400,
+  teh: 388,
+  kakao: 829,
+  tebu: 294,
+  karet: 140
 };

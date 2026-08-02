@@ -1,7 +1,7 @@
 // @ts-nocheck
 const peru_peternakan = {
-  ayam_unggas: 188,
-  sapi_perah: 200,
-  sapi_potong: 100,
-  domba_kambing: 200
+  ayam_unggas: 43,
+  sapi_perah: 23,
+  sapi_potong: 18,
+  domba_kambing: 6
 };

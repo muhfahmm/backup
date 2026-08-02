@@ -1,7 +1,7 @@
 // @ts-nocheck
 const slowakia_peternakan = {
-  ayam_unggas: 180,
-  sapi_perah: 195,
-  sapi_potong: 100,
-  domba_kambing: 200
+  ayam_unggas: 15,
+  sapi_perah: 1,
+  sapi_potong: 1,
+  domba_kambing: 10
 };

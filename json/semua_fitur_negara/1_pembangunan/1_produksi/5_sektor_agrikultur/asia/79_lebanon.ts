@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const lebanon_agrikultur = {
-  padi: 59,
-  gandum: 35,
-  jagung: 94,
-  sayur: 100,
-  umbi: 74,
-  kedelai: 41,
-  kelapa_sawit: 0,
-  kopi: 69,
-  teh: 74,
-  kakao: 0,
-  tebu: 96,
-  karet: 0
+  padi: 8,
+  gandum: 6,
+  jagung: 32,
+  sayur: 20,
+  umbi: 14,
+  kedelai: 17,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 5,
+  karet: 46
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const tuvalu_olahan_pangan = {
-  air_mineral: 64,
-  gula: 86,
-  roti: 53,
-  pengolahan_daging: 25,
-  mie_instan: 100,
-  minyak_goreng: 0,
-  susu: 17
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

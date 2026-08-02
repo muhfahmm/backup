@@ -1,7 +1,7 @@
 // @ts-nocheck
 const indonesia_peternakan = {
-  ayam_unggas: 132,
-  sapi_perah: 200,
-  sapi_potong: 100,
-  domba_kambing: 168
+  ayam_unggas: 298,
+  sapi_perah: 227,
+  sapi_potong: 188,
+  domba_kambing: 77
 };

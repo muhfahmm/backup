@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const palau_agrikultur = {
-  padi: 86,
-  gandum: 86,
-  jagung: 17,
-  sayur: 56,
-  umbi: 100,
-  kedelai: 41,
-  kelapa_sawit: 0,
-  kopi: 66,
-  teh: 91,
-  kakao: 0,
-  tebu: 45,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 23,
+  umbi: 30,
+  kedelai: 60,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

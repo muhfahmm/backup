@@ -1,12 +1,12 @@
 // @ts-nocheck
 const australia_olahan_pangan = {
-  air_mineral: 200,
-  gula: 150,
-  roti: 100,
-  pengolahan_daging: 200,
-  mie_instan: 185,
-  minyak_goreng: 192,
-  susu: 146
+  air_mineral: 3,
+  gula: 6,
+  roti: 41,
+  pengolahan_daging: 18,
+  mie_instan: 16,
+  minyak_goreng: 16,
+  susu: 30
   
   
 };

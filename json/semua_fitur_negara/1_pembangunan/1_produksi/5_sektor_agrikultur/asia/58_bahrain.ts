@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bahrain_agrikultur = {
-  padi: 190,
-  gandum: 196,
-  jagung: 124,
-  sayur: 116,
-  umbi: 173,
-  kedelai: 190,
-  kelapa_sawit: 100,
-  kopi: 169,
-  teh: 200,
-  kakao: 100,
-  tebu: 157,
-  karet: 100
+  padi: 1,
+  gandum: 1,
+  jagung: 22,
+  sayur: 1,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 11,
+  kopi: 63,
+  teh: 64,
+  kakao: 156,
+  tebu: 1,
+  karet: 44
 };

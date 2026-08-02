@@ -1,6 +1,6 @@
 // @ts-nocheck
 const korea_utara_perikanan = {
-  udang: 100,
-  mutiara: 87,
-  ikan: 0
+  udang: 145,
+  mutiara: 118,
+  ikan: 272
 };

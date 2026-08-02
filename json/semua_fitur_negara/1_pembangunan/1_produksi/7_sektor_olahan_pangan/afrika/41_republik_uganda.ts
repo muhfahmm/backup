@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_uganda_olahan_pangan = {
-  air_mineral: 0,
-  gula: 32,
-  roti: 100,
-  pengolahan_daging: 14,
-  mie_instan: 100,
-  minyak_goreng: 4,
-  susu: 25
+  air_mineral: 4,
+  gula: 6,
+  roti: 65,
+  pengolahan_daging: 34,
+  mie_instan: 26,
+  minyak_goreng: 24,
+  susu: 47
   
   
 };

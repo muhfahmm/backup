@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const bulgaria_agrikultur = {
-  padi: 123,
-  gandum: 174,
-  jagung: 199,
-  sayur: 167,
-  umbi: 118,
-  kedelai: 200,
-  kelapa_sawit: 100,
-  kopi: 185,
-  teh: 147,
-  kakao: 100,
-  tebu: 123,
-  karet: 100
+  padi: 9,
+  gandum: 7,
+  jagung: 34,
+  sayur: 23,
+  umbi: 17,
+  kedelai: 20,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 6,
+  karet: 47
 };

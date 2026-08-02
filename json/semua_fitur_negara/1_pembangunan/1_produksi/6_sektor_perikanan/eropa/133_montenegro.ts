@@ -1,6 +1,6 @@
 // @ts-nocheck
 const montenegro_perikanan = {
-  udang: 100,
-  mutiara: 0,
-  ikan: 64
+  udang: 62,
+  mutiara: 100,
+  ikan: 55
 };

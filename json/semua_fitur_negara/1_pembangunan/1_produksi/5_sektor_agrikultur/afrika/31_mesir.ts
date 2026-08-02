@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const mesir_agrikultur = {
-  padi: 167,
-  gandum: 174,
-  jagung: 160,
-  sayur: 199,
-  umbi: 148,
-  kedelai: 115,
-  kelapa_sawit: 100,
-  kopi: 174,
-  teh: 114,
-  kakao: 100,
-  tebu: 200,
-  karet: 100
+  padi: 186,
+  gandum: 169,
+  jagung: 261,
+  sayur: 490,
+  umbi: 421,
+  kedelai: 627,
+  kelapa_sawit: 69,
+  kopi: 196,
+  teh: 239,
+  kakao: 381,
+  tebu: 184,
+  karet: 47
 };

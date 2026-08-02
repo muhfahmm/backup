@@ -1,12 +1,12 @@
 // @ts-nocheck
 const jepang_olahan_pangan = {
-  air_mineral: 100,
-  gula: 187,
-  roti: 119,
-  pengolahan_daging: 187,
-  mie_instan: 200,
-  minyak_goreng: 200,
-  susu: 113
+  air_mineral: 8,
+  gula: 7,
+  roti: 157,
+  pengolahan_daging: 98,
+  mie_instan: 64,
+  minyak_goreng: 55,
+  susu: 111
   
   
 };

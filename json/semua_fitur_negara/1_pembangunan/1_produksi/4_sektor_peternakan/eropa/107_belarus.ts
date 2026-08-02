@@ -1,7 +1,7 @@
 // @ts-nocheck
 const belarus_peternakan = {
-  ayam_unggas: 150,
-  sapi_perah: 100,
-  sapi_potong: 200,
-  domba_kambing: 125
+  ayam_unggas: 19,
+  sapi_perah: 4,
+  sapi_potong: 2,
+  domba_kambing: 1
 };

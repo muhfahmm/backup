@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const dominika_agrikultur = {
-  padi: 173,
-  gandum: 136,
-  jagung: 123,
-  sayur: 142,
-  umbi: 135,
-  kedelai: 182,
-  kelapa_sawit: 100,
-  kopi: 200,
-  teh: 147,
-  kakao: 100,
-  tebu: 188,
-  karet: 100
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 23,
+  umbi: 30,
+  kedelai: 60,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

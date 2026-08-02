@@ -1,6 +1,6 @@
 // @ts-nocheck
 const mesir_perikanan = {
-  udang: 175,
-  mutiara: 200,
-  ikan: 100
+  udang: 405,
+  mutiara: 172,
+  ikan: 949
 };

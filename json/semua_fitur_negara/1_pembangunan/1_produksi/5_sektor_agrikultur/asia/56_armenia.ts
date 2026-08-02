@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const armenia_agrikultur = {
-  padi: 54,
-  gandum: 58,
-  jagung: 32,
-  sayur: 51,
-  umbi: 100,
-  kedelai: 63,
-  kelapa_sawit: 0,
-  kopi: 54,
-  teh: 75,
-  kakao: 0,
-  tebu: 42,
-  karet: 0
+  padi: 3,
+  gandum: 2,
+  jagung: 26,
+  sayur: 7,
+  umbi: 2,
+  kedelai: 1,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 1,
+  karet: 45
 };

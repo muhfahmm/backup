@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const republik_serbia_agrikultur = {
-  padi: 145,
-  gandum: 140,
-  jagung: 139,
-  sayur: 121,
-  umbi: 200,
-  kedelai: 194,
-  kelapa_sawit: 100,
-  kopi: 184,
-  teh: 176,
-  kakao: 100,
-  tebu: 128,
-  karet: 100
+  padi: 10,
+  gandum: 8,
+  jagung: 35,
+  sayur: 25,
+  umbi: 19,
+  kedelai: 23,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 7,
+  karet: 1
 };

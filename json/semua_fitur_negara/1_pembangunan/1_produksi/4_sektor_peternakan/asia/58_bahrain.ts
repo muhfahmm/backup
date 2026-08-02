@@ -1,7 +1,7 @@
 // @ts-nocheck
 const bahrain_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 133,
-  sapi_potong: 183,
-  domba_kambing: 200
+  ayam_unggas: 12,
+  sapi_perah: 11,
+  sapi_potong: 14,
+  domba_kambing: 9
 };

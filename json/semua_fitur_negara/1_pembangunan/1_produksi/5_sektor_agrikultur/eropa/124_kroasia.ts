@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kroasia_agrikultur = {
-  padi: 51,
-  gandum: 65,
-  jagung: 92,
-  sayur: 39,
-  umbi: 87,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 70,
-  teh: 16,
-  kakao: 0,
-  tebu: 46,
-  karet: 0
+  padi: 4,
+  gandum: 3,
+  jagung: 27,
+  sayur: 10,
+  umbi: 5,
+  kedelai: 3,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 1,
+  karet: 45
 };

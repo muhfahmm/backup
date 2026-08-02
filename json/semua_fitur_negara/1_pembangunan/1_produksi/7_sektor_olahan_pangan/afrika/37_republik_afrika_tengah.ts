@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_afrika_tengah_olahan_pangan = {
-  air_mineral: 97,
-  gula: 100,
-  roti: 0,
-  pengolahan_daging: 60,
-  mie_instan: 20,
-  minyak_goreng: 13,
-  susu: 7
+  air_mineral: 2,
+  gula: 6,
+  roti: 16,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 8,
+  susu: 13
   
   
 };

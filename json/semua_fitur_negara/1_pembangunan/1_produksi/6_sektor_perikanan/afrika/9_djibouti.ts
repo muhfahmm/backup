@@ -1,6 +1,6 @@
 // @ts-nocheck
 const djibouti_perikanan = {
-  udang: 5,
-  mutiara: 0,
-  ikan: 100
+  udang: 64,
+  mutiara: 101,
+  ikan: 59
 };

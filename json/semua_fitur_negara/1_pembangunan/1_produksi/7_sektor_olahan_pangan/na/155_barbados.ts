@@ -1,12 +1,12 @@
 // @ts-nocheck
 const barbados_olahan_pangan = {
-  air_mineral: 68,
-  gula: 86,
-  roti: 35,
-  pengolahan_daging: 100,
-  mie_instan: 76,
-  minyak_goreng: 81,
-  susu: 0
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const latvia_peternakan = {
-  ayam_unggas: 190,
-  sapi_perah: 100,
-  sapi_potong: 200,
-  domba_kambing: 150
+  ayam_unggas: 12,
+  sapi_perah: 11,
+  sapi_potong: 14,
+  domba_kambing: 9
 };

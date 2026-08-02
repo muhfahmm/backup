@@ -1,6 +1,6 @@
 // @ts-nocheck
 const komoro_perikanan = {
-  udang: 174,
-  mutiara: 100,
-  ikan: 200
+  udang: 63,
+  mutiara: 101,
+  ikan: 57
 };

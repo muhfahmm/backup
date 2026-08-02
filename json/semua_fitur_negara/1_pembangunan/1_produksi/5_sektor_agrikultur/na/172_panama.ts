@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const panama_agrikultur = {
-  padi: 121,
-  gandum: 176,
-  jagung: 166,
-  sayur: 142,
-  umbi: 145,
-  kedelai: 183,
-  kelapa_sawit: 100,
-  kopi: 139,
-  teh: 200,
-  kakao: 100,
-  tebu: 147,
-  karet: 100
+  padi: 5,
+  gandum: 3,
+  jagung: 28,
+  sayur: 11,
+  umbi: 6,
+  kedelai: 4,
+  kelapa_sawit: 13,
+  kopi: 68,
+  teh: 1,
+  kakao: 166,
+  tebu: 1,
+  karet: 45
 };

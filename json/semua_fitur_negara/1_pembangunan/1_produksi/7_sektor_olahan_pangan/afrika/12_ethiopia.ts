@@ -1,12 +1,12 @@
 // @ts-nocheck
 const ethiopia_olahan_pangan = {
-  air_mineral: 200,
-  gula: 148,
-  roti: 133,
-  pengolahan_daging: 174,
-  mie_instan: 100,
-  minyak_goreng: 119,
-  susu: 189
+  air_mineral: 7,
+  gula: 7,
+  roti: 144,
+  pengolahan_daging: 89,
+  mie_instan: 59,
+  minyak_goreng: 51,
+  susu: 101
   
   
 };

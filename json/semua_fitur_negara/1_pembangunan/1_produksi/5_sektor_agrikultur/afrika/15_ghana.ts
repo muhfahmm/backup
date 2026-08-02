@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const ghana_agrikultur = {
-  padi: 100,
-  gandum: 122,
-  jagung: 175,
-  sayur: 157,
-  umbi: 165,
-  kedelai: 119,
-  kelapa_sawit: 200,
-  kopi: 165,
-  teh: 101,
-  kakao: 122,
-  tebu: 146,
-  karet: 152
+  padi: 51,
+  gandum: 46,
+  jagung: 88,
+  sayur: 135,
+  umbi: 113,
+  kedelai: 165,
+  kelapa_sawit: 31,
+  kopi: 122,
+  teh: 54,
+  kakao: 273,
+  tebu: 49,
+  karet: 60
 };

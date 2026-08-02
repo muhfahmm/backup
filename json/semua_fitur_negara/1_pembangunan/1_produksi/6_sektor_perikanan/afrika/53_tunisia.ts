@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tunisia_perikanan = {
-  udang: 90,
-  mutiara: 100,
-  ikan: 0
+  udang: 98,
+  mutiara: 108,
+  ikan: 150
 };

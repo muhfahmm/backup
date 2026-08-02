@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const madagaskar_agrikultur = {
-  padi: 18,
-  gandum: 14,
-  jagung: 55,
-  sayur: 100,
-  umbi: 90,
-  kedelai: 83,
-  kelapa_sawit: 0,
-  kopi: 86,
-  teh: 62,
-  kakao: 0,
-  tebu: 34,
-  karet: 0
+  padi: 48,
+  gandum: 43,
+  jagung: 84,
+  sayur: 126,
+  umbi: 106,
+  kedelai: 153,
+  kelapa_sawit: 29,
+  kopi: 118,
+  teh: 49,
+  kakao: 266,
+  tebu: 45,
+  karet: 59
 };

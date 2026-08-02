@@ -1,7 +1,7 @@
 // @ts-nocheck
 const arab_saudi_peternakan = {
-  ayam_unggas: 185,
-  sapi_perah: 191,
-  sapi_potong: 200,
-  domba_kambing: 100
+  ayam_unggas: 44,
+  sapi_perah: 24,
+  sapi_potong: 19,
+  domba_kambing: 7
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const venezuela_olahan_pangan = {
-  air_mineral: 137,
-  gula: 150,
-  roti: 145,
-  pengolahan_daging: 200,
-  mie_instan: 100,
-  minyak_goreng: 182,
-  susu: 195
+  air_mineral: 3,
+  gula: 6,
+  roti: 44,
+  pengolahan_daging: 19,
+  mie_instan: 17,
+  minyak_goreng: 17,
+  susu: 32
   
   
 };

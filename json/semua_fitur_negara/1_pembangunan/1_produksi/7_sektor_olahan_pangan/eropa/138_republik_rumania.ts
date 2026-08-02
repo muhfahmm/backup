@@ -1,12 +1,12 @@
 // @ts-nocheck
 const republik_rumania_olahan_pangan = {
-  air_mineral: 154,
-  gula: 169,
-  roti: 100,
-  pengolahan_daging: 200,
-  mie_instan: 151,
-  minyak_goreng: 190,
-  susu: 151
+  air_mineral: 2,
+  gula: 6,
+  roti: 33,
+  pengolahan_daging: 12,
+  mie_instan: 13,
+  minyak_goreng: 14,
+  susu: 24
   
   
 };

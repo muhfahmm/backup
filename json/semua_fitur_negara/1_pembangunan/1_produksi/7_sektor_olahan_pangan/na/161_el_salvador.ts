@@ -1,12 +1,12 @@
 // @ts-nocheck
 const el_salvador_olahan_pangan = {
-  air_mineral: 164,
-  gula: 182,
-  roti: 100,
-  pengolahan_daging: 191,
-  mie_instan: 200,
-  minyak_goreng: 109,
-  susu: 106
+  air_mineral: 2,
+  gula: 6,
+  roti: 18,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 9,
+  susu: 14
   
   
 };

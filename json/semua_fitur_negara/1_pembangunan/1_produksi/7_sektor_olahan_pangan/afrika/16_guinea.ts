@@ -1,12 +1,12 @@
 // @ts-nocheck
 const guinea_olahan_pangan = {
-  air_mineral: 35,
-  gula: 100,
-  roti: 71,
-  pengolahan_daging: 35,
-  mie_instan: 65,
-  minyak_goreng: 82,
-  susu: 0
+  air_mineral: 2,
+  gula: 6,
+  roti: 31,
+  pengolahan_daging: 10,
+  mie_instan: 12,
+  minyak_goreng: 13,
+  susu: 23
   
   
 };

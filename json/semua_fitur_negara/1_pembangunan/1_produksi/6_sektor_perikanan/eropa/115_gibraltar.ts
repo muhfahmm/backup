@@ -1,6 +1,6 @@
 // @ts-nocheck
 const gibraltar_perikanan = {
-  udang: 0,
+  udang: 60,
   mutiara: 100,
-  ikan: 6
+  ikan: 50
 };

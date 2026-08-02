@@ -1,6 +1,6 @@
 // @ts-nocheck
 const vietnam_perikanan = {
-  udang: 123,
-  mutiara: 200,
-  ikan: 100
+  udang: 387,
+  mutiara: 168,
+  ikan: 903
 };

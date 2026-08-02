@@ -1,12 +1,12 @@
 // @ts-nocheck
 const sri_lanka_olahan_pangan = {
-  air_mineral: 187,
-  gula: 100,
-  roti: 180,
-  pengolahan_daging: 113,
-  mie_instan: 130,
-  minyak_goreng: 150,
-  susu: 200
+  air_mineral: 3,
+  gula: 6,
+  roti: 36,
+  pengolahan_daging: 14,
+  mie_instan: 14,
+  minyak_goreng: 15,
+  susu: 26
   
   
 };

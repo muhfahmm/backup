@@ -1,6 +1,6 @@
 // @ts-nocheck
 const eswatini_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 64,
+  mutiara: 101,
+  ikan: 1
 };

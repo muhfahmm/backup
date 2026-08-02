@@ -1,7 +1,7 @@
 // @ts-nocheck
 const kanada_peternakan = {
-  ayam_unggas: 153,
-  sapi_perah: 200,
-  sapi_potong: 194,
-  domba_kambing: 100
+  ayam_unggas: 51,
+  sapi_perah: 30,
+  sapi_potong: 23,
+  domba_kambing: 9
 };

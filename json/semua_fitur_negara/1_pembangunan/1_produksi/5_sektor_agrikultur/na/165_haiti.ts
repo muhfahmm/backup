@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const haiti_agrikultur = {
-  padi: 62,
-  gandum: 95,
-  jagung: 43,
-  sayur: 14,
-  umbi: 70,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 57,
-  teh: 97,
-  kakao: 0,
-  tebu: 31,
-  karet: 0
+  padi: 18,
+  gandum: 16,
+  jagung: 45,
+  sayur: 47,
+  umbi: 37,
+  kedelai: 51,
+  kelapa_sawit: 18,
+  kopi: 84,
+  teh: 8,
+  kakao: 197,
+  tebu: 15,
+  karet: 50
 };

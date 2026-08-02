@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tonga_perikanan = {
-  udang: 75,
-  mutiara: 0,
-  ikan: 100
+  udang: 60,
+  mutiara: 100,
+  ikan: 51
 };

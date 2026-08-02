@@ -1,12 +1,12 @@
 // @ts-nocheck
 const suriah_olahan_pangan = {
-  air_mineral: 61,
-  gula: 78,
-  roti: 74,
-  pengolahan_daging: 0,
-  mie_instan: 39,
-  minyak_goreng: 87,
-  susu: 100
+  air_mineral: 3,
+  gula: 6,
+  roti: 37,
+  pengolahan_daging: 14,
+  mie_instan: 14,
+  minyak_goreng: 15,
+  susu: 27
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const liechtenstein_agrikultur = {
-  padi: 56,
-  gandum: 24,
-  jagung: 32,
-  sayur: 48,
-  umbi: 46,
-  kedelai: 43,
-  kelapa_sawit: 0,
-  kopi: 16,
-  teh: 27,
-  kakao: 0,
-  tebu: 100,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 23,
+  umbi: 30,
+  kedelai: 60,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

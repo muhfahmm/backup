@@ -1,6 +1,6 @@
 // @ts-nocheck
 const swiss_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 9,
+  mutiara: 106,
+  ikan: 58
 };

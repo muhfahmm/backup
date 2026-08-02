@@ -1,12 +1,12 @@
 // @ts-nocheck
 const liberia_olahan_pangan = {
-  air_mineral: 23,
-  gula: 5,
-  roti: 100,
-  pengolahan_daging: 77,
-  mie_instan: 0,
-  minyak_goreng: 14,
-  susu: 91
+  air_mineral: 2,
+  gula: 6,
+  roti: 17,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 8,
+  susu: 13
   
   
 };

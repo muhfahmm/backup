@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const namibia_agrikultur = {
-  padi: 98,
-  gandum: 40,
-  jagung: 37,
-  sayur: 52,
-  umbi: 19,
-  kedelai: 90,
-  kelapa_sawit: 0,
-  kopi: 100,
-  teh: 88,
-  kakao: 0,
-  tebu: 29,
-  karet: 0
+  padi: 3,
+  gandum: 2,
+  jagung: 26,
+  sayur: 6,
+  umbi: 2,
+  kedelai: 1,
+  kelapa_sawit: 12,
+  kopi: 66,
+  teh: 1,
+  kakao: 162,
+  tebu: 1,
+  karet: 45
 };

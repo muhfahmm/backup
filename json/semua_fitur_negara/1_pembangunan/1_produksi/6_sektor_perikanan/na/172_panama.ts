@@ -1,6 +1,6 @@
 // @ts-nocheck
 const panama_perikanan = {
-  udang: 100,
-  mutiara: 133,
-  ikan: 200
+  udang: 73,
+  mutiara: 103,
+  ikan: 84
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const suriah_agrikultur = {
-  padi: 78,
-  gandum: 39,
-  jagung: 79,
-  sayur: 68,
-  umbi: 78,
-  kedelai: 100,
-  kelapa_sawit: 0,
+  padi: 36,
+  gandum: 32,
+  jagung: 69,
+  sayur: 94,
+  umbi: 79,
+  kedelai: 113,
+  kelapa_sawit: 11,
   kopi: 24,
-  teh: 82,
-  kakao: 0,
-  tebu: 69,
-  karet: 0
+  teh: 33,
+  kakao: 39,
+  tebu: 33,
+  karet: 1
 };

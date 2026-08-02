@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const myanmar_agrikultur = {
-  padi: 187,
-  gandum: 162,
-  jagung: 147,
-  sayur: 160,
-  umbi: 160,
-  kedelai: 200,
-  kelapa_sawit: 100,
-  kopi: 191,
-  teh: 147,
-  kakao: 100,
-  tebu: 156,
-  karet: 100
+  padi: 97,
+  gandum: 79,
+  jagung: 134,
+  sayur: 229,
+  umbi: 196,
+  kedelai: 288,
+  kelapa_sawit: 44,
+  kopi: 163,
+  teh: 103,
+  kakao: 356,
+  tebu: 85,
+  karet: 72
 };

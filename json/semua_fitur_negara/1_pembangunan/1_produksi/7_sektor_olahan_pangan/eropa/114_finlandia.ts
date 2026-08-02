@@ -1,12 +1,12 @@
 // @ts-nocheck
 const finlandia_olahan_pangan = {
-  air_mineral: 138,
-  gula: 200,
-  roti: 113,
-  pengolahan_daging: 116,
-  mie_instan: 150,
-  minyak_goreng: 100,
-  susu: 122
+  air_mineral: 2,
+  gula: 6,
+  roti: 17,
+  pengolahan_daging: 1,
+  mie_instan: 6,
+  minyak_goreng: 8,
+  susu: 13
   
   
 };

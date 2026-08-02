@@ -1,6 +1,6 @@
 // @ts-nocheck
 const burundi_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 19,
+  mutiara: 1,
+  ikan: 86
 };

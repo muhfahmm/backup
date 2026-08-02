@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const sudan_selatan_agrikultur = {
-  padi: 20,
-  gandum: 100,
-  jagung: 70,
-  sayur: 22,
-  umbi: 32,
-  kedelai: 30,
-  kelapa_sawit: 0,
-  kopi: 97,
-  teh: 45,
-  kakao: 0,
-  tebu: 74,
-  karet: 0
+  padi: 17,
+  gandum: 14,
+  jagung: 44,
+  sayur: 43,
+  umbi: 34,
+  kedelai: 47,
+  kelapa_sawit: 17,
+  kopi: 82,
+  teh: 7,
+  kakao: 194,
+  tebu: 14,
+  karet: 49
 };

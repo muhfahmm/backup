@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const albania_agrikultur = {
-  padi: 49,
-  gandum: 41,
-  jagung: 81,
-  sayur: 100,
-  umbi: 33,
-  kedelai: 38,
-  kelapa_sawit: 0,
-  kopi: 72,
-  teh: 28,
-  kakao: 0,
-  tebu: 53,
-  karet: 0
+  padi: 2,
+  gandum: 1,
+  jagung: 25,
+  sayur: 5,
+  umbi: 1,
+  kedelai: 1,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 1,
+  karet: 44
 };

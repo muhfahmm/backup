@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const grenada_agrikultur = {
-  padi: 96,
-  gandum: 61,
-  jagung: 93,
-  sayur: 68,
-  umbi: 85,
-  kedelai: 100,
-  kelapa_sawit: 0,
-  kopi: 30,
-  teh: 70,
-  kakao: 0,
-  tebu: 69,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 24,
+  umbi: 30,
+  kedelai: 61,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

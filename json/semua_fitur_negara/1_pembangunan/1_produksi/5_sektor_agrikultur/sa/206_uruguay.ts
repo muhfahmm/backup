@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const uruguay_agrikultur = {
-  padi: 52,
-  gandum: 67,
-  jagung: 100,
-  sayur: 52,
-  umbi: 66,
-  kedelai: 82,
-  kelapa_sawit: 0,
-  kopi: 24,
-  teh: 25,
-  kakao: 0,
-  tebu: 62,
-  karet: 0
+  padi: 4,
+  gandum: 2,
+  jagung: 27,
+  sayur: 8,
+  umbi: 4,
+  kedelai: 1,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 1,
+  karet: 45
 };

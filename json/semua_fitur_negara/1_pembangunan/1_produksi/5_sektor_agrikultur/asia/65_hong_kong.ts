@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const hong_kong_agrikultur = {
-  padi: 43,
-  gandum: 17,
-  jagung: 87,
-  sayur: 83,
-  umbi: 37,
-  kedelai: 75,
-  kelapa_sawit: 0,
-  kopi: 100,
-  teh: 49,
-  kakao: 0,
-  tebu: 95,
-  karet: 0
+  padi: 10,
+  gandum: 9,
+  jagung: 35,
+  sayur: 27,
+  umbi: 20,
+  kedelai: 24,
+  kelapa_sawit: 2,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 7,
+  karet: 1
 };

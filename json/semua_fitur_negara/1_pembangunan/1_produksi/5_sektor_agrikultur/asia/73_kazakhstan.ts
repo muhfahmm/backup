@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const kazakhstan_agrikultur = {
-  padi: 139,
-  gandum: 120,
-  jagung: 191,
-  sayur: 135,
-  umbi: 170,
-  kedelai: 188,
-  kelapa_sawit: 100,
-  kopi: 200,
-  teh: 134,
-  kakao: 100,
-  tebu: 161,
-  karet: 100
+  padi: 33,
+  gandum: 30,
+  jagung: 65,
+  sayur: 87,
+  umbi: 72,
+  kedelai: 103,
+  kelapa_sawit: 10,
+  kopi: 21,
+  teh: 29,
+  kakao: 32,
+  tebu: 30,
+  karet: 1
 };

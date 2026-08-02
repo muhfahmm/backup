@@ -1,12 +1,12 @@
 // @ts-nocheck
 const rusia_olahan_pangan = {
-  air_mineral: 200,
-  gula: 100,
-  roti: 160,
-  pengolahan_daging: 195,
-  mie_instan: 190,
-  minyak_goreng: 165,
-  susu: 115
+  air_mineral: 9,
+  gula: 7,
+  roti: 185,
+  pengolahan_daging: 118,
+  mie_instan: 76,
+  minyak_goreng: 64,
+  susu: 130
   
   
 };

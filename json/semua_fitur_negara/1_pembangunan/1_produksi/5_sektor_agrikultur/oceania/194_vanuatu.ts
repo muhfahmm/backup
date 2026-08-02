@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const vanuatu_agrikultur = {
-  padi: 73,
-  gandum: 43,
-  jagung: 75,
-  sayur: 27,
-  umbi: 63,
-  kedelai: 84,
-  kelapa_sawit: 0,
-  kopi: 45,
-  teh: 100,
-  kakao: 0,
-  tebu: 68,
-  karet: 0
+  padi: 8,
+  gandum: 11,
+  jagung: 19,
+  sayur: 25,
+  umbi: 31,
+  kedelai: 62,
+  kelapa_sawit: 10,
+  kopi: 61,
+  teh: 61,
+  kakao: 151,
+  tebu: 18,
+  karet: 43
 };

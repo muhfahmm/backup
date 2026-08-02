@@ -1,6 +1,6 @@
 // @ts-nocheck
 const aljazair_perikanan = {
-  udang: 190,
-  mutiara: 200,
-  ikan: 100
+  udang: 212,
+  mutiara: 132,
+  ikan: 445
 };

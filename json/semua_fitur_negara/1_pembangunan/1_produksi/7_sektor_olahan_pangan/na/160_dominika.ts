@@ -1,12 +1,12 @@
 // @ts-nocheck
 const dominika_olahan_pangan = {
-  air_mineral: 100,
-  gula: 129,
-  roti: 171,
-  pengolahan_daging: 162,
-  mie_instan: 167,
-  minyak_goreng: 200,
-  susu: 190
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

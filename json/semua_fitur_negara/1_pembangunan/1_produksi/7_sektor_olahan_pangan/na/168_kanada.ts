@@ -1,12 +1,12 @@
 // @ts-nocheck
 const kanada_olahan_pangan = {
-  air_mineral: 139,
-  gula: 100,
-  roti: 109,
-  pengolahan_daging: 200,
-  mie_instan: 183,
-  minyak_goreng: 170,
-  susu: 109
+  air_mineral: 4,
+  gula: 6,
+  roti: 60,
+  pengolahan_daging: 30,
+  mie_instan: 24,
+  minyak_goreng: 23,
+  susu: 43
   
   
 };

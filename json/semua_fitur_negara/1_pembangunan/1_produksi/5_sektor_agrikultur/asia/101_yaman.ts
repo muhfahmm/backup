@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const yaman_agrikultur = {
-  padi: 149,
-  gandum: 173,
-  jagung: 179,
-  sayur: 169,
-  umbi: 129,
-  kedelai: 200,
-  kelapa_sawit: 100,
-  kopi: 142,
-  teh: 160,
-  kakao: 100,
-  tebu: 117,
-  karet: 100
+  padi: 56,
+  gandum: 51,
+  jagung: 95,
+  sayur: 148,
+  umbi: 125,
+  kedelai: 182,
+  kelapa_sawit: 19,
+  kopi: 47,
+  teh: 61,
+  kakao: 85,
+  tebu: 54,
+  karet: 5
 };

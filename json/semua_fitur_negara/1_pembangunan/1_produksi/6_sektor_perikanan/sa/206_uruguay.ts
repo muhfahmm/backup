@@ -1,6 +1,6 @@
 // @ts-nocheck
 const uruguay_perikanan = {
-  udang: 100,
-  mutiara: 30,
-  ikan: 0
+  udang: 71,
+  mutiara: 102,
+  ikan: 79
 };

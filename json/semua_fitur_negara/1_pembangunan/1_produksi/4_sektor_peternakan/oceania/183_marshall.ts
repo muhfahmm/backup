@@ -1,7 +1,7 @@
 // @ts-nocheck
 const marshall_peternakan = {
-  ayam_unggas: 75,
-  sapi_perah: 0,
-  sapi_potong: 63,
-  domba_kambing: 100
+  ayam_unggas: 10,
+  sapi_perah: 10,
+  sapi_potong: 13,
+  domba_kambing: 8
 };

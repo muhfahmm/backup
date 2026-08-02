@@ -1,12 +1,12 @@
 // @ts-nocheck
 const samoa_amerika_olahan_pangan = {
-  air_mineral: 36,
-  gula: 68,
-  roti: 88,
-  pengolahan_daging: 100,
-  mie_instan: 0,
-  minyak_goreng: 80,
-  susu: 48
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

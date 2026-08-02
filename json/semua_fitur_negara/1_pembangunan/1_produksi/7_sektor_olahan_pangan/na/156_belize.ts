@@ -1,12 +1,12 @@
 // @ts-nocheck
 const belize_olahan_pangan = {
-  air_mineral: 88,
-  gula: 0,
-  roti: 82,
-  pengolahan_daging: 73,
-  mie_instan: 52,
-  minyak_goreng: 100,
-  susu: 97
+  air_mineral: 2,
+  gula: 6,
+  roti: 11,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

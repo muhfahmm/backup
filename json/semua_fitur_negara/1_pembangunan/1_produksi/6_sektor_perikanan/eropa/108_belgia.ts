@@ -1,6 +1,6 @@
 // @ts-nocheck
 const belgia_perikanan = {
-  udang: 533,
-  mutiara: 369,
-  ikan: 779
+  udang: 98,
+  mutiara: 108,
+  ikan: 149
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const brazil_olahan_pangan = {
-  air_mineral: 200,
-  gula: 172,
-  roti: 178,
-  pengolahan_daging: 184,
-  mie_instan: 100,
-  minyak_goreng: 178,
-  susu: 106
+  air_mineral: 12,
+  gula: 7,
+  roti: 266,
+  pengolahan_daging: 174,
+  mie_instan: 110,
+  minyak_goreng: 91,
+  susu: 186
   
   
 };

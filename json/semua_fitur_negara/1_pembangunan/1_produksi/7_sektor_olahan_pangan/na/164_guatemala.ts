@@ -1,11 +1,11 @@
 // @ts-nocheck
 const guatemala_olahan_pangan = {
-  air_mineral: 59,
-  gula: 97,
-  roti: 41,
-  pengolahan_daging: 100,
-  mie_instan: 0,
-  minyak_goreng: 32,
+  air_mineral: 2,
+  gula: 6,
+  roti: 32,
+  pengolahan_daging: 11,
+  mie_instan: 12,
+  minyak_goreng: 13,
   susu: 24
   
   

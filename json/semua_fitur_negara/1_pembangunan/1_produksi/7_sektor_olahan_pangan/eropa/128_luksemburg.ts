@@ -1,12 +1,12 @@
 // @ts-nocheck
 const luksemburg_olahan_pangan = {
-  air_mineral: 92,
-  gula: 40,
-  roti: 100,
-  pengolahan_daging: 32,
-  mie_instan: 12,
-  minyak_goreng: 64,
-  susu: 0
+  air_mineral: 2,
+  gula: 6,
+  roti: 11,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

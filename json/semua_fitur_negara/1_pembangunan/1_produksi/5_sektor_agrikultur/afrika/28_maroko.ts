@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const maroko_agrikultur = {
-  padi: 125,
-  gandum: 177,
-  jagung: 158,
-  sayur: 190,
-  umbi: 163,
-  kedelai: 177,
-  kelapa_sawit: 100,
-  kopi: 200,
-  teh: 183,
-  kakao: 100,
-  tebu: 119,
-  karet: 100
+  padi: 62,
+  gandum: 56,
+  jagung: 102,
+  sayur: 162,
+  umbi: 137,
+  kedelai: 201,
+  kelapa_sawit: 21,
+  kopi: 54,
+  teh: 68,
+  kakao: 97,
+  tebu: 59,
+  karet: 7
 };

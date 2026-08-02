@@ -1,12 +1,12 @@
 // @ts-nocheck
 const panama_olahan_pangan = {
-  air_mineral: 197,
-  gula: 100,
-  roti: 191,
-  pengolahan_daging: 119,
-  mie_instan: 200,
-  minyak_goreng: 184,
-  susu: 144
+  air_mineral: 2,
+  gula: 6,
+  roti: 15,
+  pengolahan_daging: 1,
+  mie_instan: 5,
+  minyak_goreng: 8,
+  susu: 12
   
   
 };

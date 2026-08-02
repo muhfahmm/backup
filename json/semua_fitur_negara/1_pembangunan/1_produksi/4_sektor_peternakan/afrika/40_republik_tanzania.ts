@@ -1,7 +1,7 @@
 // @ts-nocheck
 const republik_tanzania_peternakan = {
-  ayam_unggas: 0,
-  sapi_perah: 85,
-  sapi_potong: 100,
-  domba_kambing: 21
+  ayam_unggas: 78,
+  sapi_perah: 51,
+  sapi_potong: 41,
+  domba_kambing: 16
 };

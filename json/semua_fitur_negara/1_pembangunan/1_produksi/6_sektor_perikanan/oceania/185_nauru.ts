@@ -1,6 +1,6 @@
 // @ts-nocheck
 const nauru_perikanan = {
-  udang: 200,
+  udang: 60,
   mutiara: 100,
-  ikan: 168
+  ikan: 50
 };

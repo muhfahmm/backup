@@ -1,12 +1,12 @@
 // @ts-nocheck
 const antigua_dan_barbuda_olahan_pangan = {
-  air_mineral: 28,
-  gula: 88,
-  roti: 3,
-  pengolahan_daging: 91,
-  mie_instan: 0,
-  minyak_goreng: 100,
-  susu: 31
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

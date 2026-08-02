@@ -1,6 +1,6 @@
 // @ts-nocheck
 const greenland_perikanan = {
-  udang: 200,
+  udang: 60,
   mutiara: 100,
-  ikan: 162
+  ikan: 50
 };

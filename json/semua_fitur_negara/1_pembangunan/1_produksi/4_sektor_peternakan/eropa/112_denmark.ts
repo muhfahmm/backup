@@ -1,7 +1,7 @@
 // @ts-nocheck
 const denmark_peternakan = {
-  ayam_unggas: 200,
-  sapi_perah: 168,
-  sapi_potong: 200,
-  domba_kambing: 100
+  ayam_unggas: 16,
+  sapi_perah: 1,
+  sapi_potong: 1,
+  domba_kambing: 1
 };

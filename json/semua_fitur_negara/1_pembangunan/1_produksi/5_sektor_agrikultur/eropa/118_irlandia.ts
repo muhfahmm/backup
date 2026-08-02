@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const irlandia_agrikultur = {
-  padi: 141,
-  gandum: 179,
-  jagung: 166,
-  sayur: 148,
-  umbi: 200,
-  kedelai: 136,
-  kelapa_sawit: 100,
-  kopi: 196,
-  teh: 143,
-  kakao: 100,
-  tebu: 195,
-  karet: 100
+  padi: 7,
+  gandum: 5,
+  jagung: 31,
+  sayur: 18,
+  umbi: 12,
+  kedelai: 13,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 4,
+  karet: 46
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const gibraltar_agrikultur = {
-  padi: 92,
-  gandum: 100,
-  jagung: 41,
-  sayur: 87,
-  umbi: 88,
-  kedelai: 32,
-  kelapa_sawit: 0,
-  kopi: 51,
-  teh: 49,
-  kakao: 0,
-  tebu: 61,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 23,
+  umbi: 30,
+  kedelai: 60,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

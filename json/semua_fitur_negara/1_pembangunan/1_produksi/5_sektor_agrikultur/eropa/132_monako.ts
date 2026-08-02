@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const monako_agrikultur = {
-  padi: 54,
-  gandum: 20,
-  jagung: 100,
-  sayur: 59,
-  umbi: 85,
-  kedelai: 44,
-  kelapa_sawit: 0,
-  kopi: 15,
-  teh: 83,
-  kakao: 0,
-  tebu: 14,
-  karet: 0
+  padi: 8,
+  gandum: 10,
+  jagung: 19,
+  sayur: 23,
+  umbi: 30,
+  kedelai: 60,
+  kelapa_sawit: 10,
+  kopi: 60,
+  teh: 60,
+  kakao: 150,
+  tebu: 18,
+  karet: 43
 };

@@ -1,12 +1,12 @@
 // @ts-nocheck
 const mesir_olahan_pangan = {
-  air_mineral: 137,
-  gula: 103,
-  roti: 153,
-  pengolahan_daging: 190,
-  mie_instan: 167,
-  minyak_goreng: 200,
-  susu: 100
+  air_mineral: 7,
+  gula: 7,
+  roti: 139,
+  pengolahan_daging: 86,
+  mie_instan: 57,
+  minyak_goreng: 49,
+  susu: 98
   
   
 };

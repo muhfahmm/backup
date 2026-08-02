@@ -1,6 +1,6 @@
 // @ts-nocheck
 const malta_perikanan = {
-  udang: 0,
-  mutiara: 75,
-  ikan: 100
+  udang: 62,
+  mutiara: 100,
+  ikan: 55
 };

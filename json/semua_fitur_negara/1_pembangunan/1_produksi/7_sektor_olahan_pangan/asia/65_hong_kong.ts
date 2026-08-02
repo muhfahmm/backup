@@ -1,12 +1,12 @@
 // @ts-nocheck
 const hong_kong_olahan_pangan = {
-  air_mineral: 100,
-  gula: 0,
-  roti: 47,
-  pengolahan_daging: 41,
-  mie_instan: 94,
-  minyak_goreng: 44,
-  susu: 53
+  air_mineral: 2,
+  gula: 6,
+  roti: 19,
+  pengolahan_daging: 2,
+  mie_instan: 7,
+  minyak_goreng: 9,
+  susu: 15
   
   
 };

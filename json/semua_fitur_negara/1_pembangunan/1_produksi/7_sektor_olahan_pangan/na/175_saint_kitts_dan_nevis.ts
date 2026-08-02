@@ -1,12 +1,12 @@
 // @ts-nocheck
 const saint_kitts_dan_nevis_olahan_pangan = {
-  air_mineral: 81,
-  gula: 75,
-  roti: 100,
-  pengolahan_daging: 69,
-  mie_instan: 13,
-  minyak_goreng: 0,
-  susu: 78
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

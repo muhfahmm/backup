@@ -1,12 +1,12 @@
 // @ts-nocheck
 const azerbaijan_olahan_pangan = {
-  air_mineral: 100,
-  gula: 100,
-  roti: 0,
-  pengolahan_daging: 73,
-  mie_instan: 55,
-  minyak_goreng: 64,
-  susu: 59
+  air_mineral: 2,
+  gula: 6,
+  roti: 22,
+  pengolahan_daging: 4,
+  mie_instan: 8,
+  minyak_goreng: 10,
+  susu: 17
   
   
 };

@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const denmark_agrikultur = {
-  padi: 161,
-  gandum: 172,
-  jagung: 135,
-  sayur: 197,
-  umbi: 184,
-  kedelai: 172,
-  kelapa_sawit: 100,
-  kopi: 128,
-  teh: 128,
-  kakao: 100,
-  tebu: 200,
-  karet: 100
+  padi: 8,
+  gandum: 6,
+  jagung: 32,
+  sayur: 20,
+  umbi: 14,
+  kedelai: 16,
+  kelapa_sawit: 1,
+  kopi: 1,
+  teh: 1,
+  kakao: 1,
+  tebu: 5,
+  karet: 46
 };

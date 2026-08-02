@@ -114,8 +114,9 @@ export const FOOD_CONSUMPTION_PER_CAPITA: Record<string, number> = {
   ikan: 0.25,
   mutiara: 0.01,
   // Olahan Pangan
-  air_mineral: 0.35,
-  gula: 0.20,
+  air_mineral: 0.05,
+  garam: 0.0005,
+  gula: 0.0015,
   roti: 0.18,
   pengolahan_daging: 0.10,
   mie_instan: 0.25,
@@ -148,7 +149,7 @@ export const calculateProduction = (buildingKey: string, countryDetail: any, met
 export const calculateConsumption = (population: number, consumptionPerCapita: number) => {
   const safePopulation = safeNumber(population);
   const safePerCapita = safeNumber(consumptionPerCapita);
-  return safePopulation * safePerCapita;
+  return (safePopulation / 1000) * safePerCapita;
 };
 
 // Calculate total production, consumption and balance for a country (Flat list)

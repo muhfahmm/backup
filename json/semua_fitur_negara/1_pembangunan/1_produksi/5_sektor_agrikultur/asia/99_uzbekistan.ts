@@ -1,15 +1,15 @@
 ﻿// @ts-nocheck
 const uzbekistan_agrikultur = {
-  padi: 200,
-  gandum: 121,
-  jagung: 200,
-  sayur: 155,
-  umbi: 121,
-  kedelai: 141,
-  kelapa_sawit: 100,
-  kopi: 120,
-  teh: 139,
-  kakao: 100,
-  tebu: 179,
-  karet: 100
+  padi: 64,
+  gandum: 58,
+  jagung: 105,
+  sayur: 169,
+  umbi: 143,
+  kedelai: 209,
+  kelapa_sawit: 22,
+  kopi: 56,
+  teh: 72,
+  kakao: 103,
+  tebu: 62,
+  karet: 8
 };

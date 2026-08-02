@@ -1,12 +1,12 @@
 // @ts-nocheck
 const mikronesia_olahan_pangan = {
-  air_mineral: 125,
-  gula: 175,
-  roti: 194,
-  pengolahan_daging: 200,
-  mie_instan: 181,
-  minyak_goreng: 163,
-  susu: 100
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

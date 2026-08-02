@@ -1,6 +1,6 @@
 // @ts-nocheck
 const tajikistan_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 11,
+  mutiara: 107,
+  ikan: 65
 };

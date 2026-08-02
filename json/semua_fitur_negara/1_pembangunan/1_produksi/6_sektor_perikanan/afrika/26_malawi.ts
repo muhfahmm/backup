@@ -1,6 +1,6 @@
 // @ts-nocheck
 const malawi_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 46,
+  mutiara: 1,
+  ikan: 156
 };

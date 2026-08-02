@@ -1,6 +1,6 @@
 // @ts-nocheck
 const prancis_perikanan = {
-  udang: 200,
-  mutiara: 100,
-  ikan: 181
+  udang: 281,
+  mutiara: 146,
+  ikan: 626
 };

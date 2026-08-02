@@ -1,7 +1,7 @@
 // @ts-nocheck
 const honduras_peternakan = {
-  ayam_unggas: 83,
-  sapi_perah: 0,
-  sapi_potong: 42,
-  domba_kambing: 100
+  ayam_unggas: 21,
+  sapi_perah: 5,
+  sapi_potong: 3,
+  domba_kambing: 1
 };

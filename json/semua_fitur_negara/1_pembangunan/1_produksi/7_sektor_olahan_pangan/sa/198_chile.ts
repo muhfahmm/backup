@@ -1,12 +1,12 @@
 // @ts-nocheck
 const chile_olahan_pangan = {
-  air_mineral: 155,
-  gula: 100,
-  roti: 200,
-  pengolahan_daging: 100,
-  mie_instan: 155,
-  minyak_goreng: 135,
-  susu: 158
+  air_mineral: 3,
+  gula: 6,
+  roti: 34,
+  pengolahan_daging: 13,
+  mie_instan: 13,
+  minyak_goreng: 14,
+  susu: 25
   
   
 };

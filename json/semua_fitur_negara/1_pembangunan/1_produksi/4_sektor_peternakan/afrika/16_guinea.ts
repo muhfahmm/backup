@@ -1,7 +1,7 @@
 // @ts-nocheck
 const guinea_peternakan = {
-  ayam_unggas: 30,
-  sapi_perah: 100,
-  sapi_potong: 95,
-  domba_kambing: 0
+  ayam_unggas: 28,
+  sapi_perah: 11,
+  sapi_potong: 8,
+  domba_kambing: 2
 };

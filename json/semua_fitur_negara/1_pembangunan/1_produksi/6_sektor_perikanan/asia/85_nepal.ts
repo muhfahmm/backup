@@ -1,6 +1,6 @@
 // @ts-nocheck
 const nepal_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 73,
+  mutiara: 1,
+  ikan: 226
 };

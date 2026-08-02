@@ -1,6 +1,6 @@
 // @ts-nocheck
 const guam_perikanan = {
-  udang: 93,
+  udang: 61,
   mutiara: 100,
-  ikan: 0
+  ikan: 51
 };

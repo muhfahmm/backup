@@ -1,12 +1,12 @@
 // @ts-nocheck
 const ukraina_olahan_pangan = {
-  air_mineral: 168,
-  gula: 200,
-  roti: 100,
-  pengolahan_daging: 123,
-  mie_instan: 200,
-  minyak_goreng: 132,
-  susu: 145
+  air_mineral: 3,
+  gula: 6,
+  roti: 54,
+  pengolahan_daging: 26,
+  mie_instan: 21,
+  minyak_goreng: 21,
+  susu: 39
   
   
 };

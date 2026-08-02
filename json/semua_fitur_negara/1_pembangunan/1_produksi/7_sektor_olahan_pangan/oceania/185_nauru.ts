@@ -1,12 +1,12 @@
 // @ts-nocheck
 const nauru_olahan_pangan = {
-  air_mineral: 100,
-  gula: 63,
-  roti: 9,
-  pengolahan_daging: 84,
-  mie_instan: 50,
-  minyak_goreng: 0,
-  susu: 63
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 8
   
   
 };

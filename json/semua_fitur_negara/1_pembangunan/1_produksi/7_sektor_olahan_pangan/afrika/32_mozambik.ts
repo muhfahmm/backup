@@ -1,12 +1,12 @@
 // @ts-nocheck
 const mozambik_olahan_pangan = {
-  air_mineral: 12,
-  gula: 4,
-  roti: 77,
-  pengolahan_daging: 42,
-  mie_instan: 35,
-  minyak_goreng: 100,
-  susu: 0
+  air_mineral: 3,
+  gula: 6,
+  roti: 46,
+  pengolahan_daging: 21,
+  mie_instan: 18,
+  minyak_goreng: 18,
+  susu: 33
   
   
 };

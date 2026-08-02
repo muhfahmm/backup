@@ -1,6 +1,6 @@
 // @ts-nocheck
 const belanda_perikanan = {
-  udang: 171,
-  mutiara: 200,
-  ikan: 100
+  udang: 118,
+  mutiara: 112,
+  ikan: 201
 };

@@ -1,7 +1,7 @@
 // @ts-nocheck
 const luksemburg_peternakan = {
-  ayam_unggas: 32,
-  sapi_perah: 13,
-  sapi_potong: 0,
-  domba_kambing: 100
+  ayam_unggas: 11,
+  sapi_perah: 11,
+  sapi_potong: 13,
+  domba_kambing: 9
 };

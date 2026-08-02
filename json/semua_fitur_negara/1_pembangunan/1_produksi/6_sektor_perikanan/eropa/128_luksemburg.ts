@@ -1,6 +1,6 @@
 // @ts-nocheck
 const luksemburg_perikanan = {
-  udang: 0,
-  mutiara: 0,
-  ikan: 0
+  udang: 62,
+  mutiara: 100,
+  ikan: 56
 };

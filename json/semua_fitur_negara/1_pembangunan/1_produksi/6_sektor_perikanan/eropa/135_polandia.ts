@@ -1,6 +1,6 @@
 // @ts-nocheck
 const polandia_perikanan = {
-  udang: 1749,
-  mutiara: 1219,
-  ikan: 848
+  udang: 179,
+  mutiara: 125,
+  ikan: 361
 };

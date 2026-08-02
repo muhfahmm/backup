@@ -1,12 +1,12 @@
 // @ts-nocheck
 const bahama_olahan_pangan = {
-  air_mineral: 164,
-  gula: 200,
-  roti: 150,
-  pengolahan_daging: 164,
-  mie_instan: 100,
-  minyak_goreng: 129,
-  susu: 161
+  air_mineral: 2,
+  gula: 6,
+  roti: 10,
+  pengolahan_daging: 13,
+  mie_instan: 3,
+  minyak_goreng: 6,
+  susu: 9
   
   
 };

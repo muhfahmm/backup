@@ -1,7 +1,7 @@
 // @ts-nocheck
 const sri_lanka_peternakan = {
-  ayam_unggas: 100,
-  sapi_perah: 200,
-  sapi_potong: 107,
-  domba_kambing: 107
+  ayam_unggas: 32,
+  sapi_perah: 14,
+  sapi_potong: 10,
+  domba_kambing: 3
 };
