@@ -3,6 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { X, CreditCard, Search, Landmark, ArrowRight, AlertCircle } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 
+// 🔥 IMPOR MODAL BAYAR HUTANG
+import BayarHutangModal from "./modalsBayarHutang";
+
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -81,6 +84,162 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   // State untuk menampung data pinjaman yang diklik sebelum konfirmasi
   const [pendingLoan, setPendingLoan] = useState<any>(null);
 
+  // 🔥 STATE BARU: Untuk modal pembayaran manual
+  const [pendingPaymentLoan, setPendingPaymentLoan] = useState<any>(null);
+
+  const parseIdDate = (dateString: string) => {
+    const parts = String(dateString).split("/").map((part) => Number(part));
+    if (parts.length !== 3 || parts.some((part) => Number.isNaN(part))) {
+      return new Date(dateString);
+    }
+    const [day, month, year] = parts;
+    return new Date(year, month - 1, day, 0, 0, 0, 0);
+  };
+
+  const formatIdDate = (date: Date) => {
+    return date.toLocaleDateString("id-ID");
+  };
+
+  const addDays = (date: Date, days: number) => {
+    const next = new Date(date);
+    next.setDate(next.getDate() + days);
+    return next;
+  };
+
+  useEffect(() => {
+    if (!isOpen || !currentDate || !countryDetail) return;
+
+    const dueDate = currentDate instanceof Date ? new Date(currentDate) : new Date(currentDate);
+    dueDate.setHours(0, 0, 0, 0);
+
+    const riwayatPinjaman = Array.isArray(countryDetail?.pinjamanList) ? countryDetail.pinjamanList : [];
+    if (riwayatPinjaman.length === 0) return;
+
+    let availableCash = Number(countryDetail.anggaran) || 0;
+    let updated = false;
+    let updatedTotalHutang = Number(countryDetail.totalHutang) || 0;
+
+    // 🔥 SORTIR HUTANG BERDASARKAN TANGGAL JATUH TEMPO PALING DEKAT
+    const sortedLoans = [...riwayatPinjaman].sort((a, b) => {
+      const dateA = parseIdDate(a.returnDate);
+      const dateB = parseIdDate(b.returnDate);
+      return dateA.getTime() - dateB.getTime();
+    });
+
+    const nextPinjamanList = sortedLoans.map((entry: any) => {
+      if (!entry?.returnDate) return entry;
+      const entryDueDate = parseIdDate(entry.returnDate);
+      entryDueDate.setHours(0, 0, 0, 0);
+
+      // Jika belum jatuh tempo, lewati
+      if (entryDueDate > dueDate) return entry;
+
+      let { totalRepayment, paidAmount = 0, amount, interest, missedMonths = 0, accumulatedPenalty = 0 } = entry;
+      totalRepayment = Number(totalRepayment) || 0;
+      paidAmount = Number(paidAmount) || 0;
+      amount = Number(amount) || 0;
+      interest = Number(interest) || 0;
+
+      if (totalRepayment <= 0) return entry;
+
+      // 🔥 POTONG KAS UNTUK MEMBAYAR
+      const payment = Math.min(availableCash, totalRepayment);
+      
+      // Catat perubahan data
+      updated = true;
+      
+      // 1. Jika pembayaran > 0, kurangi hutang dan tambahkan ke paidAmount
+      if (payment > 0) {
+        availableCash -= payment;
+        totalRepayment -= payment;
+        paidAmount += payment;
+        updatedTotalHutang = Math.max(0, updatedTotalHutang - payment);
+      }
+
+      // 2. Jika hutang masih tersisa (gagal bayar / bayar sebagian)
+      if (totalRepayment > 0) {
+        // Tingkatkan jumlah bulan gagal bayar
+        missedMonths += 1;
+
+        // 🔥 HITUNG DENDA BERTINGKAT: Bulan ke-1 = 5%, ke-2 = 10%, ke-3 = 15% ... dst
+        const penaltyRate = 0.05 * missedMonths; // 5% * bulan
+        const penaltyAmount = totalRepayment * penaltyRate;
+        
+        // Tambahkan denda ke total hutang & akumulasi denda
+        totalRepayment += penaltyAmount;
+        accumulatedPenalty += penaltyAmount;
+
+        // Perpanjang 30 hari lagi
+        return {
+          ...entry,
+          totalRepayment: totalRepayment,
+          paidAmount: paidAmount,
+          accumulatedPenalty: accumulatedPenalty,
+          missedMonths: missedMonths,
+          returnDate: formatIdDate(addDays(dueDate, 30)),
+        };
+      }
+
+      // 3. Jika lunas
+      return null;
+    }).filter(Boolean);
+
+    if (!updated) return;
+
+    // 🔥 Hitung ulang total hutang jika ada yang lunas & akumulasi denda
+    const finalTotalHutang = nextPinjamanList.reduce((sum, loan) => sum + (loan.totalRepayment || 0), 0);
+
+    setCountryDetail({
+      ...countryDetail,
+      anggaran: Math.max(0, availableCash),
+      totalHutang: Math.max(0, finalTotalHutang),
+      pinjamanList: nextPinjamanList,
+    });
+  }, [isOpen, currentDate, countryDetail, setCountryDetail]);
+
+  // 🔥 FUNGSI BAYAR MANUAL SEBELUM JATUH TEMPO (DIPISAH LOGIKANYA)
+  const handleManualPaymentConfirm = () => {
+    if (!pendingPaymentLoan) return;
+
+    const loan = pendingPaymentLoan;
+    const paymentAmount = Math.min(kasNegara, loan.totalRepayment);
+
+    // Hitung data baru
+    const newPaidAmount = (loan.paidAmount || 0) + paymentAmount;
+    const newTotalRepayment = loan.totalRepayment - paymentAmount;
+    const newAnggaran = kasNegara - paymentAmount;
+
+    let newPinjamanList = [...riwayatPinjaman];
+    
+    if (newTotalRepayment <= 0) {
+      // 🔥 Jika lunas, hapus dari list
+      newPinjamanList = newPinjamanList.filter((l: any) => l.id !== loan.id);
+    } else {
+      // 🔥 Jika bayar sebagian, update datanya
+      const index = newPinjamanList.findIndex((l: any) => l.id === loan.id);
+      if (index !== -1) {
+        newPinjamanList[index] = {
+          ...loan,
+          paidAmount: newPaidAmount,
+          totalRepayment: newTotalRepayment,
+        };
+      }
+    }
+
+    // Total hutang baru
+    const newTotalHutang = newPinjamanList.reduce((sum, l) => sum + (l.totalRepayment || 0), 0);
+
+    setCountryDetail({
+      ...countryDetail,
+      anggaran: Math.max(0, newAnggaran),
+      totalHutang: Math.max(0, newTotalHutang),
+      pinjamanList: newPinjamanList,
+    });
+
+    // Tutup modal
+    setPendingPaymentLoan(null);
+  };
+
   useEffect(() => {
     const loadLoanSources = () => {
       if (typeof window === "undefined") return;
@@ -158,25 +317,24 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   const simulatedGDP = 500_000; 
   const debtRatio = Math.min(100, Math.round((totalHutang / simulatedGDP) * 100));
 
-  // PERBAIKAN: Logika Render Bendera Anti-Broken Image
-  const renderFlag = (iso: string | undefined, fallbackEmoji: string, altName: string) => {
+  // PERBAIKAN: Render hanya menggunakan icon bendera ISO tanpa emoji fallback
+  const renderFlag = (iso: string | undefined, altName: string) => {
     if (!iso || iso.length !== 2) {
-      return <span className="text-xl">{fallbackEmoji}</span>;
+      return (
+        <div className="w-8 h-5 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0 shadow-sm" />
+      );
     }
 
     return (
-      <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center">
+      <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative">
         <img
           src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
           alt={altName}
           className="w-full h-full object-cover absolute inset-0"
           onError={(e) => {
-            // Jika gambar gagal, sembunyikan gambar dan hanya tampilkan background/emoji
             (e.target as HTMLImageElement).style.display = 'none';
           }}
         />
-        {/* Fallback Emoji yang muncul di belakang jika gambar gagal */}
-        <span className="text-sm opacity-50 select-none">{fallbackEmoji}</span>
       </div>
     );
   };
@@ -186,17 +344,20 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
     if (!pendingLoan) return;
     const source = pendingLoan;
     const totalYangHarusDibayar = source.maxLoan + (source.maxLoan * (source.interest / 100));
-    const newTotalHutang = totalHutang + totalYangHarusDibayar;
     const returnDate = new Date(Date.now() + source.term * 24 * 60 * 60 * 1000).toLocaleDateString('id-ID');
 
+    // 🔥 TAMBAHKAN PROPERTI BARU UNTUK LOGIKA DENDA BERTINGKAT
     const newLoanRecord = {
       id: Date.now(),
       source: source.name,
       iso: source.iso || null,
-      amount: source.maxLoan,
-      interest: source.interest,
+      amount: source.maxLoan, // Pokok pinjaman awal
+      interest: source.interest, // Suku bunga awal (bukan denda)
       term: source.term,
-      totalRepayment: totalYangHarusDibayar,
+      totalRepayment: totalYangHarusDibayar, // Total hutang saat ini (akan berubah jika kena denda)
+      paidAmount: 0, // 🔥 Jumlah yang sudah dibayarkan
+      accumulatedPenalty: 0, // 🔥 Akumulasi denda keterlambatan
+      missedMonths: 0, // 🔥 Jumlah bulan berturut-turut gagal bayar
       date: new Date().toLocaleDateString('id-ID'),
       returnDate: returnDate
     };
@@ -204,7 +365,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
     setCountryDetail({
       ...countryDetail,
       anggaran: kasNegara + source.maxLoan,
-      totalHutang: newTotalHutang,
+      totalHutang: totalHutang + totalYangHarusDibayar,
       pinjamanList: [newLoanRecord, ...riwayatPinjaman]
     });
 
@@ -316,10 +477,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                   <div key={negara.id} className="bg-white/60 border border-[#C4B49C]/30 p-4 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-3">
-                        
-                        {/* PERBAIKAN: Render Flag dengan Function Anti-Broken Image */}
-                        {renderFlag(negara.iso, negara.flag, negara.name)}
-
+                        {renderFlag(negara.iso, negara.name)}
                         <span className="text-sm font-black text-[#5c3c10]">{negara.name}</span>
                       </div>
                       <span className="text-xs font-black text-red-600 bg-red-600/10 px-2 py-1 rounded-lg">{negara.interest}%</span>
@@ -367,42 +525,77 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
             </div>
           )}
 
-          {/* Tabel Riwayat Pinjaman */}
+          {/* 🔥 Tabel Riwayat Pinjaman Dengan Kolom Baru & Tombol Bayar */}
           {activeTab === "history" && (
             <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm">
               <table className="w-full text-xs">
                 <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30">
                   <tr>
-                    <th className="px-5 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Negara</th>
-                    <th className="px-5 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Jumlah Pinjaman</th>
-                    <th className="px-5 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Tanggal Pengembalian</th>
-                    <th className="px-5 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Bunga</th>
-                    <th className="px-5 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Total</th>
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Negara</th>
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Pokok Pinjaman</th>
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Bunga Awal</th>
+                    {/* 🔥 KOLOM BARU */}
+                    <th className="px-4 py-3 text-left font-black text-emerald-700 uppercase tracking-wider">Sudah Dibayar</th>
+                    <th className="px-4 py-3 text-left font-black text-rose-600 uppercase tracking-wider">Denda</th>
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Total Saat Ini</th>
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Jatuh Tempo</th>
+                    {/* 🔥 TOMBOL BAYAR */}
+                    <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Aksi</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-[#C4B49C]/20">
                   {riwayatPinjaman.length === 0 ? (
                     <tr>
-                      <td colSpan={5} className="px-5 py-10 text-center text-sm font-bold text-[#8b7e66]">
+                      <td colSpan={8} className="px-5 py-10 text-center text-sm font-bold text-[#8b7e66]">
                         Belum ada riwayat pinjaman.
                       </td>
                     </tr>
                   ) : (
                     riwayatPinjaman.map((pinjam: any, idx: number) => (
                       <tr key={pinjam.id || idx} className="hover:bg-[#e4dac3]/20 transition-colors">
-                        <td className="px-5 py-3 font-bold text-[#5c3c10]">
+                        <td className="px-4 py-3 font-bold text-[#5c3c10]">
                           <div className="flex items-center gap-2">
-                            
-                            {/* PERBAIKAN: Render Flag di Tabel Riwayat */}
-                            {renderFlag(pinjam.iso, "🌐", pinjam.source)}
-
+                            {renderFlag(pinjam.iso, pinjam.source)}
                             <span>{pinjam.source}</span>
                           </div>
                         </td>
-                        <td className="px-5 py-3 font-bold text-emerald-700">+{pinjam.amount.toLocaleString('id-ID')} EM</td>
-                        <td className="px-5 py-3 font-bold text-[#5c3c10]">{pinjam.returnDate}</td>
-                        <td className="px-5 py-3 font-bold text-red-600">{pinjam.interest}%</td>
-                        <td className="px-5 py-3 font-bold text-[#5c3c10]">{pinjam.totalRepayment.toLocaleString('id-ID')} EM</td>
+                        <td className="px-4 py-3 font-bold text-[#5c3c10]">
+                          {pinjam.amount?.toLocaleString('id-ID')} EM
+                        </td>
+                        <td className="px-4 py-3 font-bold text-red-600">
+                          {pinjam.interest}%
+                        </td>
+                        {/* 🔥 DATA BARU */}
+                        <td className="px-4 py-3 font-bold text-emerald-700">
+                          +{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM
+                        </td>
+                        <td className="px-4 py-3 font-bold text-rose-600">
+                          +{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM
+                        </td>
+                        <td className="px-4 py-3 font-bold text-[#5c3c10]">
+                          {(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM
+                        </td>
+                        <td className="px-4 py-3 font-bold text-[#5c3c10]">
+                          {pinjam.returnDate}
+                        </td>
+                        {/* 🔥 TOMBOL BAYAR MANUAL */}
+                        <td className="px-4 py-3">
+                          <button
+                            onClick={() => {
+                              if (pinjam.totalRepayment > 0) {
+                                setPendingPaymentLoan(pinjam);
+                              }
+                            }}
+                            disabled={pinjam.totalRepayment <= 0 || kasNegara <= 0}
+                            className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all cursor-pointer ${
+                              pinjam.totalRepayment <= 0 || kasNegara <= 0
+                                ? 'bg-[#e4dac3]/50 text-[#8b7e66] cursor-not-allowed'
+                                : 'bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66]'
+                            }`}
+                          >
+                            Bayar
+                          </button>
+                        </td>
                       </tr>
                     ))
                   )}
@@ -413,7 +606,20 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
 
         </div>
 
-        {/* Modal Konfirmasi Peminjaman */}
+        {/* 🔥 RENDER MODAL BAYAR HUTANG */}
+        {pendingPaymentLoan && (
+          <BayarHutangModal
+            isOpen={!!pendingPaymentLoan}
+            onClose={() => setPendingPaymentLoan(null)}
+            onConfirm={handleManualPaymentConfirm}
+            loanSource={pendingPaymentLoan.source}
+            paymentAmount={Math.min(kasNegara, pendingPaymentLoan.totalRepayment)}
+            currentMoney={kasNegara}
+            iso={pendingPaymentLoan.iso}
+          />
+        )}
+
+        {/* Modal Konfirmasi Peminjaman Baru */}
         {pendingLoan && (
           <div className="absolute inset-0 bg-black/60 z-20 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
             <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-lg w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
@@ -439,7 +645,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
                 <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
                   <span>Negara Pemberi</span>
                   <span className="flex items-center gap-2">
-                    {renderFlag(pendingLoan.iso, pendingLoan.flag, pendingLoan.name)} {pendingLoan.name}
+                    {renderFlag(pendingLoan.iso, pendingLoan.name)} {pendingLoan.name}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
