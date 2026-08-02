@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useMemo } from "react";
-import { X, Shield, Globe, Vote, Crown, DollarSign, Handshake, Hammer, Flag, Feather, Sword } from "lucide-react";
+import { X, Shield, Globe, Vote, Crown, DollarSign, Handshake, Hammer, Flag, Feather, Sword, Check } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 import { PROFILES_IDEOLOGY_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
@@ -15,19 +15,32 @@ const IDEOLOGY_OPTIONS = [
   'Demokrasi', 'Monarki', 'Kapitalisme', 'Sosialisme', 'Komunisme', 'Nasionalisme', 'Konservatisme', 'Liberalisme', 'Otoritarianisme',
 ];
 
+// 🔥 Tambahkan Data Deskripsi Efek/Bonus (Mock-up sesuai referensi)
+const IDEOLOGY_BONUSES: Record<string, string> = {
+  'Demokrasi': 'Penerimaan pajak: +10%',
+  'Monarki': 'Pertahanan militer: +10%',
+  'Kapitalisme': 'Penerimaan pajak: +50%',
+  'Sosialisme': '+10% bonus ke tingkat kelahiran',
+  'Komunisme': 'Produksi industri: +20%',
+  'Nasionalisme': 'Kecepatan produksi pangan +10%',
+  'Konservatisme': 'Penerimaan pajak: +5%',
+  'Liberalisme': 'Kebebasan dagang: +15%',
+  'Otoritarianisme': 'Produksi sumber daya: +20%',
+};
+
 const IDEOLOGY_CHANGE_COST = 75000;
 
 // Mapping Ikon untuk Ideologi
 const IDEOLOGY_ICONS: Record<string, React.ReactNode> = {
-  'Demokrasi': <Vote className="w-4 h-4" />,
-  'Monarki': <Crown className="w-4 h-4" />,
-  'Kapitalisme': <DollarSign className="w-4 h-4" />,
-  'Sosialisme': <Handshake className="w-4 h-4" />,
-  'Komunisme': <Hammer className="w-4 h-4" />,
-  'Nasionalisme': <Flag className="w-4 h-4" />,
-  'Konservatisme': <Shield className="w-4 h-4" />,
-  'Liberalisme': <Feather className="w-4 h-4" />,
-  'Otoritarianisme': <Sword className="w-4 h-4" />,
+  'Demokrasi': <Vote className="w-5 h-5" />,
+  'Monarki': <Crown className="w-5 h-5" />,
+  'Kapitalisme': <DollarSign className="w-5 h-5" />,
+  'Sosialisme': <Handshake className="w-5 h-5" />,
+  'Komunisme': <Hammer className="w-5 h-5" />,
+  'Nasionalisme': <Flag className="w-5 h-5" />,
+  'Konservatisme': <Shield className="w-5 h-5" />,
+  'Liberalisme': <Feather className="w-5 h-5" />,
+  'Otoritarianisme': <Sword className="w-5 h-5" />,
 };
 
 export default function IdeologiModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
@@ -144,53 +157,62 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
 
           {activeTab === "ideologi" && (
             <div className="space-y-6">
-              <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">Ideologi memandu cara hidup bernegara, regulasi pasar domestik, serta kebijakan luar negeri Anda.</p>
-              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
-                <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-                  <span>Ideologi Utama Kedaulatan:</span>
-                  <span className="text-purple-700 font-black uppercase tracking-wider">{ideology}</span>
+              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex justify-between items-center">
+                <div className="text-xs font-bold text-[#5c3c10]">
+                  <span>Ideologi Utama:</span>
+                  <span className="ml-1 text-purple-700">{ideology}</span>
                 </div>
-                <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-                  <span>Anggaran tersedia:</span>
-                  <span className="text-[#2e261a] font-bold">{anggaran.toLocaleString('id-ID')} EM</span>
+                <div className="text-xs font-bold text-[#5c3c10]">
+                  <span>Anggaran:</span>
+                  <span className="ml-1 text-[#2e261a]">{anggaran.toLocaleString('id-ID')} EM</span>
                 </div>
               </div>
 
-              <div className="mt-6">
-                <h3 className="text-sm font-bold text-[#5c3c10] mb-3">Pilih Ideologi Negara</h3>
-                <div className="grid grid-cols-3 gap-4">
-                  {IDEOLOGY_OPTIONS.map((option) => {
-                    const isActive = String(countryDetail?.ideology || '').toLowerCase() === String(option).toLowerCase();
-                    const isSelected = String(selectedIdeology || '').toLowerCase() === String(option).toLowerCase();
-                    return (
-                      <button key={option} type="button" onClick={() => handleSelectIdeology(option)}
-                        className={`p-4 rounded-2xl border transition text-left flex flex-col justify-between h-24 cursor-pointer ${
-                          isActive
-                            ? 'bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] font-black shadow-md border-transparent'
-                            : isSelected
-                            ? 'bg-[#f2e4b8] border-[#c7ab79]'
-                            : 'bg-white border-[#C4B49C]/30 hover:bg-[#e4dac3]/40'
-                        }`}>
-                        
-                        {/* BAGIAN INI DIPERBAIKI WARNA IKONNYA AGAR GELAP */}
-                        <div className="flex items-center gap-3">
-                          <div className={`p-1.5 rounded-lg border flex items-center justify-center ${
-                            isActive
-                              ? 'bg-white/20 border-white/30 text-[#2e261a]'
-                              : 'bg-[#e4dac3] border-[#C4B49C] text-[#2e261a]'
-                          }`}>
-                            {IDEOLOGY_ICONS[option] || <Shield className="w-4 h-4" />}
-                          </div>
-                          <div className={`text-sm font-semibold ${isActive ? 'text-[#2e261a]' : 'text-[#5c3c10]'}`}>{option}</div>
+              {/* 🔥 BAGIAN UI YANG DIUBAH: GRID 2 KOLOM + DESAIN BUKU */}
+              <h3 className="text-sm font-bold text-[#5c3c10] mb-4">Pilih Ideologi Negara</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {IDEOLOGY_OPTIONS.map((option) => {
+                  const isActive = String(countryDetail?.ideology || '').toLowerCase() === String(option).toLowerCase();
+                  const isSelected = String(selectedIdeology || '').toLowerCase() === String(option).toLowerCase();
+                  
+                  return (
+                    <button 
+                      key={option} 
+                      type="button" 
+                      onClick={() => handleSelectIdeology(option)}
+                      className={`group flex items-center gap-4 p-4 rounded-xl border-2 transition-all bg-white cursor-pointer text-left ${
+                        isActive 
+                          ? 'border-amber-600 shadow-md ring-1 ring-amber-600/20' 
+                          : 'border-[#C4B49C]/40 hover:border-[#C4B49C]/80'
+                      }`}
+                    >
+                      {/* 🔥 DESAIN IKON BUKU DENGAN SIMBOL DI TENGAH */}
+                      <div className={`relative w-14 h-16 flex-shrink-0 rounded-md flex items-center justify-center shadow-lg border-b-[4px] ${
+                        isActive ? 'bg-[#2e4a4a] border-[#1a2b2b]' : 'bg-[#2e4a4a] border-[#1a2b2b]'
+                      }`}>
+                        <div className="absolute top-1 left-2 w-2 h-4 bg-white/20 rounded-full" />
+                        <div className="absolute top-1 right-2 w-2 h-4 bg-white/20 rounded-full" />
+                        <div className="text-white">
+                          {IDEOLOGY_ICONS[option] || <Shield className="w-5 h-5" />}
                         </div>
+                      </div>
 
-                        <div className="text-[10px] uppercase tracking-[0.18em] text-[#5c3c10]">
-                          {isActive ? 'Aktif' : isSelected ? 'Dipilih' : 'Klik untuk pilih'}
+                      {/* 🔥 TEKS DAN DESKRIPSI */}
+                      <div className="flex-1 flex flex-col min-w-0">
+                        <div className="flex items-center gap-2">
+                          {isActive && <Check className="w-4 h-4 text-emerald-500 font-bold" />}
+                          <span className={`text-sm font-bold ${isActive ? 'text-[#2e261a]' : 'text-[#5c3c10]'}`}>
+                            {option}
+                          </span>
                         </div>
-                      </button>
-                    );
-                  })}
-                </div>
+                        {/* Deskripsi efek berwarna hijau/abu-abu sesuai gambar */}
+                        <p className="text-xs text-emerald-600 mt-0.5 opacity-90 leading-tight">
+                          {IDEOLOGY_BONUSES[option] || 'Tidak ada bonus spesifik'}
+                        </p>
+                      </div>
+                    </button>
+                  );
+                })}
               </div>
 
               {showConfirm && selectedIdeology && (
@@ -224,7 +246,6 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
                   <h4 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">Daftar Ideologi Seluruh Negara ({worldIdeologies.length} Negara)</h4>
                 </div>
               </div>
-
               <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[400px]">
                 <table className="w-full text-xs text-left">
                   <thead className="bg-[#e4dac3] border-b-2 border-[#C4B49C] sticky top-0 z-10">

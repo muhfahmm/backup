@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect, useMemo } from "react";
-import { X, Star, Globe, MoonStar, Church, Sun, CircleDot, Atom } from "lucide-react";
+import { X, Star, Globe, MoonStar, Church, Sun, CircleDot, Atom, Check } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 import { PROFILES_RELIGION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
@@ -15,19 +15,32 @@ const RELIGION_OPTIONS = [
   'Islam', 'Katolik', 'Protestan', 'Kristen Ortodoks', 'Hindu', 'Buddha', 'Yahudi', 'Shinto', 'Ateisme',
 ];
 
+// 🔥 Tambahkan Data Deskripsi Efek/Bonus (Mock-up sesuai referensi)
+const RELIGION_BONUSES: Record<string, string> = {
+  'Islam': 'Jumlah makanan dan sumber daya +10%',
+  'Katolik': 'Serangan tentara +10%',
+  'Protestan': 'Harga jual +5%, harga beli -5%',
+  'Kristen Ortodoks': 'Pertahanan tentara +10%',
+  'Hindu': 'Waktu persiapan untuk unit -10%',
+  'Buddha': 'Bonus kebahagiaan rakyat +5%',
+  'Yahudi': 'Waktu pembangunan pabrik dan tambang -10%',
+  'Shinto': 'Pertumbuhan populasi +8%',
+  'Ateisme': 'Efisiensi riset sains +10%',
+};
+
 const RELIGION_CHANGE_COST = 50000;
 
 // Mapping Ikon untuk Agama
 const RELIGION_ICONS: Record<string, React.ReactNode> = {
-  'Islam': <MoonStar className="w-4 h-4" />,
-  'Katolik': <Church className="w-4 h-4" />,
-  'Protestan': <Church className="w-4 h-4" />,
-  'Kristen Ortodoks': <Church className="w-4 h-4" />,
-  'Hindu': <Sun className="w-4 h-4" />,
-  'Buddha': <CircleDot className="w-4 h-4" />,
-  'Yahudi': <Star className="w-4 h-4" />,
-  'Shinto': <Globe className="w-4 h-4" />,
-  'Ateisme': <Atom className="w-4 h-4" />,
+  'Islam': <MoonStar className="w-5 h-5" />,
+  'Katolik': <Church className="w-5 h-5" />,
+  'Protestan': <Church className="w-5 h-5" />,
+  'Kristen Ortodoks': <Church className="w-5 h-5" />,
+  'Hindu': <Sun className="w-5 h-5" />,
+  'Buddha': <CircleDot className="w-5 h-5" />,
+  'Yahudi': <Star className="w-5 h-5" />,
+  'Shinto': <Globe className="w-5 h-5" />,
+  'Ateisme': <Atom className="w-5 h-5" />,
 };
 
 export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
@@ -146,46 +159,58 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
 
           {activeTab === "agama" && (
             <div className="space-y-6">
-              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl">
-                <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
+              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl flex justify-between items-center">
+                <div className="text-xs font-bold text-[#5c3c10]">
                   <span>Agama Saat Ini:</span>
-                  <span>{religion}</span>
+                  <span className="ml-1 text-amber-700">{religion}</span>
                 </div>
-                <div className="flex justify-between text-xs font-bold text-[#5c3c10] mt-1">
-                  <span>Anggaran tersedia:</span>
-                  <span className="text-[#2e261a] font-bold">{anggaran.toLocaleString('id-ID')} EM</span>
+                <div className="text-xs font-bold text-[#5c3c10]">
+                  <span>Anggaran:</span>
+                  <span className="ml-1 text-[#2e261a]">{anggaran.toLocaleString('id-ID')} EM</span>
                 </div>
               </div>
 
-              <h3 className="text-sm font-bold text-[#5c3c10] mb-3">Pilih Agama Baru (biaya {RELIGION_CHANGE_COST.toLocaleString('id-ID')} EM)</h3>
-              <div className="grid grid-cols-3 gap-4">
+              {/* 🔥 BAGIAN UI YANG DIUBAH: GRID 2 KOLOM + DESAIN BUKU */}
+              <h3 className="text-sm font-bold text-[#5c3c10] mb-4">Pilih Agama Baru</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {RELIGION_OPTIONS.map((r) => {
                   const isActive = String(countryDetail?.religion || '').toLowerCase() === String(r).toLowerCase();
                   const isSelected = String(selectedReligion || '').toLowerCase() === String(r).toLowerCase();
+                  
                   return (
-                    <button key={r} type="button" onClick={() => handleSelectReligion(r)}
-                      className={`p-4 rounded-2xl border transition text-left flex flex-col justify-between h-24 cursor-pointer ${
-                        isActive
-                          ? 'bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] font-black shadow-md border-transparent'
-                          : isSelected
-                          ? 'bg-[#f2e4b8] border-[#c7ab79]'
-                          : 'bg-white border-[#C4B49C]/30 hover:bg-[#e4dac3]/40'
+                    <button 
+                      key={r} 
+                      type="button" 
+                      onClick={() => handleSelectReligion(r)}
+                      className={`group flex items-center gap-4 p-4 rounded-xl border-2 transition-all bg-white cursor-pointer text-left ${
+                        isActive 
+                          ? 'border-amber-600 shadow-md ring-1 ring-amber-600/20' 
+                          : 'border-[#C4B49C]/40 hover:border-[#C4B49C]/80'
+                      }`}
+                    >
+                      {/* 🔥 DESAIN IKON BUKU DENGAN SIMBOL DI TENGAH */}
+                      <div className={`relative w-14 h-16 flex-shrink-0 rounded-md flex items-center justify-center shadow-lg border-b-[4px] ${
+                        isActive ? 'bg-[#2e4a4a] border-[#1a2b2b]' : 'bg-[#2e4a4a] border-[#1a2b2b]'
                       }`}>
-                      
-                      {/* BAGIAN INI DIPERBAIKI WARNA IKONNYA AGAR GELAP */}
-                      <div className="flex items-center gap-3">
-                        <div className={`p-1.5 rounded-lg border flex items-center justify-center ${
-                          isActive
-                            ? 'bg-white/20 border-white/30 text-[#2e261a]'
-                            : 'bg-[#e4dac3] border-[#C4B49C] text-[#2e261a]'
-                        }`}>
-                          {RELIGION_ICONS[r] || <Globe className="w-4 h-4" />}
+                        <div className="absolute top-1 left-2 w-2 h-4 bg-white/20 rounded-full" />
+                        <div className="absolute top-1 right-2 w-2 h-4 bg-white/20 rounded-full" />
+                        <div className="text-white">
+                          {RELIGION_ICONS[r] || <Globe className="w-5 h-5" />}
                         </div>
-                        <div className={`text-sm font-semibold ${isActive ? 'text-[#2e261a]' : 'text-[#5c3c10]'}`}>{r}</div>
                       </div>
 
-                      <div className="text-[10px] uppercase tracking-[0.18em] text-[#5c3c10]">
-                        {isActive ? 'Aktif' : isSelected ? 'Dipilih' : 'Klik untuk pilih'}
+                      {/* 🔥 TEKS DAN DESKRIPSI */}
+                      <div className="flex-1 flex flex-col min-w-0">
+                        <div className="flex items-center gap-2">
+                          {isActive && <Check className="w-4 h-4 text-emerald-500 font-bold" />}
+                          <span className={`text-sm font-bold ${isActive ? 'text-[#2e261a]' : 'text-[#5c3c10]'}`}>
+                            {r}
+                          </span>
+                        </div>
+                        {/* Deskripsi efek berwarna hijau/abu-abu sesuai gambar */}
+                        <p className="text-xs text-emerald-600 mt-0.5 opacity-90 leading-tight">
+                          {RELIGION_BONUSES[r] || 'Tidak ada bonus spesifik'}
+                        </p>
                       </div>
                     </button>
                   );
@@ -223,7 +248,6 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
                   <h4 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">Daftar Agama Seluruh Negara ({worldReligions.length} Negara)</h4>
                 </div>
               </div>
-
               <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm max-h-[400px]">
                 <table className="w-full text-xs text-left">
                   <thead className="bg-[#e4dac3] border-b-2 border-[#C4B49C] sticky top-0 z-10">
