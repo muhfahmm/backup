@@ -11,6 +11,7 @@ import { attemptChangeIdeology, IDEOLOGY_CHANGE_COST } from "./logic/logikaPerga
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenDebt?: () => void;
   countryDetail: any;
   setCountryDetail?: (detail: any | ((prev: any) => any)) => void;
 }
@@ -31,8 +32,6 @@ const IDEOLOGY_BONUSES: Record<string, string> = {
   'Otoritarianisme': 'Produksi sumber daya: +20%',
 };
 
-const IDEOLOGY_CHANGE_COST = 75000;
-
 const IDEOLOGY_ICONS: Record<string, React.ReactNode> = {
   'Demokrasi': <Vote className="w-5 h-5" />,
   'Monarki': <Crown className="w-5 h-5" />,
@@ -45,7 +44,7 @@ const IDEOLOGY_ICONS: Record<string, React.ReactNode> = {
   'Otoritarianisme': <Sword className="w-5 h-5" />,
 };
 
-export default function IdeologiModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function IdeologiModal({ isOpen, onClose, onOpenDebt, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"ideologi" | "dunia">("ideologi");
   const [selectedIdeology, setSelectedIdeology] = useState<string | null>(null);
   
@@ -148,6 +147,7 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
       <IdeologiGagalModal
         isOpen={showErrorModal}
         onClose={() => setShowErrorModal(false)}
+        onBorrow={onOpenDebt}
         cost={IDEOLOGY_CHANGE_COST}
         currentMoney={anggaran}
       />
