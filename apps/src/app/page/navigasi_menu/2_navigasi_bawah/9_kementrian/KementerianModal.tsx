@@ -292,7 +292,11 @@ export default function KementerianModal({ isOpen, onClose, countryDetail, setCo
 
   useEffect(() => {
     if (resetTrigger) {
+      setActiveTab("kementerian");
       setLevels({});
+      setInfoTarget(null);
+      setConfirmUpgrade(null);
+      setConfirmDowngrade(null);
     }
   }, [resetTrigger]);
 
