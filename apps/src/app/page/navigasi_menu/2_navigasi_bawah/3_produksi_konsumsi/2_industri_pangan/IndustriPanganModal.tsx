@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useMemo } from "react";
 import {
   X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils, Info,
-  // 🔥 Impor ikon modern untuk sektor
   Beef, Wheat, Fish, Cookie, MessageSquare
 } from "lucide-react";
 import {
@@ -14,8 +13,14 @@ import {
 } from "./logic/produksiKonsumsiLogic";
 import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
-// 🔥 IMPOR MODAL AI YANG BARU DIBUAT
+// 🔥 IMPOR MODAL DAN LOGIKA
 import AISuggestModal from "./AI_suggest_modals";
+import AIDetailDefisitModal from "./AI_detail_defisit"; // <-- File Baru
+import { 
+  SECTOR_MAP, 
+  generateSectorAnalysis, 
+  calculateDeficitRecommendation // <-- Logika Baru
+} from "./logic/AI_suggestionsLogic";
 
 interface ModalProps {
   isOpen: boolean;
@@ -35,40 +40,24 @@ const safeNumber = (value: any): number => {
   if (value === null || value === undefined || value === '') return 0;
   if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
   if (typeof value === 'string') {
-    const normalized = value
-      .replace(/\s+/g, '')
-      .replace(/,/g, '.')
-      .replace(/[^0-9.\-]/g, '');
-
+    const normalized = value.replace(/\s+/g, '').replace(/,/g, '.').replace(/[^0-9.\-]/g, '');
     if (normalized === '' || normalized === '-' || normalized === '.') return 0;
     const parsed = Number(normalized);
     return Number.isFinite(parsed) ? parsed : 0;
   }
-
   const parsed = Number(value);
   return Number.isFinite(parsed) ? parsed : 0;
 };
 
-// 🔥 FUNGSI FORMAT ANGKA DENGAN DESIMAL KUNING
 const formatColoredNumber = (value: any, isPositive: boolean = true) => {
   const parsed = safeNumber(value);
   if (parsed === 0) return <span className="font-black text-[#8b7e66]">0</span>;
-  
   const formatted = parsed.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 });
   const parts = formatted.split(',');
-  
   const mainColor = isPositive ? 'text-emerald-700' : 'text-rose-700';
   const sign = isPositive ? '+' : '-';
-
-  if (parts.length === 1) {
-    return <span className={`font-black ${mainColor}`}>{sign}{parts[0]}</span>;
-  }
-
-  return (
-    <span className={`font-black ${mainColor}`}>
-      {sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span>
-    </span>
-  );
+  if (parts.length === 1) return <span className={`font-black ${mainColor}`}>{sign}{parts[0]}</span>;
+  return ( <span className={`font-black ${mainColor}`}>{sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span></span> );
 };
 
 const formatNumber = (value: any) => {
@@ -77,51 +66,14 @@ const formatNumber = (value: any) => {
 };
 
 const normalizePopulationFromProfile = (country: any, profileMap: Map<string, number>) => {
-  const directPopulation = safeNumber(
-    country?.jumlah_penduduk ??
-    country?.population ??
-    country?.pop ??
-    country?.penduduk ??
-    country?.total_population
-  );
-
-  if (directPopulation > 0) {
-    return directPopulation;
-  }
-
+  const directPopulation = safeNumber( country?.jumlah_penduduk ?? country?.population ?? country?.pop ?? country?.penduduk ?? country?.total_population );
+  if (directPopulation > 0) return directPopulation;
   const rawName = country?.name_id || country?.name_en || country?.nama || country?.country || '';
   if (rawName) {
     const profilePopulation = profileMap.get(rawName.toLowerCase().trim());
-    if (profilePopulation) {
-      return profilePopulation;
-    }
+    if (profilePopulation) return profilePopulation;
   }
-
   return 0;
-};
-
-// 🔥 IKON MODERN TAILWIND + MAPPING SEKTOR
-const SECTOR_MAP: Record<string, { label: string; icon: React.ElementType; items: string[] }> = {
-  peternakan: {
-    label: "Peternakan",
-    icon: Beef,
-    items: ["ayam_unggas", "sapi_potong", "sapi_perah", "domba_kambing"]
-  },
-  agrikultur: {
-    label: "Agrikultur",
-    icon: Wheat,
-    items: ["padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet"]
-  },
-  perikanan: {
-    label: "Perikanan",
-    icon: Fish,
-    items: ["udang", "ikan", "mutiara"]
-  },
-  olahan_pangan: {
-    label: "Olahan Pangan",
-    icon: Cookie,
-    items: ["air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"]
-  }
 };
 
 export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction }: ModalProps) {
@@ -130,33 +82,18 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
   const [expandedRows, setExpandedRows] = useState<'all' | Set<number>>('all');
-  const [selectedCommodityInfo, setSelectedCommodityInfo] = useState<{
-    key: string;
-    label: string;
-    population: number;
-    consumptionPerCapita: number;
-    production: number;
-    consumption: number;
-    balance: number;
-  } | null>(null);
+  const [selectedCommodityInfo, setSelectedCommodityInfo] = useState<{ key: string; label: string; population: number; consumptionPerCapita: number; production: number; consumption: number; balance: number; } | null>(null);
 
-  // 🔥 STATE UNTUK AI POPUP
-  const [aiSectorAnalysis, setAiSectorAnalysis] = useState<{
-    sectorId: string;
-    sectorLabel: string;
-    totalDeficit: number;
-    totalSurplus: number;
-    commodities: { label: string; balance: number; isDeficit: boolean; isSurplus: boolean }[];
-  } | null>(null);
+  // 🔥 STATE UNTUK AI DETAIL DEFISIT
+  const [aiSectorAnalysis, setAiSectorAnalysis] = useState<{ sectorId: string; sectorLabel: string; totalDeficit: number; totalSurplus: number; commodities: { key: string; label: string; balance: number; isDeficit: boolean; isSurplus: boolean; }[]; } | null>(null);
+  const [deficitDetailData, setDeficitDetailData] = useState<any>(null); // Menampung data rekomendasi
 
   const profilePopulationMap = useMemo(() => {
     const map = new Map<string, number>();
     for (const profile of PROFILES_POPULATION_DATA) {
       const key = (profile.name_id || profile.name_en || '').toLowerCase().trim();
       const population = safeNumber(profile.jumlah_penduduk);
-      if (key && population > 0) {
-        map.set(key, population);
-      }
+      if (key && population > 0) map.set(key, population);
     }
     return map;
   }, []);
@@ -167,12 +104,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
         try {
           const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
           const data = await res.json();
-          if (Array.isArray(data) && data.length > 0) {
-            setAllCountries(data);
-          }
-        } catch (error) {
-          console.error('Error fetching all countries data:', error);
-        }
+          if (Array.isArray(data) && data.length > 0) setAllCountries(data);
+        } catch (error) { console.error('Error fetching all countries data:', error); }
       })();
     }
   }, [isOpen]);
@@ -181,62 +114,45 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   const population = normalizePopulationFromProfile(countryDetail, profilePopulationMap);
 
+  const COMMODITY_PRODUCTION_TAB_MAP: Record<string, string> = {
+    ayam_unggas: 'peternakan', sapi_potong: 'peternakan', sapi_perah: 'peternakan', domba_kambing: 'peternakan',
+    padi: 'agrikultur', gandum: 'agrikultur', jagung: 'agrikultur', sayur: 'agrikultur', umbi: 'agrikultur', kedelai: 'agrikultur', kelapa_sawit: 'agrikultur', kopi: 'agrikultur', teh: 'agrikultur', kakao: 'agrikultur', tebu: 'agrikultur', karet: 'agrikultur',
+    udang: 'perikanan', ikan: 'perikanan', mutiara: 'perikanan',
+    air_mineral: 'olahan pangan', gula: 'olahan pangan', roti: 'olahan pangan', pengolahan_daging: 'olahan pangan', mie_instan: 'olahan pangan', minyak_goreng: 'olahan pangan', susu: 'olahan pangan',
+  };
+
   const handleBuildClick = (buildingKey: string) => {
-    if (onGotoProduction) onGotoProduction('industri_pangan', buildingKey);
+    const targetTab = COMMODITY_PRODUCTION_TAB_MAP[buildingKey];
+    if (!onGotoProduction || !targetTab) return;
+    onGotoProduction(targetTab, buildingKey);
+  };
+
+  const handleCommodityClick = (commodityKey: string) => {
+    const targetTab = COMMODITY_PRODUCTION_TAB_MAP[commodityKey];
+    if (!onGotoProduction || !targetTab) return;
+    onGotoProduction(targetTab, commodityKey);
+  };
+
+  // 🔥 FUNGSI SAAT USER MENEKAN IKON MERAH (!)
+  const handleDeficitClick = (commodityKey: string) => {
+    const recommendation = calculateDeficitRecommendation(commodityKey, countryDetail, metadata, population);
+    if (recommendation) {
+      setDeficitDetailData(recommendation);
+    }
   };
 
   const openCommodityInfo = (key: string, label: string, production: number, consumption: number, balance: number) => {
-    setSelectedCommodityInfo({
-      key,
-      label,
-      population,
-      consumptionPerCapita: FOOD_CONSUMPTION_PER_CAPITA[key] ?? 0,
-      production,
-      consumption,
-      balance,
-    });
+    setSelectedCommodityInfo({ key, label, population, consumptionPerCapita: FOOD_CONSUMPTION_PER_CAPITA[key] ?? 0, production, consumption, balance });
   };
 
-  // 🔥 FUNGSI UNTUK MENGHITUNG ANALISIS AI PER SEKTOR
   const analyzeSector = (sectorId: string) => {
-    const sectorData = SECTOR_MAP[sectorId];
-    if (!sectorData) return;
-
-    let totalDeficit = 0;
-    let totalSurplus = 0;
-    const commodities: { label: string; balance: number; isDeficit: boolean; isSurplus: boolean }[] = [];
-
-    sectorData.items.forEach(key => {
-      if (!FOOD_CONSUMPTION_PER_CAPITA[key]) return;
-      const production = calculateProduction(key, countryDetail, metadata);
-      const consumption = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
-      const balance = production - consumption;
-      const label = metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
-
-      if (balance < 0) {
-        totalDeficit += Math.abs(balance);
-        commodities.push({ label, balance, isDeficit: true, isSurplus: false });
-      } else if (balance > 0) {
-        totalSurplus += balance;
-        commodities.push({ label, balance, isDeficit: false, isSurplus: true });
-      } else {
-        commodities.push({ label, balance, isDeficit: false, isSurplus: false });
-      }
-    });
-
-    setAiSectorAnalysis({
-      sectorId,
-      sectorLabel: sectorData.label,
-      totalDeficit,
-      totalSurplus,
-      commodities
-    });
+    const result = generateSectorAnalysis(sectorId, countryDetail, metadata, population);
+    if (result) setAiSectorAnalysis(result);
   };
 
   const toggleRow = (index: number) => {
-    if (expandedRows === 'all') {
-      setExpandedRows(new Set([index]));
-    } else {
+    if (expandedRows === 'all') setExpandedRows(new Set([index]));
+    else {
       const newSet = new Set(expandedRows);
       if (newSet.has(index)) newSet.delete(index);
       else newSet.add(index);
@@ -246,42 +162,15 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   const userCountryName = (countryDetail?.name_id || countryDetail?.nama || countryDetail?.country || countryDetail?.name_en || '').toLowerCase().trim();
 
-  const globalFoodData = allCountries
-    .map((country, index) => {
-      const { totalProduction, totalConsumption, balance } = calculateCountryFoodAggregate(country, metadata);
-      const countryPopulation = normalizePopulationFromProfile(country, profilePopulationMap);
-
-      let rawName = country?.name_id || country?.name_en || country?.nama || country?.country;
-      if (!rawName && country?.__fileName) {
-        rawName = country.__fileName
-          .replace(/^\d+_/, '')
-          .replace(/\.(ts|js|json)$/i, '')
-          .replace(/_/g, ' ')
-          .replace(/\b\w/g, (char: string) => char.toUpperCase());
-      }
-      const countryName = rawName || 'Unknown';
-
-      const isUser = Boolean(
-        userCountryName && (
-          countryName.toLowerCase().trim() === userCountryName ||
-          (country?.name_id && country.name_id.toLowerCase().trim() === userCountryName) ||
-          (country?.name_en && country.name_en.toLowerCase().trim() === userCountryName) ||
-          (country?.country && country.country.toLowerCase().trim() === userCountryName)
-        )
-      );
-
-      return {
-        index: index + 1,
-        name: countryName,
-        population: countryPopulation,
-        production: totalProduction,
-        consumption: totalConsumption,
-        balance,
-        isUser,
-        rawData: country,
-      };
-    })
-    .sort((a, b) => b.production - a.production);
+  const globalFoodData = allCountries.map((country, index) => {
+    const { totalProduction, totalConsumption, balance } = calculateCountryFoodAggregate(country, metadata);
+    const countryPopulation = normalizePopulationFromProfile(country, profilePopulationMap);
+    let rawName = country?.name_id || country?.name_en || country?.nama || country?.country;
+    if (!rawName && country?.__fileName) rawName = country.__fileName.replace(/^\d+_/, '').replace(/\.(ts|js|json)$/i, '').replace(/_/g, ' ').replace(/\b\w/g, (char: string) => char.toUpperCase());
+    const countryName = rawName || 'Unknown';
+    const isUser = Boolean(userCountryName && (countryName.toLowerCase().trim() === userCountryName || (country?.name_id && country.name_id.toLowerCase().trim() === userCountryName) || (country?.name_en && country.name_en.toLowerCase().trim() === userCountryName) || (country?.country && country.country.toLowerCase().trim() === userCountryName)));
+    return { index: index + 1, name: countryName, population: countryPopulation, production: totalProduction, consumption: totalConsumption, balance, isUser, rawData: country };
+  }).sort((a, b) => b.production - a.production);
 
   let sortedData = [...globalFoodData].sort((a, b) => {
     let aVal: any, bVal: any;
@@ -300,11 +189,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const filteredData = searchQuery.trim() === '' ? sortedData : sortedData.filter(c => c.name.toLowerCase().includes(searchQuery.toLowerCase()));
 
   const handleSort = (column: SortConfig['key']) => {
-    if (sortConfig.key === column) {
-      setSortConfig({ key: column, direction: sortConfig.direction === 'asc' ? 'desc' : 'asc' });
-    } else {
-      setSortConfig({ key: column, direction: 'desc' });
-    }
+    if (sortConfig.key === column) setSortConfig({ key: column, direction: sortConfig.direction === 'asc' ? 'desc' : 'asc' });
+    else setSortConfig({ key: column, direction: 'desc' });
   };
 
   const SortIndicator = ({ column }: { column: SortConfig['key'] }) => {
@@ -315,7 +201,14 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   return (
     <>
-      {/* 🔥 RENDER MODAL AI DARI FILE EKSTERNAL */}
+      {/* 🔥 RENDER MODAL DETAIL DEFISIT */}
+      <AIDetailDefisitModal
+        isOpen={deficitDetailData !== null}
+        onClose={() => setDeficitDetailData(null)}
+        data={deficitDetailData}
+        onGotoProduction={onGotoProduction}
+      />
+
       <AISuggestModal
         isOpen={aiSectorAnalysis !== null}
         onClose={() => setAiSectorAnalysis(null)}
@@ -323,6 +216,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
         totalDeficit={aiSectorAnalysis?.totalDeficit || 0}
         totalSurplus={aiSectorAnalysis?.totalSurplus || 0}
         commodities={aiSectorAnalysis?.commodities || []}
+        onCommodityClick={handleCommodityClick}
+        onDeficitClick={handleDeficitClick} // 🔥 Mengirim callback klik merah
       />
 
       {selectedCommodityInfo && (
@@ -337,6 +232,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 <X className="w-4 h-4" />
               </button>
             </div>
+            {/* ... (sisa UI konsumsi sebelumnya tetap sama) ... */}
             <div className="p-5 space-y-3 text-xs text-[#5c3c10]">
               <div className="rounded-xl bg-[#f7f3e8] p-3 border border-[#C4B49C]/20">
                 <div className="flex justify-between items-center">
@@ -348,7 +244,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                   <span className="font-black text-[#5c3c10]">{formatNumber(selectedCommodityInfo.population)} Jiwa</span>
                 </div>
               </div>
-
               <div className="grid grid-cols-2 gap-2">
                 <div className="rounded-xl bg-emerald-50/80 p-3 border border-emerald-200/60">
                   <div className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Produksi</div>
@@ -359,7 +254,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                   <div className="mt-1 font-black text-rose-700">{formatColoredNumber(selectedCommodityInfo.consumption, false)}</div>
                 </div>
               </div>
-
               <div className="rounded-xl bg-[#e4dac3]/25 p-3 border border-[#C4B49C]/30">
                 <div className="flex justify-between items-center">
                   <span className="font-bold uppercase tracking-wider text-[#8b7e66]">Konsumsi / Kapita</span>
@@ -372,7 +266,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 <div className="mt-2 flex justify-between items-center border-t border-[#C4B49C]/30 pt-2">
                   <span className="font-black uppercase tracking-wider text-[#5c3c10]">Netto</span>
                   <span className={`font-black ${selectedCommodityInfo.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                     {selectedCommodityInfo.balance >= 0 ? '+' : '-'}{formatColoredNumber(Math.abs(selectedCommodityInfo.balance), selectedCommodityInfo.balance >= 0)}
+                    {selectedCommodityInfo.balance >= 0 ? '+' : '-'}{formatColoredNumber(Math.abs(selectedCommodityInfo.balance), selectedCommodityInfo.balance >= 0)}
                   </span>
                 </div>
               </div>
@@ -380,83 +274,39 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
           </div>
         </div>
       )}
+
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
-
           {/* HEADER */}
           <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
-                <Utensils className="h-6 w-6 text-[#5c3c10]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Industri Pangan & Konsumsi Masyarakat</h2>
-                <p className="text-xs text-[#8b7e66] mt-1">Neraca produksi dan kebutuhan pasokan makanan nasional</p>
-              </div>
+              <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20"><Utensils className="h-6 w-6 text-[#5c3c10]" /></div>
+              <div><h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Industri Pangan & Konsumsi Masyarakat</h2><p className="text-xs text-[#8b7e66] mt-1">Neraca produksi dan kebutuhan pasokan makanan nasional</p></div>
             </div>
-            <button onClick={onClose} className="flex items-center gap-1.5 p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
-              <span className="text-[10px] font-black uppercase tracking-widest">Tutup</span>
-              <X className="h-5 w-5" />
-            </button>
+            <button onClick={onClose} className="flex items-center gap-1.5 p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"><span className="text-[10px] font-black uppercase tracking-widest">Tutup</span><X className="h-5 w-5" /></button>
           </div>
-
           {/* CONTENT */}
           <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 space-y-6 no-scrollbar">
-            {/* TAB MENU */}
             <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-2 shadow-sm">
-              <button onClick={() => setActiveTab("my")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "my" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>
-                <User className="w-3.5 h-3.5 inline mr-2 -mt-0.5" /> Data Saya
-              </button>
-              <button onClick={() => setActiveTab("global")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "global" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>
-                <Globe className="w-3.5 h-3.5 inline mr-2 -mt-0.5" /> Data Global ({allCountries.length || 207} Negara)
-              </button>
+              <button onClick={() => setActiveTab("my")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "my" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}><User className="w-3.5 h-3.5 inline mr-2 -mt-0.5" /> Data Saya</button>
+              <button onClick={() => setActiveTab("global")} className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "global" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}><Globe className="w-3.5 h-3.5 inline mr-2 -mt-0.5" /> Data Global ({allCountries.length || 207} Negara)</button>
             </div>
-
-            {/* KONTEN DINAMIS */}
             {activeTab === "my" ? (
-              // ------- TAB 1: DATA SAYA (Grid Dinamis Berdasarkan Sektor) -------
               <div className="space-y-6">
                 {Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => {
                   const SectorIcon = sectorData.icon;
                   const sectorItems = sectorData.items.filter(key => FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined);
                   if (sectorItems.length === 0) return null;
-
-                  // 🔥 HITUNG STATUS SEKTOR UNTUK WARNA LAMPU AI
-                  let deficitCount = 0;
-                  let surplusCount = 0;
-                  sectorItems.forEach(key => {
-                    const prod = calculateProduction(key, countryDetail, metadata);
-                    const cons = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
-                    if (prod - cons < 0) deficitCount++;
-                    else if (prod - cons > 0) surplusCount++;
-                  });
-
+                  let deficitCount = 0; let surplusCount = 0;
+                  sectorItems.forEach(key => { const prod = calculateProduction(key, countryDetail, metadata); const cons = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]); if (prod - cons < 0) deficitCount++; else if (prod - cons > 0) surplusCount++; });
                   return (
                     <div key={sectorId} className="border-2 border-[#4a7a7a] rounded-2xl overflow-hidden shadow-md bg-white">
                       <div className="flex items-center justify-between px-6 py-3.5 bg-[#4a7a7a] border-b border-[#3d6868] text-white">
-                        <div className="flex items-center gap-3">
-                          {/* 🔥 IKON MODERN DARI LUCIDE */}
-                          <div className="p-1 bg-white/20 rounded-lg">
-                            <SectorIcon className="w-5 h-5 text-white" />
-                          </div>
-                          <h4 className="text-sm font-black uppercase tracking-wider">{sectorData.label} ({sectorItems.length} Komoditas)</h4>
-                        </div>
-                        
-                        {/* 🔥 TOMBOL AI ASSISTANT DI KANAN HEADER */}
-                        <button
-                          onClick={() => analyzeSector(sectorId)}
-                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20 group"
-                          title="Analisis AI untuk sektor ini"
-                        >
-                          <div className="relative">
-                            <MessageSquare className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
-                            {/* Indikator status mini di atas ikon chat */}
-                            <span className={`absolute -top-1 -right-1 w-2 h-2 rounded-full border border-[#4a7a7a] ${deficitCount > 0 ? 'bg-rose-400 animate-pulse' : surplusCount > 0 ? 'bg-emerald-400' : 'bg-gray-400'}`} />
-                          </div>
-                          <span className="text-[9px] font-bold uppercase tracking-wider text-white/80 group-hover:text-white">AI</span>
-                        </button>
+                        <div className="flex items-center gap-3"><div className="p-1 bg-white/20 rounded-lg"><SectorIcon className="w-5 h-5 text-white" /></div><h4 className="text-sm font-black uppercase tracking-wider">{sectorData.label} ({sectorItems.length} Komoditas)</h4></div>
+                        <button onClick={() => analyzeSector(sectorId)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20 group cursor-pointer" title="Analisis AI untuk sektor ini"><div className="relative"><MessageSquare className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" /><span className={`absolute -top-1 -right-1 w-2 h-2 rounded-full border border-[#4a7a7a] ${deficitCount > 0 ? 'bg-rose-400 animate-pulse' : surplusCount > 0 ? 'bg-emerald-400' : 'bg-gray-400'}`} /></div><span className="text-[9px] font-bold uppercase tracking-wider text-white/80 group-hover:text-white">AI</span></button>
                       </div>
+                      {/* Grid Items */}
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#e6dcd0]">
                         {sectorItems.map((key) => {
                           const consumptionPerCapita = FOOD_CONSUMPTION_PER_CAPITA[key];
@@ -464,44 +314,20 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                           const consumption = calculateConsumption(population, consumptionPerCapita);
                           const netBalance = production - consumption;
                           const label = metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
-
                           return (
                             <div key={key} className="bg-[#f7f3e8] p-3.5 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
                               <div className="flex items-center justify-between pb-1 border-b border-[#C4B49C]/20">
                                 <div className="flex items-center gap-1.5 min-w-0">
-                                  <button
-                                    type="button"
-                                    onClick={(e) => {
-                                      e.stopPropagation();
-                                      openCommodityInfo(key, label, production, consumption, netBalance);
-                                    }}
-                                    title={`Detail konsumsi ${label}`}
-                                    className="p-1 rounded-lg border border-[#C4B49C] bg-[#FAF6EE] text-[#5c3c10] hover:bg-[#e4dac3] transition-all cursor-pointer shrink-0"
-                                  >
-                                    <Info className="w-3.5 h-3.5" />
-                                  </button>
+                                  <button type="button" onClick={(e) => { e.stopPropagation(); openCommodityInfo(key, label, production, consumption, netBalance); }} title={`Detail konsumsi ${label}`} className="p-1 rounded-lg border border-[#C4B49C] bg-[#FAF6EE] text-[#5c3c10] hover:bg-[#e4dac3] transition-all cursor-pointer shrink-0"><Info className="w-3.5 h-3.5" /></button>
                                   <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider truncate">{label}</span>
                                 </div>
-                                {onGotoProduction && (
-                                  <button onClick={() => handleBuildClick(key)} title={`Bangun ${label}`} className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs">
-                                    <Plus className="w-3.5 h-3.5" />
-                                  </button>
-                                )}
+                                {onGotoProduction && (<button onClick={() => handleBuildClick(key)} title={`Bangun ${label}`} className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs"><Plus className="w-3.5 h-3.5" /></button>)}
                               </div>
                               <div className="space-y-1 text-xs">
-                                <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60">
-                                  <span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>
-                                  {formatColoredNumber(production, true)}
-                                </div>
-                                <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60">
-                                  <span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>
-                                  {formatColoredNumber(consumption, false)}
-                                </div>
+                                <div className="flex justify-between items-center bg-emerald-50/80 px-2 py-1 rounded-md border border-emerald-200/60"><span className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Total Produksi</span>{formatColoredNumber(production, true)}</div>
+                                <div className="flex justify-between items-center bg-rose-50/80 px-2 py-1 rounded-md border border-rose-200/60"><span className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Total Konsumsi</span>{formatColoredNumber(consumption, false)}</div>
                               </div>
-                              <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5">
-                                <span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>
-                                {formatColoredNumber(netBalance, netBalance >= 0)}
-                              </div>
+                              <div className="flex justify-between items-center text-[10px] pt-1.5 border-t border-[#C4B49C]/30 mt-0.5"><span className="font-bold text-[#8b7e66] uppercase tracking-wider">Netto:</span>{formatColoredNumber(netBalance, netBalance >= 0)}</div>
                             </div>
                           );
                         })}
@@ -509,136 +335,18 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                     </div>
                   );
                 })}
-                
-                <div className="p-4 rounded-xl bg-[#e4dac3]/40 border-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm">
-                  <div className="flex items-center gap-2 text-[#5c3c10] font-black text-xs uppercase tracking-wider">👥 Total Populasi & Kebutuhan Pangan Harian</div>
-                  <div className="px-4 py-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE]">
-                    <span className="text-xs font-black tracking-wider">{formatNumber(population)} Jiwa</span>
-                  </div>
-                </div>
+                <div className="p-4 rounded-xl bg-[#e4dac3]/40 border-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm"><div className="flex items-center gap-2 text-[#5c3c10] font-black text-xs uppercase tracking-wider">👥 Total Populasi & Kebutuhan Pangan Harian</div><div className="px-4 py-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE]"><span className="text-xs font-black tracking-wider">{formatNumber(population)} Jiwa</span></div></div>
               </div>
             ) : (
-              // ------- TAB 2: DATA GLOBAL (207 Negara) - Detail Expand Berdasarkan Sektor -------
               <div className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-6 rounded-2xl shadow-sm w-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]">
-                    <Globe className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Neraca Pangan {allCountries.length || 207} Negara</h3>
-                    <p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Klik nama negara untuk melihat rincian 26 komoditas.</p>
-                  </div>
-                </div>
-
-                {/* SEARCH BOX */}
-                <div className="mb-4 relative">
-                  <Search className="absolute left-3 top-3 h-4 w-4 text-[#8b7e66] pointer-events-none" />
-                  <input type="text" placeholder="Cari nama negara..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-2.5 rounded-lg border-2 border-[#C4B49C]/40 bg-[#FAF6EE] text-[#5c3c10] placeholder-[#8b7e66] focus:outline-none focus:border-[#5c3c10] focus:ring-2 focus:ring-[#5c3c10]/20 transition-all font-semibold text-sm" />
-                  {searchQuery && <button onClick={() => setSearchQuery('')} className="absolute right-3 top-3 text-[#8b7e66] hover:text-[#5c3c10] transition-colors">✕</button>}
-                </div>
-
-                {/* TABEL DATA */}
-                <div className="border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm">
-                  <table className="w-full text-xs">
-                    <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30">
-                      <tr>
-                        <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider w-12">No</th>
-                        <th onClick={() => handleSort('name')} className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Negara <SortIndicator column="name" /></th>
-                        <th onClick={() => handleSort('population')} className="px-4 py-3 text-right font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Populasi <SortIndicator column="population" /></th>
-                        <th onClick={() => handleSort('production')} className="px-4 py-3 text-right font-black text-emerald-700 uppercase tracking-wider cursor-pointer hover:bg-emerald-700/10 transition-colors">Prod. Pangan <SortIndicator column="production" /></th>
-                        <th onClick={() => handleSort('consumption')} className="px-4 py-3 text-right font-black text-rose-700 uppercase tracking-wider cursor-pointer hover:bg-rose-700/10 transition-colors">Kons. Pangan <SortIndicator column="consumption" /></th>
-                        <th onClick={() => handleSort('balance')} className="px-4 py-3 text-right font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Neraca Pangan <SortIndicator column="balance" /></th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-[#C4B49C]/20">
-                      {allCountries.length === 0 ? <tr><td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data 207 negara...</td></tr>
-                        : filteredData.length > 0 ? (
-                          filteredData.map((country, rowIndex) => {
-                            const isUserCountry = country.isUser;
-                            const isExpanded = expandedRows === 'all' || (expandedRows instanceof Set && expandedRows.has(country.index));
-                            const details = calculateCountryFoodDetails(country.rawData, metadata);
-
-                            return (
-                              <React.Fragment key={`country-${country.index}`}>
-                                <tr className={`transition-colors cursor-pointer hover:brightness-95 ${isUserCountry ? 'bg-emerald-100/80 font-black border-l-4 border-l-emerald-600' : rowIndex % 2 === 0 ? 'bg-[#FAF6EE]' : 'bg-[#e4dac3]/10'}`} onClick={() => toggleRow(country.index)}>
-                                  <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black' : 'text-[#8b7e66]'}`}>{country.index}</td>
-                                  <td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black flex items-center gap-2' : 'text-[#5c3c10] flex items-center gap-2'}`}>
-                                    <span>{country.name}</span>
-                                    {isUserCountry && <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-black uppercase tracking-wider shadow-sm">Negara Anda</span>}
-                                    <span className="ml-auto text-[#5c3c10] opacity-80 hover:opacity-100 transition-opacity">
-                                      {isExpanded ? <ChevronDownIcon className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                                    </span>
-                                  </td>
-                                  <td className="px-4 py-3 font-bold text-[#5c3c10] text-right">{formatNumber(country.population)}</td>
-                                  <td className="px-4 py-3 font-bold text-emerald-700 text-right">{formatNumber(country.production)}</td>
-                                  <td className="px-4 py-3 font-bold text-rose-700 text-right">{formatNumber(country.consumption)}</td>
-                                  <td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{country.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(country.balance))}</td>
-                                </tr>
-
-                                {/* EXPANDED DETAIL ROW (Group by SECTOR) */}
-                                {isExpanded && (
-                                  <tr>
-                                    <td colSpan={6} className="p-0 bg-[#FAF6EE] border-b-2 border-[#C4B49C]/20">
-                                      <div className="p-6 max-h-[50vh] overflow-y-auto">
-                                        <div className="space-y-4">
-                                          {Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => {
-                                            const sectorItems = sectorData.items
-                                              .map(key => details.find(d => d.key === key))
-                                              .filter(Boolean) as any[];
-                                            
-                                            if (sectorItems.length === 0) return null;
-
-                                            return (
-                                              <div key={sectorId} className="border border-[#C4B49C]/30 rounded-xl overflow-hidden shadow-sm bg-white">
-                                                <div className="bg-[#4a7a7a] text-white px-4 py-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-wider">
-                                                  <sectorData.icon className="w-4 h-4" />
-                                                  {sectorData.label} ({sectorItems.length} Komoditas)
-                                                </div>
-                                                <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[#e6dcd0]">
-                                                  {sectorItems.map((item: any) => (
-                                                    <div key={item.key} className="bg-[#f7f3e8] p-3 flex flex-col gap-1 border-r border-[#C4B49C]/20 last:border-r-0 text-[10px]">
-                                                      <span className="font-black text-[#5c3c10] uppercase tracking-tight">{item.label}</span>
-                                                      <div className="flex justify-between">
-                                                        <span className="text-[#8b7e66]">Produksi:</span>
-                                                        {formatColoredNumber(item.production, true)}
-                                                      </div>
-                                                      <div className="flex justify-between">
-                                                        <span className="text-[#8b7e66]">Konsumsi:</span>
-                                                        {formatColoredNumber(item.consumption, false)}
-                                                      </div>
-                                                      <div className="flex justify-between border-t border-[#C4B49C]/20 mt-1 pt-1">
-                                                        <span className="font-black text-[#5c3c10]">Netto:</span>
-                                                        {formatColoredNumber(item.balance, item.balance >= 0)}
-                                                      </div>
-                                                    </div>
-                                                  ))}
-                                                </div>
-                                              </div>
-                                            );
-                                          })}
-                                        </div>
-                                      </div>
-                                    </td>
-                                  </tr>
-                                )}
-                              </React.Fragment>
-                            );
-                          })
-                        ) : (
-                          <tr><td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">{searchQuery ? `Tidak ada negara yang cocok dengan "${searchQuery}"` : 'Tidak ada data tersedia'}</td></tr>
-                        )}
-                    </tbody>
-                  </table>
-                </div>
-
-                {/* FOOTER RINGKASAN */}
-                {filteredData.length > 0 && (
-                  <div className="mt-4 p-4 bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg text-xs text-[#8b7e66]">
-                    <p className="font-bold">📊 Total: {filteredData.length} negara {searchQuery && `(difilter dari ${globalFoodData.length})`}</p>
-                    <p className="mt-1">Total Produksi Pangan: <span className="font-black text-emerald-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.production), 0))}</span></p>
-                    <p>Total Konsumsi Pangan: <span className="font-black text-rose-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.consumption), 0))}</span></p>
-                  </div>
-                )}
+                <div className="flex items-center gap-3 mb-4"><div className="p-3 rounded-2xl bg-[#5c3c10]/10 text-[#5c3c10]"><Globe className="h-5 w-5" /></div><div><h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wide">Neraca Pangan {allCountries.length || 207} Negara</h3><p className="text-[10px] text-[#8b7e66] uppercase tracking-wider">Klik nama negara untuk melihat rincian 26 komoditas.</p></div></div>
+                <div className="mb-4 relative"><Search className="absolute left-3 top-3 h-4 w-4 text-[#8b7e66] pointer-events-none" /><input type="text" placeholder="Cari nama negara..." value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)} className="w-full pl-10 pr-4 py-2.5 rounded-lg border-2 border-[#C4B49C]/40 bg-[#FAF6EE] text-[#5c3c10] placeholder-[#8b7e66] focus:outline-none focus:border-[#5c3c10] focus:ring-2 focus:ring-[#5c3c10]/20 transition-all font-semibold text-sm" />{searchQuery && <button onClick={() => setSearchQuery('')} className="absolute right-3 top-3 text-[#8b7e66] hover:text-[#5c3c10] transition-colors">✕</button>}</div>
+                <div className="border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm"><table className="w-full text-xs"><thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30"><tr><th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider w-12">No</th><th onClick={() => handleSort('name')} className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Negara <SortIndicator column="name" /></th><th onClick={() => handleSort('population')} className="px-4 py-3 text-right font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Populasi <SortIndicator column="population" /></th><th onClick={() => handleSort('production')} className="px-4 py-3 text-right font-black text-emerald-700 uppercase tracking-wider cursor-pointer hover:bg-emerald-700/10 transition-colors">Prod. Pangan <SortIndicator column="production" /></th><th onClick={() => handleSort('consumption')} className="px-4 py-3 text-right font-black text-rose-700 uppercase tracking-wider cursor-pointer hover:bg-rose-700/10 transition-colors">Kons. Pangan <SortIndicator column="consumption" /></th><th onClick={() => handleSort('balance')} className="px-4 py-3 text-right font-black text-[#5c3c10] uppercase tracking-wider cursor-pointer hover:bg-[#5c3c10]/10 transition-colors">Neraca Pangan <SortIndicator column="balance" /></th></tr></thead><tbody className="divide-y divide-[#C4B49C]/20">
+                  {allCountries.length === 0 ? <tr><td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">📡 Memuat data 207 negara...</td></tr> : filteredData.length > 0 ? filteredData.map((country, rowIndex) => {
+                    const isUserCountry = country.isUser; const isExpanded = expandedRows === 'all' || (expandedRows instanceof Set && expandedRows.has(country.index)); const details = calculateCountryFoodDetails(country.rawData, metadata);
+                    return (<React.Fragment key={`country-${country.index}`}><tr className={`transition-colors cursor-pointer hover:brightness-95 ${isUserCountry ? 'bg-emerald-100/80 font-black border-l-4 border-l-emerald-600' : rowIndex % 2 === 0 ? 'bg-[#FAF6EE]' : 'bg-[#e4dac3]/10'}`} onClick={() => toggleRow(country.index)}><td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black' : 'text-[#8b7e66]'}`}>{country.index}</td><td className={`px-4 py-3 font-bold ${isUserCountry ? 'text-emerald-900 font-black flex items-center gap-2' : 'text-[#5c3c10] flex items-center gap-2'}`}><span>{country.name}</span>{isUserCountry && <span className="px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[9px] font-black uppercase tracking-wider shadow-sm">Negara Anda</span>}<span className="ml-auto text-[#5c3c10] opacity-80 hover:opacity-100 transition-opacity">{isExpanded ? <ChevronDownIcon className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}</span></td><td className="px-4 py-3 font-bold text-[#5c3c10] text-right">{formatNumber(country.population)}</td><td className="px-4 py-3 font-bold text-emerald-700 text-right">{formatNumber(country.production)}</td><td className="px-4 py-3 font-bold text-rose-700 text-right">{formatNumber(country.consumption)}</td><td className={`px-4 py-3 font-black text-right ${country.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{country.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(country.balance))}</td></tr>{isExpanded && (<tr><td colSpan={6} className="p-0 bg-[#FAF6EE] border-b-2 border-[#C4B49C]/20"><div className="p-6 max-h-[50vh] overflow-y-auto"><div className="space-y-4">{Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => { const sectorItems = sectorData.items.map(key => details.find(d => d.key === key)).filter(Boolean) as any[]; if (sectorItems.length === 0) return null; return (<div key={sectorId} className="border border-[#C4B49C]/30 rounded-xl overflow-hidden shadow-sm bg-white"><div className="bg-[#4a7a7a] text-white px-4 py-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-wider"><sectorData.icon className="w-4 h-4" />{sectorData.label} ({sectorItems.length} Komoditas)</div><div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[#e6dcd0]">{sectorItems.map((item: any) => (<div key={item.key} className="bg-[#f7f3e8] p-3 flex flex-col gap-1 border-r border-[#C4B49C]/20 last:border-r-0 text-[10px]"><span className="font-black text-[#5c3c10] uppercase tracking-tight">{item.label}</span><div className="flex justify-between"><span className="text-[#8b7e66]">Produksi:</span>{formatColoredNumber(item.production, true)}</div><div className="flex justify-between"><span className="text-[#8b7e66]">Konsumsi:</span>{formatColoredNumber(item.consumption, false)}</div><div className="flex justify-between border-t border-[#C4B49C]/20 mt-1 pt-1"><span className="font-black text-[#5c3c10]">Netto:</span>{formatColoredNumber(item.balance, item.balance >= 0)}</div></div>))}</div></div>); })}</div></div></td></tr>)}</React.Fragment>);
+                  }) : <tr><td colSpan={6} className="px-4 py-6 text-center text-xs font-bold text-[#8b7e66]">{searchQuery ? `Tidak ada negara yang cocok dengan "${searchQuery}"` : 'Tidak ada data tersedia'}</td></tr>}</tbody></table></div>
+                {filteredData.length > 0 && (<div className="mt-4 p-4 bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-lg text-xs text-[#8b7e66]"><p className="font-bold">📊 Total: {filteredData.length} negara {searchQuery && `(difilter dari ${globalFoodData.length})`}</p><p className="mt-1">Total Produksi Pangan: <span className="font-black text-emerald-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.production), 0))}</span></p><p>Total Konsumsi Pangan: <span className="font-black text-rose-700">{formatNumber(filteredData.reduce((sum, c) => sum + safeNumber(c.consumption), 0))}</span></p></div>)}
               </div>
             )}
           </div>
