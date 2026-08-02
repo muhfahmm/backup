@@ -118,19 +118,6 @@ export default function PilihNegaraPage() {
     { key: 'logam_tanah_jarang', icon: Sparkles, label: 'Logam Tanah Jarang' },
   ], []);
 
-  // Fetch SDA data dari API saat negara berubah
-  useEffect(() => {
-    if (!hasInteracted || !countries[currentIndex]) {
-      setSdaData(null);
-      return;
-    }
-    const countryName = countries[currentIndex].country;
-    fetch(`/api/sda-data?country=${encodeURIComponent(countryName)}`)
-      .then(r => r.ok ? r.json() : null)
-      .then(data => setSdaData(data))
-      .catch(() => setSdaData(null));
-  }, [hasInteracted, currentIndex, countries]);
-
   // Gunakan sdaData sebagai sumber ketersediaan SDA
   const getCurrentSDA = sdaData;
 
@@ -215,8 +202,28 @@ export default function PilihNegaraPage() {
     [countries, searchQuery]
   );
 
+  // Fetch SDA data dari API saat negara berubah
+  useEffect(() => {
+    if (!hasInteracted || !filteredCountries[currentIndex]) {
+      setSdaData(null);
+      return;
+    }
+    const countryName = filteredCountries[currentIndex].country;
+    fetch(`/api/sda-data?country=${encodeURIComponent(countryName)}`)
+      .then(r => r.ok ? r.json() : null)
+      .then(data => setSdaData(data))
+      .catch(() => setSdaData(null));
+  }, [hasInteracted, currentIndex, filteredCountries]);
+
   useEffect(() => {
     const selected = filteredCountries[currentIndex];
+
+    // 🔥 PERBAIKAN 1: Jika tidak ada negara yang dipilih (Search tidak ketemu), Reset Semua data menjadi kosong!
+    if (!selected) {
+      setCountryDetail(null);
+      setHasInteracted(false);
+      return;
+    }
 
     if (selected && hasInteracted) {
       setCountryDetail(null);
@@ -362,7 +369,7 @@ export default function PilihNegaraPage() {
   };
 
   // Ambil data negara yang sedang dipilih untuk kalkulasi income & outcome
-  const currentCountry = hasInteracted ? countries[currentIndex] : null;
+  const currentCountry = hasInteracted ? filteredCountries[currentIndex] : null;
 
   const taxIncome = hasInteracted ? calculateTotalTaxIncome(countryDetail) : 0;
   const goldIncome = hasInteracted ? calculateGoldMiningIncome(countryDetail) : 0;
@@ -394,20 +401,23 @@ export default function PilihNegaraPage() {
           </button>
 
           <div className="flex items-center gap-6">
+            {/* FIX: countries[currentIndex] -> filteredCountries[currentIndex] */}
             <StatusItem
               icon={<MapPin className="w-3.5 h-3.5" />}
               label="IBUKOTA"
-              value={hasInteracted ? countries[currentIndex]?.capital || '-' : '-'}
+              // 🔥 PERBAIKAN 2: Jika index tidak valid, tampilkan '-'
+              value={hasInteracted && filteredCountries[currentIndex] ? (filteredCountries[currentIndex]?.capital || '-') : '-'}
             />
             <StatusItem
               icon={<Users className="w-3.5 h-3.5" />}
               label="POPULASI"
-              value={hasInteracted ? countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0' : '0'}
+              // 🔥 PERBAIKAN 3: Jika countryDetail null, tampilkan '-'
+              value={hasInteracted && countryDetail ? (countryDetail?.jumlah_penduduk?.toLocaleString('id-ID') || '0') : '-'}
             />
             <StatusItem
               icon={<Landmark className="w-3.5 h-3.5" />}
               label="KAS NEGARA"
-              value={hasInteracted ? `${countryDetail?.anggaran || 0} EM` : '0 EM'}
+              value={hasInteracted && countryDetail ? `${countryDetail?.anggaran || 0} EM` : '-'}
             />
 
             <StatusItem
@@ -421,7 +431,7 @@ export default function PilihNegaraPage() {
                   : '-'
               }
               color={
-                hasInteracted
+                hasInteracted && countryDetail && Object.keys(countryDetail).length > 0
                   ? netBalance >= 0
                     ? 'text-emerald-700'
                     : 'text-rose-700'
@@ -433,12 +443,12 @@ export default function PilihNegaraPage() {
             <StatusItem
               icon={<Home className="w-3.5 h-3.5" />}
               label="AGAMA MAYORITAS"
-              value={hasInteracted ? countryDetail?.religion || '-' : '-'}
+              value={hasInteracted && countryDetail ? (countryDetail?.religion || '-') : '-'}
             />
             <StatusItem
               icon={<Scale className="w-3.5 h-3.5" />}
               label="IDEOLOGI"
-              value={hasInteracted ? countryDetail?.ideology || '-' : '-'}
+              value={hasInteracted && countryDetail ? (countryDetail?.ideology || '-') : '-'}
             />
 
             {/* UN Vote Badge */}
@@ -447,7 +457,7 @@ export default function PilihNegaraPage() {
                 SUARA PBB
               </span>
               <div className="bg-[#5ea3b1] text-white px-4 py-1.5 rounded-lg font-black text-[14px] shadow-md border border-[#4d8a96]">
-                {hasInteracted ? countryDetail?.un_vote || 0 : '-'}
+                {hasInteracted && countryDetail ? (countryDetail?.un_vote || 0) : '-'}
               </div>
             </div>
           </div>
@@ -455,9 +465,10 @@ export default function PilihNegaraPage() {
 
         <div className="flex items-center gap-4 ml-4 shrink-0">
           <div className="bg-[#dcc9a3]/50 backdrop-blur-md border border-black/10 px-5 py-2.5 rounded-2xl shadow-lg ml-4 min-w-[200px]">
-            {hasInteracted ? (
+            {/* FIX: countries[currentIndex] -> filteredCountries[currentIndex] */}
+            {hasInteracted && filteredCountries[currentIndex] ? (
               <img
-                src={`https://flagcdn.com/w80/${countries[currentIndex]?.iso?.toLowerCase()}.png`}
+                src={`https://flagcdn.com/w80/${filteredCountries[currentIndex]?.iso?.toLowerCase()}.png`}
                 className="w-8 h-5 rounded-sm object-cover border border-black/10 shadow-sm"
                 alt="flag"
                 onError={(e) => {
@@ -468,10 +479,11 @@ export default function PilihNegaraPage() {
               <div className="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center text-xl">🌐</div>
             )}
             <div className="ml-3">
+              {/* FIX: countries[currentIndex] -> filteredCountries[currentIndex] */}
               <Link
-                href={hasInteracted ? `/page/map_system?country=${countries[currentIndex]?.country}` : '#'}
+                href={hasInteracted && filteredCountries[currentIndex] ? `/page/map_system?country=${filteredCountries[currentIndex]?.country}` : '#'}
                 onClick={(e) => {
-                  if (!hasInteracted) {
+                  if (!hasInteracted || !filteredCountries[currentIndex]) {
                     e.preventDefault();
                     return;
                   }
@@ -482,10 +494,10 @@ export default function PilihNegaraPage() {
                 className="flex flex-col"
               >
                 <span className="text-[12px] font-black text-black tracking-tight uppercase">
-                  {hasInteracted ? countries[currentIndex]?.country : 'Select Country'}
+                  {hasInteracted && filteredCountries[currentIndex] ? filteredCountries[currentIndex]?.country : 'Select Country'}
                 </span>
                 <span className="text-[10px] font-bold text-black/60 uppercase tracking-widest">
-                  {hasInteracted ? countries[currentIndex]?.capital : 'Region Map'}
+                  {hasInteracted && filteredCountries[currentIndex] ? filteredCountries[currentIndex]?.capital : 'Region Map'}
                 </span>
               </Link>
             </div>
@@ -725,12 +737,12 @@ export default function PilihNegaraPage() {
 
           <Link
             href={
-              hasInteracted
+              hasInteracted && filteredCountries[currentIndex]
                 ? `/page/map_system?country=${filteredCountries[currentIndex]?.country}`
                 : '#'
             }
             onClick={(e) => {
-              if (!hasInteracted) {
+              if (!hasInteracted || !filteredCountries[currentIndex]) {
                 e.preventDefault();
                 return;
               }
@@ -738,11 +750,11 @@ export default function PilihNegaraPage() {
                 window.localStorage.setItem('presiden_simulator_new_game', '1');
               }
             }}
-            className={`flex items-center gap-3 px-8 py-2.5 ${hasInteracted
+            className={`flex items-center gap-3 px-8 py-2.5 ${hasInteracted && filteredCountries[currentIndex]
                 ? 'bg-cyan-500 hover:bg-cyan-400 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]'
                 : 'bg-slate-700 opacity-50 cursor-not-allowed'
               } text-white font-black tracking-widest rounded-xl text-[10px] transition-all`}
-            aria-disabled={!hasInteracted}
+            aria-disabled={!hasInteracted || !filteredCountries[currentIndex]}
           >
             MULAI SIMULASI
             <Play className="w-3 h-3 fill-white" />
@@ -757,7 +769,7 @@ export default function PilihNegaraPage() {
           setIsDebugOpen(false);
           setIsDebugAllCountries(false);
         }}
-        countryName={isDebugAllCountries ? 'Semua Negara' : hasInteracted ? countries[currentIndex]?.country || '-' : '-'}
+        countryName={isDebugAllCountries ? 'Semua Negara' : (hasInteracted && filteredCountries[currentIndex] ? filteredCountries[currentIndex]?.country || '-' : '-')}
         countryDetail={isDebugAllCountries ? null : countryDetail}
         taxIncome={taxIncome}
         goldIncome={goldIncome}
