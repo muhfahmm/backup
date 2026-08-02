@@ -17,8 +17,7 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     buildingKey: 'mansion',
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 800 },
-      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 400 },
-      { group: 'pembangunan', label: 'emas', resourceKey: 'emas', amount: 5 }, // Tambahan material mewah
+      { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 400 }
     ],
   },
 ];

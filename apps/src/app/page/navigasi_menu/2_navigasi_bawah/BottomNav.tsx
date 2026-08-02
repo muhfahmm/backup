@@ -102,7 +102,8 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
                            !isSubMenuItem &&
                            !activeMenu.startsWith("Menu:KomandoPertahanan");
 
-  if (isTemporarilyHidden || isDetailModalOpen) return null;
+  const shouldHideNav = isTemporarilyHidden || isDetailModalOpen || isSubMenuItem;
+  if (shouldHideNav) return null;
 
   return (
     <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 cursor-not-allowed z-[200] ${isOtherModalOpen ? 'opacity-50' : 'opacity-100'

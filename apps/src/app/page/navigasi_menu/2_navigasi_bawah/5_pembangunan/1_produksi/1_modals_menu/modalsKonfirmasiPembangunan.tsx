@@ -16,7 +16,8 @@ interface KonfirmasiPembangunanProps {
   buildingDescription?: string;
   cost: number;
   waktuPembangunan?: number;
-  produksiPerHari?: number;
+  dampakKepuasan?: number;      // Untuk Tempat Umum & Hunian
+  produksiPerHari?: number;     // Untuk Bangunan Produksi
   produksiLabel?: string;
   requirements: MaterialRequirement[];
   materialStocks: Record<string, number>;
@@ -35,6 +36,7 @@ export default function KonfirmasiPembangunanModal({
   buildingDescription,
   cost,
   waktuPembangunan,
+  dampakKepuasan,
   produksiPerHari,
   produksiLabel,
   requirements,
@@ -55,21 +57,23 @@ export default function KonfirmasiPembangunanModal({
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-2xl overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
+      {/* 🔥 DIMENSI DAN STRUKTUR DISAMAKAN: max-w-6xl h-[84vh] flex flex-col */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
 
-        <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+        {/* Header - shrink-0 agar tetap di atas */}
+        <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-2 text-[#5c3c10]">
             <Hammer className="h-5 w-5" />
             <h3 className="text-base font-bold uppercase tracking-tight">Konfirmasi Pembangunan</h3>
           </div>
-          {/* 🔥 PERBAIKAN: Tambahkan cursor-pointer di sini */}
           <button onClick={onClose} className="text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        <div className="p-6 relative z-10 flex-1 space-y-4">
+        {/* Body - flex-1 overflow-y-auto agar bisa di-scroll */}
+        <div className="p-6 relative z-10 flex-1 overflow-y-auto space-y-4">
           <div>
             <h4 className="text-lg font-black text-[#2e261a]">{buildingLabel}</h4>
             <p className="text-xs text-[#8b7e66] mt-1">{buildingDescription || 'Tidak ada deskripsi tersedia.'}</p>
@@ -95,6 +99,7 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
+            {/* Kondisional Waktu Pembangunan */}
             {waktuPembangunan !== undefined && (
               <div className="flex justify-between">
                 <span>Estimasi Waktu Pembangunan:</span>
@@ -102,6 +107,7 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
+            {/* Kondisional Produksi */}
             {produksiPerHari !== undefined && (
               <div className="flex justify-between">
                 <span>Produksi {produksiLabel || ''} per hari:</span>
@@ -109,6 +115,15 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
+            {/* Kondisional Kepuasan */}
+            {dampakKepuasan !== undefined && (
+              <div className="flex justify-between">
+                <span>Dampak ke Kepuasan:</span>
+                <span className="text-emerald-700 font-bold">+{dampakKepuasan.toFixed(1)}</span>
+              </div>
+            )}
+
+            {/* Material Requirement */}
             {requirements && requirements.length > 0 ? (
               <div className="space-y-3 text-xs">
                 <div className="flex items-center justify-between">
@@ -151,7 +166,9 @@ export default function KonfirmasiPembangunanModal({
                       >
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
                         {material.amount !== undefined && (
-                          <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">x{material.amount}</div>
+                          <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
+                            x{material.amount}
+                          </div>
                         )}
                         <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-[#8b7e66]'}`}>
                           {stock.toLocaleString('id-ID')}
@@ -172,7 +189,8 @@ export default function KonfirmasiPembangunanModal({
           </div>
         </div>
 
-        <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10">
+        {/* Footer - shrink-0 agar tetap di bawah */}
+        <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10 shrink-0">
           <button
             onClick={onClose}
             className="flex-1 py-2 rounded-xl border-2 border-[#C4B49C] text-[#8b7e66] text-[10px] font-black uppercase cursor-pointer hover:bg-black/5 transition-all text-center"
