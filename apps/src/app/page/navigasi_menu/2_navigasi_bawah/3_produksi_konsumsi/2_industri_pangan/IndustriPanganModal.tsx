@@ -1,7 +1,9 @@
 "use client"
 import React, { useState, useEffect, useMemo } from "react";
 import {
-  X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils, Info
+  X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils, Info,
+  // 🔥 Impor ikon modern untuk sektor
+  Beef, Wheat, Fish, Cookie, MessageSquare
 } from "lucide-react";
 import {
   FOOD_CONSUMPTION_PER_CAPITA,
@@ -11,6 +13,9 @@ import {
   calculateCountryFoodDetails
 } from "./logic/produksiKonsumsiLogic";
 import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
+
+// 🔥 IMPOR MODAL AI YANG BARU DIBUAT
+import AISuggestModal from "./AI_suggest_modals";
 
 interface ModalProps {
   isOpen: boolean;
@@ -95,26 +100,26 @@ const normalizePopulationFromProfile = (country: any, profileMap: Map<string, nu
   return 0;
 };
 
-// 🔥 DATA PEMETAAN SEKTOR (JANGAN DIHAPUS, INI PENGELOMPOKKAN KOMODITAS)
-const SECTOR_MAP: Record<string, { label: string; icon: React.ReactNode; items: string[] }> = {
+// 🔥 IKON MODERN TAILWIND + MAPPING SEKTOR
+const SECTOR_MAP: Record<string, { label: string; icon: React.ElementType; items: string[] }> = {
   peternakan: {
-    label: "🐄 Peternakan",
-    icon: <span className="text-[#c77a00]">🐄</span>,
+    label: "Peternakan",
+    icon: Beef,
     items: ["ayam_unggas", "sapi_potong", "sapi_perah", "domba_kambing"]
   },
   agrikultur: {
-    label: "🌾 Agrikultur",
-    icon: <span className="text-[#c77a00]">🌾</span>,
+    label: "Agrikultur",
+    icon: Wheat,
     items: ["padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet"]
   },
   perikanan: {
-    label: "🐟 Perikanan",
-    icon: <span className="text-[#c77a00]">🐟</span>,
+    label: "Perikanan",
+    icon: Fish,
     items: ["udang", "ikan", "mutiara"]
   },
   olahan_pangan: {
-    label: "🥫 Olahan Pangan",
-    icon: <span className="text-[#c77a00]">🥫</span>,
+    label: "Olahan Pangan",
+    icon: Cookie,
     items: ["air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"]
   }
 };
@@ -134,6 +139,16 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
     consumption: number;
     balance: number;
   } | null>(null);
+
+  // 🔥 STATE UNTUK AI POPUP
+  const [aiSectorAnalysis, setAiSectorAnalysis] = useState<{
+    sectorId: string;
+    sectorLabel: string;
+    totalDeficit: number;
+    totalSurplus: number;
+    commodities: { label: string; balance: number; isDeficit: boolean; isSurplus: boolean }[];
+  } | null>(null);
+
   const profilePopulationMap = useMemo(() => {
     const map = new Map<string, number>();
     for (const profile of PROFILES_POPULATION_DATA) {
@@ -179,6 +194,42 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
       production,
       consumption,
       balance,
+    });
+  };
+
+  // 🔥 FUNGSI UNTUK MENGHITUNG ANALISIS AI PER SEKTOR
+  const analyzeSector = (sectorId: string) => {
+    const sectorData = SECTOR_MAP[sectorId];
+    if (!sectorData) return;
+
+    let totalDeficit = 0;
+    let totalSurplus = 0;
+    const commodities: { label: string; balance: number; isDeficit: boolean; isSurplus: boolean }[] = [];
+
+    sectorData.items.forEach(key => {
+      if (!FOOD_CONSUMPTION_PER_CAPITA[key]) return;
+      const production = calculateProduction(key, countryDetail, metadata);
+      const consumption = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
+      const balance = production - consumption;
+      const label = metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase());
+
+      if (balance < 0) {
+        totalDeficit += Math.abs(balance);
+        commodities.push({ label, balance, isDeficit: true, isSurplus: false });
+      } else if (balance > 0) {
+        totalSurplus += balance;
+        commodities.push({ label, balance, isDeficit: false, isSurplus: true });
+      } else {
+        commodities.push({ label, balance, isDeficit: false, isSurplus: false });
+      }
+    });
+
+    setAiSectorAnalysis({
+      sectorId,
+      sectorLabel: sectorData.label,
+      totalDeficit,
+      totalSurplus,
+      commodities
     });
   };
 
@@ -264,6 +315,16 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   return (
     <>
+      {/* 🔥 RENDER MODAL AI DARI FILE EKSTERNAL */}
+      <AISuggestModal
+        isOpen={aiSectorAnalysis !== null}
+        onClose={() => setAiSectorAnalysis(null)}
+        sectorLabel={aiSectorAnalysis?.sectorLabel || ''}
+        totalDeficit={aiSectorAnalysis?.totalDeficit || 0}
+        totalSurplus={aiSectorAnalysis?.totalSurplus || 0}
+        commodities={aiSectorAnalysis?.commodities || []}
+      />
+
       {selectedCommodityInfo && (
         <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/35 pointer-events-auto">
           <div className="w-full max-w-md bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl shadow-2xl overflow-hidden">
@@ -357,14 +418,44 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
               // ------- TAB 1: DATA SAYA (Grid Dinamis Berdasarkan Sektor) -------
               <div className="space-y-6">
                 {Object.entries(SECTOR_MAP).map(([sectorId, sectorData]) => {
+                  const SectorIcon = sectorData.icon;
                   const sectorItems = sectorData.items.filter(key => FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined);
                   if (sectorItems.length === 0) return null;
 
+                  // 🔥 HITUNG STATUS SEKTOR UNTUK WARNA LAMPU AI
+                  let deficitCount = 0;
+                  let surplusCount = 0;
+                  sectorItems.forEach(key => {
+                    const prod = calculateProduction(key, countryDetail, metadata);
+                    const cons = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
+                    if (prod - cons < 0) deficitCount++;
+                    else if (prod - cons > 0) surplusCount++;
+                  });
+
                   return (
                     <div key={sectorId} className="border-2 border-[#4a7a7a] rounded-2xl overflow-hidden shadow-md bg-white">
-                      <div className="flex items-center gap-3 px-6 py-3.5 bg-[#4a7a7a] border-b border-[#3d6868] text-white">
-                        <span className="text-base">{sectorData.icon}</span>
-                        <h4 className="text-sm font-black uppercase tracking-wider">{sectorData.label} ({sectorItems.length} Komoditas)</h4>
+                      <div className="flex items-center justify-between px-6 py-3.5 bg-[#4a7a7a] border-b border-[#3d6868] text-white">
+                        <div className="flex items-center gap-3">
+                          {/* 🔥 IKON MODERN DARI LUCIDE */}
+                          <div className="p-1 bg-white/20 rounded-lg">
+                            <SectorIcon className="w-5 h-5 text-white" />
+                          </div>
+                          <h4 className="text-sm font-black uppercase tracking-wider">{sectorData.label} ({sectorItems.length} Komoditas)</h4>
+                        </div>
+                        
+                        {/* 🔥 TOMBOL AI ASSISTANT DI KANAN HEADER */}
+                        <button
+                          onClick={() => analyzeSector(sectorId)}
+                          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 transition-colors border border-white/20 group"
+                          title="Analisis AI untuk sektor ini"
+                        >
+                          <div className="relative">
+                            <MessageSquare className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
+                            {/* Indikator status mini di atas ikon chat */}
+                            <span className={`absolute -top-1 -right-1 w-2 h-2 rounded-full border border-[#4a7a7a] ${deficitCount > 0 ? 'bg-rose-400 animate-pulse' : surplusCount > 0 ? 'bg-emerald-400' : 'bg-gray-400'}`} />
+                          </div>
+                          <span className="text-[9px] font-bold uppercase tracking-wider text-white/80 group-hover:text-white">AI</span>
+                        </button>
                       </div>
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-[#e6dcd0]">
                         {sectorItems.map((key) => {
@@ -500,7 +591,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                                             return (
                                               <div key={sectorId} className="border border-[#C4B49C]/30 rounded-xl overflow-hidden shadow-sm bg-white">
                                                 <div className="bg-[#4a7a7a] text-white px-4 py-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-wider">
-                                                  {sectorData.icon}
+                                                  <sectorData.icon className="w-4 h-4" />
                                                   {sectorData.label} ({sectorItems.length} Komoditas)
                                                 </div>
                                                 <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-[#e6dcd0]">
