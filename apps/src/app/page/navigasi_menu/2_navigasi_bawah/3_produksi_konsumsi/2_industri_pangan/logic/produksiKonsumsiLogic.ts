@@ -148,7 +148,7 @@ export const calculateProduction = (buildingKey: string, countryDetail: any, met
 export const calculateConsumption = (population: number, consumptionPerCapita: number) => {
   const safePopulation = safeNumber(population);
   const safePerCapita = safeNumber(consumptionPerCapita);
-  return (safePopulation / 1000) * safePerCapita;
+  return safePopulation * safePerCapita;
 };
 
 // Calculate total production, consumption and balance for a country (Flat list)
