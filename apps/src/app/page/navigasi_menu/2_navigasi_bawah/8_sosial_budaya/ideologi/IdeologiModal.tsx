@@ -4,8 +4,9 @@ import { X, Shield, Globe, Vote, Crown, DollarSign, Handshake, Hammer, Flag, Fea
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 import { PROFILES_IDEOLOGY_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
-// 🔥 IMPOR KONFIRMASI MODAL BARU
 import IdeologiConfirmModal from "./modalsGanti";
+import IdeologiGagalModal from "./modalsGagalGanti";
+import { attemptChangeIdeology, IDEOLOGY_CHANGE_COST } from "./logic/logikaPergantian";
 
 interface ModalProps {
   isOpen: boolean;
@@ -114,14 +115,15 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
 
   const handleConfirmChange = () => {
     if (!selectedIdeology) return;
-    if (anggaran < IDEOLOGY_CHANGE_COST) {
+    const result = attemptChangeIdeology(anggaran);
+    if (!result.success) {
       setShowErrorModal(true);
       return;
     }
     setCountryDetail?.((prev: any) => ({
       ...(prev || {}),
       ideology: selectedIdeology,
-      anggaran: (Number(prev?.anggaran) || 0) - IDEOLOGY_CHANGE_COST,
+      anggaran: result.newAnggaran,
       message: `Ideologi negara diubah ke ${selectedIdeology}. Biaya perubahan ${IDEOLOGY_CHANGE_COST.toLocaleString('id-ID')} EM.`
     }));
     setFeedback({
@@ -142,6 +144,12 @@ export default function IdeologiModal({ isOpen, onClose, countryDetail, setCount
         icon={selectedIdeology ? IDEOLOGY_ICONS[selectedIdeology] : <Shield className="w-5 h-5" />}
         bonusText={selectedIdeology ? IDEOLOGY_BONUSES[selectedIdeology] || 'Tidak ada bonus spesifik' : ''}
         cost={IDEOLOGY_CHANGE_COST}
+      />
+      <IdeologiGagalModal
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        cost={IDEOLOGY_CHANGE_COST}
+        currentMoney={anggaran}
       />
 
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">

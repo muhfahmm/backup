@@ -4,8 +4,9 @@ import { X, Star, Globe, MoonStar, Church, Sun, CircleDot, Atom, Check } from "l
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 import { PROFILES_RELIGION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
-// 🔥 IMPOR KONFIRMASI MODAL BARU
 import AgamaConfirmModal from "./modalsGanti";
+import AgamaGagalModal from "./modalsGagalGanti";
+import { attemptChangeReligion, RELIGION_CHANGE_COST } from "./logic/logikaPergantian";
 
 interface ModalProps {
   isOpen: boolean;
@@ -114,14 +115,15 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
 
   const handleConfirmChange = () => {
     if (!selectedReligion) return;
-    if (anggaran < RELIGION_CHANGE_COST) {
+    const result = attemptChangeReligion(anggaran);
+    if (!result.success) {
       setShowErrorModal(true);
       return;
     }
     setCountryDetail?.((prev: any) => ({
       ...(prev || {}),
       religion: selectedReligion,
-      anggaran: (Number(prev?.anggaran) || 0) - RELIGION_CHANGE_COST,
+      anggaran: result.newAnggaran,
       message: `Agama negara diubah ke ${selectedReligion}. Biaya perubahan ${RELIGION_CHANGE_COST.toLocaleString('id-ID')} EM.`
     }));
     setFeedback({
@@ -142,6 +144,12 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
         icon={selectedReligion ? RELIGION_ICONS[selectedReligion] : <Globe className="w-5 h-5" />}
         bonusText={selectedReligion ? RELIGION_BONUSES[selectedReligion] || 'Tidak ada bonus spesifik' : ''}
         cost={RELIGION_CHANGE_COST}
+      />
+      <AgamaGagalModal
+        isOpen={showErrorModal}
+        onClose={() => setShowErrorModal(false)}
+        cost={RELIGION_CHANGE_COST}
+        currentMoney={anggaran}
       />
 
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
