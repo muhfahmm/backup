@@ -184,7 +184,9 @@ export const calculateCountryFoodDetails = (country: any, metadata: any) => {
       label: metadata?.[key]?.label || key.replace(/_/g, ' ').replace(/\b\w/g, (ch) => ch.toUpperCase()),
       production: Number.isFinite(production) ? production : 0,
       consumption: Number.isFinite(consumption) ? Math.round(consumption) : 0,
-      balance: Number.isFinite(production - consumption) ? Math.round(production - consumption) : 0
+      balance: Number.isFinite(production - consumption) ? Math.round(production - consumption) : 0,
+      population,
+      consumptionPerCapita: Number.isFinite(consumptionPerCapita) ? consumptionPerCapita : 0,
     };
   });
 };

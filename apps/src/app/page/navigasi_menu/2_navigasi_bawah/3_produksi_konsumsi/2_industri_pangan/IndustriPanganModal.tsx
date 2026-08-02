@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useMemo } from "react";
 import { 
-  X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils
+  X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils, Info
 } from "lucide-react";
 import { 
   FOOD_CONSUMPTION_PER_CAPITA,
@@ -79,6 +79,15 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const [searchQuery, setSearchQuery] = useState('');
   const [sortConfig, setSortConfig] = useState<SortConfig>({ key: 'production', direction: 'desc' });
   const [expandedRows, setExpandedRows] = useState<'all' | Set<number>>('all');
+  const [selectedCommodityInfo, setSelectedCommodityInfo] = useState<{
+    key: string;
+    label: string;
+    population: number;
+    consumptionPerCapita: number;
+    production: number;
+    consumption: number;
+    balance: number;
+  } | null>(null);
   const profilePopulationMap = useMemo(() => {
     const map = new Map<string, number>();
     for (const profile of PROFILES_POPULATION_DATA) {
@@ -114,6 +123,18 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   const handleBuildClick = (buildingKey: string) => {
     // Asumsi tab produksi untuk pangan adalah 'industri_pangan'
     if (onGotoProduction) onGotoProduction('industri_pangan', buildingKey);
+  };
+
+  const openCommodityInfo = (key: string, label: string, production: number, consumption: number, balance: number) => {
+    setSelectedCommodityInfo({
+      key,
+      label,
+      population,
+      consumptionPerCapita: FOOD_CONSUMPTION_PER_CAPITA[key] ?? 0,
+      production,
+      consumption,
+      balance,
+    });
   };
 
   const toggleRow = (index: number) => {
@@ -198,8 +219,64 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+    <>
+      {selectedCommodityInfo && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/35 pointer-events-auto">
+          <div className="w-full max-w-md bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b-2 border-[#C4B49C]/30 bg-[#e4dac3]/40">
+              <div>
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#5c3c10]">Detail Food Konsumsi</h3>
+                <p className="text-[10px] font-bold text-[#8b7e66] uppercase tracking-wider">{selectedCommodityInfo.label}</p>
+              </div>
+              <button onClick={() => setSelectedCommodityInfo(null)} className="p-2 rounded-lg border border-[#C4B49C] text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all cursor-pointer">
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+            <div className="p-5 space-y-3 text-xs text-[#5c3c10]">
+              <div className="rounded-xl bg-[#f7f3e8] p-3 border border-[#C4B49C]/20">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold uppercase tracking-wider text-[#8b7e66]">Negara</span>
+                  <span className="font-black text-[#5c3c10]">{countryDetail?.name_id || countryDetail?.name_en || countryDetail?.nama || countryDetail?.country || 'Negara'}</span>
+                </div>
+                <div className="mt-2 flex justify-between items-center">
+                  <span className="font-bold uppercase tracking-wider text-[#8b7e66]">Populasi</span>
+                  <span className="font-black text-[#5c3c10]">{formatNumber(selectedCommodityInfo.population)} Jiwa</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-2">
+                <div className="rounded-xl bg-emerald-50/80 p-3 border border-emerald-200/60">
+                  <div className="text-[9px] font-bold text-emerald-800 uppercase tracking-tight">Produksi</div>
+                  <div className="mt-1 font-black text-emerald-700">+{formatNumber(selectedCommodityInfo.production)}</div>
+                </div>
+                <div className="rounded-xl bg-rose-50/80 p-3 border border-rose-200/60">
+                  <div className="text-[9px] font-bold text-rose-800 uppercase tracking-tight">Konsumsi</div>
+                  <div className="mt-1 font-black text-rose-700">-{formatNumber(selectedCommodityInfo.consumption)}</div>
+                </div>
+              </div>
+
+              <div className="rounded-xl bg-[#e4dac3]/25 p-3 border border-[#C4B49C]/30">
+                <div className="flex justify-between items-center">
+                  <span className="font-bold uppercase tracking-wider text-[#8b7e66]">Konsumsi / Kapita</span>
+                  <span className="font-black text-[#5c3c10]">{selectedCommodityInfo.consumptionPerCapita}</span>
+                </div>
+                <div className="mt-2 flex justify-between items-center">
+                  <span className="font-bold uppercase tracking-wider text-[#8b7e66]">Perhitungan</span>
+                  <span className="font-black text-[#5c3c10]">({formatNumber(selectedCommodityInfo.population)} / 1000) × {selectedCommodityInfo.consumptionPerCapita}</span>
+                </div>
+                <div className="mt-2 flex justify-between items-center border-t border-[#C4B49C]/30 pt-2">
+                  <span className="font-black uppercase tracking-wider text-[#5c3c10]">Netto</span>
+                  <span className={`font-black ${selectedCommodityInfo.balance >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                    {selectedCommodityInfo.balance >= 0 ? '+' : '-'}{formatNumber(Math.abs(selectedCommodityInfo.balance))}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+        <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         
         {/* HEADER */}
@@ -244,7 +321,20 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 return (
                   <div key={key} className="bg-[#f7f3e8] p-3.5 flex flex-col gap-2 border-r border-[#C4B49C]/20 last:border-r-0">
                     <div className="flex items-center justify-between pb-1 border-b border-[#C4B49C]/20">
-                      <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider">{label}</span>
+                      <div className="flex items-center gap-1.5 min-w-0">
+                        <button
+                          type="button"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            openCommodityInfo(key, label, production, consumption, netBalance);
+                          }}
+                          title={`Detail konsumsi ${label}`}
+                          className="p-1 rounded-lg border border-[#C4B49C] bg-[#FAF6EE] text-[#5c3c10] hover:bg-[#e4dac3] transition-all cursor-pointer shrink-0"
+                        >
+                          <Info className="w-3.5 h-3.5" />
+                        </button>
+                        <span className="text-xs font-black text-[#5c3c10] uppercase tracking-wider truncate">{label}</span>
+                      </div>
                       {onGotoProduction && (
                         <button onClick={() => handleBuildClick(key)} title={`Bangun ${label}`} className="p-1 rounded-lg bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] transition-all cursor-pointer shadow-xs">
                           <Plus className="w-3.5 h-3.5" />
@@ -385,7 +475,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
             </div>
           )}
         </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
