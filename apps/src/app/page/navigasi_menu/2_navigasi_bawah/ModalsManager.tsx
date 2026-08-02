@@ -400,6 +400,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          onOpenDebt={() => setActiveMenu("Menu:Hutang")}
         />
       );
     case "Menu:Ideologi":

@@ -5,6 +5,7 @@ import { X, AlertCircle } from "lucide-react";
 interface AgamaGagalModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onBorrow?: () => void;
   cost: number;
   currentMoney: number;
 }
@@ -12,6 +13,7 @@ interface AgamaGagalModalProps {
 export default function AgamaGagalModal({
   isOpen,
   onClose,
+  onBorrow,
   cost,
   currentMoney,
 }: AgamaGagalModalProps) {
@@ -44,10 +46,21 @@ export default function AgamaGagalModal({
         </div>
 
         {/* FOOTER (shrink-0) - Ditempatkan di bawah persis seperti modal Ganti */}
-        <div className="flex justify-center pb-6 shrink-0">
+        <div className="flex flex-col gap-3 px-8 pb-6 shrink-0">
+          {onBorrow && (
+            <button
+              onClick={() => {
+                onBorrow();
+                onClose();
+              }}
+              className="w-full py-3 rounded-xl bg-[#7a4d00] text-[#FAF6EE] font-black text-sm uppercase shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+            >
+              Ambil Hutang
+            </button>
+          )}
           <button
             onClick={onClose}
-            className="px-6 py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] font-black text-sm uppercase shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+            className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] font-black text-sm uppercase shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
           >
             Tutup
           </button>

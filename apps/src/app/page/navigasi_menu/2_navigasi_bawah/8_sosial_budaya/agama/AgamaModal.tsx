@@ -4,13 +4,17 @@ import { X, Star, Globe, MoonStar, Church, Sun, CircleDot, Atom, Check } from "l
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
 import { PROFILES_RELIGION_DATA } from "@/../../json/semua_fitur_negara/0_profiles/index";
 
+// 🔥 IMPOR MODAL KONFIRMASI DAN GAGAL
 import AgamaConfirmModal from "./modalsGanti";
 import AgamaGagalModal from "./modalsGagalGanti";
+
+// 🔥 IMPOR LOGIKA DARI FILE LOGIKA (Pastikan file logikaPergantian.ts memiliki attemptChangeReligion dan RELIGION_CHANGE_COST)
 import { attemptChangeReligion, RELIGION_CHANGE_COST } from "./logic/logikaPergantian";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenDebt?: () => void;
   countryDetail: any;
   setCountryDetail?: (detail: any | ((prev: any) => any)) => void;
 }
@@ -31,8 +35,6 @@ const RELIGION_BONUSES: Record<string, string> = {
   'Ateisme': 'Efisiensi riset sains +10%',
 };
 
-const RELIGION_CHANGE_COST = 50000;
-
 const RELIGION_ICONS: Record<string, React.ReactNode> = {
   'Islam': <MoonStar className="w-5 h-5" />,
   'Katolik': <Church className="w-5 h-5" />,
@@ -45,14 +47,14 @@ const RELIGION_ICONS: Record<string, React.ReactNode> = {
   'Ateisme': <Atom className="w-5 h-5" />,
 };
 
-export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function AgamaModal({ isOpen, onClose, onOpenDebt, countryDetail, setCountryDetail }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"agama" | "dunia">("agama");
   const [selectedReligion, setSelectedReligion] = useState<string | null>(null);
   
-  // 🔥 STATE BARU UNTUK MODAL KONFIRMASI
+  // 🔥 STATE UNTUK MODAL KONFIRMASI & GAGAL
   const [isConfirmOpen, setIsConfirmOpen] = useState(false);
+  const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
   const [showErrorModal, setShowErrorModal] = useState(false);
-  const [feedback, setFeedback] = useState<{ type: "success"; message: string } | null>(null);
 
   const [worldReligions, setWorldReligions] = useState<{ country: string; religion: string }[]>([]);
   const [sortMode, setSortMode] = useState<"default" | "unavailable-last" | "az" | "za">("default");
@@ -110,11 +112,12 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
 
   const handleSelectReligion = (religionName: string) => {
     setSelectedReligion(religionName);
-    setIsConfirmOpen(true); // 🔥 Buka modal konfirmasi baru
+    setIsConfirmOpen(true);
   };
 
   const handleConfirmChange = () => {
     if (!selectedReligion) return;
+    // 🔥 Gunakan logika attemptChangeReligion
     const result = attemptChangeReligion(anggaran);
     if (!result.success) {
       setShowErrorModal(true);
@@ -135,7 +138,7 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
 
   return (
     <>
-      {/* 🔥 RENDER KONFIRMASI MODAL BARU */}
+      {/* 🔥 RENDER KONFIRMASI & GAGAL MODAL */}
       <AgamaConfirmModal
         isOpen={isConfirmOpen}
         onClose={() => setIsConfirmOpen(false)}
@@ -148,10 +151,12 @@ export default function AgamaModal({ isOpen, onClose, countryDetail, setCountryD
       <AgamaGagalModal
         isOpen={showErrorModal}
         onClose={() => setShowErrorModal(false)}
+        onBorrow={onOpenDebt}
         cost={RELIGION_CHANGE_COST}
         currentMoney={anggaran}
       />
 
+      {/* MODAL UTAMA AGAMA */}
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
         <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
