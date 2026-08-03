@@ -5,6 +5,7 @@ import {
   Clock, Swords, ShieldBan, Coins, Bomb, Package 
 } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
+import { calculateResolusiVoting } from "../voting_logic/resolusiPBB_logic";
 
 interface ResolusiPBBProps {
   selectedCountry: any;
@@ -60,7 +61,8 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   const productRef = useRef<HTMLDivElement>(null);
 
   const [countries, setCountries] = useState<CountryOption[]>([]);
-  const [allies, setAllies] = useState<CountryOption[]>([]); 
+  const [allies, setAllies] = useState<CountryOption[]>([]);
+  const [voteStats, setVoteStats] = useState({ supporters: 0, opponents: 0, hasDiplomaticRelation: false });
 
   const [showSupportersModal, setShowSupportersModal] = useState(false);
   const [showOpponentsModal, setShowOpponentsModal] = useState(false);
@@ -130,6 +132,22 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     setAllies(alliesList);
   }, [countries, selectedCountry]);
 
+  useEffect(() => {
+    if (!selectedTarget || !selectedCountry || countries.length === 0) {
+      setVoteStats({ supporters: 0, opponents: 0, hasDiplomaticRelation: false });
+      return;
+    }
+
+    (async () => {
+      const result = await calculateResolusiVoting(
+        selectedCountry.country,
+        selectedTarget.name,
+        countries
+      );
+      setVoteStats(result);
+    })();
+  }, [selectedTarget, selectedCountry, countries]);
+
   // Close dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -140,13 +158,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 🔥 PERUBAHAN: Logika vote di-set menjadi 0 - 0 selalu
-  // Karena logika setuju/menolak belum siap, kita hardcode menjadi 0
-  const calculateVotes = () => {
-    return { supporters: 0, opponents: 0, total: 0 };
-  };
-
-  const voteStats = calculateVotes();
   const isProductionBan = selectedType === 'production_ban';
 
   const handleSubmitResolution = () => {

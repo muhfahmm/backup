@@ -5,6 +5,7 @@ import {
   ChevronDown, Clock, FileText 
 } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
+import { calculateKeamananVoting } from "../voting_logic/keamananPBB_logic";
 
 interface KeamananPBBProps {
   selectedCountry: any;
@@ -56,6 +57,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   // 🔥 GUNAKAN COUNTRIES_DATA LENGKAP
   const [countries, setCountries] = useState<CountryOption[]>([]);
   const [allies, setAllies] = useState<CountryOption[]>([]);
+  const [voteStats, setVoteStats] = useState({ pro: 0, con: 0, hasDiplomaticRelation: false });
 
   // Data Anggota Dewan Keamanan (Tetap untuk UI Keanggotaan)
   const permanentMembers = [
@@ -149,6 +151,23 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     setAllies(alliesList);
   }, [countries, selectedCountry]);
 
+  useEffect(() => {
+    if (!selectedTarget || !selectedCountry || countries.length === 0) {
+      setVoteStats({ pro: 0, con: 0, hasDiplomaticRelation: false });
+      return;
+    }
+
+    (async () => {
+      const result = await calculateKeamananVoting(
+        selectedCountry.country,
+        selectedTarget.name,
+        countries
+      );
+
+      setVoteStats({ pro: result.supporters, con: result.opponents, hasDiplomaticRelation: result.hasDiplomaticRelation });
+    })();
+  }, [selectedTarget, selectedCountry, countries]);
+
   // Close dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -158,12 +177,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 🔥 PERUBAHAN: Logika vote di-set menjadi 0 - 0 selalu (Sama seperti di ResolusiPBB)
-  const calculateVotes = () => {
-    return { pro: 0, con: 0 };
-  };
-
-  const voteStats = calculateVotes();
+  // 🔥 PERUBAHAN: Vote stats dihitung oleh helper keamananPBB_logic.ts
 
   const handleSubmit = () => {
     if (!selectedTarget) {
