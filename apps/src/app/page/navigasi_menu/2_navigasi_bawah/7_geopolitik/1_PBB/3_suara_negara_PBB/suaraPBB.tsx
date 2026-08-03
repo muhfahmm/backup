@@ -1,16 +1,13 @@
 ﻿"use client"
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useMemo } from "react";
 import { Vote } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
+import { STATIC_PBB_VOTES } from "./staticVoteData";
 
-interface CountryVoteData {
-  __fileName?: string;
-  name_id?: string;
-  country?: string;
-  name_en?: string;
-  un_vote?: number;
+interface CountryVoteRow {
+  name_id: string;
   iso?: string;
-  flag?: string;
+  un_vote: number;
 }
 
 const normalizeName = (value?: string) => {
@@ -41,59 +38,29 @@ const renderFlag = (iso?: string, fallbackName?: string) => {
   );
 };
 
-const getIsoByName = () => {
-  const map = new Map<string, string>();
-  for (const country of COUNTRIES_DATA) {
-    const normalized = normalizeName(country.country);
-    if (normalized) {
-      map.set(normalized, country.iso?.toLowerCase() || "");
-    }
-  }
-  return map;
-};
-
 export default function SuaraPBB() {
-  const [countryVotes, setCountryVotes] = useState<CountryVoteData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const isoByName = useMemo(() => getIsoByName(), []);
-
-  useEffect(() => {
-    const loadCountryVotes = async () => {
-      setIsLoading(true);
-      try {
-        const res = await fetch("/api/country-data?all=true");
-        const data = await res.json();
-
-        if (!Array.isArray(data)) {
-          setCountryVotes([]);
-          return;
-        }
-
-        const mapped = data
-          .map((item: any) => {
-            const name = item.name_id || item.country || item.name_en;
-            const normalized = normalizeName(name);
-            const iso = item.iso || isoByName.get(normalized);
-            return {
-              ...item,
-              iso,
-            } as CountryVoteData;
-          })
-          .filter((item) => typeof item.un_vote === "number")
-          .sort((a, b) => (b.un_vote ?? 0) - (a.un_vote ?? 0));
-
-        setCountryVotes(mapped);
-      } catch (error) {
-        console.error("Failed to load PBB vote data:", error);
-        setCountryVotes([]);
-      } finally {
-        setIsLoading(false);
+  const countryVotes = useMemo<CountryVoteRow[]>(() => {
+    const byName = new Map<string, string>();
+    for (const country of COUNTRIES_DATA) {
+      const normalized = normalizeName(country.country);
+      if (normalized) {
+        byName.set(normalized, country.iso?.toLowerCase() || "");
       }
-    };
+    }
 
-    loadCountryVotes();
-  }, [isoByName]);
+    return STATIC_PBB_VOTES
+      .map((entry) => {
+        const normalized = normalizeName(entry.name_id);
+        const iso = byName.get(normalized);
+        return {
+          name_id: entry.name_id,
+          iso,
+          un_vote: entry.un_vote,
+        } satisfies CountryVoteRow;
+      })
+      .filter((entry) => typeof entry.un_vote === "number")
+      .sort((a, b) => (b.un_vote ?? 0) - (a.un_vote ?? 0));
+  }, []);
 
   return (
     <div className="bg-white/70 border border-[#C4B49C]/30 p-6 rounded-xl shadow-sm">
@@ -103,7 +70,7 @@ export default function SuaraPBB() {
           <h4 className="text-sm font-black text-[#5c3c10] uppercase">Suara Negara di Majelis Umum</h4>
         </div>
         <div className="text-[10px] font-black uppercase tracking-widest text-[#8b7e66]">
-          {isLoading ? "Memuat data..." : `${countryVotes.length} negara`}
+          {countryVotes.length} negara
         </div>
       </div>
 
@@ -118,23 +85,12 @@ export default function SuaraPBB() {
           </thead>
           <tbody className="divide-y divide-[#C4B49C]/20">
             {countryVotes.map((item, idx) => (
-              <tr key={`${item.__fileName ?? item.country ?? item.name_id ?? item.name_en}-${idx}`} className="hover:bg-[#e4dac3]/20 transition-colors">
-                <td className="px-3 py-2 font-bold text-[#5c3c10]">
-                  {item.name_id || item.country || item.name_en || "-"}
-                </td>
-                <td className="px-3 py-2">
-                  {renderFlag(item.iso, item.name_id || item.country || item.name_en)}
-                </td>
-                <td className="px-3 py-2 font-bold text-[#8b7e66]">{item.un_vote ?? 0}</td>
+              <tr key={`${item.name_id}-${idx}`} className="hover:bg-[#e4dac3]/20 transition-colors">
+                <td className="px-3 py-2 font-bold text-[#5c3c10]">{item.name_id}</td>
+                <td className="px-3 py-2">{renderFlag(item.iso, item.name_id)}</td>
+                <td className="px-3 py-2 font-bold text-[#8b7e66]">{item.un_vote}</td>
               </tr>
             ))}
-            {!isLoading && countryVotes.length === 0 && (
-              <tr>
-                <td colSpan={3} className="px-3 py-4 text-center text-[#8b7e66]">
-                  Data suara PBB belum tersedia.
-                </td>
-              </tr>
-            )}
           </tbody>
         </table>
       </div>
