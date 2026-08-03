@@ -9,7 +9,6 @@ interface KeamananPBBProps {
   selectedCountry: any;
 }
 
-// 1. Daftar Aksi & Ikon (Sesuai 6 ikon di gambar)
 const RESOLUTION_ACTIONS = [
   { id: 'military', icon: Angry, label: 'Invasi Militer', desc: 'Semua tentara bersatu dari semua negara menyerang negara yang dipilih.' },
   { id: 'support', icon: Smile, label: 'Dukung Negara', desc: 'Dukungan kepada negara yang dipilih meningkatkan hubungan diplomatiknya dengan semua negara lain sebesar 10 unit.' },
@@ -22,27 +21,22 @@ const RESOLUTION_ACTIONS = [
 const DURATION_OPTIONS = ['1 bulan', '3 bulan', '6 bulan', '9 bulan', '1 tahun'];
 
 export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
-  // State Modal & Accordion
   const [isResolusiModalOpen, setIsResolusiModalOpen] = useState(false);
   const [isMembershipOpen, setIsMembershipOpen] = useState(false);
 
-  // State Pilihan Aksi
   const [selectedType, setSelectedType] = useState<string>("military");
   const [selectedDuration, setSelectedDuration] = useState<string>("1 bulan");
   const [selectedTarget, setSelectedTarget] = useState<any>(null);
   
-  // State untuk Dropdown
   const [isDurationOpen, setIsDurationOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
   
   const durationRef = useRef<HTMLDivElement>(null);
   const countryRef = useRef<HTMLDivElement>(null);
 
-  // State untuk Data Negara
   const [countries, setCountries] = useState<any[]>([]);
   const [allies, setAllies] = useState<any[]>([]);
 
-  // Daftar Anggota Dewan Keamanan
   const permanentMembers = [
     { iso: 'us', name: 'Amerika Serikat' },
     { iso: 'gb', name: 'Inggris' },
@@ -64,10 +58,8 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   ];
   const allCountries = [...permanentMembers, ...nonPermanentMembers];
 
-  // ===== LOGIKA DATA NEGARA & HUBUNGAN DAGANG =====
   useEffect(() => {
     setCountries(allCountries);
-    
     if (allCountries.length > 0) {
       const userCountryId = selectedCountry?.id || 0;
       const seed = (userCountryId * 31 + 7) % allCountries.length;
@@ -75,7 +67,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
       const alliesList = [];
       const usedIndices = new Set();
       usedIndices.add(userCountryId);
-      
       let attempts = 0;
       while (alliesList.length < totalAllies && attempts < 1000) {
         const randomIndex = (seed + attempts * 13) % allCountries.length;
@@ -89,21 +80,15 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     }
   }, [selectedCountry]);
 
-  // ===== UI DROPDOWN CLOSE =====
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (durationRef.current && !durationRef.current.contains(event.target as Node)) {
-        setIsDurationOpen(false);
-      }
-      if (countryRef.current && !countryRef.current.contains(event.target as Node)) {
-        setIsCountryOpen(false);
-      }
+      if (durationRef.current && !durationRef.current.contains(event.target as Node)) setIsDurationOpen(false);
+      if (countryRef.current && !countryRef.current.contains(event.target as Node)) setIsCountryOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ===== HELPER RENDER BENDERA =====
   const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" = "md") => {
     if (!iso || iso.length !== 2) return null;
     const wClass = size === "sm" ? "w-5 h-3.5" : "w-6 h-4";
@@ -119,7 +104,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     );
   };
 
-  // ===== LOGIKA PERHITUNGAN SUARA =====
   const calculateVotes = () => {
     const totalCountries = countries.length || 15;
     if (!selectedTarget) return { pro: 0, con: totalCountries };
@@ -131,7 +115,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
 
   const voteStats = calculateVotes();
 
-  // ===== LOGIKA SUBMIT =====
   const handleSubmit = () => {
     if (!selectedTarget) {
       alert("Silakan pilih negara target terlebih dahulu!");
@@ -147,7 +130,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   return (
     <div className="space-y-6 w-full">
       
-      {/* Bagian 1: Keanggotaan Dewan Keamanan */}
       <div className="bg-white/70 border border-[#C4B49C]/30 rounded-xl shadow-sm overflow-hidden">
         <button onClick={() => setIsMembershipOpen(!isMembershipOpen)} className="w-full flex items-center justify-between px-6 py-4 bg-[#FAF6EE]/80 border-b border-[#C4B49C]/30 cursor-pointer hover:bg-[#e4dac3]/40 transition-colors">
           <div className="flex items-center gap-3"><Shield className="h-5 w-5 text-[#5c3c10]" /><h4 className="text-sm font-black text-[#5c3c10] uppercase">Keanggotaan Dewan Keamanan PBB</h4><div className="flex gap-2 ml-2"><span className="text-[10px] font-bold bg-amber-600/10 text-amber-700 px-2 py-1 rounded-lg border border-amber-600/20">5 Tetap</span><span className="text-[10px] font-bold bg-blue-600/10 text-blue-700 px-2 py-1 rounded-lg border border-blue-600/20">10 Tidak Tetap</span></div></div>
@@ -169,40 +151,35 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       </div>
 
-      {/* Bagian 2: Tombol Buat Resolusi Baru */}
       <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 mt-4">
         <button onClick={() => setIsResolusiModalOpen(true)} className="px-6 py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/30 text-xs font-black uppercase tracking-wider hover:bg-[#8b7e66] active:scale-95 transition-all cursor-pointer"><Shield className="h-4 w-4 inline mr-2 -mt-0.5" /> Buat Resolusi Baru</button>
       </div>
 
-      {/* 🔥 PERBAIKAN UKURAN MODAL: DIPERBESAR SETARA DENGAN PARENT (max-w-6xl h-[84vh]) */}
       {isResolusiModalOpen && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
             
-            {/* HEADER MODAL (shrink-0) */}
-            <div className="flex items-center justify-between px-8 py-6 border-b-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
+            {/* 🔥 HEADER DIPERBAHARUI (PX-8 PY-6, FONT-BOLD, TOMBOL TUTUP DENGAN BORDER) */}
+            <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
                   <Shield className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-[#5c3c10] uppercase tracking-tight">Resolusi Dewan Keamanan</h3>
-                  <p className="text-xs text-[#8b7e66] font-bold mt-0.5">Pilih jenis resolusi, durasi, dan negara target.</p>
+                  <h3 className="text-2xl font-bold text-[#5c3c10] uppercase tracking-tight">Resolusi Dewan Keamanan</h3>
                 </div>
               </div>
-              <button onClick={() => setIsResolusiModalOpen(false)} className="p-2 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer">
-                <X className="h-6 w-6" />
+              <button onClick={() => setIsResolusiModalOpen(false)} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* BODY MODAL (flex-1, konten dibatasi di tengah agar tidak terlalu tersebar) */}
-            <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center">
+            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center">
               <div className="w-full max-w-4xl space-y-8">
-                
-                {/* 1. ROW IKON AKSI */}
                 <div>
                   <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
-                  <div className="flex flex-wrap justify-center items-center gap-4">
+                  <div className="flex flex-wrap justify-center items-center gap-6">
                     {RESOLUTION_ACTIONS.map((action) => {
                       const Icon = action.icon;
                       const isActive = selectedType === action.id;
@@ -210,22 +187,21 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                         <button
                           key={action.id}
                           onClick={() => setSelectedType(action.id)}
-                          className={`p-3 rounded-xl border-2 transition-all cursor-pointer flex flex-col items-center justify-center w-16 h-16 group ${
+                          className={`p-2 rounded-xl border-2 transition-all cursor-pointer flex flex-col items-center justify-center w-20 h-20 group ${
                             isActive
                               ? 'border-[#367d7a] bg-[#367d7a]/10 shadow-sm text-[#367d7a]'
                               : 'border-transparent text-[#8b7e66] hover:border-[#C4B49C]/50 hover:bg-[#e4dac3]/40'
                           }`}
                           title={action.label}
                         >
-                          <Icon className={`w-6 h-6 ${isActive ? 'fill-[#367d7a]/20' : ''}`} />
-                          <span className="text-[8px] font-bold mt-1 text-center leading-tight">{action.label}</span>
+                          <Icon className={`w-8 h-8 ${isActive ? 'fill-[#367d7a]/20' : ''}`} />
+                          <span className="text-[10px] font-bold mt-1.5 text-center leading-tight">{action.label}</span>
                         </button>
                       );
                     })}
                   </div>
                 </div>
 
-                {/* 2. JUDUL & DESKRIPSI AKSI */}
                 {selectedType && (
                   <div className="text-center">
                     <h3 className="text-2xl font-black text-[#2e261a] uppercase tracking-tight">
@@ -237,7 +213,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   </div>
                 )}
 
-                {/* 3. DROPDOWN DURASI & NEGARA (Layout 2 Kolom) */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih durasi:</p>
@@ -257,11 +232,11 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   </div>
 
                   <div>
-                    <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih negara target:</p>
+                    <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih negara:</p>
                     <div className="relative" ref={countryRef}>
                       <button type="button" onClick={() => setIsCountryOpen(!isCountryOpen)} className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl bg-[#367d7a] text-white border border-[#285e5c] shadow-md hover:brightness-110 transition-all cursor-pointer">
                         <div className="flex items-center gap-3 truncate">
-                          {selectedTarget ? (<>{renderFlag(selectedTarget.iso, selectedTarget.name, "sm")}<span className="text-sm font-bold truncate">{selectedTarget.name}</span></>) : (<span className="text-sm font-bold opacity-80">-- Pilih Negara --</span>)}
+                          {selectedTarget ? (<>{renderFlag(selectedTarget.iso, selectedTarget.name, "sm")}<span className="text-sm font-bold truncate">{selectedTarget.name}</span></>) : (<span className="text-sm font-bold opacity-80">-- Pilih --</span>)}
                         </div>
                         <ChevronDown className={`w-4 h-4 text-white/70 transition-transform ${isCountryOpen ? 'rotate-180' : ''}`} />
                       </button>
@@ -274,27 +249,30 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   </div>
                 </div>
 
-                {/* 4. DURASI VOTING */}
                 <div className="flex items-center justify-center gap-4">
                   <span className="text-sm font-bold text-[#8b7e66]">Durasi pemungutan suara:</span>
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 5. KOTAK PRAKIRAAN SUARA */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
-                    <div className="flex flex-col items-center"><span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span><span className="text-3xl font-black text-emerald-700">{voteStats.pro}</span></div>
-                    <div className="flex flex-col items-center"><span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span><span className="text-3xl font-black text-rose-700">{voteStats.con}</span></div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
+                      <span className="text-3xl font-black text-emerald-700">{voteStats.pro}</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
+                      <span className="text-3xl font-black text-rose-700">{voteStats.con}</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* FOOTER MODAL (shrink-0) */}
             <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
               <button onClick={() => setIsResolusiModalOpen(false)} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Batal</button>
-              <button onClick={handleSubmit} className="px-8 py-3 rounded-xl bg-[#367d7a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">Tambahkan Resolusi</button>
+              <button onClick={handleSubmit} className="px-8 py-3 rounded-xl bg-[#367d7a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">Tambahkan</button>
             </div>
 
           </div>

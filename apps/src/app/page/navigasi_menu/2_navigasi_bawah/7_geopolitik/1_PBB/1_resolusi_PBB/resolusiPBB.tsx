@@ -36,13 +36,11 @@ const formatCountryName = (name: string) => {
 export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   const [showCreateModal, setShowCreateModal] = useState(false);
 
-  // ===== STATE PILIHAN AKSI =====
   const [selectedType, setSelectedType] = useState<string>("war_ban");
   const [selectedDuration, setSelectedDuration] = useState<string>("1 bulan");
   const [selectedTarget, setSelectedTarget] = useState<any>(null);
   const [selectedProduct, setSelectedProduct] = useState<string>("Kayu");
 
-  // State untuk Dropdown
   const [isDurationOpen, setIsDurationOpen] = useState(false);
   const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [isProductOpen, setIsProductOpen] = useState(false);
@@ -51,15 +49,12 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   const countryRef = useRef<HTMLDivElement>(null);
   const productRef = useRef<HTMLDivElement>(null);
 
-  // State untuk Data Negara & Hubungan Dagang
   const [countries, setCountries] = useState<any[]>([]);
   const [allies, setAllies] = useState<any[]>([]); 
 
-  // State untuk Modal Daftar Setuju / Menolak
   const [showSupportersModal, setShowSupportersModal] = useState(false);
   const [showOpponentsModal, setShowOpponentsModal] = useState(false);
 
-  // 5 Aksi Resolusi (Sesuai gambar)
   const RESOLUTION_ACTIONS = [
     { id: 'war_ban', icon: Swords, label: 'Larangan Perang', desc: 'Dilarang menyerang negara ini selama periode yang dipilih.' },
     { id: 'arms_embargo', icon: ShieldBan, label: 'Embargo Penjualan Senjata', desc: 'Perdagangan senjata dilarang selama periode yang dipilih.' },
@@ -71,7 +66,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   const DURATION_OPTIONS = ['1 bulan', '3 bulan', '6 bulan', '9 bulan', '1 tahun'];
   const PRODUCT_OPTIONS = ['Kayu', 'Semen', 'Baja', 'Mobil', 'Senjata'];
 
-  // ===== LOGIKA DATA NEGARA & HUBUNGAN DAGANG =====
   useEffect(() => {
     if (COUNTRIES_DATA && Array.isArray(COUNTRIES_DATA)) {
       const formatted = COUNTRIES_DATA.filter((c) => c.country && c.iso).map((c) => ({
@@ -85,18 +79,15 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     }
   }, []);
 
-  // 🔥 PERBAIKAN: Tambahkan guard clause (Array.isArray) agar TypeScript yakin countries adalah array
   useEffect(() => {
     const safeCountries = Array.isArray(countries) ? countries : [];
     if (safeCountries.length === 0) return;
-    
     const userCountryId = selectedCountry?.id || 0;
     const seed = (userCountryId * 31 + 7) % safeCountries.length;
     const totalAllies = Math.floor(20 + (seed % 20));
     const alliesList: any[] = [];
     const usedIndices = new Set();
     usedIndices.add(userCountryId);
-    
     let attempts = 0;
     while (alliesList.length < totalAllies && attempts < 1000) {
       const randomIndex = (seed + attempts * 13) % safeCountries.length;
@@ -109,7 +100,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     setAllies(alliesList);
   }, [countries, selectedCountry]);
 
-  // ===== UI DROPDOWN CLOSE =====
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (durationRef.current && !durationRef.current.contains(event.target as Node)) setIsDurationOpen(false);
@@ -120,19 +110,13 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // ===== LOGIKA PERHITUNGAN SUARA =====
   const calculateVotes = () => {
     const safeCountries = Array.isArray(countries) ? countries : [];
-    
-    // 🔥 Jika Larangan Produksi, tetap kembalikan array kosong agar UI menampilkan 0 & 0
     if (selectedType === 'production_ban') return { supporters: [], opponents: [], total: 0 };
-    
     if (!selectedTarget || safeCountries.length === 0) return { supporters: [], opponents: [], total: 0 };
-    
     const isTargetAlly = allies.some(ally => ally.id === selectedTarget.id);
     let supporters: any[] = [];
     let opponents: any[] = [];
-    
     if (isTargetAlly) {
       supporters = safeCountries.filter(c => !allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
       opponents = safeCountries.filter(c => allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
@@ -146,7 +130,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   const voteStats = calculateVotes();
   const isProductionBan = selectedType === 'production_ban';
 
-  // ===== LOGIKA SUBMIT =====
   const handleSubmitResolution = () => {
     if (isProductionBan) {
       alert(`Resolusi berhasil diajukan!\n\nJenis: Larangan Produksi\nDurasi: ${selectedDuration}\nProduk: ${selectedProduct}`);
@@ -178,7 +161,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   return (
     <div className="space-y-4 relative">
       
-      {/* UI Utama: Halaman Kosong Elegan */}
       <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
         <div className="p-3 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20">
           <FileText className="h-8 w-8 text-[#5c3c10]" />
@@ -198,35 +180,30 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </button>
       </div>
 
-      {/* 🔥 MODAL UTAMA DENGAN DESAIN GAMBAR & UKURAN BESAR SEPERTI PARENT */}
       {showCreateModal && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
             
-            {/* HEADER MODAL */}
-            <div className="flex items-center justify-between px-8 py-6 border-b-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
+            {/* 🔥 HEADER DIPERBAHARUI (PX-8 PY-6, FONT-BOLD, TOMBOL TUTUP DENGAN BORDER) */}
+            <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
                   <FileText className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-black text-[#5c3c10] uppercase tracking-tight">Resolusi Sidang Umum</h3>
-                  <p className="text-xs text-[#8b7e66] font-bold mt-0.5">Pilih aksi, durasi, dan target resolusi Anda.</p>
+                  <h3 className="text-2xl font-bold text-[#5c3c10] uppercase tracking-tight">Resolusi Sidang Umum</h3>
                 </div>
               </div>
-              <button onClick={() => { setIsCountryOpen(false); setIsProductOpen(false); setShowCreateModal(false); }} className="p-2 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer">
-                <X className="h-6 w-6" />
+              <button onClick={() => { setIsCountryOpen(false); setIsProductOpen(false); setShowCreateModal(false); }} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                <X className="h-5 w-5" />
               </button>
             </div>
 
-            {/* BODY MODAL */}
-            <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center">
+            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center">
               <div className="w-full max-w-4xl space-y-8">
-                
-                {/* 1. ROW IKON AKSI (DIPERBESAR SESUAI PERMINTAAN) */}
                 <div>
                   <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
-                  {/* 🔥 Ganti gap-4 menjadi gap-6 agar tombol besar tidak saling menempel */}
                   <div className="flex flex-wrap justify-center items-center gap-6">
                     {RESOLUTION_ACTIONS.map((action) => {
                       const Icon = action.icon;
@@ -242,9 +219,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                           }`}
                           title={action.label}
                         >
-                          {/* 🔥 PERBESAR IKON: w-8 h-8 */}
                           <Icon className={`w-8 h-8 ${isActive ? 'fill-[#367d7a]/20' : ''}`} />
-                          {/* 🔥 PERBESAR TEXT: text-[10px] dan sedikit tambah margin atas */}
                           <span className="text-[10px] font-bold mt-1.5 text-center leading-tight">{action.label}</span>
                         </button>
                       );
@@ -252,7 +227,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   </div>
                 </div>
 
-                {/* 2. JUDUL & DESKRIPSI AKSI */}
                 {selectedType && (
                   <div className="text-center">
                     <h3 className="text-2xl font-black text-[#2e261a] uppercase tracking-tight">
@@ -264,9 +238,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   </div>
                 )}
 
-                {/* 3. DROPDOWN DURASI & TARGET */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  {/* Kolom Kiri: Durasi */}
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih durasi:</p>
                     <div className="relative" ref={durationRef}>
@@ -284,13 +256,11 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                     </div>
                   </div>
 
-                  {/* Kolom Kanan: Negara atau Produk */}
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">
                       {isProductionBan ? "Pilih produk:" : "Pilih negara:"}
                     </p>
                     
-                    {/* Dropdown Produk */}
                     {isProductionBan ? (
                       <div className="relative" ref={productRef}>
                         <button type="button" onClick={() => setIsProductOpen(!isProductOpen)} className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl bg-[#367d7a] text-white border border-[#285e5c] shadow-md hover:brightness-110 transition-all cursor-pointer">
@@ -306,7 +276,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                         )}
                       </div>
                     ) : (
-                      /* Dropdown Negara */
                       <div className="relative" ref={countryRef}>
                         <button type="button" onClick={() => setIsCountryOpen(!isCountryOpen)} className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl bg-[#367d7a] text-white border border-[#285e5c] shadow-md hover:brightness-110 transition-all cursor-pointer">
                           <div className="flex items-center gap-3 truncate">
@@ -324,13 +293,11 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   </div>
                 </div>
 
-                {/* 4. DURASI VOTING */}
                 <div className="flex items-center justify-center gap-4">
                   <span className="text-sm font-bold text-[#8b7e66]">Durasi pemungutan suara:</span>
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 5. KOTAK PRAKIRAAN SUARA */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
@@ -347,7 +314,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
               </div>
             </div>
 
-            {/* FOOTER MODAL */}
             <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
               <button onClick={() => { setIsCountryOpen(false); setIsProductOpen(false); setShowCreateModal(false); }} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Batal</button>
               <button onClick={handleSubmitResolution} className="px-8 py-3 rounded-xl bg-[#367d7a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">Tambahkan</button>
