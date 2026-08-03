@@ -1,11 +1,10 @@
 "use client"
 import React, { useState, useEffect, useRef } from "react";
-// 🔥 PERBAIKAN 2: Tambahkan ThumbsUp dan ThumbsDown ke dalam import
 import { FileText, Plus, ThumbsUp, ThumbsDown } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 
-// 🔥 IMPOR MODAL TERPISAH
-import AjuanResolusiModal, { VotingListModal } from "./ajuanResolusiPBB";
+// 🔥 IMPOR MODAL TERPISAH (Pastikan nama file di folder Anda adalah ajuanResolusiPBB.tsx)
+import AjuanResolusiModal, { VotingListModal } from "./1_ajuanResolusiPBB";
 
 interface ResolusiPBBProps {
   selectedCountry: any;
