@@ -46,8 +46,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   const [selectedTarget, setSelectedTarget] = useState<CountryOption | null>(null);
   
   const [isDurationOpen, setIsDurationOpen] = useState(false);
-  // 🔥 Hapus state isCountryOpen (diganti dengan modal)
-  // const [isCountryOpen, setIsCountryOpen] = useState(false);
   
   const durationRef = useRef<HTMLDivElement>(null);
 
@@ -341,7 +339,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       )}
 
-      {/* 🔥 MODAL KHUSUS UNTUK PILIH NEGARA (BERBASIS TAB BENUA) */}
+      {/* 🔥 MODAL KHUSUS UNTUK PILIH NEGARA (BERBASIS TAB BENUA & SUDAH DIFILTER) */}
       {isCountryModalOpen && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
@@ -384,31 +382,34 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   ))}
                 </div>
 
-                {/* 🔥 GRID NEGARA DARI BENUA TERPILIH */}
+                {/* 🔥 GRID NEGARA DARI BENUA TERPILIH (DENGAN FILTER) */}
                 {activeContinent && groupedCountries[activeContinent] && (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    {groupedCountries[activeContinent].map((c) => {
-                      const isSelected = selectedTarget?.id === c.id;
-                      return (
-                        <button
-                          key={c.id}
-                          onClick={() => {
-                            setSelectedTarget(c);
-                            setIsCountryModalOpen(false);
-                          }}
-                          className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${
-                            isSelected
-                              ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm'
-                              : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'
-                          }`}
-                        >
-                          {renderFlag(c.iso, c.name)}
-                          <span className={`text-[10px] font-bold mt-2 text-center leading-tight ${isSelected ? 'text-[#367d7a]' : 'text-[#5c3c10]'}`}>
-                            {c.name}
-                          </span>
-                        </button>
-                      );
-                    })}
+                    {groupedCountries[activeContinent]
+                      // 🔥 FILTER: Hapus negara user dari daftar pilihan
+                      .filter(c => c.id !== selectedCountry?.id)
+                      .map((c) => {
+                        const isSelected = selectedTarget?.id === c.id;
+                        return (
+                          <button
+                            key={c.id}
+                            onClick={() => {
+                              setSelectedTarget(c);
+                              setIsCountryModalOpen(false);
+                            }}
+                            className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${
+                              isSelected
+                                ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm'
+                                : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'
+                            }`}
+                          >
+                            {renderFlag(c.iso, c.name)}
+                            <span className={`text-[10px] font-bold mt-2 text-center leading-tight ${isSelected ? 'text-[#367d7a]' : 'text-[#5c3c10]'}`}>
+                              {c.name}
+                            </span>
+                          </button>
+                        );
+                      })}
                   </div>
                 )}
               </div>
