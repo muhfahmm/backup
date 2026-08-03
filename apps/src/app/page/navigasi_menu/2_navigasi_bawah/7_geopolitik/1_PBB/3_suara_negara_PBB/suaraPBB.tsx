@@ -4,11 +4,6 @@ import { Vote } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 import { STATIC_PBB_VOTES } from "./staticVoteData";
 
-interface SuaraPBBProps {
-  selectedCountry?: any;
-  countryDetail?: any;
-}
-
 interface CountryVoteRow {
   name_id: string;
   iso?: string;
@@ -43,7 +38,7 @@ const renderFlag = (iso?: string, fallbackName?: string) => {
   );
 };
 
-export default function SuaraPBB({ selectedCountry, countryDetail }: SuaraPBBProps) {
+export default function SuaraPBB() {
   const countryVotes = useMemo<CountryVoteRow[]>(() => {
     const byName = new Map<string, string>();
     for (const country of COUNTRIES_DATA) {
