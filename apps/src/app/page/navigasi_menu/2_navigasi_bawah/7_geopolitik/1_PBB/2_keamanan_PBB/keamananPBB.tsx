@@ -1,6 +1,9 @@
 "use client"
 import React, { useState } from "react";
-import { Shield, CheckCircle, XCircle, AlertCircle, FileText, Plus, X, ChevronDown } from "lucide-react";
+import { Shield, CheckCircle, XCircle, AlertCircle, FileText, Plus, ChevronDown } from "lucide-react";
+
+// 🔥 IMPOR MODAL YANG SUDAH DIPISAHKAN
+import KeamananResolusiModal from "./pengajuanResolusiModals";
 
 interface KeamananPBBProps {
   selectedCountry: any;
@@ -10,13 +13,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   const [votingState, setVotingState] = useState<"idle" | "voted" | "result">("idle");
   const [voteResult, setVoteResult] = useState<{ passed: boolean; message: string; voteCount: number; veto: string | null } | null>(null);
   
-  // State untuk Modal Buat Resolusi Baru
+  // 🔥 State untuk membuka modal yang sudah dipisahkan
   const [isResolusiModalOpen, setIsResolusiModalOpen] = useState(false);
-  const [newResolusiTitle, setNewResolusiTitle] = useState("");
-  const [newResolusiDesc, setNewResolusiDesc] = useState("");
-  const [newResolusiProposer, setNewResolusiProposer] = useState("");
 
-  // State untuk Dropdown Keanggotaan (Default tertutup / false)
+  // State untuk Dropdown Keanggotaan
   const [isMembershipOpen, setIsMembershipOpen] = useState(false);
 
   // Daftar 5 Anggota Tetap Dewan Keamanan (Memiliki Hak Veto)
@@ -42,7 +42,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     { iso: 'au', name: 'Australia' },
   ];
 
-  // PERBAIKAN: Cek dinamis berdasarkan selectedCountry
+  // Cek dinamis berdasarkan selectedCountry
   const countryName = selectedCountry?.country || "";
   const isUserSecurityCouncilMember = [...permanentMembers, ...nonPermanentMembers].some(
     (m) => m.name.toLowerCase() === countryName.toLowerCase()
@@ -70,7 +70,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     let yesVotes = 0;
     let vetoCountry: string | null = null;
 
-    // Simulasi voting P5 (randomized tapi sedikit manipulatif untuk keseruan)
     const p5Votes = permanentMembers.map((m) => {
       if (m.name === 'Amerika Serikat' && userVote === 'setuju') return 'setuju';
       if (m.name === 'Rusia' && userVote === 'menolak') return 'menolak'; 
@@ -81,14 +80,12 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
       return 'menolak'; 
     });
 
-    // Cek apakah ada Veto dari P5
     p5Votes.forEach((vote, index) => {
       if (vote === 'menolak') {
         vetoCountry = permanentMembers[index].name;
       }
     });
 
-    // Simulasi voting 10 anggota tidak tetap
     const np5Votes = nonPermanentMembers.map(() => {
       const rand = Math.random();
       if (rand < 0.55) return 'setuju';
@@ -96,11 +93,9 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
       return 'menolak';
     });
 
-    // Gabungkan dan hitung suara Setuju
     const allVotes = [...p5Votes, ...np5Votes];
     yesVotes = allVotes.filter((v) => v === 'setuju').length;
 
-    // Tentukan Hasil Akhir
     let resultMessage = "";
     let passed = false;
 
@@ -128,23 +123,24 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     setVoteResult(null);
   };
 
-  // Logika untuk membuat resolusi baru
-  const handleCreateResolusi = () => {
-    if (!newResolusiTitle || !newResolusiDesc || !newResolusiProposer) {
-      alert("Harap isi semua kolom!");
-      return;
-    }
-    alert(`Resolusi baru berhasil dibuat!\nJudul: ${newResolusiTitle}\nPengusul: ${newResolusiProposer}\nDeskripsi: ${newResolusiDesc}`);
-    
-    setNewResolusiTitle("");
-    setNewResolusiDesc("");
-    setNewResolusiProposer("");
-    setIsResolusiModalOpen(false);
+  // 🔥 Handler submit dari modal baru
+  const handleSubmitResolusi = (title: string, desc: string, proposer: string) => {
+    alert(`Resolusi baru berhasil dibuat!\nJudul: ${title}\nPengusul: ${proposer}\nDeskripsi: ${desc}`);
   };
 
   return (
     <div className="space-y-6">
       
+      {/* 🔥 RENDER MODAL DARI FILE EKSTERNAL */}
+      <KeamananResolusiModal
+        isOpen={isResolusiModalOpen}
+        onClose={() => setIsResolusiModalOpen(false)}
+        onSubmit={handleSubmitResolusi}
+        isUserSecurityCouncilMember={isUserSecurityCouncilMember}
+        permanentMembers={permanentMembers}
+        nonPermanentMembers={nonPermanentMembers}
+      />
+
       {/* Bagian 1: Keanggotaan Dewan Keamanan (Accordion) */}
       <div className="bg-white/70 border border-[#C4B49C]/30 rounded-xl shadow-sm overflow-hidden">
         <button
@@ -207,7 +203,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       </div>
 
-      {/* Bagian 2: Tombol Buat Resolusi Baru (Besar & Elegan) */}
+      {/* Bagian 2: Tombol Buat Resolusi Baru */}
       <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4">
         <button
           onClick={() => setIsResolusiModalOpen(true)}
@@ -217,108 +213,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
           Buat Resolusi Baru
         </button>
       </div>
-
-      {/* MODAL: Buat Resolusi Baru / Cek Akses */}
-      {isResolusiModalOpen && (
-        <div className="absolute inset-0 bg-black/60 z-20 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
-          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-lg w-full p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
-            
-            <button
-              onClick={() => setIsResolusiModalOpen(false)}
-              className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-            >
-              <X className="h-5 w-5" />
-            </button>
-
-            {!isUserSecurityCouncilMember ? (
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="p-2 bg-rose-600/10 rounded-xl border border-rose-600/20">
-                    <XCircle className="h-6 w-6 text-rose-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Akses Ditolak</h3>
-                    <p className="text-xs text-[#8b7e66] font-bold">Hanya Dewan Keamanan yang dapat membuat resolusi.</p>
-                  </div>
-                </div>
-                <p className="text-sm text-[#8b7e66] font-medium leading-relaxed mb-6">
-                  Negara Anda saat ini <span className="font-bold text-rose-700">bukanlah anggota Dewan Keamanan PBB</span>. 
-                  Untuk mengusulkan resolusi, negara Anda harus terpilih sebagai anggota tidak tetap atau memiliki kursi tetap.
-                </p>
-                <button
-                  onClick={() => setIsResolusiModalOpen(false)}
-                  className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] text-xs font-black uppercase tracking-widest hover:bg-[#3d2911] transition-all cursor-pointer"
-                >
-                  Mengerti
-                </button>
-              </div>
-            ) : (
-              <div>
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
-                    <FileText className="h-6 w-6 text-blue-600" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Usulkan Resolusi Baru</h3>
-                    <p className="text-xs text-[#8b7e66] font-bold">Isi detail resolusi untuk diajukan ke Dewan Keamanan.</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div>
-                    <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-1">Judul Resolusi</label>
-                    <input
-                      type="text"
-                      value={newResolusiTitle}
-                      onChange={(e) => setNewResolusiTitle(e.target.value)}
-                      placeholder="Contoh: Resolusi Perdamaian Kawasan ..."
-                      className="w-full px-4 py-2.5 bg-white border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-1">Deskripsi / Isi Resolusi</label>
-                    <textarea
-                      value={newResolusiDesc}
-                      onChange={(e) => setNewResolusiDesc(e.target.value)}
-                      placeholder="Jelaskan poin-poin penting resolusi..."
-                      rows={3}
-                      className="w-full px-4 py-2.5 bg-white border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all resize-none"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-1">Negara Pengusul (Delegasi)</label>
-                    <select
-                      value={newResolusiProposer}
-                      onChange={(e) => setNewResolusiProposer(e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all"
-                    >
-                      <option value="">Pilih negara pengusul...</option>
-                      {[...permanentMembers, ...nonPermanentMembers].map((m) => (
-                        <option key={m.iso} value={m.name}>{m.name}</option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div className="flex gap-3 mt-6">
-                  <button
-                    onClick={() => setIsResolusiModalOpen(false)}
-                    className="flex-1 py-3 rounded-xl border-2 border-[#C4B49C] text-[#5c3c10] text-xs font-black uppercase tracking-widest hover:bg-[#e4dac3]/50 transition-all cursor-pointer"
-                  >
-                    Batal
-                  </button>
-                  <button
-                    onClick={handleCreateResolusi}
-                    className="flex-1 py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] text-xs font-black uppercase tracking-widest hover:bg-[#3d2911] transition-all cursor-pointer"
-                  >
-                    Ajukan Resolusi
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
-      )}
 
     </div>
   );
