@@ -240,7 +240,8 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
               </button>
             </div>
 
-            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center">
+            {/* 🔥 BODY MODAL - DITAMBAHKAN OVERFLOW YANG AMAN */}
+            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center overflow-y-auto no-scrollbar">
               <div className="w-full max-w-4xl space-y-8">
                 <div>
                   <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
