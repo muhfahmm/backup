@@ -158,13 +158,9 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 🔥 PERUBAHAN: Logika vote di-set menjadi 0 - 0 selalu (Sama seperti di ResolusiPBB)
   const calculateVotes = () => {
-    const totalCountries = countries.length || 15;
-    if (!selectedTarget) return { pro: 0, con: totalCountries };
-    const isTargetAlly = allies.some(ally => ally.id === selectedTarget.id);
-    const proVotes = isTargetAlly ? 1 : allies.length; 
-    const conVotes = Math.max(0, totalCountries - proVotes);
-    return { pro: proVotes, con: conVotes };
+    return { pro: 0, con: 0 };
   };
 
   const voteStats = calculateVotes();
@@ -301,7 +297,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                             <span className="text-sm font-bold truncate">{selectedTarget.name}</span>
                           </>
                         ) : (
-                          <span className="text-sm font-bold opacity-80">-- Pilih Negara via Modal --</span>
+                          <span className="text-sm font-bold opacity-80">-- Pilih Negara --</span>
                         )}
                       </div>
                       <ChevronDown className="w-4 h-4 text-white/70" />
@@ -314,6 +310,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
+                {/* 🔥 KOTAK PRAKIRAAN SUARA (SEKARANG MENAMPILKAN 0 - 0) */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">

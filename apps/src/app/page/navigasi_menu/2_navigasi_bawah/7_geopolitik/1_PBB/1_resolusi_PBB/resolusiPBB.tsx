@@ -140,21 +140,10 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 🔥 PERUBAHAN: Logika vote di-set menjadi 0 - 0 selalu
+  // Karena logika setuju/menolak belum siap, kita hardcode menjadi 0
   const calculateVotes = () => {
-    const safeCountries = Array.isArray(countries) ? countries : [];
-    if (selectedType === 'production_ban') return { supporters: [], opponents: [], total: 0 };
-    if (!selectedTarget || safeCountries.length === 0) return { supporters: [], opponents: [], total: 0 };
-    const isTargetAlly = allies.some(ally => ally.id === selectedTarget.id);
-    let supporters: any[] = [];
-    let opponents: any[] = [];
-    if (isTargetAlly) {
-      supporters = safeCountries.filter(c => !allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
-      opponents = safeCountries.filter(c => allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
-    } else {
-      supporters = allies;
-      opponents = safeCountries.filter(c => !allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
-    }
-    return { supporters, opponents, total: safeCountries.length };
+    return { supporters: 0, opponents: 0, total: 0 };
   };
 
   const voteStats = calculateVotes();
@@ -171,8 +160,8 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
       return;
     }
     const activeAction = RESOLUTION_ACTIONS.find(a => a.id === selectedType);
-    const supportersCount = Array.isArray(voteStats.supporters) ? voteStats.supporters.length : 0;
-    const opponentsCount = Array.isArray(voteStats.opponents) ? voteStats.opponents.length : 0;
+    const supportersCount = typeof voteStats.supporters === 'number' ? voteStats.supporters : 0;
+    const opponentsCount = typeof voteStats.opponents === 'number' ? voteStats.opponents : 0;
     const passed = supportersCount > opponentsCount;
     
     alert(
@@ -327,7 +316,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                               <span className="text-sm font-bold truncate">{selectedTarget.name}</span>
                             </>
                           ) : (
-                            <span className="text-sm font-bold opacity-80">-- Pilih Negara via Modal --</span>
+                            <span className="text-sm font-bold opacity-80">-- Pilih Negara --</span>
                           )}
                         </div>
                         <ChevronDown className="w-4 h-4 text-white/70" />
@@ -342,17 +331,21 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 5. KOTAK PRAKIRAAN SUARA */}
+                {/* 5. KOTAK PRAKIRAAN SUARA (SEKARANG MENAMPILKAN 0 - 0) */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
                     <div className="flex flex-col items-center">
                       <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
-                      <span className="text-3xl font-black text-emerald-700">{Array.isArray(voteStats.supporters) ? voteStats.supporters.length : 0}</span>
+                      <span className="text-3xl font-black text-emerald-700">
+                        {typeof voteStats.supporters === 'number' ? voteStats.supporters : 0}
+                      </span>
                     </div>
                     <div className="flex flex-col items-center">
                       <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
-                      <span className="text-3xl font-black text-rose-700">{Array.isArray(voteStats.opponents) ? voteStats.opponents.length : 0}</span>
+                      <span className="text-3xl font-black text-rose-700">
+                        {typeof voteStats.opponents === 'number' ? voteStats.opponents : 0}
+                      </span>
                     </div>
                   </div>
                 </div>
