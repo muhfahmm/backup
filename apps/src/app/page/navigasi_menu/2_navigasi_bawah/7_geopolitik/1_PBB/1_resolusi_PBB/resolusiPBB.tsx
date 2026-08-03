@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, FileText, Plus, CheckCircle, ChevronDown, Users, ThumbsUp, ThumbsDown, 
   Clock, Swords, ShieldBan, Coins, Bomb, Package 
@@ -8,6 +8,14 @@ import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 
 interface ResolusiPBBProps {
   selectedCountry: any;
+}
+
+// 🔥 Definisi tipe data negara
+interface CountryOption {
+  id: number;
+  name: string;
+  iso: string;
+  continent: string;
 }
 
 // Fungsi helper untuk menampilkan bendera (Anti broken image)
@@ -38,19 +46,21 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
 
   const [selectedType, setSelectedType] = useState<string>("war_ban");
   const [selectedDuration, setSelectedDuration] = useState<string>("1 bulan");
-  const [selectedTarget, setSelectedTarget] = useState<any>(null);
+  const [selectedTarget, setSelectedTarget] = useState<CountryOption | null>(null);
   const [selectedProduct, setSelectedProduct] = useState<string>("Kayu");
 
+  // 🔥 STATE BARU: Modal Pemilihan Negara & Benua Aktif
+  const [isCountryModalOpen, setIsCountryModalOpen] = useState(false);
+  const [activeContinent, setActiveContinent] = useState<string>("");
+
   const [isDurationOpen, setIsDurationOpen] = useState(false);
-  const [isCountryOpen, setIsCountryOpen] = useState(false);
   const [isProductOpen, setIsProductOpen] = useState(false);
   
   const durationRef = useRef<HTMLDivElement>(null);
-  const countryRef = useRef<HTMLDivElement>(null);
   const productRef = useRef<HTMLDivElement>(null);
 
-  const [countries, setCountries] = useState<any[]>([]);
-  const [allies, setAllies] = useState<any[]>([]); 
+  const [countries, setCountries] = useState<CountryOption[]>([]);
+  const [allies, setAllies] = useState<CountryOption[]>([]); 
 
   const [showSupportersModal, setShowSupportersModal] = useState(false);
   const [showOpponentsModal, setShowOpponentsModal] = useState(false);
@@ -72,13 +82,33 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         id: c.id,
         name: formatCountryName(c.country),
         iso: c.iso.toLowerCase(),
+        continent: c.continent || 'Lainnya' // Mengambil continent dari data
       }));
       setCountries(formatted);
     } else {
-      setCountries([{ id: 0, name: "Indonesia (Fallback)", iso: "id" }]);
+      setCountries([{ id: 0, name: "Indonesia (Fallback)", iso: "id", continent: "Asia" }]);
     }
   }, []);
 
+  // 🔥 Kelompokkan data Negara berdasarkan Benua
+  const groupedCountries = useMemo<Record<string, CountryOption[]>>(() => {
+    return countries.reduce((acc, country) => {
+      const continent = country.continent || 'Lainnya';
+      if (!acc[continent]) acc[continent] = [];
+      acc[continent].push(country);
+      return acc;
+    }, {} as Record<string, CountryOption[]>);
+  }, [countries]);
+
+  // 🔥 Ketika groupedCountries berubah, atur activeContinent ke benua pertama
+  useEffect(() => {
+    const keys = Object.keys(groupedCountries);
+    if (keys.length > 0 && !activeContinent) {
+      setActiveContinent(keys[0]);
+    }
+  }, [groupedCountries, activeContinent]);
+
+  // Generate simulasi teman dagang
   useEffect(() => {
     const safeCountries = Array.isArray(countries) ? countries : [];
     if (safeCountries.length === 0) return;
@@ -100,10 +130,10 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     setAllies(alliesList);
   }, [countries, selectedCountry]);
 
+  // Close dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (durationRef.current && !durationRef.current.contains(event.target as Node)) setIsDurationOpen(false);
-      if (countryRef.current && !countryRef.current.contains(event.target as Node)) setIsCountryOpen(false);
       if (productRef.current && !productRef.current.contains(event.target as Node)) setIsProductOpen(false);
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -161,6 +191,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
   return (
     <div className="space-y-4 relative">
       
+      {/* UI Utama: Halaman Kosong Elegan */}
       <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
         <div className="p-3 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20">
           <FileText className="h-8 w-8 text-[#5c3c10]" />
@@ -180,11 +211,12 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </button>
       </div>
 
+      {/* 🔥 MODAL UTAMA AJUKAN RESOLUSI */}
       {showCreateModal && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
             
-            {/* 🔥 HEADER DIPERBAHARUI (PX-8 PY-6, FONT-BOLD, TOMBOL TUTUP DENGAN BORDER) */}
+            {/* HEADER MODAL */}
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
@@ -192,16 +224,20 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold text-[#5c3c10] uppercase tracking-tight">Resolusi Sidang Umum</h3>
+                  <p className="text-xs text-[#8b7e66] font-bold mt-0.5">Pilih aksi, durasi, dan target resolusi Anda.</p>
                 </div>
               </div>
-              <button onClick={() => { setIsCountryOpen(false); setIsProductOpen(false); setShowCreateModal(false); }} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+              <button onClick={() => { setShowCreateModal(false); }} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
                 <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
                 <X className="h-5 w-5" />
               </button>
             </div>
 
+            {/* BODY MODAL */}
             <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center">
               <div className="w-full max-w-4xl space-y-8">
+                
+                {/* 1. ROW IKON AKSI */}
                 <div>
                   <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
                   <div className="flex flex-wrap justify-center items-center gap-6">
@@ -227,6 +263,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   </div>
                 </div>
 
+                {/* 2. JUDUL & DESKRIPSI AKSI */}
                 {selectedType && (
                   <div className="text-center">
                     <h3 className="text-2xl font-black text-[#2e261a] uppercase tracking-tight">
@@ -238,6 +275,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   </div>
                 )}
 
+                {/* 3. DROPDOWN DURASI & NEGARA */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih durasi:</p>
@@ -256,6 +294,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                     </div>
                   </div>
 
+                  {/* 🔥 KOLOM KANAN: PILIH NEGARA (MODAL BESAR) */}
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">
                       {isProductionBan ? "Pilih produk:" : "Pilih negara:"}
@@ -276,28 +315,34 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                         )}
                       </div>
                     ) : (
-                      <div className="relative" ref={countryRef}>
-                        <button type="button" onClick={() => setIsCountryOpen(!isCountryOpen)} className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl bg-[#367d7a] text-white border border-[#285e5c] shadow-md hover:brightness-110 transition-all cursor-pointer">
-                          <div className="flex items-center gap-3 truncate">
-                            {selectedTarget ? (<>{renderFlag(selectedTarget.iso, selectedTarget.name, "sm")}<span className="text-sm font-bold truncate">{selectedTarget.name}</span></>) : (<span className="text-sm font-bold opacity-80">-- Pilih --</span>)}
-                          </div>
-                          <ChevronDown className={`w-4 h-4 text-white/70 transition-transform ${isCountryOpen ? 'rotate-180' : ''}`} />
-                        </button>
-                        {isCountryOpen && (
-                          <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-[#C4B49C]/50 rounded-xl shadow-xl z-30 max-h-60 overflow-y-auto custom-scrollbar">
-                            {countries.length > 0 ? (countries.map((c) => (<button key={c.id} onClick={() => { setSelectedTarget(c); setIsCountryOpen(false); }} className="w-full flex items-center gap-3 px-5 py-3 hover:bg-[#e4dac3]/50 transition-colors text-left cursor-pointer border-b border-[#C4B49C]/10 last:border-b-0">{renderFlag(c.iso, c.name, "sm")}<span className="text-sm font-bold text-[#5c3c10]">{c.name}</span></button>))) : (<div className="p-4 text-center text-[#8b7e66] text-xs font-bold">Tidak ada data negara.</div>)}
-                          </div>
-                        )}
-                      </div>
+                      <button 
+                        type="button"
+                        onClick={() => setIsCountryModalOpen(true)}
+                        className="w-full flex items-center justify-between gap-3 px-5 py-4 rounded-xl bg-[#367d7a] text-white border border-[#285e5c] shadow-md hover:brightness-110 transition-all cursor-pointer"
+                      >
+                        <div className="flex items-center gap-3 truncate">
+                          {selectedTarget ? (
+                            <>
+                              {renderFlag(selectedTarget.iso, selectedTarget.name, "sm")}
+                              <span className="text-sm font-bold truncate">{selectedTarget.name}</span>
+                            </>
+                          ) : (
+                            <span className="text-sm font-bold opacity-80">-- Pilih Negara via Modal --</span>
+                          )}
+                        </div>
+                        <ChevronDown className="w-4 h-4 text-white/70" />
+                      </button>
                     )}
                   </div>
                 </div>
 
+                {/* 4. DURASI VOTING */}
                 <div className="flex items-center justify-center gap-4">
                   <span className="text-sm font-bold text-[#8b7e66]">Durasi pemungutan suara:</span>
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
+                {/* 5. KOTAK PRAKIRAAN SUARA */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
@@ -314,14 +359,98 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
               </div>
             </div>
 
+            {/* FOOTER MODAL */}
             <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
-              <button onClick={() => { setIsCountryOpen(false); setIsProductOpen(false); setShowCreateModal(false); }} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Batal</button>
+              <button onClick={() => { setShowCreateModal(false); }} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Batal</button>
               <button onClick={handleSubmitResolution} className="px-8 py-3 rounded-xl bg-[#367d7a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">Tambahkan</button>
             </div>
 
           </div>
         </div>
       )}
+
+      {/* 🔥 MODAL KHUSUS UNTUK PILIH NEGARA (BERBASIS TAB BENUA) */}
+      {isCountryModalOpen && (
+        <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
+            
+            {/* HEADER MODAL NEGARA */}
+            <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
+                  <FileText className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-[#5c3c10] uppercase tracking-tight">Pilih Negara Target</h3>
+                  <p className="text-xs text-[#8b7e66] font-bold mt-0.5">Pilih benua, lalu pilih negara target Anda.</p>
+                </div>
+              </div>
+              <button onClick={() => setIsCountryModalOpen(false)} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
+                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                <X className="h-5 w-5" />
+              </button>
+            </div>
+
+            {/* BODY MODAL NEGARA */}
+            <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
+              <div className="w-full max-w-5xl">
+                
+                {/* 🔥 ROW TOMBOL BENUA */}
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                  {Object.keys(groupedCountries).map((continent) => (
+                    <button
+                      key={continent}
+                      onClick={() => setActiveContinent(continent)}
+                      className={`px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
+                        activeContinent === continent
+                          ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md'
+                          : 'bg-white/80 border border-[#C4B49C]/30 text-[#8b7e66] hover:bg-[#e4dac3]/40 hover:border-[#5c3c10]'
+                      }`}
+                    >
+                      {continent} ({groupedCountries[continent].length})
+                    </button>
+                  ))}
+                </div>
+
+                {/* 🔥 GRID NEGARA DARI BENUA TERPILIH */}
+                {activeContinent && groupedCountries[activeContinent] && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                    {groupedCountries[activeContinent].map((c) => {
+                      const isSelected = selectedTarget?.id === c.id;
+                      return (
+                        <button
+                          key={c.id}
+                          onClick={() => {
+                            setSelectedTarget(c);
+                            setIsCountryModalOpen(false);
+                          }}
+                          className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${
+                            isSelected
+                              ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm'
+                              : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'
+                          }`}
+                        >
+                          {renderFlag(c.iso, c.name)}
+                          <span className={`text-[10px] font-bold mt-2 text-center leading-tight ${isSelected ? 'text-[#367d7a]' : 'text-[#5c3c10]'}`}>
+                            {c.name}
+                          </span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            {/* FOOTER MODAL NEGARA */}
+            <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
+              <button onClick={() => setIsCountryModalOpen(false)} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Tutup</button>
+            </div>
+
+          </div>
+        </div>
+      )}
+
     </div>
   );
 }
