@@ -3,14 +3,14 @@ import React, { useState, useEffect, useRef } from "react";
 import { FileText, Plus, ThumbsUp, ThumbsDown } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 
-// 🔥 IMPOR MODAL TERPISAH (Pastikan nama file di folder Anda adalah ajuanResolusiPBB.tsx)
-import AjuanResolusiModal, { VotingListModal } from "./1_ajuanResolusiPBB";
+// 🔥 IMPOR MODAL TERPISAH UNTUK TAB RESOLUSI
+import AjuanResolusiModal, { VotingListModal } from "./modals_menu/1_ajuanResolusiPBB";
 
 interface ResolusiPBBProps {
   selectedCountry: any;
 }
 
-// Fungsi helper untuk menampilkan bendera (Anti broken image)
+// Fungsi helper untuk menampilkan bendera
 const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" = "md") => {
   if (!iso || iso.length !== 2) return null;
   const wClass = size === "sm" ? "w-6 h-4" : "w-8 h-5";
@@ -184,7 +184,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </button>
       </div>
 
-      {/* 🔥 RENDER MODAL AJUAN RESOLUSI (DARI FILE TERPISAH) */}
+      {/* 🔥 RENDER MODAL AJUAN RESOLUSI */}
       <AjuanResolusiModal
         isOpen={showCreateModal}
         onClose={() => setShowCreateModal(false)}
@@ -206,7 +206,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         onShowOpponents={() => setShowOpponentsModal(true)}
       />
 
-      {/* 🔥 RENDER MODAL DAFTAR SETUJU (DARI FILE TERPISAH) */}
+      {/* 🔥 RENDER MODAL DAFTAR SETUJU / MENOLAK */}
       <VotingListModal
         isOpen={showSupportersModal}
         onClose={() => setShowSupportersModal(false)}
@@ -217,8 +217,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         countries={voteStats.supporters}
         renderFlag={renderFlag}
       />
-
-      {/* 🔥 RENDER MODAL DAFTAR MENOLAK (DARI FILE TERPISAH) */}
       <VotingListModal
         isOpen={showOpponentsModal}
         onClose={() => setShowOpponentsModal(false)}

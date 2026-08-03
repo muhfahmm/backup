@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, useEffect, useRef } from "react";
 import { Shield, ChevronDown, Plus } from "lucide-react";
-import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
+import { COUNTRIES_DATA } from "../../../../../../map_system/map-data";
 // 🔥 PERBAIKAN: Ubah path import menjadi "./ajuanResolusiPBB"
 import AjuanResolusiModal, { VotingListModal } from "./1_ajuanResolusiPBB";
 
