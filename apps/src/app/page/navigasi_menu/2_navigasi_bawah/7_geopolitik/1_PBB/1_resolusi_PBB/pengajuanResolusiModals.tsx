@@ -35,16 +35,12 @@ export default function PengajuanResolusiModal({
   allies,
   selectedCountry,
 }: PengajuanResolusiProps) {
-  // 🔥 State internal untuk form
   const [resType, setResType] = useState<string>("");
   const [resDuration, setResDuration] = useState<string>("");
   const [resTarget, setResTarget] = useState<any>(null);
-
-  // 🔥 State untuk Dropdown Pilih Negara
   const [isCountryDropdownOpen, setIsCountryDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // 🔥 Tutup dropdown saat klik di luar area
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -57,7 +53,6 @@ export default function PengajuanResolusiModal({
 
   if (!isOpen) return null;
 
-  // 🔥 LOGIKA PERHITUNGAN SUARA (Dipindahkan dari file induk)
   const calculateVotes = () => {
     if (!resTarget || !countries.length) return { supporters: [], opponents: [], total: 0 };
 
@@ -84,26 +79,23 @@ export default function PengajuanResolusiModal({
 
   const voteStats = calculateVotes();
 
-  // 🔥 LOGIKA SUBMIT
   const handleSubmit = () => {
     if (!resType || !resDuration || !resTarget) {
       alert("Harap lengkapi Jenis Resolusi, Durasi, dan Negara Target!");
       return;
     }
     onSubmit({ resType, resDuration, resTarget, voteStats });
-    // Reset form setelah submit
     setResType("");
     setResDuration("");
     setResTarget(null);
   };
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm pointer-events-none">
-      {/* 🔥 UKURAN DIPERBESAR: max-w-6xl h-[84vh] flex flex-col */}
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
 
-        {/* 🔥 HEADER (shrink-0) */}
+        {/* HEADER (shrink-0) */}
         <div className="flex items-center justify-between px-8 py-6 border-b-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
@@ -125,10 +117,8 @@ export default function PengajuanResolusiModal({
           </button>
         </div>
 
-        {/* 🔥 BODY (flex-1 overflow-y-auto) */}
+        {/* BODY (flex-1 overflow-y-auto) */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar space-y-8">
-          
-          {/* 1. JENIS RESOLUSI */}
           <div>
             <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-3">Jenis Resolusi</p>
             <div className="grid grid-cols-2 gap-3">
@@ -148,7 +138,6 @@ export default function PengajuanResolusiModal({
             </div>
           </div>
 
-          {/* 2. DURASI */}
           <div>
             <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-3">Durasi Resolusi</p>
             <div className="flex flex-wrap gap-3">
@@ -168,7 +157,6 @@ export default function PengajuanResolusiModal({
             </div>
           </div>
 
-          {/* 3. PILIH NEGARA TARGET */}
           <div>
             <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-3">Pilih Negara Target</p>
             <div className="relative" ref={dropdownRef}>
@@ -192,7 +180,6 @@ export default function PengajuanResolusiModal({
                 <ChevronDown className={`h-5 w-5 text-[#5c3c10] transition-transform duration-300 ${isCountryDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Dropdown List 207 Negara */}
               {isCountryDropdownOpen && (
                 <div className="absolute top-full left-0 right-0 mt-2 bg-white border-2 border-[#C4B49C]/50 rounded-xl shadow-xl z-30 max-h-60 overflow-y-auto custom-scrollbar">
                   {countries.length > 0 ? (
@@ -220,14 +207,12 @@ export default function PengajuanResolusiModal({
             </div>
           </div>
 
-          {/* 4. PRAKIRAAN SUARA */}
           {resTarget && (
             <div className="pt-6 border-t-2 border-[#C4B49C]/30">
               <div className="flex items-center gap-2 mb-4">
                 <Users className="h-5 w-5 text-[#5c3c10]" />
                 <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider">Prakiraan Suara (Berdasarkan Hubungan Dagang)</p>
               </div>
-              
               <div className="flex flex-wrap gap-4">
                 <div className="flex-1 min-w-[160px] flex items-center justify-between gap-2 px-5 py-3 rounded-xl bg-emerald-600/10 border-2 border-emerald-600/30 text-emerald-700">
                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider">
@@ -236,7 +221,6 @@ export default function PengajuanResolusiModal({
                   </div>
                   <span className="font-bold text-lg">{voteStats.supporters.length} Negara</span>
                 </div>
-
                 <div className="flex-1 min-w-[160px] flex items-center justify-between gap-2 px-5 py-3 rounded-xl bg-rose-600/10 border-2 border-rose-600/30 text-rose-700">
                   <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider">
                     <ThumbsDown className="h-5 w-5" />
@@ -250,7 +234,7 @@ export default function PengajuanResolusiModal({
           )}
         </div>
 
-        {/* 🔥 FOOTER (shrink-0) */}
+        {/* FOOTER (shrink-0) */}
         <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
           <button
             onClick={() => {

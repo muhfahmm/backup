@@ -19,12 +19,10 @@ export default function KeamananResolusiModal({
   permanentMembers,
   nonPermanentMembers,
 }: KeamananResolusiModalProps) {
-  // State internal untuk form
   const [newResolusiTitle, setNewResolusiTitle] = useState("");
   const [newResolusiDesc, setNewResolusiDesc] = useState("");
   const [newResolusiProposer, setNewResolusiProposer] = useState("");
 
-  // Reset form saat modal ditutup
   const handleClose = () => {
     setNewResolusiTitle("");
     setNewResolusiDesc("");
@@ -45,12 +43,11 @@ export default function KeamananResolusiModal({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm pointer-events-none">
-      {/* 🔥 UKURAN DIPERBESAR: max-w-6xl h-[84vh] flex flex-col */}
+    <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/40 pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
 
-        {/* 🔥 HEADER (shrink-0) */}
+        {/* HEADER (shrink-0) */}
         <div className="flex items-center justify-between px-8 py-6 border-b-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
@@ -73,11 +70,9 @@ export default function KeamananResolusiModal({
           </button>
         </div>
 
-        {/* 🔥 BODY (flex-1 overflow-y-auto, elemen di tengah) */}
+        {/* BODY (flex-1) */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center">
-          
           {!isUserSecurityCouncilMember ? (
-            // --- TAMPILAN UNTUK BUKAN ANGGOTA ---
             <div className="max-w-2xl w-full flex flex-col items-center text-center space-y-6">
               <div className="p-4 bg-rose-600/10 rounded-full border border-rose-600/20">
                 <XCircle className="h-16 w-16 text-rose-600" />
@@ -93,9 +88,7 @@ export default function KeamananResolusiModal({
                 Untuk mengusulkan resolusi, negara Anda harus terpilih sebagai anggota tidak tetap atau memiliki kursi tetap.
               </p>
             </div>
-
           ) : (
-            // --- TAMPILAN UNTUK ANGGOTA ---
             <div className="max-w-3xl w-full space-y-6">
               <div>
                 <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Judul Resolusi</label>
@@ -107,7 +100,6 @@ export default function KeamananResolusiModal({
                   className="w-full px-4 py-3 bg-white border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all"
                 />
               </div>
-
               <div>
                 <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Deskripsi / Isi Resolusi</label>
                 <textarea
@@ -118,7 +110,6 @@ export default function KeamananResolusiModal({
                   className="w-full px-4 py-3 bg-white border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all resize-none"
                 />
               </div>
-
               <div>
                 <label className="block text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Negara Pengusul (Delegasi)</label>
                 <select
@@ -136,7 +127,7 @@ export default function KeamananResolusiModal({
           )}
         </div>
 
-        {/* 🔥 FOOTER (shrink-0) */}
+        {/* FOOTER (shrink-0) */}
         <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
           <button
             onClick={handleClose}
@@ -144,7 +135,6 @@ export default function KeamananResolusiModal({
           >
             {isUserSecurityCouncilMember ? "Batal" : "Tutup"}
           </button>
-          
           {isUserSecurityCouncilMember && (
             <button
               onClick={handleSubmit}
