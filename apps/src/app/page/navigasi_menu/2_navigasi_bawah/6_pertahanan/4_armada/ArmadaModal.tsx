@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { X, Shield } from "lucide-react";
+import { X, ShieldAlert } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,22 +8,22 @@ interface ModalProps {
   countryDetail: any;
 }
 
-export default function ArmadaMiliterModal({ isOpen, onClose, countryDetail }: ModalProps) {
+export default function ArmadaModal({ isOpen, onClose, countryDetail }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    // PERBAIKAN: Hapus bg-black/65, gunakan bg-transparent pointer-events-none
+    // PERBAIKAN: Hapus bg-black/65
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       
-      {/* PERBAIKAN: Tambahkan pointer-events-auto di lapisan dalam */}
+      {/* PERBAIKAN: Tambahkan pointer-events-auto */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
-              <Shield className="h-6 w-6 text-rose-700" />
+              <ShieldAlert className="h-6 w-6 text-rose-700 animate-pulse" />
               <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Inventaris Armada Tempur</h2>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Armada</h2>
               </div>
             </div>
           </div>
@@ -34,21 +34,21 @@ export default function ArmadaMiliterModal({ isOpen, onClose, countryDetail }: M
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-            Berikut adalah inventarisasi kendaraan tempur utama sistem persenjataan (Alutsista) aktif angkatan darat, laut, dan udara.
+            Pantau komposisi kekuatan laut, udara, dan darat yang sedang siap diturunkan untuk menjaga kedaulatan dan respons cepat terhadap ancaman.
           </p>
 
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-3">
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Tank Tempur Utama (MBT):</span>
-              <span>420 Unit</span>
+              <span>Kapal Perang Siap Tempur:</span>
+              <span>38 Unit</span>
             </div>
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Pesawat Tempur Jet:</span>
-              <span>85 Unit</span>
+              <span>Pesawat Pengintai & Tempur:</span>
+              <span>91 Unit</span>
             </div>
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Kapal Selam & Fregat:</span>
-              <span>34 Unit</span>
+              <span>Resimen Darat Siaga:</span>
+              <span>12 Divisi</span>
             </div>
           </div>
         </div>

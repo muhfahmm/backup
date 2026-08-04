@@ -30,11 +30,11 @@ import TempatUmumModal from "./5_pembangunan/2_tempat_umum/TempatUmumModal";
 import HunianPermukimanModal from "./5_pembangunan/3_hunian/HunianPermukimanModal";
 
 // 6. Pertahanan
-import PertahananModal from "./6_pertahanan/1_komando_pertahanan/PertahananModal";
+import SerangNegaraModal from "./6_pertahanan/1_serang_negara/SerangNegaraModal";
 import IntelijenModal from "./6_pertahanan/2_intelijen/IntelijenModal";
-import ArmadaMiliterModal from "./6_pertahanan/3_militer/ArmadaMiliterModal";
-import ArmadaPolisiModal from "./6_pertahanan/4_polisi/ArmadaPolisiModal";
-import ManajemenPertahananModal from "./6_pertahanan/5_manajemen_pertahanan/ManajemenPertahananModal";
+import WilayahDirebutModal from "./6_pertahanan/3_wilayah_direbut/WilayahDirebutModal";
+import ArmadaModal from "./6_pertahanan/4_armada/ArmadaModal";
+import IcbmModal from "./6_pertahanan/5_icbm/IcbmModal";
 
 // 7. Geopolitik
 import PBBModal from "./7_geopolitik/1_PBB/PBBModal";
@@ -293,9 +293,9 @@ function ModalsManager({
       );
 
     // 6. Pertahanan
-    case "Komando Pertahanan":
+    case "Menu:SerangNegara":
       return (
-        <PertahananModal
+        <SerangNegaraModal
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
@@ -311,28 +311,31 @@ function ModalsManager({
           setCountryDetail={setCountryDetail}
         />
       );
-    case "Menu:ArmadaMiliter":
+    case "Menu:WilayahDirebut":
       return (
-        <ArmadaMiliterModal
+        <WilayahDirebutModal
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
         />
       );
-    case "Menu:ArmadaPolisi":
+    case "Menu:Armada":
       return (
-        <ArmadaPolisiModal
+        <ArmadaModal
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
         />
       );
-    case "Menu:ManajemenPertahanan":
+    case "Menu:ICBM":
       return (
-        <ManajemenPertahananModal
+        <IcbmModal
           isOpen={true}
           onClose={onClose}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
         />
       );
 

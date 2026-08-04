@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { X, ShieldAlert } from "lucide-react";
+import { X, Shield } from "lucide-react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -8,22 +8,20 @@ interface ModalProps {
   countryDetail: any;
 }
 
-export default function ArmadaPolisiModal({ isOpen, onClose, countryDetail }: ModalProps) {
+export default function IcbmModal({ isOpen, onClose, countryDetail }: ModalProps) {
   if (!isOpen) return null;
 
   return (
-    // PERBAIKAN: Hapus bg-black/65
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       
-      {/* PERBAIKAN: Tambahkan pointer-events-auto */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
-              <ShieldAlert className="h-6 w-6 text-rose-700 animate-pulse" />
+              <Shield className="h-6 w-6 text-rose-700" />
               <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Kepolisian & Keamanan Sipil</h2>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">ICBM</h2>
               </div>
             </div>
           </div>
@@ -34,17 +32,21 @@ export default function ArmadaPolisiModal({ isOpen, onClose, countryDetail }: Mo
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-            Tinjau rasio petugas patroli kepolisian berbanding dengan populasi warga untuk meminimalkan angka kriminalitas jalanan.
+            Ringkasan kesiapan rudal antarbenua: tingkat persenjataan, sistem pengawasan, serta kesiapsiagaan peluncuran dan penghancuran target.
           </p>
 
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl space-y-3">
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Petugas Patroli Aktif:</span>
-              <span>128,400 Personel</span>
+              <span>Silinder Peluncur Siap:</span>
+              <span>24 Unit</span>
             </div>
             <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Tingkat Kriminalitas Nasional:</span>
-              <span className="text-emerald-700 font-bold">Sangat Rendah (1.2%)</span>
+              <span>Ketepatan Target:</span>
+              <span>92%</span>
+            </div>
+            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
+              <span>Status Siaga:</span>
+              <span className="text-emerald-700">Tingkat Tertinggi</span>
             </div>
           </div>
         </div>

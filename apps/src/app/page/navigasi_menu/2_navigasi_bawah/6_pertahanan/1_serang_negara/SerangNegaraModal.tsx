@@ -11,21 +11,20 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
 }
 
-export default function PertahananModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function SerangNegaraModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
 
-  // 🔥 6 Opsi Strategi (Sesuai gambar + 1 tambahan untuk genap 6 kartu)
   const strategicOptions = [
-    { id: 1, title: "Serang Negara", icon: Swords, color: "text-rose-700" },
-    { id: 2, title: "Spionase", icon: User, color: "text-blue-700" },
-    { id: 3, title: "Sabotase", icon: Bomb, color: "text-orange-600" },
-    { id: 4, title: "Wilayah yang Direbut", icon: Globe, color: "text-emerald-700" },
-    { id: 5, title: "Program Nuklir", icon: Atom, color: "text-yellow-600" },
-    { id: 6, title: "Latihan Perang", icon: Crosshair, color: "text-indigo-600" }, // 🔥 Tambahan ke-6
+    { id: 1, title: "Serangan Udara", icon: Swords, color: "text-rose-700" },
+    { id: 2, title: "Pengeboman Infrastruktur", icon: Bomb, color: "text-orange-600" },
+    { id: 3, title: "Invasi Pantai", icon: Globe, color: "text-emerald-700" },
+    { id: 4, title: "Blokade Maritim", icon: Crosshair, color: "text-indigo-600" },
+    { id: 5, title: "Operasi Khusus", icon: User, color: "text-blue-700" },
+    { id: 6, title: "Target Nuklir", icon: Atom, color: "text-yellow-600" },
   ];
 
   const handleStrategyClick = (title: string) => {
-    alert(`Anda memilih strategi: ${title}`);
+    alert(`Rencana ${title} telah dipersiapkan untuk operasi serangan negara.`);
   };
 
   return (
@@ -39,7 +38,7 @@ export default function PertahananModal({ isOpen, onClose, countryDetail, setCou
             <div className="flex items-center gap-3">
               <Shield className="h-6 w-6 text-rose-700 animate-pulse" />
               <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Komando Pertahanan Nasional</h2>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Serang Negara</h2>
               </div>
             </div>
           </div>
