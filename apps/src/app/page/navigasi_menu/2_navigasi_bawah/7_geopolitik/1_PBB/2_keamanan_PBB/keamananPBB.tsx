@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, Shield, Angry, Smile, Banknote, Anchor, Lock, Package, 
-  ChevronDown, Clock, FileText, Plus
+  ChevronDown, Clock, FileText, Plus, Users
 } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 import { calculateKeamananVoting } from "../voting_logic/keamananPBB_logic";
@@ -64,6 +64,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
 
   const [isCountryModalOpen, setIsCountryModalOpen] = useState(false);
   const [activeContinent, setActiveContinent] = useState<string>("");
+
+  // 🔥 State untuk modal daftar pendukung / penentang
+  const [isSupportersModalOpen, setIsSupportersModalOpen] = useState(false);
+  const [isOpponentsModalOpen, setIsOpponentsModalOpen] = useState(false);
 
   const [countries, setCountries] = useState<CountryOption[]>([]);
   const [allies, setAllies] = useState<CountryOption[]>([]);
@@ -197,6 +201,27 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 🔥 Scroll Lock (termasuk modal baru)
+  useEffect(() => {
+    const isAnyModalOpen = isResolusiModalOpen || isCountryModalOpen || isSupportersModalOpen || isOpponentsModalOpen;
+    if (isAnyModalOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'hidden';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
+    }
+  }, [isResolusiModalOpen, isCountryModalOpen, isSupportersModalOpen, isOpponentsModalOpen]);
+
   const handleSubmit = () => {
     if (!selectedTarget) {
       alert("Silakan pilih negara target terlebih dahulu!");
@@ -207,6 +232,78 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     
     setIsResolusiModalOpen(false);
     setSelectedTarget(null);
+  };
+
+  // 🔥 Komponen modal daftar negara (Ukuran besar sama seperti modal utama)
+  const CountryListModal = ({ 
+    isOpen, 
+    onClose, 
+    title, 
+    countries: countryList 
+  }: { 
+    isOpen: boolean; 
+    onClose: () => void; 
+    title: string; 
+    countries: CountryOption[] 
+  }) => {
+    if (!isOpen) return null;
+    return (
+      <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-transparent pointer-events-none">
+        <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
+          <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
+                <Users className="h-6 w-6 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold text-[#5c3c10] uppercase tracking-tight">{title}</h3>
+                <p className="text-xs text-[#8b7e66] font-bold mt-0.5">
+                  {countryList.length} negara terdaftar
+                </p>
+              </div>
+            </div>
+            <button 
+              onClick={onClose} 
+              className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+            >
+              <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+              <X className="h-5 w-5" />
+            </button>
+          </div>
+          <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
+            <div className="w-full max-w-5xl">
+              {countryList.length === 0 ? (
+                <div className="text-center py-12">
+                  <p className="text-[#8b7e66] font-bold text-lg">Belum ada negara dalam daftar ini.</p>
+                </div>
+              ) : (
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                  {countryList.map((c) => (
+                    <div
+                      key={c.id}
+                      className="flex flex-col items-center p-3 rounded-xl border-2 border-[#C4B49C]/30 bg-white hover:border-[#5c3c10] transition-all"
+                    >
+                      {renderFlag(c.iso, c.name)}
+                      <span className="text-[10px] font-bold mt-2 text-center leading-tight text-[#5c3c10]">
+                        {c.name}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
+            <button 
+              onClick={onClose} 
+              className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer"
+            >
+              Tutup
+            </button>
+          </div>
+        </div>
+      </div>
+    );
   };
 
   return (
@@ -254,7 +351,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </button>
       </div>
 
-      {/* Modal Buat Resolusi */}
+      {/* Modal Buat Resolusi (Besar) */}
       {isResolusiModalOpen && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
@@ -356,22 +453,31 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* Kotak Perkiraan Suara */}
-                <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
+                {/* 🔥 Kotak Perkiraan Suara - HANYA BAGIAN INI YANG DIKECILKAN */}
+                <div className="p-6 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
-                  <div className="flex justify-between items-center px-4 max-w-md mx-auto">
-                    <div className="flex flex-col items-center">
-                      <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
-                      <span className="text-3xl font-black text-emerald-700">
+                  <div className="flex justify-between items-center px-4 max-w-sm mx-auto gap-3">
+                    
+                    <button 
+                      onClick={() => setIsSupportersModalOpen(true)}
+                      className="flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/80 hover:border-emerald-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+                    >
+                      <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
+                      <span className="text-2xl font-black text-emerald-700 mt-0.5">
                         {voteStats.supporters.length}
                       </span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
-                      <span className="text-3xl font-black text-rose-700">
+                    </button>
+
+                    <button 
+                      onClick={() => setIsOpponentsModalOpen(true)}
+                      className="flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 border-rose-200 bg-rose-50/60 hover:bg-rose-100/80 hover:border-rose-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+                    >
+                      <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
+                      <span className="text-2xl font-black text-rose-700 mt-0.5">
                         {voteStats.opponents.length}
                       </span>
-                    </div>
+                    </button>
+
                   </div>
                 </div>
               </div>
@@ -385,7 +491,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       )}
 
-      {/* Modal Pilih Negara */}
+      {/* Modal Pilih Negara (Besar) */}
       {isCountryModalOpen && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
@@ -445,7 +551,20 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       )}
 
-      
+      {/* 🔥 Modal Daftar Negara Setuju & Menentang (Ukuran besar juga) */}
+      <CountryListModal
+        isOpen={isSupportersModalOpen}
+        onClose={() => setIsSupportersModalOpen(false)}
+        title="Negara yang Mendukung"
+        countries={voteStats.supporters}
+      />
+      <CountryListModal
+        isOpen={isOpponentsModalOpen}
+        onClose={() => setIsOpponentsModalOpen(false)}
+        title="Negara yang Menentang"
+        countries={voteStats.opponents}
+      />
+
     </div>
   );
 }
