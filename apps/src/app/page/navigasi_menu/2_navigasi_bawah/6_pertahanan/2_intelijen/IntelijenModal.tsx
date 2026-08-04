@@ -1,6 +1,8 @@
 "use client"
-import React from "react";
-import { X, Eye } from "lucide-react";
+import React, { useState } from "react";
+import { X, Eye, Bomb } from "lucide-react";
+import Spionase from "./tab_menu/1_spionase";
+import Sabotase from "./tab_menu/2_sabotase";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,12 +12,15 @@ interface ModalProps {
 }
 
 export default function IntelijenModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+  const [activeTab, setActiveTab] = useState<'spionase' | 'sabotase'>('spionase');
   if (!isOpen) return null;
+
   const anggaran = countryDetail?.anggaran || 0;
 
-  const handleIntel = () => {
+  // 🔥 Logika aksi global untuk kedua misi
+  const handleSpionaseAction = () => {
     if (anggaran < 10000000) {
-      alert("Kas negara tidak mencukupi!");
+      alert("Kas negara tidak mencukupi untuk misi spionase!");
       return;
     }
     setCountryDetail({
@@ -25,19 +30,36 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
     alert("Misi intelijen 'Sandi Garuda' sukses diluncurkan di wilayah perbatasan!");
   };
 
+  const handleSabotaseAction = () => {
+    if (anggaran < 20000000) {
+      alert("Kas negara tidak mencukupi untuk operasi sabotase!");
+      return;
+    }
+    setCountryDetail({
+      ...countryDetail,
+      anggaran: anggaran - 20000000
+    });
+    alert("Divisi Operasi Khusus berhasil melakukan sabotase pada infrastruktur strategis negara musuh!");
+  };
+
   return (
-    // PERBAIKAN: Hapus bg-black/65
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN: Tambahkan pointer-events-auto */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
-        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
+        
+        {/* HEADER MODAL */}
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3">
-              <Eye className="h-6 w-6 text-indigo-700 animate-pulse" />
+              {activeTab === 'spionase' ? (
+                <Eye className="h-6 w-6 text-indigo-700 animate-pulse" />
+              ) : (
+                <Bomb className="h-6 w-6 text-rose-700 animate-pulse" />
+              )}
               <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Badan Intelijen & Sandi Negara</h2>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">
+                  {activeTab === 'spionase' ? 'Badan Intelijen & Sandi Negara' : 'Divisi Operasi Khusus'}
+                </h2>
               </div>
             </div>
           </div>
@@ -46,24 +68,46 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
             <X className="h-5 w-5" />
           </button>
         </div>
-        <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-          <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed mb-6">
-            Kirim agen telik sandi kepresidenan untuk memetakan penyusupan jaringan teroris regional atau melakukan penyadapan kedaulatan negara asing.
-          </p>
 
-          <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 p-4 rounded-xl mb-6">
-            <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
-              <span>Kas Anggaran Negara:</span>
-              <span>{anggaran.toLocaleString("id-ID")}</span>
+        {/* BODY MODAL */}
+        <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
+          <div className="w-full max-w-2xl space-y-6">
+            
+            {/* 🔥 2 TAB MENU */}
+            <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex shadow-sm">
+              <button
+                onClick={() => setActiveTab('spionase')}
+                className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+                  activeTab === 'spionase'
+                    ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20'
+                    : 'text-[#8b7e66] hover:text-[#5c3c10]'
+                }`}
+              >
+                Spionase
+              </button>
+              <button
+                onClick={() => setActiveTab('sabotase')}
+                className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+                  activeTab === 'sabotase'
+                    ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20'
+                    : 'text-[#8b7e66] hover:text-[#5c3c10]'
+                }`}
+              >
+                Sabotase
+              </button>
             </div>
-          </div>
 
-          <button
-            onClick={handleIntel}
-            className="w-full py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
-          >
-            Luncurkan Misi Intelijen (10.000.000 EM)
-          </button>
+            {/* 🔥 RENDER KOMPONEN TERPISAH */}
+            <div className="w-full mt-2">
+              {activeTab === 'spionase' && (
+                <Spionase anggaran={anggaran} onAction={handleSpionaseAction} />
+              )}
+              {activeTab === 'sabotase' && (
+                <Sabotase anggaran={anggaran} onAction={handleSabotaseAction} />
+              )}
+            </div>
+            
+          </div>
         </div>
       </div>
     </div>
