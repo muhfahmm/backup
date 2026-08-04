@@ -9,16 +9,17 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  prefetchedAllCountries?: any[]; // 🔥 Tambahkan prop ini!
 }
 
-export default function IntelijenModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function IntelijenModal({ isOpen, onClose, countryDetail, setCountryDetail, prefetchedAllCountries }: ModalProps) {
   const [activeTab, setActiveTab] = useState<'spionase' | 'sabotase'>('spionase');
   if (!isOpen) return null;
 
   const anggaran = countryDetail?.anggaran || 0;
 
-  // 🔥 Logika aksi global untuk kedua misi
-  const handleSpionaseAction = () => {
+  // 🔥 Logika aksi untuk Spionase
+  const handleSpionaseAction = (target: any) => {
     if (anggaran < 10000000) {
       alert("Kas negara tidak mencukupi untuk misi spionase!");
       return;
@@ -27,10 +28,11 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
       ...countryDetail,
       anggaran: anggaran - 10000000
     });
-    alert("Misi intelijen 'Sandi Garuda' sukses diluncurkan di wilayah perbatasan!");
+    alert(`Misi spionase 'Sandi Garuda' sukses diluncurkan ke negara: ${target.countryName}!`);
   };
 
-  const handleSabotaseAction = () => {
+  // 🔥 Logika aksi untuk Sabotase
+  const handleSabotaseAction = (target: any) => {
     if (anggaran < 20000000) {
       alert("Kas negara tidak mencukupi untuk operasi sabotase!");
       return;
@@ -39,7 +41,7 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
       ...countryDetail,
       anggaran: anggaran - 20000000
     });
-    alert("Divisi Operasi Khusus berhasil melakukan sabotase pada infrastruktur strategis negara musuh!");
+    alert(`Divisi Operasi Khusus berhasil melakukan sabotase di negara: ${target.countryName}!`);
   };
 
   return (
@@ -71,7 +73,7 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
 
         {/* BODY MODAL */}
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
-          <div className="w-full max-w-2xl space-y-6">
+          <div className="w-full max-w-5xl space-y-6">
             
             {/* 🔥 2 TAB MENU */}
             <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex shadow-sm">
@@ -97,13 +99,13 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
               </button>
             </div>
 
-            {/* 🔥 RENDER KOMPONEN TERPISAH */}
+            {/* 🔥 RENDER KOMPONEN TABEL TERPISAH */}
             <div className="w-full mt-2">
               {activeTab === 'spionase' && (
-                <Spionase anggaran={anggaran} onAction={handleSpionaseAction} />
+                <Spionase prefetchedAllCountries={prefetchedAllCountries} onAction={handleSpionaseAction} />
               )}
               {activeTab === 'sabotase' && (
-                <Sabotase anggaran={anggaran} onAction={handleSabotaseAction} />
+                <Sabotase prefetchedAllCountries={prefetchedAllCountries} onAction={handleSabotaseAction} />
               )}
             </div>
             

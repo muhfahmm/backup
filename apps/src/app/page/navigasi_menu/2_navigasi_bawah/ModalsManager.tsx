@@ -310,6 +310,7 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          prefetchedAllCountries={prefetchedAllCountries ?? undefined}
         />
       );
     case "Menu:WilayahDirebut":
