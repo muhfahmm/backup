@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, Shield, Angry, Smile, Banknote, Anchor, Lock, Package, 
-  ChevronDown, Clock, FileText, Plus 
+  ChevronDown, Clock, FileText, Plus
 } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 import { calculateKeamananVoting } from "../voting_logic/keamananPBB_logic";
@@ -11,7 +11,6 @@ interface KeamananPBBProps {
   selectedCountry: any;
 }
 
-// 🔥 Definisi tipe data negara (Sama seperti di ResolusiPBB)
 interface CountryOption {
   id: number;
   name: string;
@@ -37,29 +36,45 @@ const formatCountryName = (name: string) => {
     .join(" ");
 };
 
+const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" = "md") => {
+  if (!iso || iso.length !== 2) return null;
+  const wClass = size === "sm" ? "w-5 h-3.5" : "w-6 h-4";
+  return (
+    <div className={`${wClass} rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center`}>
+      <img
+        src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+        alt={altName}
+        className="w-full h-full object-cover absolute inset-0"
+        onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+      />
+    </div>
+  );
+};
+
 export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   const [isResolusiModalOpen, setIsResolusiModalOpen] = useState(false);
   const [isMembershipOpen, setIsMembershipOpen] = useState(false);
 
   const [selectedType, setSelectedType] = useState<string>("military");
   const [selectedDuration, setSelectedDuration] = useState<string>("1 bulan");
-  // 🔥 Menggunakan tipe CountryOption
   const [selectedTarget, setSelectedTarget] = useState<CountryOption | null>(null);
   
   const [isDurationOpen, setIsDurationOpen] = useState(false);
-  
   const durationRef = useRef<HTMLDivElement>(null);
 
-  // 🔥 STATE BARU: Modal Pemilihan Negara & Benua Aktif
   const [isCountryModalOpen, setIsCountryModalOpen] = useState(false);
   const [activeContinent, setActiveContinent] = useState<string>("");
 
-  // 🔥 GUNAKAN COUNTRIES_DATA LENGKAP
   const [countries, setCountries] = useState<CountryOption[]>([]);
   const [allies, setAllies] = useState<CountryOption[]>([]);
-  const [voteStats, setVoteStats] = useState({ pro: 0, con: 0, hasDiplomaticRelation: false });
 
-  // Data Anggota Dewan Keamanan (Tetap untuk UI Keanggotaan)
+  // 🔥 Ubah voteStats menjadi array negara
+  const [voteStats, setVoteStats] = useState<{ supporters: CountryOption[], opponents: CountryOption[], hasDiplomaticRelation: boolean }>({
+    supporters: [],
+    opponents: [],
+    hasDiplomaticRelation: false
+  });
+
   const permanentMembers = [
     { iso: 'us', name: 'Amerika Serikat' },
     { iso: 'gb', name: 'Inggris' },
@@ -80,23 +95,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     { iso: 'au', name: 'Australia' },
   ];
 
-  // Helper Render Bendera
-  const renderFlag = (iso: string | undefined, altName: string, size: "sm" | "md" = "md") => {
-    if (!iso || iso.length !== 2) return null;
-    const wClass = size === "sm" ? "w-5 h-3.5" : "w-6 h-4";
-    return (
-      <div className={`${wClass} rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative flex items-center justify-center`}>
-        <img
-          src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
-          alt={altName}
-          className="w-full h-full object-cover absolute inset-0"
-          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
-        />
-      </div>
-    );
-  };
-
-  // ===== LOGIKA DATA NEGARA & HUBUNGAN DAGANG =====
   useEffect(() => {
     if (COUNTRIES_DATA && Array.isArray(COUNTRIES_DATA)) {
       const formatted = COUNTRIES_DATA.filter((c) => c.country && c.iso).map((c) => ({
@@ -111,7 +109,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     }
   }, []);
 
-  // 🔥 Kelompokkan data Negara berdasarkan Benua
   const groupedCountries = useMemo<Record<string, CountryOption[]>>(() => {
     return countries.reduce((acc, country) => {
       const continent = country.continent || 'Lainnya';
@@ -121,7 +118,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     }, {} as Record<string, CountryOption[]>);
   }, [countries]);
 
-  // 🔥 Ketika groupedCountries berubah, atur activeContinent ke benua pertama
   useEffect(() => {
     const keys = Object.keys(groupedCountries);
     if (keys.length > 0 && !activeContinent) {
@@ -129,7 +125,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     }
   }, [groupedCountries, activeContinent]);
 
-  // Generate simulasi teman dagang
   useEffect(() => {
     const safeCountries = Array.isArray(countries) ? countries : [];
     if (safeCountries.length === 0) return;
@@ -151,9 +146,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     setAllies(alliesList);
   }, [countries, selectedCountry]);
 
+  // 🔥 Logika voting dengan konversi angka ke array negara
   useEffect(() => {
     if (!selectedTarget || !selectedCountry || countries.length === 0) {
-      setVoteStats({ pro: 0, con: 0, hasDiplomaticRelation: false });
+      setVoteStats({ supporters: [], opponents: [], hasDiplomaticRelation: false });
       return;
     }
 
@@ -162,13 +158,37 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         selectedCountry.country,
         selectedTarget.name,
         countries
-      );
+      ) ?? { supporters: 0, opponents: 0, hasDiplomaticRelation: false };
 
-      setVoteStats({ pro: result.supporters, con: result.opponents, hasDiplomaticRelation: result.hasDiplomaticRelation });
+      let supportersList: CountryOption[] = [];
+      let opponentsList: CountryOption[] = [];
+
+      // Jika result.supporters berupa angka, gunakan logika aliansi
+      if (typeof result.supporters === 'number') {
+        const isTargetAlly = allies.some(ally => ally.id === selectedTarget.id);
+        if (isTargetAlly) {
+          // Target adalah teman: negara lain (bukan teman) mendukung, teman menolak
+          supportersList = countries.filter(c => !allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
+          opponentsList = allies.filter(c => c.id !== selectedTarget.id);
+        } else {
+          // Target bukan teman: teman mendukung, negara lain menolak
+          supportersList = allies;
+          opponentsList = countries.filter(c => !allies.some(ally => ally.id === c.id) && c.id !== selectedTarget.id);
+        }
+      } else {
+        // Jika sudah berupa array (fallback)
+        supportersList = Array.isArray(result.supporters) ? result.supporters : [];
+        opponentsList = Array.isArray(result.opponents) ? result.opponents : [];
+      }
+
+      setVoteStats({
+        supporters: supportersList,
+        opponents: opponentsList,
+        hasDiplomaticRelation: result.hasDiplomaticRelation || false
+      });
     })();
-  }, [selectedTarget, selectedCountry, countries]);
+  }, [selectedTarget, selectedCountry, countries, allies]);
 
-  // Close dropdown
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (durationRef.current && !durationRef.current.contains(event.target as Node)) setIsDurationOpen(false);
@@ -183,7 +203,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
       return;
     }
     const activeAction = RESOLUTION_ACTIONS.find(a => a.id === selectedType);
-    alert(`Resolusi berhasil diajukan ke Dewan Keamanan!\n\nJenis: ${activeAction?.label}\nDurasi: ${selectedDuration}\nTarget: ${selectedTarget.name}\nPrakiraan Suara: ${voteStats.pro} Setuju, ${voteStats.con} Menentang.`);
+    alert(`Resolusi berhasil diajukan ke Dewan Keamanan!\n\nJenis: ${activeAction?.label}\nDurasi: ${selectedDuration}\nTarget: ${selectedTarget.name}\nPrakiraan Suara: ${voteStats.supporters.length} Setuju, ${voteStats.opponents.length} Menentang.`);
     
     setIsResolusiModalOpen(false);
     setSelectedTarget(null);
@@ -192,6 +212,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
   return (
     <div className="space-y-6 w-full">
       
+      {/* Keanggotaan Dewan Keamanan */}
       <div className="bg-white/70 border border-[#C4B49C]/30 rounded-xl shadow-sm overflow-hidden">
         <button onClick={() => setIsMembershipOpen(!isMembershipOpen)} className="w-full flex items-center justify-between px-6 py-4 bg-[#FAF6EE]/80 border-b border-[#C4B49C]/30 cursor-pointer hover:bg-[#e4dac3]/40 transition-colors">
           <div className="flex items-center gap-3"><Shield className="h-5 w-5 text-[#5c3c10]" /><h4 className="text-sm font-black text-[#5c3c10] uppercase">Keanggotaan Dewan Keamanan PBB</h4><div className="flex gap-2 ml-2"><span className="text-[10px] font-bold bg-amber-600/10 text-amber-700 px-2 py-1 rounded-lg border border-amber-600/20">5 Tetap</span><span className="text-[10px] font-bold bg-blue-600/10 text-blue-700 px-2 py-1 rounded-lg border border-blue-600/20">10 Tidak Tetap</span></div></div>
@@ -213,7 +234,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       </div>
 
-      {/* 🔥 UI UTAMA: HALAMAN KOSONG ELEGAN (Sesuai gambar & ResolusiPBB) */}
+      {/* UI Utama: Halaman Kosong Elegan */}
       <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px] mt-4">
         <div className="p-3 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20">
           <FileText className="h-8 w-8 text-[#5c3c10]" />
@@ -233,11 +254,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </button>
       </div>
 
+      {/* Modal Buat Resolusi */}
       {isResolusiModalOpen && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
-            
-            {/* HEADER MODAL UTAMA */}
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
@@ -254,7 +274,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
               </button>
             </div>
 
-            {/* BODY MODAL - DENGAN SCROLLBAR TERLIHAT (custom-scrollbar) */}
             <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center overflow-y-auto custom-scrollbar pr-2">
               <div className="w-full max-w-4xl space-y-8">
                 <div>
@@ -310,7 +329,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                     </div>
                   </div>
 
-                  {/* KOLOM KANAN: PILIH NEGARA */}
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih negara:</p>
                     <button 
@@ -338,16 +356,21 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
+                {/* Kotak Perkiraan Suara */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
                     <div className="flex flex-col items-center">
                       <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
-                      <span className="text-3xl font-black text-emerald-700">{voteStats.pro}</span>
+                      <span className="text-3xl font-black text-emerald-700">
+                        {voteStats.supporters.length}
+                      </span>
                     </div>
                     <div className="flex flex-col items-center">
                       <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
-                      <span className="text-3xl font-black text-rose-700">{voteStats.con}</span>
+                      <span className="text-3xl font-black text-rose-700">
+                        {voteStats.opponents.length}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -358,17 +381,14 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
               <button onClick={() => setIsResolusiModalOpen(false)} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Batal</button>
               <button onClick={handleSubmit} className="px-8 py-3 rounded-xl bg-[#367d7a] text-white font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer">Tambahkan</button>
             </div>
-
           </div>
         </div>
       )}
 
-      {/* 🔥 MODAL KHUSUS UNTUK PILIH NEGARA (BERBASIS TAB BENUA & SUDAH DIFILTER) */}
+      {/* Modal Pilih Negara */}
       {isCountryModalOpen && (
         <div className="fixed inset-0 z-[80] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
-            
-            {/* HEADER MODAL NEGARA */}
             <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
               <div className="flex items-center gap-3">
                 <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
@@ -384,68 +404,47 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                 <X className="h-5 w-5" />
               </button>
             </div>
-
-            {/* BODY MODAL NEGARA */}
             <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
               <div className="w-full max-w-5xl">
-                
-                {/* ROW TOMBOL BENUA */}
                 <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {Object.keys(groupedCountries).map((continent) => (
                     <button
                       key={continent}
                       onClick={() => setActiveContinent(continent)}
                       className={`px-5 py-2.5 rounded-lg text-xs font-black uppercase tracking-wider transition-all cursor-pointer ${
-                        activeContinent === continent
-                          ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md'
-                          : 'bg-white/80 border border-[#C4B49C]/30 text-[#8b7e66] hover:bg-[#e4dac3]/40 hover:border-[#5c3c10]'
+                        activeContinent === continent ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md' : 'bg-white/80 border border-[#C4B49C]/30 text-[#8b7e66] hover:bg-[#e4dac3]/40 hover:border-[#5c3c10]'
                       }`}
                     >
                       {continent} ({groupedCountries[continent].length})
                     </button>
                   ))}
                 </div>
-
-                {/* GRID NEGARA DARI BENUA TERPILIH */}
                 {activeContinent && groupedCountries[activeContinent] && (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                    {groupedCountries[activeContinent]
-                      .filter(c => c.id !== selectedCountry?.id)
-                      .map((c) => {
-                        const isSelected = selectedTarget?.id === c.id;
-                        return (
-                          <button
-                            key={c.id}
-                            onClick={() => {
-                              setSelectedTarget(c);
-                              setIsCountryModalOpen(false);
-                            }}
-                            className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${
-                              isSelected
-                                ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm'
-                                : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'
-                            }`}
-                          >
-                            {renderFlag(c.iso, c.name)}
-                            <span className={`text-[10px] font-bold mt-2 text-center leading-tight ${isSelected ? 'text-[#367d7a]' : 'text-[#5c3c10]'}`}>
-                              {c.name}
-                            </span>
-                          </button>
-                        );
-                      })}
+                    {groupedCountries[activeContinent].filter(c => c.id !== selectedCountry?.id).map((c) => {
+                      const isSelected = selectedTarget?.id === c.id;
+                      return (
+                        <button
+                          key={c.id}
+                          onClick={() => { setSelectedTarget(c); setIsCountryModalOpen(false); }}
+                          className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${isSelected ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm' : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'}`}
+                        >
+                          {renderFlag(c.iso, c.name)}
+                          <span className={`text-[10px] font-bold mt-2 text-center leading-tight ${isSelected ? 'text-[#367d7a]' : 'text-[#5c3c10]'}`}>{c.name}</span>
+                        </button>
+                      );
+                    })}
                   </div>
                 )}
               </div>
             </div>
-
-            {/* FOOTER MODAL NEGARA */}
             <div className="flex items-center justify-end gap-4 px-8 py-6 border-t-2 border-[#C4B49C]/30 bg-[#FAF6EE] relative z-10 shrink-0">
               <button onClick={() => setIsCountryModalOpen(false)} className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer">Tutup</button>
             </div>
-
           </div>
         </div>
       )}
+
       
     </div>
   );

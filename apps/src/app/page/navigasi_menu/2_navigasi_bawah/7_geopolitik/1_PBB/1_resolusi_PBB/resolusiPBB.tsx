@@ -69,9 +69,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     hasDiplomaticRelation: false
   });
 
-  const [showSupportersModal, setShowSupportersModal] = useState(false);
-  const [showOpponentsModal, setShowOpponentsModal] = useState(false);
-
   const RESOLUTION_ACTIONS = [
     { id: 'war_ban', icon: Swords, label: 'Larangan Perang', desc: 'Dilarang menyerang negara ini selama periode yang dipilih.' },
     { id: 'arms_embargo', icon: ShieldBan, label: 'Embargo Penjualan Senjata', desc: 'Perdagangan senjata dilarang selama periode yang dipilih.' },
@@ -188,6 +185,27 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // 🔥 PERBAIKAN MUTLAK: Teknik Scroll Lock (Membekukan posisi Body)
+  useEffect(() => {
+    const isAnyModalOpen = showCreateModal || isCountryModalOpen;
+    if (isAnyModalOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflowY = 'hidden';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflowY = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0', 10) * -1);
+      }
+    }
+  }, [showCreateModal, isCountryModalOpen]);
+
   const isProductionBan = selectedType === 'production_ban';
 
   const handleSubmitResolution = () => {
@@ -241,7 +259,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </button>
       </div>
 
-      {/* 🔥 MODAL UTAMA AJUKAN RESOLUSI */}
+      {/* 🔥 MODAL UTAMA AJUKAN RESOLUSI (BENTUK ASLI + FLEX CENTER) */}
       {showCreateModal && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative pointer-events-auto animate-in fade-in zoom-in-95 duration-150">
@@ -263,7 +281,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
               </button>
             </div>
 
-            {/* 🔥 BODY MODAL (DITAMBAHKAN OVERFLOW YANG AMAN) */}
+            {/* 🔥 BODY MODAL */}
             <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center overflow-y-auto no-scrollbar">
               <div className="w-full max-w-4xl space-y-8">
                 
@@ -369,24 +387,18 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
-                    <button
-                      onClick={() => setShowSupportersModal(true)}
-                      className="flex flex-col items-center group hover:scale-105 transition-transform cursor-pointer"
-                    >
-                      <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider group-hover:text-emerald-600">Setuju</span>
-                      <span className="text-3xl font-black text-emerald-700 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-4">
+                    <div className="flex flex-col items-center">
+                      <span className="text-[12px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
+                      <span className="text-3xl font-black text-emerald-700">
                         {voteStats.supporters.length}
                       </span>
-                    </button>
-                    <button
-                      onClick={() => setShowOpponentsModal(true)}
-                      className="flex flex-col items-center group hover:scale-105 transition-transform cursor-pointer"
-                    >
-                      <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider group-hover:text-rose-600">Menentang</span>
-                      <span className="text-3xl font-black text-rose-700 group-hover:underline group-hover:decoration-2 group-hover:underline-offset-4">
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <span className="text-[12px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
+                      <span className="text-3xl font-black text-rose-700">
                         {voteStats.opponents.length}
                       </span>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -456,29 +468,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </div>
       )}
 
-      {/* 🔥 MODAL DAFTAR NEGARA SETUJU */}
-      {showSupportersModal && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/60 pointer-events-auto backdrop-blur-sm">
-          <div className="bg-[#FAF6EE] border-4 border-emerald-600/50 rounded-2xl max-w-3xl w-full max-h-[80vh] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative flex flex-col">
-            <button onClick={() => setShowSupportersModal(false)} className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"><X className="h-5 w-5" /></button>
-            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#C4B49C]/30"><div className="p-1.5 bg-emerald-600/10 rounded-full border border-emerald-600/20"><ThumbsUp className="h-5 w-5 text-emerald-600" /></div><h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Negara yang Menyetujui</h3><span className="ml-auto text-xs font-bold bg-emerald-600/20 text-emerald-700 px-3 py-1 rounded-full">{voteStats.supporters.length} Negara</span></div>
-            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar"><div className="grid grid-cols-2 md:grid-cols-4 gap-3">{voteStats.supporters.map((c) => (<div key={c.id} className="flex items-center gap-2 p-2 bg-white/50 border border-[#C4B49C]/20 rounded-lg">{renderFlag(c.iso, c.name, "sm")}<span className="text-[10px] font-bold text-[#5c3c10] truncate">{c.name}</span></div>))}</div></div>
-            <button onClick={() => setShowSupportersModal(false)} className="mt-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-black uppercase tracking-wider hover:bg-emerald-700 transition-all cursor-pointer">Tutup</button>
-          </div>
-        </div>
-      )}
-
-      {/* 🔥 MODAL DAFTAR NEGARA MENOLAK */}
-      {showOpponentsModal && (
-        <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-black/60 pointer-events-auto backdrop-blur-sm">
-          <div className="bg-[#FAF6EE] border-4 border-rose-600/50 rounded-2xl max-w-3xl w-full max-h-[80vh] p-6 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative flex flex-col">
-            <button onClick={() => setShowOpponentsModal(false)} className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"><X className="h-5 w-5" /></button>
-            <div className="flex items-center gap-3 mb-4 pb-3 border-b border-[#C4B49C]/30"><div className="p-1.5 bg-rose-600/10 rounded-full border border-rose-600/20"><ThumbsDown className="h-5 w-5 text-rose-600" /></div><h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Negara yang Menolak</h3><span className="ml-auto text-xs font-bold bg-rose-600/20 text-rose-700 px-3 py-1 rounded-full">{voteStats.opponents.length} Negara</span></div>
-            <div className="flex-1 overflow-y-auto pr-2 custom-scrollbar"><div className="grid grid-cols-2 md:grid-cols-4 gap-3">{voteStats.opponents.map((c) => (<div key={c.id} className="flex items-center gap-2 p-2 bg-white/50 border border-[#C4B49C]/20 rounded-lg">{renderFlag(c.iso, c.name, "sm")}<span className="text-[10px] font-bold text-[#5c3c10] truncate">{c.name}</span></div>))}</div></div>
-            <button onClick={() => setShowOpponentsModal(false)} className="mt-4 py-2.5 rounded-xl bg-rose-600 text-white text-xs font-black uppercase tracking-wider hover:bg-rose-700 transition-all cursor-pointer">Tutup</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
