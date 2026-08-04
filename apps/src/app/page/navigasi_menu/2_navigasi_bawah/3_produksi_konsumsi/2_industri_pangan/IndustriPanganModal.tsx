@@ -29,6 +29,7 @@ interface ModalProps {
   setCountryDetail?: (detail: any) => void;
   metadata?: any;
   onGotoProduction?: (tab: string, key: string) => void;
+  prefetchedAllCountries?: any[];
 }
 
 interface SortConfig {
@@ -76,7 +77,7 @@ const normalizePopulationFromProfile = (country: any, profileMap: Map<string, nu
   return 0;
 };
 
-export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction }: ModalProps) {
+export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction, prefetchedAllCountries }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"my" | "global">("my");
   const [allCountries, setAllCountries] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -100,6 +101,10 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   useEffect(() => {
     if (isOpen && allCountries.length === 0) {
+      if (prefetchedAllCountries && prefetchedAllCountries.length > 0) {
+        setAllCountries(prefetchedAllCountries);
+        return;
+      }
       (async () => {
         try {
           const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
