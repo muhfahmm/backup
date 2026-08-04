@@ -14,8 +14,6 @@ import StatistikPopulasiModal from "./2_populasi/2_statistik/StatistikPopulasiMo
 
 // 3. Produksi & Konsumsi
 import KelistrikanModal from "./3_produksi_konsumsi/1_grid_nasional/KelistrikanModal";
-import PerminyakanModal from "./3_produksi_konsumsi/PerminyakanModal";
-import UraniumModal from "./3_produksi_konsumsi/UraniumModal";
 import IndustriPanganModal from "./3_produksi_konsumsi/2_industri_pangan/IndustriPanganModal";
 
 // 4. Ekonomi
@@ -157,24 +155,6 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           metadata={metadata}
-        />
-      );
-    case "Menu:Perminyakan":
-      return (
-        <PerminyakanModal
-          isOpen={true}
-          onClose={onClose}
-          countryDetail={countryDetail}
-          setCountryDetail={setCountryDetail}
-        />
-      );
-    case "Menu:Uranium":
-      return (
-        <UraniumModal
-          isOpen={true}
-          onClose={onClose}
-          countryDetail={countryDetail}
-          setCountryDetail={setCountryDetail}
         />
       );
     case "Menu:IndustriPangan":

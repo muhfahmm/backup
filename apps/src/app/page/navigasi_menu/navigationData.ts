@@ -37,8 +37,6 @@ export const subMenuItems: Record<string, any[]> = {
   ],
   "ProduksiKonsumsi": [
     { id: "Menu:Kelistrikan", label: "Grid Nasional", icon: Bolt },
-    { id: "Menu:Perminyakan", label: "Perminyakan", icon: Droplet },
-    { id: "Menu:Uranium", label: "Uranium", icon: Radiation },
     { id: "Menu:IndustriPangan", label: "Industri Pangan", icon: Utensils },
   ],
   "Pertahanan": [
