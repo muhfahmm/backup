@@ -26,7 +26,14 @@ const formatNumber = (value: unknown) => {
 };
 
 export default function SerangNegaraModal({ isOpen, onClose, countryDetail, setCountryDetail, prefetchedAllCountries }: ModalProps) {
-  const rankings = React.useMemo(() => {
+  // 1. State untuk sorting
+  const [sortConfig, setSortConfig] = useState<{ key: keyof RankingRow; direction: 'asc' | 'desc' } | null>({
+    key: 'totalPower',
+    direction: 'desc'
+  });
+
+  // Data awal yang belum disortir (diurutkan berdasarkan totalPower descending secara default)
+  const rawRankings = React.useMemo(() => {
     const source = Array.isArray(prefetchedAllCountries) ? prefetchedAllCountries : [];
 
     return source
@@ -43,9 +50,51 @@ export default function SerangNegaraModal({ isOpen, onClose, countryDetail, setC
           laut: groupTotals?.laut?.power ?? 0,
           udara: groupTotals?.udara?.power ?? 0,
         };
-      })
-      .sort((left, right) => right.totalPower - left.totalPower);
+      });
   }, [prefetchedAllCountries]);
+
+  // 2. Fungsi logic sorting interaktif
+  const rankings = useMemo(() => {
+    let sortableItems = [...rawRankings];
+    if (sortConfig !== null) {
+      sortableItems.sort((a, b) => {
+        // Jika tipe data adalah string (misal nama negara)
+        if (typeof a[sortConfig.key] === 'string') {
+          const aVal = a[sortConfig.key] as string;
+          const bVal = b[sortConfig.key] as string;
+          if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+          if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+          return 0;
+        } 
+        // Jika tipe data adalah angka
+        else {
+          const aVal = a[sortConfig.key] as number;
+          const bVal = b[sortConfig.key] as number;
+          if (aVal < bVal) return sortConfig.direction === 'asc' ? -1 : 1;
+          if (aVal > bVal) return sortConfig.direction === 'asc' ? 1 : -1;
+          return 0;
+        }
+      });
+    }
+    return sortableItems;
+  }, [rawRankings, sortConfig]);
+
+  // Fungsi untuk menangani klik header tabel
+  const handleSort = (key: keyof RankingRow) => {
+    let direction: 'asc' | 'desc' = 'asc';
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === 'asc') {
+      direction = 'desc';
+    }
+    setSortConfig({ key, direction });
+  };
+
+  // Helper untuk menampilkan panah indikator
+  const getSortArrow = (key: keyof RankingRow) => {
+    if (sortConfig?.key === key) {
+      return sortConfig.direction === 'asc' ? ' ▲' : ' ▼';
+    }
+    return '';
+  };
 
   const selectedCountryName = useMemo(() => {
     return countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || countryDetail?.name_en || "Negara";
@@ -76,7 +125,7 @@ export default function SerangNegaraModal({ isOpen, onClose, countryDetail, setC
 
         <div className="flex-1 min-h-0 overflow-y-auto p-4 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="mb-3 text-xs font-semibold text-[#8b7e66] leading-relaxed">
-            Tabel ranking 207 negara berdasarkan total kekuatan gabungan darat, laut, dan udara. Urutan menurun dari yang paling kuat ke yang paling lemah.
+            Tabel ranking 207 negara berdasarkan total kekuatan gabungan darat, laut, dan udara. Klik header kolom untuk mengurutkan data (Naik/Turun).
           </div>
 
           <div className="overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
@@ -85,33 +134,57 @@ export default function SerangNegaraModal({ isOpen, onClose, countryDetail, setC
                 <thead className="sticky top-0 z-10 bg-[#5c3c10] text-[#FAF6EE] uppercase tracking-[0.18em]">
                   <tr>
                     <th className="px-3 py-3 font-black">Rank</th>
-                    <th className="px-3 py-3 font-black">Negara</th>
-                    <th className="px-3 py-3 font-black">Darat</th>
-                    <th className="px-3 py-3 font-black">Laut</th>
-                    <th className="px-3 py-3 font-black">Udara</th>
-                    <th className="px-3 py-3 font-black">Total Kekuatan</th>
-                    <th className="px-3 py-3 font-black">HP</th>
+                    <th 
+                      className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors"
+                      onClick={() => handleSort('countryName')}
+                    >
+                      Negara{getSortArrow('countryName')}
+                    </th>
+                    <th 
+                      className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors"
+                      onClick={() => handleSort('darat')}
+                    >
+                      Darat{getSortArrow('darat')}
+                    </th>
+                    <th 
+                      className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors"
+                      onClick={() => handleSort('laut')}
+                    >
+                      Laut{getSortArrow('laut')}
+                    </th>
+                    <th 
+                      className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors"
+                      onClick={() => handleSort('udara')}
+                    >
+                      Udara{getSortArrow('udara')}
+                    </th>
+                    <th 
+                      className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors"
+                      onClick={() => handleSort('totalPower')}
+                    >
+                      Total Kekuatan{getSortArrow('totalPower')}
+                    </th>
                   </tr>
                 </thead>
                 <tbody>
                   {rankings === null ? (
                     <tr>
-                      <td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Memuat ranking kekuatan negara…</td>
+                      <td colSpan={6} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Memuat ranking kekuatan negara…</td>
                     </tr>
                   ) : rankings.length === 0 ? (
                     <tr>
-                      <td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Data ranking belum tersedia.</td>
+                      <td colSpan={6} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Data ranking belum tersedia.</td>
                     </tr>
                   ) : (
                     rankings.map((row, index) => (
                       <tr key={`${row.countryName}-${index}`} className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60">
-                        <td className="px-3 py-2 font-black text-[#5c3c10]">#{index + 1}</td>
+                        {/* Penomoran tanpa simbol '#' */}
+                        <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
                         <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
                         <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
                         <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
                         <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
                         <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
-                        <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.totalHealth)}</td>
                       </tr>
                     ))
                   )}
