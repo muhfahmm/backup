@@ -137,13 +137,13 @@ export default function SerangNegaraModal({
           </button>
         </div>
 
-        <div className="flex-1 min-h-0 overflow-y-auto p-4 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
+        <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="mb-3 text-xs font-semibold text-[#8b7e66] leading-relaxed">
             Tabel ranking 207 negara berdasarkan total kekuatan gabungan darat, laut, dan udara. Klik header kolom untuk mengurutkan data. Klik ikon <Swords className="inline w-3 h-3" /> untuk menyerang target.
           </div>
 
-          <div className="overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
-            <div className="max-h-[62vh] overflow-auto">
+          <div className="w-full overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
+            <div className="max-h-[50vh] overflow-auto">
               <table className="min-w-full text-left text-[11px]">
                 <thead className="sticky top-0 z-10 bg-[#5c3c10] text-[#FAF6EE] uppercase tracking-[0.18em]">
                   <tr>
