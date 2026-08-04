@@ -1,4 +1,4 @@
-const MINERAL_SDA_BUILDING_KEYS = [
+export const MINERAL_SDA_BUILDING_KEYS = [
   'emas',
   'uranium',
   'batu_bara',
@@ -48,19 +48,23 @@ export const getMineralSDAStatusForCountry = async (countryName: string): Promis
   return null;
 };
 
-export const getDisabledMineralBuildingsForCountry = (countryName: string): Set<string> => {
+export const getDisabledMineralBuildingsForCountry = (
+  countryName: string,
+  sdaStatus?: Record<string, boolean> | null
+): Set<string> => {
   const disabled = new Set<string>();
   const normalized = normalizeSdaCountryName(countryName);
   if (!normalized) return disabled;
 
-  const cached = MINERAL_SDA_LOOKUP.get(normalized);
-  if (!cached) {
+  const resolvedStatus = sdaStatus ?? MINERAL_SDA_LOOKUP.get(normalized) ?? null;
+
+  if (!resolvedStatus) {
     void getMineralSDAStatusForCountry(countryName);
     return disabled;
   }
 
   for (const resourceKey of MINERAL_SDA_BUILDING_KEYS) {
-    if (cached[resourceKey] === false) {
+    if (resolvedStatus[resourceKey] === false) {
       disabled.add(resourceKey);
     }
   }
@@ -68,7 +72,11 @@ export const getDisabledMineralBuildingsForCountry = (countryName: string): Set<
   return disabled;
 };
 
-export const isMineralBuildingAvailable = (buildingKey: string, countryName: string): boolean => {
-  const disabled = getDisabledMineralBuildingsForCountry(countryName);
+export const isMineralBuildingAvailable = (
+  buildingKey: string,
+  countryName: string,
+  sdaStatus?: Record<string, boolean> | null
+): boolean => {
+  const disabled = getDisabledMineralBuildingsForCountry(countryName, sdaStatus);
   return !disabled.has(buildingKey);
 };

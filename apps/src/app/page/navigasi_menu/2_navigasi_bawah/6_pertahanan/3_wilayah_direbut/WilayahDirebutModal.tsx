@@ -6,9 +6,10 @@ interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
   countryDetail: any;
+  setCountryDetail: (detail: any) => void;
 }
 
-export default function WilayahDirebutModal({ isOpen, onClose, countryDetail }: ModalProps) {
+export default function WilayahDirebutModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
 
   return (
