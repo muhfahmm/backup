@@ -271,14 +271,12 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
-            {/* 🔥 PERUBAHAN DI SINI: max-w-5xl dihapus, menjadi w-full */}
             <div className="w-full">
               {countryList.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-[#8b7e66] font-bold text-lg">Belum ada negara dalam daftar ini.</p>
                 </div>
               ) : (
-                /* 🔥 PERUBAHAN DI SINI: Grid 2 kolom, item menjadi horizontal flex, batasan lebar dihapus */
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                   {countryList.map((c) => (
                     <div
@@ -455,14 +453,20 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 🔥 Kotak Perkiraan Suara - HANYA BAGIAN INI YANG DIKECILKAN */}
+                {/* 🔥 Kotak Perkiraan Suara - DITAMBAHKAN LOGIKA NON-AKTIF JIKA 0 */}
                 <div className="p-6 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-sm mx-auto gap-3">
                     
+                    {/* Tombol Setuju - Tidak bisa diklik jika 0 */}
                     <button 
-                      onClick={() => setIsSupportersModalOpen(true)}
-                      className="flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/80 hover:border-emerald-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+                      onClick={() => { if (voteStats.supporters.length > 0) setIsSupportersModalOpen(true); }}
+                      className={`flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 shadow-sm ${
+                        voteStats.supporters.length === 0
+                          ? 'border-emerald-100 bg-emerald-50/30 opacity-50 cursor-not-allowed'
+                          : 'border-emerald-200 bg-emerald-50/60 hover:bg-emerald-100/80 hover:border-emerald-400 hover:shadow-md active:scale-95 cursor-pointer'
+                      }`}
+                      title={voteStats.supporters.length === 0 ? "Tidak ada negara yang mendukung" : "Lihat daftar negara pendukung"}
                     >
                       <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider">Setuju</span>
                       <span className="text-2xl font-black text-emerald-700 mt-0.5">
@@ -470,9 +474,15 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                       </span>
                     </button>
 
+                    {/* Tombol Menentang - Tidak bisa diklik jika 0 */}
                     <button 
-                      onClick={() => setIsOpponentsModalOpen(true)}
-                      className="flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 border-rose-200 bg-rose-50/60 hover:bg-rose-100/80 hover:border-rose-400 shadow-sm hover:shadow-md transition-all duration-200 active:scale-95 cursor-pointer"
+                      onClick={() => { if (voteStats.opponents.length > 0) setIsOpponentsModalOpen(true); }}
+                      className={`flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 shadow-sm ${
+                        voteStats.opponents.length === 0
+                          ? 'border-rose-100 bg-rose-50/30 opacity-50 cursor-not-allowed'
+                          : 'border-rose-200 bg-rose-50/60 hover:bg-rose-100/80 hover:border-rose-400 hover:shadow-md active:scale-95 cursor-pointer'
+                      }`}
+                      title={voteStats.opponents.length === 0 ? "Tidak ada negara yang menentang" : "Lihat daftar negara penentang"}
                     >
                       <span className="text-[10px] font-bold text-rose-700 uppercase tracking-wider">Menentang</span>
                       <span className="text-2xl font-black text-rose-700 mt-0.5">
