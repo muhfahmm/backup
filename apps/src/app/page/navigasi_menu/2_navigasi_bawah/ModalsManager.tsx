@@ -7,6 +7,7 @@ import { fetchBuildingMetadata } from '../../../../lib/buildingMetadata';
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
 import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
+import TempatWisataModal from "./1_kepuasan/TempatWisataModal";
 
 // 2. Populasi
 import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiModal";
@@ -115,6 +116,17 @@ function ModalsManager({
     case "Action:NaikkanKepuasan":
       return (
         <NaikkanKepuasanModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
+    case "Menu:TempWisata":
+      return (
+        <TempatWisataModal
           isOpen={true}
           onClose={onClose}
           setActiveMenu={setActiveMenu}
