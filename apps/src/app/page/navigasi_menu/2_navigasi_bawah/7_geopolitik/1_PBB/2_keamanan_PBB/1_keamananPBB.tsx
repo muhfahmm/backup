@@ -544,7 +544,8 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                       return (
                         <button
                           key={c.id}
-                          onClick={() => { setSelectedTarget(c); setIsCountryModalOpen(false); }}
+                          // 🔥 PERBAIKAN UNTUK TOGGLE / UNSELECT: Cek apakah ID sama, jika sama set null
+                          onClick={() => { setSelectedTarget(prev => prev?.id === c.id ? null : c); setIsCountryModalOpen(false); }}
                           className={`flex flex-col items-center p-3 rounded-xl border-2 transition-all cursor-pointer ${isSelected ? 'bg-[#367d7a]/10 border-[#367d7a] text-[#367d7a] shadow-sm' : 'bg-white border-[#C4B49C]/30 hover:border-[#5c3c10]'}`}
                         >
                           {renderFlag(c.iso, c.name)}

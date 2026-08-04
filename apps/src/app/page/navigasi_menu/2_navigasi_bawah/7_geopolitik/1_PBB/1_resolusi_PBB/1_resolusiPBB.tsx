@@ -7,6 +7,7 @@ import {
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 import { calculateResolusiVoting } from "../voting_logic/resolusiPBB_logic";
 
+// 🔥 PERBAIKAN: Hapus ekstensi .tsx di bagian import
 import CountryTargetModal from "./2_negara_target";
 import CountryListModal from "./3_jumlah_suara";
 
@@ -238,8 +239,16 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     setShowCreateModal(false);
   };
 
+  // 🔥 Logika Toggle (Unselect jika klik negara yang sama)
   const handleSelectTarget = (country: CountryOption) => {
-    setSelectedTarget(country);
+    // Jika negara yang diklik sama dengan yang sudah dipilih, batalkan pilihan (unselect) menjadi null
+    if (selectedTarget?.id === country.id) {
+      setSelectedTarget(null);
+    } else {
+      // Jika berbeda, set ke negara baru
+      setSelectedTarget(country);
+    }
+    // Tutup modal
     setIsCountryModalOpen(false);
   };
 
@@ -389,12 +398,9 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 🔥 BAGIAN PERKIRAAN SUARA - DITAMBAHKAN LOGIKA NON-AKTIF JIKA 0 */}
                 <div className="p-6 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-sm mx-auto gap-3">
-                    
-                    {/* Tombol Setuju - Tidak bisa diklik jika 0 */}
                     <button
                       onClick={() => { if (voteStats.supporters.length > 0) setIsSupportersModalOpen(true); }}
                       className={`flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 shadow-sm ${
@@ -410,7 +416,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                       </span>
                     </button>
 
-                    {/* Tombol Menentang - Tidak bisa diklik jika 0 */}
                     <button
                       onClick={() => { if (voteStats.opponents.length > 0) setIsOpponentsModalOpen(true); }}
                       className={`flex flex-col items-center w-full px-4 py-3 rounded-xl border-2 transition-all duration-200 shadow-sm ${
@@ -425,7 +430,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
                         {voteStats.opponents.length}
                       </span>
                     </button>
-
                   </div>
                 </div>
               </div>
