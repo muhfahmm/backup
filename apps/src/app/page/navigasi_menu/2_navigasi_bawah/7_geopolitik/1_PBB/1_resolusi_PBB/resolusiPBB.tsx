@@ -240,7 +240,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
     setShowCreateModal(false);
   };
 
-  // 🔥 Komponen modal daftar negara (Ukuran asli kembali)
+  // 🔥 Komponen modal daftar negara - SUDAH DIUBAH MENJADI FULL WIDTH (2 KOLOM)
   const CountryListModal = ({ 
     isOpen, 
     onClose, 
@@ -277,20 +277,22 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
             </button>
           </div>
           <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
-            <div className="w-full max-w-5xl">
+            {/* 🔥 UBAH DI SINI: max-w-5xl dihapus, menjadi w-full */}
+            <div className="w-full">
               {countryList.length === 0 ? (
                 <div className="text-center py-12">
                   <p className="text-[#8b7e66] font-bold text-lg">Belum ada negara dalam daftar ini.</p>
                 </div>
               ) : (
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                /* 🔥 UBAH DI SINI: max-w-lg mx-auto dihapus, menjadi grid 2 kolom penuh */
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
                   {countryList.map((c) => (
                     <div
                       key={c.id}
-                      className="flex flex-col items-center p-3 rounded-xl border-2 border-[#C4B49C]/30 bg-white hover:border-[#5c3c10] transition-all"
+                      className="flex items-center gap-4 p-3 rounded-xl border-2 border-[#C4B49C]/30 bg-white hover:border-[#5c3c10] transition-all w-full"
                     >
                       {renderFlag(c.iso, c.name)}
-                      <span className="text-[10px] font-bold mt-2 text-center leading-tight text-[#5c3c10]">
+                      <span className="text-sm font-bold text-[#5c3c10]">
                         {c.name}
                       </span>
                     </div>
@@ -558,7 +560,7 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
         </div>
       )}
 
-      {/* 🔥 MODAL DAFTAR NEGARA SETUJU & MENENTANG - TETAP BESAR */}
+      {/* 🔥 MODAL DAFTAR NEGARA SETUJU & MENENTANG - TETAP BESAR, TAPI DAFTARNYA FULL WIDTH (GRID 2 KOLOM) */}
       <CountryListModal
         isOpen={isSupportersModalOpen}
         onClose={() => setIsSupportersModalOpen(false)}
