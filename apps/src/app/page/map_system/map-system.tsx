@@ -489,10 +489,14 @@ export default function MapPage() {
             if (isPlayer) {
                 setPlayerDetailModalOpen(true);
             } else {
+                const chosen = COUNTRIES_DATA.find(
+                    (c) => c.country.toLowerCase() === countryName.toLowerCase()
+                );
+                const capitalName = chosen?.capital || countryName;
+
+                await loadCountryStats(countryName, capitalName);
                 setCountryDetailModalName(countryName);
                 setCountryDetailModalOpen(true);
-                // Also pass the current countryDetail to the modal
-                setCountryDetail(countryDetail);
             }
         } catch (error) {
             console.error('Failed to read clicked country from map:', error);

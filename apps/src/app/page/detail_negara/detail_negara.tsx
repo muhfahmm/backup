@@ -47,6 +47,16 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
     // Jika sudah pernah fetch negara ini sebelumnya, jangan fetch lagi (mencegah reset data)
     if (fetchedRef.current === countryName) return;
 
+    const alreadyLoadedCountryDetail = countryDetail?.country?.toLowerCase().trim() === countryName.toLowerCase().trim();
+    if (alreadyLoadedCountryDetail) {
+      fetchedRef.current = countryName;
+      setFetchedDetail(countryDetail);
+      setIsLoadingDetail(false);
+      setActiveTab("informasi");
+      prevModalUpdateDateRef.current = null;
+      return;
+    }
+
     // Tandai negara ini sudah di-fetch
     fetchedRef.current = countryName;
 
@@ -90,7 +100,7 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
     };
 
     loadDetail();
-  }, [isOpen, countryName]);
+  }, [isOpen, countryName, countryDetail]);
 
   // PERBAIKAN: Logika Simulasi Update Kas Harian (Tetap berjalan saat modal terbuka)
   useEffect(() => {
@@ -220,11 +230,7 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
               <div className="flex flex-col">
                 <span className="text-[9px] font-black text-[#8b7e66]/80 uppercase tracking-wider">Hubungan</span>
                 <span className={`text-[11px] font-extrabold uppercase ${relationValue >= 75 ? 'text-emerald-700' : relationValue >= 50 ? 'text-[#5c3c10]' : 'text-rose-700'}`}>
-                  {isLoadingDetail ? (
-                    <span className="inline-block w-12 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
-                  ) : (
-                    relationValue
-                  )}
+                  {relationValue}
                 </span>
               </div>
             </div>
@@ -250,9 +256,11 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
               <div className="flex flex-col">
                 <span className="text-[9px] font-black text-[#8b7e66]/80 uppercase tracking-wider">Populasi</span>
                 <span className="text-[11px] font-bold text-[#5c3c10] uppercase">
-                  {isLoadingDetail
-                    ? <span className="inline-block w-20 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
-                    : detailData?.jumlah_penduduk ? detailData.jumlah_penduduk.toLocaleString('id-ID') : '-'
+                  {detailData?.jumlah_penduduk
+                    ? detailData.jumlah_penduduk.toLocaleString('id-ID')
+                    : isLoadingDetail
+                      ? <span className="inline-block w-20 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
+                      : '-'
                   }
                 </span>
               </div>
@@ -289,9 +297,11 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
               <div className="flex flex-col">
                 <span className="text-[9px] font-black text-[#8b7e66]/80 uppercase tracking-wider">Ideologi</span>
                 <span className="text-[11px] font-bold text-[#5c3c10] uppercase">
-                  {isLoadingDetail
-                    ? <span className="inline-block w-20 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
-                    : detailData?.ideology || '-'
+                  {detailData?.ideology
+                    ? detailData.ideology
+                    : isLoadingDetail
+                      ? <span className="inline-block w-20 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
+                      : '-'
                   }
                 </span>
               </div>
@@ -305,9 +315,11 @@ export function CountryDetailModal({ isOpen, countryName, onClose, countryDetail
               <div className="flex flex-col">
                 <span className="text-[9px] font-black text-[#8b7e66]/80 uppercase tracking-wider">Agama</span>
                 <span className="text-[11px] font-bold text-[#5c3c10] uppercase">
-                  {isLoadingDetail
-                    ? <span className="inline-block w-16 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
-                    : detailData?.religion || '-'
+                  {detailData?.religion
+                    ? detailData.religion
+                    : isLoadingDetail
+                      ? <span className="inline-block w-16 h-3 bg-[#8b7e66]/20 animate-pulse rounded" />
+                      : '-'
                   }
                 </span>
               </div>
