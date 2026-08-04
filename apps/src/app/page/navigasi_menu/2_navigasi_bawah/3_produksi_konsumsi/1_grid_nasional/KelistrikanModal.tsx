@@ -19,6 +19,7 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   metadata: any; // Jika tidak dikirim, nilainya undefined
+  prefetchedAllCountries?: any[];
 }
 
 interface SortConfig {
@@ -35,7 +36,7 @@ const SOURCE_ORDER = [
   "pembangkit_listrik_tenaga_angin"
 ];
 
-export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCountryDetail, metadata }: ModalProps) {
+export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCountryDetail, metadata, prefetchedAllCountries }: ModalProps) {
   // PERUBAHAN: Tambahkan state untuk Tab, Sort, dan Search
   const [activeTab, setActiveTab] = useState<"user" | "global">("user");
   const [allCountries, setAllCountries] = useState<any[]>([]);
@@ -45,7 +46,13 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   // Load country data when modal opens
   useEffect(() => {
     if (isOpen && allCountries.length === 0) {
-      // Fetch asynchronously but don't block rendering
+      // If parent prefetched the list, use it immediately
+      if (prefetchedAllCountries && prefetchedAllCountries.length > 0) {
+        setAllCountries(prefetchedAllCountries);
+        return;
+      }
+
+      // Otherwise fetch asynchronously but don't block rendering
       (async () => {
         try {
           const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
@@ -58,7 +65,7 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
         }
       })();
     }
-  }, [isOpen]);
+  }, [isOpen, prefetchedAllCountries]);
 
   if (!isOpen) return null;
 

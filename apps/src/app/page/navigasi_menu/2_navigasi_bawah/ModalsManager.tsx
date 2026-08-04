@@ -86,11 +86,22 @@ function ModalsManager({
   onOpenPlayerDetail,
 }: ModalsManagerProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
+  const [prefetchedAllCountries, setPrefetchedAllCountries] = useState<any[] | null>(null);
 
   useEffect(() => {
     fetchBuildingMetadata()
       .then((data) => setMetadata(data || {}))
       .catch((err) => console.error('ModalsManager: failed to load building metadata', err));
+    // Prefetch full country dataset for modals that need global lists (e.g., Kelistrikan)
+    (async () => {
+      try {
+        const res = await fetch('/api/country-data?all=true', { cache: 'no-store' });
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) setPrefetchedAllCountries(data);
+      } catch (e) {
+        console.warn('ModalsManager: failed to prefetch all countries', e);
+      }
+    })();
   }, []);
 
   // Jika tidak ada negara yang dipilih, jangan render apapun
@@ -154,6 +165,7 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           metadata={metadata}
+          prefetchedAllCountries={prefetchedAllCountries || undefined}
         />
       );
     case "Menu:IndustriPangan":
