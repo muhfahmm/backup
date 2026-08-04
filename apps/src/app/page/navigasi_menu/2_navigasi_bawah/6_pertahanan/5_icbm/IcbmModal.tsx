@@ -9,9 +9,10 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onOpenDebt?: () => void;
 }
 
-export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDetail, onOpenDebt }: ModalProps) {
   if (!isOpen) return null;
 
   // 🔥 Ambil logika dari file icbmLogic.ts
@@ -166,6 +167,7 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
         onSuccess={handleNuclearPaymentSuccess}
+        onTakeLoan={onOpenDebt}
       />
       
     </div>

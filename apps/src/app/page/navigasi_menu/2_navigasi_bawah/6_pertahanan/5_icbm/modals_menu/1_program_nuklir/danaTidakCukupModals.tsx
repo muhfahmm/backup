@@ -1,23 +1,35 @@
 "use client"
 import React from "react";
-import { X, AlertCircle, Coins } from "lucide-react";
+import { X, AlertCircle, Coins, Banknote } from "lucide-react";
 
 interface DanaTidakCukupModalsProps {
   isOpen: boolean;
   onClose: () => void;
   currentBudget: number;
   requiredBudget: number;
+  // 🔥 Tambahkan prop baru untuk fungsi ambil hutang
+  onTakeLoan?: () => void; 
 }
 
 export default function DanaTidakCukupModals({ 
   isOpen, 
   onClose, 
   currentBudget, 
-  requiredBudget 
+  requiredBudget,
+  onTakeLoan
 }: DanaTidakCukupModalsProps) {
   if (!isOpen) return null;
 
   const kekurangan = requiredBudget - currentBudget;
+
+  const handleTakeLoan = () => {
+    if (onTakeLoan) {
+      onTakeLoan(); // Jalankan logika hutang dari parent
+      onClose(); // Tutup modal setelah aksi
+    } else {
+      alert("Fitur ambil hutang belum terhubung ke sistem keuangan negara.");
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -72,12 +84,20 @@ export default function DanaTidakCukupModals({
               </div>
             </div>
 
+            {/* 🔥 Footer dengan 2 tombol (Kembali & Ambil Hutang) */}
             <div className="flex gap-4 justify-end pt-4 border-t border-[#C4B49C]/20">
               <button 
                 onClick={onClose}
-                className="px-8 py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+                className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer"
               >
                 Kembali
+              </button>
+              <button 
+                onClick={handleTakeLoan}
+                className="flex items-center gap-2 px-8 py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] font-black text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+              >
+                <Banknote className="w-4 h-4" />
+                Ambil Hutang
               </button>
             </div>
 

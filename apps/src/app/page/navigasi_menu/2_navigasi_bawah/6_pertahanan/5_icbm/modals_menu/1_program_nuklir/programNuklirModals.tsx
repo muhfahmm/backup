@@ -9,6 +9,7 @@ interface ProgramNuklirModalsProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onSuccess: () => void;
+  onTakeLoan?: () => void;
 }
 
 export default function ProgramNuklirModals({ 
@@ -16,7 +17,8 @@ export default function ProgramNuklirModals({
   onClose, 
   countryDetail, 
   setCountryDetail, 
-  onSuccess 
+  onSuccess,
+  onTakeLoan
 }: ProgramNuklirModalsProps) {
   if (!isOpen) return null;
 
@@ -121,6 +123,7 @@ export default function ProgramNuklirModals({
         onClose={() => setIsDanaTidakCukupOpen(false)}
         currentBudget={anggaran}
         requiredBudget={biayaProgram}
+        onTakeLoan={onTakeLoan}
       />
       
     </div>
