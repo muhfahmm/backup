@@ -1,7 +1,8 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
 import { useIcbmLogic } from "./icbmLogic";
+import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
 
 interface ModalProps {
   isOpen: boolean;
@@ -16,6 +17,9 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
   // 🔥 Ambil logika dari file icbmLogic.ts
   const { isNuclearProgramActive, activateNuclearProgram, getProgramStatus } = useIcbmLogic();
   const status = getProgramStatus();
+
+  // 🔥 Tambahkan state untuk modal pembayaran program nuklir
+  const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
 
   // Daftar 3 opsi strategi nuklir
   const nuclearOptions = [
@@ -51,23 +55,29 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
   // Handler aksi untuk setiap kartu
   const handleOptionClick = (option: typeof nuclearOptions[0]) => {
     if (!option.isUnlocker && !isNuclearProgramActive) {
-      // Jika mencoba klik yang terkunci
       alert("Anda harus mengaktifkan Program Nuklir terlebih dahulu!");
       return;
     }
 
     if (option.isUnlocker) {
-      // Jika mengklik Program Nuklir
-      const success = activateNuclearProgram();
-      if (success) {
-        alert("✅ Program Nuklir berhasil diaktifkan! Sekarang Anda dapat mengakses ICBM & Perang Nuklir.");
-      } else {
+      // 🔥 Jika Program Nuklir sudah aktif, beri tahu user
+      if (isNuclearProgramActive) {
         alert("Program Nuklir sudah aktif.");
+        return;
       }
+      
+      // 🔥 Jika belum aktif, buka modal pembayaran
+      setIsProgramNuklirModalOpen(true);
     } else {
       // Aksi untuk ICBM atau Perang Nuklir
       alert(`Anda memilih opsi strategis: ${option.title}`);
     }
+  };
+
+  // 🔥 Callback saat pembayaran berhasil di modal pembayaran
+  const handleNuclearPaymentSuccess = () => {
+    activateNuclearProgram(); // Aktifkan program di logic
+    // Tidak perlu close modal induk, hanya refresh status UI
   };
 
   return (
@@ -148,6 +158,16 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
           </div>
         </div>
       </div>
+
+      {/* 🔥 Panggil Modal Pembayaran Program Nuklir */}
+      <ProgramNuklirModals 
+        isOpen={isProgramNuklirModalOpen}
+        onClose={() => setIsProgramNuklirModalOpen(false)}
+        countryDetail={countryDetail}
+        setCountryDetail={setCountryDetail}
+        onSuccess={handleNuclearPaymentSuccess}
+      />
+      
     </div>
   );
 }
