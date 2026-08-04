@@ -1,7 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { X, Award } from "lucide-react";
-import ResolusiPBB from "./1_resolusi_PBB/resolusiPBB";
+import ResolusiPBB from "./1_resolusi_PBB/1_resolusiPBB";
 import KeamananPBB from "./2_keamanan_PBB/keamananPBB";
 import SuaraPBB from "./3_suara_negara_PBB/suaraPBB";
 
