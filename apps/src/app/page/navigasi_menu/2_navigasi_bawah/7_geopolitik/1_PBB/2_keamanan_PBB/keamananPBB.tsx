@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { 
   X, Shield, Angry, Smile, Banknote, Anchor, Lock, Package, 
-  ChevronDown, Clock, FileText 
+  ChevronDown, Clock, FileText, Plus 
 } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 import { calculateKeamananVoting } from "../voting_logic/keamananPBB_logic";
@@ -177,8 +177,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // 🔥 PERUBAHAN: Vote stats dihitung oleh helper keamananPBB_logic.ts
-
   const handleSubmit = () => {
     if (!selectedTarget) {
       alert("Silakan pilih negara target terlebih dahulu!");
@@ -215,8 +213,24 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
         </div>
       </div>
 
-      <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 mt-4">
-        <button onClick={() => setIsResolusiModalOpen(true)} className="px-6 py-3 rounded-xl bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/30 text-xs font-black uppercase tracking-wider hover:bg-[#8b7e66] active:scale-95 transition-all cursor-pointer"><Shield className="h-4 w-4 inline mr-2 -mt-0.5" /> Buat Resolusi Baru</button>
+      {/* 🔥 UI UTAMA: HALAMAN KOSONG ELEGAN (Sesuai gambar & ResolusiPBB) */}
+      <div className="bg-white/70 border border-[#C4B49C]/30 p-10 rounded-xl shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px] mt-4">
+        <div className="p-3 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20">
+          <FileText className="h-8 w-8 text-[#5c3c10]" />
+        </div>
+        <div>
+          <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Belum Ada Resolusi Aktif</h3>
+          <p className="text-xs text-[#8b7e66] mt-1 max-w-md">
+            Mulailah dengan mengajukan rancangan resolusi baru untuk dibahas oleh negara-negara anggota Dewan Keamanan PBB.
+          </p>
+        </div>
+        <button
+          onClick={() => setIsResolusiModalOpen(true)}
+          className="mt-4 px-6 py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-lg shadow-[#fcae1e]/20 text-sm font-black uppercase tracking-wider flex items-center gap-2 hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+        >
+          <Plus className="h-5 w-5" />
+          Buat Resolusi Baru
+        </button>
       </div>
 
       {isResolusiModalOpen && (
@@ -240,11 +254,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
               </button>
             </div>
 
-            {/* 🔥 BODY MODAL - DITAMBAHKAN OVERFLOW YANG AMAN */}
-            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center overflow-y-auto no-scrollbar">
+            {/* BODY MODAL - DENGAN SCROLLBAR TERLIHAT (custom-scrollbar) */}
+            <div className="flex-1 p-8 bg-[#FAF6EE]/40 relative z-10 flex flex-col items-center justify-center overflow-y-auto custom-scrollbar pr-2">
               <div className="w-full max-w-4xl space-y-8">
                 <div>
-                  <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
                   <div className="flex flex-wrap justify-center items-center gap-6">
                     {RESOLUTION_ACTIONS.map((action) => {
                       const Icon = action.icon;
@@ -297,7 +310,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                     </div>
                   </div>
 
-                  {/* 🔥 KOLOM KANAN: PILIH NEGARA (MODAL BESAR) */}
+                  {/* KOLOM KANAN: PILIH NEGARA */}
                   <div>
                     <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-2">Pilih negara:</p>
                     <button 
@@ -325,7 +338,6 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   <div className="flex items-center gap-2"><span className="text-sm font-bold text-[#5c3c10]">30 h.</span><Clock className="w-4 h-4 text-[#8b7e66]" /></div>
                 </div>
 
-                {/* 🔥 KOTAK PRAKIRAAN SUARA (SEKARANG MENAMPILKAN 0 - 0) */}
                 <div className="p-8 rounded-2xl bg-[#e4dac3]/30 border-2 border-[#C4B49C]/50 shadow-inner">
                   <p className="text-center text-[11px] font-black text-[#8b7e66] uppercase tracking-wider mb-4">Perkiraan Jumlah Suara</p>
                   <div className="flex justify-between items-center px-4 max-w-md mx-auto">
@@ -377,7 +389,7 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
             <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
               <div className="w-full max-w-5xl">
                 
-                {/* 🔥 ROW TOMBOL BENUA */}
+                {/* ROW TOMBOL BENUA */}
                 <div className="flex flex-wrap justify-center gap-3 mb-8">
                   {Object.keys(groupedCountries).map((continent) => (
                     <button
@@ -394,11 +406,10 @@ export default function KeamananPBB({ selectedCountry }: KeamananPBBProps) {
                   ))}
                 </div>
 
-                {/* 🔥 GRID NEGARA DARI BENUA TERPILIH (DENGAN FILTER) */}
+                {/* GRID NEGARA DARI BENUA TERPILIH */}
                 {activeContinent && groupedCountries[activeContinent] && (
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                     {groupedCountries[activeContinent]
-                      // 🔥 FILTER: Hapus negara user dari daftar pilihan
                       .filter(c => c.id !== selectedCountry?.id)
                       .map((c) => {
                         const isSelected = selectedTarget?.id === c.id;

@@ -268,7 +268,6 @@ export default function ResolusiPBB({ selectedCountry }: ResolusiPBBProps) {
               <div className="w-full max-w-4xl space-y-8">
                 
                 <div>
-                  <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-4 text-center">Jenis Aksi Resolusi</p>
                   <div className="flex flex-wrap justify-center items-center gap-6">
                     {RESOLUTION_ACTIONS.map((action) => {
                       const Icon = action.icon;
