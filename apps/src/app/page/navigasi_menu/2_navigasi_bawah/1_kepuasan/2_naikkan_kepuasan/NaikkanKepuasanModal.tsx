@@ -165,12 +165,7 @@ export default function NaikkanKepuasanModal({
               >
                 Naikkan Kepuasan
               </button>
-              <button
-                onClick={() => setActiveMenu?.("Menu:TempWisata")}
-                className="px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer"
-              >
-                Tempat Wisata
-              </button>
+              {/* Tempat Wisata removed */}
             </div>
           </div>
 

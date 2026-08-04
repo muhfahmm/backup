@@ -5,9 +5,8 @@ import React, { useEffect, useState } from 'react';
 import { fetchBuildingMetadata } from '../../../../lib/buildingMetadata';
 
 // 1. Kepuasan
-import StatistikKepuasanModal from "./1_kepuasan/StatistikKepuasanModal";
-import NaikkanKepuasanModal from "./1_kepuasan/NaikkanKepuasanModal";
-import TempatWisataModal from "./1_kepuasan/TempatWisataModal";
+import StatistikKepuasanModal from "./1_kepuasan/1_statistik/StatistikKepuasanModal";
+import NaikkanKepuasanModal from "./1_kepuasan/2_naikkan_kepuasan/NaikkanKepuasanModal";
 
 // 2. Populasi
 import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiModal";
@@ -124,18 +123,6 @@ function ModalsManager({
           selectedCountry={selectedCountry}
         />
       );
-    case "Menu:TempWisata":
-      return (
-        <TempatWisataModal
-          isOpen={true}
-          onClose={onClose}
-          setActiveMenu={setActiveMenu}
-          countryDetail={countryDetail}
-          setCountryDetail={setCountryDetail}
-          selectedCountry={selectedCountry}
-        />
-      );
-
     // 2. Populasi
     case "Dashboard:Populasi:Overview":
       return (
