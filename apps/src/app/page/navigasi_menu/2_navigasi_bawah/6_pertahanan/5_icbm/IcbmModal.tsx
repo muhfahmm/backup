@@ -291,12 +291,12 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     onClick={() => handleOptionClick(option)}
                     disabled={isLockedCard || isUnlockerCardActive || isUnlockerBuilding}
                     className={`group flex flex-col items-center text-center p-6 bg-white/80 border-2 rounded-xl shadow-sm transition-all duration-200 h-full ${
-                      isLockedCard
-                        ? 'border-[#C4B49C]/20 opacity-60 !cursor-not-allowed grayscale-[50%]'
-                        : isUnlockerCardActive
-                        ? 'border-emerald-400/50 bg-emerald-50/50 cursor-default hover:shadow-sm hover:scale-100'
-                        : 'border-[#C4B49C]/40 hover:shadow-lg hover:border-[#5c3c10] hover:scale-[1.02] active:scale-[0.98] cursor-pointer'
-                    }`}
+                        isLockedCard
+                          ? 'border-[#C4B49C]/20 opacity-95 !cursor-not-allowed'
+                          : isUnlockerCardActive
+                          ? 'border-emerald-400/50 bg-emerald-50/50 cursor-default hover:shadow-sm hover:scale-100'
+                          : 'border-[#C4B49C]/40 hover:shadow-lg hover:border-[#5c3c10] hover:scale-[1.02] active:scale-[0.98] cursor-pointer'
+                      }`}
                   >
                     <div className={`p-4 rounded-full ${
                         isUnlockerCardActive ? 'bg-emerald-100 border-emerald-200' : option.bg
@@ -314,13 +314,13 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     </div>
                     
                     <span className={`text-base font-black uppercase tracking-wide mb-2 ${
-                      isLockedCard ? 'text-[#8b7e66]' : isUnlockerCardActive ? 'text-emerald-700' : 'text-[#5c3c10]'
+                      isLockedCard ? 'text-[#5c3c10]' : isUnlockerCardActive ? 'text-emerald-700' : 'text-[#5c3c10]'
                     }`}>
                       {isUnlockerCardActive ? "Program Aktif!" : option.title}
                     </span>
                     
                     <p className={`text-[10px] leading-relaxed ${
-                      isLockedCard ? 'text-[#C4B49C]/70' : isUnlockerCardActive ? 'text-emerald-600' : 'text-[#8b7e66]'
+                      isLockedCard ? 'text-[#8b7e66]' : isUnlockerCardActive ? 'text-emerald-600' : 'text-[#8b7e66]'
                     }`}>
                       {isLockedCard 
                         ? "🔒 Terkunci. Aktifkan Program Nuklir terlebih dahulu." 
