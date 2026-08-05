@@ -1,5 +1,5 @@
 "use client"
-import React from "react";
+import React, { useState } from "react";
 import { X, Clock, ShieldCheck } from "lucide-react";
 
 interface IcbmBuildStatusModalProps {
@@ -14,7 +14,7 @@ const formatTanggalIndo = (dateStr: string | Date) => {
   const dateObj = typeof dateStr === "string" ? new Date(`${dateStr}T00:00:00`) : dateStr;
   if (!(dateObj instanceof Date) || isNaN(dateObj.getTime())) return String(dateStr);
   const day = dateObj.getDate();
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'];
+  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
   const month = monthNames[dateObj.getMonth()];
   const year = dateObj.getFullYear();
   return `${day} ${month} ${year}`;
@@ -39,10 +39,67 @@ export default function IcbmBuildStatusModal({
 
   const icbmBuildTask = countryDetail?.icbmBuildTask || null;
   const currentIcbmCount = Number(countryDetail?.icbm) || 0;
-  const pendingQuantity = Number(icbmBuildTask?.quantity || 0);
-  const buildEndDate = icbmBuildTask?.endDate || null;
-  const hasPendingBuild = Boolean(icbmBuildTask && pendingQuantity > 0 && buildEndDate);
-  const buildStatus = hasPendingBuild ? 'Sedang dibangun' : 'Tidak ada ICBM dalam pembangunan';
+  const buildTasks = Array.isArray(icbmBuildTask) ? icbmBuildTask : icbmBuildTask ? [icbmBuildTask] : [];
+
+  const parseDate = (dateValue: string | Date | null | undefined) => {
+    if (!dateValue) return null;
+    const dateObj = typeof dateValue === 'string' ? new Date(`${dateValue}T00:00:00`) : dateValue;
+    return dateObj instanceof Date && !isNaN(dateObj.getTime()) ? dateObj : null;
+  };
+
+  const getDurationDays = (start: string | Date | null | undefined, end: string | Date | null | undefined) => {
+    const startDate = parseDate(start);
+    const endDate = parseDate(end);
+    if (!startDate || !endDate) return 0;
+    const diff = Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+    return diff > 0 ? diff : 0;
+  };
+
+  const addDays = (date: Date, days: number) => {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  };
+
+  const todayDate = parseDate(safeDateString);
+
+  const scheduledEntries = (() => {
+    let runningIndex = 0;
+    return buildTasks.flatMap((task) => {
+      const quantity = Math.max(0, Number(task?.quantity) || 0);
+      const startDate = parseDate(task?.startDate) || todayDate || new Date();
+      const endDate = parseDate(task?.endDate);
+      const totalDurationDays = getDurationDays(startDate, endDate);
+      const unitDurationDays = quantity > 0 ? Math.max(1, Math.round(totalDurationDays / quantity)) : 0;
+
+      return Array.from({ length: quantity }, (_, idx) => {
+        runningIndex += 1;
+        const entryDuration = unitDurationDays * (idx + 1);
+        const entryEndDate = startDate ? addDays(startDate, entryDuration) : null;
+
+        return {
+          id: `${task?.startDate || 'task'}-${idx}-${runningIndex}`,
+          label: `ICBM ${runningIndex} selesai dalam ${entryDuration} hari`,
+          amount: 1,
+          endDate: entryEndDate,
+        };
+      });
+    });
+  })();
+
+  const pendingEntries = scheduledEntries.filter((entry) => {
+    if (!entry.endDate || !todayDate) return true;
+    return entry.endDate >= todayDate;
+  });
+
+  const completedEntries = scheduledEntries.filter((entry) => {
+    if (!entry.endDate || !todayDate) return false;
+    return entry.endDate < todayDate;
+  });
+
+  const activeTabOptions = ['Dalam Pembangunan', 'Selesai'] as const;
+  type ActiveTab = (typeof activeTabOptions)[number];
+  const [activeTab, setActiveTab] = useState<ActiveTab>('Dalam Pembangunan');
 
   return (
     <div className="fixed inset-0 z-[92] flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -61,52 +118,75 @@ export default function IcbmBuildStatusModal({
           </button>
         </div>
 
-        <div className="p-6 bg-[#FAF6EE]/40">
-          <div className="grid gap-4">
-            <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-5 shadow-sm">
-              <div className="flex items-center justify-between gap-4 mb-4">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-wide text-[#8b7e66]">Status Pembangunan</p>
-                  <p className="text-sm font-black text-[#5c3c10]">{buildStatus}</p>
-                </div>
-                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-bold text-emerald-700">
-                  <Clock className="h-4 w-4" />
-                  {hasPendingBuild ? 'Sedang berjalan' : 'Tidak aktif'}
-                </div>
+        <div className="p-6 bg-[#FAF6EE]/40 flex-1 overflow-y-auto no-scrollbar">
+          <div className="space-y-5">
+            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+              {activeTabOptions.map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`rounded-full px-5 py-2 text-sm font-black transition-all ${
+                    activeTab === tab
+                      ? 'bg-[#1d5c4b] text-[#FAF6EE] shadow-sm'
+                      : 'bg-white/90 text-[#5c3c10] border border-[#C4B49C]/30 hover:bg-[#f4f1e1]'
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+
+            <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 shadow-sm overflow-hidden">
+              <div className="px-6 py-4 border-b border-[#C4B49C]/20 bg-[#f7f3e8]">
+                <p className="text-xs font-black uppercase tracking-widest text-[#8b7e66]">{activeTab}</p>
               </div>
               <div className="overflow-x-auto">
                 <table className="min-w-full text-left text-sm text-[#5c3c10]">
                   <thead>
-                    <tr>
-                      <th className="px-3 py-2 font-black uppercase text-[#8b7e66] tracking-wider">Keterangan</th>
-                      <th className="px-3 py-2 font-black uppercase text-[#8b7e66] tracking-wider">Jumlah</th>
-                      <th className="px-3 py-2 font-black uppercase text-[#8b7e66] tracking-wider">Selesai Pada</th>
+                    <tr className="bg-[#faf7ef]">
+                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Keterangan</th>
+                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Jumlah</th>
+                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Selesai Pada</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr className="border-t border-[#C4B49C]/20">
-                      <td className="px-3 py-3 text-[#5c3c10]">ICBM sedang dibangun</td>
-                      <td className="px-3 py-3 font-black text-[#1d5c10]">{pendingQuantity > 0 ? `+${pendingQuantity}` : '0'}</td>
-                      <td className="px-3 py-3 text-[#5c3c10]">{hasPendingBuild ? formatTanggalIndo(buildEndDate) : '-'}</td>
-                    </tr>
-                    <tr className="border-t border-[#C4B49C]/20 bg-[#f9faf7]">
-                      <td className="px-3 py-3 text-[#5c3c10]">ICBM selesai</td>
-                      <td className="px-3 py-3 font-black text-[#1d5c10]">{currentIcbmCount}</td>
-                      <td className="px-3 py-3 text-[#5c3c10]">-</td>
-                    </tr>
+                    {activeTab === 'Dalam Pembangunan' && pendingEntries.length === 0 && (
+                      <tr className="border-t border-[#C4B49C]/20">
+                        <td colSpan={3} className="px-4 py-5 text-[#8b7e66]">Tidak ada ICBM yang sedang dibangun.</td>
+                      </tr>
+                    )}
+                    {activeTab === 'Dalam Pembangunan' && pendingEntries.map((entry) => (
+                      <tr key={entry.id} className="border-t border-[#C4B49C]/20 hover:bg-[#f9f7ee]">
+                        <td className="px-4 py-4 text-[#5c3c10]">{entry.label}</td>
+                        <td className="px-4 py-4 font-black text-[#1d5c10]">{entry.amount}</td>
+                        <td className="px-4 py-4 text-[#5c3c10]">{entry.endDate ? formatTanggalIndo(entry.endDate) : '-'}</td>
+                      </tr>
+                    ))}
+                    {activeTab === 'Selesai' && (!completedEntries || completedEntries.length === 0) && (
+                      <tr className="border-t border-[#C4B49C]/20">
+                        <td colSpan={3} className="px-4 py-5 text-[#8b7e66]">Belum ada ICBM yang selesai.</td>
+                      </tr>
+                    )}
+                    {activeTab === 'Selesai' && completedEntries && completedEntries.length > 0 && completedEntries.map((entry) => (
+                      <tr key={`completed-${entry.id}`} className="border-t border-[#C4B49C]/20 hover:bg-[#f9f7ee]">
+                        <td className="px-4 py-4 text-[#5c3c10]">{entry.label}</td>
+                        <td className="px-4 py-4 font-black text-[#1d5c10]">{entry.amount}</td>
+                        <td className="px-4 py-4 text-[#5c3c10]">{entry.endDate ? formatTanggalIndo(entry.endDate) : '-'}</td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
             </div>
+
             <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-5 shadow-sm">
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-black uppercase tracking-wide text-[#8b7e66] mb-2">Informasi tambahan</p>
                 <p className="text-[13px] text-[#5c3c10] leading-relaxed">
-                  Gunakan tabel ini untuk melihat data ICBM yang sedang diproduksi dan jumlah persenjataan yang sudah siap.
-                  Jika terdapat proyek pembangunan aktif, modal ini akan menampilkan estimasi tanggal selesai.
+                  Tabel tab pertama menampilkan daftar ICBM yang sedang dibangun. Tab kedua menyimpan total ICBM yang sudah selesai.
                 </p>
                 <button
-                  onClick={onOpenDetail} // 🔥 Sekarang berfungsi karena onOpenDetail sudah dideklarasi di parameter
+                  onClick={onOpenDetail}
                   className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#154a3c] transition-all cursor-pointer"
                 >
                   <Clock className="h-4 w-4" />
