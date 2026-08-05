@@ -22,7 +22,6 @@ const formatTanggalIndo = (dateStr: string | Date) => {
   return `${day} ${month} ${year}`;
 };
 
-// 🔥 PERBAIKAN: Tambahkan onOpenDetail ke dalam destrukturisasi parameter
 export default function IcbmBuildStatusModal({ 
   isOpen, 
   onClose, 
@@ -122,15 +121,17 @@ export default function IcbmBuildStatusModal({
 
         <div className="p-6 bg-[#FAF6EE]/40 flex-1 overflow-y-auto no-scrollbar">
           <div className="space-y-5">
-            <div className="flex items-center gap-3 overflow-x-auto pb-2">
+
+            {/* 🔥 2 TAB MENU BERTEMA COKLAT (Seperti IntelijenModal) */}
+            <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex shadow-sm">
               {activeTabOptions.map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setActiveTab(tab)}
-                  className={`rounded-full px-5 py-2 text-sm font-black transition-all ${
+                  className={`px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
                     activeTab === tab
-                      ? 'bg-[#1d5c4b] text-[#FAF6EE] shadow-sm'
-                      : 'bg-white/90 text-[#5c3c10] border border-[#C4B49C]/30 hover:bg-[#f4f1e1]'
+                      ? 'bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20'
+                      : 'text-[#8b7e66] hover:text-[#5c3c10]'
                   }`}
                 >
                   {tab}
@@ -138,9 +139,10 @@ export default function IcbmBuildStatusModal({
               ))}
             </div>
 
+            {/* 🔥 WRAPPER TABEL DENGAN HEADER COKLAT & BARIS KREM */}
             <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-[#C4B49C]/20 bg-[#f7f3e8]">
-                <p className="text-xs font-black uppercase tracking-widest text-[#8b7e66]">{activeTab}</p>
+              <div className="px-6 py-4 border-b border-[#C4B49C]/20 bg-[#5c3c10]">
+                <p className="text-xs font-black uppercase tracking-widest text-[#FAF6EE]">{activeTab}</p>
               </div>
               <div className="overflow-x-auto">
                 {activeTab === 'Dalam Pembangunan' ? (
@@ -151,6 +153,7 @@ export default function IcbmBuildStatusModal({
               </div>
             </div>
 
+            {/* 🔥 TOMBOL "LIHAT DETAIL" BERTEMA COKLAT */}
             <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-5 shadow-sm">
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-black uppercase tracking-wide text-[#8b7e66] mb-2">Informasi tambahan</p>
@@ -159,13 +162,14 @@ export default function IcbmBuildStatusModal({
                 </p>
                 <button
                   onClick={onOpenDetail}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#154a3c] transition-all cursor-pointer"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#5c3c10] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#3d2911] transition-all cursor-pointer"
                 >
                   <Clock className="h-4 w-4" />
                   Lihat Detail Pembangunan
                 </button>
               </div>
             </div>
+
           </div>
         </div>
       </div>
