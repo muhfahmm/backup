@@ -1,7 +1,20 @@
 "use client"
 import React, { useState, useEffect, useRef } from "react";
-import { X, CreditCard, Search, Landmark, ArrowRight, AlertCircle } from "lucide-react";
+import { X, CreditCard, ArrowRight, AlertCircle } from "lucide-react";
 import { COUNTRIES_DATA } from "../../../../map_system/map-data";
+
+// 🔥 IMPOR TAB TERPISAH
+import NegaraLain from "./tab_menu/1_negara_lain";
+import LembagaDunia from "./tab_menu/2_lembaga_dunia";
+import Riwayat from "./tab_menu/3_riwayat";
+
+// 🔥 IMPOR UTILITAS TAB
+import { LoanRecord, renderFlag } from "./tab_menu/utils";
+
+// 🔥 IMPOR MODAL KONFIRMASI PINJAMAN
+import KonfirmasiPinjamanModalNegaraLain from "./tab_menu/1_negara_lain/konfirmasiPinjamanModals";
+import KonfirmasiPinjamanModalLembagaDunia from "./tab_menu/2_lembaga_dunia/konfirmasiPinjamanModals";
+import KonfirmasiPinjamanModalRiwayat from "./tab_menu/3_riwayat/konfirmasiPinjamanModals";
 
 // 🔥 IMPOR MODAL BAYAR HUTANG
 import BayarHutangModal from "./modalsBayarHutang";
@@ -69,37 +82,12 @@ const generateLoanSources = () => {
 };
 
 // Lembaga Multilateral
-const LEMBAGA_MULTILATERAL = [
-  { id: 9991, name: "IMF (Dana Moneter Internasional)", flag: null, interest: 4.8, maxLoan: 100_000, term: 90 },
-  { id: 9992, name: "Bank Dunia (World Bank)", flag: "🏦", interest: 3.5, maxLoan: 90_000, term: 360 },
-  { id: 9993, name: "ADB (Asian Development Bank)", flag: "🌏", interest: 3.2, maxLoan: 75_000, term: 180 },
-];
-
 // 🔥 DEFINISIKAN TIPE DATA PINJAMAN
-interface LoanRecord {
-  id: number;
-  source: string;
-  iso: string | null;
-  amount: number;
-  interest: number;
-  term: number;
-  status?: "Aktif" | "Lunas";
-  totalRepayment: number;
-  paidAmount: number;
-  accumulatedPenalty: number;
-  missedMonths: number;
-  date: string;
-  returnDate: string;
-}
 
 export default function HutangModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate, resetTrigger }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"bilateral" | "multilateral" | "history">("bilateral");
-  const [searchQuery, setSearchQuery] = useState("");
   const [loanSources, setLoanSources] = useState<any[]>([]);
   const initialLoanLoadRef = useRef(true);
-
-  // 🔥 STATE BARU: Untuk sub-tab di dalam menu History
-  const [historySubTab, setHistorySubTab] = useState<"active" | "paid">("active");
 
   // State untuk menampung data pinjaman yang diklik sebelum konfirmasi
   const [pendingLoan, setPendingLoan] = useState<any>(null);
@@ -357,32 +345,6 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   const simulatedGDP = 500_000; 
   const debtRatio = Math.min(100, Math.round((totalHutang / simulatedGDP) * 100));
 
-  // 🔥 PERBAIKAN 1 (Filter): Hapus || "Aktif" agar TypeScript tidak menolak union type
-  const activeLoans = riwayatPinjaman.filter((loan: LoanRecord) => loan.status !== "Lunas");
-  const paidLoans = riwayatPinjaman.filter((loan: LoanRecord) => loan.status === "Lunas");
-
-  // 🔥 PERBAIKAN 2 (RenderFlag): Ubah tipe parameter agar menerima `null`
-  const renderFlag = (iso: string | undefined | null, altName: string) => {
-    if (!iso || iso.length !== 2) {
-      return (
-        <div className="w-8 h-5 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0 shadow-sm" />
-      );
-    }
-
-    return (
-      <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative">
-        <img
-          src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
-          alt={altName}
-          className="w-full h-full object-cover absolute inset-0"
-          onError={(e) => {
-            (e.target as HTMLImageElement).style.display = 'none';
-          }}
-        />
-      </div>
-    );
-  };
-
   // Logika Peminjaman
   const confirmBorrow = () => {
     if (!pendingLoan) return;
@@ -417,10 +379,6 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   };
 
   const cancelBorrow = () => setPendingLoan(null);
-
-  const filteredCountries = loanSources.filter((country) =>
-    country.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -504,211 +462,23 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
 
           {/* Section 3: Content based on Tab */}
           {activeTab === "bilateral" && (
-            <div>
-              <div className="relative mb-6">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-[#8b7e66]" />
-                <input
-                  type="text"
-                  placeholder="Cari nama negara peminjam..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-3 bg-white/50 border-2 border-[#C4B49C]/50 rounded-xl text-sm font-bold text-[#5c3c10] placeholder:text-[#8b7e66]/60 focus:outline-none focus:border-[#5c3c10] transition-all"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
-                {filteredCountries.map((negara) => (
-                  <div key={negara.id} className="bg-white/60 border border-[#C4B49C]/30 p-4 rounded-xl shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        {renderFlag(negara.iso, negara.name)}
-                        <span className="text-sm font-black text-[#5c3c10]">{negara.name}</span>
-                      </div>
-                      <span className="text-xs font-black text-red-600 bg-red-600/10 px-2 py-1 rounded-lg">{negara.interest}%</span>
-                    </div>
-                    <div className="space-y-1 text-[10px] font-bold text-[#8b7e66]">
-                      <p className="flex justify-between"><span>Plafon Pinjaman:</span> <span className="text-[#5c3c10]">{negara.maxLoan.toLocaleString('id-ID')} EM</span></p>
-                      <p className="flex justify-between"><span>Masa Tenggang:</span> <span className="text-[#5c3c10]">{negara.term} Hari</span></p>
-                    </div>
-                    
-                    <button
-                      onClick={() => setPendingLoan(negara)}
-                      className="w-full mt-4 py-2.5 rounded-lg bg-gradient-to-r from-[#fcae1e] to-[#c77a00] text-white text-[10px] font-black uppercase tracking-wider flex items-center justify-center gap-2 hover:brightness-110 active:scale-95 transition-all cursor-pointer"
-                    >
-                      <span>Pinjam Dana</span>
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                ))}
-              </div>
-
-            </div>
+            <NegaraLain
+              loanSources={loanSources}
+              renderFlag={renderFlag}
+              setPendingLoan={setPendingLoan}
+            />
           )}
 
           {activeTab === "multilateral" && (
-            <div className="space-y-4 max-h-[450px] overflow-y-auto pr-2 custom-scrollbar">
-              {LEMBAGA_MULTILATERAL.map((lembaga) => (
-                <div key={lembaga.id} className="bg-gradient-to-r from-[#e4dac3]/20 to-[#C4B49C]/10 border-2 border-[#C4B49C]/30 p-5 rounded-2xl shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <div className="p-3 rounded-xl bg-[#5c3c10]/10 border border-[#5c3c10]/20">
-                      <Landmark className="h-6 w-6 text-[#5c3c10]" />
-                    </div>
-                    <div>
-                      <h4 className="text-base font-black text-[#5c3c10]">{lembaga.name}</h4>
-                      <p className="text-[10px] text-[#8b7e66]">Bunga: {lembaga.interest}% | Masa: {lembaga.term} Hari | Maks: {lembaga.maxLoan.toLocaleString('id-ID')} EM</p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setPendingLoan(lembaga)}
-                    className="px-8 py-2.5 rounded-xl bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10]/60 shadow-md text-[10px] font-black uppercase tracking-wider hover:bg-[#3d2911] active:scale-95 transition-all cursor-pointer"
-                  >
-                    Ajukan Kredit
-                  </button>
-                </div>
-              ))}
-            </div>
+            <LembagaDunia setPendingLoan={setPendingLoan} />
           )}
 
-          {/* 🔥 TABEL RIWAYAT DENGAN 2 SUB-TAB */}
           {activeTab === "history" && (
-            <div>
-              {/* 🔥 SUB TAB AKTIF / LUNAS */}
-              <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-4 shadow-sm">
-                <button
-                  onClick={() => setHistorySubTab("active")}
-                  className={`px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${
-                    historySubTab === "active" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md" : "text-[#8b7e66] hover:text-[#5c3c10]"
-                  }`}
-                >
-                  Hutang Aktif ({activeLoans.length})
-                </button>
-                <button
-                  onClick={() => setHistorySubTab("paid")}
-                  className={`px-4 py-2 rounded-lg text-[10px] font-black uppercase tracking-widest transition-all cursor-pointer ${
-                    historySubTab === "paid" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md" : "text-[#8b7e66] hover:text-[#5c3c10]"
-                  }`}
-                >
-                  Sudah Lunas ({paidLoans.length})
-                </button>
-              </div>
-
-              <div className="overflow-x-auto border border-[#C4B49C]/30 rounded-xl bg-[#FAF6EE]/50 shadow-sm">
-                <table className="w-full text-xs">
-                  <thead className="bg-[#5c3c10]/5 border-b-2 border-[#C4B49C]/30">
-                    <tr>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Negara</th>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Pokok Pinjaman</th>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Bunga Awal</th>
-                      <th className="px-4 py-3 text-left font-black text-emerald-700 uppercase tracking-wider">Sudah Dibayar</th>
-                      <th className="px-4 py-3 text-left font-black text-rose-600 uppercase tracking-wider">Denda</th>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Total Saat Ini</th>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Jatuh Tempo</th>
-                      <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-[#C4B49C]/20">
-                    {/* RENDER BERDASARKAN SUB TAB */}
-                    {historySubTab === "active" ? (
-                      activeLoans.length === 0 ? (
-                        <tr>
-                          <td colSpan={8} className="px-5 py-10 text-center text-sm font-bold text-[#8b7e66]">
-                            Tidak ada hutang aktif.
-                          </td>
-                        </tr>
-                      ) : (
-                        activeLoans.map((pinjam, idx) => (
-                          <tr key={pinjam.id || idx} className="hover:bg-[#e4dac3]/20 transition-colors">
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              <div className="flex items-center gap-2">
-                                {renderFlag(pinjam.iso, pinjam.source)}
-                                <span>{pinjam.source}</span>
-                              </div>
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {pinjam.amount?.toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-red-600">
-                              {pinjam.interest}%
-                            </td>
-                            <td className="px-4 py-3 font-bold text-emerald-700">
-                              +{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-rose-600">
-                              +{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {pinjam.returnDate}
-                            </td>
-                            <td className="px-4 py-3">
-                              <button
-                                onClick={() => {
-                                  if (pinjam.totalRepayment > 0) {
-                                    setPendingPaymentLoan(pinjam);
-                                  }
-                                }}
-                                disabled={pinjam.totalRepayment <= 0 || kasNegara <= 0}
-                                className={`px-2.5 py-1 rounded-lg text-[9px] font-black uppercase tracking-wider transition-all cursor-pointer ${
-                                  pinjam.totalRepayment <= 0 || kasNegara <= 0
-                                    ? 'bg-[#e4dac3]/50 text-[#8b7e66] cursor-not-allowed'
-                                    : 'bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66]'
-                                }`}
-                              >
-                                Bayar
-                              </button>
-                            </td>
-                          </tr>
-                        ))
-                      )
-                    ) : (
-                      // TAMPILKAN TABEL LUNAS
-                      paidLoans.length === 0 ? (
-                        <tr>
-                          <td colSpan={8} className="px-5 py-10 text-center text-sm font-bold text-[#8b7e66]">
-                            Belum ada pinjaman yang dilunasi.
-                          </td>
-                        </tr>
-                      ) : (
-                        paidLoans.map((pinjam, idx) => (
-                          <tr key={pinjam.id || idx} className="bg-emerald-50/40 hover:bg-emerald-100/60 transition-colors">
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              <div className="flex items-center gap-2">
-                                {renderFlag(pinjam.iso, pinjam.source)}
-                                <span>{pinjam.source}</span>
-                                <span className="px-2 py-0.5 rounded-full bg-emerald-200 text-emerald-800 text-[8px] font-black uppercase">Lunas</span>
-                              </div>
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {pinjam.amount?.toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {pinjam.interest}%
-                            </td>
-                            <td className="px-4 py-3 font-bold text-emerald-700">
-                              +{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              +{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-emerald-700">
-                              {(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM
-                            </td>
-                            <td className="px-4 py-3 font-bold text-[#5c3c10]">
-                              {pinjam.returnDate}
-                            </td>
-                            <td className="px-4 py-3">
-                              <span className="text-[8px] font-bold text-emerald-700 uppercase">Selesai</span>
-                            </td>
-                          </tr>
-                        ))
-                      )
-                    )}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <Riwayat
+              loanHistory={riwayatPinjaman}
+              kasNegara={kasNegara}
+              setPendingPaymentLoan={setPendingPaymentLoan}
+            />
           )}
 
         </div>
@@ -727,70 +497,49 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
         )}
 
         {/* Modal Konfirmasi Peminjaman Baru */}
-        {pendingLoan && (
-          <div className="absolute inset-0 bg-black/60 z-20 flex items-center justify-center p-8 pointer-events-auto backdrop-blur-sm rounded-2xl">
-            <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl max-w-lg w-full p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] relative">
-              
-              <button
-                onClick={cancelBorrow}
-                className="absolute top-4 right-4 p-1.5 rounded-lg hover:bg-black/5 text-[#8b7e66] hover:text-[#5c3c10] transition-colors"
-              >
-                <X className="h-5 w-5" />
-              </button>
+        {pendingLoan && activeTab === "bilateral" && (
+          <KonfirmasiPinjamanModalNegaraLain
+            isOpen={!!pendingLoan}
+            onClose={cancelBorrow}
+            onConfirm={confirmBorrow}
+            loanSource={pendingLoan.name}
+            iso={pendingLoan.iso}
+            maxLoan={pendingLoan.maxLoan}
+            interest={pendingLoan.interest}
+            term={pendingLoan.term}
+            totalPayment={pendingLoan.maxLoan + (pendingLoan.maxLoan * (pendingLoan.interest / 100))}
+            currentMoney={kasNegara}
+          />
+        )}
 
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-amber-600/10 rounded-xl border border-amber-600/20">
-                  <AlertCircle className="h-6 w-6 text-amber-600" />
-                </div>
-                <div>
-                  <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-tight">Konfirmasi Pinjaman</h3>
-                  <p className="text-xs text-[#8b7e66] font-bold">Pastikan data sudah benar sebelum menyetujui.</p>
-                </div>
-              </div>
+        {pendingLoan && activeTab === "multilateral" && (
+          <KonfirmasiPinjamanModalLembagaDunia
+            isOpen={!!pendingLoan}
+            onClose={cancelBorrow}
+            onConfirm={confirmBorrow}
+            loanSource={pendingLoan.name}
+            iso={pendingLoan.iso}
+            maxLoan={pendingLoan.maxLoan}
+            interest={pendingLoan.interest}
+            term={pendingLoan.term}
+            totalPayment={pendingLoan.maxLoan + (pendingLoan.maxLoan * (pendingLoan.interest / 100))}
+            currentMoney={kasNegara}
+          />
+        )}
 
-              <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-5 space-y-2.5 mb-6">
-                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
-                  <span>Negara Pemberi</span>
-                  <span className="flex items-center gap-2">
-                    {renderFlag(pendingLoan.iso, pendingLoan.name)} {pendingLoan.name}
-                  </span>
-                </div>
-                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
-                  <span>Jumlah Pinjaman</span>
-                  <span className="text-emerald-700">{pendingLoan.maxLoan.toLocaleString('id-ID')} EM</span>
-                </div>
-                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
-                  <span>Bunga Pinjaman</span>
-                  <span className="text-red-600">{pendingLoan.interest}%</span>
-                </div>
-                <div className="flex justify-between text-sm font-bold text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2">
-                  <span>Masa Tenggang</span>
-                  <span>{pendingLoan.term} Hari</span>
-                </div>
-                <div className="flex justify-between text-base font-black text-[#5c3c10] pt-2">
-                  <span>Total Pembayaran</span>
-                  <span className="text-[#5c3c10]">
-                    {(pendingLoan.maxLoan + (pendingLoan.maxLoan * (pendingLoan.interest / 100))).toLocaleString('id-ID')} EM
-                  </span>
-                </div>
-              </div>
-
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={cancelBorrow}
-                  className="flex-1 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer"
-                >
-                  Batal
-                </button>
-                <button
-                  onClick={confirmBorrow}
-                  className="flex-1 py-3 rounded-xl bg-gradient-to-r from-[#fcae1e] to-[#c77a00] text-[#FAF6EE] shadow-md shadow-[#c77a00]/30 font-black text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer"
-                >
-                  Konfirmasi Pinjaman
-                </button>
-              </div>
-            </div>
-          </div>
+        {pendingLoan && activeTab === "history" && (
+          <KonfirmasiPinjamanModalRiwayat
+            isOpen={!!pendingLoan}
+            onClose={cancelBorrow}
+            onConfirm={confirmBorrow}
+            loanSource={pendingLoan.name}
+            iso={pendingLoan.iso}
+            maxLoan={pendingLoan.maxLoan}
+            interest={pendingLoan.interest}
+            term={pendingLoan.term}
+            totalPayment={pendingLoan.maxLoan + (pendingLoan.maxLoan * (pendingLoan.interest / 100))}
+            currentMoney={kasNegara}
+          />
         )}
 
       </div>

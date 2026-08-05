@@ -1,0 +1,36 @@
+export interface LoanRecord {
+  id: number | string;
+  source: string;
+  iso: string | null;
+  amount: number;
+  interest: number;
+  term?: number;
+  status?: "Aktif" | "Lunas";
+  totalRepayment: number;
+  paidAmount: number;
+  accumulatedPenalty: number;
+  missedMonths?: number;
+  date?: string;
+  returnDate: string;
+}
+
+export const renderFlag = (iso: string | undefined | null, altName: string) => {
+  if (!iso || iso.length !== 2) {
+    return (
+      <div className="w-8 h-5 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0 shadow-sm" />
+    );
+  }
+
+  return (
+    <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative">
+      <img
+        src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+        alt={altName}
+        className="w-full h-full object-cover absolute inset-0"
+        onError={(e) => {
+          (e.target as HTMLImageElement).style.display = "none";
+        }}
+      />
+    </div>
+  );
+};

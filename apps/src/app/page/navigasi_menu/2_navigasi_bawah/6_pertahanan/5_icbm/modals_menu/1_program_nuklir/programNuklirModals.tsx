@@ -23,7 +23,7 @@ export default function ProgramNuklirModals({
   if (!isOpen) return null;
 
   const anggaran = countryDetail?.anggaran || 0;
-  const biayaProgram = 100000000; // 100.000.000 EM
+  const biayaProgram = 25000000; // 25.000.000 EM
 
   // 🔥 State untuk membuka modal "Dana Tidak Cukup"
   const [isDanaTidakCukupOpen, setIsDanaTidakCukupOpen] = useState(false);
