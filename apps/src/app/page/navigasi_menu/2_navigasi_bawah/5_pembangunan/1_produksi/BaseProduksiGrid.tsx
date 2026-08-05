@@ -4,6 +4,7 @@ import { Info } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
 import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
 import InfoBangunan from "./1_modals_menu/info_bangunan_modals";
+import { getMaterialStock } from "../build_logic/build_logic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
@@ -223,30 +224,16 @@ export default function BaseProduksiGrid({
                 {/* FOOTER NON-LISTRIK */}
                 {!isElectricityTab && (
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
-                    {isFuelResource ? (() => {
-                      const totalProd = calculateProductionAmount(key);
-                      const perDayCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
-
-                      // compute days elapsed using the same build_date key as production
-                      const buildDateKey = `build_date_${key}`;
-                      const buildDate = countryDetail?.[buildDateKey] || null;
-                      const currentDateStr = typeof currentDate === 'string' ? currentDate : (currentDate instanceof Date ? formatDate(currentDate) : null);
-                      const startDate = buildDate || currentDateStr || null;
-                      const daysElapsed = startDate && currentDateStr ? getDaysElapsed(startDate, currentDateStr) : 0;
-
-                      const totalCons = perDayCons * Math.max(0, daysElapsed);
-                      const netBalance = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
-                      const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
+                    {(() => {
+                      const stock = getMaterialStock(countryDetail, key);
+                      const isFuel = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(key);
+                      const colorClass = (isFuel && stock > 0) ? 'text-emerald-600' : 'text-[#2e261a]';
                       return (
                         <span className={`font-black text-xl ${colorClass}`}>
-                          {netBalance.toLocaleString('id-ID')}
+                          {stock.toLocaleString('id-ID')}
                         </span>
                       );
-                    })() : (
-                      <span className="font-black text-xl text-[#2e261a]">
-                        {calculateProductionAmount(key).toLocaleString('id-ID')}
-                      </span>
-                    )}
+                    })()}
                   </div>
                 )}
               </div>

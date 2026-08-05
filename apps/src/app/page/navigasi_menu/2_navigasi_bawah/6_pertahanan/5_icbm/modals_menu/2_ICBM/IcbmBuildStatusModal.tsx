@@ -13,8 +13,10 @@ interface IcbmBuildStatusModalProps {
 }
 
 const formatTanggalIndo = (dateStr: string | Date) => {
+  if (!dateStr) return "-";
   const dateObj = typeof dateStr === "string" ? new Date(`${dateStr}T00:00:00`) : dateStr;
   if (!(dateObj instanceof Date) || isNaN(dateObj.getTime())) return String(dateStr);
+  
   const day = dateObj.getDate();
   const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
   const month = monthNames[dateObj.getMonth()];
@@ -39,7 +41,6 @@ export default function IcbmBuildStatusModal({
   })();
 
   const icbmBuildTask = countryDetail?.icbmBuildTask || null;
-  const currentIcbmCount = Number(countryDetail?.icbm) || 0;
   const buildTasks = Array.isArray(icbmBuildTask) ? icbmBuildTask : icbmBuildTask ? [icbmBuildTask] : [];
 
   const parseDate = (dateValue: string | Date | null | undefined) => {
@@ -64,6 +65,7 @@ export default function IcbmBuildStatusModal({
 
   const todayDate = parseDate(safeDateString);
 
+  // 🔥 PEMBANGKITAN DATA ANTRIAN (Tanpa kata "selesai dalam X hari")
   const scheduledEntries = (() => {
     let runningIndex = 0;
     return buildTasks.flatMap((task) => {
@@ -80,7 +82,7 @@ export default function IcbmBuildStatusModal({
 
         return {
           id: `${task?.startDate || 'task'}-${idx}-${runningIndex}`,
-          label: `ICBM ${runningIndex} selesai dalam ${entryDuration} hari`,
+          label: `ICBM ${runningIndex}`, // 🔥 Bersih, tanpa durasi lagi
           amount: 1,
           endDate: entryEndDate,
         };
@@ -105,7 +107,9 @@ export default function IcbmBuildStatusModal({
   return (
     <div className="fixed inset-0 z-[92] flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
-        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE]">
+        
+        {/* HEADER MODAL */}
+        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] shrink-0">
           <div className="flex items-center gap-3">
             <ShieldCheck className="h-6 w-6 text-[#5c3c10]" />
             <div>
@@ -119,10 +123,11 @@ export default function IcbmBuildStatusModal({
           </button>
         </div>
 
+        {/* BODY MODAL */}
         <div className="p-6 bg-[#FAF6EE]/40 flex-1 overflow-y-auto no-scrollbar">
           <div className="space-y-5">
 
-            {/* 🔥 2 TAB MENU BERTEMA COKLAT (Seperti IntelijenModal) */}
+            {/* 🔥 TAB MENU BERTEMA COKLAT */}
             <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex shadow-sm">
               {activeTabOptions.map((tab) => (
                 <button
@@ -139,11 +144,8 @@ export default function IcbmBuildStatusModal({
               ))}
             </div>
 
-            {/* 🔥 WRAPPER TABEL DENGAN HEADER COKLAT & BARIS KREM */}
+            {/* 🔥 WRAPPER TABEL (Header coklat di dalamnya TELAH DIHAPUS) */}
             <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 shadow-sm overflow-hidden">
-              <div className="px-6 py-4 border-b border-[#C4B49C]/20 bg-[#5c3c10]">
-                <p className="text-xs font-black uppercase tracking-widest text-[#FAF6EE]">{activeTab}</p>
-              </div>
               <div className="overflow-x-auto">
                 {activeTab === 'Dalam Pembangunan' ? (
                   <TabelDalamPembangunan entries={pendingEntries} />
@@ -153,7 +155,7 @@ export default function IcbmBuildStatusModal({
               </div>
             </div>
 
-            {/* 🔥 TOMBOL "LIHAT DETAIL" BERTEMA COKLAT */}
+            {/* 🔥 PANEL INFORMASI BAWAH */}
             <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-5 shadow-sm">
               <div className="flex flex-col gap-3">
                 <p className="text-xs font-black uppercase tracking-wide text-[#8b7e66] mb-2">Informasi tambahan</p>

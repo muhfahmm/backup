@@ -19,6 +19,9 @@ import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryU
 import { logger } from '../../../lib/logger';
 import { CountryDetailModal } from '../detail_negara/detail_negara';
 import NegaraUserModal from './negara_user';
+import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
+import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
+import { getDaysElapsed } from '@/app/logic/production_logic';
 
 interface Country {
     id: number;
@@ -33,6 +36,13 @@ interface Country {
 export default function MapPage() {
     const [selectedCountry, setSelectedCountry] = useState<Country | null>(null);
     const [countryDetail, setCountryDetail] = useState<any>(null);
+    const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+    useEffect(() => {
+        fetchBuildingMetadata()
+            .then(data => setMetadata(data || {}))
+            .catch(err => console.error("Failed to load metadata in MapPage:", err));
+    }, []);
     const [playerNetBalanceAdjustment, setPlayerNetBalanceAdjustment] = useState<number>(0);
     const [isPaused, setIsPaused] = useState(true);
     const [speed, setSpeed] = useState(1);
@@ -312,7 +322,7 @@ export default function MapPage() {
     const prevBudgetUpdateDateRef = useRef<string | null>(null);
 
     useEffect(() => {
-        if (!countryDetail || !currentDate) return;
+        if (!countryDetail || !currentDate || !metadata || Object.keys(metadata).length === 0) return;
 
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -326,17 +336,70 @@ export default function MapPage() {
 
         if (prevBudgetUpdateDateRef.current === currentDateStr) return;
 
+        const lastDate = prevBudgetUpdateDateRef.current;
         prevBudgetUpdateDateRef.current = currentDateStr;
 
         const netBalance = calculateCountryNetBalance(countryDetail);
+
+        // Calculate daily material production updates
+        const { hasUpdates, updates } = calculateDailyMaterialProduction(
+            countryDetail,
+            metadata,
+            currentDateStr
+        );
+
+        // Also deduct fuel consumption for power plants daily!
+        const daysPassed = lastDate ? getDaysElapsed(lastDate, currentDateStr) : 0;
+        if (daysPassed > 0) {
+            const electricityFuelBuildings = [
+              "pembangkit_listrik_tenaga_gas",
+              "pembangkit_listrik_tenaga_nuklir",
+              "pembangkit_listrik_tenaga_uap",
+            ];
+            
+            const dailyCons: Record<string, number> = {
+              gas_alam: 0,
+              uranium: 0,
+              batu_bara: 0,
+              minyak_bumi: 0,
+            };
+            
+            electricityFuelBuildings.forEach((buildingKey) => {
+              const count = Number(countryDetail[buildingKey]) || 0;
+              if (count === 0) return;
+              switch (buildingKey) {
+                case "pembangkit_listrik_tenaga_gas":
+                  dailyCons.gas_alam += 2 * count;
+                  break;
+                case "pembangkit_listrik_tenaga_nuklir":
+                  dailyCons.uranium += 1 * count;
+                  break;
+                case "pembangkit_listrik_tenaga_uap":
+                  dailyCons.batu_bara += 50 * count;
+                  dailyCons.minyak_bumi += 5 * count;
+                  break;
+              }
+            });
+            
+            // Deduct the consumption from updates
+            for (const [fuelKey, consPerDay] of Object.entries(dailyCons)) {
+                if (consPerDay > 0) {
+                    const inventoryKey = `inventory_${fuelKey}`;
+                    const currentVal = updates[inventoryKey] !== undefined ? updates[inventoryKey] : (Number(countryDetail[inventoryKey]) || 0);
+                    updates[inventoryKey] = Math.max(0, currentVal - (consPerDay * daysPassed));
+                }
+            }
+        }
+
         setCountryDetail((prev: any) => {
             if (!prev) return prev;
             return {
                 ...prev,
+                ...updates,
                 anggaran: (Number(prev.anggaran) || 0) + netBalance,
             };
         });
-    }, [currentDate, countryDetail]);
+    }, [currentDate, countryDetail, metadata]);
     const handleRestart = () => {
         if (selectedCountry) {
             if (typeof window !== 'undefined') {

@@ -33,7 +33,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   // 🔥 FUNGSI UNTUK MEMFORMAT TANGGAL MENJADI 1-jan-2026
   const formatTanggalIndo = (dateStr: string | null | undefined) => {
     if (!dateStr) return "";
-    // Karena format default tanggal adalah YYYY-MM-DD, kita ubah menjadi objek Date
     const dateObj = new Date(dateStr + 'T00:00:00');
     if (isNaN(dateObj.getTime())) return dateStr;
 
@@ -48,6 +47,8 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   const safeCurrentDate = formatDateString(currentDate) || formatDateString(new Date());
 
   const [metadata, setMetadata] = useState<Record<string, any>>({});
+  const [localIcbmBuildTask, setLocalIcbmBuildTask] = useState<any>(null);
+
   useEffect(() => {
     fetchBuildingMetadata()
       .then((data) => setMetadata(data || {}))
@@ -55,28 +56,75 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   }, []);
 
   const currentCash = Number(countryDetail?.anggaran) || 0;
-  const uraniumUnits = Number(countryDetail?.uranium) || 0;
+  const uraniumBuildingCount = Number(countryDetail?.uranium) || 0;
+  const uraniumStock = Number(countryDetail?.inventory_uranium) || 0;
   const uraniumProductionPerUnit = Number(metadata?.uranium?.produksi) || 0;
   const safeDateString = safeCurrentDate;
   const buildDateKey = `build_date_uranium`;
   const buildDate = countryDetail?.[buildDateKey] || safeDateString;
-  const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
+  const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumBuildingCount, buildDate, safeDateString);
   const daysElapsed = getDaysElapsed(buildDate, safeDateString);
   const consumptionPerPlant = 1;
   const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * consumptionPerPlant * daysElapsed;
-  const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
+  const uraniumNet = Math.max(0, uraniumStock + totalProd - totalCons);
 
-  const icbmBuildTask = countryDetail?.icbmBuildTask || null;
+  const icbmBuildTask = localIcbmBuildTask || countryDetail?.icbmBuildTask || null;
   const icbmBuildEndDate = icbmBuildTask?.endDate || null;
   const icbmBuildQuantity = Number(icbmBuildTask?.quantity || 0);
-  const currentIcbmCount = Number(countryDetail?.icbm || 0);
+  const existingIcbmCount = Number(countryDetail?.icbm || 0);
   const currentIcbmDateObj = new Date(`${safeCurrentDate}T00:00:00`);
   const icbmBuildEndDateObj = icbmBuildEndDate ? new Date(`${icbmBuildEndDate}T00:00:00`) : null;
   const isIcbmBuildQueued = icbmBuildEndDateObj ? icbmBuildEndDateObj > currentIcbmDateObj : false;
   const formattedIcbmEndDate = icbmBuildEndDate ? formatTanggalIndo(icbmBuildEndDate) : null;
 
+  // 🔥 LOGIKA BARU: HITUNG SISA ICBM YANG SEDANG DIBANGUN & TOTAL YANG SUDAH SELESAI
+  const parseDateLocal = (dateValue: string | Date | null | undefined) => {
+    if (!dateValue) return null;
+    const dateObj = typeof dateValue === 'string' ? new Date(`${dateValue}T00:00:00`) : dateValue;
+    return dateObj instanceof Date && !isNaN(dateObj.getTime()) ? dateObj : null;
+  };
+  const getDurationDaysLocal = (start: string | Date | null | undefined, end: string | Date | null | undefined) => {
+    const startDate = parseDateLocal(start);
+    const endDate = parseDateLocal(end);
+    if (!startDate || !endDate) return 0;
+    const diff = Math.round((endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+    return diff > 0 ? diff : 0;
+  };
+  const addDaysLocal = (date: Date, days: number) => {
+    const result = new Date(date);
+    result.setDate(result.getDate() + days);
+    return result;
+  };
+
+  let remainingBuildQuantity = 0;
+  let completedFromQueue = 0;
+  if (icbmBuildTask) {
+    const task = icbmBuildTask;
+    const quantity = Math.max(0, Number(task?.quantity) || 0);
+    const startDate = parseDateLocal(task?.startDate);
+    const endDate = parseDateLocal(task?.endDate);
+    const totalDurationDays = getDurationDaysLocal(startDate, endDate);
+    
+    if (startDate && quantity > 0) {
+      const unitDurationDays = quantity > 0 ? Math.max(1, Math.round(totalDurationDays / quantity)) : 0;
+      let completedCount = 0;
+      // Loop per unit untuk menghitung mana yang sudah lewat tanggal jatuh temponya
+      for (let i = 0; i < quantity; i++) {
+        const entryEndDate = addDaysLocal(startDate, unitDurationDays * (i + 1));
+        if (entryEndDate && currentIcbmDateObj && entryEndDate < currentIcbmDateObj) {
+          completedCount++;
+        }
+      }
+      remainingBuildQuantity = Math.max(0, quantity - completedCount);
+      completedFromQueue = completedCount;
+    }
+  }
+
+  // 🔥 LOGIKA BARU: TOTAL ICBM YANG SUDAH SIAP / SELESAI (Angka 0 nya akan bertambah!)
+  const totalReadyIcbm = existingIcbmCount + completedFromQueue;
+
   const handleIcbmBuild = (task: { quantity: number; startDate: string; endDate: string }) => {
-    // set only the build task here; resource deduction handled by IcbmDetailModal on confirm
+    setLocalIcbmBuildTask(task);
     setCountryDetail((prev: any) => ({ ...(prev || {}), icbmBuildTask: task }));
   };
 
@@ -102,7 +150,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
     }
   }, [buildCompleted, isNuclearProgramActive, programBuildTask, setCountryDetail]);
 
-  // Persist program active flag to sessionStorage when it becomes active
   useEffect(() => {
     try {
       if (isNuclearProgramActive) sessionStorage.setItem('programNuklirActive', '1');
@@ -110,7 +157,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
     } catch (e) {}
   }, [isNuclearProgramActive]);
 
-  // Restore program active flag from sessionStorage after mount
   useEffect(() => {
     try {
       const flag = sessionStorage.getItem('programNuklirActive') === '1';
@@ -142,13 +188,11 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
     };
   })();
 
-  // 🔥 State untuk modal pembayaran program nuklir
   const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
   const [isIcbmDetailOpen, setIsIcbmDetailOpen] = useState(false);
   const [isPerangNuklirDetailOpen, setIsPerangNuklirDetailOpen] = useState(false);
   const [isIcbmBuildStatusOpen, setIsIcbmBuildStatusOpen] = useState(false);
 
-  // Restore modal open state from sessionStorage (survive HMR/code updates)
   useEffect(() => {
     try {
       const p = sessionStorage.getItem('program_nuklir_modal_open') === '1';
@@ -157,12 +201,9 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
       if (p) setIsProgramNuklirModalOpen(true);
       if (i) setIsIcbmDetailOpen(true);
       if (pe) setIsPerangNuklirDetailOpen(true);
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) {}
   }, []);
 
-  // Persist modal open state to sessionStorage
   useEffect(() => {
     try {
       if (isProgramNuklirModalOpen) sessionStorage.setItem('program_nuklir_modal_open', '1');
@@ -182,7 +223,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
     } catch {}
   }, [isPerangNuklirDetailOpen]);
 
-  // Daftar 3 opsi strategi nuklir
   const nuclearOptions = [
     {
       id: 1,
@@ -213,11 +253,8 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
     }
   ];
 
-  // 🔥 Handler aksi (TANPA ALERT SAMA SEKALI)
   const handleOptionClick = (option: typeof nuclearOptions[0]) => {
-    if (!option.isUnlocker && !isNuclearProgramActive) {
-      return;
-    }
+    if (!option.isUnlocker && !isNuclearProgramActive) return;
 
     if (option.isUnlocker) {
       if (isNuclearProgramActive) return;
@@ -256,11 +293,9 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
           </button>
         </div>
 
-        {/* BODY */}
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
           <div className="w-full max-w-4xl space-y-6">
 
-            {/* 🔥 KOTAK STATUS PROGRAM NUKLIR */}
             <div className="p-6 rounded-2xl bg-[#FAF6EE] border-2 border-[#C4B49C]/50 shadow-inner">
               <p className="text-center text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-3">
                 STATUS PENGEMBANGAN SENJATA NUKLIR
@@ -290,29 +325,38 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                 </div>
                 <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-6 min-h-[170px] text-center shadow-sm flex flex-col justify-center">
                   <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-2">Stok Uranium</p>
-                  <div className="text-2xl font-black text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                  <div className="text-2xl font-black text-lime-600">{uraniumStock.toLocaleString('id-ID')}</div>
                 </div>
                 <div className="relative overflow-visible">
-                  {formattedIcbmEndDate && isIcbmBuildQueued ? (
+                  {formattedIcbmEndDate && isIcbmBuildQueued && remainingBuildQuantity > 0 ? (
                     <div className="absolute -top-6 left-1/2 z-20 -translate-x-1/2 rounded-sm bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] shadow-md tracking-wider whitespace-nowrap">
                       Selesai {formattedIcbmEndDate}
                     </div>
                   ) : null}
                   <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-6 min-h-[170px] text-center shadow-sm pt-10 flex flex-col justify-center">
                     <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-2">ICBM</p>
+                    
+                    {/* 🔥 PERBAIKAN: Angka utama menggunakan totalReadyIcbm (AKAN BERTAMBAH SENDIRI) */}
                     <div className="text-2xl font-black text-[#1d5c10]">
-                      {currentIcbmCount}
-                      {isIcbmBuildQueued && icbmBuildQuantity > 0 ? (
-                        <span className="text-emerald-600"> +{icbmBuildQuantity}</span>
+                      {totalReadyIcbm}
+                      {isIcbmBuildQueued && remainingBuildQuantity > 0 ? (
+                        <span className="text-emerald-600"> +{remainingBuildQuantity}</span>
                       ) : null}
                     </div>
-                    {isIcbmBuildQueued ? (
+
+                    {/* 🔥 PERBAIKAN: Badge status menggunakan sisa antrian */}
+                    {isIcbmBuildQueued && remainingBuildQuantity > 0 ? (
                       <div className="mt-3 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold text-emerald-700">
-                        +{icbmBuildQuantity} sedang dibangun
+                        +{remainingBuildQuantity} sedang dibangun
+                      </div>
+                    ) : isIcbmBuildQueued && remainingBuildQuantity === 0 ? (
+                      <div className="mt-3 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-100 px-3 py-1 text-[10px] font-bold text-emerald-700">
+                        ✔️ Semua ICBM telah selesai dibangun!
                       </div>
                     ) : (
                       <p className="mt-3 text-[10px] text-[#8b7e66]">Bangun ICBM untuk melihat jadwal penyelesaian.</p>
                     )}
+                    
                     <button
                       onClick={() => setIsIcbmBuildStatusOpen(true)}
                       className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#154a3c] transition-all cursor-pointer"
@@ -388,7 +432,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
         </div>
       </div>
 
-      {/* 🔥 Panggil Modal Pembayaran Program Nuklir */}
       <ProgramNuklirModals 
         isOpen={isProgramNuklirModalOpen}
         onClose={() => setIsProgramNuklirModalOpen(false)}

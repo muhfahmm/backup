@@ -13,7 +13,7 @@ export default function ProgramNuklirTimeDetail({
   isOpen,
   onClose,
   durationLabel = "1 Tahun",
-  durationDays = 365,
+  durationDays = 1,
 }: ProgramNuklirTimeDetailProps) {
   if (!isOpen) return null;
 

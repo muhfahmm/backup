@@ -33,7 +33,8 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
     }, [isOpen]);
 
     const currentCash = Number(countryDetail?.anggaran) || 0;
-    const uraniumUnits = Number(countryDetail?.uranium) || 0;
+    const uraniumBuildingCount = Number(countryDetail?.uranium) || 0;
+    const uraniumStock = Number(countryDetail?.inventory_uranium) || 0;
     const uraniumProductionPerUnit = Number(metadata?.uranium?.produksi) || 0;
 
     // compute production total consistent with ProduksiModal.calculateProductionAmount
@@ -45,11 +46,11 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
     })();
     const buildDateKey = `build_date_uranium`;
     const buildDate = countryDetail?.[buildDateKey] || safeDateString;
-    const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
+    const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumBuildingCount, buildDate, safeDateString);
     const daysElapsed = getDaysElapsed(buildDate, safeDateString);
     const consumptionPerPlant = 1; // uranium consumption per plant per day
     const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * consumptionPerPlant * daysElapsed;
-    const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
+    const uraniumNet = Math.max(0, uraniumStock + totalProd - totalCons);
 
     const cashCostPerUnit = 25000;
     const uraniumCostPerUnit = 1;
@@ -114,11 +115,11 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
 
       setCountryDetail((prev: any) => {
         const prevAnggaran = Number(prev?.anggaran) || 0;
-        const prevUranium = Number(prev?.uranium) || 0;
+        const prevUraniumStock = Number(prev?.inventory_uranium) || 0;
         return {
           ...(prev || {}),
           anggaran: Math.max(0, prevAnggaran - totalCashCost),
-          uranium: Math.max(0, prevUranium - totalUraniumCost),
+          inventory_uranium: Math.max(0, prevUraniumStock - totalUraniumCost),
           icbmBuildTask: task,
         };
       });
@@ -168,7 +169,7 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
               </div>
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
                 <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Stok Uranium</h3>
-                <div className="text-3xl font-black text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                <div className="text-3xl font-black text-lime-600">{uraniumStock.toLocaleString('id-ID')}</div>
                 <p className="text-[11px] text-rose-600 font-bold mt-3">Biaya: -{totalUraniumCost} uranium</p>
               </div>
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
