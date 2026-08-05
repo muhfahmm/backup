@@ -1,6 +1,8 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
+import { fetchBuildingMetadata } from "@/lib/buildingMetadata";
+import { calculateProductionIncrement, formatDate } from "@/app/logic/production_logic";
 import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
 import IcbmDetailModal from "./modals_menu/2_ICBM/IcbmDetailModal";
 import PerangNuklirDetailModal from "./modals_menu/3_perang_nuklir/PerangNuklirDetailModal";
@@ -12,9 +14,10 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onOpenDebt?: () => void;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
-export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail, setCountryDetail, onOpenDebt }: ModalProps) {
+export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail, setCountryDetail, onOpenDebt, onGotoProduction }: ModalProps) {
   if (!isOpen) return null;
 
   const formatDateString = (date?: string | Date) => {
@@ -43,6 +46,23 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
 
   const safeCurrentDate = formatDateString(currentDate) || formatDateString(new Date());
 
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+  useEffect(() => {
+    fetchBuildingMetadata()
+      .then((data) => setMetadata(data || {}))
+      .catch(() => setMetadata({}));
+  }, []);
+
+  const currentCash = Number(countryDetail?.anggaran) || 0;
+  const uraniumUnits = Number(countryDetail?.uranium) || 0;
+  const uraniumProductionPerUnit = Number(metadata?.uranium?.produksi) || 0;
+  const safeDateString = safeCurrentDate;
+  const buildDateKey = `build_date_uranium`;
+  const buildDate = countryDetail?.[buildDateKey] || safeDateString;
+  const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
+  const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * 1;
+  const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
+
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
   const programBuildTask = ongoingConstructions.find((c: any) => c.buildingKey === "program_nuklir");
   const currentDateObj = new Date(`${safeCurrentDate}T00:00:00`);
@@ -64,6 +84,24 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
       });
     }
   }, [buildCompleted, isNuclearProgramActive, programBuildTask, setCountryDetail]);
+
+  // Persist program active flag to sessionStorage when it becomes active
+  useEffect(() => {
+    try {
+      if (isNuclearProgramActive) sessionStorage.setItem('programNuklirActive', '1');
+      else sessionStorage.removeItem('programNuklirActive');
+    } catch (e) {}
+  }, [isNuclearProgramActive]);
+
+  // Restore program active flag from sessionStorage after mount
+  useEffect(() => {
+    try {
+      const flag = sessionStorage.getItem('programNuklirActive') === '1';
+      if (flag && !Boolean(countryDetail?.programNuklirActive) && countryDetail) {
+        setCountryDetail((prev: any) => ({ ...(prev || {}), programNuklirActive: true }));
+      }
+    } catch (e) {}
+  }, [countryDetail, setCountryDetail]);
 
   const status = (() => {
     if (isNuclearProgramActive) {
@@ -91,6 +129,40 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
   const [isIcbmDetailOpen, setIsIcbmDetailOpen] = useState(false);
   const [isPerangNuklirDetailOpen, setIsPerangNuklirDetailOpen] = useState(false);
+
+  // Restore modal open state from sessionStorage (survive HMR/code updates)
+  useEffect(() => {
+    try {
+      const p = sessionStorage.getItem('program_nuklir_modal_open') === '1';
+      const i = sessionStorage.getItem('icbm_detail_open') === '1';
+      const pe = sessionStorage.getItem('perang_nuklir_detail_open') === '1';
+      if (p) setIsProgramNuklirModalOpen(true);
+      if (i) setIsIcbmDetailOpen(true);
+      if (pe) setIsPerangNuklirDetailOpen(true);
+    } catch (e) {
+      // ignore
+    }
+  }, []);
+
+  // Persist modal open state to sessionStorage
+  useEffect(() => {
+    try {
+      if (isProgramNuklirModalOpen) sessionStorage.setItem('program_nuklir_modal_open', '1');
+      else sessionStorage.removeItem('program_nuklir_modal_open');
+    } catch {}
+  }, [isProgramNuklirModalOpen]);
+  useEffect(() => {
+    try {
+      if (isIcbmDetailOpen) sessionStorage.setItem('icbm_detail_open', '1');
+      else sessionStorage.removeItem('icbm_detail_open');
+    } catch {}
+  }, [isIcbmDetailOpen]);
+  useEffect(() => {
+    try {
+      if (isPerangNuklirDetailOpen) sessionStorage.setItem('perang_nuklir_detail_open', '1');
+      else sessionStorage.removeItem('perang_nuklir_detail_open');
+    } catch {}
+  }, [isPerangNuklirDetailOpen]);
 
   // Daftar 3 opsi strategi nuklir
   const nuclearOptions = [
@@ -193,6 +265,16 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                   )}
                 </div>
               </div>
+              <div className="mt-4 flex gap-4 justify-center">
+                <div className="rounded-xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 min-w-[160px] text-center">
+                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider">Kas Negara</p>
+                  <div className="text-lg font-bold text-emerald-700">{currentCash.toLocaleString('id-ID')} EM</div>
+                </div>
+                <div className="rounded-xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 min-w-[160px] text-center">
+                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider">Stok Uranium</p>
+                  <div className="text-lg font-bold text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                </div>
+              </div>
             </div>
 
             {/* 🔥 GRID 3 KARTU STRATEGI */}
@@ -271,6 +353,9 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
       <IcbmDetailModal
         isOpen={isIcbmDetailOpen}
         onClose={() => setIsIcbmDetailOpen(false)}
+        countryDetail={countryDetail}
+        currentDate={safeCurrentDate}
+        onGotoProduction={onGotoProduction}
       />
 
       <PerangNuklirDetailModal

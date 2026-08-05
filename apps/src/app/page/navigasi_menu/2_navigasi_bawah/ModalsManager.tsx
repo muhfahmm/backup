@@ -3,6 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { fetchBuildingMetadata } from '../../../../lib/buildingMetadata';
+import { processDueLoans } from './4_ekonomi/3_peminjaman_hutang/tab_menu/logic/loanRepaymentLogic';
 
 // 1. Kepuasan
 import StatistikKepuasanModal from "./1_kepuasan/1_statistik/StatistikKepuasanModal";
@@ -103,6 +104,34 @@ function ModalsManager({
       }
     })();
   }, []);
+
+  // Ensure due loans are processed whenever the global date advances so repayments don't require opening the Hutang modal
+  useEffect(() => {
+    if (!currentDate || !countryDetail) return;
+    try {
+      const riwayatPinjaman = Array.isArray(countryDetail?.pinjamanList) ? countryDetail.pinjamanList : [];
+      if (riwayatPinjaman.length === 0) return;
+
+      const initialCash = Number(countryDetail.anggaran) || 0;
+      const { nextLoanList, availableCash, updatedTotalHutang, updated } = processDueLoans(
+        riwayatPinjaman,
+        currentDate instanceof Date ? new Date(currentDate) : new Date(currentDate),
+        initialCash
+      );
+
+      if (!updated) return;
+
+      setCountryDetail({
+        ...(countryDetail || {}),
+        anggaran: Math.max(0, availableCash),
+        totalHutang: Math.max(0, updatedTotalHutang),
+        pinjamanList: nextLoanList,
+      });
+    } catch (e) {
+      // don't block UI on failure
+      console.warn('ModalsManager: failed to process due loans on date change', e);
+    }
+  }, [currentDate, countryDetail, setCountryDetail]);
 
   // Jika tidak ada negara yang dipilih, jangan render apapun
   if (!selectedCountry) return null;
@@ -340,6 +369,10 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           onOpenDebt={() => setActiveMenu("Menu:Hutang")}
+          onGotoProduction={(tab: string, key: string) => {
+            setActiveMenu("Menu:Produksi");
+            setProductionDeepLink?.({ tab, key });
+          }}
         />
       );
 

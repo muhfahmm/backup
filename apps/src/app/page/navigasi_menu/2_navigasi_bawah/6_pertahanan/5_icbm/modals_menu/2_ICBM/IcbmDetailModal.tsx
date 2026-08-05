@@ -1,13 +1,44 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { X, Rocket } from "lucide-react";
+import { fetchBuildingMetadata } from "@/lib/buildingMetadata";
+import { calculateProductionIncrement, formatDate } from "@/app/logic/production_logic";
 
 interface IcbmDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
+  countryDetail: any;
+  currentDate?: string | Date;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
-export default function IcbmDetailModal({ isOpen, onClose }: IcbmDetailModalProps) {
+export default function IcbmDetailModal({ isOpen, onClose, countryDetail, currentDate, onGotoProduction }: IcbmDetailModalProps) {
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+      if (!isOpen) return;
+      fetchBuildingMetadata()
+        .then((data) => setMetadata(data || {}))
+        .catch(() => setMetadata({}));
+    }, [isOpen]);
+
+    const currentCash = Number(countryDetail?.anggaran) || 0;
+    const uraniumUnits = Number(countryDetail?.uranium) || 0;
+    const uraniumProductionPerUnit = Number(metadata?.uranium?.produksi) || 0;
+
+    // compute production total consistent with ProduksiModal.calculateProductionAmount
+    const safeDateString = (() => {
+      if (!currentDate) return formatDate(new Date());
+      if (typeof currentDate === 'string') return currentDate;
+      if (currentDate instanceof Date && !isNaN(currentDate.getTime())) return formatDate(currentDate);
+      return formatDate(new Date());
+    })();
+    const buildDateKey = `build_date_uranium`;
+    const buildDate = countryDetail?.[buildDateKey] || safeDateString;
+    const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
+    const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * 1; // consumption per plant = 1
+    const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
+
   if (!isOpen) return null;
 
   return (
@@ -34,31 +65,34 @@ export default function IcbmDetailModal({ isOpen, onClose }: IcbmDetailModalProp
               <div className="p-5 rounded-full bg-rose-100 border border-rose-200 inline-flex items-center justify-center mx-auto">
                 <Rocket className="w-14 h-14 text-rose-700" />
               </div>
-              <p className="text-sm font-semibold text-[#5c3c10]">ICBM Strategis membuka kemampuan serangan global dengan rudal antarbenua.</p>
+              <p className="text-sm font-semibold text-[#5c3c10]">Kas Negara & Produksi Uranium</p>
               <p className="text-xs text-[#8b7e66] leading-relaxed text-justify">
-                Mengaktifkan silo rudal balistik antarbenua akan memperluas jangkauan militer negara Anda dan menempatkan target strategis dunia dalam jangkauan.
-                Gunakan dengan hati-hati karena ini akan meningkatkan ketegangan internasional secara signifikan.
+                Menampilkan saldo kas negara saat ini dan pendapatan tambang uranium berdasarkan data Produksi & Pembangunan.
               </p>
             </div>
 
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
-                <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Rentang Operasional</h3>
-                <p className="text-[11px] text-[#8b7e66]">Rudal ICBM dapat mencapai sasaran lintas benua dengan jangkauan maksimum ribuan kilometer.</p>
+                <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Kas Negara</h3>
+                <p className="text-[11px] text-[#8b7e66] mb-3">Saldo anggaran milik pengguna saat ini.</p>
+                <div className="text-3xl font-black text-emerald-700">{currentCash.toLocaleString('id-ID')} EM</div>
               </div>
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
-                <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Kekuatan Dampak</h3>
-                <p className="text-[11px] text-[#8b7e66]">Memperkuat daya serang dan menurunkan efektivitas pertahanan udara lawan.</p>
+                <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Stok Uranium</h3>
+                <div className="text-3xl font-black text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                <div className="mt-3 flex items-center justify-between gap-3">
+                  <button
+                    onClick={() => {
+                      onGotoProduction?.('mineral', 'uranium');
+                      onClose();
+                    }}
+                    className="px-3 py-2 rounded-lg bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700"
+                  >
+                    Buka Produksi & Pembangunan
+                  </button>
+                  <span className="text-[10px] text-[#8b7e66] mt-2">{uraniumUnits.toLocaleString('id-ID')} bangunan</span>
+                </div>
               </div>
-            </div>
-
-            <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
-              <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-3">Catatan Penting</h3>
-              <ul className="space-y-2 text-[11px] text-[#8b7e66] list-disc list-inside leading-relaxed">
-                <li>Aktivasi ICBM hanya tersedia setelah Program Nuklir aktif.</li>
-                <li>Pilih target dengan strategi terbaik untuk keuntungan geopolitik.</li>
-                <li>Resiko eskalasi global meningkat drastis setelah peluncuran.</li>
-              </ul>
             </div>
           </div>
         </div>

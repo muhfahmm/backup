@@ -1,14 +1,17 @@
 "use client";
 import React, { useState } from "react";
 import { renderFlag, LoanRecord } from "../utils";
+import { Info } from "lucide-react";
 
 interface RiwayatProps {
   loanHistory: LoanRecord[];
   kasNegara: number;
   setPendingPaymentLoan: (loan: LoanRecord) => void;
+  setPenaltyInfoLoan?: (loan: LoanRecord | null) => void;
+  setGeneralPenaltyOpen?: (v: boolean) => void;
 }
 
-export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan }: RiwayatProps) {
+export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan, setPenaltyInfoLoan, setGeneralPenaltyOpen }: RiwayatProps) {
   const [historySubTab, setHistorySubTab] = useState<"active" | "paid">("active");
   const activeLoans = loanHistory.filter((loan) => loan.status !== "Lunas");
   const paidLoans = loanHistory.filter((loan) => loan.status === "Lunas");
@@ -59,7 +62,17 @@ export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan 
               <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Pokok Pinjaman</th>
               <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Bunga Awal</th>
               <th className="px-4 py-3 text-left font-black text-emerald-700 uppercase tracking-wider">Sudah Dibayar</th>
-              <th className="px-4 py-3 text-left font-black text-rose-600 uppercase tracking-wider">Denda</th>
+              <th className="px-4 py-3 text-left font-black text-rose-600 uppercase tracking-wider flex items-center gap-2">
+                <span>Denda</span>
+                <button
+                  onClick={() => setGeneralPenaltyOpen?.(true)}
+                  className="p-2 rounded-full bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 transition-all cursor-pointer"
+                  title="Penjelasan Denda"
+                  aria-label="Penjelasan Denda"
+                >
+                  <Info className="w-4 h-4" />
+                </button>
+              </th>
               <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Total Saat Ini</th>
               <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Jatuh Tempo</th>
               <th className="px-4 py-3 text-left font-black text-[#5c3c10] uppercase tracking-wider">Aksi</th>
@@ -85,7 +98,17 @@ export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan 
                     <td className="px-4 py-3 font-bold text-[#5c3c10]">{pinjam.amount?.toLocaleString('id-ID')} EM</td>
                     <td className="px-4 py-3 font-bold text-red-600">{pinjam.interest}%</td>
                     <td className="px-4 py-3 font-bold text-emerald-700">+{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM</td>
-                    <td className="px-4 py-3 font-bold text-rose-600">+{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM</td>
+                    <td className="px-4 py-3 font-bold text-rose-600 flex items-center gap-3">
+                      <span>+{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM</span>
+                      <button
+                        onClick={() => setPenaltyInfoLoan?.(pinjam)}
+                        className="p-2 rounded-full bg-amber-50 border border-amber-200 text-amber-700 hover:bg-amber-100 transition-all cursor-pointer"
+                        title="Detail Denda"
+                        aria-label="Detail Denda"
+                      >
+                        <Info className="w-4 h-4" />
+                      </button>
+                    </td>
                     <td className="px-4 py-3 font-bold text-[#5c3c10]">{(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM</td>
                     
                     {/* 🔥 BAGIAN INI DIUBAH */}

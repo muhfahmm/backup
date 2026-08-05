@@ -19,6 +19,8 @@ import KonfirmasiPinjamanModalRiwayat from "./tab_menu/3_riwayat/modals_menu/kon
 
 // 🔥 IMPOR MODAL BAYAR HUTANG
 import BayarHutangModal from "./tab_menu/3_riwayat/modals_menu/BayarHutangModal";
+import PenaltyInfoModal from "./tab_menu/3_riwayat/modals_menu/PenaltyInfoModal";
+import GeneralPenaltyModal from "./tab_menu/3_riwayat/modals_menu/GeneralPenaltyModal";
 
 interface ModalProps {
   isOpen: boolean;
@@ -95,6 +97,10 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
 
   // 🔥 STATE BARU: Untuk modal pembayaran manual
   const [pendingPaymentLoan, setPendingPaymentLoan] = useState<LoanRecord | null>(null);
+  // STATE: untuk menampilkan detail denda
+  const [penaltyInfoLoan, setPenaltyInfoLoan] = useState<LoanRecord | null>(null);
+  // STATE: general penalty modal open from header
+  const [isGeneralPenaltyOpen, setIsGeneralPenaltyOpen] = useState(false);
 
   const parseIdDate = (dateString: string) => {
     const parts = String(dateString).split("/").map((part) => Number(part));
@@ -419,13 +425,18 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
               currentDate={currentDate}
             />
           )}
-
           {activeTab === "history" && (
             <Riwayat
               loanHistory={riwayatPinjaman}
               kasNegara={kasNegara}
               setPendingPaymentLoan={setPendingPaymentLoan}
+              // supply setter so Riwayat can open penalty info modal
+              setPenaltyInfoLoan={setPenaltyInfoLoan}
+              setGeneralPenaltyOpen={setIsGeneralPenaltyOpen}
             />
+          )}
+          {activeTab !== "multilateral" && (
+            <></>
           )}
 
         </div>
@@ -442,6 +453,19 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
             iso={pendingPaymentLoan.iso} 
           />
         )}
+
+        {/* Penalty info modal */}
+        <PenaltyInfoModal
+          isOpen={!!penaltyInfoLoan}
+          onClose={() => setPenaltyInfoLoan(null)}
+          loan={penaltyInfoLoan}
+        />
+
+        {/* General penalty explanation modal (header info) */}
+        <GeneralPenaltyModal
+          isOpen={isGeneralPenaltyOpen}
+          onClose={() => setIsGeneralPenaltyOpen(false)}
+        />
 
         {/* Modal Konfirmasi Peminjaman Baru */}
         {pendingLoan && activeTab === "bilateral" && (
