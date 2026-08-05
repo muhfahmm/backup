@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Landmark } from "lucide-react";
+import { Landmark, ArrowUp, ArrowDown } from "lucide-react";
 import PilihTenorModal from "./PilihTenorModal";
 
 interface LoanCooldowns {
@@ -36,12 +36,12 @@ const addDays = (date: Date, days: number) => {
 };
 
 const TENOR_OPTIONS = [
-  { label: "6m", days: 180 },
-  { label: "9m", days: 270 },
-  { label: "1y", days: 365 },
-  { label: "2y", days: 730 },
-  { label: "3y", days: 1095 },
-  { label: "4y", days: 1460 },
+  { label: "6 bulan", days: 180 },
+  { label: "9 bulan", days: 270 },
+  { label: "1 tahun", days: 365 },
+  { label: "2 tahun", days: 730 },
+  { label: "3 tahun", days: 1095 },
+  { label: "4 tahun", days: 1460 },
   { label: "5y", days: 1825 },
 ];
 
@@ -58,6 +58,20 @@ export default function LembagaDunia({ setPendingLoan, loanCooldowns, currentDat
   const handleAmountChange = (id: number, value: string) => {
     const rawValue = value.replace(/[^0-9]/g, "");
     setAmounts((prev: Record<number, string>) => ({ ...prev, [id]: rawValue }));
+    setErrors((prev: Record<number, string>) => ({ ...prev, [id]: "" }));
+  };
+
+  const setQuickLoanAmount = (id: number, amount: number) => {
+    setAmounts((prev: Record<number, string>) => ({ ...prev, [id]: String(amount) }));
+    setErrors((prev: Record<number, string>) => ({ ...prev, [id]: "" }));
+  };
+
+  const decrementLoanAmount = (id: number, decrement: number) => {
+    setAmounts((prev: Record<number, string>) => {
+      const current = Number(prev[id] || 0);
+      const next = Math.max(0, current - decrement);
+      return { ...prev, [id]: String(next) };
+    });
     setErrors((prev: Record<number, string>) => ({ ...prev, [id]: "" }));
   };
 
@@ -139,14 +153,34 @@ export default function LembagaDunia({ setPendingLoan, loanCooldowns, currentDat
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <label className="space-y-2 text-[10px] font-black uppercase tracking-wider text-[#5c3c10]">
                 Jumlah Pinjaman
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  placeholder={lembaga.maxCap.toLocaleString("id-ID")}
-                  value={amounts[lembaga.id] && amounts[lembaga.id] !== "" ? Number(amounts[lembaga.id]).toLocaleString('id-ID') : ""}
-                  onChange={(e) => handleAmountChange(lembaga.id, e.target.value)}
-                  className="w-full rounded-2xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 text-sm font-bold text-[#5c3c10] outline-none focus:border-[#5c3c10]"
-                />
+                <div className="relative">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    placeholder={lembaga.maxCap.toLocaleString("id-ID")}
+                    value={amounts[lembaga.id] && amounts[lembaga.id] !== "" ? Number(amounts[lembaga.id]).toLocaleString('id-ID') : ""}
+                    onChange={(e) => handleAmountChange(lembaga.id, e.target.value)}
+                    className="w-full rounded-2xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 pr-24 text-sm font-bold text-[#5c3c10] outline-none focus:border-[#5c3c10]"
+                  />
+                  <div className="absolute right-2 top-1/2 flex -translate-y-1/2 items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => decrementLoanAmount(lembaga.id, 1_000_000)}
+                      className="flex items-center justify-center rounded-full bg-[#5c3c10] text-white w-9 h-9 shadow-sm hover:bg-[#3d2911] transition-colors cursor-pointer"
+                      aria-label="Kurangi 1 juta"
+                    >
+                      <ArrowDown className="h-4 w-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setQuickLoanAmount(lembaga.id, 15_000_000)}
+                      className="flex items-center justify-center rounded-full bg-[#5c3c10] text-white w-9 h-9 shadow-sm hover:bg-[#3d2911] transition-colors cursor-pointer"
+                      aria-label="Setel 15 juta"
+                    >
+                      <ArrowUp className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
               </label>
 
               <div className="space-y-2 text-[10px] font-black uppercase tracking-wider text-[#5c3c10] cursor-pointer">
@@ -172,13 +206,14 @@ export default function LembagaDunia({ setPendingLoan, loanCooldowns, currentDat
               </div>
             )}
 
+            {/* 🔥 PERBAIKAN: Tambahkan cursor-pointer di bagian kondisi false */}
             <button
               onClick={() => handleRequestLoan(lembaga)}
               disabled={isCooldownActive}
               className={`w-full px-8 py-3 rounded-xl text-[10px] font-black uppercase tracking-wider transition-all ${
                 isCooldownActive
                   ? "bg-[#e4dac3] text-[#8b7e66] cursor-not-allowed"
-                  : "bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10]/60 shadow-md hover:bg-[#3d2911] hover:shadow-lg active:scale-95"
+                  : "cursor-pointer bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10]/60 shadow-md hover:bg-[#3d2911] hover:shadow-lg active:scale-95"
               }`}
             >
               Ajukan Kredit

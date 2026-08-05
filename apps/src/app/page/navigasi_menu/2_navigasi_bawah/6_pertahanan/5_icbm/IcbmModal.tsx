@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
 import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
+import IcbmDetailModal from "./modals_menu/2_ICBM/IcbmDetailModal";
+import PerangNuklirDetailModal from "./modals_menu/3_perang_nuklir/PerangNuklirDetailModal";
 
 interface ModalProps {
   isOpen: boolean;
@@ -64,7 +66,7 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   }, [buildCompleted, isNuclearProgramActive, programBuildTask, setCountryDetail]);
 
   const status = (() => {
-    if (countryDetail?.programNuklirActive) {
+    if (isNuclearProgramActive) {
       return {
         isActive: true,
         message: "PROGRAM NUKLIR TELAH AKTIF",
@@ -87,6 +89,8 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
 
   // 🔥 State untuk modal pembayaran program nuklir
   const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
+  const [isIcbmDetailOpen, setIsIcbmDetailOpen] = useState(false);
+  const [isPerangNuklirDetailOpen, setIsPerangNuklirDetailOpen] = useState(false);
 
   // Daftar 3 opsi strategi nuklir
   const nuclearOptions = [
@@ -122,14 +126,23 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   // 🔥 Handler aksi (TANPA ALERT SAMA SEKALI)
   const handleOptionClick = (option: typeof nuclearOptions[0]) => {
     if (!option.isUnlocker && !isNuclearProgramActive) {
-      return; 
+      return;
     }
 
     if (option.isUnlocker) {
       if (isNuclearProgramActive) return;
       setIsProgramNuklirModalOpen(true);
-    } else {
-      console.log(`User memilih opsi strategis: ${option.title}`);
+      return;
+    }
+
+    if (option.id === 2) {
+      setIsIcbmDetailOpen(true);
+      return;
+    }
+
+    if (option.id === 3) {
+      setIsPerangNuklirDetailOpen(true);
+      return;
     }
   };
 
@@ -171,7 +184,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     <p className="text-[10px] text-[#8b7e66]">Klik kartu "Program Nuklir" untuk membuka akses</p>
                   )}
                   {isNuclearProgramBuilding && (
-                    // 🔥 PERBAIKAN FORMAT TANGGAL DI SINI
                     <p className="text-[10px] text-amber-700 font-bold">
                       Dalam tahap pembangunan hingga {formatTanggalIndo(buildEndDate)}
                     </p>
@@ -255,7 +267,16 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
         setCountryDetail={setCountryDetail}
         onTakeLoan={onOpenDebt}
       />
-      
+
+      <IcbmDetailModal
+        isOpen={isIcbmDetailOpen}
+        onClose={() => setIsIcbmDetailOpen(false)}
+      />
+
+      <PerangNuklirDetailModal
+        isOpen={isPerangNuklirDetailOpen}
+        onClose={() => setIsPerangNuklirDetailOpen(false)}
+      />
     </div>
   );
 }
