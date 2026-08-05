@@ -183,7 +183,7 @@ export default function BaseProduksiGrid({
                   <div className="flex items-center justify-between gap-2 mb-1">
                     <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider">{label}</p>
                     <button
-                      className={`flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-help ${
+                      className={`flex items-center justify-center w-5 h-5 rounded-full transition-colors cursor-pointer ${
                         isFuelResource ? 'bg-[#7f1d1d]/10 hover:bg-[#7f1d1d]/20 text-[#7f1d1d]' : 'bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10]'
                       }`}
                       onClick={(e) => {

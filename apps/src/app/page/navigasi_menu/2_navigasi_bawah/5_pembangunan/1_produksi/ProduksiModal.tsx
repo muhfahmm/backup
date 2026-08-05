@@ -432,6 +432,8 @@ export default function ProduksiModal({
       setTimeout(() => setToast(null), 2000);
       return;
     }
+    // highlight clicked card (e.g., uranium) so border turns green
+    setHighlightedCardKey(key);
     setSelectedBuilding({ key, label });
   };
 
