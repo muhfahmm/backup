@@ -24,7 +24,7 @@ export default function ProgramNuklirModals({
   if (!isOpen) return null;
 
   const anggaran = countryDetail?.anggaran || 0;
-  const biayaProgram = 25000; // 25.000.000 EM
+  const biayaProgram = 2500; // data logika harga 25.000.000 EM
 
   const formatDateString = (date?: string | Date) => {
     if (!date) return "";
@@ -65,7 +65,7 @@ export default function ProgramNuklirModals({
       const ongoing = prev?.ongoingConstructions || [];
       const existingBuilds = ongoing.filter((c: any) => c.buildingKey === "program_nuklir");
       const startDateStr = existingBuilds.length > 0 ? existingBuilds[existingBuilds.length - 1].endDate : safeCurrentDate;
-      const endDateStr = addDays(startDateStr, 1);
+      const endDateStr = addDays(startDateStr, 1); // data logika durasi pembangunan nuklir
 
       return {
         ...prev,
