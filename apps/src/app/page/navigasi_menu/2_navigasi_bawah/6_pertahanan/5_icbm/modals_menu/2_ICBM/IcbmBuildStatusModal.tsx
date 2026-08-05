@@ -1,6 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import { X, Clock, ShieldCheck } from "lucide-react";
+import TabelDalamPembangunan from "./tab_menu/tabelDalamPembangunan";
+import TabelSelesai from "./tab_menu/tabelSelesai";
 
 interface IcbmBuildStatusModalProps {
   isOpen: boolean;
@@ -141,41 +143,11 @@ export default function IcbmBuildStatusModal({
                 <p className="text-xs font-black uppercase tracking-widest text-[#8b7e66]">{activeTab}</p>
               </div>
               <div className="overflow-x-auto">
-                <table className="min-w-full text-left text-sm text-[#5c3c10]">
-                  <thead>
-                    <tr className="bg-[#faf7ef]">
-                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Keterangan</th>
-                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Jumlah</th>
-                      <th className="px-4 py-3 font-black uppercase tracking-wider text-[#8b7e66]">Selesai Pada</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {activeTab === 'Dalam Pembangunan' && pendingEntries.length === 0 && (
-                      <tr className="border-t border-[#C4B49C]/20">
-                        <td colSpan={3} className="px-4 py-5 text-[#8b7e66]">Tidak ada ICBM yang sedang dibangun.</td>
-                      </tr>
-                    )}
-                    {activeTab === 'Dalam Pembangunan' && pendingEntries.map((entry) => (
-                      <tr key={entry.id} className="border-t border-[#C4B49C]/20 hover:bg-[#f9f7ee]">
-                        <td className="px-4 py-4 text-[#5c3c10]">{entry.label}</td>
-                        <td className="px-4 py-4 font-black text-[#1d5c10]">{entry.amount}</td>
-                        <td className="px-4 py-4 text-[#5c3c10]">{entry.endDate ? formatTanggalIndo(entry.endDate) : '-'}</td>
-                      </tr>
-                    ))}
-                    {activeTab === 'Selesai' && (!completedEntries || completedEntries.length === 0) && (
-                      <tr className="border-t border-[#C4B49C]/20">
-                        <td colSpan={3} className="px-4 py-5 text-[#8b7e66]">Belum ada ICBM yang selesai.</td>
-                      </tr>
-                    )}
-                    {activeTab === 'Selesai' && completedEntries && completedEntries.length > 0 && completedEntries.map((entry) => (
-                      <tr key={`completed-${entry.id}`} className="border-t border-[#C4B49C]/20 hover:bg-[#f9f7ee]">
-                        <td className="px-4 py-4 text-[#5c3c10]">{entry.label}</td>
-                        <td className="px-4 py-4 font-black text-[#1d5c10]">{entry.amount}</td>
-                        <td className="px-4 py-4 text-[#5c3c10]">{entry.endDate ? formatTanggalIndo(entry.endDate) : '-'}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+                {activeTab === 'Dalam Pembangunan' ? (
+                  <TabelDalamPembangunan entries={pendingEntries} />
+                ) : (
+                  <TabelSelesai entries={completedEntries} />
+                )}
               </div>
             </div>
 
