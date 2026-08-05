@@ -15,10 +15,10 @@ import { processDueLoans } from "./tab_menu/logic/loanRepaymentLogic";
 // 🔥 IMPOR MODAL KONFIRMASI PINJAMAN
 import KonfirmasiPinjamanModalNegaraLain from "./tab_menu/1_negara_lain/konfirmasiPinjamanModals";
 import KonfirmasiPinjamanModalLembagaDunia from "./tab_menu/2_lembaga_dunia/konfirmasiPinjamanModals";
-import KonfirmasiPinjamanModalRiwayat from "./tab_menu/3_riwayat/konfirmasiPinjamanModals";
+import KonfirmasiPinjamanModalRiwayat from "./tab_menu/3_riwayat/modals_menu/konfirmasiPinjamanModals";
 
 // 🔥 IMPOR MODAL BAYAR HUTANG
-import BayarHutangModal from "./modalsBayarHutang";
+import BayarHutangModal from "./tab_menu/3_riwayat/modals_menu/BayarHutangModal";
 
 interface ModalProps {
   isOpen: boolean;
@@ -295,6 +295,7 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
       amount: borrowAmount,
       interest: source.interest,
       term: borrowTerm,
+      type: isMultilateral ? "multilateral" : "bilateral",
       status: "Aktif",
       totalRepayment: totalYangHarusDibayar,
       paidAmount: 0,

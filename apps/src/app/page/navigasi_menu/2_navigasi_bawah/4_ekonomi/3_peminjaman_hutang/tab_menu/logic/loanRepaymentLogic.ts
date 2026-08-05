@@ -1,4 +1,6 @@
 import { LoanRecord } from "../utils";
+import { calculateDelayedInterestAmountForBilateralLoan } from "./loanInterestRiseNegara";
+import { calculateDelayedInterestAmountForMultilateralLoan } from "./loanInterestRiseWorldBank";
 
 interface ProcessDueLoansResult {
   nextLoanList: LoanRecord[];
@@ -72,8 +74,9 @@ export const processDueLoans = (
 
     if (totalRepayment > 0) {
       missedMonths += 1;
-      const penaltyRate = 0.05 * missedMonths;
-      const penaltyAmount = totalRepayment * penaltyRate;
+      const penaltyAmount = entry.type === "multilateral"
+        ? calculateDelayedInterestAmountForMultilateralLoan(totalRepayment, missedMonths)
+        : calculateDelayedInterestAmountForBilateralLoan(totalRepayment, missedMonths);
 
       totalRepayment += penaltyAmount;
       accumulatedPenalty += penaltyAmount;
@@ -81,7 +84,7 @@ export const processDueLoans = (
       // 🔥 PERBAIKAN: Tambahkan 'as const' agar TypeScript tidak menganggapnya sebagai 'string' biasa
       return {
         ...entry,
-        status: "Aktif" as const, 
+        status: "Aktif" as const,
         totalRepayment,
         paidAmount,
         accumulatedPenalty,

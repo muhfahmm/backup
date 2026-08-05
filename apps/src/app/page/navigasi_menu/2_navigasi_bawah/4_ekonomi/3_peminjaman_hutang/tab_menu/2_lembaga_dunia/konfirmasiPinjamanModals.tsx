@@ -30,7 +30,7 @@ export default function KonfirmasiPinjamanModal({
 }: KonfirmasiPinjamanModalProps) {
   if (!isOpen) return null;
 
-  const isFundsSufficient = currentMoney >= totalPayment;
+  const isFundsSufficient = true;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -96,8 +96,8 @@ export default function KonfirmasiPinjamanModal({
             <div className="bg-[#e4dac3]/10 border border-[#C4B49C]/30 rounded-2xl p-8 shadow-sm flex flex-col justify-between">
               <div className="space-y-6 text-[#5c3c10]">
                 <div>
-                  <h4 className="text-lg font-black uppercase tracking-wider">Ringkasan Pembayaran</h4>
-                  <p className="text-xs text-[#8b7e66] mt-2">Pastikan kas negara mencukupi sebelum mengonfirmasi pinjaman.</p>
+                  <h4 className="text-lg font-black uppercase tracking-wider">Ringkasan Pinjaman</h4>
+                  <p className="text-xs text-[#8b7e66] mt-2">Pinjaman ini akan menambah kas negara saat dikonfirmasi.</p>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 text-sm">
@@ -109,12 +109,8 @@ export default function KonfirmasiPinjamanModal({
                     <p className="text-[#8b7e66]">Total Outstanding</p>
                     <p className="mt-2 text-2xl font-black text-[#5c3c10]">{totalPayment.toLocaleString("id-ID")} EM</p>
                   </div>
-                  <div className={`rounded-2xl p-4 ${isFundsSufficient ? "bg-emerald-100 border border-emerald-200 text-emerald-800" : "bg-rose-100 border border-rose-200 text-rose-800"}`}>
-                    {isFundsSufficient ? (
-                      <p className="font-black uppercase text-[10px] tracking-wider">Dana tersedia</p>
-                    ) : (
-                      <p className="font-black uppercase text-[10px] tracking-wider">Dana tidak mencukupi</p>
-                    )}
+                  <div className="rounded-2xl p-4 bg-emerald-100 border border-emerald-200 text-emerald-800">
+                    <p className="font-black uppercase text-[10px] tracking-wider">Pinjaman siap dikonfirmasi</p>
                   </div>
                 </div>
               </div>
@@ -123,11 +119,9 @@ export default function KonfirmasiPinjamanModal({
         </div>
 
         <div className="flex flex-col gap-4 px-8 pb-8 pt-4 lg:flex-row lg:items-center lg:justify-end">
-          {!isFundsSufficient && (
-            <div className="rounded-2xl bg-rose-50 border border-rose-200 p-4 text-sm font-bold text-rose-700 lg:flex-1">
-              Dana negara tidak mencukupi untuk konfirmasi pinjaman ini.
-            </div>
-          )}
+          <div className="rounded-2xl bg-emerald-50 border border-emerald-200 p-4 text-sm font-bold text-emerald-700 lg:flex-1">
+            Pinjaman akan langsung ditambahkan ke kas negara saat disetujui.
+          </div>
 
           <button
             onClick={onClose}
@@ -137,8 +131,7 @@ export default function KonfirmasiPinjamanModal({
           </button>
           <button
             onClick={onConfirm}
-            disabled={!isFundsSufficient}
-            className={`w-full lg:w-auto px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-wider shadow-md transition-all duration-200 ${isFundsSufficient ? "cursor-pointer bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] hover:shadow-lg active:scale-[0.98]" : "bg-[#e4dac3] text-[#8b7e66] cursor-not-allowed opacity-60"}`}
+            className="w-full lg:w-auto px-6 py-4 rounded-2xl font-black text-xs uppercase tracking-wider shadow-md transition-all duration-200 cursor-pointer bg-[#5c3c10] text-[#FAF6EE] hover:bg-[#8b7e66] hover:shadow-lg active:scale-[0.98]"
           >
             Konfirmasi Pinjaman
           </button>

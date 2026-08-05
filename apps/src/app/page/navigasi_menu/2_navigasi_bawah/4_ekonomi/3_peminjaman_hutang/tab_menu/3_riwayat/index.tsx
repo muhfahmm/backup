@@ -13,6 +13,23 @@ export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan 
   const activeLoans = loanHistory.filter((loan) => loan.status !== "Lunas");
   const paidLoans = loanHistory.filter((loan) => loan.status === "Lunas");
 
+  // 🔥 FUNGSI UNTUK MENGUBAH FORMAT TANGGAL 1/1/2026 MENJADI 1 Jan 2026
+  const formatReturnDate = (dateString: string) => {
+    if (!dateString) return "-";
+    const parts = dateString.split('/');
+    if (parts.length !== 3) return dateString;
+
+    const day = parts[0];
+    const monthIndex = parseInt(parts[1], 10);
+    const year = parts[2];
+
+    // 12 bulan dalam 3 huruf (Bahasa Indonesia)
+    const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'];
+    const monthName = monthNames[monthIndex - 1] || '???';
+
+    return `${day} ${monthName} ${year}`;
+  };
+
   return (
     <div>
       <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-4 shadow-sm">
@@ -70,7 +87,12 @@ export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan 
                     <td className="px-4 py-3 font-bold text-emerald-700">+{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM</td>
                     <td className="px-4 py-3 font-bold text-rose-600">+{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM</td>
                     <td className="px-4 py-3 font-bold text-[#5c3c10]">{(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM</td>
-                    <td className="px-4 py-3 font-bold text-[#5c3c10]">{pinjam.returnDate}</td>
+                    
+                    {/* 🔥 BAGIAN INI DIUBAH */}
+                    <td className="px-4 py-3 font-bold text-[#5c3c10]">
+                      {formatReturnDate(pinjam.returnDate)}
+                    </td>
+
                     <td className="px-4 py-3">
                       <button
                         onClick={() => setPendingPaymentLoan(pinjam)}
@@ -108,7 +130,12 @@ export default function Riwayat({ loanHistory, kasNegara, setPendingPaymentLoan 
                   <td className="px-4 py-3 font-bold text-emerald-700">+{(pinjam.paidAmount || 0).toLocaleString('id-ID')} EM</td>
                   <td className="px-4 py-3 font-bold text-[#5c3c10]">+{(pinjam.accumulatedPenalty || 0).toLocaleString('id-ID')} EM</td>
                   <td className="px-4 py-3 font-bold text-emerald-700">{(pinjam.totalRepayment || 0).toLocaleString('id-ID')} EM</td>
-                  <td className="px-4 py-3 font-bold text-[#5c3c10]">{pinjam.returnDate}</td>
+
+                  {/* 🔥 BAGIAN INI JUGA DIUBAH UNTUK TABEL LUNAS */}
+                  <td className="px-4 py-3 font-bold text-[#5c3c10]">
+                    {formatReturnDate(pinjam.returnDate)}
+                  </td>
+
                   <td className="px-4 py-3">
                     <span className="text-[8px] font-bold text-emerald-700 uppercase">Selesai</span>
                   </td>

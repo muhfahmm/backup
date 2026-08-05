@@ -5,6 +5,7 @@ export interface LoanRecord {
   amount: number;
   interest: number;
   term?: number;
+  type?: "bilateral" | "multilateral";
   status?: "Aktif" | "Lunas";
   totalRepayment: number;
   paidAmount: number;
