@@ -10,6 +10,7 @@ import Riwayat from "./tab_menu/3_riwayat";
 
 // 🔥 IMPOR UTILITAS TAB
 import { LoanRecord, renderFlag } from "./tab_menu/utils";
+import { processDueLoans } from "./tab_menu/logic/loanRepaymentLogic";
 
 // 🔥 IMPOR MODAL KONFIRMASI PINJAMAN
 import KonfirmasiPinjamanModalNegaraLain from "./tab_menu/1_negara_lain/konfirmasiPinjamanModals";
@@ -117,101 +118,31 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   useEffect(() => {
     if (!isOpen || !currentDate || !countryDetail) return;
 
-    const dueDate = currentDate instanceof Date ? new Date(currentDate) : new Date(currentDate);
-    dueDate.setHours(0, 0, 0, 0);
-
     const riwayatPinjaman: LoanRecord[] = Array.isArray(countryDetail?.pinjamanList) ? countryDetail.pinjamanList : [];
     if (riwayatPinjaman.length === 0) return;
 
-    let availableCash = Number(countryDetail.anggaran) || 0;
-    let updated = false;
-    let updatedTotalHutang = Number(countryDetail.totalHutang) || 0;
+    const initialCash = Number(countryDetail.anggaran) || 0;
 
-    // 🔥 SORTIR HUTANG BERDASARKAN TANGGAL JATUH TEMPO PALING DEKAT
+    // Urutkan hutang berdasarkan tanggal jatuh tempo paling dekat
     const sortedLoans = [...riwayatPinjaman].sort((a, b) => {
       const dateA = parseIdDate(a.returnDate);
       const dateB = parseIdDate(b.returnDate);
       return dateA.getTime() - dateB.getTime();
     });
 
-    const nextPinjamanList = sortedLoans.map((entry) => {
-      if (!entry?.returnDate) return entry;
-      const entryDueDate = parseIdDate(entry.returnDate);
-      entryDueDate.setHours(0, 0, 0, 0);
-
-      // Jika belum jatuh tempo, lewati
-      if (entryDueDate > dueDate) return entry;
-
-      let { totalRepayment, paidAmount = 0, amount, interest, missedMonths = 0, accumulatedPenalty = 0, status = "Aktif" } = entry;
-      totalRepayment = Number(totalRepayment) || 0;
-      paidAmount = Number(paidAmount) || 0;
-      amount = Number(amount) || 0;
-      interest = Number(interest) || 0;
-
-      if (totalRepayment <= 0) return entry;
-
-      // 🔥 POTONG KAS UNTUK MEMBAYAR
-      const payment = Math.min(availableCash, totalRepayment);
-      
-      // Catat perubahan data
-      updated = true;
-      
-      // 1. Jika pembayaran > 0, kurangi hutang dan tambahkan ke paidAmount
-      if (payment > 0) {
-        availableCash -= payment;
-        totalRepayment -= payment;
-        paidAmount += payment;
-        updatedTotalHutang = Math.max(0, updatedTotalHutang - payment);
-      }
-
-      // 2. Jika hutang masih tersisa (gagal bayar / bayar sebagian)
-      if (totalRepayment > 0) {
-        // Tingkatkan jumlah bulan gagal bayar
-        missedMonths += 1;
-
-        // 🔥 HITUNG DENDA BERTINGKAT: Bulan ke-1 = 5%, ke-2 = 10%, ke-3 = 15% ... dst
-        const penaltyRate = 0.05 * missedMonths; // 5% * bulan
-        const penaltyAmount = totalRepayment * penaltyRate;
-        
-        // Tambahkan denda ke total hutang & akumulasi denda
-        totalRepayment += penaltyAmount;
-        accumulatedPenalty += penaltyAmount;
-
-        // Perpanjang 30 hari lagi
-        return {
-          ...entry,
-          status: "Aktif",
-          totalRepayment: totalRepayment,
-          paidAmount: paidAmount,
-          accumulatedPenalty: accumulatedPenalty,
-          missedMonths: missedMonths,
-          returnDate: formatIdDate(addDays(dueDate, 30)),
-        };
-      }
-
-      // 🔥 3. Jika lunas (UBAH STATUS MENJADI LUNAS, JANGAN DIHAPUS)
-      return {
-        ...entry,
-        status: "Lunas",
-        totalRepayment: 0,
-        paidAmount: paidAmount + payment,
-        // Pertahankan data lain agar bisa muncul di tabel 'Lunas'
-        accumulatedPenalty: accumulatedPenalty,
-      };
-    }).filter(Boolean);
+    const { nextLoanList, availableCash, updatedTotalHutang, updated } = processDueLoans(
+      sortedLoans,
+      currentDate instanceof Date ? new Date(currentDate) : new Date(currentDate),
+      initialCash
+    );
 
     if (!updated) return;
-
-    // 🔥 Hitung ulang total hutang dari pinjaman yang masih Aktif
-    const finalTotalHutang = (nextPinjamanList as LoanRecord[])
-      .filter((loan) => loan.status === "Aktif")
-      .reduce((sum, loan) => sum + (loan.totalRepayment || 0), 0);
 
     setCountryDetail({
       ...countryDetail,
       anggaran: Math.max(0, availableCash),
-      totalHutang: Math.max(0, finalTotalHutang),
-      pinjamanList: nextPinjamanList, // Simpan semuanya, termasuk yang Lunas
+      totalHutang: Math.max(0, updatedTotalHutang),
+      pinjamanList: nextLoanList,
     });
   }, [isOpen, currentDate, countryDetail, setCountryDetail]);
 
@@ -349,30 +280,41 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
   const confirmBorrow = () => {
     if (!pendingLoan) return;
     const source = pendingLoan;
-    const totalYangHarusDibayar = source.maxLoan + (source.maxLoan * (source.interest / 100));
-    const returnDate = new Date(Date.now() + source.term * 24 * 60 * 60 * 1000).toLocaleDateString('id-ID');
+    const now = currentDate instanceof Date ? new Date(currentDate) : new Date();
+    const isMultilateral = source.type === "multilateral";
+
+    const borrowAmount = isMultilateral ? Number(source.requestedAmount || source.maxLoan) : source.maxLoan;
+    const borrowTerm = isMultilateral ? Number(source.requestedTerm || source.term) : source.term;
+    const totalYangHarusDibayar = borrowAmount + borrowAmount * (source.interest / 100);
+    const returnDate = formatIdDate(addDays(now, borrowTerm));
 
     const newLoanRecord: LoanRecord = {
       id: Date.now(),
       source: source.name,
       iso: source.iso || null,
-      amount: source.maxLoan, // Pokok pinjaman awal
-      interest: source.interest, // Suku bunga awal
-      term: source.term,
-      status: "Aktif", // 🔥 Default status
-      totalRepayment: totalYangHarusDibayar, // Total hutang saat ini 
-      paidAmount: 0, 
-      accumulatedPenalty: 0, 
-      missedMonths: 0, 
-      date: new Date().toLocaleDateString('id-ID'),
-      returnDate: returnDate
+      amount: borrowAmount,
+      interest: source.interest,
+      term: borrowTerm,
+      status: "Aktif",
+      totalRepayment: totalYangHarusDibayar,
+      paidAmount: 0,
+      accumulatedPenalty: 0,
+      missedMonths: 0,
+      date: formatIdDate(now),
+      returnDate: returnDate,
+    };
+
+    const nextCooldowns = {
+      ...(countryDetail?.loanCooldowns || {}),
+      ...(isMultilateral ? { [source.id]: now.toISOString() } : {}),
     };
 
     setCountryDetail({
       ...countryDetail,
-      anggaran: kasNegara + source.maxLoan,
+      anggaran: kasNegara + borrowAmount,
       totalHutang: totalHutang + totalYangHarusDibayar,
-      pinjamanList: [newLoanRecord, ...riwayatPinjaman]
+      pinjamanList: [newLoanRecord, ...riwayatPinjaman],
+      loanCooldowns: nextCooldowns,
     });
 
     setPendingLoan(null);
@@ -470,7 +412,11 @@ export default function HutangModal({ isOpen, onClose, countryDetail, setCountry
           )}
 
           {activeTab === "multilateral" && (
-            <LembagaDunia setPendingLoan={setPendingLoan} />
+            <LembagaDunia
+              setPendingLoan={setPendingLoan}
+              loanCooldowns={countryDetail?.loanCooldowns}
+              currentDate={currentDate}
+            />
           )}
 
           {activeTab === "history" && (
