@@ -336,6 +336,7 @@ function ModalsManager({
         <IcbmModal
           isOpen={true}
           onClose={onClose}
+          currentDate={currentDate}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           onOpenDebt={() => setActiveMenu("Menu:Hutang")}

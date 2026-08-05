@@ -1,23 +1,24 @@
 "use client"
 import React, { useState } from "react";
 import { X, Atom } from "lucide-react";
-import DanaTidakCukupModals from "./danaTidakCukupModals"; // 🔥 Import file baru
+import DanaTidakCukupModals from "./danaTidakCukupModals";
+import ProgramNuklirTimeDetail from "./ProgramNuklirTimeDetail";
 
 interface ProgramNuklirModalsProps {
   isOpen: boolean;
   onClose: () => void;
+  currentDate?: string | Date;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
-  onSuccess: () => void;
   onTakeLoan?: () => void;
 }
 
 export default function ProgramNuklirModals({ 
   isOpen, 
-  onClose, 
+  onClose,
+  currentDate,
   countryDetail, 
-  setCountryDetail, 
-  onSuccess,
+  setCountryDetail,
   onTakeLoan
 }: ProgramNuklirModalsProps) {
   if (!isOpen) return null;
@@ -25,8 +26,32 @@ export default function ProgramNuklirModals({
   const anggaran = countryDetail?.anggaran || 0;
   const biayaProgram = 25000000; // 25.000.000 EM
 
+  const formatDateString = (date?: string | Date) => {
+    if (!date) return "";
+    if (typeof date === "string") return date;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  const addDays = (dateString: string, days: number) => {
+    const [y, m, d] = dateString.split("-").map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() + days);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
+
+  const safeCurrentDate = formatDateString(currentDate) || formatDateString(new Date());
+  const isProgramBuilding = !countryDetail?.programNuklirActive && (countryDetail?.ongoingConstructions || []).some((c: any) => c.buildingKey === "program_nuklir");
+
   // 🔥 State untuk membuka modal "Dana Tidak Cukup"
   const [isDanaTidakCukupOpen, setIsDanaTidakCukupOpen] = useState(false);
+
+  const [isTimeDetailOpen, setIsTimeDetailOpen] = useState(false);
 
   const handleBayar = () => {
     if (anggaran < biayaProgram) {
@@ -35,16 +60,29 @@ export default function ProgramNuklirModals({
       return;
     }
 
-    // 1. Kurangi anggaran negara
-    setCountryDetail({
-      ...countryDetail,
-      anggaran: anggaran - biayaProgram
+    setCountryDetail((prev: any) => {
+      const prevBudget = Number(prev?.anggaran) || 0;
+      const ongoing = prev?.ongoingConstructions || [];
+      const existingBuilds = ongoing.filter((c: any) => c.buildingKey === "program_nuklir");
+      const startDateStr = existingBuilds.length > 0 ? existingBuilds[existingBuilds.length - 1].endDate : safeCurrentDate;
+      const endDateStr = addDays(startDateStr, 365);
+
+      return {
+        ...prev,
+        anggaran: prevBudget - biayaProgram,
+        ongoingConstructions: [
+          ...ongoing,
+          {
+            id: Date.now() + Math.random(),
+            buildingKey: "program_nuklir",
+            startDate: startDateStr,
+            endDate: endDateStr,
+          },
+        ],
+      };
     });
 
-    // 2. Jalankan logika sukses di induk
-    onSuccess();
-
-    // 3. Tutup modal ini
+    setIsTimeDetailOpen(true);
     onClose();
   };
 
@@ -92,11 +130,20 @@ export default function ProgramNuklirModals({
                 <span>Kas Anggaran Negara:</span>
                 <span className="text-emerald-700">{anggaran.toLocaleString("id-ID")} EM</span>
               </div>
+              <div className="flex justify-between text-xs font-bold text-[#5c3c10]">
+                <span>Waktu Pembangunan:</span>
+                <span className="text-[#5c3c10]">1 Tahun / 365 Hari</span>
+              </div>
               <div className="flex justify-between text-xs font-bold text-rose-700 border-t border-[#C4B49C]/20 pt-3">
                 <span>Biaya Riset & Pengembangan:</span>
                 <span>- {biayaProgram.toLocaleString("id-ID")} EM</span>
               </div>
             </div>
+            {isProgramBuilding && (
+              <div className="rounded-xl border border-[#C4B49C]/30 bg-[#fff7d8] p-4 text-[11px] font-bold text-[#8b7e66]">
+                Program nuklir sudah dalam tahap pembangunan. Silakan tunggu 1 Tahun / 365 Hari sampai selesai.
+              </div>
+            )}
 
             <div className="flex gap-4 justify-end pt-4 border-t border-[#C4B49C]/20">
               <button 
@@ -107,7 +154,8 @@ export default function ProgramNuklirModals({
               </button>
               <button 
                 onClick={handleBayar}
-                className="px-8 py-3 rounded-xl bg-yellow-600 text-white font-black text-xs uppercase tracking-wider shadow-md hover:bg-yellow-700 active:scale-95 transition-all cursor-pointer"
+                disabled={isProgramBuilding}
+                className={`px-8 py-3 rounded-xl text-white font-black text-xs uppercase tracking-wider shadow-md transition-all ${isProgramBuilding ? 'bg-[#cbb67a] cursor-not-allowed' : 'bg-yellow-600 hover:bg-yellow-700 active:scale-95 cursor-pointer'}`}
               >
                 Danai Program ({biayaProgram.toLocaleString("id-ID")} EM)
               </button>
@@ -124,6 +172,14 @@ export default function ProgramNuklirModals({
         currentBudget={anggaran}
         requiredBudget={biayaProgram}
         onTakeLoan={onTakeLoan}
+      />
+
+      {/* 🔥 Render Modal Waktu Pembangunan untuk rincian 365 hari */}
+      <ProgramNuklirTimeDetail
+        isOpen={isTimeDetailOpen}
+        onClose={() => setIsTimeDetailOpen(false)}
+        durationLabel="1 Tahun"
+        durationDays={365}
       />
       
     </div>

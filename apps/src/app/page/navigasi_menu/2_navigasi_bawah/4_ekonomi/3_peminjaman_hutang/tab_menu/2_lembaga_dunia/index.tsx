@@ -23,8 +23,8 @@ interface LembagaInstitution {
 }
 
 const LEMBAGA_MULTILATERAL: LembagaInstitution[] = [
-  { id: 9991, name: "IMF (Dana Moneter Internasional)", flag: null, interest: 4.8, maxCap: 10_000_000 },
-  { id: 9992, name: "Bank Dunia (World Bank)", flag: "🏦", interest: 3.5, maxCap: 5_000_000 },
+  { id: 9991, name: "IMF (Dana Moneter Internasional)", flag: null, interest: 4.8, maxCap: 15_000_000 },
+  { id: 9992, name: "Bank Dunia (World Bank)", flag: "🏦", interest: 3.5, maxCap: 15_000_000 },
 ];
 
 const formatIdDate = (date: Date) => date.toLocaleDateString("id-ID");

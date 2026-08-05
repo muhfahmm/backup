@@ -1,25 +1,91 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
-import { useIcbmLogic } from "./icbmLogic";
 import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
 
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
+  currentDate?: string | Date;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onOpenDebt?: () => void;
 }
 
-export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDetail, onOpenDebt }: ModalProps) {
+export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail, setCountryDetail, onOpenDebt }: ModalProps) {
   if (!isOpen) return null;
 
-  // 🔥 Ambil logika dari file icbmLogic.ts
-  const { isNuclearProgramActive, activateNuclearProgram, getProgramStatus } = useIcbmLogic();
-  const status = getProgramStatus();
+  const formatDateString = (date?: string | Date) => {
+    if (!date) return "";
+    if (typeof date === "string") return date;
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+    return `${year}-${month}-${day}`;
+  };
 
-  // 🔥 Tambahkan state untuk modal pembayaran program nuklir
+  // 🔥 FUNGSI UNTUK MEMFORMAT TANGGAL MENJADI 1-jan-2026
+  const formatTanggalIndo = (dateStr: string | null | undefined) => {
+    if (!dateStr) return "";
+    // Karena format default tanggal adalah YYYY-MM-DD, kita ubah menjadi objek Date
+    const dateObj = new Date(dateStr + 'T00:00:00');
+    if (isNaN(dateObj.getTime())) return dateStr;
+
+    const day = dateObj.getDate();
+    const year = dateObj.getFullYear();
+    const monthNames = ['jan', 'feb', 'mar', 'apr', 'mei', 'jun', 'jul', 'ags', 'sep', 'okt', 'nov', 'des'];
+    const month = monthNames[dateObj.getMonth()];
+    
+    return `${day}-${month}-${year}`;
+  };
+
+  const safeCurrentDate = formatDateString(currentDate) || formatDateString(new Date());
+
+  const ongoingConstructions = countryDetail?.ongoingConstructions || [];
+  const programBuildTask = ongoingConstructions.find((c: any) => c.buildingKey === "program_nuklir");
+  const currentDateObj = new Date(`${safeCurrentDate}T00:00:00`);
+  const buildEndDateObj = programBuildTask ? new Date(`${programBuildTask.endDate}T00:00:00`) : null;
+  const buildCompleted = buildEndDateObj ? buildEndDateObj <= currentDateObj : false;
+  const isNuclearProgramActive = Boolean(countryDetail?.programNuklirActive) || buildCompleted;
+  const isNuclearProgramBuilding = Boolean(programBuildTask) && !buildCompleted;
+  const buildEndDate = programBuildTask?.endDate || null;
+
+  useEffect(() => {
+    if (!isNuclearProgramActive && buildCompleted && programBuildTask) {
+      setCountryDetail((prev: any) => {
+        const ongoing = prev?.ongoingConstructions || [];
+        return {
+          ...prev,
+          programNuklirActive: true,
+          ongoingConstructions: ongoing.filter((c: any) => c.buildingKey !== "program_nuklir"),
+        };
+      });
+    }
+  }, [buildCompleted, isNuclearProgramActive, programBuildTask, setCountryDetail]);
+
+  const status = (() => {
+    if (countryDetail?.programNuklirActive) {
+      return {
+        isActive: true,
+        message: "PROGRAM NUKLIR TELAH AKTIF",
+        color: "text-emerald-700 border-emerald-600/30 bg-emerald-500/5",
+      };
+    }
+    if (isNuclearProgramBuilding) {
+      return {
+        isActive: false,
+        message: "PROGRAM NUKLIR DALAM PEMBANGUNAN",
+        color: "text-amber-700 border-amber-600/30 bg-amber-500/5",
+      };
+    }
+    return {
+      isActive: false,
+      message: "PROGRAM NUKLIR BELUM AKTIF",
+      color: "text-rose-700 border-rose-600/30 bg-rose-500/5",
+    };
+  })();
+
+  // 🔥 State untuk modal pembayaran program nuklir
   const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
 
   // Daftar 3 opsi strategi nuklir
@@ -31,7 +97,7 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
       color: "text-yellow-600",
       bg: "bg-yellow-100",
       desc: "Mempercepat riset pengayaan uranium untuk membangun hulu ledak nuklir pertama.",
-      isUnlocker: true // Kartu yang berfungsi membuka akses
+      isUnlocker: true 
     },
     {
       id: 2,
@@ -53,37 +119,22 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
     }
   ];
 
-  // Handler aksi untuk setiap kartu
+  // 🔥 Handler aksi (TANPA ALERT SAMA SEKALI)
   const handleOptionClick = (option: typeof nuclearOptions[0]) => {
     if (!option.isUnlocker && !isNuclearProgramActive) {
-      alert("Anda harus mengaktifkan Program Nuklir terlebih dahulu!");
-      return;
+      return; 
     }
 
     if (option.isUnlocker) {
-      // 🔥 Jika Program Nuklir sudah aktif, beri tahu user
-      if (isNuclearProgramActive) {
-        alert("Program Nuklir sudah aktif.");
-        return;
-      }
-      
-      // 🔥 Jika belum aktif, buka modal pembayaran
+      if (isNuclearProgramActive) return;
       setIsProgramNuklirModalOpen(true);
     } else {
-      // Aksi untuk ICBM atau Perang Nuklir
-      alert(`Anda memilih opsi strategis: ${option.title}`);
+      console.log(`User memilih opsi strategis: ${option.title}`);
     }
-  };
-
-  // 🔥 Callback saat pembayaran berhasil di modal pembayaran
-  const handleNuclearPaymentSuccess = () => {
-    activateNuclearProgram(); // Aktifkan program di logic
-    // Tidak perlu close modal induk, hanya refresh status UI
   };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
@@ -116,8 +167,14 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
                   <p className={`text-[11px] font-bold uppercase tracking-wider mb-1 ${status.color.split(' ')[0]}`}>
                     {status.message}
                   </p>
-                  {!isNuclearProgramActive && (
+                  {!isNuclearProgramActive && !isNuclearProgramBuilding && (
                     <p className="text-[10px] text-[#8b7e66]">Klik kartu "Program Nuklir" untuk membuka akses</p>
+                  )}
+                  {isNuclearProgramBuilding && (
+                    // 🔥 PERBAIKAN FORMAT TANGGAL DI SINI
+                    <p className="text-[10px] text-amber-700 font-bold">
+                      Dalam tahap pembangunan hingga {formatTanggalIndo(buildEndDate)}
+                    </p>
                   )}
                   {isNuclearProgramActive && (
                     <p className="text-[10px] text-emerald-700 font-bold">🎯 Sistem Siap Meluncur!</p>
@@ -126,30 +183,59 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
               </div>
             </div>
 
-            {/* 🔥 GRID 3 KARTU */}
+            {/* 🔥 GRID 3 KARTU STRATEGI */}
             <div className="grid grid-cols-3 gap-6">
               {nuclearOptions.map((option) => {
                 const Icon = option.icon;
-                const isLocked = !option.isUnlocker && !isNuclearProgramActive;
+                const isLockedCard = !option.isUnlocker && !isNuclearProgramActive;
+                const isUnlockerCardActive = option.isUnlocker && isNuclearProgramActive;
+                const isUnlockerBuilding = option.isUnlocker && isNuclearProgramBuilding;
 
                 return (
                   <button
                     key={option.id}
                     onClick={() => handleOptionClick(option)}
-                    disabled={isLocked}
-                    className={`group flex flex-col items-center text-center p-6 bg-white/80 border-2 rounded-xl shadow-sm transition-all duration-200 h-full ${isLocked
+                    disabled={isLockedCard || isUnlockerCardActive || isUnlockerBuilding}
+                    className={`group flex flex-col items-center text-center p-6 bg-white/80 border-2 rounded-xl shadow-sm transition-all duration-200 h-full ${
+                      isLockedCard
                         ? 'border-[#C4B49C]/20 opacity-60 !cursor-not-allowed grayscale-[50%]'
+                        : isUnlockerCardActive
+                        ? 'border-emerald-400/50 bg-emerald-50/50 cursor-default hover:shadow-sm hover:scale-100'
                         : 'border-[#C4B49C]/40 hover:shadow-lg hover:border-[#5c3c10] hover:scale-[1.02] active:scale-[0.98] cursor-pointer'
-                      }`}
+                    }`}
                   >
-                    <div className={`p-4 rounded-full ${option.bg} border-2 ${option.color}/20 mb-4 ${isLocked ? '' : 'group-hover:scale-110 transition-transform'}`}>
-                      <Icon className={`w-12 h-12 ${isLocked ? 'text-[#8b7e66]' : option.color}`} />
+                    <div className={`p-4 rounded-full ${
+                        isUnlockerCardActive ? 'bg-emerald-100 border-emerald-200' : option.bg
+                      } border-2 ${option.color}/20 mb-4 ${
+                        isLockedCard || isUnlockerCardActive ? '' : 'group-hover:scale-110 transition-transform'
+                      }`}
+                    >
+                      {isUnlockerCardActive ? (
+                        <div className="w-12 h-12 text-emerald-700 flex items-center justify-center">
+                          <span className="text-3xl">✔️</span>
+                        </div>
+                      ) : (
+                        <Icon className={`w-12 h-12 ${isLockedCard ? 'text-[#8b7e66]' : option.color}`} />
+                      )}
                     </div>
-                    <span className={`text-base font-black uppercase tracking-wide mb-2 ${isLocked ? 'text-[#8b7e66]' : 'text-[#5c3c10]'}`}>
-                      {option.title}
+                    
+                    <span className={`text-base font-black uppercase tracking-wide mb-2 ${
+                      isLockedCard ? 'text-[#8b7e66]' : isUnlockerCardActive ? 'text-emerald-700' : 'text-[#5c3c10]'
+                    }`}>
+                      {isUnlockerCardActive ? "Program Aktif!" : option.title}
                     </span>
-                    <p className={`text-[10px] leading-relaxed ${isLocked ? 'text-[#C4B49C]/70' : 'text-[#8b7e66]'}`}>
-                      {isLocked ? "🔒 Terkunci. Aktifkan Program Nuklir terlebih dahulu." : option.desc}
+                    
+                    <p className={`text-[10px] leading-relaxed ${
+                      isLockedCard ? 'text-[#C4B49C]/70' : isUnlockerCardActive ? 'text-emerald-600' : 'text-[#8b7e66]'
+                    }`}>
+                      {isLockedCard 
+                        ? "🔒 Terkunci. Aktifkan Program Nuklir terlebih dahulu." 
+                        : isUnlockerCardActive 
+                        ? "Program nuklir telah diaktifkan. Kini Anda dapat mengakses ICBM dan Perang Nuklir."
+                        : isUnlockerBuilding
+                        ? "Program nuklir sedang dibangun. Tunggu hingga selesai untuk membuka ICBM dan Perang Nuklir."
+                        : option.desc
+                      }
                     </p>
                   </button>
                 );
@@ -164,9 +250,9 @@ export default function IcbmModal({ isOpen, onClose, countryDetail, setCountryDe
       <ProgramNuklirModals 
         isOpen={isProgramNuklirModalOpen}
         onClose={() => setIsProgramNuklirModalOpen(false)}
+        currentDate={currentDate}
         countryDetail={countryDetail}
         setCountryDetail={setCountryDetail}
-        onSuccess={handleNuclearPaymentSuccess}
         onTakeLoan={onOpenDebt}
       />
       
