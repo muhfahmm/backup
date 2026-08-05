@@ -1,8 +1,10 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { X, Rocket } from "lucide-react";
+import { X, Rocket, ArrowUp, Plus, Clock, Gem } from "lucide-react";
 import { fetchBuildingMetadata } from "@/lib/buildingMetadata";
-import { calculateProductionIncrement, formatDate } from "@/app/logic/production_logic";
+import { calculateProductionIncrement, formatDate, getDaysElapsed } from "@/app/logic/production_logic";
+import ConfirmBuildIcbmModal from "./ConfirmBuildIcbmModal";
+import IcbmInsufficientFundsModal from "./IcbmInsufficientFundsModal";
 
 interface IcbmDetailModalProps {
   isOpen: boolean;
@@ -10,10 +12,18 @@ interface IcbmDetailModalProps {
   countryDetail: any;
   currentDate?: string | Date;
   onGotoProduction?: (tab: string, key: string) => void;
+  onIcbmBuild?: (task: { quantity: number; startDate: string; endDate: string }) => void;
+  // handler to open Pinjaman & Hutang
+  onOpenDebt?: () => void;
+  // allow child to update country detail directly for immediate UI updates
+  setCountryDetail?: (updater: any) => void;
 }
 
-export default function IcbmDetailModal({ isOpen, onClose, countryDetail, currentDate, onGotoProduction }: IcbmDetailModalProps) {
+export default function IcbmDetailModal({ isOpen, onClose, countryDetail, currentDate, onGotoProduction, onIcbmBuild, onOpenDebt, setCountryDetail }: IcbmDetailModalProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
+  
+  // 🔥 State untuk Kuantitas (Gambar ke-2)
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
       if (!isOpen) return;
@@ -36,10 +46,88 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
     const buildDateKey = `build_date_uranium`;
     const buildDate = countryDetail?.[buildDateKey] || safeDateString;
     const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
-    const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * 1; // consumption per plant = 1
+    const daysElapsed = getDaysElapsed(buildDate, safeDateString);
+    const consumptionPerPlant = 1; // uranium consumption per plant per day
+    const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * consumptionPerPlant * daysElapsed;
     const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
 
+    const cashCostPerUnit = 25000;
+    const uraniumCostPerUnit = 1;
+    const buildDurationPerUnitDays = 30;
+    const totalCashCost = cashCostPerUnit * quantity;
+    const totalUraniumCost = uraniumCostPerUnit * quantity;
+    const totalBuildDays = buildDurationPerUnitDays * quantity;
+
+    const formatTanggalIndo = (dateStr: string | Date) => {
+      const dateObj = typeof dateStr === 'string' ? new Date(`${dateStr}T00:00:00`) : dateStr;
+      if (!(dateObj instanceof Date) || isNaN(dateObj.getTime())) return String(dateStr);
+      const day = dateObj.getDate();
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Ags', 'Sep', 'Okt', 'Nov', 'Des'];
+      const month = monthNames[dateObj.getMonth()];
+      const year = dateObj.getFullYear();
+      return `${day} ${month} ${year}`;
+    };
+
+    const completionDate = (() => {
+      const baseDate = new Date(`${safeDateString}T00:00:00`);
+      baseDate.setDate(baseDate.getDate() + totalBuildDays);
+      return formatTanggalIndo(baseDate);
+    })();
+
+    const completionIso = (() => {
+      const baseDate = new Date(`${safeDateString}T00:00:00`);
+      baseDate.setDate(baseDate.getDate() + totalBuildDays);
+      return baseDate.toISOString().slice(0, 10);
+    })();
+
+  const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
+  const [isInsufficientFundsOpen, setIsInsufficientFundsOpen] = useState(false);
+
   if (!isOpen) return null;
+
+  // 🔥 Fungsi pembantu untuk tombol kuantitas
+  const handleSetQuantity = (val: number) => {
+    setQuantity(Math.max(1, val));
+  };
+
+  const handleBuildClick = () => {
+    if (currentCash < totalCashCost) {
+      setIsInsufficientFundsOpen(true);
+      return;
+    }
+    setIsConfirmBuildOpen(true);
+  };
+
+  const handleConfirmBuild = () => {
+    const task = {
+      quantity,
+      startDate: safeDateString,
+      endDate: completionIso,
+    };
+
+    // Deduct resources immediately if parent provided setter (ensures UI updates)
+    if (setCountryDetail) {
+      const cashCostPerUnit = 25000;
+      const uraniumCostPerUnit = 1;
+      const totalCashCost = cashCostPerUnit * quantity;
+      const totalUraniumCost = uraniumCostPerUnit * quantity;
+
+      setCountryDetail((prev: any) => {
+        const prevAnggaran = Number(prev?.anggaran) || 0;
+        const prevUranium = Number(prev?.uranium) || 0;
+        return {
+          ...(prev || {}),
+          anggaran: Math.max(0, prevAnggaran - totalCashCost),
+          uranium: Math.max(0, prevUranium - totalUraniumCost),
+          icbmBuildTask: task,
+        };
+      });
+    }
+
+    if (onIcbmBuild) onIcbmBuild(task);
+    setIsConfirmBuildOpen(false);
+    onClose();
+  };
 
   return (
     <div className="fixed inset-0 z-[90] flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -71,32 +159,98 @@ export default function IcbmDetailModal({ isOpen, onClose, countryDetail, curren
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
                 <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Kas Negara</h3>
                 <p className="text-[11px] text-[#8b7e66] mb-3">Saldo anggaran milik pengguna saat ini.</p>
                 <div className="text-3xl font-black text-emerald-700">{currentCash.toLocaleString('id-ID')} EM</div>
+                <p className="text-[11px] text-rose-600 font-bold mt-3">Biaya: -{totalCashCost.toLocaleString('id-ID')} EM</p>
               </div>
               <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
                 <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Stok Uranium</h3>
                 <div className="text-3xl font-black text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
-                <div className="mt-3 flex items-center justify-between gap-3">
+                <p className="text-[11px] text-rose-600 font-bold mt-3">Biaya: -{totalUraniumCost} uranium</p>
+              </div>
+              <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/80 p-6">
+                <h3 className="text-sm font-black text-[#5c3c10] uppercase tracking-wider mb-2">Selesai</h3>
+                <div className="text-3xl font-black text-[#1d5c4b]">{completionDate}</div>
+                <p className="text-[11px] text-[#5c3c10] mt-3">Estimasi selesai setelah {totalBuildDays} hari pembangunan.</p>
+              </div>
+            </div>
+
+            {/* 🔥 BAGIAN BARU: KUANTITAS & BANGUN / SEKETIKA (Sesuai gambar ke-2) */}
+            <div className="bg-[#e4dac3]/30 border-2 border-[#C4B49C]/30 rounded-2xl p-6 mt-2">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                
+                {/* Sisi Kiri: Kuantitas & tombol +1 / +10 */}
+                <div className="flex flex-col gap-2">
+                  <span className="text-sm font-black text-[#5c3c10]">Kuantitas:</span>
+                  <div className="flex items-center gap-2">
+                    <input
+                      type="number"
+                      min={1}
+                      value={quantity}
+                      onChange={(e) => handleSetQuantity(parseInt(e.target.value) || 1)}
+                      className="w-24 rounded-lg border-2 border-[#C4B49C]/40 bg-white px-3 py-2 text-center font-bold text-[#5c3c10] shadow-sm focus:border-[#5c3c10] focus:outline-none"
+                    />
+                    <button
+                      onClick={() => handleSetQuantity(quantity + 1)}
+                      className="flex h-8 w-8 items-center justify-center rounded-md bg-[#2d5a4c] text-white shadow-sm hover:bg-[#1d4036] transition-colors cursor-pointer"
+                    >
+                      <ArrowUp className="h-4 w-4" />
+                    </button>
+                    <button
+                      onClick={() => handleSetQuantity(quantity + 10)}
+                      className="flex h-8 items-center justify-center rounded-md bg-[#2d5a4c] px-3 text-xs font-bold text-white shadow-sm hover:bg-[#1d4036] transition-colors cursor-pointer"
+                    >
+                      +10
+                    </button>
+                  </div>
+                </div>
+
+                {/* Sisi Kanan: Tombol Seketika & Bangun */}
+                <div className="flex items-center gap-4 w-full sm:w-auto">
                   <button
-                    onClick={() => {
-                      onGotoProduction?.('mineral', 'uranium');
-                      onClose();
-                    }}
-                    className="px-3 py-2 rounded-lg bg-emerald-600 text-white font-bold text-sm hover:bg-emerald-700"
+                    onClick={() => console.log(`Membangun ${quantity} ICBM secara instan!`)}
+                    className="flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-lg bg-gradient-to-br from-amber-300 to-yellow-500 px-6 py-2.5 font-black text-[#4a3b20] shadow-md hover:brightness-110 active:scale-95 transition-all cursor-pointer"
                   >
-                    Buka Produksi & Pembangunan
+                    <Gem className="h-5 w-5 text-rose-700" />
+                    <span className="text-sm">Seketika</span>
+                    <span className="text-xs font-bold bg-yellow-800/20 px-2 py-0.5 rounded-full text-[#4a3b20]">{quantity * 6}</span>
                   </button>
-                  <span className="text-[10px] text-[#8b7e66] mt-2">{uraniumUnits.toLocaleString('id-ID')} bangunan</span>
+                  <button
+                    onClick={handleBuildClick}
+                    className="flex flex-1 sm:flex-none items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-6 py-2.5 font-black text-white shadow-md hover:bg-[#154a3c] active:scale-95 transition-all cursor-pointer"
+                  >
+                    <Clock className="h-5 w-5 text-emerald-200" />
+                    <span className="text-sm">Bangun</span>
+                    <span className="text-xs font-bold bg-emerald-900/30 px-2 py-0.5 rounded-full text-emerald-200">{totalBuildDays} hari</span>
+                  </button>
                 </div>
               </div>
             </div>
+            {/* 🔥 END BAGIAN BARU */}
+
           </div>
         </div>
       </div>
+      <IcbmInsufficientFundsModal
+        isOpen={isInsufficientFundsOpen}
+        onClose={() => setIsInsufficientFundsOpen(false)}
+        currentBudget={currentCash}
+        requiredBudget={totalCashCost}
+        onOpenDebt={onOpenDebt}
+      />
+      <ConfirmBuildIcbmModal
+        isOpen={isConfirmBuildOpen}
+        onClose={() => setIsConfirmBuildOpen(false)}
+        onConfirm={handleConfirmBuild}
+        quantity={quantity}
+        totalCashCost={totalCashCost}
+        totalUraniumCost={totalUraniumCost}
+        totalBuildDays={totalBuildDays}
+        completionDate={completionDate}
+      />
     </div>
   );
 }

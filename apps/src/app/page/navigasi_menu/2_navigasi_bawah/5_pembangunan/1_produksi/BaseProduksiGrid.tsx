@@ -2,6 +2,7 @@
 import React from "react";
 import { Info } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
+import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
 import InfoBangunan from "./1_modals_menu/info_bangunan_modals";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
@@ -60,6 +61,7 @@ interface BaseProduksiGridProps {
   isElectricityTab: boolean;
   highlightedCardKey?: string | null;
   ongoingConstructions?: any[];
+  currentDate?: string | Date;
 }
 
 export default function BaseProduksiGrid({
@@ -77,6 +79,7 @@ export default function BaseProduksiGrid({
   isBuildingAvailable,
   isElectricityTab,
   ongoingConstructions = [],
+  currentDate,
 }: BaseProduksiGridProps) {
   const formatLabel = (key: string) => {
     const customLabels: Record<string, string> = {
@@ -222,8 +225,17 @@ export default function BaseProduksiGrid({
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
                     {isFuelResource ? (() => {
                       const totalProd = calculateProductionAmount(key);
-                      const totalCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
-                      const netBalance = totalProd === 0 ? 0 : totalProd - totalCons;
+                      const perDayCons = calculateTotalFuelConsumption(countryDetail)[key] || 0;
+
+                      // compute days elapsed using the same build_date key as production
+                      const buildDateKey = `build_date_${key}`;
+                      const buildDate = countryDetail?.[buildDateKey] || null;
+                      const currentDateStr = typeof currentDate === 'string' ? currentDate : (currentDate instanceof Date ? formatDate(currentDate) : null);
+                      const startDate = buildDate || currentDateStr || null;
+                      const daysElapsed = startDate && currentDateStr ? getDaysElapsed(startDate, currentDateStr) : 0;
+
+                      const totalCons = perDayCons * Math.max(0, daysElapsed);
+                      const netBalance = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
                       const colorClass = netBalance > 0 ? 'text-emerald-600' : (netBalance < 0 ? 'text-rose-600' : 'text-[#2e261a]');
                       return (
                         <span className={`font-black text-xl ${colorClass}`}>

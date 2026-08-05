@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
 import { fetchBuildingMetadata } from "@/lib/buildingMetadata";
-import { calculateProductionIncrement, formatDate } from "@/app/logic/production_logic";
+import { calculateProductionIncrement, formatDate, getDaysElapsed } from "@/app/logic/production_logic";
 import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
 import IcbmDetailModal from "./modals_menu/2_ICBM/IcbmDetailModal";
 import PerangNuklirDetailModal from "./modals_menu/3_perang_nuklir/PerangNuklirDetailModal";
@@ -60,14 +60,30 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   const buildDateKey = `build_date_uranium`;
   const buildDate = countryDetail?.[buildDateKey] || safeDateString;
   const totalProd = calculateProductionIncrement(uraniumProductionPerUnit, uraniumUnits, buildDate, safeDateString);
-  const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * 1;
+  const daysElapsed = getDaysElapsed(buildDate, safeDateString);
+  const consumptionPerPlant = 1;
+  const totalCons = (Number(countryDetail?.pembangkit_listrik_tenaga_nuklir) || 0) * consumptionPerPlant * daysElapsed;
   const uraniumNet = totalProd === 0 ? 0 : Math.max(0, totalProd - totalCons);
+
+  const icbmBuildTask = countryDetail?.icbmBuildTask || null;
+  const icbmBuildEndDate = icbmBuildTask?.endDate || null;
+  const icbmBuildQuantity = Number(icbmBuildTask?.quantity || 0);
+  const currentIcbmCount = Number(countryDetail?.icbm || 0);
+  const currentIcbmDateObj = new Date(`${safeCurrentDate}T00:00:00`);
+  const icbmBuildEndDateObj = icbmBuildEndDate ? new Date(`${icbmBuildEndDate}T00:00:00`) : null;
+  const isIcbmBuildQueued = icbmBuildEndDateObj ? icbmBuildEndDateObj > currentIcbmDateObj : false;
+  const formattedIcbmEndDate = icbmBuildEndDate ? formatTanggalIndo(icbmBuildEndDate) : null;
+
+  const handleIcbmBuild = (task: { quantity: number; startDate: string; endDate: string }) => {
+    // set only the build task here; resource deduction handled by IcbmDetailModal on confirm
+    setCountryDetail((prev: any) => ({ ...(prev || {}), icbmBuildTask: task }));
+  };
 
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
   const programBuildTask = ongoingConstructions.find((c: any) => c.buildingKey === "program_nuklir");
-  const currentDateObj = new Date(`${safeCurrentDate}T00:00:00`);
-  const buildEndDateObj = programBuildTask ? new Date(`${programBuildTask.endDate}T00:00:00`) : null;
-  const buildCompleted = buildEndDateObj ? buildEndDateObj <= currentDateObj : false;
+  const programCurrentDateObj = new Date(`${safeCurrentDate}T00:00:00`);
+  const programBuildEndDateObj = programBuildTask ? new Date(`${programBuildTask.endDate}T00:00:00`) : null;
+  const buildCompleted = programBuildEndDateObj ? programBuildEndDateObj <= programCurrentDateObj : false;
   const isNuclearProgramActive = Boolean(countryDetail?.programNuklirActive) || buildCompleted;
   const isNuclearProgramBuilding = Boolean(programBuildTask) && !buildCompleted;
   const buildEndDate = programBuildTask?.endDate || null;
@@ -265,14 +281,37 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                   )}
                 </div>
               </div>
-              <div className="mt-4 flex gap-4 justify-center">
-                <div className="rounded-xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 min-w-[160px] text-center">
-                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider">Kas Negara</p>
-                  <div className="text-lg font-bold text-emerald-700">{currentCash.toLocaleString('id-ID')} EM</div>
+              <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-6 min-h-[170px] text-center shadow-sm flex flex-col justify-center">
+                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-2">Kas Negara</p>
+                  <div className="text-2xl font-black text-emerald-700">{currentCash.toLocaleString('id-ID')} EM</div>
                 </div>
-                <div className="rounded-xl border border-[#C4B49C]/30 bg-white/80 px-4 py-3 min-w-[160px] text-center">
-                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider">Stok Uranium</p>
-                  <div className="text-lg font-bold text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-6 min-h-[170px] text-center shadow-sm flex flex-col justify-center">
+                  <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-2">Stok Uranium</p>
+                  <div className="text-2xl font-black text-lime-600">{uraniumNet.toLocaleString('id-ID')}</div>
+                </div>
+                <div className="relative overflow-visible">
+                  {formattedIcbmEndDate && isIcbmBuildQueued ? (
+                    <div className="absolute -top-6 left-1/2 z-20 -translate-x-1/2 rounded-sm bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] shadow-md tracking-wider whitespace-nowrap">
+                      Selesai {formattedIcbmEndDate}
+                    </div>
+                  ) : null}
+                  <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/90 p-6 min-h-[170px] text-center shadow-sm pt-10 flex flex-col justify-center">
+                    <p className="text-[10px] font-black text-[#8b7e66] uppercase tracking-wider mb-2">ICBM</p>
+                    <div className="text-2xl font-black text-[#1d5c10]">
+                      {currentIcbmCount}
+                      {isIcbmBuildQueued && icbmBuildQuantity > 0 ? (
+                        <span className="text-emerald-600"> +{icbmBuildQuantity}</span>
+                      ) : null}
+                    </div>
+                    {isIcbmBuildQueued ? (
+                      <div className="mt-3 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold text-emerald-700">
+                        +{icbmBuildQuantity} sedang dibangun
+                      </div>
+                    ) : (
+                      <p className="mt-3 text-[10px] text-[#8b7e66]">Bangun ICBM untuk melihat jadwal penyelesaian.</p>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
@@ -356,6 +395,9 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
         countryDetail={countryDetail}
         currentDate={safeCurrentDate}
         onGotoProduction={onGotoProduction}
+        onOpenDebt={onOpenDebt}
+        onIcbmBuild={handleIcbmBuild}
+        setCountryDetail={setCountryDetail}
       />
 
       <PerangNuklirDetailModal
