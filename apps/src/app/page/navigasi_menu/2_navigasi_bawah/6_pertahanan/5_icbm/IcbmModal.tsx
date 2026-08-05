@@ -1,10 +1,11 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { X, Shield, Atom, Rocket, Bomb } from "lucide-react";
+import { X, Shield, Atom, Rocket, Bomb, Clock } from "lucide-react";
 import { fetchBuildingMetadata } from "@/lib/buildingMetadata";
 import { calculateProductionIncrement, formatDate, getDaysElapsed } from "@/app/logic/production_logic";
 import ProgramNuklirModals from "./modals_menu/1_program_nuklir/programNuklirModals";
 import IcbmDetailModal from "./modals_menu/2_ICBM/IcbmDetailModal";
+import IcbmBuildStatusModal from "./modals_menu/2_ICBM/IcbmBuildStatusModal";
 import PerangNuklirDetailModal from "./modals_menu/3_perang_nuklir/PerangNuklirDetailModal";
 
 interface ModalProps {
@@ -145,6 +146,7 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   const [isProgramNuklirModalOpen, setIsProgramNuklirModalOpen] = useState(false);
   const [isIcbmDetailOpen, setIsIcbmDetailOpen] = useState(false);
   const [isPerangNuklirDetailOpen, setIsPerangNuklirDetailOpen] = useState(false);
+  const [isIcbmBuildStatusOpen, setIsIcbmBuildStatusOpen] = useState(false);
 
   // Restore modal open state from sessionStorage (survive HMR/code updates)
   useEffect(() => {
@@ -311,6 +313,13 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     ) : (
                       <p className="mt-3 text-[10px] text-[#8b7e66]">Bangun ICBM untuk melihat jadwal penyelesaian.</p>
                     )}
+                    <button
+                      onClick={() => setIsIcbmBuildStatusOpen(true)}
+                      className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#154a3c] transition-all cursor-pointer"
+                    >
+                      <Clock className="h-4 w-4" />
+                      Lihat Status ICBM
+                    </button>
                   </div>
                 </div>
               </div>
@@ -398,6 +407,17 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
         onOpenDebt={onOpenDebt}
         onIcbmBuild={handleIcbmBuild}
         setCountryDetail={setCountryDetail}
+      />
+
+      <IcbmBuildStatusModal
+        isOpen={isIcbmBuildStatusOpen}
+        onClose={() => setIsIcbmBuildStatusOpen(false)}
+        countryDetail={countryDetail}
+        currentDate={safeCurrentDate}
+        onOpenDetail={() => {
+          setIsIcbmBuildStatusOpen(false);
+          setIsIcbmDetailOpen(true);
+        }}
       />
 
       <PerangNuklirDetailModal
