@@ -3,7 +3,7 @@ import React, { useMemo, useState } from "react";
 import { X, Shield, Swords } from "lucide-react";
 import { getArmadaPowerSummary } from "../4_armada/logic/armadaLogic";
 // 🔥 Import modal serang baru yang akan kita buat
-import SerangModals from "./modals_menu/serangModals";
+import SerangModals from "./modals_menu/KonfirmasiSerangModals";
 
 interface ModalProps {
   isOpen: boolean;
@@ -20,6 +20,7 @@ type RankingRow = {
   darat: number;
   laut: number;
   udara: number;
+  payload: any;
 };
 
 const formatNumber = (value: unknown) => {
@@ -59,6 +60,7 @@ export default function SerangNegaraModal({
           darat: groupTotals?.darat?.power ?? 0,
           laut: groupTotals?.laut?.power ?? 0,
           udara: groupTotals?.udara?.power ?? 0,
+          payload: country,
         };
       });
   }, [prefetchedAllCountries]);
