@@ -3,6 +3,8 @@ import React, { useMemo, useState } from "react";
 import { Binoculars } from "lucide-react";
 import { getArmadaPowerSummary } from "../../4_armada/logic/armadaLogic";
 import KonfirmasiSpionaseModals from "../modals_menu/konfirmasiSpionaseModals";
+// 🔥 Import COUNTRIES_DATA untuk meng-enrich ISO
+import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
 
 type RankingRow = {
   countryName: string;
@@ -18,9 +20,21 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
-// 🔥 Fungsi pencarian ISO (sama seperti di SerangNegaraModal)
-const extractISO = (country: any): string => {
+// 🔥 Fungsi pencarian ISO (cari dari COUNTRIES_DATA terlebih dahulu)
+const extractISO = (country: any, countryName: string): string => {
   if (!country || typeof country !== "object") return "";
+  
+  // 1. Coba cari dari COUNTRIES_DATA menggunakan nama negara
+  if (COUNTRIES_DATA && Array.isArray(COUNTRIES_DATA)) {
+    const mapData = COUNTRIES_DATA.find((c: any) => 
+      c.country && c.country.toLowerCase().trim() === countryName.toLowerCase().trim()
+    );
+    if (mapData?.iso && typeof mapData.iso === 'string') {
+      return mapData.iso.trim().toLowerCase().slice(0, 2);
+    }
+  }
+  
+  // 2. Jika belum ketemu, coba dari property negara
   const possibleKeys = ['iso', 'iso2', 'iso_code', 'code', 'country_code', 'kode_negara', 'alpha2Code', 'cca2'];
   for (const key of possibleKeys) {
     if (country[key] && typeof country[key] === 'string') return country[key].trim().toLowerCase().slice(0, 2);
@@ -30,10 +44,11 @@ const extractISO = (country: any): string => {
 
 interface SpionaseProps {
   prefetchedAllCountries?: any[];
+  countryDetail?: any; // 🔥 Tambahkan prop untuk negara user
   onAction: (targetCountry: any) => void;
 }
 
-export default function Spionase({ prefetchedAllCountries, onAction }: SpionaseProps) {
+export default function Spionase({ prefetchedAllCountries, countryDetail, onAction }: SpionaseProps) {
   const [sortConfig, setSortConfig] = useState<{ key: keyof RankingRow; direction: 'asc' | 'desc' } | null>({
     key: 'totalPower',
     direction: 'desc'
@@ -48,7 +63,7 @@ export default function Spionase({ prefetchedAllCountries, onAction }: SpionaseP
       const summary = getArmadaPowerSummary(country);
       const groupTotals = summary.totals.groups;
       const countryName = country?.nama_negara || country?.country || country?.name_id || country?.name_en || "Negara";
-      const iso = extractISO(country); // 🔥 Ambil ISO
+      const iso = extractISO(country, countryName); // 🔥 Ambil ISO dengan nama negara sebagai parameter
 
       return {
         countryName,
@@ -130,42 +145,54 @@ export default function Spionase({ prefetchedAllCountries, onAction }: SpionaseP
               </tr>
             </thead>
             <tbody>
-              {rankings.map((row, index) => (
-                <tr key={`${row.countryName}-${index}`} className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors">
-                  <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
-                  
-                  {/* 🔥 KOLOM NEGARA DENGAN BENDERA */}
-                  <td className="px-3 py-2 font-bold text-[#5c3c10]">
-                    <div className="flex items-center gap-2 min-h-[20px]">
-                      {row.iso && row.iso.length === 2 ? (
-                        <img
-                          src={`https://flagcdn.com/w20/${row.iso.toLowerCase()}.png`}
-                          alt={row.countryName}
-                          className="w-5 h-4 object-cover rounded-sm border border-[#5c3c10]/10 shadow-sm flex-shrink-0"
-                          onError={(e) => (e.target as HTMLImageElement).style.display = "none"}
-                        />
-                      ) : (
-                        <div className="w-5 h-4 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0" />
-                      )}
-                      <span>{row.countryName}</span>
-                    </div>
-                  </td>
+              {rankings.map((row, index) => {
+                const selectedCountryName = countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || countryDetail?.name_en || "Negara";
+                const isUserCountry = row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim();
+                
+                return (
+                  <tr 
+                    key={`${row.countryName}-${index}`} 
+                    className={`border-b border-[#C4B49C]/25 transition-colors ${
+                      isUserCountry
+                        ? 'bg-emerald-100/80 hover:bg-emerald-200/80 border-l-4 border-l-emerald-600'
+                        : 'odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30'
+                    }`}
+                  >
+                    <td className={`px-3 py-2 font-black ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>{index + 1}</td>
+                    
+                    {/* 🔥 KOLOM NEGARA DENGAN BENDERA */}
+                    <td className={`px-3 py-2 font-bold ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>
+                      <div className="flex items-center gap-2 min-h-[20px]">
+                        {row.iso && row.iso.length === 2 ? (
+                          <img
+                            src={`https://flagcdn.com/w20/${row.iso.toLowerCase()}.png`}
+                            alt={row.countryName}
+                            className="w-5 h-4 object-cover rounded-sm border border-[#5c3c10]/10 shadow-sm flex-shrink-0"
+                            onError={(e) => (e.target as HTMLImageElement).style.display = "none"}
+                          />
+                        ) : (
+                          <div className="w-5 h-4 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0" />
+                        )}
+                        <span>{row.countryName}</span>
+                      </div>
+                    </td>
 
-                  <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
-                  <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
-                  <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
-                  <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
-                  <td className="px-3 py-2 text-center">
-                    <button
-                      onClick={() => handleOpenModal(row)}
-                      className="p-1.5 rounded-lg bg-indigo-600/10 text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-600/30 transition-all cursor-pointer"
-                      title="Luncurkan misi spionase"
-                    >
-                      <Binoculars className="w-4 w-4" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                    <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
+                    <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
+                    <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
+                    <td className={`px-3 py-2 font-black ${isUserCountry ? 'text-emerald-600' : 'text-rose-700'}`}>{formatNumber(row.totalPower)}</td>
+                    <td className="px-3 py-2 text-center">
+                      <button
+                        onClick={() => handleOpenModal(row)}
+                        className="p-1.5 rounded-lg bg-indigo-600/10 text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-600/30 transition-all cursor-pointer"
+                        title="Luncurkan misi spionase"
+                      >
+                        <Binoculars className="w-4 w-4" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>

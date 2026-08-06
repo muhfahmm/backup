@@ -4,6 +4,8 @@ import { X, Shield, Swords } from "lucide-react";
 import { getArmadaPowerSummary } from "../4_armada/logic/armadaLogic";
 // 🔥 Import modal serang baru yang akan kita buat
 import SerangModals from "./modals_menu/KonfirmasiSerangModals";
+// 🔥 Import COUNTRIES_DATA untuk meng-enrich ISO
+import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
 
 interface ModalProps {
   isOpen: boolean;
@@ -54,14 +56,29 @@ export default function SerangNegaraModal({
         const groupTotals = summary.totals.groups;
         const countryName = country?.nama_negara || country?.country || country?.name_id || country?.name_en || "Negara";
         
-        // 🔥 PERBAIKAN: Memperluas pencarian kode negara ISO (berbagai kemungkinan nama properti)
-        const iso = country?.iso || 
-                   country?.iso2 || 
-                   country?.country_code || 
-                   country?.kode_negara || 
-                   country?.alpha2Code || 
-                   country?.cca2 || 
-                   "";
+        // 🔥 PERBAIKAN: Cari ISO dari COUNTRIES_DATA terlebih dahulu, lalu fallback ke berbagai properti
+        let iso = "";
+        
+        // 1. Coba cari dari COUNTRIES_DATA menggunakan nama negara
+        if (COUNTRIES_DATA && Array.isArray(COUNTRIES_DATA)) {
+          const mapData = COUNTRIES_DATA.find((c: any) => 
+            c.country && c.country.toLowerCase().trim() === countryName.toLowerCase().trim()
+          );
+          if (mapData?.iso) {
+            iso = mapData.iso;
+          }
+        }
+        
+        // 2. Jika belum ketemu, coba dari property negara itu sendiri
+        if (!iso) {
+          iso = country?.iso || 
+                country?.iso2 || 
+                country?.country_code || 
+                country?.kode_negara || 
+                country?.alpha2Code || 
+                country?.cca2 || 
+                "";
+        }
 
         return {
           countryName,
@@ -198,12 +215,24 @@ export default function SerangNegaraModal({
                         rankings.map((row, index) => (
                           <tr 
                             key={`${row.countryName}-${index}`} 
-                            className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors"
+                            className={`border-b border-[#C4B49C]/25 transition-colors ${
+                              row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim()
+                                ? 'bg-emerald-100/80 hover:bg-emerald-200/80 border-l-4 border-l-emerald-600'
+                                : 'odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30'
+                            }`}
                           >
-                            <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
+                            <td className={`px-3 py-2 font-black ${
+                              row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim()
+                                ? 'text-emerald-900'
+                                : 'text-[#5c3c10]'
+                            }`}>{index + 1}</td>
                             
-                            {/* 🔥 PERBAIKAN: Menambahkan fallback kotak abu-abu jika bendera tidak ditemukan */}
-                            <td className="px-3 py-2 font-bold text-[#5c3c10]">
+                            {/* 🔥 PERBAIKAN: Kolom negara dengan bendera tanpa label tambahan */}
+                            <td className={`px-3 py-2 font-bold ${
+                              row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim()
+                                ? 'text-emerald-900'
+                                : 'text-[#5c3c10]'
+                            }`}>
                               <div className="flex items-center gap-2">
                                 {row.iso ? (
                                   <img
@@ -213,7 +242,7 @@ export default function SerangNegaraModal({
                                     onError={(e) => (e.target as HTMLImageElement).style.display = "none"}
                                   />
                                 ) : (
-                                  // 🔥 Jika data ISO kosong, tampilkan kotak abu-abu agar posisi nama negara tetap sejajar
+                                  // 🔥 Jika data ISO kosong, tampilkan kotak abu-abu
                                   <div className="w-5 h-4 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0" />
                                 )}
                                 <span>{row.countryName}</span>
@@ -223,7 +252,11 @@ export default function SerangNegaraModal({
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
-                            <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
+                            <td className={`px-3 py-2 font-black ${
+                              row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim()
+                                ? 'text-emerald-600'
+                                : 'text-rose-700'
+                            }`}>{formatNumber(row.totalPower)}</td>
                             <td className="px-3 py-2 text-center">
                               <button 
                                 onClick={() => handleOpenAttackModal(row)}

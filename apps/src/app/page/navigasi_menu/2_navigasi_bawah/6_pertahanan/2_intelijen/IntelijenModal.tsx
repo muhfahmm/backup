@@ -102,10 +102,10 @@ export default function IntelijenModal({ isOpen, onClose, countryDetail, setCoun
             {/* 🔥 RENDER KOMPONEN TABEL TERPISAH */}
             <div className="w-full mt-2">
               {activeTab === 'spionase' && (
-                <Spionase prefetchedAllCountries={prefetchedAllCountries} onAction={handleSpionaseAction} />
+                <Spionase prefetchedAllCountries={prefetchedAllCountries} countryDetail={countryDetail} onAction={handleSpionaseAction} />
               )}
               {activeTab === 'sabotase' && (
-                <Sabotase prefetchedAllCountries={prefetchedAllCountries} onAction={handleSabotaseAction} />
+                <Sabotase prefetchedAllCountries={prefetchedAllCountries} countryDetail={countryDetail} onAction={handleSabotaseAction} />
               )}
             </div>
             
