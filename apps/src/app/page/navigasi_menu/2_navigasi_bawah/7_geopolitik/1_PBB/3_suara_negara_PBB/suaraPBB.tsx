@@ -38,7 +38,7 @@ const renderFlag = (iso?: string, fallbackName?: string) => {
   );
 };
 
-export default function SuaraPBB() {
+export default function SuaraPBB({ countryDetail }: { countryDetail?: any }) {
   const countryVotes = useMemo<CountryVoteRow[]>(() => {
     const byName = new Map<string, string>();
     for (const country of COUNTRIES_DATA) {
@@ -84,13 +84,25 @@ export default function SuaraPBB() {
             </tr>
           </thead>
           <tbody className="divide-y divide-[#C4B49C]/20">
-            {countryVotes.map((item, idx) => (
-              <tr key={`${item.name_id}-${idx}`} className="hover:bg-[#e4dac3]/20 transition-colors">
-                <td className="px-3 py-2 font-bold text-[#5c3c10]">{item.name_id}</td>
-                <td className="px-3 py-2">{renderFlag(item.iso, item.name_id)}</td>
-                <td className="px-3 py-2 font-bold text-[#8b7e66]">{item.un_vote}</td>
-              </tr>
-            ))}
+            {countryVotes.map((item, idx) => {
+              const selectedCountryName = countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || countryDetail?.name_en || "Negara";
+              const isUserCountry = item.name_id.toLowerCase().trim() === selectedCountryName.toLowerCase().trim();
+              
+              return (
+                <tr 
+                  key={`${item.name_id}-${idx}`} 
+                  className={`transition-colors ${
+                    isUserCountry
+                      ? 'bg-emerald-100/80 hover:bg-emerald-200/80 border-l-4 border-l-emerald-600'
+                      : 'hover:bg-[#e4dac3]/20'
+                  }`}
+                >
+                  <td className={`px-3 py-2 font-bold ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>{item.name_id}</td>
+                  <td className="px-3 py-2">{renderFlag(item.iso, item.name_id)}</td>
+                  <td className={`px-3 py-2 font-bold ${isUserCountry ? 'text-emerald-600' : 'text-[#8b7e66]'}`}>{item.un_vote}</td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>

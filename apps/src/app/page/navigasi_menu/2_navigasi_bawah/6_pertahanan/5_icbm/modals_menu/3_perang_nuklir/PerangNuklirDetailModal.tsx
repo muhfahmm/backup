@@ -6,6 +6,7 @@ import { getArmadaPowerSummary } from "../../../4_armada/logic/armadaLogic";
 interface PerangNuklirDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
+  countryDetail?: any; // 🔥 Tambahkan prop untuk negara user
   prefetchedAllCountries?: any[];
   onAction?: (targetCountry: any) => void;
 }
@@ -23,7 +24,7 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
-export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAllCountries, onAction }: PerangNuklirDetailModalProps) {
+export default function PerangNuklirDetailModal({ isOpen, onClose, countryDetail, prefetchedAllCountries, onAction }: PerangNuklirDetailModalProps) {
   const rawRankings = useMemo(() => {
     const source = Array.isArray(prefetchedAllCountries) ? prefetchedAllCountries : [];
     return source.map((country: any) => {
@@ -89,25 +90,37 @@ export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAll
                   </thead>
                   <tbody>
                     {rankings.length > 0 ? (
-                      rankings.map((row, index) => (
-                        <tr key={`${row.countryName}-${index}`} className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors">
-                          <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
-                          <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
-                          <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
-                          <td className="px-3 py-2 text-center">
-                            <button
-                              onClick={() => onAction?.(row)}
-                              className="p-1.5 rounded-lg bg-orange-600/10 text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-600/30 transition-all cursor-pointer"
-                              title="Deklarasikan perang nuklir"
-                            >
-                              <Radiation className="w-4 h-4" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
+                      rankings.map((row, index) => {
+                        const selectedCountryName = countryDetail?.country || countryDetail?.nama_negara || countryDetail?.name_id || countryDetail?.name_en || "Negara";
+                        const isUserCountry = row.countryName.toLowerCase().trim() === selectedCountryName.toLowerCase().trim();
+                        
+                        return (
+                          <tr 
+                            key={`${row.countryName}-${index}`} 
+                            className={`border-b border-[#C4B49C]/25 transition-colors ${
+                              isUserCountry
+                                ? 'bg-emerald-100/80 hover:bg-emerald-200/80 border-l-4 border-l-emerald-600'
+                                : 'odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30'
+                            }`}
+                          >
+                            <td className={`px-3 py-2 font-black ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>{index + 1}</td>
+                            <td className={`px-3 py-2 font-bold ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>{row.countryName}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
+                            <td className={`px-3 py-2 font-black ${isUserCountry ? 'text-emerald-600' : 'text-rose-700'}`}>{formatNumber(row.totalPower)}</td>
+                            <td className="px-3 py-2 text-center">
+                              <button
+                                onClick={() => onAction?.(row)}
+                                className="p-1.5 rounded-lg bg-orange-600/10 text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-600/30 transition-all cursor-pointer"
+                                title="Deklarasikan perang nuklir"
+                              >
+                                <Radiation className="w-4 h-4" />
+                              </button>
+                            </td>
+                          </tr>
+                        );
+                      })
                     ) : (
                       <tr>
                         <td colSpan={7} className="px-4 py-8 text-center text-[#8b7e66]">

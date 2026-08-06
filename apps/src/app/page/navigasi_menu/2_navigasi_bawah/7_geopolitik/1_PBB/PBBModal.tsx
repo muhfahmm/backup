@@ -74,7 +74,7 @@ export default function PBBModal({ isOpen, onClose, selectedCountry }: ModalProp
           {/* PERBAIKAN: Menambahkan selectedCountry pada komponen KeamananPBB */}
           {activeTab === "keamanan" && <KeamananPBB selectedCountry={selectedCountry} />}
           
-          {activeTab === "suara" && <SuaraPBB />}
+          {activeTab === "suara" && <SuaraPBB countryDetail={selectedCountry} />}
           
         </div>
       </div>

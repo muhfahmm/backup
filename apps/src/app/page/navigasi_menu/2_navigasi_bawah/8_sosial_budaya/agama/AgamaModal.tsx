@@ -275,17 +275,16 @@ export default function AgamaModal({ isOpen, onClose, onOpenDebt, countryDetail,
                         const isUserCountry = countryDetail?.country &&
                           item.country.toLowerCase().trim() === countryDetail.country.toLowerCase().trim();
                         return (
-                          <tr key={idx} className={`transition-colors ${isUserCountry ? 'bg-[#ffe07d]/30 border-l-4 border-[#fcae1e]' : 'hover:bg-[#e4dac3]/20'}`}>
-                            <td className="px-4 py-2.5 text-center font-bold text-[#8b7e66]">{idx + 1}</td>
-                            <td className="px-4 py-2.5 font-bold text-[#5c3c10]">
-                              {isUserCountry && <span className="mr-1 text-[#c77a00]">★</span>}
+                          <tr key={idx} className={`transition-colors ${isUserCountry ? 'bg-emerald-100/80 hover:bg-emerald-200/80 border-l-4 border-l-emerald-600' : 'hover:bg-[#e4dac3]/20'}`}>
+                            <td className={`px-4 py-2.5 text-center font-bold ${isUserCountry ? 'text-emerald-900' : 'text-[#8b7e66]'}`}>{idx + 1}</td>
+                            <td className={`px-4 py-2.5 font-bold ${isUserCountry ? 'text-emerald-900' : 'text-[#5c3c10]'}`}>
                               {item.country}
                             </td>
-                            <td className="px-4 py-2.5">
+                            <td className={`px-4 py-2.5 ${isUserCountry ? 'text-emerald-600' : 'text-[#5c3c10]'}`}>
                               {item.religion === 'Belum tersedia' ? (
                                 <span className="text-[#C4B49C] italic font-medium">Belum tersedia</span>
                               ) : (
-                                <div className="flex items-center gap-2 text-[#5c3c10] font-bold">
+                                <div className="flex items-center gap-2 font-bold">
                                   {RELIGION_ICONS[item.religion] || <Globe className="w-4 h-4 text-[#2e261a]" />}
                                   {item.religion}
                                 </div>

@@ -474,6 +474,7 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
       <PerangNuklirDetailModal
         isOpen={isPerangNuklirDetailOpen}
         onClose={() => setIsPerangNuklirDetailOpen(false)}
+        countryDetail={countryDetail}
         prefetchedAllCountries={prefetchedAllCountries}
         onAction={(target) => {
           alert(`Deklarasi perang nuklir terhadap ${target.countryName}! Konsekuensi global tak terbayangkan telah dimulai.`);
