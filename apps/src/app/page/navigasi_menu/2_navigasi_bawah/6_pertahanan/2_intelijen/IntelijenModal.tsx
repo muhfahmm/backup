@@ -1,8 +1,8 @@
 "use client"
 import React, { useState } from "react";
 import { X, Eye, Bomb } from "lucide-react";
-import Spionase from "./tab_menu/1_tabel_spionase";
-import Sabotase from "./tab_menu/2_tabel_sabotase";
+import Spionase from "./table_menu/1_tabel_spionase";
+import Sabotase from "./table_menu/2_tabel_sabotase";
 
 interface ModalProps {
   isOpen: boolean;
