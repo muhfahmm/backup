@@ -42,7 +42,6 @@ import PBBModal from "./7_geopolitik/1_PBB/PBBModal";
 import KedutaanBesarModal from "./7_geopolitik/KedutaanBesarModal";
 import OrgIntlModal from "./7_geopolitik/3_organisasi_internasional/OrgIntlModal";
 import TingkatHubunganModal from "./7_geopolitik/TingkatHubunganModal";
-import BantuanModal from "./7_geopolitik/BantuanModal";
 
 // 8. Sosial & Budaya
 import AgamaModal from "./8_sosial_budaya/agama/AgamaModal";
@@ -413,15 +412,6 @@ function ModalsManager({
           onClose={onClose}
           selectedCountry={selectedCountry}
           countryDetail={countryDetail}
-        />
-      );
-    case "Menu:Bantuan":
-      return (
-        <BantuanModal
-          isOpen={true}
-          onClose={onClose}
-          countryDetail={countryDetail}
-          setCountryDetail={setCountryDetail}
         />
       );
 

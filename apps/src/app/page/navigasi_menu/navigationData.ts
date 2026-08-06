@@ -50,7 +50,6 @@ export const subMenuItems: Record<string, any[]> = {
     { id: "Menu:KedutaanBesar", label: "Kedutaan Besar", icon: Landmark },
     { id: "Menu:OrganisasiInternasional:organisasi_pbb", label: "Organisasi Internasional", icon: Landmark },
     { id: "Menu:TingkatHubungan", label: "Tingkat Hubungan", icon: HeartHandshake },
-    { id: "Menu:Bantuan", label: "Bantuan", icon: HandHelping },
   ],
   "Sosial & Budaya": [
     { id: "Menu:Agama", label: "Agama & Kepercayaan", icon: Star },
