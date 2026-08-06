@@ -151,7 +151,6 @@ export default function SerangModals({
   };
 
   return (
-    /* 🔥 PERBAIKAN: z-index diubah menjadi z-[60] dan max-width disamakan menjadi max-w-6xl agar konsisten dengan modal induknya */
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/5 pointer-events-auto">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto animate-in fade-in zoom-in-95 duration-200">
         
@@ -292,36 +291,40 @@ export default function SerangModals({
                           </span>
                         </button>
 
-                        {expandedGroup === group && (
-                          <div className="flex flex-col md:flex-row md:gap-6 pt-4">
-                            
-                            {/* Sisi Kiri: Penyerang */}
-                            <div className="flex-1 w-full space-y-2">
-                              <div className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-700 mb-2">Penyerang</div>
-                              {attackerBreakdown[group].map((item) => (
-                                <div key={item.key} className="flex items-center justify-between rounded-xl border border-[#C4B49C]/20 bg-white px-3 py-2 text-xs font-semibold text-[#5c3c10]">
-                                  <span>{item.label}</span>
-                                  <span className="font-black">{formatNumber(item.quantity)}</span>
-                                </div>
-                              ))}
-                            </div>
-
-                            {/* Garis Pemisah Vertikal */}
-                            <div className="hidden md:block w-[1px] self-stretch bg-[#C4B49C]/20 rounded-full" />
-
-                            {/* Sisi Kanan: Target */}
-                            <div className="flex-1 w-full space-y-2">
-                              <div className="text-[10px] font-black uppercase tracking-[0.22em] text-rose-700 mb-2">Target</div>
-                              {targetBreakdown[group].map((item) => (
-                                <div key={item.key} className="flex items-center justify-between rounded-xl border border-[#C4B49C]/20 bg-white px-3 py-2 text-xs font-semibold text-[#5c3c10]">
-                                  <span>{item.label}</span>
-                                  <span className="font-black">{formatNumber(item.quantity)}</span>
-                                </div>
-                              ))}
-                            </div>
-
+                        {/* 🔥 PERUBAHAN: Mengganti conditional rendering dengan CSS Transition */}
+                        <div
+                          className={`flex flex-col md:flex-row md:gap-6 pt-4 overflow-hidden transition-all duration-500 ease-in-out ${
+                            expandedGroup === group
+                              ? "opacity-100 translate-y-0 max-h-[3000px] pointer-events-auto"
+                              : "opacity-0 translate-y-[-10px] max-h-0 pointer-events-none"
+                          }`}
+                        >
+                          {/* Sisi Kiri: Penyerang */}
+                          <div className="flex-1 w-full space-y-2">
+                            <div className="text-[10px] font-black uppercase tracking-[0.22em] text-emerald-700 mb-2">Penyerang</div>
+                            {attackerBreakdown[group].map((item) => (
+                              <div key={item.key} className="flex items-center justify-between rounded-xl border border-[#C4B49C]/20 bg-white px-3 py-2 text-xs font-semibold text-[#5c3c10]">
+                                <span>{item.label}</span>
+                                <span className="font-black">{formatNumber(item.quantity)}</span>
+                              </div>
+                            ))}
                           </div>
-                        )}
+
+                          {/* Garis Pemisah Vertikal */}
+                          <div className="hidden md:block w-[1px] self-stretch bg-[#C4B49C]/20 rounded-full" />
+
+                          {/* Sisi Kanan: Target */}
+                          <div className="flex-1 w-full space-y-2">
+                            <div className="text-[10px] font-black uppercase tracking-[0.22em] text-rose-700 mb-2">Target</div>
+                            {targetBreakdown[group].map((item) => (
+                              <div key={item.key} className="flex items-center justify-between rounded-xl border border-[#C4B49C]/20 bg-white px-3 py-2 text-xs font-semibold text-[#5c3c10]">
+                                <span>{item.label}</span>
+                                <span className="font-black">{formatNumber(item.quantity)}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
                       </div>
                     </div>
                   );
