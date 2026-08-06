@@ -16,7 +16,7 @@ type ArmadaGroup = "darat" | "laut" | "udara";
 // 🔥 Katalog alutsista (Data User - Ditulis eksplisit di sini)
 const armadaCatalog: Record<ArmadaGroup, Array<{ key: string; label: string }>> = {
   darat: [
-    { key: "barak", label: "Barak Militer" },
+    { key: "barak", label: "Pasukan Infanteri" },
     { key: "tank_tempur_utama", label: "Tank Tempur Utama" },
     { key: "apc_ifv", label: "APC / IFV" },
     { key: "artileri_berat", label: "Artileri Berat" },
@@ -62,13 +62,13 @@ const resolveQuantity = (source: any, group: ArmadaGroup, key: string) => {
   const block = payload[group] && typeof payload[group] === "object" ? payload[group] : {};
 
   if (key === "barak") {
-    return (
-      Number(source?.barak ?? 0) ||
-      Number(payload?.barak ?? 0) ||
-      Number(block?.barak ?? 0) ||
-      Number(source?.armada?.barak ?? 0) ||
-      0
-    );
+    // 🔥 Logika Baru: Pasukan Infanteri = Jumlah Barak * 10.000
+    const barakCount = Number(source?.barak ?? 0) ||
+                    Number(payload?.barak ?? 0) ||
+                    Number(block?.barak ?? 0) ||
+                    Number(source?.armada?.barak ?? 0) ||
+                    0;
+    return barakCount * 10000;
   }
 
   return (
@@ -151,8 +151,9 @@ export default function SerangModals({
   };
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/5 pointer-events-auto">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-7xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto animate-in fade-in zoom-in-95 duration-200">
+    /* 🔥 PERBAIKAN: z-index diubah menjadi z-[60] dan max-width disamakan menjadi max-w-6xl agar konsisten dengan modal induknya */
+    <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/5 pointer-events-auto">
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto animate-in fade-in zoom-in-95 duration-200">
         
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
@@ -179,7 +180,7 @@ export default function SerangModals({
         <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col">
           <div className="w-full max-w-4xl mx-auto space-y-8">
 
-            {/* ⚔️ BAGIAN 1: PERBANDINGAN TOTAL KEKUATAN (Sekarang dengan Garis Keseimbangan) */}
+            {/* ⚔️ BAGIAN 1: PERBANDINGAN TOTAL KEKUATAN */}
             <div className="flex flex-col bg-white/80 border border-[#C4B49C]/30 p-6 rounded-2xl shadow-sm gap-4">
               
               {/* Baris Atas: Kartu VS */}
@@ -195,7 +196,6 @@ export default function SerangModals({
                   <p className="text-[11px] text-[#5c3c10]">
                     Kekuatan: <span className="font-black">{formatNumber(attackerTotalPower)}</span>
                   </p>
-                  {/* Penjelasan angka Darat/Laut/Udara telah dihapus dan diganti dengan bilah di bawah! */}
                 </div>
 
                 {/* ELEMEN TENGAH: VS */}
@@ -215,11 +215,10 @@ export default function SerangModals({
                   <p className="text-[11px] text-[#5c3c10]">
                     Kekuatan: <span className="font-black">{formatNumber(targetTotalPower)}</span>
                   </p>
-                  {/* Penjelasan angka Darat/Laut/Udara telah dihapus dan diganti dengan bilah di bawah! */}
                 </div>
               </div>
 
-              {/* 🔥 BARIS BAWAH: GARIS KESEIMBANGAN PASUKAN (Seperti Gambar Ke-2) */}
+              {/* 🔥 BARIS BAWAH: GARIS KESEIMBANGAN PASUKAN */}
               <div className="w-full mt-2 pt-4 border-t border-[#C4B49C]/20">
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#8b7e66]">Keseimbangan Pasukan:</span>
@@ -259,7 +258,7 @@ export default function SerangModals({
 
             </div>
 
-            {/* 🛡️ BAGIAN 2: PERBANDINGAN PER MATRA (DARAT, LAUT, UDARA) - DETAIL ALUTSISTA */}
+            {/* 🛡️ BAGIAN 2: PERBANDINGAN PER MATRA (DARAT, LAUT, UDARA) */}
             <div className="bg-white/80 border border-[#C4B49C]/30 p-6 rounded-2xl shadow-sm">
               <div className="flex flex-col gap-8">
                 {(['darat', 'laut', 'udara'] as ArmadaGroup[]).map((group) => {

@@ -10,9 +10,10 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
 }
 
+// 🔥 Sama persis dengan armadaCatalog di SerangModals (Label dan struktur diubah)
 const armadaCatalog = {
   darat: [
-    { key: "barak", label: "Barak Militer" },
+    { key: "barak", label: "Pasukan Infanteri" }, // 🔥 Diubah dari Barak Militer
     { key: "tank_tempur_utama", label: "Tank Tempur Utama" },
     { key: "apc_ifv", label: "APC / IFV" },
     { key: "artileri_berat", label: "Artileri Berat" },
@@ -66,6 +67,18 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
   const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
   const unitBreakdown = getArmadaUnitBreakdown(payload);
 
+  // 🔥 Fungsi Helper untuk mengambil kuantitas unit (Sama persis dengan logika perhitungan di SerangModals)
+  const resolveQuantity = (dataBlock: any, group: string, key: string) => {
+    if (key === "barak") {
+      // 🔥 Logika Barak: Jumlah bangunan Barak * 10.000
+      const barakCount = Number(payload?.barak ?? dataBlock?.barak ?? 0);
+      return barakCount * 10000;
+    }
+
+    // 🔥 Unit lainnya mengambil nilai langsung
+    return Number(dataBlock[key] ?? 0);
+  };
+
   const renderGroup = (group: keyof typeof armadaCatalog) => {
     const Icon = groupMeta[group].icon;
     const dataBlock = payload[group] && typeof payload[group] === "object" ? payload[group] : {};
@@ -83,35 +96,28 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
 
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
           {armadaCatalog[group].map((item) => {
-            const value = group === "darat" && item.key === "barak"
-              ? Number(payload?.barak ?? dataBlock?.barak ?? 0)
-              : Number(dataBlock[item.key] ?? 0);
+            // 🔥 Gunakan resolveQuantity untuk mendapatkan jumlah unit (konsisten dengan SerangModals)
+            const value = resolveQuantity(dataBlock, group, item.key);
             const summary = unitBreakdown.find((entry) => entry.dataKey === item.key);
             
-            // Kekuatan tetap dikalikan dengan jumlah unit
+            // Total Power (Kekuatan Gabungan)
             const totalPower = summary?.totalPower ?? 0;
 
-            // 🔥 PERBAIKAN: HP tidak dikalikan dengan jumlah unit!
-            // Kita membagi totalHealth dari logic dengan value untuk mendapatkan Base HP per unit.
-            let totalHealth = 0;
-            if (summary?.totalHealth !== undefined) {
-                if (value > 0) {
-                    totalHealth = summary.totalHealth / value;
-                } else {
-                    totalHealth = 0;
-                }
-            }
+            // 🔥 PERBAIKAN: Menampilkan Total HP dari semua unit (bukan HP per unit)
+            // Di sini kita langsung mengambil summary.totalHealth
+            const totalHealth = summary?.totalHealth ?? 0;
 
             return (
               <div key={`${group}-${item.key}`} className="rounded-xl border border-[#C4B49C]/40 bg-[#FAF6EE] p-3">
                 <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8b7e66]">{item.label}</div>
                 <div className="flex items-end justify-between gap-3">
-                  <span className="text-xl font-black text-[#5c3c10]">{formatNumber(value)}</span>
-                  <span className="text-[10px] font-bold uppercase text-[#8b7e66]">unit</span>
+                  {/* 🔥 Jika value = 0, jangan tampilkan "0", tapi tetap tampilkan unit sebagai "-" */}
+                  <span className="text-xl font-black text-[#5c3c10]">{value > 0 ? formatNumber(value) : "-"}</span>
+                  {value > 0 && <span className="text-[10px] font-bold uppercase text-[#8b7e66]">unit</span>}
                 </div>
                 <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] font-bold text-[#6f5b42]">
                   <div className="rounded-md bg-[#efe7d5] px-2 py-1">Kekuatan: {formatNumber(totalPower)}</div>
-                  <div className="rounded-md bg-[#efe7d5] px-2 py-1">HP: {formatNumber(totalHealth)}</div>
+                  <div className="rounded-md bg-[#efe7d5] px-2 py-1">Total HP: {formatNumber(totalHealth)}</div>
                 </div>
               </div>
             );
@@ -123,7 +129,8 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-7xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+      {/* 🔥 PERBAIKAN: Mengubah max-w-7xl menjadi max-w-6xl agar ukurannya mengecil dan konsisten */}
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">

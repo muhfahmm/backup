@@ -127,7 +127,8 @@ export default function SerangNegaraModal({
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-        <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-7xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+        {/* 🔥 DIMENSI MODAL DIUBAH: max-w-7xl menjadi max-w-6xl agar sama dengan IntelijenModal */}
+        <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
           <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
@@ -146,67 +147,69 @@ export default function SerangNegaraModal({
             </button>
           </div>
 
-          <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-            <div className="mb-3 text-xs font-semibold text-[#8b7e66] leading-relaxed">
-              Tabel ranking 207 negara berdasarkan total kekuatan gabungan darat, laut, dan udara. Klik header kolom untuk mengurutkan data. Klik ikon <Swords className="inline w-3 h-3" /> untuk menyerang target.
-            </div>
+          {/* 🔥 BODY MODAL: Diberi flex-col items-center dan pembungkus max-w-5xl agar layoutnya sama persis */}
+          <div className="flex-1 min-h-0 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center">
+            <div className="w-full max-w-5xl space-y-6">
+              <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed">
+                Tabel ranking 207 negara berdasarkan total kekuatan gabungan darat, laut, dan udara. Klik header kolom untuk mengurutkan data. Klik ikon <Swords className="inline w-3 h-3" /> untuk menyerang target.
+              </div>
 
-            <div className="w-full overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
-              <div className="max-h-[50vh] overflow-auto">
-                <table className="min-w-full text-left text-[11px]">
-                  <thead className="sticky top-0 z-10 bg-[#5c3c10] text-[#FAF6EE] uppercase tracking-[0.18em]">
-                    <tr>
-                      <th className="px-3 py-3 font-black">Rank</th>
-                      <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('countryName')}>
-                        Negara{getSortArrow('countryName')}
-                      </th>
-                      <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('darat')}>
-                        Darat{getSortArrow('darat')}
-                      </th>
-                      <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('laut')}>
-                        Laut{getSortArrow('laut')}
-                      </th>
-                      <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('udara')}>
-                        Udara{getSortArrow('udara')}
-                      </th>
-                      <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('totalPower')}>
-                        Total Kekuatan{getSortArrow('totalPower')}
-                      </th>
-                      <th className="px-3 py-3 font-black text-center">Aksi</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {rankings === null ? (
-                      <tr><td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Memuat ranking kekuatan negara…</td></tr>
-                    ) : rankings.length === 0 ? (
-                      <tr><td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Data ranking belum tersedia.</td></tr>
-                    ) : (
-                      rankings.map((row, index) => (
-                        <tr 
-                          key={`${row.countryName}-${index}`} 
-                          className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors"
-                        >
-                          <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
-                          <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
-                          <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
-                          <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
-                          {/* 🔥 Tombol aksi serang sekarang membuka modal baru */}
-                          <td className="px-3 py-2 text-center">
-                            <button 
-                              onClick={() => handleOpenAttackModal(row)}
-                              className="p-1.5 rounded-lg bg-rose-600/10 text-rose-700 hover:bg-rose-600 hover:text-white border border-rose-600/30 transition-all cursor-pointer"
-                              title="Serang negara ini"
-                            >
-                              <Swords className="w-4 h-4" />
-                            </button>
-                          </td>
-                        </tr>
-                      ))
-                    )}
-                  </tbody>
-                </table>
+              <div className="w-full overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
+                <div className="max-h-[50vh] overflow-auto">
+                  <table className="min-w-full text-left text-[11px]">
+                    <thead className="sticky top-0 z-10 bg-[#5c3c10] text-[#FAF6EE] uppercase tracking-[0.18em]">
+                      <tr>
+                        <th className="px-3 py-3 font-black">Rank</th>
+                        <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('countryName')}>
+                          Negara{getSortArrow('countryName')}
+                        </th>
+                        <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('darat')}>
+                          Darat{getSortArrow('darat')}
+                        </th>
+                        <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('laut')}>
+                          Laut{getSortArrow('laut')}
+                        </th>
+                        <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('udara')}>
+                          Udara{getSortArrow('udara')}
+                        </th>
+                        <th className="px-3 py-3 font-black cursor-pointer hover:bg-[#4a2f0d] transition-colors" onClick={() => handleSort('totalPower')}>
+                          Total Kekuatan{getSortArrow('totalPower')}
+                        </th>
+                        <th className="px-3 py-3 font-black text-center">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {rankings === null ? (
+                        <tr><td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Memuat ranking kekuatan negara…</td></tr>
+                      ) : rankings.length === 0 ? (
+                        <tr><td colSpan={7} className="px-4 py-8 text-center text-sm font-bold text-[#8b7e66]">Data ranking belum tersedia.</td></tr>
+                      ) : (
+                        rankings.map((row, index) => (
+                          <tr 
+                            key={`${row.countryName}-${index}`} 
+                            className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors"
+                          >
+                            <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
+                            <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
+                            <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
+                            <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
+                            <td className="px-3 py-2 text-center">
+                              <button 
+                                onClick={() => handleOpenAttackModal(row)}
+                                className="p-1.5 rounded-lg bg-rose-600/10 text-rose-700 hover:bg-rose-600 hover:text-white border border-rose-600/30 transition-all cursor-pointer"
+                                title="Serang negara ini"
+                              >
+                                <Swords className="w-4 w-4" />
+                              </button>
+                            </td>
+                          </tr>
+                        ))
+                      )}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
