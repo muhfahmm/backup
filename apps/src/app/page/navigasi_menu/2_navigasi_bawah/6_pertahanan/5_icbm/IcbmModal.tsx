@@ -16,9 +16,10 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
   onOpenDebt?: () => void;
   onGotoProduction?: (tab: string, key: string) => void;
+  prefetchedAllCountries?: any[];
 }
 
-export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail, setCountryDetail, onOpenDebt, onGotoProduction }: ModalProps) {
+export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail, setCountryDetail, onOpenDebt, onGotoProduction, prefetchedAllCountries }: ModalProps) {
   if (!isOpen) return null;
 
   const formatDateString = (date?: string | Date) => {
@@ -123,11 +124,6 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   // 🔥 LOGIKA BARU: TOTAL ICBM YANG SUDAH SIAP / SELESAI (Angka 0 nya akan bertambah!)
   const totalReadyIcbm = existingIcbmCount + completedFromQueue;
 
-  const handleIcbmBuild = (task: { quantity: number; startDate: string; endDate: string }) => {
-    setLocalIcbmBuildTask(task);
-    setCountryDetail((prev: any) => ({ ...(prev || {}), icbmBuildTask: task }));
-  };
-
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
   const programBuildTask = ongoingConstructions.find((c: any) => c.buildingKey === "program_nuklir");
   const programCurrentDateObj = new Date(`${safeCurrentDate}T00:00:00`);
@@ -135,7 +131,16 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
   const buildCompleted = programBuildEndDateObj ? programBuildEndDateObj <= programCurrentDateObj : false;
   const isNuclearProgramActive = Boolean(countryDetail?.programNuklirActive) || buildCompleted;
   const isNuclearProgramBuilding = Boolean(programBuildTask) && !buildCompleted;
+  const isIcbmLocked = !isNuclearProgramActive;
+  const icbmCardStatusText = isIcbmLocked
+    ? "🔒 Terkunci. Aktifkan Program Nuklir terlebih dahulu."
+    : "Bangun ICBM untuk melihat jadwal penyelesaian.";
   const buildEndDate = programBuildTask?.endDate || null;
+
+  const handleIcbmBuild = (task: { quantity: number; startDate: string; endDate: string }) => {
+    setLocalIcbmBuildTask(task);
+    setCountryDetail((prev: any) => ({ ...(prev || {}), icbmBuildTask: task }));
+  };
 
   useEffect(() => {
     if (!isNuclearProgramActive && buildCompleted && programBuildTask) {
@@ -345,7 +350,9 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     </div>
 
                     {/* 🔥 PERBAIKAN: Badge status menggunakan sisa antrian */}
-                    {isIcbmBuildQueued && remainingBuildQuantity > 0 ? (
+                    {isIcbmLocked ? (
+                      <p className="mt-3 text-[10px] text-[#8b7e66]">🔒 Terkunci. Aktifkan Program Nuklir terlebih dahulu.</p>
+                    ) : isIcbmBuildQueued && remainingBuildQuantity > 0 ? (
                       <div className="mt-3 inline-flex items-center justify-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-[10px] font-bold text-emerald-700">
                         +{remainingBuildQuantity} sedang dibangun
                       </div>
@@ -359,7 +366,8 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
                     
                     <button
                       onClick={() => setIsIcbmBuildStatusOpen(true)}
-                      className="mt-4 inline-flex items-center justify-center gap-2 rounded-lg bg-[#1d5c4b] px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm hover:bg-[#154a3c] transition-all cursor-pointer"
+                      disabled={isIcbmLocked}
+                      className={`mt-4 inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-black text-[#FAF6EE] shadow-sm transition-all ${isIcbmLocked ? 'bg-[#9ca18a] cursor-not-allowed opacity-70' : 'bg-[#1d5c4b] hover:bg-[#154a3c] cursor-pointer'}`}
                     >
                       <Clock className="h-4 w-4" />
                       Lihat Status ICBM
@@ -466,6 +474,7 @@ export default function IcbmModal({ isOpen, onClose, currentDate, countryDetail,
       <PerangNuklirDetailModal
         isOpen={isPerangNuklirDetailOpen}
         onClose={() => setIsPerangNuklirDetailOpen(false)}
+        prefetchedAllCountries={prefetchedAllCountries}
       />
     </div>
   );

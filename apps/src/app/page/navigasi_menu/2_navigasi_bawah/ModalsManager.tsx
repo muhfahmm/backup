@@ -373,6 +373,7 @@ function ModalsManager({
             setActiveMenu("Menu:Produksi");
             setProductionDeepLink?.({ tab, key });
           }}
+          prefetchedAllCountries={prefetchedAllCountries || undefined}
         />
       );
 
