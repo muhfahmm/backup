@@ -2,7 +2,6 @@
 import React, { useMemo, useState } from "react";
 import { Bomb } from "lucide-react";
 import { getArmadaPowerSummary } from "../../4_armada/logic/armadaLogic";
-// 🔥 Import modal konfirmasi sabotase
 import KonfirmasiSabotaseModals from "../modals_menu/konfirmasiSabotaseModals";
 
 type RankingRow = {
@@ -11,11 +10,22 @@ type RankingRow = {
   darat: number;
   laut: number;
   udara: number;
+  iso?: string; // 🔥 Tambahkan field ISO
 };
 
 const formatNumber = (value: unknown) => {
   const numeric = Number(value ?? 0);
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
+};
+
+// 🔥 Fungsi pencarian ISO (sama seperti di SerangNegaraModal)
+const extractISO = (country: any): string => {
+  if (!country || typeof country !== "object") return "";
+  const possibleKeys = ['iso', 'iso2', 'iso_code', 'code', 'country_code', 'kode_negara', 'alpha2Code', 'cca2'];
+  for (const key of possibleKeys) {
+    if (country[key] && typeof country[key] === 'string') return country[key].trim().toLowerCase().slice(0, 2);
+  }
+  return "";
 };
 
 interface SabotaseProps {
@@ -29,7 +39,6 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
     direction: 'desc'
   });
 
-  // 🔥 State untuk menampung target & membuka modal
   const [selectedTarget, setSelectedTarget] = useState<RankingRow | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -39,12 +48,15 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
       const summary = getArmadaPowerSummary(country);
       const groupTotals = summary.totals.groups;
       const countryName = country?.nama_negara || country?.country || country?.name_id || country?.name_en || "Negara";
+      const iso = extractISO(country); // 🔥 Ambil ISO
+
       return {
         countryName,
         totalPower: summary.totals.totalPower,
         darat: groupTotals?.darat?.power ?? 0,
         laut: groupTotals?.laut?.power ?? 0,
         udara: groupTotals?.udara?.power ?? 0,
+        iso, // 🔥 Simpan ISO
       };
     });
   }, [prefetchedAllCountries]);
@@ -86,7 +98,6 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
     return '';
   };
 
-  // 🔥 Fungsi saat tombol bom diklik
   const handleOpenModal = (row: RankingRow) => {
     setSelectedTarget(row);
     setIsModalOpen(true);
@@ -122,19 +133,35 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
               {rankings.map((row, index) => (
                 <tr key={`${row.countryName}-${index}`} className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors">
                   <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
-                  <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
+                  
+                  {/* 🔥 KOLOM NEGARA DENGAN BENDERA */}
+                  <td className="px-3 py-2 font-bold text-[#5c3c10]">
+                    <div className="flex items-center gap-2 min-h-[20px]">
+                      {row.iso && row.iso.length === 2 ? (
+                        <img
+                          src={`https://flagcdn.com/w20/${row.iso.toLowerCase()}.png`}
+                          alt={row.countryName}
+                          className="w-5 h-4 object-cover rounded-sm border border-[#5c3c10]/10 shadow-sm flex-shrink-0"
+                          onError={(e) => (e.target as HTMLImageElement).style.display = "none"}
+                        />
+                      ) : (
+                        <div className="w-5 h-4 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0" />
+                      )}
+                      <span>{row.countryName}</span>
+                    </div>
+                  </td>
+
                   <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
                   <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
                   <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
                   <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
                   <td className="px-3 py-2 text-center">
-                    {/* 🔥 Arahkan ke fungsi pembuka modal */}
                     <button
                       onClick={() => handleOpenModal(row)}
                       className="p-1.5 rounded-lg bg-orange-600/10 text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-600/30 transition-all cursor-pointer"
                       title="Lancarkan operasi sabotase"
                     >
-                      <Bomb className="w-4 h-4" />
+                      <Bomb className="w-4 w-4" />
                     </button>
                   </td>
                 </tr>
@@ -144,7 +171,6 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
         </div>
       </div>
 
-      {/* 🔥 Rendering Modal Konfirmasi */}
       {selectedTarget && (
         <KonfirmasiSabotaseModals
           isOpen={isModalOpen}

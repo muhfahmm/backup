@@ -21,6 +21,7 @@ type RankingRow = {
   laut: number;
   udara: number;
   payload: any;
+  iso?: string; // 🔥 Tambahkan field ISO untuk bendera
 };
 
 const formatNumber = (value: unknown) => {
@@ -52,6 +53,15 @@ export default function SerangNegaraModal({
         const summary = getArmadaPowerSummary(country);
         const groupTotals = summary.totals.groups;
         const countryName = country?.nama_negara || country?.country || country?.name_id || country?.name_en || "Negara";
+        
+        // 🔥 PERBAIKAN: Memperluas pencarian kode negara ISO (berbagai kemungkinan nama properti)
+        const iso = country?.iso || 
+                   country?.iso2 || 
+                   country?.country_code || 
+                   country?.kode_negara || 
+                   country?.alpha2Code || 
+                   country?.cca2 || 
+                   "";
 
         return {
           countryName,
@@ -61,6 +71,7 @@ export default function SerangNegaraModal({
           laut: groupTotals?.laut?.power ?? 0,
           udara: groupTotals?.udara?.power ?? 0,
           payload: country,
+          iso: iso, // 🔥 Sertakan ISO dalam data ranking
         };
       });
   }, [prefetchedAllCountries]);
@@ -190,7 +201,25 @@ export default function SerangNegaraModal({
                             className="border-b border-[#C4B49C]/25 odd:bg-[#FBF7EE] even:bg-white/60 hover:bg-[#e4dac3]/30 transition-colors"
                           >
                             <td className="px-3 py-2 font-black text-[#5c3c10]">{index + 1}</td>
-                            <td className="px-3 py-2 font-bold text-[#5c3c10]">{row.countryName}</td>
+                            
+                            {/* 🔥 PERBAIKAN: Menambahkan fallback kotak abu-abu jika bendera tidak ditemukan */}
+                            <td className="px-3 py-2 font-bold text-[#5c3c10]">
+                              <div className="flex items-center gap-2">
+                                {row.iso ? (
+                                  <img
+                                    src={`https://flagcdn.com/w20/${row.iso.toLowerCase()}.png`}
+                                    alt={row.countryName}
+                                    className="w-5 h-4 object-cover rounded-sm border border-[#5c3c10]/10 shadow-sm flex-shrink-0"
+                                    onError={(e) => (e.target as HTMLImageElement).style.display = "none"}
+                                  />
+                                ) : (
+                                  // 🔥 Jika data ISO kosong, tampilkan kotak abu-abu agar posisi nama negara tetap sejajar
+                                  <div className="w-5 h-4 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0" />
+                                )}
+                                <span>{row.countryName}</span>
+                              </div>
+                            </td>
+                            
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.darat)}</td>
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
                             <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
