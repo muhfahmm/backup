@@ -1,12 +1,13 @@
 "use client"
 import React, { useMemo } from "react";
-import { X } from "lucide-react";
+import { X, Radiation } from "lucide-react";
 import { getArmadaPowerSummary } from "../../../4_armada/logic/armadaLogic";
 
 interface PerangNuklirDetailModalProps {
   isOpen: boolean;
   onClose: () => void;
   prefetchedAllCountries?: any[];
+  onAction?: (targetCountry: any) => void;
 }
 
 type RankingRow = {
@@ -22,7 +23,7 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
-export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAllCountries }: PerangNuklirDetailModalProps) {
+export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAllCountries, onAction }: PerangNuklirDetailModalProps) {
   const rawRankings = useMemo(() => {
     const source = Array.isArray(prefetchedAllCountries) ? prefetchedAllCountries : [];
     return source.map((country: any) => {
@@ -83,6 +84,7 @@ export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAll
                       <th className="px-3 py-3 font-black">Laut</th>
                       <th className="px-3 py-3 font-black">Udara</th>
                       <th className="px-3 py-3 font-black">Total Kekuatan</th>
+                      <th className="px-3 py-3 font-black text-center">Aksi</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -95,11 +97,20 @@ export default function PerangNuklirDetailModal({ isOpen, onClose, prefetchedAll
                           <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.laut)}</td>
                           <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
                           <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
+                          <td className="px-3 py-2 text-center">
+                            <button
+                              onClick={() => onAction?.(row)}
+                              className="p-1.5 rounded-lg bg-orange-600/10 text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-600/30 transition-all cursor-pointer"
+                              title="Deklarasikan perang nuklir"
+                            >
+                              <Radiation className="w-4 h-4" />
+                            </button>
+                          </td>
                         </tr>
                       ))
                     ) : (
                       <tr>
-                        <td colSpan={6} className="px-4 py-8 text-center text-[#8b7e66]">
+                        <td colSpan={7} className="px-4 py-8 text-center text-[#8b7e66]">
                           Data negara belum tersedia.
                         </td>
                       </tr>
