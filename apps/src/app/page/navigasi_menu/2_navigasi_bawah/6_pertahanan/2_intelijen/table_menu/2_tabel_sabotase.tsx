@@ -1,8 +1,9 @@
 "use client";
 import React, { useMemo, useState } from "react";
 import { Bomb } from "lucide-react";
-// 🔥 Sesuaikan path jika letak folder armadaLogic berbeda
 import { getArmadaPowerSummary } from "../../4_armada/logic/armadaLogic";
+// 🔥 Import modal konfirmasi sabotase
+import KonfirmasiSabotaseModals from "../modals_menu/konfirmasiSabotaseModals";
 
 type RankingRow = {
   countryName: string;
@@ -27,6 +28,10 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
     key: 'totalPower',
     direction: 'desc'
   });
+
+  // 🔥 State untuk menampung target & membuka modal
+  const [selectedTarget, setSelectedTarget] = useState<RankingRow | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const rawRankings = useMemo(() => {
     const source = Array.isArray(prefetchedAllCountries) ? prefetchedAllCountries : [];
@@ -81,6 +86,12 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
     return '';
   };
 
+  // 🔥 Fungsi saat tombol bom diklik
+  const handleOpenModal = (row: RankingRow) => {
+    setSelectedTarget(row);
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="w-full">
       <div className="overflow-hidden rounded-2xl border-2 border-[#C4B49C]/40 bg-white/80 shadow-sm">
@@ -117,8 +128,9 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
                   <td className="px-3 py-2 text-[#5c3c10]">{formatNumber(row.udara)}</td>
                   <td className="px-3 py-2 font-black text-rose-700">{formatNumber(row.totalPower)}</td>
                   <td className="px-3 py-2 text-center">
+                    {/* 🔥 Arahkan ke fungsi pembuka modal */}
                     <button
-                      onClick={() => onAction(row)}
+                      onClick={() => handleOpenModal(row)}
                       className="p-1.5 rounded-lg bg-orange-600/10 text-orange-700 hover:bg-orange-600 hover:text-white border border-orange-600/30 transition-all cursor-pointer"
                       title="Lancarkan operasi sabotase"
                     >
@@ -131,6 +143,19 @@ export default function Sabotase({ prefetchedAllCountries, onAction }: SabotaseP
           </table>
         </div>
       </div>
+
+      {/* 🔥 Rendering Modal Konfirmasi */}
+      {selectedTarget && (
+        <KonfirmasiSabotaseModals
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          targetCountry={selectedTarget}
+          onConfirm={() => {
+            setIsModalOpen(false);
+            onAction(selectedTarget);
+          }}
+        />
+      )}
     </div>
   );
 }
