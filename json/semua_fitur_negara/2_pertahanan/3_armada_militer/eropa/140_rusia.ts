@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const rusia_armada = {
-    "barak": 132,
     "darat": {
         "tank_tempur_utama": 14777,
         "apc_ifv": 30000,
@@ -30,3 +29,4 @@ const rusia_armada = {
         "pesawat_angkut": 400
       }
 };
+

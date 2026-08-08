@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const china_armada = {
-    "barak": 203,
     "darat": {
         "tank_tempur_utama": 5000,
         "apc_ifv": 35000,
@@ -30,3 +29,4 @@ const china_armada = {
         "pesawat_angkut": 300
       }
 };
+

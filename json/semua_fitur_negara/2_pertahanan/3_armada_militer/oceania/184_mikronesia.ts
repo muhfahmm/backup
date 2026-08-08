@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const mikronesia_armada = {
-    "barak": 0,
     "darat": {
         "tank_tempur_utama": 0,
         "apc_ifv": 0,

@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const brazil_armada = {
-    "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
         "apc_ifv": 20,
@@ -30,3 +29,4 @@ const brazil_armada = {
         "pesawat_angkut": 2
       }
 };
+

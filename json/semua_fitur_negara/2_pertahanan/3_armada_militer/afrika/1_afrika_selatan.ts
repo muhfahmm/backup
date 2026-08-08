@@ -1,7 +1,6 @@
-
+﻿
 // @ts-nocheck
 const afrika_selatan_armada = {
-    "barak": 1,
     "darat": {
         "tank_tempur_utama": 5,
         "apc_ifv": 10,

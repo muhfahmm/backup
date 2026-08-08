@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const prancis_armada = {
-    "barak": 20,
     "darat": {
         "tank_tempur_utama": 222,
         "apc_ifv": 6000,
@@ -30,3 +29,4 @@ const prancis_armada = {
         "pesawat_angkut": 100
       }
 };
+

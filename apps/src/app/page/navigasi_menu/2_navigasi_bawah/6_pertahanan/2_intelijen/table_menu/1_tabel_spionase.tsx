@@ -2,7 +2,7 @@
 import React, { useMemo, useState } from "react";
 import { Binoculars } from "lucide-react";
 import { getArmadaPowerSummary } from "../../4_armada/logic/armadaLogic";
-import KonfirmasiSpionaseModals from "../modals_menu/konfirmasiSpionaseModals";
+import KonfirmasiSpionaseModals from "../modals_konfirmasi/konfirmasiSpionaseModals";
 // 🔥 Import COUNTRIES_DATA untuk meng-enrich ISO
 import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
 

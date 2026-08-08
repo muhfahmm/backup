@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const gabon_armada = {
-    "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
         "apc_ifv": 20,
@@ -30,3 +29,4 @@ const gabon_armada = {
         "pesawat_angkut": 2
   }
 };
+

@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const estonia_armada = {
-    "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
         "apc_ifv": 20,
@@ -30,3 +29,4 @@ const estonia_armada = {
         "pesawat_angkut": 2
       }
 };
+

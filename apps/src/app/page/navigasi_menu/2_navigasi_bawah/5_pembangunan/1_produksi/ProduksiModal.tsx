@@ -23,7 +23,7 @@ import * as perikananRequirements from "./requirements_logic/1_produksi/6_perika
 import * as olahanPanganRequirements from "./requirements_logic/1_produksi/7_olahan_pangan/requirements";
 
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan";
+import KonfirmasiPembangunanModal from "./2_modals_konfirmasi_pembangunan/modalsKonfirmasiPembangunan";
 import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
 
 interface MaterialRequirement {

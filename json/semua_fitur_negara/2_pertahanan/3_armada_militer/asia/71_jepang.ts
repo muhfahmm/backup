@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const jepang_armada = {
-    "barak": 25,
     "darat": {
         "tank_tempur_utama": 518,
         "apc_ifv": 3000,
@@ -30,3 +29,4 @@ const jepang_armada = {
         "pesawat_angkut": 60
       }
 };
+

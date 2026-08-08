@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const tunisia_armada = {
-    "barak": 2,
     "darat": {
         "tank_tempur_utama": 0,
         "apc_ifv": 20,
@@ -34,3 +33,4 @@ const tunisia_armada = {
 
   }
 };
+

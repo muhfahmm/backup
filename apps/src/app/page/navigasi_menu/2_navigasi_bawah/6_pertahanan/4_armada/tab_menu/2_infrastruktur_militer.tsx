@@ -1,5 +1,8 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { Info } from "lucide-react";
+import { convertBarakToSoldiers } from "../logic/1_barak_logic";
+import KonfirmasiPembangunanModal from "../modals_konfirmasi_pembangunan/konfirmasi_pembangunan_modal";
 
 interface TabProps {
   countryDetail: any;
@@ -7,6 +10,18 @@ interface TabProps {
 }
 
 const infrastrukturData = {
+  barak: {
+    key: "barak",
+    label: "Barak",
+    deskripsi: "Pasukan Infanteri",
+    biaya_pembangunan: 0,
+    waktu_pembangunan: 0,
+    lowongan_kerja: 10000,
+    kapasitas: 1,
+    satuan_kapasitas: "Pasukan Infanteri",
+    konsumsi_listrik: 0.1,
+    isBarak: true
+  },
   gudang_senjata: {
     key: "gudang_senjata",
     label: "Gudang Senjata",
@@ -59,60 +74,105 @@ const formatNumber = (value: unknown) => {
 };
 
 const getNestedValue = (obj: any, key: string): number => {
+  // 🔥 Barak di tab Infrastruktur: JANGAN dikalikan 10000 (tampilkan nilai asli)
+  if (key === "barak") {
+    const barakCount = Number(obj?.[key] ?? 0) || Number(obj?.pertahanan?.[key] ?? 0) || 0;
+    return barakCount; // Return nilai asli, bukan convertBarakToSoldiers
+  }
+  
   if (obj?.[key] !== undefined && obj?.[key] !== null) return Number(obj[key]);
   if (obj?.pertahanan?.[key] !== undefined && obj?.pertahanan?.[key] !== null) return Number(obj.pertahanan[key]);
   return 0;
 };
 
 export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail }: TabProps) {
+  // 🔥 State untuk Modal Info
+  const [infoKey, setInfoKey] = useState<string | null>(null);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  
+  // 🔥 State untuk Modal Konfirmasi Pembangunan
+  const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
+  const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
+
+  const handleInfoClick = (key: string) => {
+    setInfoKey(key);
+    setIsInfoOpen(true);
+  };
+
+  const selectedItem = infoKey ? infrastrukturData[infoKey as keyof typeof infrastrukturData] : null;
+
   return (
-    <div className="space-y-4">
-      <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed mb-4">
+    <div className="space-y-6">
+      <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed">
         Fasilitas pendukung logistik dan pertahanan yang menjadi tulang punggung kekuatan militer nasional.
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+      <div className="grid grid-cols-5 gap-6">
         {(Object.keys(infrastrukturData) as (keyof typeof infrastrukturData)[]).map((key) => {
           const item = infrastrukturData[key];
           const value = getNestedValue(countryDetail, key);
 
           return (
-            <div key={key} className="rounded-xl border border-[#C4B49C]/40 bg-[#FAF6EE] p-3">
-              <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8b7e66]">{item.label}</div>
+            <div 
+              key={key}
+              onClick={() => {
+                setSelectedForBuild({ key, label: item.label });
+                setIsConfirmBuildOpen(true);
+              }}
+              className="relative rounded-2xl overflow-hidden flex flex-col transition-all bg-white/95 border-2 border-[#C4B49C]/30 shadow-md hover:shadow-lg hover:border-[#C4B49C]/50 cursor-pointer p-5 min-h-[180px]"
+            >
               
-              <div className="flex items-end justify-between gap-3 border-b border-[#C4B49C]/20 pb-2 mb-2">
-                <span className="text-xl font-black text-[#5c3c10]">{formatNumber(value)}</span>
-                {Number(value) > 0 && <span className="text-[10px] font-bold uppercase text-[#8b7e66]">{item.satuan_kapasitas || "Unit"}</span>}
+              <div className="flex items-start justify-between mb-3">
+                <p className="text-[11px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
+                  {item.label}
+                </p>
+                <button
+                  onClick={() => handleInfoClick(key)}
+                  className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-pointer"
+                >
+                  <Info className="w-4 h-4" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-y-1 text-[10px] font-bold text-[#6f5b42]">
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Biaya:</span>
-                  <span>{formatNumber(item.biaya_pembangunan)}</span>
-                </div>
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Waktu:</span>
-                  <span>{item.waktu_pembangunan} h.</span>
-                </div>
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Pekerja:</span>
-                  <span>{formatNumber(item.lowongan_kerja)}</span>
-                </div>
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Listrik:</span>
-                  <span>{formatNumber(item.konsumsi_listrik)} kW</span>
-                </div>
-                {item.kapasitas && (
-                  <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1 col-span-2">
-                    <span className="text-[#8b7e66]">Kapasitas:</span>
-                    <span>{formatNumber(item.kapasitas)} {item.satuan_kapasitas}</span>
+              <div className="flex flex-col justify-between flex-1">
+                <div>
+                  <div className="text-3xl font-black text-[#2e261a] mb-1">
+                    {formatNumber(value)}
                   </div>
-                )}
+                  <p className="text-[10px] font-bold text-[#8b7e66]">{item.satuan_kapasitas || "Unit"}</p>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
+
+      {/* 🔥 Modal Konfirmasi Pembangunan */}
+      {selectedForBuild && (
+        <KonfirmasiPembangunanModal
+          isOpen={isConfirmBuildOpen}
+          onClose={() => setIsConfirmBuildOpen(false)}
+          buildingLabel={selectedForBuild.label}
+          buildingDescription={selectedForBuild.label}
+          cost={0}
+          requirements={[]}
+          materialStocks={{}}
+          anggaran={Number(countryDetail?.anggaran) || 0}
+          missingMaterials={[]}
+          onConfirm={() => {
+            // TODO: Implement build logic
+            setIsConfirmBuildOpen(false);
+          }}
+          onMaterialClick={() => {}}
+          loadingMetadata={false}
+          isDisabled={false}
+          // 🔥 PROPS KAPASITAS BARAK - untuk detail breakdown
+          capacityType={selectedForBuild.key === "barak" ? "infanteri" : undefined}
+          currentCapacity={selectedForBuild.key === "barak" ? convertBarakToSoldiers(Number(getNestedValue(countryDetail, "barak"))) : undefined}
+          maxCapacity={selectedForBuild.key === "barak" ? 10000 : undefined}
+          currentBarakCount={selectedForBuild.key === "barak" ? Number(getNestedValue(countryDetail, "barak")) : undefined}
+        />
+      )}
     </div>
   );
 }

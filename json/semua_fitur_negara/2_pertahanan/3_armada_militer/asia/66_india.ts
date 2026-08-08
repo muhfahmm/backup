@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const india_armada = {
-    "barak": 145,
     "darat": {
         "tank_tempur_utama": 4614,
         "apc_ifv": 8500,
@@ -30,3 +29,4 @@ const india_armada = {
         "pesawat_angkut": 250
       }
 };
+

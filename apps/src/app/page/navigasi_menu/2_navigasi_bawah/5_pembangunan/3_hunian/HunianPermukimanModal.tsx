@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Home, TrendingUp, TrendingDown, Hammer, AlertCircle, Info } from "lucide-react";
-import InfoBangunanModal from "./1_modals_menu/info_bangunan_modals";
-import KonfirmasiPembangunanModal from "./1_modals_menu/modalsKonfirmasiPembangunan";
+import InfoBangunanModal from "./1_modals_info_bangunan/info_bangunan_modals";
+import KonfirmasiPembangunanModal from "./2_modals_konfirmasi_pembangunan/modalsKonfirmasiPembangunan";
 import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
 
 // 🟢 PERBAIKAN NAMA IMPOR AGAR KONSISTEN DENGAN NAMA FOLDER

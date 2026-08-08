@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const inggris_armada = {
-    "barak": 19,
     "darat": {
         "tank_tempur_utama": 213,
         "apc_ifv": 5000,
@@ -30,3 +29,4 @@ const inggris_armada = {
         "pesawat_angkut": 40
       }
 };
+

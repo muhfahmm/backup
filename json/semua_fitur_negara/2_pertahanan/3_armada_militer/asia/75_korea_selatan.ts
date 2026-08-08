@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const korea_selatan_armada = {
-    "barak": 60,
     "darat": {
         "tank_tempur_utama": 2501,
         "apc_ifv": 6600,
@@ -30,3 +29,4 @@ const korea_selatan_armada = {
         "pesawat_angkut": 40
       }
 };
+

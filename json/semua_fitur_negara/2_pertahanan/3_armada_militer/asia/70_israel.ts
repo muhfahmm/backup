@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const israel_armada = {
-    "barak": 17,
     "darat": {
         "tank_tempur_utama": 2200,
         "apc_ifv": 56000,
@@ -30,3 +29,4 @@ const israel_armada = {
         "pesawat_angkut": 15
       }
 };
+

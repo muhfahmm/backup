@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { X, Swords, Shield, Ship, Plane, ChevronDown, ChevronUp } from "lucide-react";
 import { getArmadaPowerSummary } from "../../4_armada/logic/armadaLogic";
+import { convertBarakToSoldiers } from "../../4_armada/logic/1_barak_logic";
 
 interface SerangModalsProps {
   isOpen: boolean;
@@ -62,13 +63,13 @@ const resolveQuantity = (source: any, group: ArmadaGroup, key: string) => {
   const block = payload[group] && typeof payload[group] === "object" ? payload[group] : {};
 
   if (key === "barak") {
-    // 🔥 Logika Baru: Pasukan Infanteri = Jumlah Barak * 10.000
+    // 🔥 Gunakan logika dari 1_barak_logic.ts
     const barakCount = Number(source?.barak ?? 0) ||
                     Number(payload?.barak ?? 0) ||
                     Number(block?.barak ?? 0) ||
                     Number(source?.armada?.barak ?? 0) ||
                     0;
-    return barakCount * 10000;
+    return convertBarakToSoldiers(barakCount);
   }
 
   return (

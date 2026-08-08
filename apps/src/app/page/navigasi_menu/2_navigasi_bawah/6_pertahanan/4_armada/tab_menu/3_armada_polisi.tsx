@@ -1,5 +1,7 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
+import { Info } from "lucide-react";
+import KonfirmasiPembangunanModal from "../modals_konfirmasi_pembangunan/konfirmasi_pembangunan_modal";
 
 interface TabProps {
   countryDetail: any;
@@ -12,6 +14,7 @@ const polisiData = {
     label: "Markas Besar Polri",
     biaya_pembangunan: 93750,
     waktu_pembangunan: 90,
+    lowongan_kerja: 45000,
     konsumsi_listrik: 1,
     satuan: "Unit"
   },
@@ -20,6 +23,7 @@ const polisiData = {
     label: "Akademi Kepolisian",
     biaya_pembangunan: 33750,
     waktu_pembangunan: 60,
+    lowongan_kerja: 8500,
     konsumsi_listrik: 0.8,
     satuan: "Unit"
   },
@@ -28,6 +32,7 @@ const polisiData = {
     label: "Pusat Forensik",
     biaya_pembangunan: 26250,
     waktu_pembangunan: 60,
+    lowongan_kerja: 2500,
     konsumsi_listrik: 0.5,
     satuan: "Unit"
   },
@@ -36,6 +41,7 @@ const polisiData = {
     label: "Kantor Polisi",
     biaya_pembangunan: 18750,
     waktu_pembangunan: 30,
+    lowongan_kerja: 5500,
     konsumsi_listrik: 0.5,
     satuan: "Unit"
   },
@@ -44,6 +50,7 @@ const polisiData = {
     label: "Pos Polisi",
     biaya_pembangunan: 7500,
     waktu_pembangunan: 30,
+    lowongan_kerja: 1200,
     konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
@@ -52,6 +59,7 @@ const polisiData = {
     label: "Network CCTV",
     biaya_pembangunan: 11250,
     waktu_pembangunan: 5,
+    lowongan_kerja: 800,
     konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
@@ -60,6 +68,8 @@ const polisiData = {
     label: "Armada Mobil Polisi",
     biaya_pembangunan: 3750,
     waktu_pembangunan: 15,
+    lowongan_kerja: 500,
+    konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
   mobil_patroli_interceptor: {
@@ -67,6 +77,8 @@ const polisiData = {
     label: "Mobil Patroli Interceptor",
     biaya_pembangunan: 2250,
     waktu_pembangunan: 15,
+    lowongan_kerja: 200,
+    konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
   unit_roda_dua: {
@@ -74,6 +86,8 @@ const polisiData = {
     label: "Unit Roda Dua",
     biaya_pembangunan: 1125,
     waktu_pembangunan: 7,
+    lowongan_kerja: 100,
+    konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
   helikopter_polisi: {
@@ -81,6 +95,8 @@ const polisiData = {
     label: "Helikopter Polisi",
     biaya_pembangunan: 33750,
     waktu_pembangunan: 90,
+    lowongan_kerja: 1500,
+    konsumsi_listrik: 0.1,
     satuan: "Unit"
   },
   unit_k9: {
@@ -88,6 +104,8 @@ const polisiData = {
     label: "Unit K9",
     biaya_pembangunan: 2250,
     waktu_pembangunan: 7,
+    lowongan_kerja: 800,
+    konsumsi_listrik: 25,
     satuan: "Unit"
   },
   pasukan_swat: {
@@ -95,6 +113,17 @@ const polisiData = {
     label: "Pasukan SWAT",
     biaya_pembangunan: 26250,
     waktu_pembangunan: 60,
+    lowongan_kerja: 8500,
+    konsumsi_listrik: 0.1,
+    satuan: "Unit"
+  },
+  samapta: {
+    key: "samapta",
+    label: "Samapta",
+    biaya_pembangunan: 15000,
+    waktu_pembangunan: 30,
+    lowongan_kerja: 12000,
+    konsumsi_listrik: 0.1,
     satuan: "Unit"
   }
 };
@@ -111,46 +140,88 @@ const getNestedValue = (obj: any, key: string): number => {
 };
 
 export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCountryDetail }: TabProps) {
+  // 🔥 State untuk Modal Info
+  const [infoKey, setInfoKey] = useState<string | null>(null);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
+  
+  // 🔥 State untuk Modal Konfirmasi Pembangunan
+  const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
+  const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
+
+  const handleInfoClick = (key: string) => {
+    setInfoKey(key);
+    setIsInfoOpen(true);
+  };
+
+  const selectedItem = infoKey ? polisiData[infoKey as keyof typeof polisiData] : null;
+
   return (
-    <div className="space-y-4">
-      <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed mb-4">
+    <div className="space-y-6">
+      <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed">
         Perangkat keamanan dalam negeri yang berperan menjaga stabilitas dan ketertiban masyarakat dari tingkat nasional hingga daerah.
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
+      <div className="grid grid-cols-5 gap-6">
         {(Object.keys(polisiData) as (keyof typeof polisiData)[]).map((key) => {
           const item = polisiData[key];
           const value = getNestedValue(countryDetail, key);
 
           return (
-            <div key={key} className="rounded-xl border border-[#C4B49C]/40 bg-[#FAF6EE] p-3">
-              <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8b7e66]">{item.label}</div>
+            <div 
+              key={key}
+              onClick={() => {
+                setSelectedForBuild({ key, label: item.label });
+                setIsConfirmBuildOpen(true);
+              }}
+              className="relative rounded-2xl overflow-hidden flex flex-col transition-all bg-white/95 border-2 border-[#C4B49C]/30 shadow-md hover:shadow-lg hover:border-[#C4B49C]/50 cursor-pointer p-5 min-h-[180px]"
+            >
               
-              <div className="flex items-end justify-between gap-3 border-b border-[#C4B49C]/20 pb-2 mb-2">
-                <span className="text-xl font-black text-[#5c3c10]">{formatNumber(value)}</span>
-                {Number(value) > 0 && <span className="text-[10px] font-bold uppercase text-[#8b7e66]">{item.satuan}</span>}
+              <div className="flex items-start justify-between mb-3">
+                <p className="text-[11px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
+                  {item.label}
+                </p>
+                <button
+                  onClick={() => handleInfoClick(key)}
+                  className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-pointer"
+                >
+                  <Info className="w-4 h-4" />
+                </button>
               </div>
 
-              <div className="grid grid-cols-2 gap-2 text-[10px] font-bold text-[#6f5b42]">
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Biaya:</span>
-                  <span>{formatNumber(item.biaya_pembangunan)}</span>
-                </div>
-                <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1">
-                  <span className="text-[#8b7e66]">Waktu:</span>
-                  <span>{item.waktu_pembangunan} h.</span>
-                </div>
-                {(item as any).konsumsi_listrik !== undefined && (item as any).konsumsi_listrik !== null && Number((item as any).konsumsi_listrik) > 0 && (
-                  <div className="flex justify-between items-center rounded-md bg-[#efe7d5] px-2 py-1 col-span-2">
-                    <span className="text-[#8b7e66]">Listrik:</span>
-                    <span>{formatNumber((item as any).konsumsi_listrik)} kW</span>
+              <div className="flex flex-col justify-between flex-1">
+                <div>
+                  <div className="text-3xl font-black text-[#2e261a] mb-1">
+                    {formatNumber(value)}
                   </div>
-                )}
+                  <p className="text-[10px] font-bold text-[#8b7e66]">{item.satuan}</p>
+                </div>
               </div>
             </div>
           );
         })}
       </div>
+
+      {/* 🔥 Modal Konfirmasi Pembangunan */}
+      {selectedForBuild && (
+        <KonfirmasiPembangunanModal
+          isOpen={isConfirmBuildOpen}
+          onClose={() => setIsConfirmBuildOpen(false)}
+          buildingLabel={selectedForBuild.label}
+          buildingDescription={selectedForBuild.label}
+          cost={0}
+          requirements={[]}
+          materialStocks={{}}
+          anggaran={Number(countryDetail?.anggaran) || 0}
+          missingMaterials={[]}
+          onConfirm={() => {
+            // TODO: Implement build logic
+            setIsConfirmBuildOpen(false);
+          }}
+          onMaterialClick={() => {}}
+          loadingMetadata={false}
+          isDisabled={false}
+        />
+      )}
     </div>
   );
 }

@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const amerika_serikat_armada = {
-    "barak": 133,
     "darat": {
         "tank_tempur_utama": 4650,
         "apc_ifv": 45000,
@@ -30,3 +29,4 @@ const amerika_serikat_armada = {
         "pesawat_angkut": 900
       }
 };
+

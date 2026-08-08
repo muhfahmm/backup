@@ -3,7 +3,7 @@ import React from "react";
 import { Info } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
 import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
-import InfoBangunan from "./1_modals_menu/info_bangunan_modals";
+import InfoBangunan from "./1_modals_info_bangunan/info_bangunan_modals";
 import { getMaterialStock } from "../build_logic/build_logic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [

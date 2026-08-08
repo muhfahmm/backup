@@ -1,6 +1,5 @@
-// @ts-nocheck
+﻿// @ts-nocheck
 const indonesia_armada = {
-    "barak": 40,
     "darat": {
       "tank_tempur_utama": 313,
       "apc_ifv": 1200,
@@ -30,3 +29,4 @@ const indonesia_armada = {
       "pesawat_angkut": 54
     }
 };
+
