@@ -13,6 +13,5 @@ const uni_emirat_arab_kepolisian = {
       "helikopter_polisi": 31,
       "unit_k9": 23,
       "pasukan_swat": 28,
-      "samapta": 62
     }
   };

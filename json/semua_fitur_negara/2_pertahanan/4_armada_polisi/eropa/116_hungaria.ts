@@ -13,6 +13,5 @@ const hungaria_kepolisian = {
       "helikopter_polisi": 32,
       "unit_k9": 23,
       "pasukan_swat": 31,
-      "samapta": 62
     }
   };

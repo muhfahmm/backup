@@ -8,7 +8,6 @@
     "deskripsi": "Pendidikan Anak Usia Dini (PAUD)",
     "waktu_pembangunan": 5,
     "biaya_pembangunan": 6000,
-    "lowongan_kerja": 800,
     "konsumsi_listrik": 0.2,
     "efek": "Mempercepat waktu penelitian sebesar 0.1%"
   },
@@ -21,7 +20,6 @@
     "deskripsi": "Pendidikan Dasar (SD)",
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 9000,
-    "lowongan_kerja": 1500,
     "konsumsi_listrik": 0.4,
     "efek": "Mempercepat waktu penelitian sebesar 0.3%"
   },
@@ -34,7 +32,6 @@
     "deskripsi": "Pendidikan Menengah (SMP)",
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 13500,
-    "lowongan_kerja": 3500,
     "konsumsi_listrik": 0.6,
     "efek": "Mempercepat waktu penelitian sebesar 0.5%"
   },
@@ -47,7 +44,6 @@
     "deskripsi": "Pendidikan Lanjutan (SMA/SMK)",
     "waktu_pembangunan": 12,
     "biaya_pembangunan": 18750,
-    "lowongan_kerja": 5500,
     "konsumsi_listrik": 0.8,
     "efek": "Mempercepat waktu penelitian sebesar 0.7%"
   },
@@ -60,7 +56,6 @@
     "deskripsi": "Perguruan Tinggi / Universitas",
     "waktu_pembangunan": 40,
     "biaya_pembangunan": 71250,
-    "lowongan_kerja": 15000,
     "konsumsi_listrik": 1,
     "efek": "Mempercepat waktu penelitian sebesar 0.9%"
   },
@@ -73,7 +68,6 @@
     "deskripsi": "Lembaga Pelatihan & Vokasi",
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 30000,
-    "lowongan_kerja": 4500,
     "konsumsi_listrik": 0.5,
     "efek": "Mempercepat waktu penelitian sebesar 0.12%"
   },
@@ -86,7 +80,6 @@
     "deskripsi": "Laboratorium Penelitian & Sains",
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 56250,
-    "lowongan_kerja": 5500,
     "konsumsi_listrik": 1,
     "efek": "Mempercepat waktu penelitian sebesar 0.15%"
   },
@@ -99,7 +92,6 @@
     "deskripsi": "Observatorium Astronomi Nasional",
     "waktu_pembangunan": 25,
     "biaya_pembangunan": 45000,
-    "lowongan_kerja": 1200,
     "konsumsi_listrik": 1,
     "efek": "Mempercepat waktu penelitian sebesar 0.17%"
   },
@@ -112,7 +104,6 @@
     "deskripsi": "Pusat Penelitian Strategis",
     "waktu_pembangunan": 50,
     "biaya_pembangunan": 93750,
-    "lowongan_kerja": 8500,
     "konsumsi_listrik": 1,
     "efek": "Mempercepat waktu penelitian sebesar 0.19%"
   },
@@ -125,7 +116,6 @@
     "deskripsi": "Pusat Inovasi & Teknologi",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 41250,
-    "lowongan_kerja": 6000,
     "konsumsi_listrik": 1,
     "efek": "Mempercepat waktu penelitian sebesar 0.21%"
   }

@@ -13,6 +13,5 @@ const sierra_leone_kepolisian = {
       "helikopter_polisi": 29,
       "unit_k9": 23,
       "pasukan_swat": 15,
-      "samapta": 62
     }
   };

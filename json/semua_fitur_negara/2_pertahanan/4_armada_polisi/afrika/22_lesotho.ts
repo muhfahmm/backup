@@ -13,6 +13,5 @@ const lesotho_kepolisian = {
       "helikopter_polisi": 29,
       "unit_k9": 23,
       "pasukan_swat": 22,
-      "samapta": 62
     }
   };

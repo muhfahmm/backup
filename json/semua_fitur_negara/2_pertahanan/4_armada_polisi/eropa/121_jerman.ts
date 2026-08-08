@@ -13,6 +13,5 @@ const jerman_kepolisian = {
       "helikopter_polisi": 40,
       "unit_k9": 23,
       "pasukan_swat": 21,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const madagaskar_kepolisian = {
       "helikopter_polisi": 38,
       "unit_k9": 23,
       "pasukan_swat": 12,
-      "samapta": 62
     }
   };

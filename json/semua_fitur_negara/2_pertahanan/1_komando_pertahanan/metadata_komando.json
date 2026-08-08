@@ -6,7 +6,6 @@
     "deskripsi": "Pusat Komando Strategis Nasional",
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 900,
-    "lowongan_kerja": 15000,
     "konsumsi_listrik": 0.5
   },
   "bunker_komando": {
@@ -16,7 +15,6 @@
     "deskripsi": "Bunker Komando Pertahanan Nasional",
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 637.5,
-    "lowongan_kerja": 8000,
     "konsumsi_listrik": 0.5
   },
   "pusat_komando_wilayah": {
@@ -26,7 +24,6 @@
     "deskripsi": "Pusat Komando Operasi Wilayah",
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 337.5,
-    "lowongan_kerja": 12000,
     "konsumsi_listrik": 0.5
   },
   "program_nuklir": {

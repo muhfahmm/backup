@@ -13,6 +13,5 @@ const republik_demokratik_kongo_kepolisian = {
       "helikopter_polisi": 31,
       "unit_k9": 23,
       "pasukan_swat": 36,
-      "samapta": 62
     }
   };

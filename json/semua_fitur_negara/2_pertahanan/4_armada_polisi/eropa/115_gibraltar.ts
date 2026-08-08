@@ -13,6 +13,5 @@ const gibraltar_kepolisian = {
       "helikopter_polisi": 6,
       "unit_k9": 23,
       "pasukan_swat": 31,
-      "samapta": 62
     }
   };

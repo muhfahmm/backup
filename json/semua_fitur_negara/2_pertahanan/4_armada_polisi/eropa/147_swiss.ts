@@ -13,6 +13,5 @@ const swiss_kepolisian = {
       "helikopter_polisi": 22,
       "unit_k9": 23,
       "pasukan_swat": 38,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const bahama_kepolisian = {
       "helikopter_polisi": 16,
       "unit_k9": 23,
       "pasukan_swat": 39,
-      "samapta": 62
     }
   };

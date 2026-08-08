@@ -13,6 +13,5 @@ const siprus_kepolisian = {
       "helikopter_polisi": 34,
       "unit_k9": 23,
       "pasukan_swat": 27,
-      "samapta": 62
     }
   };

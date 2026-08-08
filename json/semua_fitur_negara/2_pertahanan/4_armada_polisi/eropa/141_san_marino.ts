@@ -13,6 +13,5 @@ const san_marino_kepolisian = {
       "helikopter_polisi": 3,
       "unit_k9": 23,
       "pasukan_swat": 40,
-      "samapta": 62
     }
   };

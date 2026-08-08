@@ -13,6 +13,5 @@ const saint_kitts_dan_nevis_kepolisian = {
       "helikopter_polisi": 31,
       "unit_k9": 23,
       "pasukan_swat": 34,
-      "samapta": 62
     }
   };

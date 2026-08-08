@@ -13,6 +13,5 @@ const tanjung_verde_kepolisian = {
       "helikopter_polisi": 7,
       "unit_k9": 23,
       "pasukan_swat": 23,
-      "samapta": 62
     }
   };

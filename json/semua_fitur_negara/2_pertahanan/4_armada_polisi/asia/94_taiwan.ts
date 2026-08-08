@@ -13,6 +13,5 @@ const taiwan_kepolisian = {
       "helikopter_polisi": 13,
       "unit_k9": 23,
       "pasukan_swat": 13,
-      "samapta": 62
     }
   };

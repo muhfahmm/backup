@@ -7,7 +7,6 @@
     "deskripsi": "Penyimpanan Amunisi",
     "biaya_pembangunan": 26250,
     "waktu_pembangunan": 30,
-    "lowongan_kerja": 100,
     "kapasitas": 10000,
     "satuan_kapasitas": "Unit Amunisi",
     "konsumsi_listrik": 0.5
@@ -20,7 +19,6 @@
     "deskripsi": "Garasi Tempur",
     "biaya_pembangunan": 63750,
     "waktu_pembangunan": 30,
-    "lowongan_kerja": 150,
     "kapasitas": 50,
     "satuan_kapasitas": "Main Battle Tank",
     "konsumsi_listrik": 0.5
@@ -33,7 +31,6 @@
     "deskripsi": "Fasilitas Dirgantara",
     "biaya_pembangunan": 337500,
     "waktu_pembangunan": 60,
-    "lowongan_kerja": 500,
     "kapasitas": 24,
     "satuan_kapasitas": "Pesawat Tempur",
     "konsumsi_listrik": 0.5
@@ -46,7 +43,6 @@
     "deskripsi": "Fasilitas Maritim",
     "biaya_pembangunan": 412500,
     "waktu_pembangunan": 120,
-    "lowongan_kerja": 450,
     "kapasitas": 12,
     "satuan_kapasitas": "Kapal Perang",
     "konsumsi_listrik": 0.5

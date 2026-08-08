@@ -13,6 +13,5 @@ const venezuela_kepolisian = {
       "helikopter_polisi": 2,
       "unit_k9": 23,
       "pasukan_swat": 20,
-      "samapta": 62
     }
   };

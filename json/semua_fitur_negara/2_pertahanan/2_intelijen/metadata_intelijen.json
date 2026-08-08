@@ -6,7 +6,6 @@
     "deskripsi": "Sistem Satelit Intelijen Strategis Nasional",
     "biaya_pembangunan": 112500,
     "waktu_pembangunan": 90,
-    "lowongan_kerja": 4500,
     "konsumsi_listrik": 0.5
   },
   "jaringan_radar": {
@@ -16,7 +15,6 @@
     "deskripsi": "Jaringan Radar Pertahanan Nasional Terpadu",
     "biaya_pembangunan": 63750,
     "waktu_pembangunan": 30,
-    "lowongan_kerja": 3500,
     "konsumsi_listrik": 0.5
   },
   "operasi_siber": {
@@ -26,7 +24,6 @@
     "deskripsi": "Pusat Operasi Intelijen & Pertahanan Siber",
     "biaya_pembangunan": 48750,
     "waktu_pembangunan": 60,
-    "lowongan_kerja": 12000,
     "konsumsi_listrik": 0.5
   }
 }

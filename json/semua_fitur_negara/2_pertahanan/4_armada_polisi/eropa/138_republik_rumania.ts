@@ -13,6 +13,5 @@ const republik_rumania_kepolisian = {
       "helikopter_polisi": 28,
       "unit_k9": 23,
       "pasukan_swat": 27,
-      "samapta": 62
     }
   };

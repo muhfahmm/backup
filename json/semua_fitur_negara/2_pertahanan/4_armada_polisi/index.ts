@@ -148,17 +148,5 @@ export const armadaPolisiRate = {
     lowongan_kerja: 8500,
     konsumsi_listrik: 150,
     satuan: "Unit"
-  },
-  "13_anti_huru_hara": {
-    key: "13_anti_huru_hara",
-    dataKey: "samapta",
-    label: "Pasukan Samapta & Pengamanan",
-    deskripsi: "Pemeliharaan Ketertiban & Anti Huru-Hara",
-    biaya_pembangunan: 15000, // Reduced from 20M
-    waktu_pembangunan: 30,
-
-    lowongan_kerja: 12000,
-    konsumsi_listrik: 85,
-    satuan: "Unit"
-  },
+  }
 };

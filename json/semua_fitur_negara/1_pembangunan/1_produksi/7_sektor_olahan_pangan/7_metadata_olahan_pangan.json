@@ -8,7 +8,6 @@
     "satuan": "LITER",
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 1500,
-    "lowongan_kerja": 4500,
     "konsumsi_listrik": 35
   },
   "gula": {
@@ -20,7 +19,6 @@
     "satuan": "TON",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 5500,
-    "lowongan_kerja": 8000,
     "konsumsi_listrik": 30
   },
   "roti": {
@@ -32,7 +30,6 @@
     "satuan": "UNIT",
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 1400,
-    "lowongan_kerja": 3500,
     "konsumsi_listrik": 30
   },
   "pengolahan_daging": {
@@ -44,7 +41,6 @@
     "satuan": "TON",
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 6000,
-    "lowongan_kerja": 6500,
     "konsumsi_listrik": 20
   },
   "mie_instan": {
@@ -56,7 +52,6 @@
     "satuan": "UNIT",
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 3500,
-    "lowongan_kerja": 7500,
     "konsumsi_listrik": 25
   },
   "minyak_goreng": {
@@ -68,7 +63,6 @@
     "satuan": "TON",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 4500,
-    "lowongan_kerja": 6000,
     "konsumsi_listrik": 30
   },
   "susu": {
@@ -80,7 +74,6 @@
     "satuan": "LITER",
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 2800,
-    "lowongan_kerja": 5000,
     "konsumsi_listrik": 30
   }
 }

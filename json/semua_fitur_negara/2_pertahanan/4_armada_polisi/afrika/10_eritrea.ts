@@ -13,6 +13,5 @@ const eritrea_kepolisian = {
       "helikopter_polisi": 36,
       "unit_k9": 23,
       "pasukan_swat": 32,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const belgia_kepolisian = {
       "helikopter_polisi": 27,
       "unit_k9": 23,
       "pasukan_swat": 7,
-      "samapta": 62
     }
   };

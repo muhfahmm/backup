@@ -13,6 +13,5 @@ const grenada_kepolisian = {
       "helikopter_polisi": 5,
       "unit_k9": 23,
       "pasukan_swat": 33,
-      "samapta": 62
     }
   };

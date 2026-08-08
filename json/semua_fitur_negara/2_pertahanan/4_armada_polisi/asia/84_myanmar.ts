@@ -13,6 +13,5 @@ const myanmar_kepolisian = {
       "helikopter_polisi": 13,
       "unit_k9": 23,
       "pasukan_swat": 33,
-      "samapta": 62
     }
   };

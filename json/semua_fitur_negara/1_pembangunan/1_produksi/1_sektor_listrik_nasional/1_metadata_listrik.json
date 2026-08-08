@@ -8,7 +8,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 360,
     "biaya_pembangunan": 10000,
-    "lowongan_kerja": 2500,
     "konsumsi_listrik": 0,
     "konsumsi_uranium": 5
   },
@@ -21,7 +20,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 180,
     "biaya_pembangunan": 5000,
-    "lowongan_kerja": 800,
     "konsumsi_listrik": 0
   },
   "pembangkit_listrik_tenaga_surya": {
@@ -33,7 +31,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 45,
     "biaya_pembangunan": 2000,
-    "lowongan_kerja": 200,
     "konsumsi_listrik": 0
   },
   "pembangkit_listrik_tenaga_uap": {
@@ -45,7 +42,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 3000,
-    "lowongan_kerja": 1500,
     "konsumsi_listrik": 0
   },
   "pembangkit_listrik_tenaga_gas": {
@@ -57,7 +53,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 3000,
-    "lowongan_kerja": 1000,
     "konsumsi_listrik": 0
   },
   "pembangkit_listrik_tenaga_angin": {
@@ -69,7 +64,6 @@
     "satuan": "MW",
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 1500,
-    "lowongan_kerja": 150,
     "konsumsi_listrik": 0
   }
 }

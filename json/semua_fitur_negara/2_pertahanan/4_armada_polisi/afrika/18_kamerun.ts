@@ -13,6 +13,5 @@ const kamerun_kepolisian = {
       "helikopter_polisi": 38,
       "unit_k9": 23,
       "pasukan_swat": 40,
-      "samapta": 62
     }
   };

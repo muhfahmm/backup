@@ -13,6 +13,5 @@ const turki_kepolisian = {
       "helikopter_polisi": 30,
       "unit_k9": 23,
       "pasukan_swat": 18,
-      "samapta": 62
     }
   };

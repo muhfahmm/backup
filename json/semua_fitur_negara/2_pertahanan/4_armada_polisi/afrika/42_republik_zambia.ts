@@ -13,6 +13,5 @@ const republik_zambia_kepolisian = {
       "helikopter_polisi": 7,
       "unit_k9": 23,
       "pasukan_swat": 36,
-      "samapta": 62
     }
   };

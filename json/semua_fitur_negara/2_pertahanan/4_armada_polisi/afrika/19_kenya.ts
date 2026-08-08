@@ -13,6 +13,5 @@ const kenya_kepolisian = {
       "helikopter_polisi": 39,
       "unit_k9": 23,
       "pasukan_swat": 11,
-      "samapta": 62
     }
   };

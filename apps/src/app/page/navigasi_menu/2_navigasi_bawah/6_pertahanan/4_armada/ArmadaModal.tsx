@@ -1,7 +1,9 @@
 "use client"
-import React from "react";
-import { X, ShieldAlert, Swords, Ship, Plane } from "lucide-react";
-import { getArmadaUnitBreakdown } from "./logic/armadaLogic";
+import React, { useState } from "react";
+import { X, ShieldAlert, Swords, Building2, Shield } from "lucide-react";
+import ArmadaAktif from "./tab_menu/1_armada_aktif";
+import InfrastrukturMiliter from "./tab_menu/2_infrastruktur_militer";
+import ArmadaPolisi from "./tab_menu/3_armada_polisi";
 
 interface ModalProps {
   isOpen: boolean;
@@ -10,52 +12,10 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
 }
 
-// 🔥 Sama persis dengan armadaCatalog di SerangModals (Label dan struktur diubah)
-const armadaCatalog = {
-  darat: [
-    { key: "barak", label: "Pasukan Infanteri" }, // 🔥 Diubah dari Barak Militer
-    { key: "tank_tempur_utama", label: "Tank Tempur Utama" },
-    { key: "apc_ifv", label: "APC / IFV" },
-    { key: "artileri_berat", label: "Artileri Berat" },
-    { key: "sistem_peluncur_roket", label: "Sistem Peluncur Roket" },
-    { key: "pertahanan_udara_mobile", label: "Pertahanan Udara Mobile" },
-    { key: "kendaraan_taktis", label: "Kendaraan Taktis" },
-  ],
-  laut: [
-    { key: "kapal_induk", label: "Kapal Induk" },
-    { key: "kapal_induk_nuklir", label: "Kapal Induk Nuklir" },
-    { key: "kapal_destroyer", label: "Kapal Destroyer" },
-    { key: "kapal_korvet", label: "Kapal Korvet" },
-    { key: "kapal_selam_nuklir", label: "Kapal Selam Nuklir" },
-    { key: "kapal_selam_regular", label: "Kapal Selam Reguler" },
-    { key: "kapal_ranjau", label: "Kapal Ranjau" },
-    { key: "kapal_logistik", label: "Kapal Logistik" },
-  ],
-  udara: [
-    { key: "jet_tempur_siluman", label: "Jet Tempur Siluman" },
-    { key: "jet_tempur_interceptor", label: "Jet Tempur Interceptor" },
-    { key: "pesawat_pengebom", label: "Pesawat Pengebom" },
-    { key: "helikopter_serang", label: "Helikopter Serang" },
-    { key: "pesawat_pengintai", label: "Pesawat Pengintai" },
-    { key: "drone_intai_uav", label: "Drone Intai UAV" },
-    { key: "drone_kamikaze", label: "Drone Kamikaze" },
-    { key: "pesawat_angkut", label: "Pesawat Angkut" },
-  ],
-};
-
-const groupMeta = {
-  darat: { title: "Darat", icon: Swords, accent: "from-rose-700 to-orange-600" },
-  laut: { title: "Laut", icon: Ship, accent: "from-sky-700 to-cyan-600" },
-  udara: { title: "Udara", icon: Plane, accent: "from-indigo-700 to-violet-600" },
-};
-
-const formatNumber = (value: unknown) => {
-  const numeric = Number(value ?? 0);
-  return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
-};
-
 export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
   if (!isOpen) return null;
+
+  const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
 
   const countryName =
     countryDetail?.country ||
@@ -64,72 +24,8 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
     countryDetail?.name_en ||
     "Negara";
 
-  const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
-  const unitBreakdown = getArmadaUnitBreakdown(payload);
-
-  // 🔥 Fungsi Helper untuk mengambil kuantitas unit (Sama persis dengan logika perhitungan di SerangModals)
-  const resolveQuantity = (dataBlock: any, group: string, key: string) => {
-    if (key === "barak") {
-      // 🔥 Logika Barak: Jumlah bangunan Barak * 10.000
-      const barakCount = Number(payload?.barak ?? dataBlock?.barak ?? 0);
-      return barakCount * 10000;
-    }
-
-    // 🔥 Unit lainnya mengambil nilai langsung
-    return Number(dataBlock[key] ?? 0);
-  };
-
-  const renderGroup = (group: keyof typeof armadaCatalog) => {
-    const Icon = groupMeta[group].icon;
-    const dataBlock = payload[group] && typeof payload[group] === "object" ? payload[group] : {};
-
-    return (
-      <section key={group} className="rounded-2xl border-2 border-[#C4B49C]/45 bg-white/70 p-4 shadow-sm">
-        <div className="mb-4 flex items-center gap-3">
-          <div className={`rounded-xl bg-gradient-to-br ${groupMeta[group].accent} p-2 text-white shadow-sm`}>
-            <Icon className="h-4 w-4" />
-          </div>
-          <div>
-            <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#5c3c10]">{groupMeta[group].title}</h3>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3">
-          {armadaCatalog[group].map((item) => {
-            // 🔥 Gunakan resolveQuantity untuk mendapatkan jumlah unit (konsisten dengan SerangModals)
-            const value = resolveQuantity(dataBlock, group, item.key);
-            const summary = unitBreakdown.find((entry) => entry.dataKey === item.key);
-            
-            // Total Power (Kekuatan Gabungan)
-            const totalPower = summary?.totalPower ?? 0;
-
-            // 🔥 PERBAIKAN: Menampilkan Total HP dari semua unit (bukan HP per unit)
-            // Di sini kita langsung mengambil summary.totalHealth
-            const totalHealth = summary?.totalHealth ?? 0;
-
-            return (
-              <div key={`${group}-${item.key}`} className="rounded-xl border border-[#C4B49C]/40 bg-[#FAF6EE] p-3">
-                <div className="mb-2 text-[10px] font-black uppercase tracking-[0.2em] text-[#8b7e66]">{item.label}</div>
-                <div className="flex items-end justify-between gap-3">
-                  {/* 🔥 Jika value = 0, jangan tampilkan "0", tapi tetap tampilkan unit sebagai "-" */}
-                  <span className="text-xl font-black text-[#5c3c10]">{value > 0 ? formatNumber(value) : "-"}</span>
-                  {value > 0 && <span className="text-[10px] font-bold uppercase text-[#8b7e66]">unit</span>}
-                </div>
-                <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] font-bold text-[#6f5b42]">
-                  <div className="rounded-md bg-[#efe7d5] px-2 py-1">Kekuatan: {formatNumber(totalPower)}</div>
-                  <div className="rounded-md bg-[#efe7d5] px-2 py-1">Total HP: {formatNumber(totalHealth)}</div>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
-    );
-  };
-
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      {/* 🔥 PERBAIKAN: Mengubah max-w-7xl menjadi max-w-6xl agar ukurannya mengecil dan konsisten */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
@@ -138,7 +34,7 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
             <div className="flex items-center gap-3">
               <ShieldAlert className="h-6 w-6 text-rose-700 animate-pulse" />
               <div>
-                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Armada</h2>
+                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">Pertahanan & Keamanan</h2>
                 <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#8b7e66] mt-1">{countryName}</p>
               </div>
             </div>
@@ -150,12 +46,22 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
         </div>
 
         <div className="flex-1 min-h-0 overflow-y-auto p-6 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
-          <div className="mb-4 text-xs font-semibold text-[#8b7e66] leading-relaxed">
-            Inventaris alutsista negara dipisahkan berdasarkan kelompok operasional untuk memudahkan evaluasi kekuatan darat, laut, dan udara.
+          <div className="bg-[#e4dac3]/40 p-1 rounded-xl border border-[#C4B49C]/40 inline-flex mb-6 shadow-sm">
+            <button onClick={() => setActiveTab("aktif")} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "aktif" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>
+              <Swords className="w-4 h-4" /> Armada Aktif
+            </button>
+            <button onClick={() => setActiveTab("infrastruktur")} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "infrastruktur" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>
+              <Building2 className="w-4 h-4" /> Infrastruktur
+            </button>
+            <button onClick={() => setActiveTab("polisi")} className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${activeTab === "polisi" ? "bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20" : "text-[#8b7e66] hover:text-[#5c3c10]"}`}>
+              <Shield className="w-4 h-4" /> Armada Polisi
+            </button>
           </div>
 
           <div className="space-y-4">
-            {Object.keys(groupMeta).map((group) => renderGroup(group as keyof typeof armadaCatalog))}
+            {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
+            {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
+            {activeTab === "polisi" && <ArmadaPolisi countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
           </div>
         </div>
       </div>

@@ -13,6 +13,5 @@ const argentina_kepolisian = {
       "helikopter_polisi": 19,
       "unit_k9": 23,
       "pasukan_swat": 18,
-      "samapta": 62
     }
   };

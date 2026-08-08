@@ -13,6 +13,5 @@ const jepang_kepolisian = {
       "helikopter_polisi": 23,
       "unit_k9": 23,
       "pasukan_swat": 8,
-      "samapta": 62
     }
   };

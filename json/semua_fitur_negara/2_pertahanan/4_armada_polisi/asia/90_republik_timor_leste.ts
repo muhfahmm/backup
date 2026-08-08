@@ -13,6 +13,5 @@ const republik_timor_leste_kepolisian = {
       "helikopter_polisi": 12,
       "unit_k9": 23,
       "pasukan_swat": 2,
-      "samapta": 62
     }
   };

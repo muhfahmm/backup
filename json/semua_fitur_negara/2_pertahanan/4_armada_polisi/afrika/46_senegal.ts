@@ -13,6 +13,5 @@ const senegal_kepolisian = {
       "helikopter_polisi": 15,
       "unit_k9": 23,
       "pasukan_swat": 27,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const tonga_kepolisian = {
       "helikopter_polisi": 1,
       "unit_k9": 23,
       "pasukan_swat": 39,
-      "samapta": 62
     }
   };

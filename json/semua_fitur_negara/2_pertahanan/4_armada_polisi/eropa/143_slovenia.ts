@@ -13,6 +13,5 @@ const slovenia_kepolisian = {
       "helikopter_polisi": 16,
       "unit_k9": 23,
       "pasukan_swat": 14,
-      "samapta": 62
     }
   };

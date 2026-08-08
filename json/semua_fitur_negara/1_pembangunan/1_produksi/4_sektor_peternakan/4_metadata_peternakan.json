@@ -8,7 +8,6 @@
     "satuan": "EKOR",
     "waktu_pembangunan": 7,
     "biaya_pembangunan": 1000,
-    "lowongan_kerja": 1500,
     "konsumsi_listrik": 5
   },
   "sapi_perah": {
@@ -20,7 +19,6 @@
     "satuan": "LITER",
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 2500,
-    "lowongan_kerja": 2500,
     "konsumsi_listrik": 5
   },
   "sapi_potong": {
@@ -32,7 +30,6 @@
     "satuan": "EKOR",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 3000,
-    "lowongan_kerja": 2800,
     "konsumsi_listrik": 5
   },
   "domba_kambing": {
@@ -44,7 +41,6 @@
     "satuan": "EKOR",
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 1500,
-    "lowongan_kerja": 1800,
     "konsumsi_listrik": 5
   }
 }

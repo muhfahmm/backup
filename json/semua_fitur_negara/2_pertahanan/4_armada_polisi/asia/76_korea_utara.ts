@@ -13,6 +13,5 @@ const korea_utara_kepolisian = {
       "helikopter_polisi": 30,
       "unit_k9": 23,
       "pasukan_swat": 25,
-      "samapta": 62
     }
   };

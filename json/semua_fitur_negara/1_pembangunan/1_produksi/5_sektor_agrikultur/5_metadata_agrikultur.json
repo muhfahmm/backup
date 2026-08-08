@@ -8,7 +8,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 1200,
-    "lowongan_kerja": 8500,
     "konsumsi_listrik": 5
   },
   "gandum": {
@@ -20,7 +19,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 15,
     "biaya_pembangunan": 1000,
-    "lowongan_kerja": 6000,
     "item": "Gandum",
     "konsumsi_listrik": 5
   },
@@ -33,7 +31,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 12,
     "biaya_pembangunan": 850,
-    "lowongan_kerja": 5000,
     "konsumsi_listrik": 5
   },
   "umbi": {
@@ -45,7 +42,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 650,
-    "lowongan_kerja": 4500,
     "konsumsi_listrik": 5
   },
   "kedelai": {
@@ -57,7 +53,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 10,
     "biaya_pembangunan": 750,
-    "lowongan_kerja": 4000,
     "konsumsi_listrik": 5
   },
   "kelapa_sawit": {
@@ -69,7 +64,6 @@
     "satuan": "LITER",
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 6000,
-    "lowongan_kerja": 18000,
     "konsumsi_listrik": 5
   },
   "teh": {
@@ -81,7 +75,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 2500,
-    "lowongan_kerja": 12000,
     "konsumsi_listrik": 5
   },
   "kopi": {
@@ -93,7 +86,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 2800,
-    "lowongan_kerja": 10000,
     "konsumsi_listrik": 5
   },
   "kakao": {
@@ -105,7 +97,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 35,
     "biaya_pembangunan": 3500,
-    "lowongan_kerja": 9000,
     "konsumsi_listrik": 5
   },
   "tebu": {
@@ -117,7 +108,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 20,
     "biaya_pembangunan": 1800,
-    "lowongan_kerja": 11000,
     "konsumsi_listrik": 5
   },
   "sayur": {
@@ -129,7 +119,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 5,
     "biaya_pembangunan": 500,
-    "lowongan_kerja": 5500,
     "konsumsi_listrik": 5
   },
   "karet": {
@@ -141,7 +130,6 @@
     "satuan": "KG",
     "waktu_pembangunan": 40,
     "biaya_pembangunan": 3200,
-    "lowongan_kerja": 12000,
     "konsumsi_listrik": 5
   }
 }

@@ -8,7 +8,6 @@
     "satuan": "UNIT",
     "waktu_pembangunan": 360,
     "biaya_pembangunan": 9500,
-    "lowongan_kerja": 15000,
     "konsumsi_listrik": 50
   },
   "mobil": {
@@ -20,7 +19,6 @@
     "satuan": "UNIT",
     "waktu_pembangunan": 240,
     "biaya_pembangunan": 6500,
-    "lowongan_kerja": 35000,
     "konsumsi_listrik": 40
   },
   "sepeda_motor": {
@@ -32,7 +30,6 @@
     "satuan": "UNIT",
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 3500,
-    "lowongan_kerja": 22000,
     "konsumsi_listrik": 30
   },
   "semen_beton": {
@@ -44,7 +41,6 @@
     "satuan": "TON",
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 2800,
-    "lowongan_kerja": 8000,
     "konsumsi_listrik": 20
   },
   "kayu": {
@@ -56,7 +52,6 @@
     "satuan": "M3",
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 1500,
-    "lowongan_kerja": 5000,
     "konsumsi_listrik": 15
   }
 }

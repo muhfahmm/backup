@@ -13,6 +13,5 @@ const islandia_kepolisian = {
       "helikopter_polisi": 36,
       "unit_k9": 23,
       "pasukan_swat": 25,
-      "samapta": 62
     }
   };

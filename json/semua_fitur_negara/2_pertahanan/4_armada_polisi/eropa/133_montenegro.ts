@@ -13,6 +13,5 @@ const montenegro_kepolisian = {
       "helikopter_polisi": 37,
       "unit_k9": 23,
       "pasukan_swat": 39,
-      "samapta": 62
     }
   };

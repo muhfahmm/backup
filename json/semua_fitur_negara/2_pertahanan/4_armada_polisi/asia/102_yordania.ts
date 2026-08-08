@@ -13,6 +13,5 @@ const yordania_kepolisian = {
       "helikopter_polisi": 18,
       "unit_k9": 23,
       "pasukan_swat": 40,
-      "samapta": 62
     }
   };

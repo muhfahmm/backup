@@ -13,6 +13,5 @@ const suriah_kepolisian = {
       "helikopter_polisi": 9,
       "unit_k9": 23,
       "pasukan_swat": 16,
-      "samapta": 62
     }
   };

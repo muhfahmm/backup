@@ -13,6 +13,5 @@ const mikronesia_kepolisian = {
       "helikopter_polisi": 17,
       "unit_k9": 23,
       "pasukan_swat": 24,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const puerto_rico_kepolisian = {
       "helikopter_polisi": 37,
       "unit_k9": 23,
       "pasukan_swat": 30,
-      "samapta": 62
     }
   };

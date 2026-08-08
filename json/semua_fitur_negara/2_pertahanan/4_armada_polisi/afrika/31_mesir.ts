@@ -13,6 +13,5 @@ const mesir_kepolisian = {
       "helikopter_polisi": 27,
       "unit_k9": 23,
       "pasukan_swat": 12,
-      "samapta": 62
     }
   };

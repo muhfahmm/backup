@@ -13,6 +13,5 @@ const republik_dominika_kepolisian = {
       "helikopter_polisi": 27,
       "unit_k9": 23,
       "pasukan_swat": 15,
-      "samapta": 62
     }
   };

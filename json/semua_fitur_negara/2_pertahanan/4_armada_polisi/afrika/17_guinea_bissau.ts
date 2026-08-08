@@ -13,6 +13,5 @@ const guinea_bissau_kepolisian = {
       "helikopter_polisi": 18,
       "unit_k9": 23,
       "pasukan_swat": 11,
-      "samapta": 62
     }
   };

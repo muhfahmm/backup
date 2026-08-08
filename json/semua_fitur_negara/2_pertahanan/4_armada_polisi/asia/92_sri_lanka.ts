@@ -13,6 +13,5 @@ const sri_lanka_kepolisian = {
       "helikopter_polisi": 13,
       "unit_k9": 23,
       "pasukan_swat": 8,
-      "samapta": 62
     }
   };

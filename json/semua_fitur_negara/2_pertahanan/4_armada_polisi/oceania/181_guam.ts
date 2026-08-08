@@ -13,6 +13,5 @@ const guam_kepolisian = {
       "helikopter_polisi": 2,
       "unit_k9": 23,
       "pasukan_swat": 13,
-      "samapta": 62
     }
   };

@@ -13,6 +13,5 @@ const norwegia_kepolisian = {
       "helikopter_polisi": 38,
       "unit_k9": 23,
       "pasukan_swat": 16,
-      "samapta": 62
     }
   };

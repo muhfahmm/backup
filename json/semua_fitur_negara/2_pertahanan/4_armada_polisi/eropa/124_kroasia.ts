@@ -13,6 +13,5 @@ const kroasia_kepolisian = {
       "helikopter_polisi": 6,
       "unit_k9": 23,
       "pasukan_swat": 17,
-      "samapta": 62
     }
   };

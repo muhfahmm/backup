@@ -13,6 +13,5 @@ const brunei_kepolisian = {
       "helikopter_polisi": 14,
       "unit_k9": 23,
       "pasukan_swat": 26,
-      "samapta": 62
     }
   };

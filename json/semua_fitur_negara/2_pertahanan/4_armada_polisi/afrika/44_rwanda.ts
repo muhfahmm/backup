@@ -13,6 +13,5 @@ const rwanda_kepolisian = {
       "helikopter_polisi": 12,
       "unit_k9": 23,
       "pasukan_swat": 22,
-      "samapta": 62
     }
   };

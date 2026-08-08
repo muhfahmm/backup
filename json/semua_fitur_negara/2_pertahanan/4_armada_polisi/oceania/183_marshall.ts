@@ -13,6 +13,5 @@ const marshall_kepolisian = {
       "helikopter_polisi": 11,
       "unit_k9": 23,
       "pasukan_swat": 17,
-      "samapta": 62
     }
   };

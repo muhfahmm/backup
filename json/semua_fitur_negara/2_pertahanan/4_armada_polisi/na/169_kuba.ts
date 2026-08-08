@@ -13,6 +13,5 @@ const kuba_kepolisian = {
       "helikopter_polisi": 26,
       "unit_k9": 23,
       "pasukan_swat": 28,
-      "samapta": 62
     }
   };

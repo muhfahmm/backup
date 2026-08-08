@@ -13,6 +13,5 @@ const republik_uganda_kepolisian = {
       "helikopter_polisi": 33,
       "unit_k9": 23,
       "pasukan_swat": 2,
-      "samapta": 62
     }
   };

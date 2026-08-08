@@ -13,6 +13,5 @@ const kepulauan_faroe_kepolisian = {
       "helikopter_polisi": 12,
       "unit_k9": 23,
       "pasukan_swat": 25,
-      "samapta": 62
     }
   };

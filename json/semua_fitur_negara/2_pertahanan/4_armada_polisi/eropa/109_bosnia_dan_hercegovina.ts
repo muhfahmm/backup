@@ -13,6 +13,5 @@ const bosnia_dan_hercegovina_kepolisian = {
       "helikopter_polisi": 11,
       "unit_k9": 23,
       "pasukan_swat": 13,
-      "samapta": 62
     }
   };

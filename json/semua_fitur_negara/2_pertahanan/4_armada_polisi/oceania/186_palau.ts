@@ -13,6 +13,5 @@ const palau_kepolisian = {
       "helikopter_polisi": 13,
       "unit_k9": 23,
       "pasukan_swat": 21,
-      "samapta": 62
     }
   };

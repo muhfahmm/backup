@@ -13,6 +13,5 @@ const sao_tome_dan_principe_kepolisian = {
       "helikopter_polisi": 23,
       "unit_k9": 23,
       "pasukan_swat": 5,
-      "samapta": 62
     }
   };

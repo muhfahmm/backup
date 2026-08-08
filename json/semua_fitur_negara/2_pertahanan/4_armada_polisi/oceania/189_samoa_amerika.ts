@@ -13,6 +13,5 @@ const samoa_amerika_kepolisian = {
       "helikopter_polisi": 13,
       "unit_k9": 23,
       "pasukan_swat": 7,
-      "samapta": 62
     }
   };

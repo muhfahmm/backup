@@ -13,6 +13,5 @@ const polandia_kepolisian = {
       "helikopter_polisi": 30,
       "unit_k9": 23,
       "pasukan_swat": 17,
-      "samapta": 62
     }
   };
