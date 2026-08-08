@@ -11,9 +11,10 @@ interface ModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
+  currentDate?: string | Date;
 }
 
-export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction }: ModalProps) {
+export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction, currentDate }: ModalProps) {
   if (!isOpen) return null;
 
   const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
@@ -33,6 +34,44 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
       return () => clearTimeout(timer);
     }
   }, [highlightInfraKey]);
+
+  // 🔥 Logika: Cek konstruksi selesai dan tambah ke count
+  useEffect(() => {
+    if (!currentDate || !countryDetail?.ongoingConstructions) return;
+
+    try {
+      // Convert currentDate ke format YYYY-MM-DD
+      let currentDateStr: string;
+      if (currentDate instanceof Date) {
+        const y = currentDate.getFullYear();
+        const m = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const d = String(currentDate.getDate()).padStart(2, '0');
+        currentDateStr = `${y}-${m}-${d}`;
+      } else {
+        currentDateStr = String(currentDate);
+      }
+
+      const ongoing = countryDetail.ongoingConstructions || [];
+      const completed = ongoing.filter((c: any) => c.endDate === currentDateStr);
+
+      if (completed.length === 0) return;
+
+      let updated = false;
+      const newDetail = { ...countryDetail };
+      const newOngoing = ongoing.filter((c: any) => c.endDate !== currentDateStr);
+
+      // Tambah setiap konstruksi yang selesai ke count
+      completed.forEach((c: any) => {
+        const key = c.buildingKey;
+        newDetail[key] = (Number(newDetail[key]) || 0) + 1;
+      });
+
+      newDetail.ongoingConstructions = newOngoing;
+      setCountryDetail(newDetail);
+    } catch (error) {
+      console.error('Error processing completed constructions:', error);
+    }
+  }, [currentDate, countryDetail?.ongoingConstructions, countryDetail, setCountryDetail]);
 
   const handleNavigateToInfra = (infraKey: string) => {
     setActiveTab("infrastruktur");
@@ -75,7 +114,7 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
 
           <div className="space-y-4">
             {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} onCapacityFull={handleNavigateToInfra} onGotoProduction={onGotoProduction} />}
-            {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} highlightKey={highlightInfraKey} onGotoProduction={onGotoProduction} />}
+            {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} highlightKey={highlightInfraKey} onGotoProduction={onGotoProduction} ongoingConstructions={countryDetail?.ongoingConstructions || []} currentDate={currentDate} />}
             {activeTab === "polisi" && <ArmadaPolisi countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
           </div>
         </div>

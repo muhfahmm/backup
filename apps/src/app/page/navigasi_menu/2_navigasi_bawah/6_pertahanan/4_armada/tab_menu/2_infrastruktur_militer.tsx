@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Info } from "lucide-react";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiInfrastrukturModal from "../modals_konfirmasi_pembangunan/2_konfirmasi_infrastruktur_modal";
+import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
 // 🔥 Import requirements dari logic folders
 import { REQUIREMENTS as INFANTERI_REQUIREMENTS } from "../requirements_logic/1_infanteri/requirements";
 import { REQUIREMENTS as HANGAR_REQUIREMENTS } from "../requirements_logic/2_hangar_tank/requirements";
@@ -16,6 +17,8 @@ interface TabProps {
   onCapacityFull?: (infraKey: string) => void;
   highlightKey?: string | null;
   onGotoProduction?: (tab: string, key: string) => void;
+  ongoingConstructions?: any[];
+  currentDate?: string | Date;
 }
 
 const formatNumber = (value: unknown) => {
@@ -35,7 +38,25 @@ const getNestedValue = (obj: any, key: string): number => {
   return 0;
 };
 
-export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail, highlightKey, onGotoProduction }: TabProps) {
+// 🔥 Format tanggal untuk badge konstruksi
+const formatBadgeDate = (dateString: string) => {
+  if (!dateString) return '';
+  try {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    if (isNaN(date.getTime())) return dateString;
+    const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+    const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(date);
+    const day = parts.find((p) => p.type === 'day')?.value || '';
+    const month = parts.find((p) => p.type === 'month')?.value || '';
+    const year = parts.find((p) => p.type === 'year')?.value || '';
+    return `${day} ${month}, ${year}`;
+  } catch {
+    return dateString;
+  }
+};
+
+export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail, highlightKey, onGotoProduction, ongoingConstructions = [], currentDate }: TabProps) {
   // 🔥 State untuk Modal Konfirmasi Pembangunan
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
@@ -99,6 +120,33 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     return resourceToTabAndBuilding[resourceKey] || { tab: 'kelistrikan', buildingKey: '' };
   };
 
+  // 🔥 Fungsi untuk menambah hari pada string tanggal (YYYY-MM-DD)
+  const addDays = (dateString: string, days: number): string => {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() + days);
+    const yy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yy}-${mm}-${dd}`;
+  };
+
+  // 🔥 Fungsi untuk mendapatkan string tanggal saat ini (YYYY-MM-DD)
+  const getSafeDateString = (): string => {
+    if (currentDate) {
+      const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  };
+
   const handleInfoClick = (key: string) => {
     // 🔥 Saat klik info button, buka modal pembangunan (bukan info modal)
     const item = infrastrukturData[key];
@@ -116,6 +164,14 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         {Object.keys(infrastrukturData).map((key) => {
           const item = infrastrukturData[key];
           const value = getNestedValue(countryDetail, key);
+          
+          // 🔥 Hitung jumlah konstruksi yang sedang berlangsung
+          const buildingConstructions = ongoingConstructions.filter(
+            (c: any) => c.buildingKey === key
+          );
+          const queueCount = buildingConstructions.length;
+          const isBuilding = queueCount > 0;
+          const lastEndDate = isBuilding ? buildingConstructions[buildingConstructions.length - 1].endDate : null;
 
           return (
             <div 
@@ -124,8 +180,14 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
                 setSelectedForBuild({ key, label: item.label });
                 setIsConfirmBuildOpen(true);
               }}
-              className={`relative rounded-2xl overflow-hidden flex flex-col transition-all bg-white/95 border-2 shadow-md hover:shadow-lg cursor-pointer p-5 min-h-[180px] ${highlightKey === key ? 'border-emerald-400 shadow-emerald-200 hover:border-emerald-500' : 'border-[#C4B49C]/30 hover:border-[#C4B49C]/50'}`}
+              className={`relative rounded-2xl overflow-visible flex flex-col transition-all bg-white/95 border-2 shadow-md hover:shadow-lg cursor-pointer p-5 min-h-[180px] ${highlightKey === key ? 'border-emerald-400 shadow-emerald-200 hover:border-emerald-500' : 'border-[#C4B49C]/30 hover:border-[#C4B49C]/50'}`}
             >
+              {/* Badge Tanggal */}
+              {isBuilding && (
+                <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap">
+                  {formatBadgeDate(lastEndDate)}
+                </div>
+              )}
               
               <div className="flex items-start justify-between mb-3">
                 <p className="text-[11px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
@@ -141,10 +203,15 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
               <div className="flex flex-col justify-between flex-1">
                 <div>
-                  <div className="text-3xl font-black text-[#2e261a] mb-1">
-                    {formatNumber(value)}
+                  <div className="flex items-end gap-1.5 mt-2">
+                    <span className="text-3xl font-black text-[#2e261a]">{formatNumber(value)}</span>
+                    {isBuilding && (
+                      <span className="text-xl font-bold text-emerald-600 leading-none">
+                        +{queueCount}
+                      </span>
+                    )}
                   </div>
-                  <p className="text-[10px] font-bold text-[#8b7e66]">{item.satuan_kapasitas || "Unit"}</p>
+                  <p className="text-[10px] mt-1 font-bold text-[#8b7e66]">{item.satuan_kapasitas || "Unit"}</p>
                 </div>
               </div>
             </div>
@@ -161,6 +228,49 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   function getModalProps() {
     const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key] : null;
     const materialStocks = calculateMaterialStocks(countryDetail);
+    
+    // 🔥 Helper: Handle pembangunan baru
+    const handleConfirmBuild = () => {
+      if (!selectedForBuild?.key || !buildingData) return;
+      
+      const key = selectedForBuild.key;
+      const waktu = Number(buildingData.waktu_pembangunan) || 0;
+      const safeDateString = getSafeDateString();
+      
+      // Jika waktu pembangunan 0 hari, langsung tambah ke count
+      if (waktu <= 0) {
+        const updatedDetail = { ...countryDetail };
+        updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+        _setCountryDetail(updatedDetail);
+        setIsConfirmBuildOpen(false);
+        setSelectedForBuild(null);
+        return;
+      }
+      
+      // Jika ada waktu pembangunan, tambah ke ongoingConstructions
+      let startDateStr = safeDateString;
+      const ongoing = countryDetail.ongoingConstructions || [];
+      const existingForThisKey = ongoing.filter((c: any) => c.buildingKey === key);
+      
+      // Jika sudah ada konstruksi untuk key ini, mulai dari endDate yang terakhir
+      if (existingForThisKey.length > 0) {
+        const lastEndDateStr = existingForThisKey[existingForThisKey.length - 1].endDate;
+        startDateStr = lastEndDateStr;
+      }
+      
+      const endDateStr = addDays(startDateStr, waktu);
+      
+      const newOngoing = [
+        ...ongoing,
+        { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
+      ];
+      
+      const updatedDetail = { ...countryDetail, ongoingConstructions: newOngoing };
+      _setCountryDetail(updatedDetail);
+      setIsConfirmBuildOpen(false);
+      setSelectedForBuild(null);
+    };
+    
     const modalPropsBase = {
       isOpen: isConfirmBuildOpen,
       onClose: () => setIsConfirmBuildOpen(false),
@@ -172,7 +282,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       materialStocks: materialStocks,
       anggaran: Number(countryDetail?.anggaran) || 0,
       missingMaterials: calculateMissingMaterials([], materialStocks),
-      onConfirm: () => setIsConfirmBuildOpen(false),
+      onConfirm: handleConfirmBuild,
       onMaterialClick: (resourceKey: string, label: string) => {
         const { tab, buildingKey } = getTabForResource(resourceKey);
         onGotoProduction?.(tab, buildingKey || resourceKey);
