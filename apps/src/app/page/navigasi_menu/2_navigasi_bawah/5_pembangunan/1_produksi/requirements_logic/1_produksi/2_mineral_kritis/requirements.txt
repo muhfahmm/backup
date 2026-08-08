@@ -47,7 +47,7 @@
  kayu (dari kayu)
  baja (dari baja)
 
-9. bijah_besi
+9. bijih_besi
  > pembangunan
  semen beton (dari semen_beton)
  kayu (dari kayu)

@@ -70,7 +70,7 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     ],
   },
   {
-    buildingKey: 'bijah_besi',
+    buildingKey: 'bijih_besi',
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 700 },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 320 },

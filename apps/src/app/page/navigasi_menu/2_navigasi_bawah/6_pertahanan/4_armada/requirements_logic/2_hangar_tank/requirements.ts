@@ -17,7 +17,7 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     buildingKey: 'hangar_tank',
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 500 },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'besi', amount: 400 },
+      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi', amount: 400 },
       { group: 'pembangunan', label: 'batu bara', resourceKey: 'batu_bara', amount: 200 },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 300 },
     ],
@@ -25,17 +25,13 @@ export const REQUIREMENTS: BuildingRequirements[] = [
   {
     buildingKey: 'tank_tempur_utama',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 800 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 400 },
-      { group: 'produksi', label: 'timah', resourceKey: 'timah', amount: 150 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 15000 },
     ],
   },
   {
     buildingKey: 'apc_ifv',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 600 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 300 },
-      { group: 'produksi', label: 'aluminium', resourceKey: 'aluminium', amount: 100 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 10000 },
     ],
   },
 ];

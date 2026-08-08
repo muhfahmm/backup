@@ -61,9 +61,11 @@ export function handleGameRestart(options: RestartOptions): void {
                 // Kelistrikan
                 'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
                 // Mineral & Energi
-                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi',
+                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijah_besi',
                 // Manufaktur
-                'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'
+                'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu',
+                // Pertahanan & Infrastruktur Militer
+                'barak', 'gudang_senjata', 'hangar_tank', 'pangkalan_udara', 'pangkalan_laut'
             ];
             
             buildingKeys.forEach(key => {
@@ -76,8 +78,35 @@ export function handleGameRestart(options: RestartOptions): void {
     }
 
     // 3. Re-fetch baseline default statistics from the profile backend API
+    // 🔥 IMPORTANT: After reloading stats, we must reset building counts again because loadCountryStats
+    // will re-populate them from the JSON data files (mergedData)
     options.reloadStats()
         .then(() => {
+            // Re-apply the building count resets after reloadStats completes
+            if (options.setCountryDetail) {
+                options.setCountryDetail((prev: any) => {
+                    if (!prev) return prev;
+                    
+                    const reset: any = { ...prev };
+                    const buildingKeys = [
+                        'padi', 'gandum', 'jagung', 'sayur', 'umbi', 'kedelai', 'kelapa_sawit', 'kopi', 'teh', 'kakao', 'tebu', 'karet',
+                        'ayam_unggas', 'sapi_perah', 'sapi_potong', 'domba_kambing',
+                        'udang', 'mutiara', 'ikan',
+                        'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu',
+                        'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
+                        'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijah_besi',
+                        'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu',
+                        'barak', 'gudang_senjata', 'hangar_tank', 'pangkalan_udara', 'pangkalan_laut'
+                    ];
+                    
+                    buildingKeys.forEach(key => {
+                        reset[key] = 0;
+                    });
+                    
+                    console.log('[gameRestart] Building counts re-reset to 0 after reloadStats');
+                    return reset;
+                });
+            }
             console.log("Game progress restarted successfully.");
         })
         .catch((err) => {

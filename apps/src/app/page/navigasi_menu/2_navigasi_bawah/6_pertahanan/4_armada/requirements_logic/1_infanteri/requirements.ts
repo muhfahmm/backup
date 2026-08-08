@@ -18,8 +18,14 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 250 },
       { group: 'pembangunan', label: 'batu bara', resourceKey: 'batu_bara', amount: 100 },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'besi', amount: 150 },
+      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi', amount: 150 },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 200 },
+    ],
+  },
+  {
+    buildingKey: 'pasukan_infanteri',
+    requirements: [
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 5000 },
     ],
   },
 ];

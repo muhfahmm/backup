@@ -250,5 +250,16 @@
     "waktu_pembangunan": 60,
     "kekuatan": 220,
     "kesehatan": 180
+  },
+  "pasukan_infanteri": {
+    "key": "0_pasukan_infanteri",
+    "dataKey": "pasukan_infanteri",
+    "groupId": "darat",
+    "label": "Pasukan Infanteri",
+    "deskripsi": "Tentara Prajurit Infanteri",
+    "biaya_pembangunan": 5000,
+    "waktu_pembangunan": 5,
+    "kekuatan": 100,
+    "kesehatan": 80
   }
 }

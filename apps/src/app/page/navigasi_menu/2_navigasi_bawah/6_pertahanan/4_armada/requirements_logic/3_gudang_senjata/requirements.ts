@@ -17,7 +17,7 @@ export const REQUIREMENTS: BuildingRequirements[] = [
     buildingKey: 'gudang_senjata',
     requirements: [
       { group: 'pembangunan', label: 'semen beton', resourceKey: 'semen_beton', amount: 400 },
-      { group: 'pembangunan', label: 'besi', resourceKey: 'besi', amount: 300 },
+      { group: 'pembangunan', label: 'besi', resourceKey: 'bijih_besi', amount: 300 },
       { group: 'pembangunan', label: 'kayu', resourceKey: 'kayu', amount: 250 },
       { group: 'pembangunan', label: 'batu bara', resourceKey: 'batu_bara', amount: 150 },
     ],
@@ -25,33 +25,25 @@ export const REQUIREMENTS: BuildingRequirements[] = [
   {
     buildingKey: 'artileri_berat',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 1000 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 500 },
-      { group: 'produksi', label: 'timah', resourceKey: 'timah', amount: 200 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 48750 },
     ],
   },
   {
     buildingKey: 'sistem_peluncur_roket',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 900 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 600 },
-      { group: 'produksi', label: 'tembaga', resourceKey: 'tembaga', amount: 250 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 71250 },
     ],
   },
   {
     buildingKey: 'pertahanan_udara_mobile',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 700 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 400 },
-      { group: 'produksi', label: 'aluminium', resourceKey: 'aluminium', amount: 200 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 93750 },
     ],
   },
   {
     buildingKey: 'kendaraan_taktis',
     requirements: [
-      { group: 'produksi', label: 'besi', resourceKey: 'besi', amount: 500 },
-      { group: 'produksi', label: 'minyak bumi', resourceKey: 'minyak_bumi', amount: 300 },
-      { group: 'produksi', label: 'karet', resourceKey: 'karet', amount: 150 },
+      { group: 'produksi', label: 'Biaya Produksi EM', resourceKey: 'em_cost', amount: 11250 },
     ],
   },
 ];

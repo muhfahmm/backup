@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { X, Hammer, Eye, EyeOff } from "lucide-react";
-import { KonfirmasiPembangunanModalProps } from "./konfirmasi_pembangunan_types";
+import { KonfirmasiPembangunanModalProps } from "../requirements_logic/konfirmasi_pembangunan_types";
 
 // Simplified modal for Armada Polisi (no capacity logic yet - placeholder for future expansion)
 export default function KonfirmasiArmadaPolisiModal({
@@ -131,7 +131,7 @@ export default function KonfirmasiArmadaPolisiModal({
                         type="button"
                         onClick={() => onMaterialClick(material.resourceKey, material.label)}
                         className={`flex flex-col items-center justify-center bg-white/80 border rounded-xl p-2.5 min-h-[50px] cursor-pointer hover:border-[#5c3c10]/60 transition-all ${
-                          isStockZero ? 'border-red-400 bg-red-50/70 text-red-800' : 'border-[#C4B49C]/30'
+                          isStockZero ? 'border-red-400 bg-red-50/70 text-red-800' : 'border-emerald-400 bg-emerald-50/70'
                         }`}
                       >
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
@@ -140,7 +140,7 @@ export default function KonfirmasiArmadaPolisiModal({
                             x{material.amount}
                           </div>
                         )}
-                        <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-[#8b7e66]'}`}>
+                        <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-emerald-700'}`}>
                           {stock.toLocaleString('id-ID')}
                         </div>
                       </button>

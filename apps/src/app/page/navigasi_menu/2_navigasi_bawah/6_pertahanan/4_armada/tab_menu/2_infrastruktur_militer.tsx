@@ -23,8 +23,8 @@ const infrastrukturData = {
     key: "barak",
     label: "Barak",
     deskripsi: "Pasukan Infanteri",
-    biaya_pembangunan: 0,
-    waktu_pembangunan: 0,
+    biaya_pembangunan: 26250,
+    waktu_pembangunan: 15,
     lowongan_kerja: 10000,
     kapasitas: 1,
     satuan_kapasitas: "Pasukan Infanteri",
@@ -35,8 +35,8 @@ const infrastrukturData = {
     key: "gudang_senjata",
     label: "Gudang Senjata",
     deskripsi: "Penyimpanan Amunisi",
-    biaya_pembangunan: 26250,
-    waktu_pembangunan: 30,
+    biaya_pembangunan: 48750,
+    waktu_pembangunan: 45,
     lowongan_kerja: 100,
     kapasitas: 10000,
     satuan_kapasitas: "Unit Amunisi",
@@ -46,8 +46,8 @@ const infrastrukturData = {
     key: "hangar_tank",
     label: "Hangar Tank",
     deskripsi: "Garasi Tempur",
-    biaya_pembangunan: 63750,
-    waktu_pembangunan: 30,
+    biaya_pembangunan: 71250,
+    waktu_pembangunan: 60,
     lowongan_kerja: 150,
     kapasitas: 50,
     satuan_kapasitas: "Main Battle Tank",
@@ -58,7 +58,7 @@ const infrastrukturData = {
     label: "Pangkalan Udara",
     deskripsi: "Fasilitas Dirgantara",
     biaya_pembangunan: 337500,
-    waktu_pembangunan: 60,
+    waktu_pembangunan: 180,
     lowongan_kerja: 500,
     kapasitas: 24,
     satuan_kapasitas: "Pesawat Tempur",
@@ -68,8 +68,8 @@ const infrastrukturData = {
     key: "pangkalan_laut",
     label: "Pangkalan Laut",
     deskripsi: "Fasilitas Maritim",
-    biaya_pembangunan: 412500,
-    waktu_pembangunan: 120,
+    biaya_pembangunan: 562500,
+    waktu_pembangunan: 240,
     lowongan_kerja: 450,
     kapasitas: 12,
     satuan_kapasitas: "Kapal Perang",
@@ -97,30 +97,63 @@ const getNestedValue = (obj: any, key: string): number => {
 export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail, highlightKey, onGotoProduction }: TabProps) {
   // 🔥 State untuk Modal Konfirmasi Pembangunan
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
-
-  // 🔥 Map resource keys to their correct Produksi tab
-  const getTabForResource = (resourceKey: string): string => {
-    const resourceToTab: Record<string, string> = {
-      // Mineral & Energi
-      emas: 'mineral',
-      uranium: 'mineral',
-      batu_bara: 'mineral',
-      minyak_bumi: 'mineral',
-      gas_alam: 'mineral',
-      batu_gunung: 'mineral',
-      litium: 'mineral',
-      logam_tanah_jarang: 'mineral',
-      bijih_besi: 'mineral',
-      // Manufaktur
-      semikonduktor: 'manufaktur',
-      mobil: 'manufaktur',
-      sepeda_motor: 'manufaktur',
-      semen_beton: 'manufaktur',
-      kayu: 'manufaktur',
-    };
-    return resourceToTab[resourceKey] || 'kelistrikan';
-  };
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
+
+  // 🔥 Helper function to calculate material stocks from production buildings
+  const calculateMaterialStocks = (countryDetailData: any) => {
+    const stocks: Record<string, number> = { ...countryDetailData?.resources || {} };
+    
+    // Calculate production from production buildings
+    const materialBuildings = {
+      emas: { buildingCount: countryDetailData?.emas || 0, prodPerUnit: 600 },
+      uranium: { buildingCount: countryDetailData?.uranium || 0, prodPerUnit: 2 },
+      batu_bara: { buildingCount: countryDetailData?.batu_bara || 0, prodPerUnit: 270 },
+      minyak_bumi: { buildingCount: countryDetailData?.minyak_bumi || 0, prodPerUnit: 25 },
+      gas_alam: { buildingCount: countryDetailData?.gas_alam || 0, prodPerUnit: 50 },
+      garam: { buildingCount: countryDetailData?.garam || 0, prodPerUnit: 8 },
+      litium: { buildingCount: countryDetailData?.litium || 0, prodPerUnit: 8 },
+      logam_tanah_jarang: { buildingCount: countryDetailData?.logam_tanah_jarang || 0, prodPerUnit: 5 },
+      bijih_besi: { buildingCount: countryDetailData?.bijih_besi || 0, prodPerUnit: 5 },
+      semikonduktor: { buildingCount: countryDetailData?.semikonduktor || 0, prodPerUnit: 150 },
+      mobil: { buildingCount: countryDetailData?.mobil || 0, prodPerUnit: 5500 },
+      sepeda_motor: { buildingCount: countryDetailData?.sepeda_motor || 0, prodPerUnit: 18000 },
+      semen_beton: { buildingCount: countryDetailData?.semen_beton || 0, prodPerUnit: 95000 },
+      kayu: { buildingCount: countryDetailData?.kayu || 0, prodPerUnit: 32000 },
+    };
+    
+    return countryDetailData?.resources || {};
+  };
+
+  // 🔥 Helper function to calculate missing materials
+  const calculateMissingMaterials = (requirements: any[], stocks: Record<string, number>) => {
+    return requirements.filter(req => {
+      const stock = stocks[req.resourceKey] ?? 0;
+      return stock <= 0;
+    });
+  };
+
+  // 🔥 Map resource keys to their correct Produksi tab and building key for highlight
+  const getTabForResource = (resourceKey: string): { tab: string; buildingKey: string } => {
+    const resourceToTabAndBuilding: Record<string, { tab: string; buildingKey: string }> = {
+      // Mineral & Energi
+      emas: { tab: 'mineral', buildingKey: 'emas' },
+      uranium: { tab: 'mineral', buildingKey: 'uranium' },
+      batu_bara: { tab: 'mineral', buildingKey: 'batu_bara' },
+      minyak_bumi: { tab: 'mineral', buildingKey: 'minyak_bumi' },
+      gas_alam: { tab: 'mineral', buildingKey: 'gas_alam' },
+      batu_gunung: { tab: 'mineral', buildingKey: 'garam' },
+      litium: { tab: 'mineral', buildingKey: 'litium' },
+      logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
+      bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
+      // Manufaktur
+      semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
+      mobil: { tab: 'manufaktur', buildingKey: 'mobil' },
+      sepeda_motor: { tab: 'manufaktur', buildingKey: 'sepeda_motor' },
+      semen_beton: { tab: 'manufaktur', buildingKey: 'semen_beton' },
+      kayu: { tab: 'manufaktur', buildingKey: 'kayu' },
+    };
+    return resourceToTabAndBuilding[resourceKey] || { tab: 'kelistrikan', buildingKey: '' };
+  };
 
   const handleInfoClick = (key: string) => {
     // 🔥 Saat klik info button, buka modal pembangunan (bukan info modal)
@@ -181,21 +214,23 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
   // 🔥 Helper function untuk generate modal props berdasarkan selectedForBuild.key
   function getModalProps() {
+    const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key as keyof typeof infrastrukturData] : null;
     const modalPropsBase = {
       isOpen: isConfirmBuildOpen,
       onClose: () => setIsConfirmBuildOpen(false),
       buildingLabel: selectedForBuild?.label || "",
       buildingDescription: selectedForBuild?.label || "",
-      cost: 0,
+      cost: buildingData?.biaya_pembangunan || 0,
+      waktuPembangunan: buildingData?.waktu_pembangunan || 0,
       requirements: [] as any[],
-      materialStocks: countryDetail?.resources || {},
+      materialStocks: calculateMaterialStocks(countryDetail),
       anggaran: Number(countryDetail?.anggaran) || 0,
-      missingMaterials: [] as any[],
+      missingMaterials: calculateMissingMaterials([], calculateMaterialStocks(countryDetail)),
       onConfirm: () => setIsConfirmBuildOpen(false),
-      onMaterialClick: (resourceKey, label) => {
+      onMaterialClick: (resourceKey: string, label: string) => {
         setIsConfirmBuildOpen(false);
-        const tab = getTabForResource(resourceKey);
-        onGotoProduction?.(tab, resourceKey);
+        const { tab, buildingKey } = getTabForResource(resourceKey);
+        onGotoProduction?.(tab, buildingKey || resourceKey);
       },
       loadingMetadata: false,
       isDisabled: false,
@@ -209,10 +244,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     // 🔥 INFANTERI (BARAK)
     if (selectedForBuild?.key === "barak") {
+      const barakRequirements = findRequirementsForBuilding("barak", INFANTERI_REQUIREMENTS);
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
-          requirements={findRequirementsForBuilding("barak", INFANTERI_REQUIREMENTS)}
+          requirements={barakRequirements}
+          missingMaterials={calculateMissingMaterials(barakRequirements, countryDetail?.resources || {})}
           capacityType="infanteri"
           currentCapacity={convertBarakToSoldiers(Number(getNestedValue(countryDetail, "barak")))}
           maxCapacity={10000}
@@ -223,10 +260,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     // 🔥 HANGAR TANK
     if (selectedForBuild?.key === "hangar_tank") {
+      const hangarRequirements = findRequirementsForBuilding("hangar_tank", HANGAR_REQUIREMENTS);
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
-          requirements={findRequirementsForBuilding("hangar_tank", HANGAR_REQUIREMENTS)}
+          requirements={hangarRequirements}
+          missingMaterials={calculateMissingMaterials(hangarRequirements, countryDetail?.resources || {})}
           capacityType="hangar_tank"
           currentTankCount={Number(countryDetail?.armada?.darat?.tank_tempur_utama ?? 0)}
           currentApcCount={Number(countryDetail?.armada?.darat?.apc_ifv ?? 0)}
@@ -237,10 +276,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     // 🔥 GUDANG SENJATA
     if (selectedForBuild?.key === "gudang_senjata") {
+      const gudangRequirements = findRequirementsForBuilding("gudang_senjata", GUDANG_REQUIREMENTS);
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
-          requirements={findRequirementsForBuilding("gudang_senjata", GUDANG_REQUIREMENTS)}
+          requirements={gudangRequirements}
+          missingMaterials={calculateMissingMaterials(gudangRequirements, countryDetail?.resources || {})}
           capacityType="gudang_senjata"
           currentArtileriCount={Number(countryDetail?.armada?.darat?.artileri_berat ?? 0)}
           currentRoketCount={Number(countryDetail?.armada?.darat?.sistem_peluncur_roket ?? 0)}
@@ -253,10 +294,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     // 🔥 PANGKALAN LAUT
     if (selectedForBuild?.key === "pangkalan_laut") {
+      const lautRequirements = findRequirementsForBuilding("pangkalan_laut", LAUT_REQUIREMENTS);
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
-          requirements={findRequirementsForBuilding("pangkalan_laut", LAUT_REQUIREMENTS)}
+          requirements={lautRequirements}
+          missingMaterials={calculateMissingMaterials(lautRequirements, countryDetail?.resources || {})}
           capacityType="pangkalan_laut"
           kapalIndukCount={Number(countryDetail?.armada?.laut?.kapal_induk ?? 0)}
           kapalIndukNuklirCount={Number(countryDetail?.armada?.laut?.kapal_induk_nuklir ?? 0)}
@@ -273,10 +316,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     // 🔥 PANGKALAN UDARA
     if (selectedForBuild?.key === "pangkalan_udara") {
+      const udaraRequirements = findRequirementsForBuilding("pangkalan_udara", UDARA_REQUIREMENTS);
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
-          requirements={findRequirementsForBuilding("pangkalan_udara", UDARA_REQUIREMENTS)}
+          requirements={udaraRequirements}
+          missingMaterials={calculateMissingMaterials(udaraRequirements, countryDetail?.resources || {})}
           capacityType="pangkalan_udara"
           jetTemturSilamanCount={Number(countryDetail?.armada?.udara?.jet_tempur_siluman ?? 0)}
           jetTemturInterceptorCount={Number(countryDetail?.armada?.udara?.jet_tempur_interceptor ?? 0)}

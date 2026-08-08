@@ -5,11 +5,7 @@ import { getArmadaUnitBreakdown } from "../logic/armadaLogic";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiArmadaAktifModal from "../modals_konfirmasi_pembangunan/1_konfirmasi_armada_aktif_modal";
 // 🔥 Import requirements dari logic folders
-import { REQUIREMENTS as INFANTERI_REQUIREMENTS } from "../requirements_logic/1_infanteri/requirements";
-import { REQUIREMENTS as HANGAR_REQUIREMENTS } from "../requirements_logic/2_hangar_tank/requirements";
-import { REQUIREMENTS as GUDANG_REQUIREMENTS } from "../requirements_logic/3_gudang_senjata/requirements";
-import { REQUIREMENTS as LAUT_REQUIREMENTS } from "../requirements_logic/4_pangkalan_laut/requirements";
-import { REQUIREMENTS as UDARA_REQUIREMENTS } from "../requirements_logic/5_pangkalan_udara/requirements";
+import { REQUIREMENTS as INFANTERI_REQUIREMENTS, findRequirements as findInfanteriRequirements } from "../requirements_logic/1_infanteri/requirements";
 
 interface TabProps {
   countryDetail: any;
@@ -61,6 +57,34 @@ const groupMeta = {
 };
 const groupKeys = Object.keys(groupMeta) as (keyof typeof groupMeta)[];
 
+// 🔥 Armada Unit Metadata dengan Biaya Produksi
+const armadaUnitMetadata: Record<string, { biaya_pembangunan: number }> = {
+  barak: { biaya_pembangunan: 5000 },
+  pasukan_infanteri: { biaya_pembangunan: 5000 },
+  tank_tempur_utama: { biaya_pembangunan: 15000 },
+  apc_ifv: { biaya_pembangunan: 10000 },
+  artileri_berat: { biaya_pembangunan: 48750 },
+  sistem_peluncur_roket: { biaya_pembangunan: 71250 },
+  pertahanan_udara_mobile: { biaya_pembangunan: 93750 },
+  kendaraan_taktis: { biaya_pembangunan: 11250 },
+  kapal_induk: { biaya_pembangunan: 1125000 },
+  kapal_induk_nuklir: { biaya_pembangunan: 1875000 },
+  kapal_destroyer: { biaya_pembangunan: 337500 },
+  kapal_korvet: { biaya_pembangunan: 135000 },
+  kapal_selam_nuklir: { biaya_pembangunan: 562500 },
+  kapal_selam_regular: { biaya_pembangunan: 187500 },
+  kapal_ranjau: { biaya_pembangunan: 63750 },
+  kapal_logistik: { biaya_pembangunan: 90000 },
+  jet_tempur_siluman: { biaya_pembangunan: 112500 },
+  jet_tempur_interceptor: { biaya_pembangunan: 63750 },
+  pesawat_pengebom: { biaya_pembangunan: 187500 },
+  helikopter_serang: { biaya_pembangunan: 41250 },
+  pesawat_pengintai: { biaya_pembangunan: 71250 },
+  drone_intai_uav: { biaya_pembangunan: 11250 },
+  drone_kamikaze: { biaya_pembangunan: 3750 },
+  pesawat_angkut: { biaya_pembangunan: 56250 },
+};
+
 const formatNumber = (value: unknown) => {
   const numeric = Number(value ?? 0);
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
@@ -70,27 +94,63 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
   const unitBreakdown = getArmadaUnitBreakdown(payload);
 
-  // 🔥 Map resource keys to their correct Produksi tab
-  const getTabForResource = (resourceKey: string): string => {
-    const resourceToTab: Record<string, string> = {
-      // Mineral & Energi
-      emas: 'mineral',
-      uranium: 'mineral',
-      batu_bara: 'mineral',
-      minyak_bumi: 'mineral',
-      gas_alam: 'mineral',
-      batu_gunung: 'mineral',
-      litium: 'mineral',
-      logam_tanah_jarang: 'mineral',
-      bijih_besi: 'mineral',
-      // Manufaktur
-      semikonduktor: 'manufaktur',
-      mobil: 'manufaktur',
-      sepeda_motor: 'manufaktur',
-      semen_beton: 'manufaktur',
-      kayu: 'manufaktur',
+  // 🔥 Helper function to calculate missing materials
+  // 🔥 Helper function to calculate material stocks from production buildings
+  const calculateMaterialStocks = (countryDetailData: any) => {
+    const stocks: Record<string, number> = { ...countryDetailData?.resources || {} };
+    
+    // Calculate production from production buildings
+    // Format: buildingKey -> number of buildings
+    const materialBuildings = {
+      emas: { buildingCount: countryDetailData?.emas || 0, prodPerUnit: 600 },
+      uranium: { buildingCount: countryDetailData?.uranium || 0, prodPerUnit: 2 },
+      batu_bara: { buildingCount: countryDetailData?.batu_bara || 0, prodPerUnit: 270 },
+      minyak_bumi: { buildingCount: countryDetailData?.minyak_bumi || 0, prodPerUnit: 25 },
+      gas_alam: { buildingCount: countryDetailData?.gas_alam || 0, prodPerUnit: 50 },
+      garam: { buildingCount: countryDetailData?.garam || 0, prodPerUnit: 8 },
+      litium: { buildingCount: countryDetailData?.litium || 0, prodPerUnit: 8 },
+      logam_tanah_jarang: { buildingCount: countryDetailData?.logam_tanah_jarang || 0, prodPerUnit: 5 },
+      bijih_besi: { buildingCount: countryDetailData?.bijih_besi || 0, prodPerUnit: 5 },
+      semikonduktor: { buildingCount: countryDetailData?.semikonduktor || 0, prodPerUnit: 150 },
+      mobil: { buildingCount: countryDetailData?.mobil || 0, prodPerUnit: 5500 },
+      sepeda_motor: { buildingCount: countryDetailData?.sepeda_motor || 0, prodPerUnit: 18000 },
+      semen_beton: { buildingCount: countryDetailData?.semen_beton || 0, prodPerUnit: 95000 },
+      kayu: { buildingCount: countryDetailData?.kayu || 0, prodPerUnit: 32000 },
     };
-    return resourceToTab[resourceKey] || 'kelistrikan';
+    
+    // Simply return the actual material stocks from resources
+    return countryDetailData?.resources || {};
+  };
+
+  // 🔥 Helper function to calculate missing materials
+  const calculateMissingMaterials = (requirements: any[], stocks: Record<string, number>) => {
+    return requirements.filter(req => {
+      const stock = stocks[req.resourceKey] ?? 0;
+      return stock <= 0;
+    });
+  };
+
+  // 🔥 Map resource keys to their correct Produksi tab and building key for highlight
+  const getTabForResource = (resourceKey: string): { tab: string; buildingKey: string } => {
+    const resourceToTabAndBuilding: Record<string, { tab: string; buildingKey: string }> = {
+      // Mineral & Energi
+      emas: { tab: 'mineral', buildingKey: 'emas' },
+      uranium: { tab: 'mineral', buildingKey: 'uranium' },
+      batu_bara: { tab: 'mineral', buildingKey: 'batu_bara' },
+      minyak_bumi: { tab: 'mineral', buildingKey: 'minyak_bumi' },
+      gas_alam: { tab: 'mineral', buildingKey: 'gas_alam' },
+      batu_gunung: { tab: 'mineral', buildingKey: 'garam' },
+      litium: { tab: 'mineral', buildingKey: 'litium' },
+      logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
+      bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
+      // Manufaktur
+      semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
+      mobil: { tab: 'manufaktur', buildingKey: 'mobil' },
+      sepeda_motor: { tab: 'manufaktur', buildingKey: 'sepeda_motor' },
+      semen_beton: { tab: 'manufaktur', buildingKey: 'semen_beton' },
+      kayu: { tab: 'manufaktur', buildingKey: 'kayu' },
+    };
+    return resourceToTabAndBuilding[resourceKey] || { tab: 'kelistrikan', buildingKey: '' };
   };
 
   const [infoKey, setInfoKey] = useState<string | null>(null);
@@ -194,19 +254,19 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           onClose={() => setIsConfirmBuildOpen(false)}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
-          cost={0}
-          requirements={getRequirementsForArmada(selectedForBuild.key)}
-          materialStocks={countryDetail?.resources || {}}
+          cost={Number(armadaUnitMetadata[selectedForBuild.key]?.biaya_pembangunan ?? 0)}
+          requirements={selectedForBuild.key === "barak" ? (findInfanteriRequirements("barak")?.requirements || []) : []}
+          materialStocks={calculateMaterialStocks(countryDetail)}
           anggaran={Number(countryDetail?.anggaran) || 0}
-          missingMaterials={[]}
+          missingMaterials={calculateMissingMaterials([], calculateMaterialStocks(countryDetail))}
           onConfirm={() => {
             // TODO: Implement build logic
             setIsConfirmBuildOpen(false);
           }}
-          onMaterialClick={(resourceKey, label) => {
+          onMaterialClick={(resourceKey: string, label: string) => {
             setIsConfirmBuildOpen(false);
-            const tab = getTabForResource(resourceKey);
-            onGotoProduction?.(tab, resourceKey);
+            const { tab, buildingKey } = getTabForResource(resourceKey);
+            onGotoProduction?.(tab, buildingKey || resourceKey);
           }}
           loadingMetadata={false}
           isDisabled={false}
@@ -253,37 +313,4 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       )}
     </div>
   );
-
-  // 🔥 Helper function untuk get requirements berdasarkan armada key
-  function getRequirementsForArmada(key: string) {
-    const findRequirements = (buildingKey: string, requirementsArray: any[]) => {
-      const found = requirementsArray.find((r) => r.buildingKey === buildingKey);
-      return found?.requirements || [];
-    };
-
-    // Barak dari infanteri
-    if (key === "barak") return findRequirements("barak", INFANTERI_REQUIREMENTS);
-    
-    // Tank dari hangar
-    if (["tank_tempur_utama", "apc_ifv"].includes(key)) {
-      return findRequirements(key, HANGAR_REQUIREMENTS);
-    }
-    
-    // Senjata dari gudang
-    if (["artileri_berat", "sistem_peluncur_roket", "pertahanan_udara_mobile", "kendaraan_taktis"].includes(key)) {
-      return findRequirements(key, GUDANG_REQUIREMENTS);
-    }
-    
-    // Kapal dari pangkalan laut
-    if (["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(key)) {
-      return findRequirements(key, LAUT_REQUIREMENTS);
-    }
-    
-    // Pesawat dari pangkalan udara
-    if (["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(key)) {
-      return findRequirements(key, UDARA_REQUIREMENTS);
-    }
-    
-    return [];
-  }
 }
