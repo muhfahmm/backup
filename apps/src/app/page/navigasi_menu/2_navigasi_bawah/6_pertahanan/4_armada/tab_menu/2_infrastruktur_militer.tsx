@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Info } from "lucide-react";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiInfrastrukturModal from "../modals_konfirmasi_pembangunan/2_konfirmasi_infrastruktur_modal";
@@ -17,65 +17,6 @@ interface TabProps {
   highlightKey?: string | null;
   onGotoProduction?: (tab: string, key: string) => void;
 }
-
-const infrastrukturData = {
-  barak: {
-    key: "barak",
-    label: "Barak",
-    deskripsi: "Pasukan Infanteri",
-    biaya_pembangunan: 26250,
-    waktu_pembangunan: 15,
-    lowongan_kerja: 10000,
-    kapasitas: 1,
-    satuan_kapasitas: "Pasukan Infanteri",
-    konsumsi_listrik: 0.1,
-    isBarak: true
-  },
-  gudang_senjata: {
-    key: "gudang_senjata",
-    label: "Gudang Senjata",
-    deskripsi: "Penyimpanan Amunisi",
-    biaya_pembangunan: 48750,
-    waktu_pembangunan: 45,
-    lowongan_kerja: 100,
-    kapasitas: 10000,
-    satuan_kapasitas: "Unit Amunisi",
-    konsumsi_listrik: 0.5
-  },
-  hangar_tank: {
-    key: "hangar_tank",
-    label: "Hangar Tank",
-    deskripsi: "Garasi Tempur",
-    biaya_pembangunan: 71250,
-    waktu_pembangunan: 60,
-    lowongan_kerja: 150,
-    kapasitas: 50,
-    satuan_kapasitas: "Main Battle Tank",
-    konsumsi_listrik: 0.5
-  },
-  pangkalan_udara: {
-    key: "pangkalan_udara",
-    label: "Pangkalan Udara",
-    deskripsi: "Fasilitas Dirgantara",
-    biaya_pembangunan: 337500,
-    waktu_pembangunan: 180,
-    lowongan_kerja: 500,
-    kapasitas: 24,
-    satuan_kapasitas: "Pesawat Tempur",
-    konsumsi_listrik: 0.5
-  },
-  pangkalan_laut: {
-    key: "pangkalan_laut",
-    label: "Pangkalan Laut",
-    deskripsi: "Fasilitas Maritim",
-    biaya_pembangunan: 562500,
-    waktu_pembangunan: 240,
-    lowongan_kerja: 450,
-    kapasitas: 12,
-    satuan_kapasitas: "Kapal Perang",
-    konsumsi_listrik: 0.5
-  }
-};
 
 const formatNumber = (value: unknown) => {
   const numeric = Number(value ?? 0);
@@ -98,6 +39,21 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   // 🔥 State untuk Modal Konfirmasi Pembangunan
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
+  const [infrastrukturData, setInfrastrukturData] = useState<Record<string, any>>({});
+
+  // 🔥 Load metadata dari JSON file
+  useEffect(() => {
+    const loadMetadata = async () => {
+      try {
+        const response = await fetch('/metadata/armada_metadata.json');
+        const data = await response.json();
+        setInfrastrukturData(data);
+      } catch (error) {
+        console.error('Error loading infrastructure metadata:', error);
+      }
+    };
+    loadMetadata();
+  }, []);
 
   // 🔥 Helper function to get material stocks from inventory
   // Material production is accumulated in inventory_* fields, updated daily
@@ -145,7 +101,8 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
   const handleInfoClick = (key: string) => {
     // 🔥 Saat klik info button, buka modal pembangunan (bukan info modal)
-    setSelectedForBuild({ key, label: infrastrukturData[key as keyof typeof infrastrukturData].label });
+    const item = infrastrukturData[key];
+    setSelectedForBuild({ key, label: item?.label || key });
     setIsConfirmBuildOpen(true);
   };
 
@@ -156,7 +113,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       </div>
 
       <div className="grid grid-cols-5 gap-6">
-        {(Object.keys(infrastrukturData) as (keyof typeof infrastrukturData)[]).map((key) => {
+        {Object.keys(infrastrukturData).map((key) => {
           const item = infrastrukturData[key];
           const value = getNestedValue(countryDetail, key);
 
@@ -202,7 +159,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
   // 🔥 Helper function untuk generate modal props berdasarkan selectedForBuild.key
   function getModalProps() {
-    const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key as keyof typeof infrastrukturData] : null;
+    const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key] : null;
     const materialStocks = calculateMaterialStocks(countryDetail);
     const modalPropsBase = {
       isOpen: isConfirmBuildOpen,
