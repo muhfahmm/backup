@@ -358,105 +358,107 @@ export default function KonfirmasiArmadaAktifModal({
             </div>
           )}
 
-          <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
-            <div className="flex justify-between font-bold">
-              <span>Biaya Pembangunan:</span>
-              <span className="text-[#2e261a]">
-                {loadingMetadata ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
-              </span>
-            </div>
+          {buildingLabel !== "Pasukan Infanteri" && (
+            <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
+              <div className="flex justify-between font-bold">
+                <span>Biaya Pembangunan:</span>
+                <span className="text-[#2e261a]">
+                  {loadingMetadata ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
+                </span>
+              </div>
 
-            {hasMissingMaterials && (
-              <div className="pt-2 border-t border-[#C4B49C]/30">
-                <p className="font-bold text-rose-800 mb-2">Material Kurang:</p>
-                {missingMaterials.map((mat, idx) => (
-                  <div key={idx} className="flex justify-between items-center">
-                    <span className="text-[#2e261a]">{mat.label} (x{mat.amount ?? 0})</span>
-                    <span className="text-rose-600 font-black">0</span>
+              {hasMissingMaterials && (
+                <div className="pt-2 border-t border-[#C4B49C]/30">
+                  <p className="font-bold text-rose-800 mb-2">Material Kurang:</p>
+                  {missingMaterials.map((mat, idx) => (
+                    <div key={idx} className="flex justify-between items-center">
+                      <span className="text-[#2e261a]">{mat.label} (x{mat.amount ?? 0})</span>
+                      <span className="text-rose-600 font-black">0</span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {waktuPembangunan !== undefined && (
+                <div className="flex justify-between">
+                  <span>Estimasi Waktu Pembangunan:</span>
+                  <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
+                </div>
+              )}
+
+              {produksiPerHari !== undefined && (
+                <div className="flex justify-between">
+                  <span>Produksi {produksiLabel || ''} per hari:</span>
+                  <span className="text-emerald-700 font-bold">+{produksiPerHari.toLocaleString('id-ID')}</span>
+                </div>
+              )}
+
+              {dampakKepuasan !== undefined && (
+                <div className="flex justify-between">
+                  <span>Dampak ke Kepuasan:</span>
+                  <span className="text-emerald-700 font-bold">+{dampakKepuasan.toFixed(1)}</span>
+                </div>
+              )}
+
+              {requirements && requirements.length > 0 ? (
+                <div className="space-y-3 text-xs">
+                  <div className="flex items-center justify-between">
+                    <div className="font-black uppercase tracking-[0.2em] text-[#5c3c10]">Material Dibutuhkan</div>
+                    <button
+                      onClick={() => setShowMaterialGrid(!showMaterialGrid)}
+                      className="flex items-center gap-1.5 px-2 py-1 bg-white/80 border border-[#C4B49C]/30 rounded-lg text-[#5c3c10] hover:bg-[#5c3c10]/10 transition-all cursor-pointer"
+                    >
+                      {showMaterialGrid ? (
+                        <>
+                          <EyeOff className="h-3 w-3" />
+                          <span className="text-[8px] font-bold uppercase">Sembunyikan</span>
+                        </>
+                      ) : (
+                        <>
+                          <Eye className="h-3 w-3" />
+                          <span className="text-[8px] font-bold uppercase">Tampilkan</span>
+                        </>
+                      )}
+                    </button>
                   </div>
-                ))}
-              </div>
-            )}
 
-            {waktuPembangunan !== undefined && (
-              <div className="flex justify-between">
-                <span>Estimasi Waktu Pembangunan:</span>
-                <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
-              </div>
-            )}
-
-            {produksiPerHari !== undefined && (
-              <div className="flex justify-between">
-                <span>Produksi {produksiLabel || ''} per hari:</span>
-                <span className="text-emerald-700 font-bold">+{produksiPerHari.toLocaleString('id-ID')}</span>
-              </div>
-            )}
-
-            {dampakKepuasan !== undefined && (
-              <div className="flex justify-between">
-                <span>Dampak ke Kepuasan:</span>
-                <span className="text-emerald-700 font-bold">+{dampakKepuasan.toFixed(1)}</span>
-              </div>
-            )}
-
-            {requirements && requirements.length > 0 ? (
-              <div className="space-y-3 text-xs">
-                <div className="flex items-center justify-between">
-                  <div className="font-black uppercase tracking-[0.2em] text-[#5c3c10]">Material Dibutuhkan</div>
-                  <button
-                    onClick={() => setShowMaterialGrid(!showMaterialGrid)}
-                    className="flex items-center gap-1.5 px-2 py-1 bg-white/80 border border-[#C4B49C]/30 rounded-lg text-[#5c3c10] hover:bg-[#5c3c10]/10 transition-all cursor-pointer"
+                  <div
+                    className={`grid grid-cols-4 gap-2 overflow-hidden transition-all duration-500 ease-in-out ${
+                      showMaterialGrid ? 'max-h-[1500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
+                    }`}
                   >
-                    {showMaterialGrid ? (
-                      <>
-                        <EyeOff className="h-3 w-3" />
-                        <span className="text-[8px] font-bold uppercase">Sembunyikan</span>
-                      </>
-                    ) : (
-                      <>
-                        <Eye className="h-3 w-3" />
-                        <span className="text-[8px] font-bold uppercase">Tampilkan</span>
-                      </>
-                    )}
-                  </button>
-                </div>
+                    {requirements.map((material) => {
+                      const stock = materialStocks[material.resourceKey] ?? 0;
+                      const isStockZero = stock <= 0;
 
-                <div
-                  className={`grid grid-cols-4 gap-2 overflow-hidden transition-all duration-500 ease-in-out ${
-                    showMaterialGrid ? 'max-h-[1500px] opacity-100 mt-2' : 'max-h-0 opacity-0 mt-0'
-                  }`}
-                >
-                  {requirements.map((material) => {
-                    const stock = materialStocks[material.resourceKey] ?? 0;
-                    const isStockZero = stock <= 0;
-
-                    return (
-                      <button
-                        key={`${material.resourceKey}-${material.group}`}
-                        type="button"
-                        onClick={() => onMaterialClick(material.resourceKey, material.label)}
-                        className={`flex flex-col items-center justify-center bg-white/80 border rounded-xl p-2.5 min-h-[50px] cursor-pointer hover:border-[#5c3c10]/60 transition-all ${
-                          isStockZero ? 'border-red-400 bg-red-50/70 text-red-800' : 'border-emerald-400 bg-emerald-50/70'
-                        }`}
-                      >
-                        <div className="font-bold text-[10px] text-center">{material.label}</div>
-                        {material.amount !== undefined && (
-                          <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
-                            x{material.amount}
+                      return (
+                        <button
+                          key={`${material.resourceKey}-${material.group}`}
+                          type="button"
+                          onClick={() => onMaterialClick(material.resourceKey, material.label)}
+                          className={`flex flex-col items-center justify-center bg-white/80 border rounded-xl p-2.5 min-h-[50px] cursor-pointer hover:border-[#5c3c10]/60 transition-all ${
+                            isStockZero ? 'border-red-400 bg-red-50/70 text-red-800' : 'border-emerald-400 bg-emerald-50/70'
+                          }`}
+                        >
+                          <div className="font-bold text-[10px] text-center">{material.label}</div>
+                          {material.amount !== undefined && (
+                            <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
+                              x{material.amount}
+                            </div>
+                          )}
+                          <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-emerald-700'}`}>
+                            {stock.toLocaleString('id-ID')}
                           </div>
-                        )}
-                        <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-emerald-700'}`}>
-                          {stock.toLocaleString('id-ID')}
-                        </div>
-                      </button>
-                    );
-                  })}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <div className="text-[#8b7e66]">Tidak ada material yang dibutuhkan untuk bangunan ini.</div>
-            )}
-          </div>
+              ) : (
+                <div className="text-[#8b7e66]">Tidak ada material yang dibutuhkan untuk bangunan ini.</div>
+              )}
+            </div>
+          )}
 
           <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
             <span>Kas Negara Saat Ini:</span>
@@ -474,14 +476,14 @@ export default function KonfirmasiArmadaAktifModal({
           </button>
           <button
             onClick={onConfirm}
-            disabled={loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled || capacityFull}
+            disabled={buildingLabel === "Pasukan Infanteri" ? isDisabled || capacityFull : loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled || capacityFull}
             className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
-              hasMissingMaterials || !isAnggaranCukup || loadingMetadata || isDisabled || capacityFull
-                ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70'
-                : 'bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]'
+              buildingLabel === "Pasukan Infanteri" 
+                ? (isDisabled || capacityFull ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70' : 'bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]')
+                : (hasMissingMaterials || !isAnggaranCukup || loadingMetadata || isDisabled || capacityFull ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70' : 'bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]')
             }`}
           >
-            {capacityFull && capacityType === "infanteri" ? 'Kapasitas Penuh - Buat Barak' : capacityFull && capacityType === "hangar_tank" ? 'Kapasitas Penuh - Buat Hangar Tank' : capacityFull && capacityType === "gudang_senjata" ? 'Kapasitas Penuh - Buat Gudang Senjata' : capacityFull && capacityType === "pangkalan_laut" ? 'Kapasitas Penuh - Buat Pangkalan Laut' : capacityFull && capacityType === "pangkalan_udara" ? 'Kapasitas Penuh - Buat Pangkalan Udara' : hasMissingMaterials ? 'Material Kurang' : !isAnggaranCukup ? 'Dana Tidak Cukup' : 'Mulai Pembangunan'}
+            {capacityFull && capacityType === "infanteri" ? 'Kapasitas Penuh - Buat Barak' : capacityFull && capacityType === "hangar_tank" ? 'Kapasitas Penuh - Buat Hangar Tank' : capacityFull && capacityType === "gudang_senjata" ? 'Kapasitas Penuh - Buat Gudang Senjata' : capacityFull && capacityType === "pangkalan_laut" ? 'Kapasitas Penuh - Buat Pangkalan Laut' : capacityFull && capacityType === "pangkalan_udara" ? 'Kapasitas Penuh - Buat Pangkalan Udara' : buildingLabel === "Pasukan Infanteri" ? 'Mulai Perekrutan' : hasMissingMaterials ? 'Material Kurang' : !isAnggaranCukup ? 'Dana Tidak Cukup' : 'Mulai Pembangunan'}
           </button>
         </div>
       </div>

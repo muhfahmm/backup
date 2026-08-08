@@ -61,7 +61,7 @@ export function handleGameRestart(options: RestartOptions): void {
                 // Kelistrikan
                 'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
                 // Mineral & Energi
-                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijah_besi',
+                'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi',
                 // Manufaktur
                 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu',
                 // Pertahanan & Infrastruktur Militer
@@ -94,7 +94,7 @@ export function handleGameRestart(options: RestartOptions): void {
                         'udang', 'mutiara', 'ikan',
                         'air_mineral', 'gula', 'roti', 'pengolahan_daging', 'mie_instan', 'minyak_goreng', 'susu',
                         'pembangkit_listrik_tenaga_nuklir', 'pembangkit_listrik_tenaga_air', 'pembangkit_listrik_tenaga_surya', 'pembangkit_listrik_tenaga_uap', 'pembangkit_listrik_tenaga_gas', 'pembangkit_listrik_tenaga_angin',
-                        'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijah_besi',
+                        'emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi',
                         'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu',
                         'barak', 'gudang_senjata', 'hangar_tank', 'pangkalan_udara', 'pangkalan_laut'
                     ];

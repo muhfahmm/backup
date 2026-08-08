@@ -104,7 +104,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   const calculateMaterialStocks = (countryDetailData: any) => {
     const stocks: Record<string, number> = {};
     const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 
-      'litium', 'logam_tanah_jarang', 'bijah_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
+      'litium', 'logam_tanah_jarang', 'bijih_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
     materialKeys.forEach(key => {
       stocks[key] = Number(countryDetailData?.[`inventory_${key}`]) || 0;
     });
