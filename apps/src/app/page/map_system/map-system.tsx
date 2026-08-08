@@ -8,8 +8,8 @@ import {
 import Link from 'next/link';
 import { WORLD_GEOJSON, COUNTRIES_DATA, CAPITALS_DATA } from './map-data';
 import countryPaths from './country-paths.json';
-import { SimulationTimeManager } from '../time_controllers/timeManager';
-import { handleGameRestart } from '../time_controllers/gameRestart';
+import { SimulationTimeManager, createSimulationCalendar } from '../time_controllers';
+import { handleGameRestart } from '../time_controllers';
 import { GameMenuModal } from '../navbar/GameMenuModal';
 import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
 import { Navbar } from '../navbar/Navbar';
@@ -66,6 +66,7 @@ export default function MapPage() {
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
     const timeManagerRef = useRef<SimulationTimeManager | null>(null);
+    const calendarRef = useRef<any>(null);
     const wasmModuleRef = useRef<any>(null);
     const hasInitRef = useRef(false);
 
@@ -113,6 +114,10 @@ export default function MapPage() {
 
         // Assign manager to ref immediately after construction
         timeManagerRef.current = manager;
+
+        // Create calendar system with factory
+        const calendarSystem = createSimulationCalendar(manager);
+        calendarRef.current = calendarSystem;
 
         // Check if there is a save to load to restore the date
         if (typeof window !== 'undefined') {
@@ -423,7 +428,8 @@ export default function MapPage() {
     // Open save dialog with default name suggestions
     const openSaveModal = () => {
         if (!selectedCountry) return;
-        const defaultName = `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`;
+        const defaultName = calendarRef.current?.calendar.formatSaveName(selectedCountry.country) 
+            || `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`;
         setSaveNameInput(defaultName);
         setIsSaveModalOpen(true);
     };
@@ -434,7 +440,9 @@ export default function MapPage() {
 
         setIsSaving(true);
         try {
-            const saveName = saveNameInput.trim() || `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`;
+            const saveName = saveNameInput.trim() 
+                || (calendarRef.current?.calendar.formatSaveName(selectedCountry.country) 
+                || `Simulasi ${selectedCountry.country} - ${timeManagerRef.current?.getFormattedDate() || 'Hari Ini'}`);
             const gameDate = timeManagerRef.current ? timeManagerRef.current.getCurrentDate().toISOString() : new Date().toISOString();
 
             const response = await fetch('/api/game-save', {
@@ -689,13 +697,14 @@ export default function MapPage() {
                         {/* 1. Large Play/Pause gold button */}
                         <button 
                             onClick={() => {
-                                const nextPaused = !isPaused;
-                                setIsPaused(nextPaused);
+                                if (!calendarRef.current) return;
+                                const newPaused = calendarRef.current.controls.handlePlayPauseClick(isPaused);
+                                setIsPaused(newPaused);
                                 if (timeManagerRef.current) {
-                                    timeManagerRef.current.setPaused(nextPaused);
+                                    timeManagerRef.current.setPaused(newPaused);
                                 }
                             }}
-                            title={isPaused ? "Mulai Waktu" : "Jeda Waktu"}
+                            title={calendarRef.current?.calendar.getPauseButtonTitle(isPaused) || (isPaused ? "Mulai Waktu" : "Jeda Waktu")}
                             className="w-14 h-14 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-4 border-[#1e2f3d] shadow-[0_4px_8px_rgba(0,0,0,0.4)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20 group"
                         >
                             {isPaused ? (
@@ -708,21 +717,28 @@ export default function MapPage() {
                         {/* 2. Gold Speed Selector button */}
                         <button 
                             onClick={() => {
-                                const nextSpeed = speed === 1 ? 2 : speed === 2 ? 3 : 1;
-                                setSpeed(nextSpeed);
+                                if (!calendarRef.current) return;
+                                const newSpeed = calendarRef.current.controls.handleSpeedClick();
+                                setSpeed(newSpeed);
                                 if (timeManagerRef.current) {
-                                    timeManagerRef.current.setSpeed(nextSpeed);
+                                    timeManagerRef.current.setSpeed(newSpeed);
                                 }
                             }}
-                            title={`Ubah Kecepatan: ${speed}x`}
+                            title={calendarRef.current?.calendar.getSpeedButtonTitle() || `Ubah Kecepatan: ${speed}x`}
                             className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20 text-[12px] font-black text-[#5c3c10] uppercase tracking-tighter"
                         >
-                            ×{speed}
+                            {calendarRef.current?.display.getSpeedLabel() || `×${speed}`}
                         </button>
 
                         {/* 3. Gold Holiday button */}
                         <button 
-                            onClick={() => alert("Mode Liburan Presiden diaktifkan! Rakyat menikmati waktu istirahat.")}
+                            onClick={() => {
+                                if (calendarRef.current) {
+                                    calendarRef.current.controls.handleHolidayClick();
+                                } else {
+                                    alert("Mode Liburan Presiden diaktifkan! Rakyat menikmati waktu istirahat.");
+                                }
+                            }}
                             title="Liburan Negara"
                             className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20"
                         >
@@ -731,7 +747,13 @@ export default function MapPage() {
 
                         {/* 4. Gold Military/General button */}
                         <button 
-                            onClick={() => alert("Informasi Kepresidenan & Hubungan Militer Aktif.")}
+                            onClick={() => {
+                                if (calendarRef.current) {
+                                    calendarRef.current.controls.handleMilitaryClick();
+                                } else {
+                                    alert("Informasi Kepresidenan & Hubungan Militer Aktif.");
+                                }
+                            }}
                             title="Militer & Keamanan Negara"
                             className="w-10 h-10 rounded-full bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-2 border-[#1e2f3d] shadow-[0_3px_6px_rgba(0,0,0,0.3)] flex items-center justify-center cursor-pointer hover:brightness-110 hover:scale-105 active:scale-95 transition-all z-20"
                         >
@@ -816,7 +838,7 @@ export default function MapPage() {
                             </div>
 
                             <div className="flex items-center justify-between text-[11px] text-[#8b7e66] font-bold border-t border-[#C4B49C]/30 pt-3 mt-1">
-                                <span>Kalender: {timeManagerRef.current?.getFormattedDate() || '-'}</span>
+                                <span>Kalender: {calendarRef.current?.display.getCalendarInfo() || (timeManagerRef.current?.getFormattedDate() || '-')}</span>
                                 <span>Kas: {countryDetail?.anggaran ? `${countryDetail.anggaran} EM` : '-'}</span>
                             </div>
 

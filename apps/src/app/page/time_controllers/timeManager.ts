@@ -91,6 +91,16 @@ export class SimulationTimeManager {
         }
     }
 
+    // Get current speed multiplier
+    public getSpeed(): number {
+        return this.speed;
+    }
+
+    // Check if simulation is paused
+    public getIsPaused(): boolean {
+        return this.isPaused;
+    }
+
     // The high-performance tick loop powered by requestAnimationFrame
     private startLoop(): void {
         if (this.animationFrameId !== null) return;
