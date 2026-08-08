@@ -357,6 +357,10 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
+          onGotoProduction={(tab, key) => {
+            setActiveMenu("Menu:Produksi");
+            setProductionDeepLink?.({ tab, key });
+          }}
         />
       );
     case "Menu:ICBM":

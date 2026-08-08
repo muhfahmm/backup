@@ -1,11 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { Info } from "lucide-react";
-import KonfirmasiPembangunanModal from "../modals_konfirmasi_pembangunan/konfirmasi_pembangunan_modal";
+import KonfirmasiArmadaPolisiModal from "../modals_konfirmasi_pembangunan/3_konfirmasi_armada_polisi_modal";
 
 interface TabProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onCapacityFull?: (infraKey: string) => void;
+  highlightKey?: string | null;
 }
 
 const polisiData = {
@@ -203,7 +205,7 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
 
       {/* 🔥 Modal Konfirmasi Pembangunan */}
       {selectedForBuild && (
-        <KonfirmasiPembangunanModal
+        <KonfirmasiArmadaPolisiModal
           isOpen={isConfirmBuildOpen}
           onClose={() => setIsConfirmBuildOpen(false)}
           buildingLabel={selectedForBuild.label}

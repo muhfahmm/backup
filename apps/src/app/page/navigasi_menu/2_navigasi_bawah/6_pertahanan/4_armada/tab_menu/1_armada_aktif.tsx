@@ -3,11 +3,20 @@ import React, { useState } from "react";
 import { Swords, Ship, Plane, Info } from "lucide-react";
 import { getArmadaUnitBreakdown } from "../logic/armadaLogic";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
-import KonfirmasiPembangunanModal from "../modals_konfirmasi_pembangunan/konfirmasi_pembangunan_modal";
+import KonfirmasiArmadaAktifModal from "../modals_konfirmasi_pembangunan/1_konfirmasi_armada_aktif_modal";
+// 🔥 Import requirements dari logic folders
+import { REQUIREMENTS as INFANTERI_REQUIREMENTS } from "../requirements_logic/1_infanteri/requirements";
+import { REQUIREMENTS as HANGAR_REQUIREMENTS } from "../requirements_logic/2_hangar_tank/requirements";
+import { REQUIREMENTS as GUDANG_REQUIREMENTS } from "../requirements_logic/3_gudang_senjata/requirements";
+import { REQUIREMENTS as LAUT_REQUIREMENTS } from "../requirements_logic/4_pangkalan_laut/requirements";
+import { REQUIREMENTS as UDARA_REQUIREMENTS } from "../requirements_logic/5_pangkalan_udara/requirements";
 
 interface TabProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onCapacityFull?: (infraKey: string) => void;
+  highlightKey?: string | null;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
 const armadaCatalog = {
@@ -57,9 +66,32 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
-export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCountryDetail }: TabProps) {
+export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCountryDetail, onCapacityFull, highlightKey, onGotoProduction }: TabProps) {
   const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
   const unitBreakdown = getArmadaUnitBreakdown(payload);
+
+  // 🔥 Map resource keys to their correct Produksi tab
+  const getTabForResource = (resourceKey: string): string => {
+    const resourceToTab: Record<string, string> = {
+      // Mineral & Energi
+      emas: 'mineral',
+      uranium: 'mineral',
+      batu_bara: 'mineral',
+      minyak_bumi: 'mineral',
+      gas_alam: 'mineral',
+      batu_gunung: 'mineral',
+      litium: 'mineral',
+      logam_tanah_jarang: 'mineral',
+      bijih_besi: 'mineral',
+      // Manufaktur
+      semikonduktor: 'manufaktur',
+      mobil: 'manufaktur',
+      sepeda_motor: 'manufaktur',
+      semen_beton: 'manufaktur',
+      kayu: 'manufaktur',
+    };
+    return resourceToTab[resourceKey] || 'kelistrikan';
+  };
 
   const [infoKey, setInfoKey] = useState<string | null>(null);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -157,21 +189,25 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
 
       {/* 🔥 Modal Konfirmasi Pembangunan */}
       {selectedForBuild && (
-        <KonfirmasiPembangunanModal
+        <KonfirmasiArmadaAktifModal
           isOpen={isConfirmBuildOpen}
           onClose={() => setIsConfirmBuildOpen(false)}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
           cost={0}
-          requirements={[]}
-          materialStocks={{}}
+          requirements={getRequirementsForArmada(selectedForBuild.key)}
+          materialStocks={countryDetail?.resources || {}}
           anggaran={Number(countryDetail?.anggaran) || 0}
           missingMaterials={[]}
           onConfirm={() => {
             // TODO: Implement build logic
             setIsConfirmBuildOpen(false);
           }}
-          onMaterialClick={() => {}}
+          onMaterialClick={(resourceKey, label) => {
+            setIsConfirmBuildOpen(false);
+            const tab = getTabForResource(resourceKey);
+            onGotoProduction?.(tab, resourceKey);
+          }}
           loadingMetadata={false}
           isDisabled={false}
           // 🔥 PROPS KAPASITAS INFANTERI - hanya untuk barak
@@ -210,8 +246,44 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           droneKamikazeCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.drone_kamikaze ?? 0) : 0}
           pesawatAngkutCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_angkut ?? 0) : 0}
           currentPangkalanUdaraCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(countryDetail?.pangkalan_udara ?? countryDetail?.pertahanan?.pangkalan_udara ?? 0) : 0}
+          // 🔥 CALLBACK UNTUK NAVIGATE KE INFRASTRUKTUR
+          onNavigateToInfra={onCapacityFull}
+          infraKeyToHighlight={highlightKey}
         />
       )}
     </div>
   );
+
+  // 🔥 Helper function untuk get requirements berdasarkan armada key
+  function getRequirementsForArmada(key: string) {
+    const findRequirements = (buildingKey: string, requirementsArray: any[]) => {
+      const found = requirementsArray.find((r) => r.buildingKey === buildingKey);
+      return found?.requirements || [];
+    };
+
+    // Barak dari infanteri
+    if (key === "barak") return findRequirements("barak", INFANTERI_REQUIREMENTS);
+    
+    // Tank dari hangar
+    if (["tank_tempur_utama", "apc_ifv"].includes(key)) {
+      return findRequirements(key, HANGAR_REQUIREMENTS);
+    }
+    
+    // Senjata dari gudang
+    if (["artileri_berat", "sistem_peluncur_roket", "pertahanan_udara_mobile", "kendaraan_taktis"].includes(key)) {
+      return findRequirements(key, GUDANG_REQUIREMENTS);
+    }
+    
+    // Kapal dari pangkalan laut
+    if (["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(key)) {
+      return findRequirements(key, LAUT_REQUIREMENTS);
+    }
+    
+    // Pesawat dari pangkalan udara
+    if (["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(key)) {
+      return findRequirements(key, UDARA_REQUIREMENTS);
+    }
+    
+    return [];
+  }
 }

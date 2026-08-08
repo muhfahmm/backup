@@ -6,67 +6,9 @@ import { HANGAR_TANK_CAPACITY } from "../logic/2_hangar_tank_logic";
 import { GUDANG_SENJATA_CAPACITY } from "../logic/3_gudang_senjata_logic";
 import { PANGKALAN_LAUT_CAPACITY } from "../logic/4_pangkalan_laut_logic";
 import { PANGKALAN_UDARA_CAPACITY } from "../logic/5_pangkalan_udara_logic";
+import { KonfirmasiPembangunanModalProps } from "./konfirmasi_pembangunan_types";
 
-interface MaterialRequirement {
-  resourceKey: string;
-  label: string;
-  group: string;
-  amount?: number;
-}
-
-interface KonfirmasiPembangunanModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  buildingLabel: string;
-  buildingDescription?: string;
-  cost: number;
-  waktuPembangunan?: number;
-  dampakKepuasan?: number;      // Untuk Tempat Umum & Hunian
-  produksiPerHari?: number;     // Untuk Bangunan Produksi
-  produksiLabel?: string;
-  requirements: MaterialRequirement[];
-  materialStocks: Record<string, number>;
-  anggaran: number;
-  missingMaterials: MaterialRequirement[];
-  onConfirm: () => void;
-  onMaterialClick: (resourceKey: string, label: string) => void;
-  loadingMetadata: boolean;
-  isDisabled?: boolean;
-  currentCapacity?: number;     // Untuk Infanteri: jumlah infanteri saat ini
-  maxCapacity?: number;         // Untuk Infanteri: kapasitas maksimal per barak (10.000)
-  currentBarakCount?: number;   // Untuk Infanteri: jumlah barak yang dimiliki
-  capacityType?: "infanteri" | "hangar_tank" | "gudang_senjata" | "pangkalan_laut" | "pangkalan_udara"; // Tipe kapasitas
-  currentTankCount?: number;    // Untuk Hangar Tank: jumlah tank
-  currentApcCount?: number;     // Untuk Hangar Tank: jumlah APC
-  currentHangarCount?: number;  // Untuk Hangar Tank: jumlah hangar
-  currentArtileriCount?: number;       // Untuk Gudang Senjata
-  currentRoketCount?: number;          // Untuk Gudang Senjata
-  currentPertahanUdaraCount?: number;  // Untuk Gudang Senjata
-  currentKendaraanTaktisCount?: number;// Untuk Gudang Senjata
-  currentGudangCount?: number;         // Untuk Gudang Senjata: jumlah gudang
-  // Pangkalan Laut
-  kapalIndukCount?: number;
-  kapalIndukNuklirCount?: number;
-  kapalDestroyerCount?: number;
-  kapalKorvetCount?: number;
-  kapalSelamNuklirCount?: number;
-  kapalSelamRegulerCount?: number;
-  kapalRanjauCount?: number;
-  kapalLogistikCount?: number;
-  currentPangkalanLautCount?: number;
-  // Pangkalan Udara
-  jetTemturSilamanCount?: number;
-  jetTemturInterceptorCount?: number;
-  pesawatPengebomCount?: number;
-  helikopterSerangCount?: number;
-  pesawatPengintaiCount?: number;
-  droneIntaiUavCount?: number;
-  droneKamikazeCount?: number;
-  pesawatAngkutCount?: number;
-  currentPangkalanUdaraCount?: number;
-}
-
-export default function KonfirmasiPembangunanModal({
+export default function KonfirmasiArmadaAktifModal({
   isOpen,
   onClose,
   buildingLabel,
@@ -84,10 +26,10 @@ export default function KonfirmasiPembangunanModal({
   onMaterialClick,
   loadingMetadata,
   isDisabled = false,
+  capacityType = "infanteri",
   currentCapacity = 0,
   maxCapacity = 10000,
   currentBarakCount = 0,
-  capacityType = "infanteri",
   currentTankCount = 0,
   currentApcCount = 0,
   currentHangarCount = 0,
@@ -114,6 +56,8 @@ export default function KonfirmasiPembangunanModal({
   droneKamikazeCount = 0,
   pesawatAngkutCount = 0,
   currentPangkalanUdaraCount = 0,
+  onNavigateToInfra,
+  infraKeyToHighlight,
 }: KonfirmasiPembangunanModalProps) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
 
@@ -121,7 +65,7 @@ export default function KonfirmasiPembangunanModal({
 
   const hasMissingMaterials = missingMaterials.length > 0;
   const isAnggaranCukup = anggaran >= cost;
-  
+
   // 🔥 LOGIC KAPASITAS INFANTERI
   let infanteriCapacityFull = false;
   let infanteriCapacityDisplay = "";
@@ -199,27 +143,25 @@ export default function KonfirmasiPembangunanModal({
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      {/* 🔥 DIMENSI DAN STRUKTUR DISAMAKAN: max-w-6xl h-[84vh] flex flex-col */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
 
-        {/* Header - shrink-0 agar tetap di atas */}
+        {/* Header */}
         <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-2 text-[#5c3c10]">
             <Hammer className="h-5 w-5" />
-            <h3 className="text-base font-bold uppercase tracking-tight">Konfirmasi Pembangunan</h3>
+            <h3 className="text-base font-bold uppercase tracking-tight">Perekrutan Militer</h3>
           </div>
           <button onClick={onClose} className="text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer">
             <X className="h-5 w-5" />
           </button>
         </div>
 
-        {/* Body - flex-1 overflow-y-auto agar bisa di-scroll */}
+        {/* Body */}
         <div className="p-6 relative z-10 flex-1 overflow-y-auto space-y-4">
           <div>
             <div className="flex items-center justify-between mb-2">
               <h4 className="text-lg font-black text-[#2e261a]">{buildingLabel}</h4>
-              {/* 🔥 CAPACITY COUNTER - Tampilkan x/y jika ada capacity */}
               {capacityDisplay && (
                 <div className="text-sm font-black text-[#5c3c10] bg-[#FAF6EE] px-3 py-1 rounded-lg border border-[#C4B49C]/30">
                   {capacityDisplay}
@@ -229,7 +171,7 @@ export default function KonfirmasiPembangunanModal({
             <p className="text-xs text-[#8b7e66]">{buildingDescription || 'Tidak ada deskripsi tersedia.'}</p>
           </div>
 
-          {/* 🔥 DETAIL KAPASITAS INFANTERI */}
+          {/* DETAIL KAPASITAS INFANTERI */}
           {capacityType === "infanteri" && (
             <div className="bg-blue-50/80 border border-blue-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-blue-900">📊 Detail Kapasitas Barak:</p>
@@ -256,7 +198,7 @@ export default function KonfirmasiPembangunanModal({
             </div>
           )}
 
-          {/* 🔥 DETAIL KAPASITAS HANGAR TANK */}
+          {/* DETAIL KAPASITAS HANGAR TANK */}
           {capacityType === "hangar_tank" && (
             <div className="bg-amber-50/80 border border-amber-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-amber-900">🚜 Detail Kapasitas Hangar Tank:</p>
@@ -291,7 +233,7 @@ export default function KonfirmasiPembangunanModal({
             </div>
           )}
 
-          {/* 🔥 DETAIL KAPASITAS GUDANG SENJATA */}
+          {/* DETAIL KAPASITAS GUDANG SENJATA */}
           {capacityType === "gudang_senjata" && (
             <div className="bg-purple-50/80 border border-purple-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-purple-900">💣 Detail Kapasitas Gudang Senjata:</p>
@@ -334,20 +276,7 @@ export default function KonfirmasiPembangunanModal({
             </div>
           )}
 
-          {/* 🔥 PERINGATAN: KAPASITAS PENUH */}
-          {capacityFull && (
-            <div className="bg-rose-50/80 border-2 border-rose-400 rounded-xl p-4 space-y-2">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full bg-rose-600 animate-pulse"></div>
-                <p className="text-sm font-black text-rose-800">KAPASITAS PENUH</p>
-              </div>
-              <p className="text-xs text-rose-700">
-                {warningText}
-              </p>
-            </div>
-          )}
-
-          {/* 🔥 DETAIL KAPASITAS PANGKALAN LAUT */}
+          {/* DETAIL KAPASITAS PANGKALAN LAUT */}
           {capacityType === "pangkalan_laut" && (
             <div className="bg-sky-50/80 border border-sky-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-sky-900">⚓ Detail Kapasitas Pangkalan Laut:</p>
@@ -376,7 +305,7 @@ export default function KonfirmasiPembangunanModal({
             </div>
           )}
 
-          {/* 🔥 DETAIL KAPASITAS PANGKALAN UDARA */}
+          {/* DETAIL KAPASITAS PANGKALAN UDARA */}
           {capacityType === "pangkalan_udara" && (
             <div className="bg-orange-50/80 border border-orange-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-orange-900">✈️ Detail Kapasitas Pangkalan Udara:</p>
@@ -405,6 +334,30 @@ export default function KonfirmasiPembangunanModal({
             </div>
           )}
 
+          {/* PERINGATAN: KAPASITAS PENUH */}
+          {capacityFull && (
+            <div className={`border-2 rounded-xl p-4 space-y-2 transition-all ${infraKeyToHighlight ? 'bg-emerald-50/80 border-emerald-400' : 'bg-rose-50/80 border-rose-400'}`}>
+              <div className="flex items-center gap-2">
+                <div className={`w-2 h-2 rounded-full animate-pulse ${infraKeyToHighlight ? 'bg-emerald-600' : 'bg-rose-600'}`}></div>
+                <p className={`text-sm font-black ${infraKeyToHighlight ? 'text-emerald-800' : 'text-rose-800'}`}>KAPASITAS PENUH</p>
+              </div>
+              <p className={`text-xs ${infraKeyToHighlight ? 'text-emerald-700' : 'text-rose-700'}`}>
+                {warningText}
+              </p>
+              {onNavigateToInfra && (
+                <button
+                  onClick={() => {
+                    const infraKey = capacityType === "infanteri" ? "barak" : capacityType === "hangar_tank" ? "hangar_tank" : capacityType === "gudang_senjata" ? "gudang_senjata" : capacityType === "pangkalan_laut" ? "pangkalan_laut" : "pangkalan_udara";
+                    onNavigateToInfra(infraKey);
+                  }}
+                  className={`mt-3 w-full px-4 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider transition-all cursor-pointer ${infraKeyToHighlight ? 'bg-emerald-600 text-white hover:bg-emerald-700 shadow-lg' : 'bg-rose-600 text-white hover:bg-rose-700 shadow-md'}`}
+                >
+                  🏗️ Buka Tab Infrastruktur
+                </button>
+              )}
+            </div>
+          )}
+
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
             <div className="flex justify-between font-bold">
               <span>Biaya Pembangunan:</span>
@@ -425,7 +378,6 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
-            {/* Kondisional Waktu Pembangunan */}
             {waktuPembangunan !== undefined && (
               <div className="flex justify-between">
                 <span>Estimasi Waktu Pembangunan:</span>
@@ -433,7 +385,6 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
-            {/* Kondisional Produksi */}
             {produksiPerHari !== undefined && (
               <div className="flex justify-between">
                 <span>Produksi {produksiLabel || ''} per hari:</span>
@@ -441,7 +392,6 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
-            {/* Kondisional Kepuasan */}
             {dampakKepuasan !== undefined && (
               <div className="flex justify-between">
                 <span>Dampak ke Kepuasan:</span>
@@ -449,7 +399,6 @@ export default function KonfirmasiPembangunanModal({
               </div>
             )}
 
-            {/* Material Requirement */}
             {requirements && requirements.length > 0 ? (
               <div className="space-y-3 text-xs">
                 <div className="flex items-center justify-between">
@@ -515,7 +464,7 @@ export default function KonfirmasiPembangunanModal({
           </div>
         </div>
 
-        {/* Footer - shrink-0 agar tetap di bawah */}
+        {/* Footer */}
         <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10 shrink-0">
           <button
             onClick={onClose}

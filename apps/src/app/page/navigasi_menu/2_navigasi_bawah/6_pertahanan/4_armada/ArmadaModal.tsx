@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { X, ShieldAlert, Swords, Building2, Shield } from "lucide-react";
 import ArmadaAktif from "./tab_menu/1_armada_aktif";
 import InfrastrukturMiliter from "./tab_menu/2_infrastruktur_militer";
@@ -10,12 +10,14 @@ interface ModalProps {
   onClose: () => void;
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
+  onGotoProduction?: (tab: string, key: string) => void;
 }
 
-export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail }: ModalProps) {
+export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction }: ModalProps) {
   if (!isOpen) return null;
 
   const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
+  const [highlightInfraKey, setHighlightInfraKey] = useState<string | null>(null);
 
   const countryName =
     countryDetail?.country ||
@@ -23,6 +25,19 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
     countryDetail?.name_id ||
     countryDetail?.name_en ||
     "Negara";
+
+  // 🔥 Clear highlight after animation using useEffect
+  useEffect(() => {
+    if (highlightInfraKey) {
+      const timer = setTimeout(() => setHighlightInfraKey(null), 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [highlightInfraKey]);
+
+  const handleNavigateToInfra = (infraKey: string) => {
+    setActiveTab("infrastruktur");
+    setHighlightInfraKey(infraKey);
+  };
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -59,8 +74,8 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
           </div>
 
           <div className="space-y-4">
-            {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
-            {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
+            {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} onCapacityFull={handleNavigateToInfra} onGotoProduction={onGotoProduction} />}
+            {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} highlightKey={highlightInfraKey} onGotoProduction={onGotoProduction} />}
             {activeTab === "polisi" && <ArmadaPolisi countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
           </div>
         </div>
