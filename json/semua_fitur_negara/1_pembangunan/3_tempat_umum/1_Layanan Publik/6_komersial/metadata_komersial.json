@@ -9,7 +9,7 @@
     "waktu_pembangunan": 50,
     "biaya_pembangunan": 48750,
     "lowongan_kerja": 25000,
-    "konsumsi_listrik": 30,
+    "konsumsi_listrik": 1,
     "efek": "Meningkatkan kas negara"
   },
   "hotel": {
@@ -22,7 +22,7 @@
     "waktu_pembangunan": 35,
     "biaya_pembangunan": 63750,
     "lowongan_kerja": 8500,
-    "konsumsi_listrik": 30,
+    "konsumsi_listrik": 1,
     "efek": "Meningkatkan kas negara"
   },
   "pusat_grosir_tekstil": {
@@ -35,7 +35,7 @@
     "waktu_pembangunan": 30,
     "biaya_pembangunan": 26250,
     "lowongan_kerja": 12000,
-    "konsumsi_listrik": 150,
+    "konsumsi_listrik": 1,
     "efek": "Meningkatkan kas negara"
   }
 }

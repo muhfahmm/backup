@@ -7,7 +7,7 @@
     "waktu_pembangunan": 90,
     "biaya_pembangunan": 900,
     "lowongan_kerja": 15000,
-    "konsumsi_listrik": 850
+    "konsumsi_listrik": 0.5
   },
   "bunker_komando": {
     "key": "bunker_komando",
@@ -17,7 +17,7 @@
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 637.5,
     "lowongan_kerja": 8000,
-    "konsumsi_listrik": 450
+    "konsumsi_listrik": 0.5
   },
   "pusat_komando_wilayah": {
     "key": "pusat_komando_wilayah",
@@ -27,7 +27,7 @@
     "waktu_pembangunan": 60,
     "biaya_pembangunan": 337.5,
     "lowongan_kerja": 12000,
-    "konsumsi_listrik": 350
+    "konsumsi_listrik": 0.5
   },
   "program_nuklir": {
     "key": "program_nuklir",

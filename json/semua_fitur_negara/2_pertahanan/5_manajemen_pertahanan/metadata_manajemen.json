@@ -1,4 +1,5 @@
-{  "gudang_senjata": {
+{
+  "gudang_senjata": {
     "key": "2_gudang_senjata",
     "dataKey": "gudang_senjata",
     "groupId": "pertahanan",
@@ -9,7 +10,7 @@
     "lowongan_kerja": 100,
     "kapasitas": 10000,
     "satuan_kapasitas": "Unit Amunisi",
-    "konsumsi_listrik": 200
+    "konsumsi_listrik": 0.5
   },
   "hangar_tank": {
     "key": "3_hangar_tank",
@@ -22,8 +23,9 @@
     "lowongan_kerja": 150,
     "kapasitas": 50,
     "satuan_kapasitas": "Main Battle Tank",
-    "konsumsi_listrik": 500
-  },  "pangkalan_udara": {
+    "konsumsi_listrik": 0.5
+  },
+  "pangkalan_udara": {
     "key": "6_pangkalan_udara",
     "dataKey": "pangkalan_udara",
     "groupId": "pertahanan",
@@ -34,7 +36,7 @@
     "lowongan_kerja": 500,
     "kapasitas": 24,
     "satuan_kapasitas": "Pesawat Tempur",
-    "konsumsi_listrik": 300
+    "konsumsi_listrik": 0.5
   },
   "pangkalan_laut": {
     "key": "7_pangkalan_laut",
@@ -47,5 +49,6 @@
     "lowongan_kerja": 450,
     "kapasitas": 12,
     "satuan_kapasitas": "Kapal Perang",
-    "konsumsi_listrik": 350
-  },}
+    "konsumsi_listrik": 0.5
+  }
+}

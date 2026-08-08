@@ -2,7 +2,7 @@
   "rumah_subsidi": {
     "biaya_pembangunan": 500,
     "waktu_pembangunan": 4,
-    "konsumsi_listrik": 1,
+    "konsumsi_listrik": 0.1,
     "kapasitas": 5,
     "label": "Perumahan Subsidi Rakyat",
     "deskripsi": "Hunian Terpadu Masyarakat Terjangkau"
@@ -10,7 +10,7 @@
   "apartemen": {
     "biaya_pembangunan": 2500,
     "waktu_pembangunan": 7,
-    "konsumsi_listrik": 5,
+    "konsumsi_listrik": 0.3,
     "kapasitas": 6000,
     "label": "Apartemen Modern & High-Rise",
     "deskripsi": "Hunian Vertikal Kepadatan Tinggi"
@@ -18,7 +18,7 @@
   "mansion": {
     "biaya_pembangunan": 5000,
     "waktu_pembangunan": 14,
-    "konsumsi_listrik": 10,
+    "konsumsi_listrik": 0.5,
     "kapasitas": 10,
     "label": "Kompleks Mansion Mewah",
     "deskripsi": "Hunian Eksklusif Kelas Atas"
