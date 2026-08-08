@@ -86,20 +86,18 @@ const getNestedValue = (obj: any, key: string): number => {
 };
 
 export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail }: TabProps) {
-  // 🔥 State untuk Modal Info
-  const [infoKey, setInfoKey] = useState<string | null>(null);
-  const [isInfoOpen, setIsInfoOpen] = useState(false);
-  
+  // 🔥 Setup payload dari countryDetail.armada
+  const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
+
   // 🔥 State untuk Modal Konfirmasi Pembangunan
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
   const handleInfoClick = (key: string) => {
-    setInfoKey(key);
-    setIsInfoOpen(true);
+    // 🔥 Saat klik info button, buka modal pembangunan (bukan info modal)
+    setSelectedForBuild({ key, label: infrastrukturData[key as keyof typeof infrastrukturData].label });
+    setIsConfirmBuildOpen(true);
   };
-
-  const selectedItem = infoKey ? infrastrukturData[infoKey as keyof typeof infrastrukturData] : null;
 
   return (
     <div className="space-y-6">
@@ -166,11 +164,42 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
           onMaterialClick={() => {}}
           loadingMetadata={false}
           isDisabled={false}
-          // 🔥 PROPS KAPASITAS BARAK - untuk detail breakdown
-          capacityType={selectedForBuild.key === "barak" ? "infanteri" : undefined}
+          // 🔥 PROPS KAPASITAS BARAK
+          capacityType={selectedForBuild.key === "barak" ? "infanteri" : selectedForBuild.key === "hangar_tank" ? "hangar_tank" : selectedForBuild.key === "gudang_senjata" ? "gudang_senjata" : selectedForBuild.key === "pangkalan_laut" ? "pangkalan_laut" : selectedForBuild.key === "pangkalan_udara" ? "pangkalan_udara" : undefined}
+          // INFANTERI CAPACITY
           currentCapacity={selectedForBuild.key === "barak" ? convertBarakToSoldiers(Number(getNestedValue(countryDetail, "barak"))) : undefined}
           maxCapacity={selectedForBuild.key === "barak" ? 10000 : undefined}
           currentBarakCount={selectedForBuild.key === "barak" ? Number(getNestedValue(countryDetail, "barak")) : undefined}
+          // HANGAR TANK CAPACITY - dari armada_militer (sudah ada di countryDetail.armada)
+          currentTankCount={selectedForBuild.key === "hangar_tank" ? Number(payload?.darat?.tank_tempur_utama ?? 0) : 0}
+          currentApcCount={selectedForBuild.key === "hangar_tank" ? Number(payload?.darat?.apc_ifv ?? 0) : 0}
+          currentHangarCount={selectedForBuild.key === "hangar_tank" ? Number(getNestedValue(countryDetail, "hangar_tank")) : 0}
+          // GUDANG SENJATA CAPACITY - dari armada_militer
+          currentArtileriCount={selectedForBuild.key === "gudang_senjata" ? Number(payload?.darat?.artileri_berat ?? 0) : 0}
+          currentRoketCount={selectedForBuild.key === "gudang_senjata" ? Number(payload?.darat?.sistem_peluncur_roket ?? 0) : 0}
+          currentPertahanUdaraCount={selectedForBuild.key === "gudang_senjata" ? Number(payload?.darat?.pertahanan_udara_mobile ?? 0) : 0}
+          currentKendaraanTaktisCount={selectedForBuild.key === "gudang_senjata" ? Number(payload?.darat?.kendaraan_taktis ?? 0) : 0}
+          currentGudangCount={selectedForBuild.key === "gudang_senjata" ? Number(getNestedValue(countryDetail, "gudang_senjata")) : 0}
+          // PANGKALAN LAUT CAPACITY - dari armada_militer
+          kapalIndukCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_induk ?? 0) : 0}
+          kapalIndukNuklirCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_induk_nuklir ?? 0) : 0}
+          kapalDestroyerCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_destroyer ?? 0) : 0}
+          kapalKorvetCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_korvet ?? 0) : 0}
+          kapalSelamNuklirCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_selam_nuklir ?? 0) : 0}
+          kapalSelamRegulerCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_selam_regular ?? 0) : 0}
+          kapalRanjauCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_ranjau ?? 0) : 0}
+          kapalLogistikCount={selectedForBuild.key === "pangkalan_laut" ? Number(payload?.laut?.kapal_logistik ?? 0) : 0}
+          currentPangkalanLautCount={selectedForBuild.key === "pangkalan_laut" ? Number(getNestedValue(countryDetail, "pangkalan_laut")) : 0}
+          // PANGKALAN UDARA CAPACITY - dari armada_militer
+          jetTemturSilamanCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.jet_tempur_siluman ?? 0) : 0}
+          jetTemturInterceptorCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.jet_tempur_interceptor ?? 0) : 0}
+          pesawatPengebomCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.pesawat_pengebom ?? 0) : 0}
+          helikopterSerangCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.helikopter_serang ?? 0) : 0}
+          pesawatPengintaiCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.pesawat_pengintai ?? 0) : 0}
+          droneIntaiUavCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.drone_intai_uav ?? 0) : 0}
+          droneKamikazeCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.drone_kamikaze ?? 0) : 0}
+          pesawatAngkutCount={selectedForBuild.key === "pangkalan_udara" ? Number(payload?.udara?.pesawat_angkut ?? 0) : 0}
+          currentPangkalanUdaraCount={selectedForBuild.key === "pangkalan_udara" ? Number(getNestedValue(countryDetail, "pangkalan_udara")) : 0}
         />
       )}
     </div>
