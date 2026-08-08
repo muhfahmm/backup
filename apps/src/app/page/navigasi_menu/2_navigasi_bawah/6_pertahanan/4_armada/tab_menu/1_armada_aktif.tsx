@@ -94,32 +94,16 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
   const unitBreakdown = getArmadaUnitBreakdown(payload);
 
-  // 🔥 Helper function to calculate missing materials
-  // 🔥 Helper function to calculate material stocks from production buildings
+  // 🔥 Helper function to get material stocks from inventory
+  // Material production is accumulated in inventory_* fields, updated daily
   const calculateMaterialStocks = (countryDetailData: any) => {
-    const stocks: Record<string, number> = { ...countryDetailData?.resources || {} };
-    
-    // Calculate production from production buildings
-    // Format: buildingKey -> number of buildings
-    const materialBuildings = {
-      emas: { buildingCount: countryDetailData?.emas || 0, prodPerUnit: 600 },
-      uranium: { buildingCount: countryDetailData?.uranium || 0, prodPerUnit: 2 },
-      batu_bara: { buildingCount: countryDetailData?.batu_bara || 0, prodPerUnit: 270 },
-      minyak_bumi: { buildingCount: countryDetailData?.minyak_bumi || 0, prodPerUnit: 25 },
-      gas_alam: { buildingCount: countryDetailData?.gas_alam || 0, prodPerUnit: 50 },
-      garam: { buildingCount: countryDetailData?.garam || 0, prodPerUnit: 8 },
-      litium: { buildingCount: countryDetailData?.litium || 0, prodPerUnit: 8 },
-      logam_tanah_jarang: { buildingCount: countryDetailData?.logam_tanah_jarang || 0, prodPerUnit: 5 },
-      bijih_besi: { buildingCount: countryDetailData?.bijih_besi || 0, prodPerUnit: 5 },
-      semikonduktor: { buildingCount: countryDetailData?.semikonduktor || 0, prodPerUnit: 150 },
-      mobil: { buildingCount: countryDetailData?.mobil || 0, prodPerUnit: 5500 },
-      sepeda_motor: { buildingCount: countryDetailData?.sepeda_motor || 0, prodPerUnit: 18000 },
-      semen_beton: { buildingCount: countryDetailData?.semen_beton || 0, prodPerUnit: 95000 },
-      kayu: { buildingCount: countryDetailData?.kayu || 0, prodPerUnit: 32000 },
-    };
-    
-    // Simply return the actual material stocks from resources
-    return countryDetailData?.resources || {};
+    const stocks: Record<string, number> = {};
+    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 
+      'litium', 'logam_tanah_jarang', 'bijah_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
+    materialKeys.forEach(key => {
+      stocks[key] = Number(countryDetailData?.[`inventory_${key}`]) || 0;
+    });
+    return stocks;
   };
 
   // 🔥 Helper function to calculate missing materials
@@ -142,6 +126,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       batu_gunung: { tab: 'mineral', buildingKey: 'garam' },
       litium: { tab: 'mineral', buildingKey: 'litium' },
       logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
+      bijah_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       // Manufaktur
       semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
@@ -264,9 +249,9 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
             setIsConfirmBuildOpen(false);
           }}
           onMaterialClick={(resourceKey: string, label: string) => {
-            setIsConfirmBuildOpen(false);
             const { tab, buildingKey } = getTabForResource(resourceKey);
             onGotoProduction?.(tab, buildingKey || resourceKey);
+            // Don't close the modal yet - let parent handle the navigation
           }}
           loadingMetadata={false}
           isDisabled={false}

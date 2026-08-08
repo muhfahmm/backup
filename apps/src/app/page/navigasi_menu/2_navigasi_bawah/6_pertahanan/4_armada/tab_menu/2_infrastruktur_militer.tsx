@@ -99,29 +99,16 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
-  // 🔥 Helper function to calculate material stocks from production buildings
+  // 🔥 Helper function to get material stocks from inventory
+  // Material production is accumulated in inventory_* fields, updated daily
   const calculateMaterialStocks = (countryDetailData: any) => {
-    const stocks: Record<string, number> = { ...countryDetailData?.resources || {} };
-    
-    // Calculate production from production buildings
-    const materialBuildings = {
-      emas: { buildingCount: countryDetailData?.emas || 0, prodPerUnit: 600 },
-      uranium: { buildingCount: countryDetailData?.uranium || 0, prodPerUnit: 2 },
-      batu_bara: { buildingCount: countryDetailData?.batu_bara || 0, prodPerUnit: 270 },
-      minyak_bumi: { buildingCount: countryDetailData?.minyak_bumi || 0, prodPerUnit: 25 },
-      gas_alam: { buildingCount: countryDetailData?.gas_alam || 0, prodPerUnit: 50 },
-      garam: { buildingCount: countryDetailData?.garam || 0, prodPerUnit: 8 },
-      litium: { buildingCount: countryDetailData?.litium || 0, prodPerUnit: 8 },
-      logam_tanah_jarang: { buildingCount: countryDetailData?.logam_tanah_jarang || 0, prodPerUnit: 5 },
-      bijih_besi: { buildingCount: countryDetailData?.bijih_besi || 0, prodPerUnit: 5 },
-      semikonduktor: { buildingCount: countryDetailData?.semikonduktor || 0, prodPerUnit: 150 },
-      mobil: { buildingCount: countryDetailData?.mobil || 0, prodPerUnit: 5500 },
-      sepeda_motor: { buildingCount: countryDetailData?.sepeda_motor || 0, prodPerUnit: 18000 },
-      semen_beton: { buildingCount: countryDetailData?.semen_beton || 0, prodPerUnit: 95000 },
-      kayu: { buildingCount: countryDetailData?.kayu || 0, prodPerUnit: 32000 },
-    };
-    
-    return countryDetailData?.resources || {};
+    const stocks: Record<string, number> = {};
+    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 
+      'litium', 'logam_tanah_jarang', 'bijah_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
+    materialKeys.forEach(key => {
+      stocks[key] = Number(countryDetailData?.[`inventory_${key}`]) || 0;
+    });
+    return stocks;
   };
 
   // 🔥 Helper function to calculate missing materials
@@ -144,6 +131,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       batu_gunung: { tab: 'mineral', buildingKey: 'garam' },
       litium: { tab: 'mineral', buildingKey: 'litium' },
       logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
+      bijah_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       // Manufaktur
       semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
@@ -215,6 +203,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   // 🔥 Helper function untuk generate modal props berdasarkan selectedForBuild.key
   function getModalProps() {
     const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key as keyof typeof infrastrukturData] : null;
+    const materialStocks = calculateMaterialStocks(countryDetail);
     const modalPropsBase = {
       isOpen: isConfirmBuildOpen,
       onClose: () => setIsConfirmBuildOpen(false),
@@ -223,14 +212,14 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       cost: buildingData?.biaya_pembangunan || 0,
       waktuPembangunan: buildingData?.waktu_pembangunan || 0,
       requirements: [] as any[],
-      materialStocks: calculateMaterialStocks(countryDetail),
+      materialStocks: materialStocks,
       anggaran: Number(countryDetail?.anggaran) || 0,
-      missingMaterials: calculateMissingMaterials([], calculateMaterialStocks(countryDetail)),
+      missingMaterials: calculateMissingMaterials([], materialStocks),
       onConfirm: () => setIsConfirmBuildOpen(false),
       onMaterialClick: (resourceKey: string, label: string) => {
-        setIsConfirmBuildOpen(false);
         const { tab, buildingKey } = getTabForResource(resourceKey);
         onGotoProduction?.(tab, buildingKey || resourceKey);
+        // Don't close the modal yet - let parent handle the navigation
       },
       loadingMetadata: false,
       isDisabled: false,
@@ -249,7 +238,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={barakRequirements}
-          missingMaterials={calculateMissingMaterials(barakRequirements, countryDetail?.resources || {})}
+          missingMaterials={calculateMissingMaterials(barakRequirements, materialStocks)}
           capacityType="infanteri"
           currentCapacity={convertBarakToSoldiers(Number(getNestedValue(countryDetail, "barak")))}
           maxCapacity={10000}
@@ -265,7 +254,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={hangarRequirements}
-          missingMaterials={calculateMissingMaterials(hangarRequirements, countryDetail?.resources || {})}
+          missingMaterials={calculateMissingMaterials(hangarRequirements, materialStocks)}
           capacityType="hangar_tank"
           currentTankCount={Number(countryDetail?.armada?.darat?.tank_tempur_utama ?? 0)}
           currentApcCount={Number(countryDetail?.armada?.darat?.apc_ifv ?? 0)}
@@ -281,7 +270,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={gudangRequirements}
-          missingMaterials={calculateMissingMaterials(gudangRequirements, countryDetail?.resources || {})}
+          missingMaterials={calculateMissingMaterials(gudangRequirements, materialStocks)}
           capacityType="gudang_senjata"
           currentArtileriCount={Number(countryDetail?.armada?.darat?.artileri_berat ?? 0)}
           currentRoketCount={Number(countryDetail?.armada?.darat?.sistem_peluncur_roket ?? 0)}
@@ -299,7 +288,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={lautRequirements}
-          missingMaterials={calculateMissingMaterials(lautRequirements, countryDetail?.resources || {})}
+          missingMaterials={calculateMissingMaterials(lautRequirements, materialStocks)}
           capacityType="pangkalan_laut"
           kapalIndukCount={Number(countryDetail?.armada?.laut?.kapal_induk ?? 0)}
           kapalIndukNuklirCount={Number(countryDetail?.armada?.laut?.kapal_induk_nuklir ?? 0)}
@@ -321,7 +310,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={udaraRequirements}
-          missingMaterials={calculateMissingMaterials(udaraRequirements, countryDetail?.resources || {})}
+          missingMaterials={calculateMissingMaterials(udaraRequirements, materialStocks)}
           capacityType="pangkalan_udara"
           jetTemturSilamanCount={Number(countryDetail?.armada?.udara?.jet_tempur_siluman ?? 0)}
           jetTemturInterceptorCount={Number(countryDetail?.armada?.udara?.jet_tempur_interceptor ?? 0)}

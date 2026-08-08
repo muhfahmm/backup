@@ -58,7 +58,14 @@ export default function ProduksiModal({
   targetHighlightedKey,
   onProductionDeepLinkHandled,
 }: ModalProps) {
-  const [activeTab, setActiveTab] = useState("kelistrikan");
+  const [activeTab, setActiveTab] = useState<string>(targetTab || "kelistrikan");
+  
+  // Update tab when targetTab prop changes
+  useEffect(() => {
+    if (targetTab && targetTab !== activeTab) {
+      setActiveTab(targetTab);
+    }
+  }, [targetTab]);
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
   const [toast, setToast] = useState<string | null>(null);
   const [metadata, setMetadata] = useState<Record<string, any>>({});
@@ -279,7 +286,6 @@ export default function ProduksiModal({
 
   useEffect(() => {
     if (!isOpen) return;
-    if (targetTab) setActiveTab(targetTab);
     if (targetHighlightedKey) setHighlightedCardKey(targetHighlightedKey);
     if (targetTab || targetHighlightedKey) onProductionDeepLinkHandled?.();
   }, [isOpen, targetTab, targetHighlightedKey, onProductionDeepLinkHandled]);
