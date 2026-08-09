@@ -6,7 +6,8 @@ const guiana_prancis_armada = {
         "artileri_berat": 100,
         "sistem_peluncur_roket": 13,
         "pertahanan_udara_mobile": 40,
-        "kendaraan_taktis": 1500
+        "kendaraan_taktis": 1500,
+        "pasukan_infanteri": 200000
       },
   "laut": {
         "kapal_induk": 1,

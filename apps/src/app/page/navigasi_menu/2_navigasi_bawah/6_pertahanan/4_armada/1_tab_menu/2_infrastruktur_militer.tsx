@@ -310,15 +310,20 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     if (selectedForBuild?.key === "barak") {
       const barakRequirements = findRequirementsForBuilding("barak", INFANTERI_REQUIREMENTS);
+      const currentBarak = Number(getNestedValue(countryDetail, "barak")) || 0;
+      const ongoingBarak = (ongoingConstructions || []).filter((c: any) => c.buildingKey === "barak").length || 0;
+      const storedInfantry = Number((countryDetail?.armada?.darat?.pasukan_infanteri ?? getNestedValue(countryDetail, "pasukan_infanteri")) || 0);
+      const maxCap = (currentBarak + ongoingBarak) * 10000;
+
       return (
         <KonfirmasiInfrastrukturModal
           {...modalPropsBase}
           requirements={barakRequirements}
           missingMaterials={calculateMissingMaterials(barakRequirements, materialStocks)}
           capacityType="infanteri"
-          currentCapacity={convertBarakToSoldiers(Number(getNestedValue(countryDetail, "barak")))}
-          maxCapacity={10000}
-          currentBarakCount={Number(getNestedValue(countryDetail, "barak"))}
+          currentCapacity={storedInfantry}
+          maxCapacity={maxCap}
+          currentBarakCount={currentBarak}
         />
       );
     }

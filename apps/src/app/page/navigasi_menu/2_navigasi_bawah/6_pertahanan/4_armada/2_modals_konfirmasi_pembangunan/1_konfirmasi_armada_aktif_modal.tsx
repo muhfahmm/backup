@@ -72,9 +72,10 @@ export default function KonfirmasiArmadaAktifModal({
   let infanteriWarningText = "";
   
   if (capacityType === "infanteri") {
-    // Jika currentCapacity adalah 0 (misal data pasukan belum tersimpan), gunakan fallback
-    const safeCurrentCapacity = currentCapacity > 0 ? currentCapacity : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
-    
+    // Use the passed `currentCapacity` (stored pasukan_infanteri) as the source of truth.
+    // Do NOT fall back to barak count here — the UI should show persisted infantry until barak increments.
+    const safeCurrentCapacity = Number(currentCapacity ?? 0);
+
     infanteriCapacityFull = safeCurrentCapacity >= maxCapacity;
     infanteriCapacityDisplay = `${safeCurrentCapacity.toLocaleString('id-ID')} / ${maxCapacity.toLocaleString('id-ID')}`;
     infanteriWarningText = `Kapasitas Infanteri sudah penuh (${maxCapacity.toLocaleString('id-ID')} pasukan). Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.`;
@@ -151,7 +152,7 @@ export default function KonfirmasiArmadaAktifModal({
         <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-2 text-[#5c3c10]">
             <Hammer className="h-5 w-5" />
-            <h3 className="text-base font-bold uppercase tracking-tight">Perekrutan Militer</h3>
+            <h3 className="text-base font-bold uppercase tracking-tight">Perekrutan Militers</h3>
           </div>
           <button onClick={onClose} className="text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer">
             <X className="h-5 w-5" />
@@ -179,7 +180,7 @@ export default function KonfirmasiArmadaAktifModal({
               <div className="text-xs text-blue-800 space-y-1">
                 <div className="flex justify-between">
                   <span>Infanteri Saat Ini:</span>
-                  <span className="font-bold">{(currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000).toLocaleString('id-ID')} pasukan</span>
+                  <span className="font-bold">{(Number(currentCapacity ?? 0)).toLocaleString('id-ID')} pasukan</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Jumlah Barak:</span>
@@ -191,8 +192,8 @@ export default function KonfirmasiArmadaAktifModal({
                 </div>
                 <div className="flex justify-between">
                   <span>Sisa Kapasitas:</span>
-                  <span className={`font-bold ${(maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000)) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
-                    {Math.max(0, (maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000)))?.toLocaleString('id-ID')} pasukan
+                  <span className={`font-bold ${(maxCapacity - Number(currentCapacity ?? 0)) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
+                    {Math.max(0, (maxCapacity - Number(currentCapacity ?? 0)))?.toLocaleString('id-ID')} pasukan
                   </span>
                 </div>
               </div>

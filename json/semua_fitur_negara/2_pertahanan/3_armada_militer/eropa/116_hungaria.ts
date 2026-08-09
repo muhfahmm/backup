@@ -6,7 +6,8 @@ const hungaria_armada = {
         "artileri_berat": 4,
         "sistem_peluncur_roket": 0,
         "pertahanan_udara_mobile": 0,
-        "kendaraan_taktis": 10
+        "kendaraan_taktis": 10,
+        "pasukan_infanteri": 20000
       },
   "laut": {
         "kapal_induk": 0,

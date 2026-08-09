@@ -6,7 +6,8 @@ const rusia_armada = {
         "artileri_berat": 10000,
         "sistem_peluncur_roket": 3300,
         "pertahanan_udara_mobile": 1500,
-        "kendaraan_taktis": 8000
+        "kendaraan_taktis": 8000,
+        "pasukan_infanteri": 1320000
       },
   "laut": {
         "kapal_induk": 1,

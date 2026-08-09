@@ -16,33 +16,33 @@ interface TabProps {
 
 const armadaCatalog = {
   darat: [
-    { key: "barak", label: "Pasukan Infanteri" },
-    { key: "tank_tempur_utama", label: "Tank Tempur Utama" },
-    { key: "apc_ifv", label: "APC / IFV" },
-    { key: "artileri_berat", label: "Artileri Berat" },
-    { key: "sistem_peluncur_roket", label: "Sistem Peluncur Roket" },
-    { key: "pertahanan_udara_mobile", label: "Pertahanan Udara Mobile" },
-    { key: "kendaraan_taktis", label: "Kendaraan Taktis" },
+    { key: "barak", label: "Pasukan Infanteri", group: "darat" },
+    { key: "tank_tempur_utama", label: "Tank Tempur Utama", group: "darat" },
+    { key: "apc_ifv", label: "APC / IFV", group: "darat" },
+    { key: "artileri_berat", label: "Artileri Berat", group: "darat" },
+    { key: "sistem_peluncur_roket", label: "Sistem Peluncur Roket", group: "darat" },
+    { key: "pertahanan_udara_mobile", label: "Pertahanan Udara Mobile", group: "darat" },
+    { key: "kendaraan_taktis", label: "Kendaraan Taktis", group: "darat" },
   ],
   laut: [
-    { key: "kapal_induk", label: "Kapal Induk" },
-    { key: "kapal_induk_nuklir", label: "Kapal Induk Nuklir" },
-    { key: "kapal_destroyer", label: "Kapal Destroyer" },
-    { key: "kapal_korvet", label: "Kapal Korvet" },
-    { key: "kapal_selam_nuklir", label: "Kapal Selam Nuklir" },
-    { key: "kapal_selam_regular", label: "Kapal Selam Reguler" },
-    { key: "kapal_ranjau", label: "Kapal Ranjau" },
-    { key: "kapal_logistik", label: "Kapal Logistik" },
+    { key: "kapal_induk", label: "Kapal Induk", group: "laut" },
+    { key: "kapal_induk_nuklir", label: "Kapal Induk Nuklir", group: "laut" },
+    { key: "kapal_destroyer", label: "Kapal Destroyer", group: "laut" },
+    { key: "kapal_korvet", label: "Kapal Korvet", group: "laut" },
+    { key: "kapal_selam_nuklir", label: "Kapal Selam Nuklir", group: "laut" },
+    { key: "kapal_selam_regular", label: "Kapal Selam Reguler", group: "laut" },
+    { key: "kapal_ranjau", label: "Kapal Ranjau", group: "laut" },
+    { key: "kapal_logistik", label: "Kapal Logistik", group: "laut" },
   ],
   udara: [
-    { key: "jet_tempur_siluman", label: "Jet Tempur Siluman" },
-    { key: "jet_tempur_interceptor", label: "Jet Tempur Interceptor" },
-    { key: "pesawat_pengebom", label: "Pesawat Pengebom" },
-    { key: "helikopter_serang", label: "Helikopter Serang" },
-    { key: "pesawat_pengintai", label: "Pesawat Pengintai" },
-    { key: "drone_intai_uav", label: "Drone Intai UAV" },
-    { key: "drone_kamikaze", label: "Drone Kamikaze" },
-    { key: "pesawat_angkut", label: "Pesawat Angkut" },
+    { key: "jet_tempur_siluman", label: "Jet Tempur Siluman", group: "udara" },
+    { key: "jet_tempur_interceptor", label: "Jet Tempur Interceptor", group: "udara" },
+    { key: "pesawat_pengebom", label: "Pesawat Pengebom", group: "udara" },
+    { key: "helikopter_serang", label: "Helikopter Serang", group: "udara" },
+    { key: "pesawat_pengintai", label: "Pesawat Pengintai", group: "udara" },
+    { key: "drone_intai_uav", label: "Drone Intai UAV", group: "udara" },
+    { key: "drone_kamikaze", label: "Drone Kamikaze", group: "udara" },
+    { key: "pesawat_angkut", label: "Pesawat Angkut", group: "udara" },
   ],
 };
 
@@ -88,8 +88,39 @@ const formatNumber = (value: unknown) => {
 };
 
 export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCountryDetail, onCapacityFull, highlightKey, onGotoProduction }: TabProps) {
-  const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
-  const unitBreakdown = getArmadaUnitBreakdown(payload);
+  const unitBreakdown = getArmadaUnitBreakdown(countryDetail?.armada || countryDetail || {});
+
+  // 🔥 PERBAIKAN UTAMA: Fungsi getData yang kokoh untuk membaca data di berbagai kemungkinan struktur database!
+  const getData = (key: string, group?: string): number => {
+    if (!countryDetail) return 0;
+    
+    // Kemungkinan 1: Data di level paling atas langsung. (Contoh: countryDetail.barak, countryDetail.hangar_tank)
+    if (countryDetail?.[key] !== undefined && countryDetail?.[key] !== null) {
+      return Number(countryDetail[key]);
+    }
+
+    // Kemungkinan 2: Data di dalam `countryDetail.pertahanan`. (Jika Anda menggunakan struktur ini)
+    if (countryDetail?.pertahanan?.[key] !== undefined && countryDetail?.pertahanan?.[key] !== null) {
+      return Number(countryDetail.pertahanan[key]);
+    }
+
+    // Kemungkinan 3: Data di dalam `countryDetail.armada` (Level root armada).
+    if (countryDetail?.armada?.[key] !== undefined && countryDetail?.armada?.[key] !== null) {
+      return Number(countryDetail.armada[key]);
+    }
+
+    // Kemungkinan 4: Data di dalam `countryDetail.armada.[group]` (Misal: countryDetail.armada.darat.tank_tempur_utama)
+    if (group && countryDetail?.armada?.[group]?.[key] !== undefined && countryDetail?.armada?.[group]?.[key] !== null) {
+      return Number(countryDetail.armada[group][key]);
+    }
+
+    // Kemungkinan 5: Data di dalam `countryDetail.[group]` (Misal: countryDetail.darat.tank_tempur_utama, jika tanpa object armada)
+    if (group && countryDetail?.[group]?.[key] !== undefined && countryDetail?.[group]?.[key] !== null) {
+      return Number(countryDetail[group][key]);
+    }
+    
+    return 0;
+  };
 
   const calculateMaterialStocks = (countryDetailData: any) => {
     const stocks: Record<string, number> = {};
@@ -133,14 +164,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
-  const resolveQuantity = (dataBlock: any, group: string, key: string) => {
-    if (key === "barak") {
-      const barakCount = Number(payload?.barak ?? dataBlock?.barak ?? 0);
-      return convertBarakToSoldiers(barakCount);
-    }
-    return Number(dataBlock[key] ?? 0);
-  };
-
   const handleInfoClick = (key: string) => {
     setInfoKey(key);
     setIsInfoOpen(true);
@@ -150,15 +173,21 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     if (!selectedForBuild) return;
     if (selectedForBuild.key === "barak") {
       const updatedDetail = { ...countryDetail };
-      const currentInfantryCount = Number(updatedDetail?.armada?.darat?.pasukan_infanteri ?? 0);
-      const currentBarakCount = Number(payload?.barak ?? 0);
+      
+      if (!updatedDetail.armada) updatedDetail.armada = {};
+      if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
+
+      const currentInfantryCount = Number(updatedDetail.armada.darat.pasukan_infanteri ?? 0);
+      const currentBarakCount = getData("barak");
       const ongoingConstructions = updatedDetail?.ongoingConstructions || [];
       const ongoingBarakCount = ongoingConstructions.filter((c: any) => c.buildingKey === "barak").length;
-      const maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
+      
+      let maxCapacity = currentBarakCount * 10000;
+      if (ongoingBarakCount === 0) {
+        maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
+      }
       
       if (currentInfantryCount + 10000 <= maxCapacity) {
-        if (!updatedDetail.armada) updatedDetail.armada = {};
-        if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
         updatedDetail.armada.darat.pasukan_infanteri = currentInfantryCount + 10000;
         _setCountryDetail(updatedDetail);
       } else {
@@ -177,7 +206,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
 
       {groupKeys.map((group) => {
         const Icon = groupMeta[group].icon;
-        const dataBlock = payload[group] && typeof payload[group] === "object" ? payload[group] : {};
 
         return (
           <section key={group} className="space-y-4">
@@ -190,29 +218,25 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
 
             <div className="grid grid-cols-5 gap-6">
               {armadaCatalog[group].map((item) => {
-                const value = resolveQuantity(dataBlock, group, item.key);
+                // 🔥 Gunakan getData untuk semua item. Kini semua data Tank, Kapal, dan Jet akan terbaca!
+                const value = getData(item.key, group);
                 let displayText = formatNumber(value);
                 
+                // 🔥 LOGIKA KHUSUS UNTUK BARAK (Pasukan Infanteri)
                 if (item.key === "barak") {
-                  const currentBarakCount = Number(payload?.barak ?? 0);
+                  const currentBarakCount = getData("barak");
                   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
                   const ongoingBarakCount = ongoingConstructions.filter((c: any) => c.buildingKey === "barak").length;
                   
-                  const storedInfantry = Number(countryDetail?.armada?.darat?.pasukan_infanteri ?? 0);
-                  const fallbackInfantry = currentBarakCount * 10000;
-                  const finalCurrentInfantry = storedInfantry > 0 ? storedInfantry : fallbackInfantry;
-                  
-                  // 🔥 PERBAIKAN TERBARU: KAPASITAS TIDAK AKAN BERTAMBAH SAAT MASIH ADA ANTRIAN (+1)
-                  let maxCapacity;
-                  if (ongoingBarakCount > 0) {
-                    // Jika masih ada pembangunan (+1), kapasitas = Barak selesai saja (133 x 10.000 = 1.330.000)
-                    maxCapacity = currentBarakCount * 10000;
-                  } else {
-                    // Jika tidak ada pembangunan (sudah selesai), kapasitas = Total semua Barak
-                    maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
-                  }
+                  // Ambil jumlah pasukan dari sumber tersimpan agar tidak langsung menyesuaikan saat barak baru selesai dibangun
+                  const storedInfantry = Number((countryDetail?.armada?.darat?.pasukan_infanteri ?? getData("pasukan_infanteri", "darat")) || 0);
 
-                  displayText = `${formatNumber(finalCurrentInfantry)} / ${formatNumber(maxCapacity)}`;
+                  // Kapasitas hanya berdasarkan barak yang sudah jadi: jangan hitung 'ongoing' sampai selesai
+                  const maxCapacity = currentBarakCount * 10000;
+
+                  // Tampilkan nilai ter-nyata dari pasukan (storedInfantry) di sisi kiri, dan kapasitas di kanan
+                  const displayInfantry = storedInfantry;
+                  displayText = `${formatNumber(displayInfantry)} / ${formatNumber(maxCapacity)}`;
                 }
 
                 return (
@@ -256,7 +280,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
         );
       })}
 
-      {/* 🔥 Modal Konfirmasi - Update MaxCapacity Props agar sesuai dengan logika UI */}
+      {/* 🔥 Modal Konfirmasi Pembangunan / Rekrutmen */}
       {selectedForBuild && (
         <KonfirmasiArmadaAktifModal
           isOpen={isConfirmBuildOpen}
@@ -276,40 +300,39 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           loadingMetadata={false}
           isDisabled={false}
           capacityType={selectedForBuild.key === "barak" ? "infanteri" : selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? "hangar_tank" : selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? "gudang_senjata" : ["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? "pangkalan_laut" : ["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? "pangkalan_udara" : undefined}
-          currentCapacity={selectedForBuild.key === "barak" ? Number(countryDetail?.armada?.darat?.pasukan_infanteri ?? 0) : 0}
-          // 🔥 PERBAIKAN PROPS MAX CAPACITY DI MODAL SESUAI LOGIKA PENUH
-          maxCapacity={selectedForBuild.key === "barak" ? (() => {
-            const cB = Number(payload?.barak ?? 0);
-            const oB = countryDetail?.ongoingConstructions?.filter((c: any) => c.buildingKey === "barak").length || 0;
-            return oB > 0 ? cB * 10000 : (cB + oB) * 10000;
-          })() : 0}
-          currentBarakCount={selectedForBuild.key === "barak" ? Number(payload?.barak ?? 0) : undefined}
-          currentTankCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(payload?.darat?.tank_tempur_utama ?? 0) : 0}
-          currentApcCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(payload?.darat?.apc_ifv ?? 0) : 0}
-          currentHangarCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(countryDetail?.hangar_tank ?? countryDetail?.pertahanan?.hangar_tank ?? 0) : 0}
-          currentArtileriCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.artileri_berat ?? 0) : 0}
-          currentRoketCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.sistem_peluncur_roket ?? 0) : 0}
-          currentPertahanUdaraCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.pertahanan_udara_mobile ?? 0) : 0}
-          currentKendaraanTaktisCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.kendaraan_taktis ?? 0) : 0}
-          currentGudangCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(countryDetail?.gudang_senjata ?? countryDetail?.pertahanan?.gudang_senjata ?? 0) : 0}
-          kapalIndukCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_induk ?? 0) : 0}
-          kapalIndukNuklirCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_induk_nuklir ?? 0) : 0}
-          kapalDestroyerCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_destroyer ?? 0) : 0}
-          kapalKorvetCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_korvet ?? 0) : 0}
-          kapalSelamNuklirCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_selam_nuklir ?? 0) : 0}
-          kapalSelamRegulerCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_selam_regular ?? 0) : 0}
-          kapalRanjauCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_ranjau ?? 0) : 0}
-          kapalLogistikCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_logistik ?? 0) : 0}
-          currentPangkalanLautCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(countryDetail?.pangkalan_laut ?? countryDetail?.pertahanan?.pangkalan_laut ?? 0) : 0}
-          jetTemturSilamanCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.jet_tempur_siluman ?? 0) : 0}
-          jetTemturInterceptorCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.jet_tempur_interceptor ?? 0) : 0}
-          pesawatPengebomCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_pengebom ?? 0) : 0}
-          helikopterSerangCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.helikopter_serang ?? 0) : 0}
-          pesawatPengintaiCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_pengintai ?? 0) : 0}
-          droneIntaiUavCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.drone_intai_uav ?? 0) : 0}
-          droneKamikazeCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.drone_kamikaze ?? 0) : 0}
-          pesawatAngkutCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_angkut ?? 0) : 0}
-          currentPangkalanUdaraCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(countryDetail?.pangkalan_udara ?? countryDetail?.pertahanan?.pangkalan_udara ?? 0) : 0}
+          currentCapacity={selectedForBuild.key === "barak" ? Number(getData("pasukan_infanteri", "darat") || 0) : 0}
+              maxCapacity={selectedForBuild.key === "barak" ? (() => {
+                const cB = getData("barak");
+                // Only count completed barak for capacity; ongoing constructions don't increase capacity until finished
+                return cB * 10000;
+              })() : 0}
+          currentBarakCount={selectedForBuild.key === "barak" ? getData("barak") : undefined}
+          currentTankCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? getData("tank_tempur_utama", "darat") : 0}
+          currentApcCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? getData("apc_ifv", "darat") : 0}
+          currentHangarCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? getData("hangar_tank") : 0}
+          currentArtileriCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? getData("artileri_berat", "darat") : 0}
+          currentRoketCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? getData("sistem_peluncur_roket", "darat") : 0}
+          currentPertahanUdaraCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? getData("pertahanan_udara_mobile", "darat") : 0}
+          currentKendaraanTaktisCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? getData("kendaraan_taktis", "darat") : 0}
+          currentGudangCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? getData("gudang_senjata") : 0}
+          kapalIndukCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_induk", "laut") : 0}
+          kapalIndukNuklirCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_induk_nuklir", "laut") : 0}
+          kapalDestroyerCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_destroyer", "laut") : 0}
+          kapalKorvetCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_korvet", "laut") : 0}
+          kapalSelamNuklirCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_selam_nuklir", "laut") : 0}
+          kapalSelamRegulerCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_selam_regular", "laut") : 0}
+          kapalRanjauCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_ranjau", "laut") : 0}
+          kapalLogistikCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("kapal_logistik", "laut") : 0}
+          currentPangkalanLautCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? getData("pangkalan_laut") : 0}
+          jetTemturSilamanCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("jet_tempur_siluman", "udara") : 0}
+          jetTemturInterceptorCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("jet_tempur_interceptor", "udara") : 0}
+          pesawatPengebomCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("pesawat_pengebom", "udara") : 0}
+          helikopterSerangCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("helikopter_serang", "udara") : 0}
+          pesawatPengintaiCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("pesawat_pengintai", "udara") : 0}
+          droneIntaiUavCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("drone_intai_uav", "udara") : 0}
+          droneKamikazeCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("drone_kamikaze", "udara") : 0}
+          pesawatAngkutCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("pesawat_angkut", "udara") : 0}
+          currentPangkalanUdaraCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? getData("pangkalan_udara") : 0}
           onNavigateToInfra={onCapacityFull}
           infraKeyToHighlight={highlightKey}
         />

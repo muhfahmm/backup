@@ -6,7 +6,8 @@ const amerika_serikat_armada = {
         "artileri_berat": 2500,
         "sistem_peluncur_roket": 1366,
         "pertahanan_udara_mobile": 800,
-        "kendaraan_taktis": 15000
+        "kendaraan_taktis": 15000,
+        "pasukan_infanteri": 1330000
       },
   "laut": {
         "kapal_induk": 0,

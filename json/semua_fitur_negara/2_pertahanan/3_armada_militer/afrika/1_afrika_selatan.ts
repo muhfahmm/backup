@@ -7,7 +7,8 @@ const afrika_selatan_armada = {
         "artileri_berat": 2,
         "sistem_peluncur_roket": 0,
         "pertahanan_udara_mobile": 0,
-        "kendaraan_taktis": 10
+        "kendaraan_taktis": 10,
+        "pasukan_infanteri": 10000
   },
   "laut": {
         "kapal_induk": 0,

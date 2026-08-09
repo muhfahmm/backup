@@ -6,7 +6,8 @@ const jepang_armada = {
         "artileri_berat": 500,
         "sistem_peluncur_roket": 99,
         "pertahanan_udara_mobile": 100,
-        "kendaraan_taktis": 1000
+        "kendaraan_taktis": 1000,
+        "pasukan_infanteri": 250000
       },
   "laut": {
         "kapal_induk": 4,

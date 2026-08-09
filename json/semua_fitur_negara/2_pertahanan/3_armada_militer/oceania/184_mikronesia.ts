@@ -6,7 +6,8 @@ const mikronesia_armada = {
         "artileri_berat": 0,
         "sistem_peluncur_roket": 0,
         "pertahanan_udara_mobile": 0,
-        "kendaraan_taktis": 0
+        "kendaraan_taktis": 0,
+        "pasukan_infanteri": 0
   },
   "laut": {
         "kapal_induk": 0,

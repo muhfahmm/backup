@@ -69,7 +69,18 @@ const resolveQuantity = (source: any, group: ArmadaGroup, key: string) => {
                     Number(block?.barak ?? 0) ||
                     Number(source?.armada?.barak ?? 0) ||
                     0;
-    return convertBarakToSoldiers(barakCount);
+    // Prefer stored `pasukan_infanteri` (current infantry) when available.
+    const storedInfantry =
+      Number(block?.pasukan_infanteri ?? NaN) ||
+      Number(payload?.[group]?.pasukan_infanteri ?? NaN) ||
+      Number(payload?.pasukan_infanteri ?? NaN) ||
+      Number(source?.armada?.[group]?.pasukan_infanteri ?? NaN) ||
+      Number(source?.armada?.pasukan_infanteri ?? NaN) ||
+      Number(source?.[group]?.pasukan_infanteri ?? NaN) ||
+      Number(source?.pasukan_infanteri ?? NaN) ||
+      0;
+
+    return storedInfantry > 0 ? storedInfantry : convertBarakToSoldiers(barakCount);
   }
 
   return (

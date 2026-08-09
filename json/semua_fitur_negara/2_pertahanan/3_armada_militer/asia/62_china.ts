@@ -6,7 +6,8 @@ const china_armada = {
         "artileri_berat": 7000,
         "sistem_peluncur_roket": 3000,
         "pertahanan_udara_mobile": 1200,
-        "kendaraan_taktis": 10000
+        "kendaraan_taktis": 10000,
+        "pasukan_infanteri": 2030000
       },
   "laut": {
         "kapal_induk": 2,

@@ -6,7 +6,8 @@ const inggris_armada = {
         "artileri_berat": 200,
         "sistem_peluncur_roket": 42,
         "pertahanan_udara_mobile": 40,
-        "kendaraan_taktis": 1500
+        "kendaraan_taktis": 1500,
+        "pasukan_infanteri": 190000
       },
   "laut": {
         "kapal_induk": 2,

@@ -6,7 +6,8 @@ const israel_armada = {
         "artileri_berat": 1000,
         "sistem_peluncur_roket": 300,
         "pertahanan_udara_mobile": 100,
-        "kendaraan_taktis": 5000
+        "kendaraan_taktis": 5000,
+        "pasukan_infanteri": 170000
       },
   "laut": {
         "kapal_induk": 0,

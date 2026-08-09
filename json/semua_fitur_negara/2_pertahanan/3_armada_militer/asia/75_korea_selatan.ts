@@ -6,7 +6,8 @@ const korea_selatan_armada = {
         "artileri_berat": 5000,
         "sistem_peluncur_roket": 600,
         "pertahanan_udara_mobile": 300,
-        "kendaraan_taktis": 2000
+        "kendaraan_taktis": 2000,
+        "pasukan_infanteri": 600000
       },
   "laut": {
         "kapal_induk": 0,

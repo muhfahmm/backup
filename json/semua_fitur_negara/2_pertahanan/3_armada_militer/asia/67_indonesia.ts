@@ -6,7 +6,8 @@ const indonesia_armada = {
       "artileri_berat": 600,
       "sistem_peluncur_roket": 63,
       "pertahanan_udara_mobile": 40,
-      "kendaraan_taktis": 500
+      "kendaraan_taktis": 500,
+      "pasukan_infanteri": 400000
     },
   "laut": {
       "kapal_induk": 0,

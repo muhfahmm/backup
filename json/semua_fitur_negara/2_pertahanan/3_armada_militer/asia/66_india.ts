@@ -6,7 +6,8 @@ const india_armada = {
         "artileri_berat": 4000,
         "sistem_peluncur_roket": 1500,
         "pertahanan_udara_mobile": 500,
-        "kendaraan_taktis": 2000
+        "kendaraan_taktis": 2000,
+        "pasukan_infanteri": 1450000
       },
   "laut": {
         "kapal_induk": 2,
