@@ -61,6 +61,15 @@ export default function KonfirmasiInfrastrukturModal({
 }: KonfirmasiPembangunanModalProps) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
   const [buildQuantity, setBuildQuantity] = useState<number>(1);
+  const [selectedMaterialKey, setSelectedMaterialKey] = useState<string | null>(null);
+
+  // Reset selection when modal opens/closes
+  React.useEffect(() => {
+    if (!isOpen) {
+      setSelectedMaterialKey(null);
+      setBuildQuantity(1);
+    }
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
@@ -427,14 +436,23 @@ export default function KonfirmasiInfrastrukturModal({
                     const stock = materialStocks[material.resourceKey] ?? 0;
                     const isStockZero = stock <= 0;
                     const requiredAmount = (material.amount ?? 0) * buildQuantity;
+                    const materialKey = `${material.resourceKey}-${material.group}`;
+                    const isSelected = selectedMaterialKey === materialKey;
 
                     return (
                       <button
-                        key={`${material.resourceKey}-${material.group}`}
+                        key={materialKey}
                         type="button"
-                        onClick={() => onMaterialClick(material.resourceKey, material.label)}
+                        onClick={() => {
+                          setSelectedMaterialKey(materialKey);
+                          onMaterialClick(material.resourceKey, material.label);
+                        }}
                         className={`flex flex-col items-center justify-center bg-white/80 border rounded-xl p-2.5 min-h-[50px] cursor-pointer hover:border-[#5c3c10]/60 transition-all ${
-                          isStockZero ? 'border-red-400 bg-red-50/70 text-red-800' : 'border-emerald-400 bg-emerald-50/70'
+                          isSelected
+                            ? 'border-emerald-400 bg-emerald-50/70'
+                            : isStockZero
+                            ? 'border-red-400 bg-red-50/70 text-red-800'
+                            : 'border-emerald-400 bg-emerald-50/70'
                         }`}
                       >
                         <div className="font-bold text-[10px] text-center">{material.label}</div>

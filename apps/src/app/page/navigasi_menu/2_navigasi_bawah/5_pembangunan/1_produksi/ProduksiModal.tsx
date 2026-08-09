@@ -597,7 +597,10 @@ export default function ProduksiModal({
         return (
           <KonfirmasiPembangunanModal
             isOpen={true}
-            onClose={() => setSelectedBuilding(null)}
+            onClose={() => {
+              setSelectedBuilding(null);
+              setHighlightedCardKey(null);
+            }}
             buildingLabel={selectedBuilding.label}
             buildingDescription={bMeta?.deskripsi || bMeta?.desc}
             cost={cost}
