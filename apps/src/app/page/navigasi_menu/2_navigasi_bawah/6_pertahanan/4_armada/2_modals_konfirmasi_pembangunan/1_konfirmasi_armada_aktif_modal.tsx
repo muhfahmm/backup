@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { X, Hammer, Eye, EyeOff } from "lucide-react";
+import { X, Hammer, Eye, EyeOff, Calendar } from "lucide-react";
 import { BARAK_TO_SOLDIERS_MULTIPLIER } from "../logic/1_barak_logic";
 import { HANGAR_TANK_CAPACITY } from "../logic/2_hangar_tank_logic";
 import { GUDANG_SENJATA_CAPACITY } from "../logic/3_gudang_senjata_logic";
 import { PANGKALAN_LAUT_CAPACITY } from "../logic/4_pangkalan_laut_logic";
 import { PANGKALAN_UDARA_CAPACITY } from "../logic/5_pangkalan_udara_logic";
 import { KonfirmasiPembangunanModalProps } from "../requirements_logic/konfirmasi_pembangunan_types";
+import { calculateRecruitmentDays, getArmadaRecruitmentTime, calculateCustomRecruitmentTime } from "../logic/recruitmentLogic";
 
 export default function KonfirmasiArmadaAktifModal({
   isOpen,
@@ -58,9 +59,13 @@ export default function KonfirmasiArmadaAktifModal({
   currentPangkalanUdaraCount = 0,
   onNavigateToInfra,
   infraKeyToHighlight,
-}: KonfirmasiPembangunanModalProps) {
+  unitDataKey = "pasukan_infanteri", // Add this for recruitment tracking
+  currentGameDate = new Date().toISOString(), // Add this for date calculations
+}: KonfirmasiPembangunanModalProps & { unitDataKey?: string; currentGameDate?: string }) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
   const [recruitAmount, setRecruitAmount] = useState<number>(10000);
+  const [estimatedRecruitmentDays, setEstimatedRecruitmentDays] = useState<number>(0);
+  const [completionDate, setCompletionDate] = useState<string>("");
 
   const hasMissingMaterials = missingMaterials.length > 0;
   const isAnggaranCukup = anggaran >= cost;
@@ -70,11 +75,29 @@ export default function KonfirmasiArmadaAktifModal({
     : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
   const remainingInfanteriCapacity = Math.max(0, maxCapacity - safeCurrentInfanteriCount);
 
+  // Update estimation when recruitment amount changes
   useEffect(() => {
     if (capacityType !== 'infanteri') return;
 
     setRecruitAmount((current) => Math.min(Math.max(0, current), remainingInfanteriCapacity || 10000));
   }, [capacityType, remainingInfanteriCapacity]);
+
+  // Calculate recruitment days and completion date
+  useEffect(() => {
+    if (capacityType === 'infanteri' && recruitAmount > 0) {
+      const daysNeeded = calculateRecruitmentDays(recruitAmount);
+      setEstimatedRecruitmentDays(daysNeeded);
+
+      // Calculate completion date
+      const startDate = new Date(currentGameDate);
+      const endDate = new Date(startDate);
+      endDate.setDate(endDate.getDate() + daysNeeded);
+      setCompletionDate(endDate.toISOString());
+    } else {
+      setEstimatedRecruitmentDays(0);
+      setCompletionDate("");
+    }
+  }, [recruitAmount, capacityType, currentGameDate]);
 
   if (!isOpen) return null;
 
@@ -397,7 +420,7 @@ export default function KonfirmasiArmadaAktifModal({
           </div>
 
           {capacityType === 'infanteri' && (
-            <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2 text-xs text-[#5c3c10]">
+            <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 space-y-3 text-xs text-[#5c3c10]">
               <label className="flex flex-col gap-2">
                 <div className="flex items-center justify-between">
                   <span className="font-black uppercase tracking-[0.2em]">Jumlah Pasukan yang Direkrut</span>
@@ -431,6 +454,35 @@ export default function KonfirmasiArmadaAktifModal({
               <p className="text-[10px] text-[#8b7e66]">
                 Maksimal: {Math.max(0, (maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER))).toLocaleString('id-ID')} pasukan.
               </p>
+
+              {/* 🔥 Estimasi Waktu Perekrutan */}
+              {estimatedRecruitmentDays > 0 && (
+                <div className="bg-emerald-50/60 border border-emerald-200 rounded-lg p-3 space-y-2 mt-2">
+                  <div className="flex items-center gap-2 text-emerald-900 font-bold">
+                    <Calendar className="w-4 h-4" />
+                    <span>Estimasi Waktu Perekrutan</span>
+                  </div>
+                  <div className="space-y-1 text-[11px] text-emerald-800">
+                    <div className="flex justify-between">
+                      <span>Waktu Dibutuhkan:</span>
+                      <span className="font-bold">{estimatedRecruitmentDays} hari</span>
+                    </div>
+                    {completionDate && (
+                      <div className="flex justify-between border-t border-emerald-200 pt-1">
+                        <span>Selesai Tanggal:</span>
+                        <span className="font-bold text-emerald-700">
+                          {new Date(completionDate).toLocaleDateString('id-ID', {
+                            weekday: 'short',
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                          })}
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
             </div>
           )}
 

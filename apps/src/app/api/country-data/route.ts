@@ -191,6 +191,12 @@ export async function GET(request: Request) {
                 return { embassies: parsed };
             }
 
+            const isArmadaFile = filePath.includes('2_pertahanan' + path.sep + '3_armada_militer');
+            if (isArmadaFile) {
+                // Wrap armada data dalam struktur yang tepat
+                return { armada: parsed };
+            }
+
             const isLevelFile = path.relative(levelRoot, filePath).startsWith('..') === false;
             if (isLevelFile) {
                 const levelData = getLevelSource(parsed);
@@ -308,7 +314,24 @@ export async function GET(request: Request) {
                     countryFiles.push(embassyPath);
                 }
 
-                // 4. Extraction files
+                // 4. Armada files
+                const armadaRoot = path.join(projectRoot, 'json/semua_fitur_negara/2_pertahanan/3_armada_militer');
+                if (fs.existsSync(armadaRoot)) {
+                    const indexArmada = (dir: string) => {
+                        const files = fs.readdirSync(dir);
+                        for (const file of files) {
+                            const fullPath = path.join(dir, file);
+                            if (fs.statSync(fullPath).isDirectory()) {
+                                indexArmada(fullPath);
+                            } else if (file === targetFilename) {
+                                countryFiles.push(fullPath);
+                            }
+                        }
+                    };
+                    indexArmada(armadaRoot);
+                }
+
+                // 5. Extraction files
                 if (extractionFilesByFilename[targetFilename]) {
                     countryFiles.push(...extractionFilesByFilename[targetFilename]);
                 }
@@ -343,6 +366,24 @@ export async function GET(request: Request) {
         findTargetFiles(jsonRoot);
         findTargetFiles(taxRoot);
         findTargetFiles(embassyRoot);
+        
+        // 🔥 Explicitly search for armada files in 2_pertahanan/3_armada_militer
+        const armadaRoot = path.join(projectRoot, 'json/semua_fitur_negara/2_pertahanan/3_armada_militer');
+        if (fs.existsSync(armadaRoot)) {
+            const findArmadaFiles = (dir: string) => {
+                if (!fs.existsSync(dir)) return;
+                const files = fs.readdirSync(dir);
+                for (const file of files) {
+                    const fullPath = path.join(dir, file);
+                    if (fs.statSync(fullPath).isDirectory()) {
+                        findArmadaFiles(fullPath);
+                    } else if (file === targetFilename) {
+                        allFiles.push(fullPath);
+                    }
+                }
+            };
+            findArmadaFiles(armadaRoot);
+        }
         
         // Explicitly search for extraction files in 2_sektor_mineral_kritis
         const ekstraksiRoot = path.join(projectRoot, 'json/semua_fitur_negara/1_pembangunan/1_produksi/2_sektor_mineral_kritis');

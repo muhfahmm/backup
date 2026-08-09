@@ -90,6 +90,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
 
     for (let i = updatedConstructions.length - 1; i >= 0; i--) {
       const construction = updatedConstructions[i];
+      if (construction.type === "recruitment") continue;
       const endDate = new Date(construction.endDate);
       if (isNaN(endDate.getTime())) continue;
 

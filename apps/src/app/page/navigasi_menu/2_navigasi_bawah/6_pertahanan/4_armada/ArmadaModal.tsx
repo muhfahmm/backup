@@ -52,13 +52,13 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
       }
 
       const ongoing = countryDetail.ongoingConstructions || [];
-      const completed = ongoing.filter((c: any) => c.endDate === currentDateStr);
+      const completed = ongoing.filter((c: any) => c.endDate === currentDateStr && c.type !== "recruitment");
 
       if (completed.length === 0) return;
 
       let updated = false;
       const newDetail = { ...countryDetail };
-      const newOngoing = ongoing.filter((c: any) => c.endDate !== currentDateStr);
+      const newOngoing = ongoing.filter((c: any) => c.endDate !== currentDateStr || c.type === "recruitment");
 
       // Tambah setiap konstruksi yang selesai ke count
       completed.forEach((c: any) => {
@@ -113,7 +113,7 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
           </div>
 
           <div className="space-y-4">
-            {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} onCapacityFull={handleNavigateToInfra} onGotoProduction={onGotoProduction} />}
+            {activeTab === "aktif" && <ArmadaAktif countryDetail={countryDetail} setCountryDetail={setCountryDetail} onCapacityFull={handleNavigateToInfra} onGotoProduction={onGotoProduction} currentDate={currentDate} />}
             {activeTab === "infrastruktur" && <InfrastrukturMiliter countryDetail={countryDetail} setCountryDetail={setCountryDetail} highlightKey={highlightInfraKey} onGotoProduction={onGotoProduction} ongoingConstructions={countryDetail?.ongoingConstructions || []} currentDate={currentDate} />}
             {activeTab === "polisi" && <ArmadaPolisi countryDetail={countryDetail} setCountryDetail={setCountryDetail} />}
           </div>
