@@ -69,7 +69,18 @@ export default function KonfirmasiArmadaAktifModal({
   const [completionDate, setCompletionDate] = useState<string>("");
 
   const hasMissingMaterials = missingMaterials.length > 0;
-  const isAnggaranCukup = anggaran >= cost;
+
+  // 🔥 Biaya per-unit (dari metadata) — ini yang SEBELUMNYA dipakai sebagai
+  // "Biaya Pembangunan" secara statis, padahal itu cuma biaya SATU unit.
+  const costPerUnit = Number(cost) || 0;
+
+  // 🔥 Total biaya = biaya per-unit × jumlah unit yang mau dibangun.
+  // Untuk infanteri, sesuai desain yang sudah ada sebelumnya, perekrutan
+  // pasukan tidak dikenakan biaya EM dari kas negara (hanya kapasitas
+  // barak yang berlaku) — jadi totalCost untuk infanteri = 0.
+  const totalCost = capacityType === "infanteri" ? 0 : costPerUnit * (buildAmount || 0);
+
+  const isAnggaranCukup = anggaran >= totalCost;
 
   // Hitung infanteri saat ini
   const safeCurrentInfanteriCount = typeof currentCapacity === 'number'
@@ -77,7 +88,8 @@ export default function KonfirmasiArmadaAktifModal({
     : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
   const remainingInfanteriCapacity = Math.max(0, maxCapacity - safeCurrentInfanteriCount);
 
-  // Fungsi untuk mendapatkan sisa kapasitas berdasarkan tipe
+  // Fungsi untuk mendapatkan sisa kapasitas berdasarkan tipe (infra: hangar,
+  // gudang senjata, pangkalan laut/udara, dst — TIDAK memperhitungkan uang)
   const getRemainingCapacity = (): number => {
     switch (capacityType) {
       case "infanteri":
@@ -109,18 +121,39 @@ export default function KonfirmasiArmadaAktifModal({
     }
   };
 
-  const remaining = getRemainingCapacity();
-  const capacityFull = remaining <= 0 && (capacityType !== "infanteri" || safeCurrentInfanteriCount >= maxCapacity);
+  // 🔥 BARU: berapa unit yang MASIH SANGGUP DIBAYAR oleh kas negara,
+  // terlepas dari kapasitas infra. Infanteri dikecualikan (tidak berbiaya
+  // di alur ini), dan biaya 0/negatif dianggap tidak terbatas dana.
+  const getMaxAffordableQuantity = (): number => {
+    if (capacityType === "infanteri") return Infinity;
+    if (!costPerUnit || costPerUnit <= 0) return Infinity;
+    return Math.floor(anggaran / costPerUnit);
+  };
 
-  // Batasi buildAmount agar tidak melebihi kapasitas
-  useEffect(() => {
+  // 🔥 Batas efektif = mana yang lebih kecil antara sisa kapasitas infra
+  // DAN jumlah yang masih terjangkau oleh kas negara. Sekarang jumlah unit
+  // yang bisa dibangun tidak lagi cuma dibatasi slot Hangar/Gudang/
+  // Pangkalan, tapi juga oleh uang kas negara.
+  const getEffectiveMaxBuildable = (): number => {
     const rem = getRemainingCapacity();
-    if (rem <= 0) {
+    const affordable = getMaxAffordableQuantity();
+    return Math.min(rem, affordable);
+  };
+
+  const remaining = getRemainingCapacity();
+  const effectiveMaxBuildable = getEffectiveMaxBuildable();
+  const capacityFull = remaining <= 0 && (capacityType !== "infanteri" || safeCurrentInfanteriCount >= maxCapacity);
+  const budgetLimited = capacityType !== "infanteri" && effectiveMaxBuildable < remaining;
+
+  // Batasi buildAmount agar tidak melebihi kapasitas MAUPUN kemampuan bayar
+  useEffect(() => {
+    const effectiveMax = getEffectiveMaxBuildable();
+    if (effectiveMax <= 0) {
       setBuildAmount(0);
-    } else if (buildAmount > rem) {
-      setBuildAmount(Math.max(1, rem));
+    } else if (buildAmount > effectiveMax) {
+      setBuildAmount(Math.max(1, effectiveMax));
     }
-  }, [capacityType, currentTankCount, currentApcCount, currentArtileriCount, currentRoketCount, currentPertahanUdaraCount, currentKendaraanTaktisCount, kapalIndukCount, kapalIndukNuklirCount, kapalDestroyerCount, kapalKorvetCount, kapalSelamNuklirCount, kapalSelamRegulerCount, kapalRanjauCount, kapalLogistikCount, jetTemturSilamanCount, jetTemturInterceptorCount, pesawatPengebomCount, helikopterSerangCount, pesawatPengintaiCount, droneIntaiUavCount, droneKamikazeCount, pesawatAngkutCount, currentBarakCount, currentCapacity, maxCapacity]);
+  }, [capacityType, currentTankCount, currentApcCount, currentArtileriCount, currentRoketCount, currentPertahanUdaraCount, currentKendaraanTaktisCount, kapalIndukCount, kapalIndukNuklirCount, kapalDestroyerCount, kapalKorvetCount, kapalSelamNuklirCount, kapalSelamRegulerCount, kapalRanjauCount, kapalLogistikCount, jetTemturSilamanCount, jetTemturInterceptorCount, pesawatPengebomCount, helikopterSerangCount, pesawatPengintaiCount, droneIntaiUavCount, droneKamikazeCount, pesawatAngkutCount, currentBarakCount, currentCapacity, maxCapacity, anggaran, costPerUnit]);
 
   // Hitung estimasi waktu dan tanggal selesai
   useEffect(() => {
@@ -292,6 +325,10 @@ export default function KonfirmasiArmadaAktifModal({
       alert("Jumlah unit harus lebih dari 0.");
       return;
     }
+    if (capacityType !== "infanteri" && !isAnggaranCukup) {
+      alert("Kas negara tidak cukup untuk membangun unit sejumlah ini.");
+      return;
+    }
     onConfirm(buildAmount);
   };
 
@@ -360,6 +397,21 @@ export default function KonfirmasiArmadaAktifModal({
             </div>
           )}
 
+          {/* 🔥 BARU: PERINGATAN KAS NEGARA TIDAK CUKUP (terpisah dari kapasitas infra) */}
+          {!capacityFull && capacityType !== "infanteri" && !isAnggaranCukup && buildAmount > 0 && (
+            <div className="bg-rose-50 border border-rose-300 text-rose-900 rounded-2xl p-4 space-y-2 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-100 text-rose-700 font-black">!</div>
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.2em]">Kas Negara Tidak Cukup</p>
+                  <p className="text-xs leading-relaxed text-rose-800 mt-2">
+                    Total biaya pembangunan ({totalCost.toLocaleString('id-ID')} EM) melebihi kas negara saat ini ({anggaran.toLocaleString('id-ID')} EM). Kurangi jumlah unit atau tunggu kas negara bertambah.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* ========== INPUT JUMLAH (UNTUK SEMUA TIPE) ========== */}
           <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 space-y-3 text-xs text-[#5c3c10]">
             <label className="flex flex-col gap-2">
@@ -370,10 +422,10 @@ export default function KonfirmasiArmadaAktifModal({
                 <button
                   type="button"
                   onClick={() => {
-                    const rem = getRemainingCapacity();
-                    setBuildAmount(rem > 0 ? rem : 0);
+                    const effectiveMax = getEffectiveMaxBuildable();
+                    setBuildAmount(effectiveMax > 0 ? effectiveMax : 0);
                   }}
-                  disabled={capacityFull}
+                  disabled={capacityFull || effectiveMaxBuildable <= 0}
                   className="px-3 py-1 bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] text-[9px] font-black uppercase rounded-lg transition-colors cursor-pointer border border-[#5c3c10]/30 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Maks
@@ -387,16 +439,21 @@ export default function KonfirmasiArmadaAktifModal({
                 onChange={(event) => {
                   const value = Number(event.target.value);
                   const safeValue = Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
-                  const rem = getRemainingCapacity();
-                  setBuildAmount(Math.min(safeValue, rem));
+                  const effectiveMax = getEffectiveMaxBuildable();
+                  setBuildAmount(Math.min(safeValue, effectiveMax));
                 }}
                 className="w-full rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                disabled={capacityFull}
+                disabled={capacityFull || effectiveMaxBuildable <= 0}
               />
             </label>
             <p className="text-[10px] text-[#8b7e66]">
-              Maksimal: {Math.max(0, getRemainingCapacity()).toLocaleString('id-ID')} {capacityType === "infanteri" ? "pasukan" : "unit"}.
+              Maksimal: {Math.max(0, effectiveMaxBuildable).toLocaleString('id-ID')} {capacityType === "infanteri" ? "pasukan" : "unit"}.
             </p>
+            {budgetLimited && (
+              <p className="text-[10px] font-bold text-amber-700">
+                ⚠️ Dibatasi oleh kas negara — sisa slot infra masih {Math.max(0, remaining).toLocaleString('id-ID')} unit, tapi kas negara hanya cukup untuk {Math.max(0, getMaxAffordableQuantity()).toLocaleString('id-ID')} unit.
+              </p>
+            )}
           </div>
 
           {/* ========== ESTIMASI WAKTU & TANGGAL SELESAI ========== */}
@@ -430,12 +487,29 @@ export default function KonfirmasiArmadaAktifModal({
 
           {/* ========== BIAYA & MATERIAL ========== */}
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
-            <div className="flex justify-between font-bold">
-              <span>Biaya Pembangunan:</span>
-              <span className="text-[#2e261a]">
-                {loadingMetadata ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
-              </span>
-            </div>
+            {capacityType === "infanteri" ? (
+              <div className="flex justify-between font-bold">
+                <span>Biaya Pembangunan:</span>
+                <span className="text-[#2e261a]">
+                  {loadingMetadata ? 'Memuat...' : `${costPerUnit.toLocaleString('id-ID')} EM`}
+                </span>
+              </div>
+            ) : (
+              <>
+                <div className="flex justify-between">
+                  <span>Biaya per Unit:</span>
+                  <span className="text-[#2e261a] font-semibold">
+                    {loadingMetadata ? 'Memuat...' : `${costPerUnit.toLocaleString('id-ID')} EM`}
+                  </span>
+                </div>
+                <div className="flex justify-between font-bold">
+                  <span>Total Biaya ({buildAmount.toLocaleString('id-ID')} unit):</span>
+                  <span className={isAnggaranCukup ? "text-[#2e261a]" : "text-rose-600"}>
+                    {loadingMetadata ? 'Memuat...' : `${totalCost.toLocaleString('id-ID')} EM`}
+                  </span>
+                </div>
+              </>
+            )}
 
             {waktuPembangunan !== undefined && capacityType !== "infanteri" && (
               <div className="flex justify-between">
@@ -509,6 +583,16 @@ export default function KonfirmasiArmadaAktifModal({
             <span>Kas Negara Saat Ini:</span>
             <span>{anggaran.toLocaleString('id-ID')}</span>
           </div>
+
+          {/* 🔥 BARU: preview sisa kas setelah pembangunan, biar keputusan jumlah unit terasa masuk akal */}
+          {capacityType !== "infanteri" && buildAmount > 0 && (
+            <div className="flex justify-between items-center text-xs font-bold pt-1">
+              <span className="text-[#8b7e66]">Sisa Kas Setelah Pembangunan:</span>
+              <span className={isAnggaranCukup ? "text-emerald-700" : "text-rose-600"}>
+                {(anggaran - totalCost).toLocaleString('id-ID')} EM
+              </span>
+            </div>
+          )}
         </div>
 
         {/* Footer */}

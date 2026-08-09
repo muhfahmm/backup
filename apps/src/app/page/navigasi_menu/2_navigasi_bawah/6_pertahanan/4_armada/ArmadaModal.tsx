@@ -36,63 +36,38 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
     }
   }, [highlightInfraKey]);
 
-  // 🔥 Logika: Cek konstruksi/rekrutmen/pembelian selesai dan tambah ke count
-  useEffect(() => {
-    if (!currentDate || !countryDetail?.ongoingConstructions) return;
-
-    try {
-      // Convert currentDate ke format YYYY-MM-DD
-      let currentDateStr: string;
-      if (currentDate instanceof Date) {
-        const y = currentDate.getFullYear();
-        const m = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const d = String(currentDate.getDate()).padStart(2, '0');
-        currentDateStr = `${y}-${m}-${d}`;
-      } else {
-        currentDateStr = String(currentDate);
-      }
-
-      const ongoing = countryDetail.ongoingConstructions || [];
-      const [cy, cm, cd] = currentDateStr.split('-').map(Number);
-      const currentDateObj = new Date(cy, cm - 1, cd);
-
-      const completed = ongoing.filter((c: any) => {
-        if (!c.endDate) return false;
-        const [ey, em, ed] = c.endDate.split('-').map(Number);
-        const endDate = new Date(ey, em - 1, ed);
-        return !isNaN(endDate.getTime()) && endDate.getTime() <= currentDateObj.getTime();
-      });
-
-      if (completed.length === 0) return;
-
-      const newDetail = { ...countryDetail };
-      const newOngoing = ongoing.filter((c: any) => {
-        if (!c.endDate) return true;
-        const [ey, em, ed] = c.endDate.split('-').map(Number);
-        const endDate = new Date(ey, em - 1, ed);
-        return isNaN(endDate.getTime()) || endDate.getTime() > currentDateObj.getTime();
-      });
-
-      // Tambah setiap konstruksi/rekrutmen/pembelian yang selesai ke count
-      completed.forEach((c: any) => {
-        const key = c.buildingKey;
-        if (c.type === "recruitment" || c.type === "purchase") {
-          const group = c.group || "darat";
-          if (!newDetail.armada) newDetail.armada = {};
-          if (!newDetail.armada[group]) newDetail.armada[group] = {};
-          const currentCount = Number(newDetail.armada[group]?.[key] || 0);
-          newDetail.armada[group][key] = currentCount + c.quantity;
-        } else {
-          newDetail[key] = (Number(newDetail[key]) || 0) + 1;
-        }
-      });
-
-      newDetail.ongoingConstructions = newOngoing;
-      setCountryDetail(newDetail);
-    } catch (error) {
-      console.error('Error processing completed constructions:', error);
-    }
-  }, [currentDate, countryDetail?.ongoingConstructions, countryDetail, setCountryDetail]);
+  // 🔥 PERBAIKAN BUG: useEffect penyelesaian konstruksi/rekrutmen DIHAPUS dari sini.
+  //
+  // SEBELUMNYA di sini ada useEffect yang JUGA memproses ongoingConstructions
+  // yang sudah selesai (type "recruitment"/"construction"/"purchase"), TAPI:
+  //   1) Untuk type "construction" ia menulis ke `newDetail[key]` (TOP-LEVEL),
+  //      bukan ke `newDetail.armada[group][key]` seperti seharusnya.
+  //   2) Ia selalu menambah tepat +1, mengabaikan `c.quantity` yang sebenarnya
+  //      diminta pengguna.
+  //
+  // Akibatnya: `1_armada_aktif.tsx` (lewat fungsi getData) mengecek top-level
+  // key LEBIH DULU sebelum armada[group][key]. Begitu useEffect di file ini
+  // menulis top-level key baru (mis. `tank_tempur_utama: 1`), nilai itu
+  // "menutupi" nilai asli yang benar di `armada.darat.tank_tempur_utama`
+  // (mis. 4650) — sehingga tampilan kartu di Tab Armada Aktif mendadak
+  // turun jadi 1 padahal sebelumnya sudah terakumulasi banyak.
+  //
+  // Selain itu, useEffect ini BERJALAN BERSAMAAN (race condition) dengan
+  // useEffect serupa yang SUDAH ADA dan SUDAH BENAR di `1_armada_aktif.tsx`
+  // (yang menambah ke armada[group][key] dengan quantity yang benar). Dua
+  // useEffect yang memproses array `ongoingConstructions` yang sama secara
+  // independen inilah sumber bug-nya.
+  //
+  // Fix: cukup SATU sumber kebenaran untuk memproses penyelesaian
+  // recruitment/construction unit Armada Aktif, yaitu useEffect yang ada
+  // di `1_armada_aktif.tsx`. File ini tidak perlu (dan tidak boleh) ikut
+  // memprosesnya lagi.
+  //
+  // Catatan: jika InfrastrukturMiliter (bangunan seperti Barak, Hangar
+  // Tank, Gudang Senjata, dst) punya kebutuhan serupa untuk memproses
+  // constructionnya sendiri, itu HARUS ditangani di dalam komponen
+  // InfrastrukturMiliter itu sendiri (dengan menulis ke lokasi data yang
+  // benar dan menghormati quantity) — bukan di sini secara generik.
 
   const handleNavigateToInfra = (infraKey: string) => {
     setActiveTab("infrastruktur");

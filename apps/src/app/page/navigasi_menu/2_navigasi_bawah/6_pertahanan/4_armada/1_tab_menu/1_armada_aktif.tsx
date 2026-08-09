@@ -7,6 +7,7 @@ import { getArmadaUnitBreakdown } from "../logic/armadaLogic";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiArmadaAktifModal from "../2_modals_konfirmasi_pembangunan/1_konfirmasi_armada_aktif_modal";
 import { REQUIREMENTS as INFANTERI_REQUIREMENTS, findRequirements as findInfanteriRequirements } from "../requirements_logic/1_infanteri/requirements";
+import armadaMetadata from "../../../../../../../../../json/semua_fitur_negara/2_pertahanan/3_armada_militer/metadata_armada_militer.json";
 
 interface TabProps {
   countryDetail: any;
@@ -58,36 +59,6 @@ const groupMeta = {
 };
 const groupKeys = Object.keys(groupMeta) as (keyof typeof groupMeta)[];
 
-// 🔥 METADATA SATU-SATUNYA SUMBER KEBENARAN (single source of truth)
-// waktu_pembangunan_armada_aktif = waktu pembangunan PER UNIT (dalam hari)
-// 🔥 NILAI DI BAWAH INI DISALIN 1:1 DARI metadata_armada_militer.json (bukan dikira-kira lagi)
-const armadaUnitMetadata: Record<string, { biaya_pembangunan: number; waktu_pembangunan_armada_aktif: number }> = {
-  barak: { biaya_pembangunan: 26250, waktu_pembangunan_armada_aktif: 8 },
-  pasukan_infanteri: { biaya_pembangunan: 5000, waktu_pembangunan_armada_aktif: 8 },
-  tank_tempur_utama: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 15 },
-  apc_ifv: { biaya_pembangunan: 26250, waktu_pembangunan_armada_aktif: 8 },
-  artileri_berat: { biaya_pembangunan: 48750, waktu_pembangunan_armada_aktif: 22 },
-  sistem_peluncur_roket: { biaya_pembangunan: 71250, waktu_pembangunan_armada_aktif: 30 },
-  pertahanan_udara_mobile: { biaya_pembangunan: 93750, waktu_pembangunan_armada_aktif: 30 },
-  kendaraan_taktis: { biaya_pembangunan: 11250, waktu_pembangunan_armada_aktif: 5 },
-  kapal_induk: { biaya_pembangunan: 1125000, waktu_pembangunan_armada_aktif: 180 },
-  kapal_induk_nuklir: { biaya_pembangunan: 1875000, waktu_pembangunan_armada_aktif: 240 },
-  kapal_destroyer: { biaya_pembangunan: 337500, waktu_pembangunan_armada_aktif: 90 },
-  kapal_korvet: { biaya_pembangunan: 135000, waktu_pembangunan_armada_aktif: 45 },
-  kapal_selam_nuklir: { biaya_pembangunan: 562500, waktu_pembangunan_armada_aktif: 120 },
-  kapal_selam_regular: { biaya_pembangunan: 187500, waktu_pembangunan_armada_aktif: 60 },
-  kapal_ranjau: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 30 },
-  kapal_logistik: { biaya_pembangunan: 90000, waktu_pembangunan_armada_aktif: 45 },
-  jet_tempur_siluman: { biaya_pembangunan: 112500, waktu_pembangunan_armada_aktif: 60 },
-  jet_tempur_interceptor: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 45 },
-  pesawat_pengebom: { biaya_pembangunan: 187500, waktu_pembangunan_armada_aktif: 90 },
-  helikopter_serang: { biaya_pembangunan: 41250, waktu_pembangunan_armada_aktif: 22 },
-  pesawat_pengintai: { biaya_pembangunan: 71250, waktu_pembangunan_armada_aktif: 45 },
-  drone_intai_uav: { biaya_pembangunan: 11250, waktu_pembangunan_armada_aktif: 15 },
-  drone_kamikaze: { biaya_pembangunan: 3750, waktu_pembangunan_armada_aktif: 4 },
-  pesawat_angkut: { biaya_pembangunan: 56250, waktu_pembangunan_armada_aktif: 30 },
-};
-
 const formatNumber = (value: unknown) => {
   const numeric = Number(value ?? 0);
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
@@ -121,13 +92,20 @@ const addDays = (dateString: string, days: number): string => {
   return `${yy}-${mm}-${dd}`;
 };
 
+// Satu-satunya fungsi untuk mendapatkan tanggal "hari ini" dalam game,
+// dipakai baik untuk MEMBUAT (start/end) maupun untuk MENGECEK SELESAI-nya
+// sebuah pembangunan/rekrutmen. Prioritas: prop `currentDate` (dikontrol
+// oleh kalender simulasi di ArmadaModal / parent) > countryDetail.game_date
+// > tanggal sistem sekarang (fallback terakhir).
 const getSafeDateString = (currentDate?: string | Date, gameDate?: string): string => {
   if (currentDate) {
     const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
-    const y = d.getFullYear();
-    const m = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    return `${y}-${m}-${day}`;
+    if (!isNaN(d.getTime())) {
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
   }
   if (gameDate) {
     return gameDate.split('T')[0];
@@ -204,22 +182,55 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
-  // 🔥 SATU-SATUNYA fungsi sumber waktu pembangunan per unit — dipakai oleh
+  // SATU-SATUNYA fungsi sumber waktu pembangunan per unit — dipakai oleh
   // preview modal (via prop waktuPembangunan) MAUPUN oleh handleConfirm.
   // Karena keduanya memakai fungsi yang sama, hasilnya PASTI selalu sinkron.
   const buildTimeForKey = (key: string): number => {
-    const meta = armadaUnitMetadata[key];
+    const meta = (armadaMetadata as Record<string, any>)[key];
     if (meta && typeof meta.waktu_pembangunan_armada_aktif === 'number') {
       return meta.waktu_pembangunan_armada_aktif;
     }
     return 7; // fallback jika key tidak dikenal
   };
 
-  // 🔥 PERBAIKAN LOGIKA SEDANG BERLANGSUNG
+  // SATU-SATUNYA fungsi sumber biaya PER UNIT — dipakai oleh preview modal
+  // (via prop cost) MAUPUN oleh handleConfirm saat memotong kas negara.
+  // Karena keduanya memakai fungsi yang sama, biaya yang ditampilkan di
+  // modal dan biaya yang benar-benar dipotong dari kas negara PASTI sama.
+  const costForKey = (key: string): number => {
+    const meta = (armadaMetadata as Record<string, any>)[key];
+    if (meta && typeof meta.biaya_pembangunan === 'number') {
+      return meta.biaya_pembangunan;
+    }
+    return 0;
+  };
+
+  // PERBAIKAN BUG "+1 tidak hilang / angka tidak bertambah":
+  //
+  // SEBELUMNYA di sini ada:
+  //   const currentDate = countryDetail?.game_date ? new Date(countryDetail.game_date) : new Date();
+  //
+  // Variabel lokal `currentDate` itu MENIMPA (shadowing) prop `currentDate`
+  // yang dikirim dari parent (ArmadaModal -> kalender simulasi). Akibatnya
+  // effect ini SELALU membandingkan endDate terhadap `countryDetail.game_date`
+  // -- BUKAN terhadap tanggal simulasi yang sebenarnya berjalan maju (prop
+  // `currentDate`, yang terlihat di UI kalender kanan bawah). Kalau
+  // `countryDetail.game_date` tidak ikut di-update di tempat lain setiap
+  // hari berjalan, effect ini TIDAK PERNAH menganggap endDate sudah lewat.
+  //
+  // FIX:
+  //   1) Pakai `getSafeDateString(currentDate, countryDetail?.game_date)`
+  //      supaya prop `currentDate` (sumber kebenaran tanggal simulasi)
+  //      diprioritaskan, dan diberi nama variabel berbeda (`todayGameDate`)
+  //      supaya tidak lagi menimpa prop `currentDate`.
+  //   2) Tambahkan prop `currentDate` ke dependency array useEffect, supaya
+  //      effect ini benar-benar re-run setiap kali kalender simulasi maju,
+  //      bukan hanya saat `countryDetail.game_date` berubah.
   useEffect(() => {
     if (!countryDetail || !_setCountryDetail) return;
 
-    const currentDate = countryDetail?.game_date ? new Date(countryDetail.game_date) : new Date();
+    const todayGameDateStr = getSafeDateString(currentDate, countryDetail?.game_date);
+    const todayGameDate = new Date(todayGameDateStr);
     const ongoing = countryDetail?.ongoingConstructions || [];
 
     let hasChanged = false;
@@ -234,7 +245,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       const endDate = new Date(construction.endDate);
       if (isNaN(endDate.getTime())) continue;
 
-      if (endDate.getTime() <= currentDate.getTime()) {
+      if (endDate.getTime() <= todayGameDate.getTime()) {
         hasChanged = true;
 
         const targetKey = construction.buildingKey;
@@ -267,19 +278,28 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       updatedDetail.ongoingConstructions = updatedConstructions;
       _setCountryDetail(updatedDetail);
     }
-  }, [countryDetail?.game_date, countryDetail?.ongoingConstructions, _setCountryDetail]);
+    // `currentDate` (prop) ditambahkan sebagai dependency supaya effect ini
+    // re-run setiap kalender simulasi maju, bukan hanya saat
+    // countryDetail?.game_date berubah.
+  }, [countryDetail?.game_date, countryDetail?.ongoingConstructions, currentDate, _setCountryDetail]);
 
   const handleInfoClick = (key: string) => {
     setInfoKey(key);
     setIsInfoOpen(true);
   };
 
-  // 🔥 PERBAIKAN UTAMA #2: handleConfirm sekarang MENGHORMATI jumlah (quantity)
+  // PERBAIKAN UTAMA #2: handleConfirm sekarang MENGHORMATI jumlah (quantity)
   // yang diminta di modal, dan waktu (days) dihitung dengan formula yang PERSIS
-  // SAMA dengan yang dipakai modal untuk preview (waktu per-unit × jumlah unit).
-  // Sebelumnya di sini quantity untuk non-infanteri selalu di-hardcode 1 dan
-  // days tidak dikalikan quantity — itu penyebab data di kartu Tab Armada Aktif
-  // tidak nyambung dengan preview di modal.
+  // SAMA dengan yang dipakai modal untuk preview (waktu per-unit x jumlah unit).
+  //
+  // PERBAIKAN UTAMA #3 (baru): biaya pembangunan sekarang dihitung
+  // (biaya per unit x quantity) dan BENAR-BENAR DIPOTONG dari kas negara
+  // (countryDetail.anggaran) saat pembangunan mulai -- bukan cuma tampilan
+  // di modal. Sebelumnya `cost` selalu di-hardcode 0 di sini dan `anggaran`
+  // tidak pernah disentuh, jadi pemain bisa membangun jumlah unit berapa
+  // pun tanpa uangnya benar-benar berkurang. Perekrutan infanteri ("barak")
+  // TETAP tidak dikenai biaya EM di alur ini, sesuai desain modal yang
+  // sudah ada sebelumnya (infanteri hanya dibatasi kapasitas Barak).
   const handleConfirm = (quantity: number = 1) => {
     if (!selectedForBuild) return;
     const key = selectedForBuild.key;
@@ -304,7 +324,21 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       return;
     }
 
-    // 🔥 Formula waktu SAMA PERSIS dengan yang dipakai modal untuk preview:
+    // Hitung total biaya = biaya per unit (dari JSON metadata) x quantity.
+    // Infanteri dikecualikan dari biaya EM (konsisten dengan modal).
+    const unitCost = costForKey(key);
+    const totalCost = isRecruitment ? 0 : unitCost * quantity;
+    const currentAnggaran = Number(countryDetail?.anggaran) || 0;
+
+    // Validasi ulang di sisi handleConfirm (bukan cuma di modal) supaya
+    // tetap aman meski tombol konfirmasi di modal ter-trigger dalam
+    // kondisi race/stale state.
+    if (!isRecruitment && totalCost > currentAnggaran) {
+      alert("Kas negara tidak cukup untuk membangun unit sejumlah ini.");
+      return;
+    }
+
+    // Formula waktu SAMA PERSIS dengan yang dipakai modal untuk preview:
     // - Infanteri: ceil(quantity / 10000) * waktu per-batch barak
     // - Selain infanteri: waktu per unit * jumlah unit yang diminta
     let days = 0;
@@ -321,13 +355,19 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       id: `${type}_${Date.now()}`,
       buildingKey: targetKey,
       label: selectedForBuild.label,
-      quantity: quantity, // 🔥 sekarang quantity asli disimpan, bukan di-hardcode 1
-      cost: 0,
+      quantity: quantity,
+      cost: totalCost, // sekarang menyimpan biaya TOTAL sebenarnya, bukan 0
       startDate: currentDateStr,
       endDate: endDateStr,
       type: type,
       group: group
     });
+
+    // Potong kas negara sebesar totalCost saat pembangunan dimulai
+    // (dibayar di muka, bukan saat selesai).
+    if (totalCost > 0) {
+      updatedDetail.anggaran = currentAnggaran - totalCost;
+    }
 
     _setCountryDetail(updatedDetail);
     setIsConfirmBuildOpen(false);
@@ -454,7 +494,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           }}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
-          cost={Number(armadaUnitMetadata[selectedForBuild.key]?.biaya_pembangunan ?? 0)}
+          cost={Number((armadaMetadata as Record<string, any>)[selectedForBuild.key]?.biaya_pembangunan ?? 0)}
           waktuPembangunan={buildTimeForKey(selectedForBuild.key)}
           requirements={selectedForBuild.key === "barak" ? (findInfanteriRequirements("barak")?.requirements || []) : []}
           materialStocks={calculateMaterialStocks(countryDetail)}
