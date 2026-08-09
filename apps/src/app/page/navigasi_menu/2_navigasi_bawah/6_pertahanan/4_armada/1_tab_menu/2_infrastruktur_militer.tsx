@@ -71,42 +71,7 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     loadMetadata();
   }, []);
 
-  // 🔥 LOGIKA DETEKSI TANGGAL (MENGHAPUS +1 SAAT TANGGAL BERLALU)
-  useEffect(() => {
-    if (!currentDate || !_setCountryDetail) return;
-    
-    let nowDate: Date;
-    try {
-      nowDate = typeof currentDate === 'string' ? new Date(currentDate) : currentDate;
-      if (isNaN(nowDate.getTime())) return;
-    } catch {
-      return;
-    }
 
-    const ongoing = countryDetail?.ongoingConstructions || [];
-    let hasChanged = false;
-    let updatedDetail = { ...countryDetail };
-    let updatedConstructions = [...ongoing];
-
-    for (let i = updatedConstructions.length - 1; i >= 0; i--) {
-      const construction = updatedConstructions[i];
-      if (construction.type === "recruitment") continue;
-      const endDate = new Date(construction.endDate);
-      if (isNaN(endDate.getTime())) continue;
-
-      if (endDate.getTime() <= nowDate.getTime()) {
-        hasChanged = true;
-        const key = construction.buildingKey;
-        updatedDetail[key] = (Number(updatedDetail[key] || 0) + 1);
-        updatedConstructions.splice(i, 1);
-      }
-    }
-
-    if (hasChanged) {
-      updatedDetail.ongoingConstructions = updatedConstructions;
-      _setCountryDetail(updatedDetail);
-    }
-  }, [currentDate, countryDetail?.ongoingConstructions, _setCountryDetail]);
 
   const calculateMaterialStocks = (countryDetailData: any) => {
     const stocks: Record<string, number> = {};

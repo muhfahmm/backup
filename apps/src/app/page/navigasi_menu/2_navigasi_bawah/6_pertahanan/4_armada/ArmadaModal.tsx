@@ -35,7 +35,7 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
     }
   }, [highlightInfraKey]);
 
-  // 🔥 Logika: Cek konstruksi selesai dan tambah ke count
+  // 🔥 Logika: Cek konstruksi/rekrutmen/pembelian selesai dan tambah ke count
   useEffect(() => {
     if (!currentDate || !countryDetail?.ongoingConstructions) return;
 
@@ -52,18 +52,38 @@ export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountry
       }
 
       const ongoing = countryDetail.ongoingConstructions || [];
-      const completed = ongoing.filter((c: any) => c.endDate === currentDateStr && c.type !== "recruitment");
+      const [cy, cm, cd] = currentDateStr.split('-').map(Number);
+      const currentDateObj = new Date(cy, cm - 1, cd);
+
+      const completed = ongoing.filter((c: any) => {
+        if (!c.endDate) return false;
+        const [ey, em, ed] = c.endDate.split('-').map(Number);
+        const endDate = new Date(ey, em - 1, ed);
+        return !isNaN(endDate.getTime()) && endDate.getTime() <= currentDateObj.getTime();
+      });
 
       if (completed.length === 0) return;
 
-      let updated = false;
       const newDetail = { ...countryDetail };
-      const newOngoing = ongoing.filter((c: any) => c.endDate !== currentDateStr || c.type === "recruitment");
+      const newOngoing = ongoing.filter((c: any) => {
+        if (!c.endDate) return true;
+        const [ey, em, ed] = c.endDate.split('-').map(Number);
+        const endDate = new Date(ey, em - 1, ed);
+        return isNaN(endDate.getTime()) || endDate.getTime() > currentDateObj.getTime();
+      });
 
-      // Tambah setiap konstruksi yang selesai ke count
+      // Tambah setiap konstruksi/rekrutmen/pembelian yang selesai ke count
       completed.forEach((c: any) => {
         const key = c.buildingKey;
-        newDetail[key] = (Number(newDetail[key]) || 0) + 1;
+        if (c.type === "recruitment" || c.type === "purchase") {
+          const group = c.group || "darat";
+          if (!newDetail.armada) newDetail.armada = {};
+          if (!newDetail.armada[group]) newDetail.armada[group] = {};
+          const currentCount = Number(newDetail.armada[group]?.[key] || 0);
+          newDetail.armada[group][key] = currentCount + c.quantity;
+        } else {
+          newDetail[key] = (Number(newDetail[key]) || 0) + 1;
+        }
       });
 
       newDetail.ongoingConstructions = newOngoing;
