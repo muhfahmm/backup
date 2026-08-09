@@ -168,7 +168,8 @@ export default function TempatUmumModal({
 
     const updatedDetail = deductBuildingMaterials(
       { ...countryDetail, anggaran: anggaran - totalCost },
-      buildingReq?.requirements
+      buildingReq?.requirements,
+      buildQuantity
     );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;

@@ -168,7 +168,8 @@ export default function HunianPermukimanModal({
         [key]: (Number(countryDetail?.[key]) || 0) + buildQuantity,
         kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + (1.5 * buildQuantity))
       },
-      buildingReq?.requirements
+      buildingReq?.requirements,
+      buildQuantity
     );
 
     setCountryDetail(updatedDetail);

@@ -104,7 +104,8 @@ export function useMaterialProduction(
 
 export function deductBuildingMaterials(
   countryDetail: any,
-  requirements?: { resourceKey: string; amount?: number }[]
+  requirements?: { resourceKey: string; amount?: number }[],
+  buildQuantity: number = 1
 ) {
   if (!countryDetail || !requirements || requirements.length === 0) return countryDetail;
   const updatedDetail = { ...countryDetail };
@@ -113,8 +114,9 @@ export function deductBuildingMaterials(
     const normalizedKey = normalizeResourceKey(material.resourceKey);
     const invKey = `inventory_${normalizedKey}`;
     const currentInv = getMaterialStock(updatedDetail, material.resourceKey);
-    const amount = material.amount || 0;
-    updatedDetail[invKey] = Math.max(0, currentInv - amount);
+    const baseAmount = material.amount || 0;
+    const totalAmount = baseAmount * buildQuantity;
+    updatedDetail[invKey] = Math.max(0, currentInv - totalAmount);
   });
 
   return updatedDetail;

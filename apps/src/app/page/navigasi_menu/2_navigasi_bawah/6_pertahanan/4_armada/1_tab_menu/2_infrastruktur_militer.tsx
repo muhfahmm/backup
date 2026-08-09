@@ -4,6 +4,7 @@ import { Info } from "lucide-react";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiInfrastrukturModal from "../2_modals_konfirmasi_pembangunan/2_konfirmasi_infrastruktur_modal";
 import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
+import { deductBuildingMaterials } from "@/app/page/navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic";
 import { REQUIREMENTS as INFANTERI_REQUIREMENTS } from "../requirements_logic/1_infanteri/requirements";
 import { REQUIREMENTS as HANGAR_REQUIREMENTS } from "../requirements_logic/2_hangar_tank/requirements";
 import { REQUIREMENTS as GUDANG_REQUIREMENTS } from "../requirements_logic/3_gudang_senjata/requirements";
@@ -252,10 +253,35 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       const waktu = Number(buildingData.waktu_pembangunan) || 0;
       const safeDateString = getSafeDateString();
       
+      // Ambil requirements untuk material deduction
+      let requirementsForDeduction: any[] = [];
+      if (key === "barak") {
+        const barakReqs = INFANTERI_REQUIREMENTS.find((r) => r.buildingKey === "barak");
+        requirementsForDeduction = barakReqs?.requirements || [];
+      } else if (key === "hangar_tank") {
+        const hangarReqs = HANGAR_REQUIREMENTS.find((r) => r.buildingKey === "hangar_tank");
+        requirementsForDeduction = hangarReqs?.requirements || [];
+      } else if (key === "gudang_senjata") {
+        const gudangReqs = GUDANG_REQUIREMENTS.find((r) => r.buildingKey === "gudang_senjata");
+        requirementsForDeduction = gudangReqs?.requirements || [];
+      } else if (key === "pangkalan_laut") {
+        const lautReqs = LAUT_REQUIREMENTS.find((r) => r.buildingKey === "pangkalan_laut");
+        requirementsForDeduction = lautReqs?.requirements || [];
+      } else if (key === "pangkalan_udara") {
+        const udaraReqs = UDARA_REQUIREMENTS.find((r) => r.buildingKey === "pangkalan_udara");
+        requirementsForDeduction = udaraReqs?.requirements || [];
+      }
+      
+      // Deduct materials dengan quantity
+      const updatedDetailWithMaterials = deductBuildingMaterials(
+        { ...countryDetail, anggaran: Math.max(0, (Number(countryDetail?.anggaran) || 0) - (Number(buildingData.biaya_pembangunan) || 0) * qty) },
+        requirementsForDeduction,
+        qty
+      );
+      
       if (waktu <= 0) {
-        const updatedDetail = { ...countryDetail };
-        updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + qty;
-        _setCountryDetail(updatedDetail);
+        updatedDetailWithMaterials[key] = (Number(countryDetail?.[key]) || 0) + qty;
+        _setCountryDetail(updatedDetailWithMaterials);
         setIsConfirmBuildOpen(false);
         setSelectedForBuild(null);
         return;
@@ -277,8 +303,8 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         newOngoing.push({ id: Date.now() + Math.random() + i, buildingKey: key, startDate: nextStart, endDate: nextEnd });
       }
       
-      const updatedDetail = { ...countryDetail, ongoingConstructions: newOngoing };
-      _setCountryDetail(updatedDetail);
+      const finalUpdate = { ...updatedDetailWithMaterials, ongoingConstructions: newOngoing };
+      _setCountryDetail(finalUpdate);
       setIsConfirmBuildOpen(false);
       setSelectedForBuild(null);
     };

@@ -380,7 +380,8 @@ export default function ProduksiModal({
 
     const updatedDetail = deductBuildingMaterials(
       { ...countryDetail, anggaran: anggaran - totalCost },
-      selectedBuildingRequirements?.requirements
+      selectedBuildingRequirements?.requirements,
+      buildQuantity
     );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;
