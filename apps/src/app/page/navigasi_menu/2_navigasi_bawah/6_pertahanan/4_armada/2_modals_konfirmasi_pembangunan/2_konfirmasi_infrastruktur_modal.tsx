@@ -152,6 +152,29 @@ export default function KonfirmasiInfrastrukturModal({
   const capacityDisplay = infanteriCapacityDisplay || hangarTankCapacityDisplay || gudangSenjataCapacityDisplay || pangkalanLautCapacityDisplay || pangkalanUdaraCapacityDisplay;
   const warningText = infanteriWarningText || hangarTankWarningText || gudangSenjataCapacityWarningText || pangkalanLautCapacityWarningText || pangkalanUdaraCapacityWarningText;
 
+  // 🔥 Fungsi kalkulasi jumlah bangunan maksimal
+  const calculateMaxBuildings = (): number => {
+    let maxByBudget = Math.floor(anggaran / cost);
+    if (maxByBudget < 1) return 1;
+
+    // Cek batasan berdasarkan material
+    let maxByMaterials = Infinity;
+    for (const req of requirements) {
+      const availableStock = materialStocks[req.resourceKey] ?? 0;
+      const costPerBuilding = req.amount ?? 0;
+      if (costPerBuilding > 0) {
+        const maxForThisMaterial = Math.floor(availableStock / costPerBuilding);
+        maxByMaterials = Math.min(maxByMaterials, maxForThisMaterial);
+      }
+    }
+
+    if (maxByMaterials === Infinity) {
+      maxByMaterials = maxByBudget;
+    }
+
+    return Math.max(1, Math.min(maxByBudget, maxByMaterials));
+  };
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
@@ -363,18 +386,27 @@ export default function KonfirmasiInfrastrukturModal({
             <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 mt-3 text-xs text-[#5c3c10]">
               <label className="flex flex-col gap-2">
                 <span className="font-black uppercase tracking-[0.2em]">Jumlah Bangunan</span>
-                <input
-                  type="number"
-                  min={1}
-                  step={1}
-                  value={buildQuantity}
-                  onChange={(event) => {
-                    const value = Number(event.target.value);
-                    setBuildQuantity(Number.isFinite(value) ? Math.max(1, Math.floor(value)) : 1);
-                  }}
-                  className="w-full rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
-                  disabled={capacityFull}
-                />
+                <div className="flex gap-2 items-center">
+                  <input
+                    type="number"
+                    min={1}
+                    step={1}
+                    value={buildQuantity}
+                    onChange={(event) => {
+                      const value = Number(event.target.value);
+                      setBuildQuantity(Number.isFinite(value) ? Math.max(1, Math.floor(value)) : 1);
+                    }}
+                    className="flex-1 rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                    disabled={capacityFull}
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setBuildQuantity(calculateMaxBuildings())}
+                    className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white text-[10px] font-black uppercase cursor-pointer transition-all shadow-sm hover:shadow-md"
+                  >
+                    Maks
+                  </button>
+                </div>
               </label>
             </div>
 
