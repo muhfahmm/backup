@@ -170,11 +170,13 @@ export default function KonfirmasiInfrastrukturModal({
             <p className="text-xs text-[#8b7e66]">{buildingDescription || 'Tidak ada deskripsi tersedia.'}</p>
           </div>
 
-          {/* DETAIL KAPASITAS INFANTERI */}
+          {/* ================= DETAIL KAPASITAS PER JENIS ================= */}
+
+          {/* 🔵 BARAK / INFANTERI: WARNA HIJAU */}
           {capacityType === "infanteri" && (
-            <div className="bg-blue-50/80 border border-blue-200 rounded-xl p-4 space-y-2">
-              <p className="text-xs font-bold text-blue-900">📊 Detail Kapasitas Barak:</p>
-              <div className="text-xs text-blue-800 space-y-1">
+            <div className="bg-emerald-50/80 border border-emerald-200 rounded-xl p-4 space-y-2">
+              <p className="text-xs font-bold text-emerald-900">📊 Detail Kapasitas Barak:</p>
+              <div className="text-xs text-emerald-800 space-y-1">
                 <div className="flex justify-between">
                   <span>Infanteri Saat Ini:</span>
                   <span className="font-bold">{currentCapacity?.toLocaleString('id-ID')} pasukan</span>
@@ -183,9 +185,9 @@ export default function KonfirmasiInfrastrukturModal({
                   <span>Jumlah Barak:</span>
                   <span className="font-bold">{currentBarakCount} unit</span>
                 </div>
-                <div className="flex justify-between border-t border-blue-200 pt-1 mt-1">
+                <div className="flex justify-between border-t border-emerald-200 pt-1 mt-1">
                   <span>Kapasitas Total:</span>
-                  <span className="font-bold text-blue-900">{maxCapacity?.toLocaleString('id-ID')} pasukan</span>
+                  <span className="font-bold text-emerald-900">{maxCapacity?.toLocaleString('id-ID')} pasukan</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sisa Kapasitas:</span>
@@ -197,7 +199,7 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
-          {/* DETAIL KAPASITAS HANGAR TANK */}
+          {/* 🟠 HANGAR TANK: WARNA AMBER */}
           {capacityType === "hangar_tank" && (
             <div className="bg-amber-50/80 border border-amber-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-amber-900">🚜 Detail Kapasitas Hangar Tank:</p>
@@ -232,7 +234,7 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
-          {/* DETAIL KAPASITAS GUDANG SENJATA */}
+          {/* 🟣 GUDANG SENJATA: WARNA UNGU */}
           {capacityType === "gudang_senjata" && (
             <div className="bg-purple-50/80 border border-purple-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-purple-900">💣 Detail Kapasitas Gudang Senjata:</p>
@@ -275,9 +277,7 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
-          {/* 🔥 PERINGATAN KAPASITAS PENUH DIHAPUS TOTAL SESUAI PERMINTAAN (Karena sisa kapasitas masih ada) */}
-
-          {/* DETAIL KAPASITAS PANGKALAN LAUT */}
+          {/* 🔵 PANGKALAN LAUT: WARNA BIRU LANGIT (SKY) */}
           {capacityType === "pangkalan_laut" && (
             <div className="bg-sky-50/80 border border-sky-200 rounded-xl p-4 space-y-2">
               <p className="text-xs font-bold text-sky-900">⚓ Detail Kapasitas Pangkalan Laut:</p>
@@ -306,11 +306,11 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
-          {/* DETAIL KAPASITAS PANGKALAN UDARA */}
+          {/* 🟦 PANGKALAN UDARA: WARNA INDIGO */}
           {capacityType === "pangkalan_udara" && (
-            <div className="bg-orange-50/80 border border-orange-200 rounded-xl p-4 space-y-2">
-              <p className="text-xs font-bold text-orange-900">✈️ Detail Kapasitas Pangkalan Udara:</p>
-              <div className="text-xs text-orange-800 space-y-1">
+            <div className="bg-indigo-50/80 border border-indigo-200 rounded-xl p-4 space-y-2">
+              <p className="text-xs font-bold text-indigo-900">✈️ Detail Kapasitas Pangkalan Udara:</p>
+              <div className="text-xs text-indigo-800 space-y-1">
                 <div className="flex justify-between"><span>Jet Tempur Siluman:</span><span className="font-bold">{jetTemturSilamanCount?.toLocaleString('id-ID')} unit</span></div>
                 <div className="flex justify-between"><span>Jet Tempur Interceptor:</span><span className="font-bold">{jetTemturInterceptorCount?.toLocaleString('id-ID')} unit</span></div>
                 <div className="flex justify-between"><span>Pesawat Pengebom:</span><span className="font-bold">{pesawatPengebomCount?.toLocaleString('id-ID')} unit</span></div>
@@ -321,9 +321,9 @@ export default function KonfirmasiInfrastrukturModal({
                 <div className="flex justify-between"><span>Pesawat Angkut:</span><span className="font-bold">{pesawatAngkutCount?.toLocaleString('id-ID')} unit</span></div>
                 <div className="flex justify-between"><span>Total Pesawat:</span><span className="font-bold">{(jetTemturSilamanCount + jetTemturInterceptorCount + pesawatPengebomCount + helikopterSerangCount + pesawatPengintaiCount + droneIntaiUavCount + droneKamikazeCount + pesawatAngkutCount)?.toLocaleString('id-ID')} unit</span></div>
                 <div className="flex justify-between"><span>Jumlah Pangkalan:</span><span className="font-bold">{currentPangkalanUdaraCount} unit</span></div>
-                <div className="flex justify-between border-t border-orange-200 pt-1 mt-1">
+                <div className="flex justify-between border-t border-indigo-200 pt-1 mt-1">
                   <span>Kapasitas Total:</span>
-                  <span className="font-bold text-orange-900">{(currentPangkalanUdaraCount * PANGKALAN_UDARA_CAPACITY)?.toLocaleString('id-ID')} unit</span>
+                  <span className="font-bold text-indigo-900">{(currentPangkalanUdaraCount * PANGKALAN_UDARA_CAPACITY)?.toLocaleString('id-ID')} unit</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sisa Kapasitas:</span>
@@ -335,6 +335,7 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
+          {/* Panel Biaya & Material (Sama untuk semua jenis) */}
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
             <div className="flex justify-between font-bold">
               <span>Biaya Pembangunan:</span>
