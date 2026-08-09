@@ -406,6 +406,18 @@ export default function KonfirmasiInfrastrukturModal({
                   >
                     Maks
                   </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      // Hard refresh like Ctrl+F5
+                      localStorage.clear();
+                      sessionStorage.clear();
+                      window.location.href = window.location.href;
+                    }}
+                    className="px-4 py-2 rounded-xl bg-slate-400 hover:bg-slate-500 text-white text-[10px] font-black uppercase cursor-pointer transition-all shadow-sm hover:shadow-md"
+                  >
+                    Reset
+                  </button>
                 </div>
               </label>
             </div>

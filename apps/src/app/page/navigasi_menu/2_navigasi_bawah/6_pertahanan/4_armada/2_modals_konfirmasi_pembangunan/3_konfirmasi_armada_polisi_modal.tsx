@@ -70,7 +70,19 @@ export default function KonfirmasiArmadaPolisiModal({
 
             <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 mt-3 text-xs text-[#5c3c10]">
               <label className="flex flex-col gap-2">
-                <span className="font-black uppercase tracking-[0.2em]">Jumlah Bangunan</span>
+                <div className="flex items-center justify-between">
+                  <span className="font-black uppercase tracking-[0.2em]">Jumlah Bangunan</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const maxQuantity = Math.floor(anggaran / cost);
+                      setBuildQuantity(Math.max(1, maxQuantity));
+                    }}
+                    className="px-3 py-1 bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] text-[9px] font-black uppercase rounded-lg transition-colors cursor-pointer border border-[#5c3c10]/30"
+                  >
+                    Maks
+                  </button>
+                </div>
                 <input
                   type="number"
                   min={1}

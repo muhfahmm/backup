@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Info } from "lucide-react";
 import KonfirmasiArmadaPolisiModal from "../2_modals_konfirmasi_pembangunan/3_konfirmasi_armada_polisi_modal";
+import InfoArmadaPolisiModal from "../modals_info/3_info_armada_polisi_modal";
 
 interface TabProps {
   countryDetail: any;
@@ -157,6 +158,11 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
 
   const selectedItem = infoKey ? polisiData[infoKey as keyof typeof polisiData] : null;
 
+  const handleInfoClose = () => {
+    setIsInfoOpen(false);
+    setInfoKey(null);
+  };
+
   return (
     <div className="space-y-6">
       <div className="text-xs font-semibold text-[#8b7e66] leading-relaxed">
@@ -183,7 +189,10 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
                   {item.label}
                 </p>
                 <button
-                  onClick={() => handleInfoClick(key)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleInfoClick(key);
+                  }}
                   className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-pointer"
                 >
                   <Info className="w-4 h-4" />
@@ -204,7 +213,7 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
       </div>
 
       {/* 🔥 Modal Konfirmasi Pembangunan */}
-      {selectedForBuild && (
+      {selectedForBuild && polisiData[selectedForBuild.key as keyof typeof polisiData] && (
         <KonfirmasiArmadaPolisiModal
           isOpen={isConfirmBuildOpen}
           onClose={() => {
@@ -213,8 +222,8 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
           }}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
-          cost={polisiData[selectedForBuild.key]?.biaya_pembangunan || 0}
-          waktuPembangunan={polisiData[selectedForBuild.key]?.waktu_pembangunan || 0}
+          cost={polisiData[selectedForBuild.key as keyof typeof polisiData]?.biaya_pembangunan || 0}
+          waktuPembangunan={polisiData[selectedForBuild.key as keyof typeof polisiData]?.waktu_pembangunan || 0}
           requirements={[]}
           materialStocks={{}}
           anggaran={Number(countryDetail?.anggaran) || 0}
@@ -231,9 +240,23 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
             setIsConfirmBuildOpen(false);
             setSelectedForBuild(null);
           }}
-          onMaterialClick={() => {}}
+          onMaterialClick={(resourceKey: string, label: string) => {
+            console.log(`Material clicked: ${label} (${resourceKey})`);
+          }}
           loadingMetadata={false}
           isDisabled={false}
+        />
+      )}
+
+      {/* 🔥 Modal Info Armada Polisi */}
+      {selectedItem && (
+        <InfoArmadaPolisiModal
+          isOpen={isInfoOpen}
+          onClose={handleInfoClose}
+          selectedItem={selectedItem}
+          formatNumber={formatNumber}
+          getNestedValue={getNestedValue}
+          countryDetail={countryDetail}
         />
       )}
     </div>

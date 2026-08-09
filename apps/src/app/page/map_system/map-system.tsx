@@ -213,6 +213,46 @@ export default function MapPage() {
                 litium: mergedData.litium ?? 0,
                 logam_tanah_jarang: mergedData.logam_tanah_jarang ?? 0,
                 bijih_besi: mergedData.bijih_besi ?? 0,
+                // Building fields - Kelistrikan
+                pembangkit_listrik_tenaga_nuklir: mergedData.pembangkit_listrik_tenaga_nuklir ?? 0,
+                pembangkit_listrik_tenaga_air: mergedData.pembangkit_listrik_tenaga_air ?? 0,
+                pembangkit_listrik_tenaga_surya: mergedData.pembangkit_listrik_tenaga_surya ?? 0,
+                pembangkit_listrik_tenaga_uap: mergedData.pembangkit_listrik_tenaga_uap ?? 0,
+                pembangkit_listrik_tenaga_gas: mergedData.pembangkit_listrik_tenaga_gas ?? 0,
+                pembangkit_listrik_tenaga_angin: mergedData.pembangkit_listrik_tenaga_angin ?? 0,
+                // Building fields - Manufaktur
+                semikonduktor: mergedData.semikonduktor ?? 0,
+                mobil: mergedData.mobil ?? 0,
+                sepeda_motor: mergedData.sepeda_motor ?? 0,
+                semen_beton: mergedData.semen_beton ?? 0,
+                kayu: mergedData.kayu ?? 0,
+                // Building fields - Peternakan
+                ayam_unggas: mergedData.ayam_unggas ?? 0,
+                sapi_perah: mergedData.sapi_perah ?? 0,
+                sapi_potong: mergedData.sapi_potong ?? 0,
+                domba_kambing: mergedData.domba_kambing ?? 0,
+                // Building fields - Agrikultur
+                padi: mergedData.padi ?? 0,
+                jagung: mergedData.jagung ?? 0,
+                kedelai: mergedData.kedelai ?? 0,
+                tebu: mergedData.tebu ?? 0,
+                kelapa_sawit: mergedData.kelapa_sawit ?? 0,
+                cokelat: mergedData.cokelat ?? 0,
+                kopi: mergedData.kopi ?? 0,
+                // Building fields - Perikanan
+                udang: mergedData.udang ?? 0,
+                mutiara: mergedData.mutiara ?? 0,
+                ikan: mergedData.ikan ?? 0,
+                // Building fields - Olahan Pangan
+                air_mineral: mergedData.air_mineral ?? 0,
+                gula: mergedData.gula ?? 0,
+                roti: mergedData.roti ?? 0,
+                pengolahan_daging: mergedData.pengolahan_daging ?? 0,
+                mie_instan: mergedData.mie_instan ?? 0,
+                minyak_goreng: mergedData.minyak_goreng ?? 0,
+                susu: mergedData.susu ?? 0,
+                // Ongoing constructions array
+                ongoingConstructions: mergedData.ongoingConstructions || [],
             });
         } catch (e) {
             console.error("Failed to load country data:", e);

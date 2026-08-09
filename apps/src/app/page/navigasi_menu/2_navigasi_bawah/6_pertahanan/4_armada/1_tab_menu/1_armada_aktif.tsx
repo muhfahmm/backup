@@ -149,7 +149,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       batu_gunung: { tab: 'mineral', buildingKey: 'garam' },
       litium: { tab: 'mineral', buildingKey: 'litium' },
       logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
-      bijah_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
       mobil: { tab: 'manufaktur', buildingKey: 'mobil' },
