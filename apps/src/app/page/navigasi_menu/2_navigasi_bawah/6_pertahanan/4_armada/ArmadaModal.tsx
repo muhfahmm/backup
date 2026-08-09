@@ -15,10 +15,10 @@ interface ModalProps {
 }
 
 export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction, currentDate }: ModalProps) {
-  if (!isOpen) return null;
-
   const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
   const [highlightInfraKey, setHighlightInfraKey] = useState<string | null>(null);
+
+  if (!isOpen) return null;
 
   const countryName =
     countryDetail?.country ||

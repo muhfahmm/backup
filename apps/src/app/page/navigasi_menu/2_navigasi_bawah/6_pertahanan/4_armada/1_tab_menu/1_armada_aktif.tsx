@@ -1,6 +1,7 @@
 "use client"
 import React, { useState } from "react";
 import { Swords, Ship, Plane, Info } from "lucide-react";
+import { BARAK_TO_SOLDIERS_MULTIPLIER } from "../logic/1_barak_logic";
 import { getArmadaUnitBreakdown } from "../logic/armadaLogic";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiArmadaAktifModal from "../2_modals_konfirmasi_pembangunan/1_konfirmasi_armada_aktif_modal";
@@ -169,7 +170,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     setIsInfoOpen(true);
   };
 
-  const handleConfirmRecruit = () => {
+  const handleConfirmRecruit = (quantity: number = 10000) => {
     if (!selectedForBuild) return;
     if (selectedForBuild.key === "barak") {
       const updatedDetail = { ...countryDetail };
@@ -177,21 +178,21 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       if (!updatedDetail.armada) updatedDetail.armada = {};
       if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
 
-      const currentInfantryCount = Number(updatedDetail.armada.darat.pasukan_infanteri ?? 0);
+      const storedInfantryCount = Number(getData("pasukan_infanteri", "darat") || 0);
+      const currentInfantryCount = updatedDetail.armada.darat.pasukan_infanteri !== undefined
+        ? Number(updatedDetail.armada.darat.pasukan_infanteri)
+        : storedInfantryCount;
       const currentBarakCount = getData("barak");
-      const ongoingConstructions = updatedDetail?.ongoingConstructions || [];
-      const ongoingBarakCount = ongoingConstructions.filter((c: any) => c.buildingKey === "barak").length;
+      const maxCapacity = currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER;
       
-      let maxCapacity = currentBarakCount * 10000;
-      if (ongoingBarakCount === 0) {
-        maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
-      }
-      
-      if (currentInfantryCount + 10000 <= maxCapacity) {
-        updatedDetail.armada.darat.pasukan_infanteri = currentInfantryCount + 10000;
+      const desiredQuantity = Math.max(0, Math.floor(quantity));
+      if (desiredQuantity === 0) {
+        alert("Masukkan jumlah pasukan yang ingin direkrut.");
+      } else if (currentInfantryCount + desiredQuantity <= maxCapacity) {
+        updatedDetail.armada.darat.pasukan_infanteri = currentInfantryCount + desiredQuantity;
         _setCountryDetail(updatedDetail);
       } else {
-        alert("Kapasitas Infanteri sudah penuh!");
+        alert("Kapasitas Infanteri sudah penuh atau jumlah yang diminta melebihi kapasitas.");
       }
     }
     setIsConfirmBuildOpen(false);
@@ -281,10 +282,13 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       })}
 
       {/* 🔥 Modal Konfirmasi Pembangunan / Rekrutmen */}
-      {selectedForBuild && (
+      {selectedForBuild && isConfirmBuildOpen && (
         <KonfirmasiArmadaAktifModal
           isOpen={isConfirmBuildOpen}
-          onClose={() => setIsConfirmBuildOpen(false)}
+          onClose={() => {
+            setIsConfirmBuildOpen(false);
+            setSelectedForBuild(null);
+          }}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
           cost={Number(armadaUnitMetadata[selectedForBuild.key]?.biaya_pembangunan ?? 0)}

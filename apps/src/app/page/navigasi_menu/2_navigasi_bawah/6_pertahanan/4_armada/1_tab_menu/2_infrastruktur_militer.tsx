@@ -245,16 +245,16 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key] : null;
     const materialStocks = calculateMaterialStocks(countryDetail);
     
-    const handleConfirmBuild = () => {
+    const handleConfirmBuild = (quantity: number = 1) => {
       if (!selectedForBuild?.key || !buildingData) return;
-      
+      const qty = Math.max(1, Math.floor(quantity));
       const key = selectedForBuild.key;
       const waktu = Number(buildingData.waktu_pembangunan) || 0;
       const safeDateString = getSafeDateString();
       
       if (waktu <= 0) {
         const updatedDetail = { ...countryDetail };
-        updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+        updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + qty;
         _setCountryDetail(updatedDetail);
         setIsConfirmBuildOpen(false);
         setSelectedForBuild(null);
@@ -270,12 +270,12 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         startDateStr = lastEndDateStr;
       }
       
-      const endDateStr = addDays(startDateStr, waktu);
-      
-      const newOngoing = [
-        ...ongoing,
-        { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
-      ];
+      const newOngoing = [...ongoing];
+      for (let i = 0; i < qty; i++) {
+        const nextStart = i === 0 ? startDateStr : addDays(newOngoing[newOngoing.length - 1].endDate, 0);
+        const nextEnd = addDays(nextStart, waktu);
+        newOngoing.push({ id: Date.now() + Math.random() + i, buildingKey: key, startDate: nextStart, endDate: nextEnd });
+      }
       
       const updatedDetail = { ...countryDetail, ongoingConstructions: newOngoing };
       _setCountryDetail(updatedDetail);
@@ -285,7 +285,10 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     
     const modalPropsBase = {
       isOpen: isConfirmBuildOpen,
-      onClose: () => setIsConfirmBuildOpen(false),
+      onClose: () => {
+        setIsConfirmBuildOpen(false);
+        setSelectedForBuild(null);
+      },
       buildingLabel: selectedForBuild?.label || "",
       buildingDescription: selectedForBuild?.label || "",
       cost: buildingData?.biaya_pembangunan || 0,

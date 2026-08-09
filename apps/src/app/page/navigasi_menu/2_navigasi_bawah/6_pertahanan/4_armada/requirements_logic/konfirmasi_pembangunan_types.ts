@@ -21,7 +21,7 @@ export interface KonfirmasiPembangunanModalProps {
   materialStocks: Record<string, number>;
   anggaran: number;
   missingMaterials: MaterialRequirement[];
-  onConfirm: () => void;
+  onConfirm: (quantity?: number) => void;
   onMaterialClick: (resourceKey: string, label: string) => void;
   loadingMetadata: boolean;
   isDisabled?: boolean;

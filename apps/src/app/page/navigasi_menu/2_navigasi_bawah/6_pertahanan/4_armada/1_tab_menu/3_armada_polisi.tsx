@@ -207,17 +207,29 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
       {selectedForBuild && (
         <KonfirmasiArmadaPolisiModal
           isOpen={isConfirmBuildOpen}
-          onClose={() => setIsConfirmBuildOpen(false)}
+          onClose={() => {
+            setIsConfirmBuildOpen(false);
+            setSelectedForBuild(null);
+          }}
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
-          cost={0}
+          cost={polisiData[selectedForBuild.key]?.biaya_pembangunan || 0}
+          waktuPembangunan={polisiData[selectedForBuild.key]?.waktu_pembangunan || 0}
           requirements={[]}
           materialStocks={{}}
           anggaran={Number(countryDetail?.anggaran) || 0}
           missingMaterials={[]}
-          onConfirm={() => {
-            // TODO: Implement build logic
+          onConfirm={(quantity = 1) => {
+            if (!selectedForBuild) return;
+            const key = selectedForBuild.key;
+            const updatedDetail = { ...countryDetail };
+            if (!updatedDetail.armada_polisi) updatedDetail.armada_polisi = {};
+
+            const currentValue = Number(getNestedValue(countryDetail, key)) || 0;
+            updatedDetail.armada_polisi[key] = currentValue + quantity;
+            _setCountryDetail(updatedDetail);
             setIsConfirmBuildOpen(false);
+            setSelectedForBuild(null);
           }}
           onMaterialClick={() => {}}
           loadingMetadata={false}

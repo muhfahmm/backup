@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { X, Hammer, Eye, EyeOff } from "lucide-react";
 import { BARAK_TO_SOLDIERS_MULTIPLIER } from "../logic/1_barak_logic";
 import { HANGAR_TANK_CAPACITY } from "../logic/2_hangar_tank_logic";
@@ -60,11 +60,23 @@ export default function KonfirmasiArmadaAktifModal({
   infraKeyToHighlight,
 }: KonfirmasiPembangunanModalProps) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
-
-  if (!isOpen) return null;
+  const [recruitAmount, setRecruitAmount] = useState<number>(10000);
 
   const hasMissingMaterials = missingMaterials.length > 0;
   const isAnggaranCukup = anggaran >= cost;
+
+  const safeCurrentInfanteriCount = typeof currentCapacity === 'number'
+    ? currentCapacity
+    : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
+  const remainingInfanteriCapacity = Math.max(0, maxCapacity - safeCurrentInfanteriCount);
+
+  useEffect(() => {
+    if (capacityType !== 'infanteri') return;
+
+    setRecruitAmount((current) => Math.min(Math.max(0, current), remainingInfanteriCapacity || 10000));
+  }, [capacityType, remainingInfanteriCapacity]);
+
+  if (!isOpen) return null;
 
   // 🔥 LOGIC KAPASITAS INFANTERI DI MODAL
   let infanteriCapacityFull = false;
@@ -72,11 +84,8 @@ export default function KonfirmasiArmadaAktifModal({
   let infanteriWarningText = "";
   
   if (capacityType === "infanteri") {
-    // Jika currentCapacity adalah 0 (misal data pasukan belum tersimpan), gunakan fallback
-    const safeCurrentCapacity = currentCapacity > 0 ? currentCapacity : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
-    
-    infanteriCapacityFull = safeCurrentCapacity >= maxCapacity;
-    infanteriCapacityDisplay = `${safeCurrentCapacity.toLocaleString('id-ID')} / ${maxCapacity.toLocaleString('id-ID')}`;
+    infanteriCapacityFull = safeCurrentInfanteriCount >= maxCapacity;
+    infanteriCapacityDisplay = `${safeCurrentInfanteriCount.toLocaleString('id-ID')} / ${maxCapacity.toLocaleString('id-ID')}`;
     infanteriWarningText = `Kapasitas Infanteri sudah penuh (${maxCapacity.toLocaleString('id-ID')} pasukan). Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.`;
   }
 
@@ -147,6 +156,14 @@ export default function KonfirmasiArmadaAktifModal({
       onNavigateToInfra('barak');
     }
     onClose();
+  };
+
+  const handleConfirmClick = () => {
+    if (capacityType === 'infanteri') {
+      onConfirm(recruitAmount);
+    } else {
+      onConfirm();
+    }
   };
 
   return (
@@ -379,6 +396,31 @@ export default function KonfirmasiArmadaAktifModal({
             )}
           </div>
 
+          {capacityType === 'infanteri' && (
+            <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2 text-xs text-[#5c3c10]">
+              <label className="flex flex-col gap-2">
+                <span className="font-black uppercase tracking-[0.2em]">Jumlah Pasukan yang Direkrut</span>
+                <input
+                  type="number"
+                  min={0}
+                  step={1000}
+                  value={recruitAmount}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+                    const safeValue = Number.isFinite(value) ? Math.max(0, Math.floor(value)) : 0;
+                    const remainingCapacity = Math.max(0, (maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER)));
+                    setRecruitAmount(Math.min(safeValue, remainingCapacity));
+                  }}
+                  className="w-full rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  disabled={capacityFull}
+                />
+              </label>
+              <p className="text-[10px] text-[#8b7e66]">
+                Maksimal: {Math.max(0, (maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER))).toLocaleString('id-ID')} pasukan.
+              </p>
+            </div>
+          )}
+
           <div className="flex justify-between items-center text-xs font-black text-[#5c3c10] pt-1">
             <span>Kas Negara Saat Ini:</span>
             <span>{anggaran.toLocaleString('id-ID')}</span>
@@ -394,8 +436,8 @@ export default function KonfirmasiArmadaAktifModal({
             Batal
           </button>
           <button
-            onClick={onConfirm}
-            disabled={buildingLabel === "Pasukan Infanteri" ? isDisabled || capacityFull : loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled || capacityFull}
+            onClick={handleConfirmClick}
+            disabled={buildingLabel === "Pasukan Infanteri" ? isDisabled || capacityFull || recruitAmount <= 0 : loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled || capacityFull}
             className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
               buildingLabel === "Pasukan Infanteri" 
                 ? (isDisabled || capacityFull ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70' : 'bg-[#5c3c10] text-[#FAF6EE] border border-[#5c3c10] hover:bg-[#8b7e66] hover:border-[#8b7e66]')

@@ -60,11 +60,14 @@ export default function KonfirmasiInfrastrukturModal({
   infraKeyToHighlight,
 }: KonfirmasiPembangunanModalProps) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
+  const [buildQuantity, setBuildQuantity] = useState<number>(1);
 
   if (!isOpen) return null;
 
+  const totalCost = cost * buildQuantity;
+  const totalTime = waktuPembangunan !== undefined ? waktuPembangunan * buildQuantity : undefined;
   const hasMissingMaterials = missingMaterials.length > 0;
-  const isAnggaranCukup = anggaran >= cost;
+  const isAnggaranCukup = anggaran >= totalCost;
 
   // 🔥 LOGIC KAPASITAS INFANTERI
   let infanteriCapacityFull = false;
@@ -338,17 +341,45 @@ export default function KonfirmasiInfrastrukturModal({
           {/* Panel Biaya & Material (Sama untuk semua jenis) */}
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
             <div className="flex justify-between font-bold">
-              <span>Biaya Pembangunan:</span>
+              <span>Biaya Pembangunan (Total):</span>
               <span className="text-[#2e261a]">
-                {loadingMetadata ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
+                {loadingMetadata ? 'Memuat...' : `${totalCost.toLocaleString('id-ID')} EM`}
               </span>
+            </div>
+            <div className="flex justify-between text-xs text-[#8b7e66]">
+              <span>Biaya per bangunan:</span>
+              <span>{cost.toLocaleString('id-ID')} EM</span>
+            </div>
+
+            <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 mt-3 text-xs text-[#5c3c10]">
+              <label className="flex flex-col gap-2">
+                <span className="font-black uppercase tracking-[0.2em]">Jumlah Bangunan</span>
+                <input
+                  type="number"
+                  min={1}
+                  step={1}
+                  value={buildQuantity}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+                    setBuildQuantity(Number.isFinite(value) ? Math.max(1, Math.floor(value)) : 1);
+                  }}
+                  className="w-full rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  disabled={capacityFull}
+                />
+              </label>
             </div>
 
             {waktuPembangunan !== undefined && (
-              <div className="flex justify-between">
-                <span>Estimasi Waktu Pembangunan:</span>
-                <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
-              </div>
+              <>
+                <div className="flex justify-between">
+                  <span>Estimasi Waktu Pembangunan per bangunan:</span>
+                  <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Estimasi Waktu Pembangunan Total:</span>
+                  <span className="text-[#2e261a] font-semibold">{totalTime} Hari</span>
+                </div>
+              </>
             )}
 
             {produksiPerHari !== undefined && (
@@ -439,8 +470,8 @@ export default function KonfirmasiInfrastrukturModal({
             Batal
           </button>
           <button
-            onClick={onConfirm}
-            disabled={loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled}
+            onClick={() => onConfirm(buildQuantity)}
+            disabled={loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled || buildQuantity <= 0}
             className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
               hasMissingMaterials || !isAnggaranCukup || loadingMetadata || isDisabled
                 ? 'bg-[#8b7e66] text-white border border-[#8b7e66] cursor-not-allowed opacity-70'
