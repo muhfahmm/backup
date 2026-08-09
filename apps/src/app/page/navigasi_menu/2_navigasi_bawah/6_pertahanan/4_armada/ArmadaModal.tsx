@@ -1,9 +1,9 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import { X, ShieldAlert, Swords, Building2, Shield } from "lucide-react";
-import ArmadaAktif from "./tab_menu/1_armada_aktif";
-import InfrastrukturMiliter from "./tab_menu/2_infrastruktur_militer";
-import ArmadaPolisi from "./tab_menu/3_armada_polisi";
+import ArmadaAktif from "./1_tab_menu/1_armada_aktif";
+import InfrastrukturMiliter from "./1_tab_menu/2_infrastruktur_militer";
+import ArmadaPolisi from "./1_tab_menu/3_armada_polisi";
 
 interface ModalProps {
   isOpen: boolean;

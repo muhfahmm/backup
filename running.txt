@@ -1,3 +1,5 @@
  npm run dev
 
  npm run tauri:dev
+
+ cd C:\utama\project\project-sendiri\em && npm run dev

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { Info } from "lucide-react";
-import KonfirmasiArmadaPolisiModal from "../modals_konfirmasi_pembangunan/3_konfirmasi_armada_polisi_modal";
+import KonfirmasiArmadaPolisiModal from "../2_modals_konfirmasi_pembangunan/3_konfirmasi_armada_polisi_modal";
 
 interface TabProps {
   countryDetail: any;
