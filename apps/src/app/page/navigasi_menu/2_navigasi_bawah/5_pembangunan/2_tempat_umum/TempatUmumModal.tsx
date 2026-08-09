@@ -141,7 +141,7 @@ export default function TempatUmumModal({
     return `${yy}-${mm}-${dd}`;
   };
 
-  const confirmBuild = () => {
+  const confirmBuild = (buildQuantity: number = 1) => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
     const bMeta = metadata[key] || {};
@@ -158,23 +158,24 @@ export default function TempatUmumModal({
     }
 
     const cost = Number(bMeta.biaya_pembangunan) || 0;
+    const totalCost = cost * buildQuantity;
     const anggaran = Number(countryDetail?.anggaran) || 0;
-    if (anggaran < cost) {
-      setToast(`Kas negara tidak mencukupi untuk membangun ${label}!`);
+    if (anggaran < totalCost) {
+      setToast(`Kas negara tidak mencukupi untuk membangun ${buildQuantity} ${label}!`);
       setTimeout(() => setToast(null), 2500);
       return;
     }
 
     const updatedDetail = deductBuildingMaterials(
-      { ...countryDetail, anggaran: anggaran - cost },
+      { ...countryDetail, anggaran: anggaran - totalCost },
       buildingReq?.requirements
     );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;
 
     if (waktu <= 0) {
-      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
-      updatedDetail.kepuasan = Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.0);
+      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + buildQuantity;
+      updatedDetail.kepuasan = Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + (1.0 * buildQuantity));
       setCountryDetail(updatedDetail);
       setSelectedBuilding(null);
       return;
@@ -188,11 +189,24 @@ export default function TempatUmumModal({
       startDateStr = existingForThisKey[existingForThisKey.length - 1].endDate;
     }
 
-    const endDateStr = addDays(startDateStr, waktu);
+    // Jika buildQuantity > 1, kita perlu membuat multiple construction entries
+    const newConstructions = [];
+    let currentStartDate = startDateStr;
+    
+    for (let i = 0; i < buildQuantity; i++) {
+      const endDateStr = addDays(currentStartDate, waktu);
+      newConstructions.push({
+        id: Date.now() + Math.random() + i,
+        buildingKey: key,
+        startDate: currentStartDate,
+        endDate: endDateStr
+      });
+      currentStartDate = endDateStr;
+    }
 
     const newOngoing = [
       ...ongoing,
-      { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
+      ...newConstructions
     ];
     updatedDetail.ongoingConstructions = newOngoing;
 

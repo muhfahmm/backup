@@ -426,6 +426,7 @@ export default function KonfirmasiInfrastrukturModal({
                   {requirements.map((material) => {
                     const stock = materialStocks[material.resourceKey] ?? 0;
                     const isStockZero = stock <= 0;
+                    const requiredAmount = (material.amount ?? 0) * buildQuantity;
 
                     return (
                       <button
@@ -439,7 +440,7 @@ export default function KonfirmasiInfrastrukturModal({
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
                         {material.amount !== undefined && (
                           <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
-                            x{material.amount}
+                            x{requiredAmount.toLocaleString('id-ID')}
                           </div>
                         )}
                         <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-emerald-700'}`}>

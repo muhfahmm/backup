@@ -23,7 +23,7 @@ interface KonfirmasiPembangunanProps {
   materialStocks: Record<string, number>;
   anggaran: number;
   missingMaterials: MaterialRequirement[];
-  onConfirm: () => void;
+  onConfirm: (buildQuantity?: number) => void;
   onMaterialClick: (resourceKey: string, label: string) => void;
   loadingMetadata: boolean;
   isDisabled?: boolean;
@@ -49,11 +49,14 @@ export default function KonfirmasiPembangunanModal({
   isDisabled = false,
 }: KonfirmasiPembangunanProps) {
   const [showMaterialGrid, setShowMaterialGrid] = useState(true);
+  const [buildQuantity, setBuildQuantity] = useState<number>(1);
 
   if (!isOpen) return null;
 
   const hasMissingMaterials = missingMaterials.length > 0;
-  const isAnggaranCukup = anggaran >= cost;
+  const totalCost = cost * buildQuantity;
+  const isAnggaranCukup = anggaran >= totalCost;
+  const totalTime = (waktuPembangunan || 1) * buildQuantity;
 
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -81,30 +84,60 @@ export default function KonfirmasiPembangunanModal({
 
           <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
             <div className="flex justify-between font-bold">
-              <span>Biaya Pembangunan:</span>
+              <span>Biaya Pembangunan (Total):</span>
               <span className="text-[#2e261a]">
-                {loadingMetadata ? 'Memuat...' : `${cost.toLocaleString('id-ID')} EM`}
+                {loadingMetadata ? 'Memuat...' : `${totalCost.toLocaleString('id-ID')} EM`}
               </span>
+            </div>
+            <div className="flex justify-between text-xs text-[#8b7e66]">
+              <span>Biaya per bangunan:</span>
+              <span>{cost.toLocaleString('id-ID')} EM</span>
+            </div>
+
+            <div className="bg-[#FAF6EE]/80 border border-[#C4B49C]/30 rounded-xl p-4 mt-3 text-xs text-[#5c3c10]">
+              <label className="flex flex-col gap-2">
+                <span className="font-black uppercase tracking-[0.2em]">Jumlah Bangunan</span>
+                <input
+                  type="number"
+                  min={1}
+                  step={1}
+                  value={buildQuantity}
+                  onChange={(event) => {
+                    const value = Number(event.target.value);
+                    setBuildQuantity(Number.isFinite(value) ? Math.max(1, Math.floor(value)) : 1);
+                  }}
+                  className="w-full rounded-xl border border-[#C4B49C]/60 bg-white/90 px-3 py-2 text-sm text-[#2e261a] focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                />
+              </label>
             </div>
 
             {hasMissingMaterials && (
               <div className="pt-2 border-t border-[#C4B49C]/30">
                 <p className="font-bold text-rose-800 mb-2">Material Kurang:</p>
-                {missingMaterials.map((mat, idx) => (
-                  <div key={idx} className="flex justify-between items-center">
-                    <span className="text-[#2e261a]">{mat.label} (x{mat.amount ?? 0})</span>
-                    <span className="text-rose-600 font-black">0</span>
-                  </div>
-                ))}
+                {missingMaterials.map((mat, idx) => {
+                  const requiredAmount = (mat.amount ?? 0) * buildQuantity;
+                  return (
+                    <div key={idx} className="flex justify-between items-center">
+                      <span className="text-[#2e261a]">{mat.label} (x{requiredAmount.toLocaleString('id-ID')})</span>
+                      <span className="text-rose-600 font-black">0</span>
+                    </div>
+                  );
+                })}
               </div>
             )}
 
             {/* Kondisional Waktu Pembangunan */}
             {waktuPembangunan !== undefined && (
-              <div className="flex justify-between">
-                <span>Estimasi Waktu Pembangunan:</span>
-                <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
-              </div>
+              <>
+                <div className="flex justify-between">
+                  <span>Estimasi Waktu Pembangunan per bangunan:</span>
+                  <span className="text-[#2e261a] font-semibold">{waktuPembangunan} Hari</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Estimasi Waktu Pembangunan Total:</span>
+                  <span className="text-[#2e261a] font-semibold">{totalTime} Hari</span>
+                </div>
+              </>
             )}
 
             {/* Kondisional Produksi */}
@@ -154,6 +187,7 @@ export default function KonfirmasiPembangunanModal({
                   {requirements.map((material) => {
                     const stock = materialStocks[material.resourceKey] ?? 0;
                     const isStockZero = stock <= 0;
+                    const requiredAmount = (material.amount ?? 0) * buildQuantity;
 
                     return (
                       <button
@@ -167,7 +201,7 @@ export default function KonfirmasiPembangunanModal({
                         <div className="font-bold text-[10px] text-center">{material.label}</div>
                         {material.amount !== undefined && (
                           <div className="text-[9px] uppercase tracking-[0.15em] text-[#5c3c10] mt-1">
-                            x{material.amount}
+                            x{requiredAmount.toLocaleString('id-ID')}
                           </div>
                         )}
                         <div className={`text-[10px] font-black mt-0.5 ${isStockZero ? 'text-red-600' : 'text-[#8b7e66]'}`}>
@@ -198,7 +232,7 @@ export default function KonfirmasiPembangunanModal({
             Batal
           </button>
           <button
-            onClick={onConfirm}
+            onClick={() => onConfirm(buildQuantity)}
             disabled={loadingMetadata || hasMissingMaterials || !isAnggaranCukup || isDisabled}
             className={`flex-1 py-2 rounded-xl text-[10px] font-black uppercase transition-all text-center cursor-pointer ${
               hasMissingMaterials || !isAnggaranCukup || loadingMetadata || isDisabled

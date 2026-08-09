@@ -349,7 +349,7 @@ export default function ProduksiModal({
     return `${yy}-${mm}-${dd}`;
   };
 
-  const confirmBuild = () => {
+  const confirmBuild = (buildQuantity: number = 1) => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
     const bMeta = findMeta(key);
@@ -370,22 +370,23 @@ export default function ProduksiModal({
     }
 
     const cost = Number(bMeta.biaya_pembangunan);
+    const totalCost = cost * buildQuantity;
     const anggaran = Number(countryDetail?.anggaran) || 0;
-    if (anggaran < cost) {
-      setToast(`Kas negara tidak mencukupi untuk membangun ${label}!`);
+    if (anggaran < totalCost) {
+      setToast(`Kas negara tidak mencukupi untuk membangun ${buildQuantity} ${label}!`);
       setTimeout(() => setToast(null), 2500);
       return;
     }
 
     const updatedDetail = deductBuildingMaterials(
-      { ...countryDetail, anggaran: anggaran - cost },
+      { ...countryDetail, anggaran: anggaran - totalCost },
       selectedBuildingRequirements?.requirements
     );
 
     const waktu = Number(bMeta.waktu_pembangunan) || 0;
 
     if (waktu <= 0) {
-      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
+      updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + buildQuantity;
       const buildDateKey = `build_date_${key}`;
       updatedDetail[buildDateKey] = safeDateString;
       updatedDetail[`accumulated_${key}`] = 0;
@@ -393,7 +394,7 @@ export default function ProduksiModal({
 
       setCountryDetail(updatedDetail);
       setSelectedBuilding(null);
-      setToast(`✅ Berhasil! ${label} dibangun secara instan.`);
+      setToast(`✅ Berhasil! ${buildQuantity} ${label} dibangun secara instan.`);
       setTimeout(() => setToast(null), 3000);
       return;
     }
@@ -408,16 +409,31 @@ export default function ProduksiModal({
       startDateStr = lastEndDateStr;
     }
 
-    const endDateStr = addDays(startDateStr, waktu);
+    // Jika buildQuantity > 1, kita perlu membuat multiple construction entries
+    const newConstructions = [];
+    let currentStartDate = startDateStr;
+    
+    for (let i = 0; i < buildQuantity; i++) {
+      const endDateStr = addDays(currentStartDate, waktu);
+      newConstructions.push({
+        id: Date.now() + Math.random() + i,
+        buildingKey: key,
+        startDate: currentStartDate,
+        endDate: endDateStr
+      });
+      currentStartDate = endDateStr; // Start date untuk bangunan berikutnya adalah end date yang sebelumnya
+    }
 
     const newOngoing = [
       ...ongoing,
-      { id: Date.now() + Math.random(), buildingKey: key, startDate: startDateStr, endDate: endDateStr }
+      ...newConstructions
     ];
     updatedDetail.ongoingConstructions = newOngoing;
 
     setCountryDetail(updatedDetail);
     setSelectedBuilding(null);
+    setToast(`✅ Pembangunan ${buildQuantity} ${label} telah dijadwalkan!`);
+    setTimeout(() => setToast(null), 3000);
   };
 
   const TABS = [

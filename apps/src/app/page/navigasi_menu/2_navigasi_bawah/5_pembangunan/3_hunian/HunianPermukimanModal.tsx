@@ -136,7 +136,7 @@ export default function HunianPermukimanModal({
     setShowConfirm(true);
   };
 
-  const confirmBuild = () => {
+  const confirmBuild = (buildQuantity: number = 1) => {
     if (!selectedBuilding) return;
     const { key, label } = selectedBuilding;
     const bMeta = metadata[key] || {};
@@ -153,9 +153,10 @@ export default function HunianPermukimanModal({
     }
 
     const cost = Number(bMeta.biaya_pembangunan) || 0;
+    const totalCost = cost * buildQuantity;
     const anggaran = Number(countryDetail?.anggaran) || 0;
-    if (anggaran < cost) {
-      setToast(`Kas negara tidak mencukupi untuk membangun ${label}!`);
+    if (anggaran < totalCost) {
+      setToast(`Kas negara tidak mencukupi untuk membangun ${buildQuantity} ${label}!`);
       setTimeout(() => setToast(null), 2500);
       return;
     }
@@ -163,9 +164,9 @@ export default function HunianPermukimanModal({
     const updatedDetail = deductBuildingMaterials(
       {
         ...countryDetail,
-        anggaran: anggaran - cost,
-        [key]: (Number(countryDetail?.[key]) || 0) + 1,
-        kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + 1.5)
+        anggaran: anggaran - totalCost,
+        [key]: (Number(countryDetail?.[key]) || 0) + buildQuantity,
+        kepuasan: Math.min(100, (Number(countryDetail?.kepuasan) || 65.0) + (1.5 * buildQuantity))
       },
       buildingReq?.requirements
     );
@@ -174,7 +175,7 @@ export default function HunianPermukimanModal({
     
     setShowConfirm(false);
     setSelectedBuilding(null);
-    setToast(`✅ Berhasil! ${label} dibangun.`);
+    setToast(`✅ Berhasil! ${buildQuantity} ${label} dibangun.`);
     setTimeout(() => setToast(null), 2500);
   };
 
