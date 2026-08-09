@@ -4,7 +4,6 @@ import { Info } from "lucide-react";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiInfrastrukturModal from "../2_modals_konfirmasi_pembangunan/2_konfirmasi_infrastruktur_modal";
 import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
-// 🔥 Import requirements dari logic folders
 import { REQUIREMENTS as INFANTERI_REQUIREMENTS } from "../requirements_logic/1_infanteri/requirements";
 import { REQUIREMENTS as HANGAR_REQUIREMENTS } from "../requirements_logic/2_hangar_tank/requirements";
 import { REQUIREMENTS as GUDANG_REQUIREMENTS } from "../requirements_logic/3_gudang_senjata/requirements";
@@ -27,18 +26,15 @@ const formatNumber = (value: unknown) => {
 };
 
 const getNestedValue = (obj: any, key: string): number => {
-  // 🔥 Barak di tab Infrastruktur: JANGAN dikalikan 10000 (tampilkan nilai asli)
   if (key === "barak") {
     const barakCount = Number(obj?.[key] ?? 0) || Number(obj?.pertahanan?.[key] ?? 0) || 0;
-    return barakCount; // Return nilai asli, bukan convertBarakToSoldiers
+    return barakCount; 
   }
-  
   if (obj?.[key] !== undefined && obj?.[key] !== null) return Number(obj[key]);
   if (obj?.pertahanan?.[key] !== undefined && obj?.pertahanan?.[key] !== null) return Number(obj.pertahanan[key]);
   return 0;
 };
 
-// 🔥 Format tanggal untuk badge konstruksi
 const formatBadgeDate = (dateString: string) => {
   if (!dateString) return '';
   try {
@@ -57,12 +53,10 @@ const formatBadgeDate = (dateString: string) => {
 };
 
 export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: _setCountryDetail, highlightKey, onGotoProduction, ongoingConstructions = [], currentDate }: TabProps) {
-  // 🔥 State untuk Modal Konfirmasi Pembangunan
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
   const [infrastrukturData, setInfrastrukturData] = useState<Record<string, any>>({});
 
-  // 🔥 Load metadata dari JSON file
   useEffect(() => {
     const loadMetadata = async () => {
       try {
@@ -76,19 +70,51 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     loadMetadata();
   }, []);
 
-  // 🔥 Helper function to get material stocks from inventory
-  // Material production is accumulated in inventory_* fields, updated daily
+  // 🔥 LOGIKA DETEKSI TANGGAL (MENGHAPUS +1 SAAT TANGGAL BERLALU)
+  useEffect(() => {
+    if (!currentDate || !_setCountryDetail) return;
+    
+    let nowDate: Date;
+    try {
+      nowDate = typeof currentDate === 'string' ? new Date(currentDate) : currentDate;
+      if (isNaN(nowDate.getTime())) return;
+    } catch {
+      return;
+    }
+
+    const ongoing = countryDetail?.ongoingConstructions || [];
+    let hasChanged = false;
+    let updatedDetail = { ...countryDetail };
+    let updatedConstructions = [...ongoing];
+
+    for (let i = updatedConstructions.length - 1; i >= 0; i--) {
+      const construction = updatedConstructions[i];
+      const endDate = new Date(construction.endDate);
+      if (isNaN(endDate.getTime())) continue;
+
+      if (endDate.getTime() <= nowDate.getTime()) {
+        hasChanged = true;
+        const key = construction.buildingKey;
+        updatedDetail[key] = (Number(updatedDetail[key] || 0) + 1);
+        updatedConstructions.splice(i, 1);
+      }
+    }
+
+    if (hasChanged) {
+      updatedDetail.ongoingConstructions = updatedConstructions;
+      _setCountryDetail(updatedDetail);
+    }
+  }, [currentDate, countryDetail?.ongoingConstructions, _setCountryDetail]);
+
   const calculateMaterialStocks = (countryDetailData: any) => {
     const stocks: Record<string, number> = {};
-    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 
-      'litium', 'logam_tanah_jarang', 'bijih_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
+    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
     materialKeys.forEach(key => {
       stocks[key] = Number(countryDetailData?.[`inventory_${key}`]) || 0;
     });
     return stocks;
   };
 
-  // 🔥 Helper function to calculate missing materials
   const calculateMissingMaterials = (requirements: any[], stocks: Record<string, number>) => {
     return requirements.filter(req => {
       const stock = stocks[req.resourceKey] ?? 0;
@@ -96,10 +122,8 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     });
   };
 
-  // 🔥 Map resource keys to their correct Produksi tab and building key for highlight
   const getTabForResource = (resourceKey: string): { tab: string; buildingKey: string } => {
     const resourceToTabAndBuilding: Record<string, { tab: string; buildingKey: string }> = {
-      // Mineral & Energi
       emas: { tab: 'mineral', buildingKey: 'emas' },
       uranium: { tab: 'mineral', buildingKey: 'uranium' },
       batu_bara: { tab: 'mineral', buildingKey: 'batu_bara' },
@@ -110,7 +134,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
       bijah_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
-      // Manufaktur
       semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
       mobil: { tab: 'manufaktur', buildingKey: 'mobil' },
       sepeda_motor: { tab: 'manufaktur', buildingKey: 'sepeda_motor' },
@@ -120,7 +143,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     return resourceToTabAndBuilding[resourceKey] || { tab: 'kelistrikan', buildingKey: '' };
   };
 
-  // 🔥 Fungsi untuk menambah hari pada string tanggal (YYYY-MM-DD)
   const addDays = (dateString: string, days: number): string => {
     const [y, m, d] = dateString.split('-').map(Number);
     const date = new Date(y, m - 1, d);
@@ -131,7 +153,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
     return `${yy}-${mm}-${dd}`;
   };
 
-  // 🔥 Fungsi untuk mendapatkan string tanggal saat ini (YYYY-MM-DD)
   const getSafeDateString = (): string => {
     if (currentDate) {
       const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
@@ -148,7 +169,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
   };
 
   const handleInfoClick = (key: string) => {
-    // 🔥 Saat klik info button, buka modal pembangunan (bukan info modal)
     const item = infrastrukturData[key];
     setSelectedForBuild({ key, label: item?.label || key });
     setIsConfirmBuildOpen(true);
@@ -165,7 +185,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
           const item = infrastrukturData[key];
           const value = getNestedValue(countryDetail, key);
           
-          // 🔥 Hitung jumlah konstruksi yang sedang berlangsung
           const buildingConstructions = ongoingConstructions.filter(
             (c: any) => c.buildingKey === key
           );
@@ -182,7 +201,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
               }}
               className={`relative rounded-2xl overflow-visible flex flex-col transition-all bg-white/95 border-2 shadow-md hover:shadow-lg cursor-pointer p-5 min-h-[180px] ${highlightKey === key ? 'border-emerald-400 shadow-emerald-200 hover:border-emerald-500' : 'border-[#C4B49C]/30 hover:border-[#C4B49C]/50'}`}
             >
-              {/* Badge Tanggal */}
               {isBuilding && (
                 <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap">
                   {formatBadgeDate(lastEndDate)}
@@ -219,17 +237,14 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         })}
       </div>
 
-      {/* 🔥 Modal Konfirmasi Pembangunan */}
       {selectedForBuild && getModalProps()}
     </div>
   );
 
-  // 🔥 Helper function untuk generate modal props berdasarkan selectedForBuild.key
   function getModalProps() {
     const buildingData = selectedForBuild?.key ? infrastrukturData[selectedForBuild.key] : null;
     const materialStocks = calculateMaterialStocks(countryDetail);
     
-    // 🔥 Helper: Handle pembangunan baru
     const handleConfirmBuild = () => {
       if (!selectedForBuild?.key || !buildingData) return;
       
@@ -237,7 +252,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       const waktu = Number(buildingData.waktu_pembangunan) || 0;
       const safeDateString = getSafeDateString();
       
-      // Jika waktu pembangunan 0 hari, langsung tambah ke count
       if (waktu <= 0) {
         const updatedDetail = { ...countryDetail };
         updatedDetail[key] = (Number(countryDetail?.[key]) || 0) + 1;
@@ -247,12 +261,10 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
         return;
       }
       
-      // Jika ada waktu pembangunan, tambah ke ongoingConstructions
       let startDateStr = safeDateString;
       const ongoing = countryDetail.ongoingConstructions || [];
       const existingForThisKey = ongoing.filter((c: any) => c.buildingKey === key);
       
-      // Jika sudah ada konstruksi untuk key ini, mulai dari endDate yang terakhir
       if (existingForThisKey.length > 0) {
         const lastEndDateStr = existingForThisKey[existingForThisKey.length - 1].endDate;
         startDateStr = lastEndDateStr;
@@ -286,19 +298,16 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       onMaterialClick: (resourceKey: string, label: string) => {
         const { tab, buildingKey } = getTabForResource(resourceKey);
         onGotoProduction?.(tab, buildingKey || resourceKey);
-        // Don't close the modal yet - let parent handle the navigation
       },
       loadingMetadata: false,
       isDisabled: false,
     };
 
-    // 🔥 Helper: Find requirements untuk specific building
     const findRequirementsForBuilding = (buildingKey: string, requirementsArray: any[]) => {
       const found = requirementsArray.find((r) => r.buildingKey === buildingKey);
       return found?.requirements || [];
     };
 
-    // 🔥 INFANTERI (BARAK)
     if (selectedForBuild?.key === "barak") {
       const barakRequirements = findRequirementsForBuilding("barak", INFANTERI_REQUIREMENTS);
       return (
@@ -314,7 +323,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       );
     }
 
-    // 🔥 HANGAR TANK
     if (selectedForBuild?.key === "hangar_tank") {
       const hangarRequirements = findRequirementsForBuilding("hangar_tank", HANGAR_REQUIREMENTS);
       return (
@@ -330,7 +338,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       );
     }
 
-    // 🔥 GUDANG SENJATA
     if (selectedForBuild?.key === "gudang_senjata") {
       const gudangRequirements = findRequirementsForBuilding("gudang_senjata", GUDANG_REQUIREMENTS);
       return (
@@ -348,7 +355,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       );
     }
 
-    // 🔥 PANGKALAN LAUT
     if (selectedForBuild?.key === "pangkalan_laut") {
       const lautRequirements = findRequirementsForBuilding("pangkalan_laut", LAUT_REQUIREMENTS);
       return (
@@ -370,7 +376,6 @@ export default function InfrastrukturMiliter({ countryDetail, setCountryDetail: 
       );
     }
 
-    // 🔥 PANGKALAN UDARA
     if (selectedForBuild?.key === "pangkalan_udara") {
       const udaraRequirements = findRequirementsForBuilding("pangkalan_udara", UDARA_REQUIREMENTS);
       return (

@@ -72,10 +72,10 @@ export default function KonfirmasiInfrastrukturModal({
   let infanteriWarningText = "";
   
   if (capacityType === "infanteri") {
-    const isInfanteriPenuh = currentCapacity >= (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
+    const isInfanteriPenuh = currentCapacity >= maxCapacity;
     infanteriCapacityFull = currentBarakCount > 0 && isInfanteriPenuh;
-    infanteriCapacityDisplay = `${currentCapacity.toLocaleString('id-ID')} / ${(currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER).toLocaleString('id-ID')}`;
-    infanteriWarningText = `Kapasitas Infanteri sudah penuh (${currentBarakCount} barak × ${BARAK_TO_SOLDIERS_MULTIPLIER.toLocaleString('id-ID')} = ${(currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER).toLocaleString('id-ID')} pasukan). Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.`;
+    infanteriCapacityDisplay = `${currentCapacity.toLocaleString('id-ID')} / ${maxCapacity.toLocaleString('id-ID')}`;
+    infanteriWarningText = `Kapasitas Infanteri sudah penuh (${maxCapacity.toLocaleString('id-ID')} pasukan). Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.`;
   }
 
   // 🔥 LOGIC KAPASITAS HANGAR TANK
@@ -136,7 +136,6 @@ export default function KonfirmasiInfrastrukturModal({
     pangkalanUdaraCapacityWarningText = `Kapasitas Pangkalan Udara sudah penuh (${currentPangkalanUdaraCount} pangkalan × ${PANGKALAN_UDARA_CAPACITY.toLocaleString('id-ID')} = ${maxPangkalanUdaraCapacity.toLocaleString('id-ID')} unit). Anda harus membangun Pangkalan Udara baru untuk menambah Pesawat lebih banyak.`;
   }
 
-  // 🔥 DETERMINE WHICH CAPACITY IS FULL
   const capacityFull = infanteriCapacityFull || hangarTankCapacityFull || gudangSenjataCapacityFull || pangkalanLautCapacityFull || pangkalanUdaraCapacityFull;
   const capacityDisplay = infanteriCapacityDisplay || hangarTankCapacityDisplay || gudangSenjataCapacityDisplay || pangkalanLautCapacityDisplay || pangkalanUdaraCapacityDisplay;
   const warningText = infanteriWarningText || hangarTankWarningText || gudangSenjataCapacityWarningText || pangkalanLautCapacityWarningText || pangkalanUdaraCapacityWarningText;
@@ -186,12 +185,12 @@ export default function KonfirmasiInfrastrukturModal({
                 </div>
                 <div className="flex justify-between border-t border-blue-200 pt-1 mt-1">
                   <span>Kapasitas Total:</span>
-                  <span className="font-bold text-blue-900">{(currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER)?.toLocaleString('id-ID')} pasukan</span>
+                  <span className="font-bold text-blue-900">{maxCapacity?.toLocaleString('id-ID')} pasukan</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Sisa Kapasitas:</span>
-                  <span className={`font-bold ${(currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER - currentCapacity) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
-                    {Math.max(0, (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER - currentCapacity))?.toLocaleString('id-ID')} pasukan
+                  <span className={`font-bold ${(maxCapacity - currentCapacity) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
+                    {Math.max(0, (maxCapacity - currentCapacity))?.toLocaleString('id-ID')} pasukan
                   </span>
                 </div>
               </div>
@@ -276,18 +275,7 @@ export default function KonfirmasiInfrastrukturModal({
             </div>
           )}
 
-          {/* PERINGATAN: KAPASITAS PENUH - WITH GREEN BUTTON */}
-          {capacityFull && (
-            <div className="bg-emerald-50/80 border-2 border-emerald-400 rounded-xl p-4 space-y-2 transition-all">
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 rounded-full animate-pulse bg-emerald-600"></div>
-                <p className="text-sm font-black text-emerald-800">KAPASITAS PENUH - BANGUN LEBIH BANYAK</p>
-              </div>
-              <p className="text-xs text-emerald-700">
-                {warningText}
-              </p>
-            </div>
-          )}
+          {/* 🔥 PERINGATAN KAPASITAS PENUH DIHAPUS TOTAL SESUAI PERMINTAAN (Karena sisa kapasitas masih ada) */}
 
           {/* DETAIL KAPASITAS PANGKALAN LAUT */}
           {capacityType === "pangkalan_laut" && (

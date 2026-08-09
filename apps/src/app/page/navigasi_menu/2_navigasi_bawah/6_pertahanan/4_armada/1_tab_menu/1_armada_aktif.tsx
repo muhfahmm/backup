@@ -4,7 +4,6 @@ import { Swords, Ship, Plane, Info } from "lucide-react";
 import { getArmadaUnitBreakdown } from "../logic/armadaLogic";
 import { convertBarakToSoldiers } from "../logic/1_barak_logic";
 import KonfirmasiArmadaAktifModal from "../2_modals_konfirmasi_pembangunan/1_konfirmasi_armada_aktif_modal";
-// 🔥 Import requirements dari logic folders
 import { REQUIREMENTS as INFANTERI_REQUIREMENTS, findRequirements as findInfanteriRequirements } from "../requirements_logic/1_infanteri/requirements";
 
 interface TabProps {
@@ -47,7 +46,6 @@ const armadaCatalog = {
   ],
 };
 
-// 🔥 Flat list untuk mencari item
 const allArmadaItems = [...armadaCatalog.darat, ...armadaCatalog.laut, ...armadaCatalog.udara];
 
 const groupMeta = {
@@ -57,7 +55,6 @@ const groupMeta = {
 };
 const groupKeys = Object.keys(groupMeta) as (keyof typeof groupMeta)[];
 
-// 🔥 Armada Unit Metadata dengan Biaya Produksi
 const armadaUnitMetadata: Record<string, { biaya_pembangunan: number }> = {
   barak: { biaya_pembangunan: 5000 },
   pasukan_infanteri: { biaya_pembangunan: 5000 },
@@ -94,19 +91,15 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const payload = countryDetail?.armada && typeof countryDetail.armada === "object" ? countryDetail.armada : countryDetail || {};
   const unitBreakdown = getArmadaUnitBreakdown(payload);
 
-  // 🔥 Helper function to get material stocks from inventory
-  // Material production is accumulated in inventory_* fields, updated daily
   const calculateMaterialStocks = (countryDetailData: any) => {
     const stocks: Record<string, number> = {};
-    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 
-      'litium', 'logam_tanah_jarang', 'bijih_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
+    const materialKeys = ['emas', 'uranium', 'batu_bara', 'minyak_bumi', 'gas_alam', 'garam', 'litium', 'logam_tanah_jarang', 'bijih_besi', 'semikonduktor', 'mobil', 'sepeda_motor', 'semen_beton', 'kayu'];
     materialKeys.forEach(key => {
       stocks[key] = Number(countryDetailData?.[`inventory_${key}`]) || 0;
     });
     return stocks;
   };
 
-  // 🔥 Helper function to calculate missing materials
   const calculateMissingMaterials = (requirements: any[], stocks: Record<string, number>) => {
     return requirements.filter(req => {
       const stock = stocks[req.resourceKey] ?? 0;
@@ -114,10 +107,8 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     });
   };
 
-  // 🔥 Map resource keys to their correct Produksi tab and building key for highlight
   const getTabForResource = (resourceKey: string): { tab: string; buildingKey: string } => {
     const resourceToTabAndBuilding: Record<string, { tab: string; buildingKey: string }> = {
-      // Mineral & Energi
       emas: { tab: 'mineral', buildingKey: 'emas' },
       uranium: { tab: 'mineral', buildingKey: 'uranium' },
       batu_bara: { tab: 'mineral', buildingKey: 'batu_bara' },
@@ -128,7 +119,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       logam_tanah_jarang: { tab: 'mineral', buildingKey: 'logam_tanah_jarang' },
       bijah_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
       bijih_besi: { tab: 'mineral', buildingKey: 'bijih_besi' },
-      // Manufaktur
       semikonduktor: { tab: 'manufaktur', buildingKey: 'semikonduktor' },
       mobil: { tab: 'manufaktur', buildingKey: 'mobil' },
       sepeda_motor: { tab: 'manufaktur', buildingKey: 'sepeda_motor' },
@@ -156,17 +146,27 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     setIsInfoOpen(true);
   };
 
-  // 🔥 Temukan item yang dipilih
-  const selectedItem = infoKey ? allArmadaItems.find((i) => i.key === infoKey) : null;
-
-  // 🔥 Temukan kategori dari item yang dipilih
-  const selectedCategory = selectedItem
-    ? groupKeys.find((g) => armadaCatalog[g].some((i) => i.key === selectedItem.key))
-    : undefined;
-
-  const findMeta = (key: string) => {
-    // Untuk armada, meta biasanya kosong karena armada tidak memiliki biaya/produksi
-    return {};
+  const handleConfirmRecruit = () => {
+    if (!selectedForBuild) return;
+    if (selectedForBuild.key === "barak") {
+      const updatedDetail = { ...countryDetail };
+      const currentInfantryCount = Number(updatedDetail?.armada?.darat?.pasukan_infanteri ?? 0);
+      const currentBarakCount = Number(payload?.barak ?? 0);
+      const ongoingConstructions = updatedDetail?.ongoingConstructions || [];
+      const ongoingBarakCount = ongoingConstructions.filter((c: any) => c.buildingKey === "barak").length;
+      const maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
+      
+      if (currentInfantryCount + 10000 <= maxCapacity) {
+        if (!updatedDetail.armada) updatedDetail.armada = {};
+        if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
+        updatedDetail.armada.darat.pasukan_infanteri = currentInfantryCount + 10000;
+        _setCountryDetail(updatedDetail);
+      } else {
+        alert("Kapasitas Infanteri sudah penuh!");
+      }
+    }
+    setIsConfirmBuildOpen(false);
+    setSelectedForBuild(null);
   };
 
   return (
@@ -191,9 +191,29 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
             <div className="grid grid-cols-5 gap-6">
               {armadaCatalog[group].map((item) => {
                 const value = resolveQuantity(dataBlock, group, item.key);
-                const summary = unitBreakdown.find((entry) => entry.dataKey === item.key);
-                const totalPower = summary?.totalPower ?? 0;
-                const totalHealth = summary?.totalHealth ?? 0;
+                let displayText = formatNumber(value);
+                
+                if (item.key === "barak") {
+                  const currentBarakCount = Number(payload?.barak ?? 0);
+                  const ongoingConstructions = countryDetail?.ongoingConstructions || [];
+                  const ongoingBarakCount = ongoingConstructions.filter((c: any) => c.buildingKey === "barak").length;
+                  
+                  const storedInfantry = Number(countryDetail?.armada?.darat?.pasukan_infanteri ?? 0);
+                  const fallbackInfantry = currentBarakCount * 10000;
+                  const finalCurrentInfantry = storedInfantry > 0 ? storedInfantry : fallbackInfantry;
+                  
+                  // 🔥 PERBAIKAN TERBARU: KAPASITAS TIDAK AKAN BERTAMBAH SAAT MASIH ADA ANTRIAN (+1)
+                  let maxCapacity;
+                  if (ongoingBarakCount > 0) {
+                    // Jika masih ada pembangunan (+1), kapasitas = Barak selesai saja (133 x 10.000 = 1.330.000)
+                    maxCapacity = currentBarakCount * 10000;
+                  } else {
+                    // Jika tidak ada pembangunan (sudah selesai), kapasitas = Total semua Barak
+                    maxCapacity = (currentBarakCount + ongoingBarakCount) * 10000;
+                  }
+
+                  displayText = `${formatNumber(finalCurrentInfantry)} / ${formatNumber(maxCapacity)}`;
+                }
 
                 return (
                   <div
@@ -205,7 +225,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
                     className="relative rounded-2xl overflow-hidden flex flex-col transition-all bg-white/95 border-2 border-[#C4B49C]/30 shadow-md hover:shadow-lg hover:border-[#C4B49C]/50 cursor-pointer p-5 min-h-[180px]"
                   >
                     <div className="flex items-start justify-between mb-3">
-                      <p className="text-[11px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
+                      <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
                         {item.label}
                       </p>
                       <button
@@ -218,10 +238,14 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
 
                     <div className="flex flex-col justify-between flex-1">
                       <div>
-                        <div className="text-3xl font-black text-[#2e261a] mb-1">
-                          {formatNumber(value)}
+                        <div className="flex items-end gap-1.5 mt-2">
+                          <span className="text-2xl font-black text-[#2e261a] leading-tight">
+                            {displayText}
+                          </span>
                         </div>
-                        <p className="text-[10px] font-bold text-[#8b7e66]">unit</p>
+                        <p className="text-[9px] mt-1 font-bold text-[#8b7e66]">
+                          {item.key === "barak" ? "Pasukan / Kapasitas" : "unit"}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -232,7 +256,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
         );
       })}
 
-      {/* 🔥 Modal Konfirmasi Pembangunan */}
+      {/* 🔥 Modal Konfirmasi - Update MaxCapacity Props agar sesuai dengan logika UI */}
       {selectedForBuild && (
         <KonfirmasiArmadaAktifModal
           isOpen={isConfirmBuildOpen}
@@ -244,34 +268,30 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           materialStocks={calculateMaterialStocks(countryDetail)}
           anggaran={Number(countryDetail?.anggaran) || 0}
           missingMaterials={calculateMissingMaterials([], calculateMaterialStocks(countryDetail))}
-          onConfirm={() => {
-            // TODO: Implement build logic
-            setIsConfirmBuildOpen(false);
-          }}
+          onConfirm={handleConfirmRecruit}
           onMaterialClick={(resourceKey: string, label: string) => {
             const { tab, buildingKey } = getTabForResource(resourceKey);
             onGotoProduction?.(tab, buildingKey || resourceKey);
-            // Don't close the modal yet - let parent handle the navigation
           }}
           loadingMetadata={false}
           isDisabled={false}
-          // 🔥 PROPS KAPASITAS INFANTERI - hanya untuk barak
           capacityType={selectedForBuild.key === "barak" ? "infanteri" : selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? "hangar_tank" : selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? "gudang_senjata" : ["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? "pangkalan_laut" : ["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? "pangkalan_udara" : undefined}
-          // INFANTERI CAPACITY
-          currentCapacity={selectedForBuild.key === "barak" ? convertBarakToSoldiers(Number(payload?.barak ?? 0)) : undefined}
-          maxCapacity={selectedForBuild.key === "barak" ? 10000 : undefined}
+          currentCapacity={selectedForBuild.key === "barak" ? Number(countryDetail?.armada?.darat?.pasukan_infanteri ?? 0) : 0}
+          // 🔥 PERBAIKAN PROPS MAX CAPACITY DI MODAL SESUAI LOGIKA PENUH
+          maxCapacity={selectedForBuild.key === "barak" ? (() => {
+            const cB = Number(payload?.barak ?? 0);
+            const oB = countryDetail?.ongoingConstructions?.filter((c: any) => c.buildingKey === "barak").length || 0;
+            return oB > 0 ? cB * 10000 : (cB + oB) * 10000;
+          })() : 0}
           currentBarakCount={selectedForBuild.key === "barak" ? Number(payload?.barak ?? 0) : undefined}
-          // HANGAR TANK CAPACITY - Ambil dari countryDetail level atas OR countryDetail.pertahanan
           currentTankCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(payload?.darat?.tank_tempur_utama ?? 0) : 0}
           currentApcCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(payload?.darat?.apc_ifv ?? 0) : 0}
           currentHangarCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? Number(countryDetail?.hangar_tank ?? countryDetail?.pertahanan?.hangar_tank ?? 0) : 0}
-          // GUDANG SENJATA CAPACITY - Ambil dari countryDetail level atas OR countryDetail.pertahanan
           currentArtileriCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.artileri_berat ?? 0) : 0}
           currentRoketCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.sistem_peluncur_roket ?? 0) : 0}
           currentPertahanUdaraCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.pertahanan_udara_mobile ?? 0) : 0}
           currentKendaraanTaktisCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(payload?.darat?.kendaraan_taktis ?? 0) : 0}
           currentGudangCount={selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? Number(countryDetail?.gudang_senjata ?? countryDetail?.pertahanan?.gudang_senjata ?? 0) : 0}
-          // PANGKALAN LAUT CAPACITY - Untuk semua kapal
           kapalIndukCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_induk ?? 0) : 0}
           kapalIndukNuklirCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_induk_nuklir ?? 0) : 0}
           kapalDestroyerCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_destroyer ?? 0) : 0}
@@ -281,7 +301,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           kapalRanjauCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_ranjau ?? 0) : 0}
           kapalLogistikCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(payload?.laut?.kapal_logistik ?? 0) : 0}
           currentPangkalanLautCount={["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? Number(countryDetail?.pangkalan_laut ?? countryDetail?.pertahanan?.pangkalan_laut ?? 0) : 0}
-          // PANGKALAN UDARA CAPACITY - Untuk semua pesawat
           jetTemturSilamanCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.jet_tempur_siluman ?? 0) : 0}
           jetTemturInterceptorCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.jet_tempur_interceptor ?? 0) : 0}
           pesawatPengebomCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_pengebom ?? 0) : 0}
@@ -291,7 +310,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           droneKamikazeCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.drone_kamikaze ?? 0) : 0}
           pesawatAngkutCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(payload?.udara?.pesawat_angkut ?? 0) : 0}
           currentPangkalanUdaraCount={["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? Number(countryDetail?.pangkalan_udara ?? countryDetail?.pertahanan?.pangkalan_udara ?? 0) : 0}
-          // 🔥 CALLBACK UNTUK NAVIGATE KE INFRASTRUKTUR
           onNavigateToInfra={onCapacityFull}
           infraKeyToHighlight={highlightKey}
         />
