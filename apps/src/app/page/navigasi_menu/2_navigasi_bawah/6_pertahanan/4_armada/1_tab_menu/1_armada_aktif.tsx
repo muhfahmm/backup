@@ -89,6 +89,54 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
+// ✅ 1. Tambahkan fungsi Format Tanggal agar sama dengan InfrastrukturMiliter.tsx
+const formatBadgeDate = (dateString: string) => {
+  if (!dateString) return '';
+  try {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    if (isNaN(date.getTime())) return dateString;
+    const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+    const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(date);
+    const day = parts.find((p) => p.type === 'day')?.value || '';
+    const month = parts.find((p) => p.type === 'month')?.value || '';
+    const year = parts.find((p) => p.type === 'year')?.value || '';
+    return `${day} ${month}, ${year}`;
+  } catch {
+    return dateString;
+  }
+};
+
+// ✅ 2. Fungsi Penambah Hari yang aman (pakai parse manual)
+const addDays = (dateString: string, days: number): string => {
+  const [y, m, d] = dateString.split('-').map(Number);
+  const date = new Date(y, m - 1, d);
+  date.setDate(date.getDate() + days);
+  const yy = date.getFullYear();
+  const mm = String(date.getMonth() + 1).padStart(2, '0');
+  const dd = String(date.getDate()).padStart(2, '0');
+  return `${yy}-${mm}-${dd}`;
+};
+
+// ✅ 3. Fungsi mengambil tanggal aman dari props
+const getSafeDateString = (currentDate?: string | Date, gameDate?: string): string => {
+  if (currentDate) {
+    const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+  if (gameDate) {
+    return gameDate.split('T')[0];
+  }
+  const now = new Date();
+  const y = now.getFullYear();
+  const m = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+};
+
 export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCountryDetail, onCapacityFull, highlightKey, onGotoProduction, currentDate }: TabProps) {
   const unitBreakdown = getArmadaUnitBreakdown(countryDetail?.armada || countryDetail || {});
 
@@ -235,15 +283,9 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       if (!updatedDetail.armada) updatedDetail.armada = {};
       if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
 
-      // Hitung jeda waktu perekrutan berdasarkan jumlah pasukan
+      const currentDateStr = getSafeDateString(currentDate, countryDetail?.game_date);
       const recruitmentDays = Math.ceil(quantity / 10000) * 8;
-      const currentDateStr = countryDetail?.game_date || new Date().toISOString();
-      const startDate = new Date(currentDateStr);
-      const endDate = new Date(startDate);
-      endDate.setDate(endDate.getDate() + recruitmentDays);
-
-      // Format end date ke YYYY-MM-DD
-      const endDateStr = `${endDate.getFullYear()}-${String(endDate.getMonth() + 1).padStart(2, '0')}-${String(endDate.getDate()).padStart(2, '0')}`;
+      const endDateStr = addDays(currentDateStr, recruitmentDays);
 
       const desiredQuantity = Math.max(0, Math.floor(quantity));
       if (desiredQuantity === 0) {
@@ -328,6 +370,15 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
                   displayText = `${formatNumber(infantryCount)} / ${formatNumber(maxCapacity)}`;
                 }
 
+                // pending check
+                const pendingRecruitments = (countryDetail?.ongoingConstructions || []).filter(
+                  (c: any) => c.type === "recruitment" && c.buildingKey === "pasukan_infanteri"
+                );
+                const isBarak = item.key === "barak";
+                const hasPending = isBarak && pendingRecruitments.length > 0;
+                const lastEndDate = hasPending ? pendingRecruitments[pendingRecruitments.length - 1].endDate : null;
+                const totalPending = hasPending ? pendingRecruitments.reduce((sum: number, r: any) => sum + r.quantity, 0) : 0;
+
                 return (
                   <div
                     key={`${group}-${item.key}`}
@@ -335,14 +386,23 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
                       setSelectedForBuild({ key: item.key, label: item.label });
                       setIsConfirmBuildOpen(true);
                     }}
-                    className="relative rounded-2xl overflow-hidden flex flex-col transition-all bg-white/95 border-2 border-[#C4B49C]/30 shadow-md hover:shadow-lg hover:border-[#C4B49C]/50 cursor-pointer p-5 min-h-[180px]"
+                    className={`relative rounded-2xl flex flex-col transition-all bg-white/95 border-2 border-[#C4B49C]/30 shadow-md hover:shadow-lg hover:border-[#C4B49C]/50 cursor-pointer p-5 min-h-[180px] ${hasPending ? 'overflow-visible' : 'overflow-hidden'}`}
                   >
+                    {hasPending && lastEndDate && (
+                      <div className="absolute -top-6 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[10px] font-bold px-2 py-1 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap">
+                        {formatBadgeDate(lastEndDate)}
+                      </div>
+                    )}
+
                     <div className="flex items-start justify-between mb-3">
                       <p className="text-[10px] font-black uppercase text-[#8b7e66] tracking-wider flex-1 pr-2">
                         {item.label}
                       </p>
                       <button
-                        onClick={() => handleInfoClick(item.key)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleInfoClick(item.key);
+                        }}
                         className="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-[#5c3c10]/10 hover:bg-[#5c3c10]/20 text-[#5c3c10] transition-colors cursor-pointer"
                       >
                         <Info className="w-4 h-4" />
@@ -356,20 +416,11 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
                             {displayText}
                           </span>
                           {/* 🔥 Tampilkan pending recruitment */}
-                          {item.key === "barak" && countryDetail?.ongoingConstructions ? (() => {
-                            const pendingRecruitments = countryDetail.ongoingConstructions.filter(
-                              (c: any) => c.type === "recruitment" && c.buildingKey === "pasukan_infanteri"
-                            );
-                            if (pendingRecruitments.length > 0) {
-                              const totalPending = pendingRecruitments.reduce((sum: number, r: any) => sum + r.quantity, 0);
-                              return (
-                                <span className="text-sm font-black text-emerald-600">
-                                  +{formatNumber(totalPending)}
-                                </span>
-                              );
-                            }
-                            return null;
-                          })() : null}
+                          {hasPending && (
+                            <span className="text-sm font-black text-emerald-600">
+                              +{formatNumber(totalPending)}
+                            </span>
+                          )}
                         </div>
                         <p className="text-[9px] mt-1 font-bold text-[#8b7e66]">
                           {item.key === "barak" ? "Pasukan / Kapasitas" : "unit"}
