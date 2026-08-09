@@ -1,3 +1,4 @@
+// ArmadaModal.tsx
 "use client"
 import React, { useState, useEffect } from "react";
 import { X, ShieldAlert, Swords, Building2, Shield } from "lucide-react";

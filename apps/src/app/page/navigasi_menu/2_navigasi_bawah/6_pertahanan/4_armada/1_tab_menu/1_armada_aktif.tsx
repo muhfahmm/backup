@@ -1,3 +1,4 @@
+// 1_armada_aktif.tsx
 "use client"
 import React, { useState, useEffect } from "react";
 import { Swords, Ship, Plane, Info } from "lucide-react";
@@ -57,31 +58,34 @@ const groupMeta = {
 };
 const groupKeys = Object.keys(groupMeta) as (keyof typeof groupMeta)[];
 
-const armadaUnitMetadata: Record<string, { biaya_pembangunan: number }> = {
-  barak: { biaya_pembangunan: 5000 },
-  pasukan_infanteri: { biaya_pembangunan: 5000 },
-  tank_tempur_utama: { biaya_pembangunan: 15000 },
-  apc_ifv: { biaya_pembangunan: 10000 },
-  artileri_berat: { biaya_pembangunan: 48750 },
-  sistem_peluncur_roket: { biaya_pembangunan: 71250 },
-  pertahanan_udara_mobile: { biaya_pembangunan: 93750 },
-  kendaraan_taktis: { biaya_pembangunan: 11250 },
-  kapal_induk: { biaya_pembangunan: 1125000 },
-  kapal_induk_nuklir: { biaya_pembangunan: 1875000 },
-  kapal_destroyer: { biaya_pembangunan: 337500 },
-  kapal_korvet: { biaya_pembangunan: 135000 },
-  kapal_selam_nuklir: { biaya_pembangunan: 562500 },
-  kapal_selam_regular: { biaya_pembangunan: 187500 },
-  kapal_ranjau: { biaya_pembangunan: 63750 },
-  kapal_logistik: { biaya_pembangunan: 90000 },
-  jet_tempur_siluman: { biaya_pembangunan: 112500 },
-  jet_tempur_interceptor: { biaya_pembangunan: 63750 },
-  pesawat_pengebom: { biaya_pembangunan: 187500 },
-  helikopter_serang: { biaya_pembangunan: 41250 },
-  pesawat_pengintai: { biaya_pembangunan: 71250 },
-  drone_intai_uav: { biaya_pembangunan: 11250 },
-  drone_kamikaze: { biaya_pembangunan: 3750 },
-  pesawat_angkut: { biaya_pembangunan: 56250 },
+// 🔥 METADATA SATU-SATUNYA SUMBER KEBENARAN (single source of truth)
+// waktu_pembangunan_armada_aktif = waktu pembangunan PER UNIT (dalam hari)
+// 🔥 NILAI DI BAWAH INI DISALIN 1:1 DARI metadata_armada_militer.json (bukan dikira-kira lagi)
+const armadaUnitMetadata: Record<string, { biaya_pembangunan: number; waktu_pembangunan_armada_aktif: number }> = {
+  barak: { biaya_pembangunan: 26250, waktu_pembangunan_armada_aktif: 8 },
+  pasukan_infanteri: { biaya_pembangunan: 5000, waktu_pembangunan_armada_aktif: 8 },
+  tank_tempur_utama: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 15 },
+  apc_ifv: { biaya_pembangunan: 26250, waktu_pembangunan_armada_aktif: 8 },
+  artileri_berat: { biaya_pembangunan: 48750, waktu_pembangunan_armada_aktif: 22 },
+  sistem_peluncur_roket: { biaya_pembangunan: 71250, waktu_pembangunan_armada_aktif: 30 },
+  pertahanan_udara_mobile: { biaya_pembangunan: 93750, waktu_pembangunan_armada_aktif: 30 },
+  kendaraan_taktis: { biaya_pembangunan: 11250, waktu_pembangunan_armada_aktif: 5 },
+  kapal_induk: { biaya_pembangunan: 1125000, waktu_pembangunan_armada_aktif: 180 },
+  kapal_induk_nuklir: { biaya_pembangunan: 1875000, waktu_pembangunan_armada_aktif: 240 },
+  kapal_destroyer: { biaya_pembangunan: 337500, waktu_pembangunan_armada_aktif: 90 },
+  kapal_korvet: { biaya_pembangunan: 135000, waktu_pembangunan_armada_aktif: 45 },
+  kapal_selam_nuklir: { biaya_pembangunan: 562500, waktu_pembangunan_armada_aktif: 120 },
+  kapal_selam_regular: { biaya_pembangunan: 187500, waktu_pembangunan_armada_aktif: 60 },
+  kapal_ranjau: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 30 },
+  kapal_logistik: { biaya_pembangunan: 90000, waktu_pembangunan_armada_aktif: 45 },
+  jet_tempur_siluman: { biaya_pembangunan: 112500, waktu_pembangunan_armada_aktif: 60 },
+  jet_tempur_interceptor: { biaya_pembangunan: 63750, waktu_pembangunan_armada_aktif: 45 },
+  pesawat_pengebom: { biaya_pembangunan: 187500, waktu_pembangunan_armada_aktif: 90 },
+  helikopter_serang: { biaya_pembangunan: 41250, waktu_pembangunan_armada_aktif: 22 },
+  pesawat_pengintai: { biaya_pembangunan: 71250, waktu_pembangunan_armada_aktif: 45 },
+  drone_intai_uav: { biaya_pembangunan: 11250, waktu_pembangunan_armada_aktif: 15 },
+  drone_kamikaze: { biaya_pembangunan: 3750, waktu_pembangunan_armada_aktif: 4 },
+  pesawat_angkut: { biaya_pembangunan: 56250, waktu_pembangunan_armada_aktif: 30 },
 };
 
 const formatNumber = (value: unknown) => {
@@ -89,7 +93,7 @@ const formatNumber = (value: unknown) => {
   return Number.isFinite(numeric) ? numeric.toLocaleString("id-ID") : "0";
 };
 
-// ✅ 1. Tambahkan fungsi Format Tanggal agar sama dengan InfrastrukturMiliter.tsx
+// Format Tanggal
 const formatBadgeDate = (dateString: string) => {
   if (!dateString) return '';
   try {
@@ -107,7 +111,6 @@ const formatBadgeDate = (dateString: string) => {
   }
 };
 
-// ✅ 2. Fungsi Penambah Hari yang aman (pakai parse manual)
 const addDays = (dateString: string, days: number): string => {
   const [y, m, d] = dateString.split('-').map(Number);
   const date = new Date(y, m - 1, d);
@@ -118,7 +121,6 @@ const addDays = (dateString: string, days: number): string => {
   return `${yy}-${mm}-${dd}`;
 };
 
-// ✅ 3. Fungsi mengambil tanggal aman dari props
 const getSafeDateString = (currentDate?: string | Date, gameDate?: string): string => {
   if (currentDate) {
     const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
@@ -140,50 +142,23 @@ const getSafeDateString = (currentDate?: string | Date, gameDate?: string): stri
 export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCountryDetail, onCapacityFull, highlightKey, onGotoProduction, currentDate }: TabProps) {
   const unitBreakdown = getArmadaUnitBreakdown(countryDetail?.armada || countryDetail || {});
 
-  // 🔥 DEBUG: Log nilai yang diterima
-  useEffect(() => {
-    console.log('[ArmadaAktif] CountryDetail armada structure:', {
-      countryName: countryDetail?.country,
-      armada: countryDetail?.armada,
-      armada_darat: countryDetail?.armada?.darat,
-      pasukan_infanteri: countryDetail?.armada?.darat?.pasukan_infanteri,
-    });
-  }, [countryDetail?.country, countryDetail?.armada]);
-
-  // 🔥 PERBAIKAN UTAMA: Fungsi getData yang kokoh untuk membaca data di berbagai kemungkinan struktur database!
   const getData = (key: string, group?: string): number => {
     if (!countryDetail) return 0;
-    
-    // Kemungkinan 1: Data di level paling atas langsung. (Contoh: countryDetail.barak, countryDetail.hangar_tank)
     if (countryDetail?.[key] !== undefined && countryDetail?.[key] !== null) {
-      const val = Number(countryDetail[key]);
-      if (!Number.isNaN(val)) return val;
+      const val = Number(countryDetail[key]); if (!Number.isNaN(val)) return val;
     }
-
-    // Kemungkinan 2: Data di dalam `countryDetail.pertahanan`. (Jika Anda menggunakan struktur ini)
     if (countryDetail?.pertahanan?.[key] !== undefined && countryDetail?.pertahanan?.[key] !== null) {
-      const val = Number(countryDetail.pertahanan[key]);
-      if (!Number.isNaN(val)) return val;
+      const val = Number(countryDetail.pertahanan[key]); if (!Number.isNaN(val)) return val;
     }
-
-    // Kemungkinan 3: Data di dalam `countryDetail.armada` (Level root armada).
     if (countryDetail?.armada?.[key] !== undefined && countryDetail?.armada?.[key] !== null) {
-      const val = Number(countryDetail.armada[key]);
-      if (!Number.isNaN(val)) return val;
+      const val = Number(countryDetail.armada[key]); if (!Number.isNaN(val)) return val;
     }
-
-    // Kemungkinan 4: Data di dalam `countryDetail.armada.[group]` (Misal: countryDetail.armada.darat.tank_tempur_utama)
     if (group && countryDetail?.armada?.[group]?.[key] !== undefined && countryDetail?.armada?.[group]?.[key] !== null) {
-      const val = Number(countryDetail.armada[group][key]);
-      if (!Number.isNaN(val)) return val;
+      const val = Number(countryDetail.armada[group][key]); if (!Number.isNaN(val)) return val;
     }
-
-    // Kemungkinan 5: Data di dalam `countryDetail.[group]` (Misal: countryDetail.darat.tank_tempur_utama, jika tanpa object armada)
     if (group && countryDetail?.[group]?.[key] !== undefined && countryDetail?.[group]?.[key] !== null) {
-      const val = Number(countryDetail[group][key]);
-      if (!Number.isNaN(val)) return val;
+      const val = Number(countryDetail[group][key]); if (!Number.isNaN(val)) return val;
     }
-    
     return 0;
   };
 
@@ -196,9 +171,8 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     return stocks;
   };
 
-  // ✅ PERBAIKAN UTAMA DI SINI: Tambahkan (requirements || []) agar tidak error undefined.length
   const calculateMissingMaterials = (requirements: any[] | null | undefined, stocks: Record<string, number>) => {
-    const safeRequirements = requirements || []; // <-- PENTING: ubah undefined/null menjadi array kosong
+    const safeRequirements = requirements || [];
     return safeRequirements.filter(req => {
       const stock = stocks[req.resourceKey] ?? 0;
       return stock <= 0;
@@ -230,36 +204,61 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
-  // 🔥 LOGIKA DETEKSI TANGGAL - MENAMBAHKAN PASUKAN SAAT WAKTU SELESAI
+  // 🔥 SATU-SATUNYA fungsi sumber waktu pembangunan per unit — dipakai oleh
+  // preview modal (via prop waktuPembangunan) MAUPUN oleh handleConfirm.
+  // Karena keduanya memakai fungsi yang sama, hasilnya PASTI selalu sinkron.
+  const buildTimeForKey = (key: string): number => {
+    const meta = armadaUnitMetadata[key];
+    if (meta && typeof meta.waktu_pembangunan_armada_aktif === 'number') {
+      return meta.waktu_pembangunan_armada_aktif;
+    }
+    return 7; // fallback jika key tidak dikenal
+  };
+
+  // 🔥 PERBAIKAN LOGIKA SEDANG BERLANGSUNG
   useEffect(() => {
     if (!countryDetail || !_setCountryDetail) return;
-    
+
     const currentDate = countryDetail?.game_date ? new Date(countryDetail.game_date) : new Date();
     const ongoing = countryDetail?.ongoingConstructions || [];
-    
+
     let hasChanged = false;
     let updatedDetail = { ...countryDetail };
     let updatedConstructions = [...ongoing];
 
     for (let i = updatedConstructions.length - 1; i >= 0; i--) {
       const construction = updatedConstructions[i];
-      
-      // Hanya proses recruitment (bukan construction)
-      if (construction.type !== "recruitment") continue;
-      
+
+      if (construction.type !== "recruitment" && construction.type !== "construction") continue;
+
       const endDate = new Date(construction.endDate);
       if (isNaN(endDate.getTime())) continue;
 
       if (endDate.getTime() <= currentDate.getTime()) {
         hasChanged = true;
-        
-        // Tambahkan pasukan ke countryDetail
-        if (!updatedDetail.armada) updatedDetail.armada = {};
-        if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
-        
-        const currentCount = Number(updatedDetail.armada.darat.pasukan_infanteri || 0);
-        updatedDetail.armada.darat.pasukan_infanteri = currentCount + construction.quantity;
-        
+
+        const targetKey = construction.buildingKey;
+        if (construction.type === "recruitment") {
+          if (!updatedDetail.armada) updatedDetail.armada = {};
+          if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
+          const currentCount = Number(updatedDetail.armada.darat.pasukan_infanteri || 0);
+          updatedDetail.armada.darat.pasukan_infanteri = currentCount + construction.quantity;
+        } else {
+          const group = armadaCatalog.darat.find(i => i.key === targetKey)?.group ||
+                        armadaCatalog.laut.find(i => i.key === targetKey)?.group ||
+                        armadaCatalog.udara.find(i => i.key === targetKey)?.group;
+
+          if (group && updatedDetail.armada?.[group]?.[targetKey] !== undefined) {
+            updatedDetail.armada[group][targetKey] = (Number(updatedDetail.armada[group][targetKey]) || 0) + (construction.quantity || 1);
+          } else {
+            if (updatedDetail[targetKey] !== undefined) {
+              updatedDetail[targetKey] = (Number(updatedDetail[targetKey]) || 0) + (construction.quantity || 1);
+            } else if (updatedDetail.pertahanan?.[targetKey] !== undefined) {
+              updatedDetail.pertahanan[targetKey] = (Number(updatedDetail.pertahanan[targetKey]) || 0) + (construction.quantity || 1);
+            }
+          }
+        }
+
         updatedConstructions.splice(i, 1);
       }
     }
@@ -275,40 +274,62 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     setIsInfoOpen(true);
   };
 
-  const handleConfirmRecruit = (quantity: number = 10000) => {
+  // 🔥 PERBAIKAN UTAMA #2: handleConfirm sekarang MENGHORMATI jumlah (quantity)
+  // yang diminta di modal, dan waktu (days) dihitung dengan formula yang PERSIS
+  // SAMA dengan yang dipakai modal untuk preview (waktu per-unit × jumlah unit).
+  // Sebelumnya di sini quantity untuk non-infanteri selalu di-hardcode 1 dan
+  // days tidak dikalikan quantity — itu penyebab data di kartu Tab Armada Aktif
+  // tidak nyambung dengan preview di modal.
+  const handleConfirm = (quantity: number = 1) => {
     if (!selectedForBuild) return;
-    if (selectedForBuild.key === "barak") {
-      const updatedDetail = { ...countryDetail };
-      
-      if (!updatedDetail.armada) updatedDetail.armada = {};
-      if (!updatedDetail.armada.darat) updatedDetail.armada.darat = {};
+    const key = selectedForBuild.key;
+    const updatedDetail = { ...countryDetail };
 
-      const currentDateStr = getSafeDateString(currentDate, countryDetail?.game_date);
-      const recruitmentDays = Math.ceil(quantity / 10000) * 8;
-      const endDateStr = addDays(currentDateStr, recruitmentDays);
+    const isRecruitment = key === "barak";
+    const group = armadaCatalog.darat.find(i => i.key === key)?.group ||
+                  armadaCatalog.laut.find(i => i.key === key)?.group ||
+                  armadaCatalog.udara.find(i => i.key === key)?.group;
 
-      const desiredQuantity = Math.max(0, Math.floor(quantity));
-      if (desiredQuantity === 0) {
-        alert("Masukkan jumlah pasukan yang ingin direkrut.");
-      } else {
-        // Tambahkan ke ongoingConstructions instead of directly adding
-        if (!updatedDetail.ongoingConstructions) updatedDetail.ongoingConstructions = [];
-        
-        updatedDetail.ongoingConstructions.push({
-          id: `recruitment_${Date.now()}`,
-          buildingKey: "pasukan_infanteri",
-          label: "Pasukan Infanteri",
-          quantity: desiredQuantity,
-          cost: desiredQuantity * 5000, // 5000 EM per pasukan
-          startDate: currentDateStr,
-          endDate: endDateStr,
-          type: "recruitment",
-          group: "darat"
-        });
+    const currentDateStr = getSafeDateString(currentDate, countryDetail?.game_date);
 
-        _setCountryDetail(updatedDetail);
-      }
+    let targetKey = isRecruitment ? "pasukan_infanteri" : key;
+    let type = isRecruitment ? "recruitment" : "construction";
+
+    if (isRecruitment && quantity === 0) {
+      alert("Masukkan jumlah pasukan yang ingin direkrut.");
+      return;
     }
+    if (!isRecruitment && quantity <= 0) {
+      alert("Masukkan jumlah unit yang ingin dibangun.");
+      return;
+    }
+
+    // 🔥 Formula waktu SAMA PERSIS dengan yang dipakai modal untuk preview:
+    // - Infanteri: ceil(quantity / 10000) * waktu per-batch barak
+    // - Selain infanteri: waktu per unit * jumlah unit yang diminta
+    let days = 0;
+    if (isRecruitment) {
+      days = Math.ceil(quantity / 10000) * buildTimeForKey("barak");
+    } else {
+      days = Math.ceil(buildTimeForKey(key) * quantity);
+    }
+    const endDateStr = addDays(currentDateStr, days);
+
+    if (!updatedDetail.ongoingConstructions) updatedDetail.ongoingConstructions = [];
+
+    updatedDetail.ongoingConstructions.push({
+      id: `${type}_${Date.now()}`,
+      buildingKey: targetKey,
+      label: selectedForBuild.label,
+      quantity: quantity, // 🔥 sekarang quantity asli disimpan, bukan di-hardcode 1
+      cost: 0,
+      startDate: currentDateStr,
+      endDate: endDateStr,
+      type: type,
+      group: group
+    });
+
+    _setCountryDetail(updatedDetail);
     setIsConfirmBuildOpen(false);
     setSelectedForBuild(null);
   };
@@ -330,8 +351,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
               </div>
               <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#5c3c10]">{groupMeta[group].title}</h3>
             </div>
-            
-            {/* 🔥 Date indicator for military infrastructure - like Infrastruktur tab */}
+
             {currentDate && (
               <div className="bg-emerald-50 border border-emerald-200 px-3 py-1.5 rounded-lg inline-flex items-center gap-2">
                 <span className="text-[10px] font-black uppercase tracking-wider text-emerald-700">
@@ -349,35 +369,25 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
 
             <div className="grid grid-cols-5 gap-6">
               {armadaCatalog[group].map((item) => {
-                // 🔥 Gunakan getData untuk semua item. Kini semua data Tank, Kapal, dan Jet akan terbaca!
                 const value = getData(item.key, group);
                 let displayText = formatNumber(value);
-                
-                // 🔥 LOGIKA KHUSUS UNTUK BARAK (Pasukan Infanteri)
+
                 if (item.key === "barak") {
-                  // Ambil jumlah barak yang sudah dibangun
                   const currentBarakCount = getData("barak");
-                  
-                  // Ambil jumlah pasukan infanteri dari countryDetail atau gunakan nilai default dari JSON
-                  // getData("pasukan_infanteri", "darat") akan return nilai default dari JSON jika tidak ada di countryDetail
                   const infantryCount = getData("pasukan_infanteri", "darat");
-
-                  // Kapasitas hanya berdasarkan barak yang sudah jadi: jangan hitung 'ongoing' sampai selesai
-                  // Setiap barak bisa menampung 10,000 pasukan
                   const maxCapacity = currentBarakCount * 10000;
-
-                  // Tampilkan jumlah pasukan saat ini vs kapasitas maksimal
                   displayText = `${formatNumber(infantryCount)} / ${formatNumber(maxCapacity)}`;
                 }
 
-                // pending check
-                const pendingRecruitments = (countryDetail?.ongoingConstructions || []).filter(
-                  (c: any) => c.type === "recruitment" && c.buildingKey === "pasukan_infanteri"
+                const pendingItems = (countryDetail?.ongoingConstructions || []).filter(
+                  (c: any) => {
+                    const targetBuildingKey = item.key === "barak" ? "pasukan_infanteri" : item.key;
+                    return c.buildingKey === targetBuildingKey && (c.type === "recruitment" || c.type === "construction");
+                  }
                 );
-                const isBarak = item.key === "barak";
-                const hasPending = isBarak && pendingRecruitments.length > 0;
-                const lastEndDate = hasPending ? pendingRecruitments[pendingRecruitments.length - 1].endDate : null;
-                const totalPending = hasPending ? pendingRecruitments.reduce((sum: number, r: any) => sum + r.quantity, 0) : 0;
+                const hasPending = pendingItems.length > 0;
+                const lastEndDate = hasPending ? pendingItems[pendingItems.length - 1].endDate : null;
+                const totalPendingQuantity = hasPending ? pendingItems.reduce((sum: number, r: any) => sum + (r.quantity || 1), 0) : 0;
 
                 return (
                   <div
@@ -415,10 +425,9 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
                           <span className="text-2xl font-black text-[#2e261a] leading-tight">
                             {displayText}
                           </span>
-                          {/* 🔥 Tampilkan pending recruitment */}
                           {hasPending && (
                             <span className="text-sm font-black text-emerald-600">
-                              +{formatNumber(totalPending)}
+                              +{formatNumber(totalPendingQuantity)}
                             </span>
                           )}
                         </div>
@@ -435,7 +444,7 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
         );
       })}
 
-      {/* 🔥 Modal Konfirmasi Pembangunan / Rekrutmen */}
+      {/* Modal Konfirmasi */}
       {selectedForBuild && isConfirmBuildOpen && (
         <KonfirmasiArmadaAktifModal
           isOpen={isConfirmBuildOpen}
@@ -446,12 +455,12 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           buildingLabel={selectedForBuild.label}
           buildingDescription={selectedForBuild.label}
           cost={Number(armadaUnitMetadata[selectedForBuild.key]?.biaya_pembangunan ?? 0)}
+          waktuPembangunan={buildTimeForKey(selectedForBuild.key)}
           requirements={selectedForBuild.key === "barak" ? (findInfanteriRequirements("barak")?.requirements || []) : []}
           materialStocks={calculateMaterialStocks(countryDetail)}
           anggaran={Number(countryDetail?.anggaran) || 0}
-          // ✅ JANGAN GUNAKAN calculateMissingMaterials([], ...) karena rentan error, gunakan array kosong langsung
           missingMaterials={[]}
-          onConfirm={handleConfirmRecruit}
+          onConfirm={handleConfirm}
           onMaterialClick={(resourceKey: string, label: string) => {
             const { tab, buildingKey } = getTabForResource(resourceKey);
             onGotoProduction?.(tab, buildingKey || resourceKey);
@@ -460,11 +469,9 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
           isDisabled={false}
           capacityType={selectedForBuild.key === "barak" ? "infanteri" : selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? "hangar_tank" : selectedForBuild.key === "artileri_berat" || selectedForBuild.key === "sistem_peluncur_roket" || selectedForBuild.key === "pertahanan_udara_mobile" || selectedForBuild.key === "kendaraan_taktis" ? "gudang_senjata" : ["kapal_induk", "kapal_induk_nuklir", "kapal_destroyer", "kapal_korvet", "kapal_selam_nuklir", "kapal_selam_regular", "kapal_ranjau", "kapal_logistik"].includes(selectedForBuild.key) ? "pangkalan_laut" : ["jet_tempur_siluman", "jet_tempur_interceptor", "pesawat_pengebom", "helikopter_serang", "pesawat_pengintai", "drone_intai_uav", "drone_kamikaze", "pesawat_angkut"].includes(selectedForBuild.key) ? "pangkalan_udara" : undefined}
           currentCapacity={selectedForBuild.key === "barak" ? Number(getData("pasukan_infanteri", "darat") || 0) : 0}
-              maxCapacity={selectedForBuild.key === "barak" ? (() => {
-                const cB = getData("barak");
-                // Only count completed barak for capacity; ongoing constructions don't increase capacity until finished
-                return cB * 10000;
-              })() : 0}
+          maxCapacity={selectedForBuild.key === "barak" ? (() => {
+            const cB = getData("barak"); return cB * 10000;
+          })() : 0}
           currentBarakCount={selectedForBuild.key === "barak" ? getData("barak") : undefined}
           currentTankCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? getData("tank_tempur_utama", "darat") : 0}
           currentApcCount={selectedForBuild.key === "tank_tempur_utama" || selectedForBuild.key === "apc_ifv" ? getData("apc_ifv", "darat") : 0}
