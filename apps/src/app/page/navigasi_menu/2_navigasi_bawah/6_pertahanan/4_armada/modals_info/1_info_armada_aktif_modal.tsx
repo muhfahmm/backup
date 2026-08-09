@@ -10,6 +10,10 @@ interface InfoArmadaAktifModalProps {
   groupMeta: Record<string, any>;
   formatNumber: (value: unknown) => string;
   unitBreakdown: any[];
+  // 🔥 Tambahkan props berikut untuk logika Kapasitas Penuh & Redirect
+  isCapacityFull?: boolean;
+  capacityDisplay?: string;
+  onNavigateToInfra?: (infraKey: string) => void;
 }
 
 export default function InfoArmadaAktifModal({
@@ -20,6 +24,9 @@ export default function InfoArmadaAktifModal({
   groupMeta,
   formatNumber,
   unitBreakdown,
+  isCapacityFull = false,         // 🔥 Default false
+  capacityDisplay = "",
+  onNavigateToInfra,
 }: InfoArmadaAktifModalProps) {
   if (!isOpen || !selectedItem) return null;
 
@@ -67,6 +74,34 @@ export default function InfoArmadaAktifModal({
               </p>
             </div>
           </div>
+
+          {/* 🔥 PERINGATAN KAPASITAS PENUH (MODAL MERAH) - Tampil hanya jika kondisi penuh */}
+          {isCapacityFull && selectedItem.key === "barak" && (
+            <div className="border-2 border-rose-400 bg-rose-50/80 rounded-xl p-5 space-y-3 mt-4">
+              <div className="flex items-center gap-3">
+                <div className="w-2.5 h-2.5 rounded-full animate-pulse bg-rose-600"></div>
+                <p className="text-sm font-black text-rose-800 uppercase tracking-wider">Kapasitas Penuh</p>
+              </div>
+              <div className="text-xs text-rose-700 space-y-1">
+                <p>
+                  Kapasitas Infanteri saat ini sudah penuh <span className="font-black">({capacityDisplay})</span>.
+                  Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.
+                </p>
+              </div>
+              {onNavigateToInfra && (
+                <button
+                  onClick={() => {
+                    // 🔥 Arahkan ke tab infrastruktur & beri highlight border hijau pada kartu Barak
+                    onNavigateToInfra("barak");
+                    onClose(); // Tutup modal info ini setelah redirect
+                  }}
+                  className="mt-2 w-full py-3 rounded-lg font-black text-xs uppercase tracking-wider transition-all bg-rose-600 text-white hover:bg-rose-700 shadow-md border border-rose-700"
+                >
+                  🏗️ Buka Tab Infrastruktur
+                </button>
+              )}
+            </div>
+          )}
         </div>
 
         <div className="px-8 py-6 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/30 flex justify-end relative z-10">

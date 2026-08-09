@@ -72,10 +72,9 @@ export default function KonfirmasiArmadaAktifModal({
   let infanteriWarningText = "";
   
   if (capacityType === "infanteri") {
-    // Use the passed `currentCapacity` (stored pasukan_infanteri) as the source of truth.
-    // Do NOT fall back to barak count here — the UI should show persisted infantry until barak increments.
-    const safeCurrentCapacity = Number(currentCapacity ?? 0);
-
+    // Jika currentCapacity adalah 0 (misal data pasukan belum tersimpan), gunakan fallback
+    const safeCurrentCapacity = currentCapacity > 0 ? currentCapacity : (currentBarakCount * BARAK_TO_SOLDIERS_MULTIPLIER);
+    
     infanteriCapacityFull = safeCurrentCapacity >= maxCapacity;
     infanteriCapacityDisplay = `${safeCurrentCapacity.toLocaleString('id-ID')} / ${maxCapacity.toLocaleString('id-ID')}`;
     infanteriWarningText = `Kapasitas Infanteri sudah penuh (${maxCapacity.toLocaleString('id-ID')} pasukan). Anda harus membangun Barak baru untuk menambah Infanteri lebih banyak.`;
@@ -143,6 +142,13 @@ export default function KonfirmasiArmadaAktifModal({
   const capacityDisplay = infanteriCapacityDisplay || hangarTankCapacityDisplay || gudangSenjataCapacityDisplay || pangkalanLautCapacityDisplay || pangkalanUdaraCapacityDisplay;
   const warningText = infanteriWarningText || hangarTankWarningText || gudangSenjataCapacityWarningText || pangkalanLautCapacityWarningText || pangkalanUdaraCapacityWarningText;
 
+  const handleNavigateToInfra = () => {
+    if (onNavigateToInfra) {
+      onNavigateToInfra('barak');
+    }
+    onClose();
+  };
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">
@@ -180,7 +186,7 @@ export default function KonfirmasiArmadaAktifModal({
               <div className="text-xs text-blue-800 space-y-1">
                 <div className="flex justify-between">
                   <span>Infanteri Saat Ini:</span>
-                  <span className="font-bold">{(Number(currentCapacity ?? 0)).toLocaleString('id-ID')} pasukan</span>
+                  <span className="font-bold">{(currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000).toLocaleString('id-ID')} pasukan</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Jumlah Barak:</span>
@@ -192,15 +198,32 @@ export default function KonfirmasiArmadaAktifModal({
                 </div>
                 <div className="flex justify-between">
                   <span>Sisa Kapasitas:</span>
-                  <span className={`font-bold ${(maxCapacity - Number(currentCapacity ?? 0)) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
-                    {Math.max(0, (maxCapacity - Number(currentCapacity ?? 0)))?.toLocaleString('id-ID')} pasukan
+                  <span className={`font-bold ${(maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000)) <= 0 ? 'text-rose-600' : 'text-emerald-600'}`}>
+                    {Math.max(0, (maxCapacity - (currentCapacity > 0 ? currentCapacity : currentBarakCount * 10000)))?.toLocaleString('id-ID')} pasukan
                   </span>
                 </div>
               </div>
             </div>
           )}
 
-          {/* 🔥 PERINGATAN KAPASITAS PENUH -> HILANG OTOMATIS KARENA capacityFull = false */}
+          {capacityFull && capacityType === "infanteri" && (
+            <div className="bg-rose-50 border border-rose-300 text-rose-900 rounded-2xl p-4 space-y-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-rose-100 text-rose-700 font-black">!</div>
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.2em]">Kapasitas Infanteri Penuh</p>
+                  <p className="text-xs leading-relaxed text-rose-800 mt-2">{warningText}</p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={handleNavigateToInfra}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-4 py-3 text-xs font-black uppercase text-white transition hover:bg-emerald-700"
+              >
+                Buka Tab Infrastruktur dan Sorot Barak
+              </button>
+            </div>
+          )}
 
           {buildingLabel !== "Pasukan Infanteri" && (
             <div className="bg-[#e4dac3]/20 border border-[#C4B49C]/30 rounded-xl p-4 space-y-2.5 text-xs text-[#5c3c10]">
