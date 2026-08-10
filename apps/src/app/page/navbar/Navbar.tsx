@@ -2,9 +2,10 @@
 
 import React from 'react';
 import {
-    Power, Users, Landmark, Save, RotateCcw, Smile
+    Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
+import { menuItems, subMenuItems } from '../navigasi_menu/navigationData';
 
 interface Country {
     id: number;
@@ -20,6 +21,7 @@ interface NavbarProps {
     selectedCountry: Country | null;
     countryDetail: any;
     netBalanceAdjustment?: number;
+    activeMenu?: string;
     onOpenGameMenu: () => void;
     onOpenSaveModal: () => void;
     onOpenRestartConfirm: () => void;
@@ -30,6 +32,7 @@ export function Navbar({
     selectedCountry,
     countryDetail,
     netBalanceAdjustment = 0,
+    activeMenu = 'Peta Taktis',
     onOpenGameMenu,
     onOpenSaveModal,
     onOpenRestartConfirm,
@@ -39,6 +42,57 @@ export function Navbar({
     const netBalance = calculateCountryNetBalance(countryDetail) + netBalanceAdjustment;
     const netBalanceColor = netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700';
     const netBalanceLabel = `${netBalance >= 0 ? '+ ' : '- '}${Math.abs(netBalance).toLocaleString('id-ID')}`;
+
+    // Function to get active menu information
+    const getActiveMenuInfo = () => {
+        if (activeMenu === 'Peta Taktis') {
+            return {
+                title: 'Peta Taktis',
+                icon: LayoutGrid,
+                isMainMenu: true,
+                mainCategory: null,
+                subItems: []
+            };
+        }
+
+        // Check if activeMenu is a main menu item
+        const mainMenuItem = menuItems.find(item => item.id === activeMenu);
+        if (mainMenuItem && subMenuItems[activeMenu]) {
+            return {
+                title: mainMenuItem.label,
+                icon: mainMenuItem.icon,
+                isMainMenu: true,
+                mainCategory: mainMenuItem,
+                subItems: subMenuItems[activeMenu]
+            };
+        }
+
+        // Check if activeMenu is a sub-menu item
+        for (const [mainId, subs] of Object.entries(subMenuItems)) {
+            const subItem = subs.find((sub: any) => activeMenu.startsWith(sub.id));
+            if (subItem) {
+                const mainItem = menuItems.find(item => item.id === mainId);
+                return {
+                    title: subItem.label,
+                    icon: subItem.icon,
+                    isMainMenu: false,
+                    mainCategory: mainItem,
+                    subItems: subs
+                };
+            }
+        }
+
+        // Default fallback
+        return {
+            title: 'Peta Taktis',
+            icon: LayoutGrid,
+            isMainMenu: true,
+            mainCategory: null,
+            subItems: []
+        };
+    };
+
+    const activeMenuInfo = getActiveMenuInfo();
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-70 pointer-events-auto bg-[#e6d8b9] border-b border-[#c4b49c] px-2 sm:px-6 lg:px-8 py-2 sm:py-3.5 flex items-center justify-between shadow-md min-h-[56px] sm:min-h-[64px] lg:min-h-[80px] select-none backdrop-blur-none">

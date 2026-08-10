@@ -1,4 +1,3 @@
-// 1_armada_aktif.tsx
 "use client"
 import React, { useState, useEffect } from "react";
 import { Swords, Ship, Plane, Info } from "lucide-react";
@@ -92,11 +91,7 @@ const addDays = (dateString: string, days: number): string => {
   return `${yy}-${mm}-${dd}`;
 };
 
-// Satu-satunya fungsi untuk mendapatkan tanggal "hari ini" dalam game,
-// dipakai baik untuk MEMBUAT (start/end) maupun untuk MENGECEK SELESAI-nya
-// sebuah pembangunan/rekrutmen. Prioritas: prop `currentDate` (dikontrol
-// oleh kalender simulasi di ArmadaModal / parent) > countryDetail.game_date
-// > tanggal sistem sekarang (fallback terakhir).
+// Satu-satunya fungsi untuk mendapatkan tanggal "hari ini" dalam game
 const getSafeDateString = (currentDate?: string | Date, gameDate?: string): string => {
   if (currentDate) {
     const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
@@ -182,21 +177,14 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
   const [selectedForBuild, setSelectedForBuild] = useState<{ key: string; label: string } | null>(null);
   const [isConfirmBuildOpen, setIsConfirmBuildOpen] = useState(false);
 
-  // SATU-SATUNYA fungsi sumber waktu pembangunan per unit — dipakai oleh
-  // preview modal (via prop waktuPembangunan) MAUPUN oleh handleConfirm.
-  // Karena keduanya memakai fungsi yang sama, hasilnya PASTI selalu sinkron.
   const buildTimeForKey = (key: string): number => {
     const meta = (armadaMetadata as Record<string, any>)[key];
     if (meta && typeof meta.waktu_pembangunan_armada_aktif === 'number') {
       return meta.waktu_pembangunan_armada_aktif;
     }
-    return 7; // fallback jika key tidak dikenal
+    return 7;
   };
 
-  // SATU-SATUNYA fungsi sumber biaya PER UNIT — dipakai oleh preview modal
-  // (via prop cost) MAUPUN oleh handleConfirm saat memotong kas negara.
-  // Karena keduanya memakai fungsi yang sama, biaya yang ditampilkan di
-  // modal dan biaya yang benar-benar dipotong dari kas negara PASTI sama.
   const costForKey = (key: string): number => {
     const meta = (armadaMetadata as Record<string, any>)[key];
     if (meta && typeof meta.biaya_pembangunan === 'number') {
@@ -205,27 +193,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     return 0;
   };
 
-  // PERBAIKAN BUG "+1 tidak hilang / angka tidak bertambah":
-  //
-  // SEBELUMNYA di sini ada:
-  //   const currentDate = countryDetail?.game_date ? new Date(countryDetail.game_date) : new Date();
-  //
-  // Variabel lokal `currentDate` itu MENIMPA (shadowing) prop `currentDate`
-  // yang dikirim dari parent (ArmadaModal -> kalender simulasi). Akibatnya
-  // effect ini SELALU membandingkan endDate terhadap `countryDetail.game_date`
-  // -- BUKAN terhadap tanggal simulasi yang sebenarnya berjalan maju (prop
-  // `currentDate`, yang terlihat di UI kalender kanan bawah). Kalau
-  // `countryDetail.game_date` tidak ikut di-update di tempat lain setiap
-  // hari berjalan, effect ini TIDAK PERNAH menganggap endDate sudah lewat.
-  //
-  // FIX:
-  //   1) Pakai `getSafeDateString(currentDate, countryDetail?.game_date)`
-  //      supaya prop `currentDate` (sumber kebenaran tanggal simulasi)
-  //      diprioritaskan, dan diberi nama variabel berbeda (`todayGameDate`)
-  //      supaya tidak lagi menimpa prop `currentDate`.
-  //   2) Tambahkan prop `currentDate` ke dependency array useEffect, supaya
-  //      effect ini benar-benar re-run setiap kali kalender simulasi maju,
-  //      bukan hanya saat `countryDetail.game_date` berubah.
   useEffect(() => {
     if (!countryDetail || !_setCountryDetail) return;
 
@@ -278,9 +245,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       updatedDetail.ongoingConstructions = updatedConstructions;
       _setCountryDetail(updatedDetail);
     }
-    // `currentDate` (prop) ditambahkan sebagai dependency supaya effect ini
-    // re-run setiap kalender simulasi maju, bukan hanya saat
-    // countryDetail?.game_date berubah.
   }, [countryDetail?.game_date, countryDetail?.ongoingConstructions, currentDate, _setCountryDetail]);
 
   const handleInfoClick = (key: string) => {
@@ -288,18 +252,6 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
     setIsInfoOpen(true);
   };
 
-  // PERBAIKAN UTAMA #2: handleConfirm sekarang MENGHORMATI jumlah (quantity)
-  // yang diminta di modal, dan waktu (days) dihitung dengan formula yang PERSIS
-  // SAMA dengan yang dipakai modal untuk preview (waktu per-unit x jumlah unit).
-  //
-  // PERBAIKAN UTAMA #3 (baru): biaya pembangunan sekarang dihitung
-  // (biaya per unit x quantity) dan BENAR-BENAR DIPOTONG dari kas negara
-  // (countryDetail.anggaran) saat pembangunan mulai -- bukan cuma tampilan
-  // di modal. Sebelumnya `cost` selalu di-hardcode 0 di sini dan `anggaran`
-  // tidak pernah disentuh, jadi pemain bisa membangun jumlah unit berapa
-  // pun tanpa uangnya benar-benar berkurang. Perekrutan infanteri ("barak")
-  // TETAP tidak dikenai biaya EM di alur ini, sesuai desain modal yang
-  // sudah ada sebelumnya (infanteri hanya dibatasi kapasitas Barak).
   const handleConfirm = (quantity: number = 1) => {
     if (!selectedForBuild) return;
     const key = selectedForBuild.key;
@@ -324,23 +276,15 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       return;
     }
 
-    // Hitung total biaya = biaya per unit (dari JSON metadata) x quantity.
-    // Infanteri dikecualikan dari biaya EM (konsisten dengan modal).
     const unitCost = costForKey(key);
     const totalCost = isRecruitment ? 0 : unitCost * quantity;
     const currentAnggaran = Number(countryDetail?.anggaran) || 0;
 
-    // Validasi ulang di sisi handleConfirm (bukan cuma di modal) supaya
-    // tetap aman meski tombol konfirmasi di modal ter-trigger dalam
-    // kondisi race/stale state.
     if (!isRecruitment && totalCost > currentAnggaran) {
       alert("Kas negara tidak cukup untuk membangun unit sejumlah ini.");
       return;
     }
 
-    // Formula waktu SAMA PERSIS dengan yang dipakai modal untuk preview:
-    // - Infanteri: ceil(quantity / 10000) * waktu per-batch barak
-    // - Selain infanteri: waktu per unit * jumlah unit yang diminta
     let days = 0;
     if (isRecruitment) {
       days = Math.ceil(quantity / 10000) * buildTimeForKey("barak");
@@ -356,15 +300,13 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       buildingKey: targetKey,
       label: selectedForBuild.label,
       quantity: quantity,
-      cost: totalCost, // sekarang menyimpan biaya TOTAL sebenarnya, bukan 0
+      cost: totalCost,
       startDate: currentDateStr,
       endDate: endDateStr,
       type: type,
       group: group
     });
 
-    // Potong kas negara sebesar totalCost saat pembangunan dimulai
-    // (dibayar di muka, bukan saat selesai).
     if (totalCost > 0) {
       updatedDetail.anggaran = currentAnggaran - totalCost;
     }
@@ -383,13 +325,28 @@ export default function ArmadaAktif({ countryDetail, setCountryDetail: _setCount
       {groupKeys.map((group) => {
         const Icon = groupMeta[group].icon;
 
+        // 🔥 PERBAIKAN LOGIKA DISINI: Hitung total kekuatan grup dari array unitBreakdown
+        const groupItemKeys = armadaCatalog[group].map((item) => item.key);
+        const totalGroupPower = unitBreakdown
+          .filter((item) => groupItemKeys.includes(item.dataKey))
+          .reduce((sum, item) => sum + (item.totalPower || 0), 0);
+
         return (
           <section key={group} className="space-y-4">
-            <div className="flex items-center gap-3">
-              <div className={`rounded-xl bg-gradient-to-br ${groupMeta[group].accent} p-2 text-white shadow-sm`}>
-                <Icon className="h-4 w-4" />
+            {/* 🔥 Header Grup dengan Total Kekuatan di sampingnya */}
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center gap-3">
+                <div className={`rounded-xl bg-gradient-to-br ${groupMeta[group].accent} p-2 text-white shadow-sm`}>
+                  <Icon className="h-4 w-4" />
+                </div>
+                <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#5c3c10]">{groupMeta[group].title}</h3>
               </div>
-              <h3 className="text-sm font-black uppercase tracking-[0.2em] text-[#5c3c10]">{groupMeta[group].title}</h3>
+
+              <div className="flex items-center gap-1.5 text-[10px] font-bold text-[#8b7e66] bg-white/80 px-3 py-1 rounded-full border border-[#C4B49C]/30 shadow-sm">
+                <Swords className="w-3 h-3 text-[#5c3c10]" />
+                <span>Total Kekuatan:</span>
+                <span className="text-[#5c3c10] font-black">{formatNumber(totalGroupPower)}</span>
+              </div>
             </div>
 
             {currentDate && (
