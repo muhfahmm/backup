@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useMemo, useState } from "react";
 import { X, Tag, Loader2 } from "lucide-react";
 
@@ -13,6 +13,7 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
   const [prices, setPrices] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [subsidyActive, setSubsidyActive] = useState(false);
 
   const countryName = countryDetail?.country || "";
   const anggaran = countryDetail?.anggaran || 0;
@@ -20,11 +21,34 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
 
   const priceOptions = useMemo(() => [10000, 25000, 50000, 75000, 100000], []);
 
+  // --- Fungsi menghitung indeks kepuasan berdasarkan keterjangkauan ---
+  const calculateSatisfaction = (currentPrices: Record<string, number>, subsidized: boolean) => {
+    const entries = Object.entries(currentPrices).filter(([key]) => key.startsWith("harga_"));
+    if (entries.length === 0) return 50; // default jika tidak ada data
+
+    const minPrice = 10000;  // harga termurah yang tersedia
+    const maxPrice = 100000; // harga termahal yang tersedia
+    let totalScore = 0;
+
+    for (const [, value] of entries) {
+      // Skor 100 jika harga <= minPrice, 0 jika harga >= maxPrice, linier di antaranya
+      let score = 100 - ((value - minPrice) / (maxPrice - minPrice)) * 100;
+      score = Math.min(100, Math.max(0, score));
+      totalScore += score;
+    }
+
+    let avgScore = totalScore / entries.length;
+    if (subsidized) avgScore = Math.min(100, avgScore + 5); // bonus subsidi
+    return Math.round(avgScore);
+  };
+
+  // --- Load data ---
   useEffect(() => {
     if (!isOpen || !countryName) return;
 
     if (countryDetail?.harga && Object.keys(countryDetail.harga).length > 0) {
       setPrices(countryDetail.harga);
+      setSubsidyActive(countryDetail?.subsidyActive || false);
       return;
     }
 
@@ -40,6 +64,7 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
           setCountryDetail({
             ...countryDetail,
             harga: defaultPrices,
+            subsidyActive: false,
           });
         } else {
           setPrices({});
@@ -57,14 +82,21 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
 
   if (!isOpen) return null;
 
+  const satisfaction = calculateSatisfaction(prices, subsidyActive);
+
   const handlePriceChange = (key: string, value: number) => {
     const updatedPrices = { ...prices, [key]: value };
     setPrices(updatedPrices);
+    const newSatisfaction = calculateSatisfaction(updatedPrices, subsidyActive);
     setCountryDetail({
       ...countryDetail,
       harga: updatedPrices,
       ...(key === 'harga_beras' ? { price_rice: value } : {}),
       ...(key === 'harga_minyak_goreng' ? { price_fuel: value } : {}),
+      satisfaction: {
+        ...(countryDetail?.satisfaction || {}),
+        priceControl: newSatisfaction,
+      },
     });
   };
 
@@ -73,10 +105,18 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
       alert("Kas negara tidak mencukupi untuk membiayai subsidi!");
       return;
     }
+    setSubsidyActive(true);
+    const newKepuasan = Math.min(100, kepuasan + 5.0);
+    const newSatisfaction = calculateSatisfaction(prices, true);
     setCountryDetail({
       ...countryDetail,
       anggaran: anggaran - 20000000,
-      kepuasan: Math.min(100, kepuasan + 5.0)
+      kepuasan: newKepuasan,
+      subsidyActive: true,
+      satisfaction: {
+        ...(countryDetail?.satisfaction || {}),
+        priceControl: newSatisfaction,
+      }
     });
     alert("Beras & Minyak Goreng disubsidi penuh (+5.0% Kepuasan Rakyat)!");
   };
@@ -123,6 +163,12 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
               <span>Kas Anggaran Negara:</span>
               <span>{anggaran.toLocaleString("id-ID")}</span>
             </div>
+            <div className="flex justify-between text-xs font-bold text-[#5c3c10] mt-1">
+              <span>Status Subsidi:</span>
+              <span className={subsidyActive ? "text-emerald-700" : "text-rose-700"}>
+                {subsidyActive ? "AKTIF" : "NONAKTIF"}
+              </span>
+            </div>
           </div>
 
           {loading ? (
@@ -149,7 +195,6 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
                     </div>
                   </div>
 
-                  {/* PERBAIKAN: Hapus elemen Input, hanya gunakan tombol opsi */}
                   <div className="flex flex-wrap gap-2">
                     {priceOptions.map((option) => (
                       <button
@@ -172,10 +217,44 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
 
           <button
             onClick={handleSubsidize}
-            className="w-full py-3 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer"
+            disabled={subsidyActive || anggaran < 20000000}
+            className={`w-full py-3 rounded-xl text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-sm text-xs font-black uppercase cursor-pointer ${
+              subsidyActive || anggaran < 20000000
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00]"
+            }`}
           >
-            Sponsori Subsidi Pasar (20.000.000 EM)
+            {subsidyActive ? "Subsidi Telah Diberikan" : "Sponsori Subsidi Pasar (20.000.000 EM)"}
           </button>
+
+          {/* ---- INDEKS KEPUASAN RAKYAT (HARGA) ---- */}
+          <div className="mt-6 p-5 rounded-xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-amber-50 to-amber-100/70 shadow-md">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">
+                Indeks Kepuasan Rakyat (Harga Pokok)
+              </span>
+              <span className="text-3xl font-black text-amber-700">
+                {satisfaction} / 100
+              </span>
+            </div>
+            <div className="w-full h-3 bg-gray-200 rounded-full mt-3 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-200"
+                style={{ width: `${satisfaction}%` }}
+              />
+            </div>
+            <p className="text-[10px] text-amber-700 font-bold mt-3">
+              {satisfaction >= 80
+                ? "✅ Harga pokok sangat terjangkau, rakyat puas."
+                : satisfaction >= 50
+                ? "⚠️ Harga masih cukup tinggi, perlu intervensi."
+                : "🔴 Harga terlalu mahal, rakyat kesulitan."}
+            </p>
+            <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80">
+              <div>Rata-rata skor keterjangkauan: <span className="font-bold">{satisfaction}%</span></div>
+              <div>Status subsidi: <span className="font-bold">{subsidyActive ? "AKTIF (+5 poin)" : "Tidak"}</span></div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -1,12 +1,12 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { fetchBuildingMetadata } from '../../../../../../lib/buildingMetadata';
 import { X, Home, TrendingUp, TrendingDown, Hammer, AlertCircle, Info } from "lucide-react";
 import InfoBangunanModal from "./1_modals_info_bangunan/info_bangunan_modals";
 import KonfirmasiPembangunanModal from "./2_modals_konfirmasi_pembangunan/modalsKonfirmasiPembangunan";
 import { useMaterialProduction, getMaterialStock as getMaterialStockFromBuildLogic, deductBuildingMaterials } from "../build_logic/build_logic";
 
-// 🟢 PERBAIKAN NAMA IMPOR AGAR KONSISTEN DENGAN NAMA FOLDER
+// 🟢 IMPOR REQUIREMENTS
 import * as perumahanSubsidiRequirements from "./requirements_logic/1_perumahan_subsidi/requirements";
 import * as apartemenRequirements from "./requirements_logic/2_apartement/requirements";
 import * as mansionRequirements from "./requirements_logic/3_mansion/requirements";
@@ -31,7 +31,6 @@ interface BuildingRequirements {
   requirements: MaterialRequirement[];
 }
 
-// 🟢 PERBAIKAN MAPPING MODULES
 const REQUIREMENTS_MODULES: Record<string, any> = {
   rumah_subsidi: perumahanSubsidiRequirements,
   perumahan_subsidi: perumahanSubsidiRequirements,
@@ -59,6 +58,25 @@ const CARD_TAB_MAP: Record<string, string> = {
 
 const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 const normalizeResourceKey = (key: string) => RESOURCE_KEY_ALIASES[key] || key;
+
+// Utility safeNumber & formatNumber
+const safeNumber = (value: any): number => {
+  if (value === null || value === undefined || value === '') return 0;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string') {
+    const normalized = value.replace(/\s+/g, '').replace(/,/g, '.').replace(/[^0-9.\-]/g, '');
+    if (normalized === '' || normalized === '-' || normalized === '.') return 0;
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const formatNumber = (value: any) => {
+  const parsed = safeNumber(value);
+  return Number.isFinite(parsed) ? parsed.toLocaleString('id-ID') : '0';
+};
 
 export default function HunianPermukimanModal({
   isOpen,
@@ -105,7 +123,6 @@ export default function HunianPermukimanModal({
 
   const getSelectedBuildingRequirements = (): BuildingRequirements | undefined => {
     if (!selectedBuilding) return undefined;
-    // 🟢 PERBAIKAN: Ambil data berdasarkan selectedBuilding.key dengan fallback yang lebih rapi
     const module = REQUIREMENTS_MODULES[activeTab];
     return module?.findRequirements?.(selectedBuilding.key) || module?.findRequirements?.(activeTab);
   };
@@ -209,8 +226,65 @@ export default function HunianPermukimanModal({
 
   const activeItem = items.find((it) => it.key === activeTab) || items[0];
   const totalValue = items.reduce((sum, item) => sum + item.value, 0);
+  const population = safeNumber(countryDetail?.jumlah_penduduk);
 
-  // --- LOGIKA PRODUKSI & KONSUMSI LISTRIK ---
+  // --- Hitung total kapasitas ---
+  const totalCapacity = useMemo(() => {
+    let cap = 0;
+    HUNIAN_KEYS.forEach((key) => {
+      const count = Number(countryDetail?.[key]) || 0;
+      const meta = findMeta(key);
+      const capacity = Number(meta?.kapasitas) || 0;
+      cap += count * capacity;
+    });
+    return cap;
+  }, [countryDetail, metadata]);
+
+  const shortage = Math.max(0, population - totalCapacity);
+  const isSufficient = totalCapacity >= population;
+  const percentageMet = population > 0 ? Math.min(100, (totalCapacity / population) * 100) : 0;
+
+  const capacityBreakdown = useMemo(() => {
+    return HUNIAN_KEYS.map((key) => {
+      const count = Number(countryDetail?.[key]) || 0;
+      const meta = findMeta(key);
+      const capacity = Number(meta?.kapasitas) || 0;
+      const total = count * capacity;
+      return {
+        key,
+        label: labels[key]?.label || key,
+        count,
+        capacityPerUnit: capacity,
+        totalCapacity: total,
+        percentage: population > 0 ? (total / population) * 100 : 0,
+      };
+    });
+  }, [countryDetail, metadata, population]);
+
+  // --- Indeks kepuasan perumahan (berdasarkan rasio kapasitas vs populasi) ---
+  const housingSatisfaction = useMemo(() => {
+    if (population <= 0) return 50;
+    const idealCapacity = population; // idealnya kapasitas minimal sama dengan populasi
+    if (totalCapacity <= 0) return 1;
+    const ratio = Math.min(totalCapacity / idealCapacity, 2);
+    let score = (ratio / 2) * 100;
+    score = Math.min(100, Math.max(1, Math.round(score)));
+    return score;
+  }, [totalCapacity, population]);
+
+  useEffect(() => {
+    if (setCountryDetail && countryDetail) {
+      setCountryDetail({
+        ...countryDetail,
+        satisfaction: {
+          ...(countryDetail?.satisfaction || {}),
+          housing: housingSatisfaction,
+        }
+      });
+    }
+  }, [housingSatisfaction]);
+
+  // --- LOGIKA LISTRIK (tetap) ---
   const ELECTRICITY_BUILDINGS_LIST = [
     'pembangkit_listrik_tenaga_nuklir',
     'pembangkit_listrik_tenaga_air',
@@ -349,8 +423,6 @@ export default function HunianPermukimanModal({
                     </div>
 
                     <div className="bg-white/90 border border-[#C4B49C]/30 rounded-3xl p-6 shadow-sm max-w-sm relative overflow-visible">
-                      
-                      {/* MODAL INFO BANGUNAN */}
                       {hoveredBuildingKey === activeItem.key && (() => {
                         const bMeta = findMeta(activeItem.key) || {};
                         const perCount = activeItem.value || 0;
@@ -398,39 +470,140 @@ export default function HunianPermukimanModal({
               </div>
 
               {/* FOOTER STATISTIK */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 border-t-2 border-[#C4B49C]/20 pt-6">
-                <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/70 p-4">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Total Keseluruhan Unit Hunian</p>
-                  <p className="text-2xl font-black text-[#2e261a] mt-1">{totalValue.toLocaleString('id-ID')}</p>
+              <div className="mt-8 border-t-2 border-[#C4B49C]/20 pt-6 space-y-4">
+                {/* Ringkasan total unit & populasi */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/70 p-4">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Total Keseluruhan Unit Hunian</p>
+                    <p className="text-2xl font-black text-[#2e261a] mt-1">{totalValue.toLocaleString('id-ID')}</p>
+                  </div>
+                  <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/70 p-4">
+                    <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Populasi</p>
+                    <p className="text-2xl font-black text-[#2e261a] mt-1">{formatNumber(population)} Jiwa</p>
+                  </div>
                 </div>
-                <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/70 p-4">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Informasi Wilayah</p>
-                  <p className="text-xs text-[#8b7e66] mt-1">Data hunian direkap dari registrasi kepemilikan dan pajak bumi bangunan.</p>
-                </div>
-              </div>
 
-              {/* RINGKASAN KONSUMSI LISTRIK SEKTOR */}
-              {activeItem && (() => {
-                const bMeta = findMeta(activeItem.key);
-                const count = Number(countryDetail?.[activeItem.key]) || 0;
-                const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
-                const categoryElectricityConsumption = count * konsumsiUnit;
+                {/* 🏠 CARD KAPASITAS HUNIAN */}
+                <div className="rounded-2xl border-2 border-[#C4B49C]/50 bg-gradient-to-r from-[#e4dac3]/30 to-[#FAF6EE] p-6 shadow-sm">
+                  <div className="flex items-center gap-2 mb-4">
+                    <Home className="h-5 w-5 text-[#5c3c10]" />
+                    <h4 className="text-sm font-black uppercase tracking-widest text-[#5c3c10]">📊 Kapasitas Hunian vs Kebutuhan</h4>
+                  </div>
 
-                return (
-                  <div className="mt-4 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
-                        ⚡ Total Konsumsi Listrik {activeItem.label}
-                      </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div className="bg-white/80 rounded-xl p-3 border border-[#C4B49C]/20">
+                      <p className="text-[9px] font-bold uppercase text-[#8b7e66]">Total Kapasitas</p>
+                      <p className="text-xl font-black text-emerald-700">{totalCapacity.toLocaleString('id-ID')} orang</p>
                     </div>
-                    <div className="px-4 py-1.5 rounded-lg bg-pink-300 border-pink-400">
-                      <span className="text-sm font-black text-pink-900">
-                        {categoryElectricityConsumption.toLocaleString('id-ID')} MW
-                      </span>
+                    <div className="bg-white/80 rounded-xl p-3 border border-[#C4B49C]/20">
+                      <p className="text-[9px] font-bold uppercase text-[#8b7e66]">Kebutuhan (Populasi)</p>
+                      <p className="text-xl font-black text-[#2e261a]">{population.toLocaleString('id-ID')} orang</p>
+                    </div>
+                    <div className={`bg-white/80 rounded-xl p-3 border ${isSufficient ? 'border-emerald-300' : 'border-rose-300'}`}>
+                      <p className="text-[9px] font-bold uppercase text-[#8b7e66]">Kekurangan / Surplus</p>
+                      <p className={`text-xl font-black ${isSufficient ? 'text-emerald-700' : 'text-rose-700'}`}>
+                        {isSufficient 
+                          ? `+${(totalCapacity - population).toLocaleString('id-ID')} (surplus)` 
+                          : `-${shortage.toLocaleString('id-ID')} (kurang)`}
+                      </p>
+                    </div>
+                    <div className="bg-white/80 rounded-xl p-3 border border-[#C4B49C]/20">
+                      <p className="text-[9px] font-bold uppercase text-[#8b7e66]">Keterpenuhan</p>
+                      <p className={`text-xl font-black ${percentageMet >= 100 ? 'text-emerald-700' : 'text-amber-600'}`}>
+                        {percentageMet.toFixed(1)}%
+                      </p>
                     </div>
                   </div>
-                );
-              })()}
+
+                  {/* Breakdown per tipe */}
+                  <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {capacityBreakdown.map((item) => (
+                      <div key={item.key} className="bg-white/70 rounded-xl p-3 border border-[#C4B49C]/20">
+                        <p className="text-[10px] font-black uppercase text-[#5c3c10]">{item.label}</p>
+                        <div className="flex justify-between text-xs mt-1">
+                          <span className="text-[#8b7e66]">Unit</span>
+                          <span className="font-bold text-[#2e261a]">{item.count.toLocaleString('id-ID')}</span>
+                        </div>
+                        <div className="flex justify-between text-xs">
+                          <span className="text-[#8b7e66]">Kapasitas/unit</span>
+                          <span className="font-bold text-[#2e261a]">{item.capacityPerUnit} org</span>
+                        </div>
+                        <div className="flex justify-between text-xs font-black border-t border-[#C4B49C]/20 mt-1 pt-1">
+                          <span className="text-[#8b7e66]">Total kapasitas</span>
+                          <span className="text-emerald-700">{item.totalCapacity.toLocaleString('id-ID')}</span>
+                        </div>
+                        <div className="w-full bg-gray-200 rounded-full h-1.5 mt-1">
+                          <div
+                            className="h-1.5 rounded-full bg-[#5c3c10]"
+                            style={{ width: `${Math.min(100, item.percentage)}%` }}
+                          />
+                        </div>
+                        <p className="text-[9px] text-[#8b7e66] mt-0.5">{item.percentage.toFixed(1)}% dari populasi</p>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className={`mt-4 p-3 rounded-xl text-xs font-bold ${isSufficient ? 'bg-emerald-50 border border-emerald-300 text-emerald-800' : 'bg-rose-50 border border-rose-300 text-rose-800'}`}>
+                    {isSufficient 
+                      ? `✅ Kapasitas hunian mencukupi untuk seluruh populasi. Tersedia kelebihan ${(totalCapacity - population).toLocaleString('id-ID')} tempat.`
+                      : `⚠️ Masih terdapat kekurangan ${shortage.toLocaleString('id-ID')} tempat hunian. ${Math.round(100 - percentageMet)}% populasi belum terakomodasi.`}
+                  </div>
+                </div>
+
+                {/* 🔥 INDEKS KEPUASAN PERUMAHAN */}
+                <div className="p-5 rounded-xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-amber-50 to-amber-100/70 shadow-md">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">
+                      Indeks Kepuasan Rakyat (Perumahan)
+                    </span>
+                    <span className="text-3xl font-black text-amber-700">
+                      {housingSatisfaction} / 100
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-gray-200 rounded-full mt-3 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-200"
+                      style={{ width: `${housingSatisfaction}%` }}
+                    />
+                  </div>
+                  <p className="text-[10px] text-amber-700 font-bold mt-3">
+                    {housingSatisfaction >= 80
+                      ? "✅ Kapasitas hunian mencukupi, rakyat memiliki tempat tinggal layak."
+                      : housingSatisfaction >= 50
+                      ? "⚠️ Ketersediaan hunian masih terbatas, perlu pembangunan lebih banyak."
+                      : "🔴 Krisis perumahan, banyak warga belum memiliki tempat tinggal."}
+                  </p>
+                  <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80">
+                    <div>Kapasitas per kapita: <span className="font-bold">
+                      {population > 0 ? (totalCapacity / population).toFixed(2) : 'N/A'}
+                    </span></div>
+                    <div>Persentase keterpenuhan: <span className="font-bold">{percentageMet.toFixed(1)}%</span></div>
+                  </div>
+                </div>
+
+                {/* RINGKASAN KONSUMSI LISTRIK SEKTOR */}
+                {activeItem && (() => {
+                  const bMeta = findMeta(activeItem.key);
+                  const count = Number(countryDetail?.[activeItem.key]) || 0;
+                  const konsumsiUnit = Number(bMeta?.konsumsi_listrik) || 0;
+                  const categoryElectricityConsumption = count * konsumsiUnit;
+
+                  return (
+                    <div className="mt-4 p-4 rounded-xl bg-[#FAF6EE] border-2 border-[#C4B49C]/40 flex items-center justify-between shadow-sm">
+                      <div className="flex items-center gap-2">
+                        <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">
+                          ⚡ Total Konsumsi Listrik {activeItem.label}
+                        </span>
+                      </div>
+                      <div className="px-4 py-1.5 rounded-lg bg-pink-300 border-pink-400">
+                        <span className="text-sm font-black text-pink-900">
+                          {categoryElectricityConsumption.toLocaleString('id-ID')} MW
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })()}
+              </div>
             </div>
           </div>
         </div>
@@ -439,6 +612,7 @@ export default function HunianPermukimanModal({
       {/* TOAST */}
       {toast && <div className="fixed bottom-6 right-6 z-[80] bg-[#5c3c10] text-[#FAF6EE] px-4 py-2 rounded-lg shadow-md">{toast}</div>}
       
+      {/* KONFIRMASI PEMBANGUNAN */}
       {showConfirm && selectedBuilding && (() => {
         const bMeta = metadata[selectedBuilding.key] || {};
         const cost = Number(bMeta.biaya_pembangunan) || 0;
@@ -448,7 +622,6 @@ export default function HunianPermukimanModal({
           (mat) => getMaterialStock(mat.resourceKey) <= 0
         );
 
-        // Buat object stok material
         const materialStocks: Record<string, number> = {};
         requirements.forEach((mat) => {
           materialStocks[mat.resourceKey] = getMaterialStock(mat.resourceKey);
@@ -474,7 +647,7 @@ export default function HunianPermukimanModal({
         );
       })()}
 
-      {/* MODAL PERINGATAN MATERIAL KURANG */}
+      {/* MODAL PERINGATAN MATERIAL */}
       {showMaterialWarningModal && insufficientMaterials.length > 0 && (
         <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-transparent pointer-events-none">
           <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-lg overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto">

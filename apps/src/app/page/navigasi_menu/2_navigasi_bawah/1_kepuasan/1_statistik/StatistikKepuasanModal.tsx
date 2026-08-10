@@ -2,6 +2,23 @@
 
 import { useState } from "react";
 import { X, Smile, TrendingUp, Landmark, Coins, Apple, Plug, Home } from "lucide-react";
+import {
+  calculateSectoralSatisfaction,
+  calculateGeneralSatisfaction,
+  type PopulationSectoral,
+} from "@/app/logic/populations_logic/population_logic";
+
+interface CountryDetail {
+  rata_rata_pajak?: number;
+  living_cost_index?: number;
+  indeks_ketahanan_pangan?: number;
+  surplus_listrik?: number;
+  tingkat_hunian_layak?: number;
+  harapan_hidup?: number;
+  tingkat_keamanan?: number;
+  inisiatif_aktif?: { nama: string; boost: number }[];
+  [key: string]: any;
+}
 
 interface StatistikKepuasanModalProps {
   isOpen: boolean;
@@ -21,44 +38,50 @@ export default function StatistikKepuasanModal({
   
   if (!isOpen) return null;
 
-  const generalSatisfaction = countryDetail?.kepuasan ?? 50.0;
+  const generalSatisfaction = calculateGeneralSatisfaction(countryDetail);
+  const sektoral = calculateSectoralSatisfaction(countryDetail);
 
   // Sektor-sektor yang diminta
   const sectors = [
     { 
       name: "Pajak", 
-      score: 50, 
+      score: Math.round(sektoral.pajak), 
       icon: Landmark, 
       color: "text-emerald-600", 
-      desc: "Daya beli masyarakat dan beban pajak." 
+      desc: "Daya beli masyarakat dan beban pajak.",
+      menuId: "Menu:Pajak"
     },
     { 
       name: "Harga Barang Pokok", 
-      score: 50, 
+      score: Math.round(sektoral.harga), 
       icon: Coins, 
       color: "text-amber-600", 
-      desc: "Stabilitas harga bahan kebutuhan sehari-hari." 
+      desc: "Stabilitas harga bahan kebutuhan sehari-hari.",
+      menuId: "Menu:Harga"
     },
     { 
       name: "Produksi Pangan", 
-      score: 50, 
+      score: Math.round(sektoral.pangan), 
       icon: Apple, 
       color: "text-green-600", 
-      desc: "Ketersediaan dan ketahanan pangan nasional." 
+      desc: "Ketersediaan dan ketahanan pangan nasional.",
+      menuId: "Menu:IndustriPangan"
     },
     { 
       name: "Produksi Listrik", 
-      score: 50, 
+      score: Math.round(sektoral.listrik), 
       icon: Plug, 
       color: "text-blue-600", 
-      desc: "Keseimbangan pasokan dan permintaan energi listrik." 
+      desc: "Keseimbangan pasokan dan permintaan energi listrik.",
+      menuId: "Menu:Kelistrikan"
     },
     { 
       name: "Hunian Permukiman", 
-      score: 50, 
+      score: Math.round(sektoral.hunian), 
       icon: Home, 
       color: "text-rose-600", 
-      desc: "Ketersediaan rumah layak huni dan akses perumahan." 
+      desc: "Ketersediaan rumah layak huni dan akses perumahan.",
+      menuId: "Menu:HunianPermukiman"
     }
   ];
 
@@ -117,7 +140,7 @@ export default function StatistikKepuasanModal({
                 </div>
               </div>
               <div className="text-center md:text-right bg-[#FAF6EE] border-2 border-[#C4B49C]/30 px-6 py-4 rounded-xl shadow-inner min-w-[140px]">
-                <p className="text-4xl font-black text-[#2e261a] tracking-tight leading-none">{generalSatisfaction}%</p>
+                <p className="text-4xl font-black text-[#2e261a] tracking-tight leading-none">{Math.round(generalSatisfaction)}%</p>
                 <p className="text-[10px] text-emerald-700 font-bold uppercase tracking-widest mt-1 flex items-center justify-center md:justify-end gap-1">
                   <TrendingUp className="h-3 w-3" /> Stabil
                 </p>
@@ -138,8 +161,12 @@ export default function StatistikKepuasanModal({
                 {sectors.map((sector, idx) => {
                   const Icon = sector.icon;
                   return (
-                    <div key={idx} className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex gap-4 transition-all hover:bg-[#e4dac3]/10 shadow-sm relative overflow-hidden group">
-                      <div className={`p-3 rounded-xl bg-black/5 border border-black/5 ${sector.color} self-start`}>
+                    <button
+                      key={idx}
+                      onClick={() => setActiveMenu?.(sector.menuId)}
+                      className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex gap-4 transition-all hover:border-[#5c3c10] hover:bg-[#e4dac3]/10 hover:shadow-md active:bg-[#e4dac3]/20 shadow-sm relative overflow-hidden group cursor-pointer text-left"
+                    >
+                      <div className={`p-3 rounded-xl bg-black/5 border border-black/5 ${sector.color} self-start group-hover:bg-black/10 transition-colors`}>
                         <Icon size={20} />
                       </div>
                       <div className="flex-1 space-y-2">
@@ -154,7 +181,7 @@ export default function StatistikKepuasanModal({
                           {sector.desc}
                         </p>
                       </div>
-                    </div>
+                    </button>
                   );
                 })}
               </div>

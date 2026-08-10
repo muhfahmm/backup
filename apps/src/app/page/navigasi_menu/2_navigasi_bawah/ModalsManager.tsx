@@ -17,6 +17,7 @@ import KelistrikanModal from "./3_produksi_konsumsi/1_grid_nasional/KelistrikanM
 import IndustriPanganModal from "./3_produksi_konsumsi/2_industri_pangan/IndustriPanganModal";
 
 // 4. Ekonomi
+import EkonomiDashboardModal from "./4_ekonomi/EkonomiDashboardModal";
 import PerdaganganModal from "./4_ekonomi/1_perdagangan/PerdaganganModal";
 import PajakModal from "./4_ekonomi/2_manajemen_pajak/PajakModal";
 import HutangModal from "./4_ekonomi/3_peminjaman_hutang/HutangModal";
@@ -201,6 +202,16 @@ function ModalsManager({
       );
 
     // 4. Ekonomi
+    case "Menu:Ekonomi":
+      return (
+        <EkonomiDashboardModal
+          isOpen={true}
+          onClose={onClose}
+          setActiveMenu={setActiveMenu}
+          countryDetail={countryDetail}
+          selectedCountry={selectedCountry}
+        />
+      );
     case "Menu:Perdagangan":
       return (
         <PerdaganganModal

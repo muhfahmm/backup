@@ -82,6 +82,24 @@ export default function PajakModal({
     countryDetail?.pajak?.lingkungan?.tarif,
   ]);
 
+  // ---- FUNGSI MENGHITUNG INDEKS KEPUASAN ----
+  const calculateSatisfaction = (rates: typeof tempRates) => {
+    const { vat, corporate_tax, income_tax, cigarette_tax, environment_tax } = rates;
+    const avgRate = (vat + corporate_tax + income_tax + cigarette_tax + environment_tax) / 5;
+    const total = calculateIncomeAtRate(vat, 1000) +
+                  calculateIncomeAtRate(corporate_tax, 1000) +
+                  calculateIncomeAtRate(income_tax, 1000) +
+                  calculateIncomeAtRate(cigarette_tax, 1000) +
+                  calculateIncomeAtRate(environment_tax, 1000);
+    const maxIncome = 5 * 1000; // 5000 EM
+    // Kepuasan = 100 - rata-rata tarif + (pendapatan / maxPendapatan * 20)
+    let satisfaction = 100 - avgRate + (total / maxIncome) * 20;
+    // Clamp antara 1 dan 100
+    return Math.min(100, Math.max(1, Math.round(satisfaction)));
+  };
+
+  const satisfaction = calculateSatisfaction(tempRates);
+
   const handleTaxChange = (taxId: string, nextVal: number) => {
     const updatedRates = {
       ...tempRates,
@@ -89,7 +107,8 @@ export default function PajakModal({
     };
     setTempRates(updatedRates);
 
-    // Update countryDetail dengan nilai baru
+    // Update countryDetail dengan nilai baru dan indeks kepuasan
+    const newSatisfaction = calculateSatisfaction(updatedRates);
     setCountryDetail({
       ...countryDetail,
       income_tax:
@@ -135,10 +154,15 @@ export default function PajakModal({
             ? { ...(countryDetail?.pajak?.lingkungan || {}), tarif: nextVal }
             : countryDetail?.pajak?.lingkungan,
       },
+      // Simpan indeks kepuasan ke dalam countryDetail (gunakan key 'satisfaction' dengan subkey 'tax')
+      satisfaction: {
+        ...(countryDetail?.satisfaction || {}),
+        tax: newSatisfaction,
+      },
     });
   };
 
-  // Hitung total pendapatan dari semua pajak
+  // Hitung total pendapatan dari semua pajak (untuk ditampilkan)
   const totalIncome =
     calculateIncomeAtRate(tempRates.vat, 1000) +
     calculateIncomeAtRate(tempRates.corporate_tax, 1000) +
@@ -341,6 +365,35 @@ export default function PajakModal({
             <p className="text-[10px] text-emerald-600 font-bold mt-2">
               Pendapatan bulanan dari semua pajak nasional
             </p>
+          </div>
+
+          {/* ---- INDEKS KEPUASAN RAKYAT ---- */}
+          <div className="mt-6 p-5 rounded-xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-amber-50 to-amber-100/70 shadow-md">
+            <div className="flex justify-between items-center">
+              <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">
+                Indeks Kepuasan Rakyat (Pajak)
+              </span>
+              <span className="text-3xl font-black text-amber-700">
+                {satisfaction} / 100
+              </span>
+            </div>
+            <div className="w-full h-3 bg-gray-200 rounded-full mt-3 overflow-hidden">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-200"
+                style={{ width: `${satisfaction}%` }}
+              />
+            </div>
+            <p className="text-[10px] text-amber-700 font-bold mt-3">
+              {satisfaction >= 80
+                ? "✅ Rakyat puas dengan beban pajak dan manfaat yang dirasakan."
+                : satisfaction >= 50
+                ? "⚠️ Beban pajak cukup berat, perlu perbaikan layanan publik."
+                : "🔴 Pajak terlalu tinggi atau pendapatan negara kurang dirasakan manfaatnya."}
+            </p>
+            <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80">
+              <div>Rata-rata tarif: <span className="font-bold">{(tempRates.vat + tempRates.corporate_tax + tempRates.income_tax + tempRates.cigarette_tax + tempRates.environment_tax) / 5}%</span></div>
+              <div>Total pendapatan: <span className="font-bold">{totalIncome.toLocaleString("id-ID")} EM</span></div>
+            </div>
           </div>
         </div>
       </div>

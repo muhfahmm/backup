@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect, useMemo } from "react";
 import {
   X, Plus, Globe, User, Search, ChevronUp, ChevronDown, ChevronRight, ChevronDown as ChevronDownIcon, Utensils, Info,
@@ -15,11 +15,11 @@ import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_prof
 
 // 🔥 IMPOR MODAL DAN LOGIKA
 import AISuggestModal from "./AI_suggest_modals";
-import AIDetailDefisitModal from "./AI_detail_defisit"; // <-- File Baru
+import AIDetailDefisitModal from "./AI_detail_defisit";
 import { 
   SECTOR_MAP, 
   generateSectorAnalysis, 
-  calculateDeficitRecommendation // <-- Logika Baru
+  calculateDeficitRecommendation
 } from "./logic/AI_suggestionsLogic";
 
 interface ModalProps {
@@ -77,7 +77,7 @@ const normalizePopulationFromProfile = (country: any, profileMap: Map<string, nu
   return 0;
 };
 
-export default function IndustriPanganModal({ isOpen, onClose, countryDetail, metadata, onGotoProduction, prefetchedAllCountries }: ModalProps) {
+export default function IndustriPanganModal({ isOpen, onClose, countryDetail, setCountryDetail, metadata, onGotoProduction, prefetchedAllCountries }: ModalProps) {
   const [activeTab, setActiveTab] = useState<"my" | "global">("my");
   const [allCountries, setAllCountries] = useState<any[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
@@ -87,7 +87,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   // 🔥 STATE UNTUK AI DETAIL DEFISIT
   const [aiSectorAnalysis, setAiSectorAnalysis] = useState<{ sectorId: string; sectorLabel: string; totalDeficit: number; totalSurplus: number; commodities: { key: string; label: string; balance: number; isDeficit: boolean; isSurplus: boolean; }[]; } | null>(null);
-  const [deficitDetailData, setDeficitDetailData] = useState<any>(null); // Menampung data rekomendasi
+  const [deficitDetailData, setDeficitDetailData] = useState<any>(null);
 
   const profilePopulationMap = useMemo(() => {
     const map = new Map<string, number>();
@@ -119,6 +119,43 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
 
   const population = normalizePopulationFromProfile(countryDetail, profilePopulationMap);
 
+  // --- HITUNG INDEKS KEPUASAN PANGAN ---
+  const foodSatisfaction = useMemo(() => {
+    if (!countryDetail || !metadata) return 50; // default
+    const allKeys = Object.keys(FOOD_CONSUMPTION_PER_CAPITA);
+    let totalRatio = 0;
+    let count = 0;
+    for (const key of allKeys) {
+      const prod = calculateProduction(key, countryDetail, metadata);
+      const cons = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
+      if (cons > 0) {
+        const ratio = prod / cons;
+        // Batasi rasio maksimal 2 agar tidak terlalu ekstrem
+        totalRatio += Math.min(ratio, 2);
+        count++;
+      }
+    }
+    if (count === 0) return 50;
+    const avgRatio = totalRatio / count;
+    // petakan avgRatio dari 0..2 ke 1..100
+    let score = (avgRatio / 2) * 100;
+    score = Math.min(100, Math.max(1, Math.round(score)));
+    return score;
+  }, [countryDetail, metadata, population]);
+
+  // Simpan indeks ke countryDetail agar bisa diakses dashboard
+  useEffect(() => {
+    if (setCountryDetail && countryDetail) {
+      setCountryDetail({
+        ...countryDetail,
+        satisfaction: {
+          ...(countryDetail?.satisfaction || {}),
+          food: foodSatisfaction,
+        }
+      });
+    }
+  }, [foodSatisfaction]);
+
   const COMMODITY_PRODUCTION_TAB_MAP: Record<string, string> = {
     ayam_unggas: 'peternakan', sapi_potong: 'peternakan', sapi_perah: 'peternakan', domba_kambing: 'peternakan',
     padi: 'agrikultur', gandum: 'agrikultur', jagung: 'agrikultur', sayur: 'agrikultur', umbi: 'agrikultur', kedelai: 'agrikultur', kelapa_sawit: 'agrikultur', kopi: 'agrikultur', teh: 'agrikultur', kakao: 'agrikultur', tebu: 'agrikultur', karet: 'agrikultur',
@@ -138,7 +175,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
     onGotoProduction(targetTab, commodityKey);
   };
 
-  // 🔥 FUNGSI SAAT USER MENEKAN IKON MERAH (!)
   const handleDeficitClick = (commodityKey: string) => {
     const recommendation = calculateDeficitRecommendation(commodityKey, countryDetail, metadata, population);
     if (recommendation) {
@@ -222,7 +258,7 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
         totalSurplus={aiSectorAnalysis?.totalSurplus || 0}
         commodities={aiSectorAnalysis?.commodities || []}
         onCommodityClick={handleCommodityClick}
-        onDeficitClick={handleDeficitClick} // 🔥 Mengirim callback klik merah
+        onDeficitClick={handleDeficitClick}
       />
 
       {selectedCommodityInfo && (
@@ -237,7 +273,6 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                 <X className="w-4 h-4" />
               </button>
             </div>
-            {/* ... (sisa UI konsumsi sebelumnya tetap sama) ... */}
             <div className="p-5 space-y-3 text-xs text-[#5c3c10]">
               <div className="rounded-xl bg-[#f7f3e8] p-3 border border-[#C4B49C]/20">
                 <div className="flex justify-between items-center">
@@ -340,6 +375,38 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, me
                     </div>
                   );
                 })}
+
+                {/* 🔥 INDEKS KEPUASAN PANGAN */}
+                <div className="p-5 rounded-xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-amber-50 to-amber-100/70 shadow-md">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-black text-[#5c3c10] uppercase tracking-widest">
+                      Indeks Kepuasan Rakyat (Pangan)
+                    </span>
+                    <span className="text-3xl font-black text-amber-700">
+                      {foodSatisfaction} / 100
+                    </span>
+                  </div>
+                  <div className="w-full h-3 bg-gray-200 rounded-full mt-3 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-200"
+                      style={{ width: `${foodSatisfaction}%` }}
+                    />
+                  </div>
+                  <p className="text-[10px] text-amber-700 font-bold mt-3">
+                    {foodSatisfaction >= 80
+                      ? "✅ Ketersediaan pangan mencukupi, rakyat sejahtera."
+                      : foodSatisfaction >= 50
+                      ? "⚠️ Ketersediaan pangan pas-pasan, perlu peningkatan produksi."
+                      : "🔴 Defisit pangan parah, rakyat terancam kelaparan."}
+                  </p>
+                  <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80">
+                    <div>Rata-rata rasio produksi/konsumsi: <span className="font-bold">
+                      {(foodSatisfaction / 100 * 2).toFixed(2)}
+                    </span></div>
+                    <div>Populasi: <span className="font-bold">{formatNumber(population)} jiwa</span></div>
+                  </div>
+                </div>
+
                 <div className="p-4 rounded-xl bg-[#e4dac3]/40 border-2 border-[#C4B49C]/50 flex justify-between items-center shadow-sm"><div className="flex items-center gap-2 text-[#5c3c10] font-black text-xs uppercase tracking-wider">👥 Total Populasi & Kebutuhan Pangan Harian</div><div className="px-4 py-1.5 rounded-lg bg-[#5c3c10] text-[#FAF6EE]"><span className="text-xs font-black tracking-wider">{formatNumber(population)} Jiwa</span></div></div>
               </div>
             ) : (
