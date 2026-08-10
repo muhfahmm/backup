@@ -108,7 +108,7 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
   return (
     <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 cursor-not-allowed z-[200] ${isOtherModalOpen ? 'opacity-50' : 'opacity-100'
       }`}>
-      <nav className={`flex items-center gap-2 bg-[#FAF6EE] px-2.5 py-2 rounded-2xl border-2 border-[#C4B49C] shadow-2xl transition-all duration-500 ease-in-out ${isMenuSelected ? 'min-w-[320px]' : ''}`}>
+      <nav className={`flex items-center gap-2 bg-[#FAF6EE] px-2.5 py-2 rounded-2xl border-2 border-[#C4B49C] shadow-2xl transition-all duration-500 ease-in-out overflow-visible ${isMenuSelected ? 'min-w-[320px]' : ''}`}>
 
         {/* Main Navigation Section */}
         <div className="flex items-center gap-2">
@@ -125,7 +125,7 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
                 <button
                   onClick={() => isMap ? handleFullReset() : handleMainClick(item.id)}
                   className={`px-4 py-3 rounded-xl cursor-pointer transition-all duration-300 flex items-center gap-2.5 justify-center ${isActive
-                    ? "bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border border-[#5c3c10]/20 shadow-md scale-105 min-w-[7rem]"
+                    ? "bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border border-[#5c3c10]/20 shadow-md scale-105"
                     : isMap
                       ? "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#e4dac3]/40"
                       : "text-[#8b7e66] hover:text-[#5c3c10] hover:bg-[#e4dac3]/40"
@@ -151,22 +151,22 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
 
         {/* Sub-Menu Extension Section */}
         {isMenuSelected && currentSubItems?.length > 0 && (
-          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar max-w-[65vw] animate-in slide-in-from-left-4 fade-in duration-500 py-1">
+          <div className="flex items-center gap-1.5 animate-in slide-in-from-left-4 fade-in duration-500 py-1">
             {currentSubItems.map((sub: any) => (
-              <div key={sub.id} className="group/sub relative">
+              <div key={sub.id} className="relative group flex-shrink-0">
                 <button
                   onClick={() => setActiveMenu(sub.id)}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-xl transition-all group/btn whitespace-nowrap cursor-pointer border ${activeMenu === sub.id
-                    ? 'bg-[#e4dac3] border-[#5c3c10]/40 text-[#5c3c10] shadow-[0_2px_4px_rgba(0,0,0,0.05)]'
-                    : 'bg-[#FAF6EE] hover:bg-[#e4dac3]/40 border-[#C4B49C]/40 text-[#8b7e66]'
+                  className={`flex items-center justify-center p-2.5 rounded-xl transition-all cursor-pointer border ${activeMenu === sub.id
+                    ? 'bg-[#e4dac3] border-[#5c3c10]/40 shadow-[0_2px_4px_rgba(0,0,0,0.05)]'
+                    : 'bg-[#FAF6EE] hover:bg-[#e4dac3]/40 border-[#C4B49C]/40'
                     }`}
                 >
-                  <sub.icon className={`h-4 w-4 ${activeMenu === sub.id ? 'text-[#5c3c10]' : 'text-[#8b7e66] group-hover/btn:text-[#5c3c10]'} transition-colors`} />
-                  <span className={`text-[11px] font-bold ${activeMenu === sub.id ? 'text-[#2e261a]' : 'text-[#8b7e66] group-hover/btn:text-[#2e261a]'} transition-colors uppercase tracking-tight`}>
-                    {sub.label}
-                  </span>
+                  <sub.icon className={`h-4 w-4 ${activeMenu === sub.id ? 'text-[#5c3c10]' : 'text-[#8b7e66] group-hover:text-[#5c3c10]'} transition-colors`} />
                 </button>
-                <Tooltip label={sub.label} small />
+                <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2.5 bg-[#5c3c10] text-[#FAF6EE] text-[13px] font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-lg z-[9999] scale-95 group-hover:scale-100`}>
+                  {sub.label}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 border-x-4 border-x-transparent border-t-4 border-t-[#5c3c10]"></div>
+                </div>
               </div>
             ))}
           </div>
@@ -178,9 +178,9 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
 
 function Tooltip({ label, small = false }: { label: string, small?: boolean }) {
   return (
-    <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-[#FAF6EE] border border-[#C4B49C] text-[#5c3c10] ${small ? 'text-[8.5px]' : 'text-[10px]'} font-semibold rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-150 pointer-events-none whitespace-nowrap shadow-xl z-50`}>
+    <div className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-4 py-2.5 bg-[#5c3c10] text-[#FAF6EE] text-[13px] font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none whitespace-nowrap shadow-lg z-[9999] scale-95 group-hover:scale-100 group-hover:block`}>
       {label}
-      <div className="absolute top-full left-1/2 -translate-x-1/2 border-x-4 border-x-transparent border-t-4 border-t-[#FAF6EE]"></div>
+      <div className="absolute top-full left-1/2 -translate-x-1/2 border-x-4 border-x-transparent border-t-4 border-t-[#5c3c10]"></div>
     </div>
   );
 }
