@@ -6,6 +6,11 @@ import { getKelistrikanFuelRequirements } from "./requirements_logic/1_produksi/
 import { getDaysElapsed, formatDate } from '@/app/logic/production_logic';
 import InfoBangunan from "./1_modals_info_bangunan/info_bangunan_modals";
 import { getMaterialStock } from "../build_logic/build_logic";
+import {
+  FOOD_CONSUMPTION_PER_CAPITA,
+  calculateProduction,
+  calculateConsumption,
+} from "../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
@@ -172,6 +177,7 @@ export default function BaseProduksiGrid({
                   perCount={perCount}
                   bMeta={bMeta}
                   countryDetail={countryDetail}
+                  metadata={metadata}
                   findMeta={findMeta}
                   isElectricityTab={isElectricityTab}
                   isProductionZero={isProductionZero}
@@ -226,6 +232,20 @@ export default function BaseProduksiGrid({
                 {!isElectricityTab && (
                   <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
                     {(() => {
+                      const isFoodCommodity = FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined;
+                      if (isFoodCommodity) {
+                        const pop = Number(countryDetail?.jumlah_penduduk) || 0;
+                        const totalProd = calculateProduction(key, countryDetail, metadata);
+                        const totalCons = calculateConsumption(pop, FOOD_CONSUMPTION_PER_CAPITA[key]);
+                        const nettoRaw = totalProd - totalCons;
+                        const netto = Math.max(0, nettoRaw);
+                        const colorClass = nettoRaw < 0 ? 'text-rose-600' : 'text-[#2e261a]';
+                        return (
+                          <span className={`font-black text-xl ${colorClass}`}>
+                            {netto.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 })}
+                          </span>
+                        );
+                      }
                       const stock = getMaterialStock(countryDetail, key);
                       const isFuel = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(key);
                       const colorClass = (isFuel && stock > 0) ? 'text-emerald-600' : 'text-[#2e261a]';
