@@ -21,7 +21,6 @@ export const subMenuItems: Record<string, any[]> = {
     { id: "Dashboard:Populasi:Overview", label: "Ringkasan Populasi", icon: Users2 },
   ],
   "Ekonomi": [
-    { id: "Menu:Ekonomi", label: "Dashboard Ekonomi", icon: BarChart3 },
     { id: "Menu:Perdagangan", label: "Perdagangan", icon: ArrowRightLeft },
     { id: "Menu:Pajak", label: "Manajemen Pajak", icon: FileText },
     { id: "Menu:Hutang", label: "Pinjaman & Hutang", icon: CreditCard },

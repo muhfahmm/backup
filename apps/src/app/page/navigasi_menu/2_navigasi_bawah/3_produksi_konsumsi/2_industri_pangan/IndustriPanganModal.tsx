@@ -1,3 +1,4 @@
+// IndustriPanganModal.tsx
 "use client";
 import React, { useState, useEffect, useMemo } from "react";
 import {
@@ -16,9 +17,9 @@ import { PROFILES_POPULATION_DATA } from "@/../../json/semua_fitur_negara/0_prof
 // 🔥 IMPOR MODAL DAN LOGIKA
 import AISuggestModal from "./AI_suggest_modals";
 import AIDetailDefisitModal from "./AI_detail_defisit";
-import { 
-  SECTOR_MAP, 
-  generateSectorAnalysis, 
+import {
+  SECTOR_MAP,
+  generateSectorAnalysis,
   calculateDeficitRecommendation
 } from "./logic/AI_suggestionsLogic";
 
@@ -58,7 +59,7 @@ const formatColoredNumber = (value: any, isPositive: boolean = true) => {
   const mainColor = isPositive ? 'text-emerald-700' : 'text-rose-700';
   const sign = isPositive ? '+' : '-';
   if (parts.length === 1) return <span className={`font-black ${mainColor}`}>{sign}{parts[0]}</span>;
-  return ( <span className={`font-black ${mainColor}`}>{sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span></span> );
+  return (<span className={`font-black ${mainColor}`}>{sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span></span>);
 };
 
 const formatNumber = (value: any) => {
@@ -67,7 +68,7 @@ const formatNumber = (value: any) => {
 };
 
 const normalizePopulationFromProfile = (country: any, profileMap: Map<string, number>) => {
-  const directPopulation = safeNumber( country?.jumlah_penduduk ?? country?.population ?? country?.pop ?? country?.penduduk ?? country?.total_population );
+  const directPopulation = safeNumber(country?.jumlah_penduduk ?? country?.population ?? country?.pop ?? country?.penduduk ?? country?.total_population);
   if (directPopulation > 0) return directPopulation;
   const rawName = country?.name_id || country?.name_en || country?.nama || country?.country || '';
   if (rawName) {
@@ -396,8 +397,8 @@ export default function IndustriPanganModal({ isOpen, onClose, countryDetail, se
                     {foodSatisfaction >= 80
                       ? "✅ Ketersediaan pangan mencukupi, rakyat sejahtera."
                       : foodSatisfaction >= 50
-                      ? "⚠️ Ketersediaan pangan pas-pasan, perlu peningkatan produksi."
-                      : "🔴 Defisit pangan parah, rakyat terancam kelaparan."}
+                        ? "⚠️ Ketersediaan pangan pas-pasan, perlu peningkatan produksi."
+                        : "🔴 Defisit pangan parah, rakyat terancam kelaparan."}
                   </p>
                   <div className="mt-2 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80">
                     <div>Rata-rata rasio produksi/konsumsi: <span className="font-bold">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { X, Smile, TrendingUp, Landmark, Coins, Apple, Plug, Home } from "lucide-react";
 import {
   FOOD_CONSUMPTION_PER_CAPITA,
@@ -13,6 +13,7 @@ interface StatistikKepuasanModalProps {
   onClose: () => void;
   setActiveMenu?: (menu: string) => void;
   countryDetail: any;
+  setCountryDetail?: (detail: any) => void;
   selectedCountry: any;
   metadata?: any;
 }
@@ -22,6 +23,7 @@ export default function StatistikKepuasanModal({
   onClose,
   setActiveMenu,
   countryDetail,
+  setCountryDetail,
   selectedCountry,
   metadata
 }: StatistikKepuasanModalProps) {
@@ -195,6 +197,19 @@ export default function StatistikKepuasanModal({
   
   // Hitung general satisfaction sebagai rata-rata dari 5 sektor
   const generalSatisfaction = (pajakScore + hargaScore + panganScore + listrikScore + hunianScore) / 5;
+
+  // Update kepuasan di countryDetail setiap kali generalSatisfaction berubah
+  useEffect(() => {
+    if (isOpen && setCountryDetail && countryDetail) {
+      // Hanya update jika kepuasan benar-benar berubah (mencegah infinite loop)
+      if (Math.abs((countryDetail.kepuasan ?? 50) - generalSatisfaction) < 0.1) return;
+      
+      setCountryDetail({
+        ...countryDetail,
+        kepuasan: generalSatisfaction,
+      });
+    }
+  }, [isOpen, generalSatisfaction]);
 
   // Sektor-sektor yang diminta
   const sectors = [

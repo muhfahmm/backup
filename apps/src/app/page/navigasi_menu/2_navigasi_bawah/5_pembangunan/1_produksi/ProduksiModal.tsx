@@ -1,3 +1,4 @@
+// ProduksiModal.tsx
 "use client";
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { X, Hammer, TrendingUp, TrendingDown, AlertCircle } from "lucide-react";

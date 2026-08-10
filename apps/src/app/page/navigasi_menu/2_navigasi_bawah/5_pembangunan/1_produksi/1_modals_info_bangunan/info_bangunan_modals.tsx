@@ -1,8 +1,13 @@
+// info_bangunan_modals.tsx
 "use client";
 import React from "react";
 import { Info, X } from "lucide-react";
 import { getKelistrikanFuelRequirements } from "../requirements_logic/1_produksi/1_kelistrikan/fuelLogic";
-import { FOOD_CONSUMPTION_PER_CAPITA } from "../../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
+import {
+  FOOD_CONSUMPTION_PER_CAPITA,
+  calculateProduction,
+  calculateConsumption,
+} from "../../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 const ELECTRICITY_FUEL_RESOURCE_KEYS = [
   "gas_alam",
@@ -45,12 +50,39 @@ const calculateTotalFuelConsumption = (countryDetail: any) => {
   return totals;
 };
 
+// 🔥 BARU: helper angka yang IDENTIK dengan IndustriPanganModal.tsx
+// supaya tampilan desimal (koma) & warnanya selalu sama persis
+const safeNumber = (value: any): number => {
+  if (value === null || value === undefined || value === '') return 0;
+  if (typeof value === 'number') return Number.isFinite(value) ? value : 0;
+  if (typeof value === 'string') {
+    const normalized = value.replace(/\s+/g, '').replace(/,/g, '.').replace(/[^0-9.\-]/g, '');
+    if (normalized === '' || normalized === '-' || normalized === '.') return 0;
+    const parsed = Number(normalized);
+    return Number.isFinite(parsed) ? parsed : 0;
+  }
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : 0;
+};
+
+const formatColoredNumber = (value: any, isPositive: boolean = true) => {
+  const parsed = safeNumber(value);
+  if (parsed === 0) return <span className="font-black text-[#8b7e66]">0</span>;
+  const formatted = parsed.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 });
+  const parts = formatted.split(',');
+  const mainColor = isPositive ? 'text-emerald-700' : 'text-rose-700';
+  const sign = isPositive ? '+' : '-';
+  if (parts.length === 1) return <span className={`font-black ${mainColor}`}>{sign}{parts[0]}</span>;
+  return (<span className={`font-black ${mainColor}`}>{sign}{parts[0]}<span className="text-amber-500 font-bold">,{parts[1]}</span></span>);
+};
+
 interface InfoBangunanProps {
   buildingKey: string;
   label: string;
   perCount: number;
   bMeta: any;
   countryDetail: any;
+  metadata: any; // 🔥 BARU — wajib dikirim dari parent tab (lihat catatan di bawah)
   findMeta: (key: string) => any;
   isElectricityTab: boolean;
   isProductionZero: boolean;
@@ -64,6 +96,7 @@ export default function InfoBangunan({
   perCount,
   bMeta,
   countryDetail,
+  metadata,
   findMeta,
   isElectricityTab,
   isProductionZero,
@@ -74,16 +107,34 @@ export default function InfoBangunan({
   const hasFuelConsumption = fuelRequirements.length > 0;
   const isFuelResource = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(buildingKey);
 
+  // 🔥 FIX UTAMA: satu sumber kebenaran untuk produksi & konsumsi komoditas pangan,
+  // dihitung SEKALI dengan fungsi yang sama persis dengan IndustriPanganModal.tsx.
+  // Baris "Total Produksi Per Hari" di atas dan blok "Neraca Pangan Nasional" di bawah
+  // sekarang selalu memakai angka yang sama → tidak akan beda lagi (masalah #2).
+  const isFoodCommodity = FOOD_CONSUMPTION_PER_CAPITA[buildingKey] !== undefined;
+  const consumptionPerCapita = isFoodCommodity ? FOOD_CONSUMPTION_PER_CAPITA[buildingKey] : 0;
+  const pop = Number(countryDetail?.jumlah_penduduk) || 0;
+
+  const totalFoodProduction = isFoodCommodity && metadata
+    ? calculateProduction(buildingKey, countryDetail, metadata)
+    : (bMeta?.produksi || 0) * perCount;
+
+  const totalFoodConsumption = isFoodCommodity
+    ? calculateConsumption(pop, consumptionPerCapita)
+    : 0;
+
+  const foodNettoRaw = totalFoodProduction - totalFoodConsumption;
+  // 🔥 Kalau netto minus, tampilkan 0 — tidak boleh minus di menu Produksi & Pembangunan
+  const foodNetto = Math.max(0, foodNettoRaw);
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      {/* 🔥 DIMENSI DIPERBARUI: w-full max-w-6xl h-[84vh] flex flex-col agar sama persis dengan modal utama */}
       <div
         className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans animate-in fade-in zoom-in-95 duration-150 pointer-events-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
 
-        {/* HEADER - Menggunakan shrink-0 agar tetap di atas */}
         <div className="px-6 py-5 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
           <div className="flex items-center gap-2 text-[#5c3c10]">
             <Info className="h-5 w-5" />
@@ -101,7 +152,6 @@ export default function InfoBangunan({
           </button>
         </div>
 
-        {/* BODY - Menggunakan flex-1 dan overflow-y-auto agar dapat di-scroll jika konten terlalu panjang */}
         <div className="p-6 relative z-10 flex-1 overflow-y-auto space-y-4 text-xs font-semibold text-[#5c3c10]">
           <div className="bg-white/80 border border-[#C4B49C]/40 rounded-xl p-4 space-y-2 shadow-xs">
             {isElectricityTab ? (
@@ -132,14 +182,15 @@ export default function InfoBangunan({
               </>
             ) : (
               <>
-                {/* 🔥 PERUBAHAN UTAMA: Bagian ini */}
+                {/* 🔥 FIX: sekarang pakai totalFoodProduction (untuk komoditas pangan)
+                    supaya nilainya identik dengan yang dipakai blok Neraca di bawah
+                    dan dengan IndustriPanganModal.tsx */}
                 <div className="flex justify-between items-center">
                   <span className="text-[#8b7e66]">Total Produksi ({label}) Per Hari:</span>
                   <span className="text-emerald-700 font-black text-sm">
-                    {((bMeta?.produksi || 0) * perCount).toLocaleString('id-ID')}
+                    {totalFoodProduction.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 })}
                   </span>
                 </div>
-                {/* 🔥 PERUBAHAN LABEL: "Per Unit:" menjadi "Total Produksi Per Unit:" */}
                 <div className="flex justify-between items-center pl-4 text-[#8b7e66]">
                   <span>Total Produksi Per Unit:</span>
                   <span>{(bMeta?.produksi || 0).toLocaleString('id-ID')}</span>
@@ -147,7 +198,6 @@ export default function InfoBangunan({
 
                 {bMeta?.konsumsi_listrik !== undefined && bMeta.konsumsi_listrik > 0 && (
                   <>
-                    {/* 🔥 BAGIAN INI SUDAH BENAR SESUAI MINTA ANDA (Total rata kiri, Satuan menjorok) */}
                     <div className="flex justify-between items-center">
                       <span className="text-[#8b7e66]">Listrik Dikonsumsi (Total):</span>
                       <span className="text-rose-700 font-bold">{(bMeta.konsumsi_listrik * perCount).toLocaleString('id-ID')} MW</span>
@@ -177,39 +227,29 @@ export default function InfoBangunan({
             </div>
           </div>
 
-          {/* Neraca Pangan (untuk komoditas pangan) */}
-          {FOOD_CONSUMPTION_PER_CAPITA[buildingKey] !== undefined &&
-            (() => {
-              const consumptionPerCapita = FOOD_CONSUMPTION_PER_CAPITA[buildingKey];
-              const pop = Number(countryDetail?.jumlah_penduduk) || 0;
-              const baseProd = Number(bMeta?.produksi) || 0;
-              const totProd = baseProd * perCount;
-              const totCons = Math.round((pop / 1000) * consumptionPerCapita);
-              const netto = totProd - totCons;
-              return (
-                <div className="rounded-xl bg-white border border-[#C4B49C]/40 p-4 space-y-2 shadow-xs">
-                  <div className="font-black uppercase tracking-wider text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2 mb-1 flex items-center gap-1.5 text-sm">
-                    🍽️ Neraca Pangan Nasional
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#8b7e66]">Total Produksi:</span>
-                    <span className="text-emerald-700 font-black">+{totProd.toLocaleString('id-ID')}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-[#8b7e66]">Total Konsumsi:</span>
-                    <span className="text-rose-700 font-black">-{totCons.toLocaleString('id-ID')}</span>
-                  </div>
-                  <div className="flex justify-between items-center pt-2 border-t border-[#C4B49C]/30 mt-1">
-                    <span className="text-[#5c3c10] font-black uppercase">Netto:</span>
-                    <span className={`font-black text-sm ${netto >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
-                      {netto >= 0 ? `+${netto.toLocaleString('id-ID')}` : netto.toLocaleString('id-ID')}
-                    </span>
-                  </div>
-                </div>
-              );
-            })()}
+          {/* 🔥 FIX: Neraca Pangan Nasional sekarang pakai calculateProduction /
+              calculateConsumption (fungsi yang sama dengan IndustriPanganModal.tsx)
+              + formatColoredNumber (koma desimal muncul lagi) + netto di-clamp ke 0 */}
+          {isFoodCommodity && (
+            <div className="rounded-xl bg-white border border-[#C4B49C]/40 p-4 space-y-2 shadow-xs">
+              <div className="font-black uppercase tracking-wider text-[#5c3c10] border-b border-[#C4B49C]/20 pb-2 mb-1 flex items-center gap-1.5 text-sm">
+                🍽️ Neraca Pangan Nasional
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-[#8b7e66]">Total Produksi:</span>
+                {formatColoredNumber(totalFoodProduction, true)}
+              </div>
+              <div className="flex justify-between items-center">
+                <span className="text-[#8b7e66]">Total Konsumsi:</span>
+                {formatColoredNumber(totalFoodConsumption, false)}
+              </div>
+              <div className="flex justify-between items-center pt-2 border-t border-[#C4B49C]/30 mt-1">
+                <span className="text-[#5c3c10] font-black uppercase">Netto:</span>
+                {formatColoredNumber(foodNetto, foodNettoRaw >= 0)}
+              </div>
+            </div>
+          )}
 
-          {/* Konsumsi Bahan Bakar (untuk pembangkit listrik) */}
           {hasFuelConsumption &&
             (() => {
               return (
@@ -251,7 +291,6 @@ export default function InfoBangunan({
               );
             })()}
 
-          {/* Rantai pasok bahan bakar (untuk sumber daya bahan bakar) */}
           {isFuelResource &&
             (() => {
               const fuelName = label.toLowerCase();
@@ -282,7 +321,6 @@ export default function InfoBangunan({
             })()}
         </div>
 
-        {/* FOOTER - Menggunakan shrink-0 agar tetap di bawah */}
         <div className="px-4 py-2 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex gap-3 relative z-10 shrink-0">
           <button
             onClick={(e) => {
