@@ -43,7 +43,11 @@ export default function EkonomiDashboardModal({
   const taxRevenue = calculateTotalTaxIncome(countryDetail);
   const goldIncome = calculateGoldIncome(countryDetail);
   const ministryCostPerDay = calculateMinistryCost(countryDetail);
-  const sektoral = calculateSectoralSatisfaction(countryDetail);
+  
+  // Ambil satisfaction dari masing-masing modal yang sudah menghitung sendiri
+  const satisfactionData = countryDetail?.satisfaction || {};
+  const pajakScore = satisfactionData.tax ?? 50;
+  const hargaScore = satisfactionData.price ?? 50;
 
   // Define economic cards
   const economicCards: EconomicCard[] = [
@@ -54,7 +58,7 @@ export default function EkonomiDashboardModal({
       description: "Kelola tarif pajak nasional (PPN, Korporasi, Penghasilan, dll)",
       menuId: "Menu:Pajak",
       getValue: () => `${taxRevenue.toLocaleString("id-ID")} EM`,
-      getSecondaryValue: () => `Kepuasan: ${Math.round(sektoral.pajak)}%`,
+      getSecondaryValue: () => `Kepuasan: ${Math.round(pajakScore)}%`,
     },
     {
       id: "harga",
@@ -62,7 +66,7 @@ export default function EkonomiDashboardModal({
       icon: <Tag className="h-8 w-8" />,
       description: "Stabilkan harga beras, minyak goreng, daging di pasar",
       menuId: "Menu:Harga",
-      getValue: () => `Kepuasan: ${Math.round(sektoral.harga)}%`,
+      getValue: () => `Kepuasan: ${Math.round(hargaScore)}%`,
       getSecondaryValue: () => "Status Kontrol Harga",
     },
     {

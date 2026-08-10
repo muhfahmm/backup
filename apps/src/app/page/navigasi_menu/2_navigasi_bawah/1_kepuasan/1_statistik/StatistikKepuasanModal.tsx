@@ -3,22 +3,10 @@
 import { useState } from "react";
 import { X, Smile, TrendingUp, Landmark, Coins, Apple, Plug, Home } from "lucide-react";
 import {
-  calculateSectoralSatisfaction,
-  calculateGeneralSatisfaction,
-  type PopulationSectoral,
-} from "@/app/logic/populations_logic/population_logic";
-
-interface CountryDetail {
-  rata_rata_pajak?: number;
-  living_cost_index?: number;
-  indeks_ketahanan_pangan?: number;
-  surplus_listrik?: number;
-  tingkat_hunian_layak?: number;
-  harapan_hidup?: number;
-  tingkat_keamanan?: number;
-  inisiatif_aktif?: { nama: string; boost: number }[];
-  [key: string]: any;
-}
+  FOOD_CONSUMPTION_PER_CAPITA,
+  calculateProduction,
+  calculateConsumption,
+} from "../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 interface StatistikKepuasanModalProps {
   isOpen: boolean;
@@ -26,6 +14,7 @@ interface StatistikKepuasanModalProps {
   setActiveMenu?: (menu: string) => void;
   countryDetail: any;
   selectedCountry: any;
+  metadata?: any;
 }
 
 export default function StatistikKepuasanModal({
@@ -33,19 +22,185 @@ export default function StatistikKepuasanModal({
   onClose,
   setActiveMenu,
   countryDetail,
-  selectedCountry
+  selectedCountry,
+  metadata
 }: StatistikKepuasanModalProps) {
   
   if (!isOpen) return null;
 
-  const generalSatisfaction = calculateGeneralSatisfaction(countryDetail);
-  const sektoral = calculateSectoralSatisfaction(countryDetail);
+  const population = countryDetail?.jumlah_penduduk ?? countryDetail?.population ?? countryDetail?.pop ?? countryDetail?.penduduk ?? countryDetail?.total_population ?? 0;
+
+  // 1. Hitung Pajak Score
+  const getTaxValue = (detail: any, path: string[], fallback: number = 0): number => {
+    let current: any = detail;
+    for (const key of path) {
+      if (current == null || typeof current !== "object") return fallback;
+      current = current[key];
+    }
+    return typeof current === "number" ? current : fallback;
+  };
+  const calculateIncomeAtRate = (taxRate: number, maxIncome: number = 1000): number => {
+    if (taxRate <= 0) return 0;
+    if (taxRate >= 100) return maxIncome;
+    return Math.round((taxRate / 100) * maxIncome);
+  };
+  const vat = Number(getTaxValue(countryDetail, ["ppn"]) ?? getTaxValue(countryDetail, ["pajak", "ppn", "tarif"]) ?? 0);
+  const corporate_tax = Number(getTaxValue(countryDetail, ["corporate"]) ?? getTaxValue(countryDetail, ["pajak", "korporasi", "tarif"]) ?? 0);
+  const income_tax = Number(getTaxValue(countryDetail, ["income_tax"]) ?? getTaxValue(countryDetail, ["pajak", "penghasilan", "tarif"]) ?? 0);
+  const cigarette_tax = Number(getTaxValue(countryDetail, ["cigarette_tax"]) ?? getTaxValue(countryDetail, ["pajak", "bea_cukai", "tarif"]) ?? 0);
+  const environment_tax = Number(getTaxValue(countryDetail, ["environment_tax"]) ?? getTaxValue(countryDetail, ["pajak", "lingkungan", "tarif"]) ?? 0);
+  const avgRate = (vat + corporate_tax + income_tax + cigarette_tax + environment_tax) / 5;
+  const totalIncome = calculateIncomeAtRate(vat, 1000) +
+                      calculateIncomeAtRate(corporate_tax, 1000) +
+                      calculateIncomeAtRate(income_tax, 1000) +
+                      calculateIncomeAtRate(cigarette_tax, 1000) +
+                      calculateIncomeAtRate(environment_tax, 1000);
+  const maxIncome = 5 * 1000;
+  const computedTaxScore = Math.min(100, Math.max(1, Math.round(100 - avgRate + (totalIncome / maxIncome) * 20)));
+
+  // 2. Hitung Harga Score
+  const prices = countryDetail?.harga || {};
+  const subsidyActive = countryDetail?.subsidyActive || false;
+  const priceEntries = Object.entries(prices).filter(([key]) => key.startsWith("harga_"));
+  let computedPriceScore = 50;
+  if (priceEntries.length > 0) {
+    const minPrice = 10000;
+    const maxPrice = 100000;
+    let totalScore = 0;
+    for (const [, value] of priceEntries) {
+      const valNum = Number(value) || 0;
+      let score = 100 - ((valNum - minPrice) / (maxPrice - minPrice)) * 100;
+      score = Math.min(100, Math.max(0, score));
+      totalScore += score;
+    }
+    let avgScore = totalScore / priceEntries.length;
+    if (subsidyActive) avgScore = Math.min(100, avgScore + 5);
+    computedPriceScore = Math.round(avgScore);
+  }
+
+  // 3. Hitung Pangan Score
+  let computedFoodScore = 50;
+  if (population > 0 && metadata) {
+    const allKeys = Object.keys(FOOD_CONSUMPTION_PER_CAPITA);
+    let totalRatio = 0;
+    let count = 0;
+    for (const key of allKeys) {
+      const prod = calculateProduction(key, countryDetail, metadata);
+      const cons = calculateConsumption(population, FOOD_CONSUMPTION_PER_CAPITA[key]);
+      if (cons > 0) {
+        const ratio = prod / cons;
+        totalRatio += Math.min(ratio, 2);
+        count++;
+      }
+    }
+    if (count > 0) {
+      const avgRatio = totalRatio / count;
+      computedFoodScore = Math.min(100, Math.max(1, Math.round((avgRatio / 2) * 100)));
+    }
+  }
+
+  // 4. Hitung Listrik Score
+  const SOURCE_ORDER = [
+    "pembangkit_listrik_tenaga_nuklir",
+    "pembangkit_listrik_tenaga_air",
+    "pembangkit_listrik_tenaga_surya",
+    "pembangkit_listrik_tenaga_uap",
+    "pembangkit_listrik_tenaga_gas",
+    "pembangkit_listrik_tenaga_angin"
+  ];
+  const findMeta = (key: string, metadata: any) => {
+    if (!metadata) return undefined;
+    if (metadata[key]) return metadata[key];
+    for (const k of Object.keys(metadata)) {
+      const entry = metadata[k];
+      if (!entry) continue;
+      if (entry.dataKey === key) return entry;
+      if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+    }
+    return undefined;
+  };
+  const powerSources = SOURCE_ORDER.map((key) => {
+    const bMeta = findMeta(key, metadata);
+    const count = Number(countryDetail?.[key]) || 0;
+    const unitProduction = Number(bMeta?.produksi) || 0;
+    return { value: count, unitProduction };
+  });
+  const totalCapacityMW = powerSources.reduce((sum, source) => sum + (source.value * source.unitProduction), 0);
+  
+  const calculateBuildingElectricityConsumption = (country: any, metadata: any) => {
+    if (!metadata || !country) return 0;
+    let totalBuildingConsumption = 0;
+    Object.keys(metadata).forEach((key) => {
+      const bMeta = metadata[key];
+      const konsumsi = Number(bMeta?.konsumsi_listrik) || 0;
+      if (konsumsi <= 0) return;
+      const possibleKeys = [
+        key,
+        bMeta?.dataKey,
+        key.replace(/^\d+_/, ''),
+        bMeta?.dataKey ? bMeta.dataKey.replace(/^\d+_/, '') : undefined,
+      ].filter(Boolean) as string[];
+      let count = 0;
+      for (const pKey of possibleKeys) {
+        if (country[pKey] !== undefined && country[pKey] !== null) {
+          count = Number(country[pKey]) || 0;
+          break;
+        }
+      }
+      if (count > 0) {
+        totalBuildingConsumption += count * konsumsi;
+      }
+    });
+    return totalBuildingConsumption;
+  };
+  
+  const userBuildingConsumption = calculateBuildingElectricityConsumption(countryDetail, metadata);
+  const populationDemand = population / 50000;
+  const estimatedConsumptionMW = Math.max(0, Math.round(userBuildingConsumption + populationDemand));
+  
+  let computedListrikScore = 50;
+  if (estimatedConsumptionMW > 0) {
+    const ratio = Math.min(totalCapacityMW / estimatedConsumptionMW, 2);
+    computedListrikScore = Math.min(100, Math.max(1, Math.round((ratio / 2) * 100)));
+  }
+
+  // 5. Hitung Hunian Score
+  const HUNIAN_KEYS = ["rumah_subsidi", "apartemen", "mansion"];
+  let totalHousingCapacity = 0;
+  if (metadata) {
+    HUNIAN_KEYS.forEach((key) => {
+      const count = Number(countryDetail?.[key]) || 0;
+      const meta = findMeta(key, metadata);
+      const capacity = Number(meta?.kapasitas) || 0;
+      totalHousingCapacity += count * capacity;
+    });
+  }
+  let computedHunianScore = 50;
+  if (population > 0) {
+    const idealCapacity = population;
+    if (totalHousingCapacity <= 0) {
+      computedHunianScore = 1;
+    } else {
+      const ratio = Math.min(totalHousingCapacity / idealCapacity, 2);
+      computedHunianScore = Math.min(100, Math.max(1, Math.round((ratio / 2) * 100)));
+    }
+  }
+
+  // Gunakan hasil perhitungan real-time
+  const pajakScore = computedTaxScore;
+  const hargaScore = computedPriceScore;
+  const panganScore = computedFoodScore;
+  const listrikScore = computedListrikScore;
+  const hunianScore = computedHunianScore;
+  
+  // Hitung general satisfaction sebagai rata-rata dari 5 sektor
+  const generalSatisfaction = (pajakScore + hargaScore + panganScore + listrikScore + hunianScore) / 5;
 
   // Sektor-sektor yang diminta
   const sectors = [
     { 
       name: "Pajak", 
-      score: Math.round(sektoral.pajak), 
+      score: Math.round(pajakScore), 
       icon: Landmark, 
       color: "text-emerald-600", 
       desc: "Daya beli masyarakat dan beban pajak.",
@@ -53,7 +208,7 @@ export default function StatistikKepuasanModal({
     },
     { 
       name: "Harga Barang Pokok", 
-      score: Math.round(sektoral.harga), 
+      score: Math.round(hargaScore), 
       icon: Coins, 
       color: "text-amber-600", 
       desc: "Stabilitas harga bahan kebutuhan sehari-hari.",
@@ -61,7 +216,7 @@ export default function StatistikKepuasanModal({
     },
     { 
       name: "Produksi Pangan", 
-      score: Math.round(sektoral.pangan), 
+      score: Math.round(panganScore), 
       icon: Apple, 
       color: "text-green-600", 
       desc: "Ketersediaan dan ketahanan pangan nasional.",
@@ -69,7 +224,7 @@ export default function StatistikKepuasanModal({
     },
     { 
       name: "Produksi Listrik", 
-      score: Math.round(sektoral.listrik), 
+      score: Math.round(listrikScore), 
       icon: Plug, 
       color: "text-blue-600", 
       desc: "Keseimbangan pasokan dan permintaan energi listrik.",
@@ -77,7 +232,7 @@ export default function StatistikKepuasanModal({
     },
     { 
       name: "Hunian Permukiman", 
-      score: Math.round(sektoral.hunian), 
+      score: Math.round(hunianScore), 
       icon: Home, 
       color: "text-rose-600", 
       desc: "Ketersediaan rumah layak huni dan akses perumahan.",

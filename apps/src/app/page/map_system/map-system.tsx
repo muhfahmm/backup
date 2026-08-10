@@ -199,6 +199,8 @@ export default function MapPage() {
                 harga: defaultPrices || mergedData?.harga || {},
                 price_rice: defaultPrices?.harga_beras ?? mergedData?.harga?.harga_beras,
                 price_fuel: defaultPrices?.harga_minyak_goreng ?? mergedData?.harga?.harga_bbm,
+                // Preserve satisfaction field if it exists
+                satisfaction: mergedData.satisfaction || {},
                 // Tax fields
                 income_tax: mergedData.pajak?.penghasilan?.tarif ?? mergedData.income_tax,
                 corporate: mergedData.pajak?.korporasi?.tarif ?? mergedData.corporate,
@@ -471,6 +473,7 @@ export default function MapPage() {
                 ...updates,
                 ...populationUpdates,  // Apply population changes
                 anggaran: (Number(prev.anggaran) || 0) + netBalance,
+                satisfaction: prev.satisfaction, // Preserve satisfaction scores
             };
         });
     }, [currentDate, countryDetail, metadata]);

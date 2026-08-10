@@ -149,6 +149,7 @@ function ModalsManager({
           setActiveMenu={setActiveMenu}
           countryDetail={countryDetail}
           selectedCountry={selectedCountry}
+          metadata={metadata}
         />
       );
     case "Action:NaikkanKepuasan":

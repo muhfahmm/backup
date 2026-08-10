@@ -100,6 +100,23 @@ export default function PajakModal({
 
   const satisfaction = calculateSatisfaction(tempRates);
 
+  // --- Initialize satisfaction.tax hanya saat modal pertama kali buka & countryDetail berubah ---
+  useEffect(() => {
+    if (!isOpen || !countryDetail) return;
+    
+    // IMPORTANT: Hanya update satisfaction jika belum ada atau modal baru pertama kali buka
+    if (countryDetail.satisfaction?.tax !== undefined) return; // Jangan update lagi jika sudah ada
+    
+    const initialSatisfaction = calculateSatisfaction(initialRates);
+    setCountryDetail({
+      ...countryDetail,
+      satisfaction: {
+        ...(countryDetail?.satisfaction || {}),
+        tax: initialSatisfaction,
+      },
+    });
+  }, [isOpen, countryDetail?.id]); // Only depend on isOpen & countryDetail ID, not initialRates!
+
   const handleTaxChange = (taxId: string, nextVal: number) => {
     const updatedRates = {
       ...tempRates,

@@ -95,7 +95,7 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
       ...(key === 'harga_minyak_goreng' ? { price_fuel: value } : {}),
       satisfaction: {
         ...(countryDetail?.satisfaction || {}),
-        priceControl: newSatisfaction,
+        price: newSatisfaction,
       },
     });
   };
@@ -115,7 +115,7 @@ export default function HargaModal({ isOpen, onClose, countryDetail, setCountryD
       subsidyActive: true,
       satisfaction: {
         ...(countryDetail?.satisfaction || {}),
-        priceControl: newSatisfaction,
+        price: newSatisfaction,
       }
     });
     alert("Beras & Minyak Goreng disubsidi penuh (+5.0% Kepuasan Rakyat)!");
