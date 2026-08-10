@@ -1,16 +1,101 @@
 "use client"
 
-import { useState } from "react";
+import { useMemo } from "react";
 import { X, Users, TrendingUp, ShieldAlert, BadgeDollarSign, Activity, Users2, Clock, Heart, Gavel, Landmark, Briefcase, Baby } from "lucide-react";
 
+// ==============================
+// Tipe data dan fungsi demografi (di-copy dari RingkasanPopulasiModal)
+// ==============================
+interface CountryDetail {
+  jumlah_penduduk: number;
+  rata_rata_pajak?: number;
+  living_cost_index?: number;
+  indeks_ketahanan_pangan?: number;
+  surplus_listrik?: number;
+  tingkat_hunian_layak?: number;
+  harapan_hidup?: number;
+  tingkat_keamanan?: number;
+  inisiatif_aktif?: { nama: string; boost: number }[];
+}
+
+function hitungKepuasanSektoral(detail: CountryDetail) {
+  const pajak = detail.rata_rata_pajak !== undefined
+    ? Math.max(0, Math.min(100, 100 - detail.rata_rata_pajak))
+    : 50;
+  const harga = detail.living_cost_index !== undefined
+    ? Math.max(0, Math.min(100, 100 - detail.living_cost_index))
+    : 50;
+  const pangan = detail.indeks_ketahanan_pangan ?? 50;
+  let listrik = 50;
+  if (detail.surplus_listrik !== undefined) {
+    if (detail.surplus_listrik > 50) listrik = 80;
+    else if (detail.surplus_listrik > 0) listrik = 70;
+    else if (detail.surplus_listrik > -50) listrik = 40;
+    else listrik = 20;
+  }
+  const hunian = detail.tingkat_hunian_layak ?? 50;
+  return { pajak, harga, pangan, listrik, hunian };
+}
+
+function hitungDemografi(detail: CountryDetail) {
+  const populasi = detail.jumlah_penduduk || 10_000_000;
+  const sektoral = hitungKepuasanSektoral(detail);
+  
+  const rataSektoral = (sektoral.pajak + sektoral.harga + sektoral.pangan + sektoral.listrik + sektoral.hunian) / 5;
+  const boostInisiatif = detail.inisiatif_aktif?.reduce((sum, ini) => sum + ini.boost, 0) ?? 0;
+  const kepuasanUmum = Math.min(200, rataSektoral + boostInisiatif);
+
+  const baseLife = detail.harapan_hidup ?? 73.2;
+  const baseSecurity = detail.tingkat_keamanan ?? 84.5;
+  const lifeExpectancy = Math.max(30, baseLife + (kepuasanUmum - 50) * 0.1);
+  const securityLevel = Math.min(100, Math.max(10, baseSecurity + (kepuasanUmum - 50) * 0.15));
+
+  const baseBirthRate = 0.000042;
+  const birthMultiplier = 0.8 + (kepuasanUmum / 100) * 0.4;
+  const dailyBirths = Math.floor(populasi * baseBirthRate * birthMultiplier);
+
+  const baseDeathRate = 0.000018;
+  const lifeFactor = 73.2 / lifeExpectancy;
+  const securityFactor = 84.5 / securityLevel;
+  const dailyDeaths = Math.floor(populasi * baseDeathRate * lifeFactor * securityFactor);
+
+  const baseHomelessRate = 0.007;
+  const homelessMultiplier = (100 - sektoral.hunian) / 50;
+  const homelessCount = Math.floor(populasi * baseHomelessRate * homelessMultiplier);
+
+  const livingCostIndex = detail.living_cost_index ?? 62.4;
+  const totalDailyDelta = dailyBirths - dailyDeaths;
+  const totalMonthlyGrowthPercent = ((totalDailyDelta * 30) / populasi) * 100;
+
+  return {
+    populasi,
+    dailyBirths,
+    dailyDeaths,
+    totalDailyDelta,
+    totalMonthlyGrowthPercent,
+    homelessCount,
+    livingCostIndex,
+    securityLevel,
+    lifeExpectancy,
+    kepuasanUmum,
+    sektoral,
+  };
+}
+
+// ==============================
+// Props
+// ==============================
 interface StatistikPopulasiModalProps {
   isOpen: boolean;
   onClose: () => void;
   setActiveMenu?: (menu: string) => void;
-  countryDetail: any;
+  countryDetail: CountryDetail;
   selectedCountry: any;
 }
 
+// ==============================
+// Komponen
+// ==============================
 export default function StatistikPopulasiModal({ 
   isOpen, 
   onClose,
@@ -19,21 +104,26 @@ export default function StatistikPopulasiModal({
   selectedCountry
 }: StatistikPopulasiModalProps) {
   
-  if (!isOpen) return null;
+  const metrics = useMemo(() => {
+    if (!countryDetail) return null;
+    return hitungDemografi(countryDetail);
+  }, [countryDetail]);
 
-  const population = countryDetail?.jumlah_penduduk || 10000000;
+  if (!isOpen || !metrics) return null;
+
+  const {
+    populasi,
+    dailyBirths,
+    totalDailyDelta,
+    homelessCount,
+    livingCostIndex,
+    securityLevel,
+    lifeExpectancy,
+  } = metrics;
+
   const countryName = selectedCountry?.country || "Indonesia";
 
-  // Dynamic demography parameters
-  const dailyBirths = Math.floor(population * 0.000042);
-  const dailyDeaths = Math.floor(population * 0.000018);
-  const totalDailyDelta = dailyBirths - dailyDeaths;
-  
-  const homelessCount = Math.floor(population * 0.007);
-  const livingCostIndex = 62.4;
-  const securityLevel = 84.5;
-  const lifeExpectancy = 73.2;
-
+  // Struktur kelas sosial tetap (persentase), namun kita hitung jumlah absolut
   const socialClasses = [
     { label: "Kaum Elit", percent: 2.1, color: "bg-amber-600", text: "text-amber-700", bg: "bg-amber-800/10", icon: BadgeDollarSign },
     { label: "Menengah Atas", percent: 11.8, color: "bg-blue-600", text: "text-blue-700", bg: "bg-blue-800/10", icon: Landmark },
@@ -46,7 +136,7 @@ export default function StatistikPopulasiModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         
-        {/* Parchment radial gradient background */}
+        {/* Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
         {/* Header */}
@@ -91,7 +181,7 @@ export default function StatistikPopulasiModal({
               </div>
               <div>
                 <p className="text-[10px] text-[#8b7e66] font-black uppercase tracking-wider">Total Populasi</p>
-                <p className="text-lg font-black text-[#2e261a] leading-tight">{population.toLocaleString('id-ID')} <span className="text-[9px] text-[#8b7e66]">JIWA</span></p>
+                <p className="text-lg font-black text-[#2e261a] leading-tight">{populasi.toLocaleString('id-ID')} <span className="text-[9px] text-[#8b7e66]">JIWA</span></p>
               </div>
             </div>
 
@@ -101,8 +191,8 @@ export default function StatistikPopulasiModal({
               </div>
               <div>
                 <p className="text-[10px] text-[#8b7e66] font-black uppercase tracking-wider">Laju Pertumbuhan</p>
-                <p className={`text-lg font-black leading-tight text-emerald-700`}>
-                  +{totalDailyDelta.toLocaleString('id-ID')} <span className="text-[9px] text-[#8b7e66]">/hr</span>
+                <p className={`text-lg font-black leading-tight ${totalDailyDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>
+                  {totalDailyDelta >= 0 ? '+' : ''}{totalDailyDelta.toLocaleString('id-ID')} <span className="text-[9px] text-[#8b7e66]">/hr</span>
                 </p>
               </div>
             </div>
@@ -132,7 +222,7 @@ export default function StatistikPopulasiModal({
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-8 animate-in fade-in duration-500">
-            {/* Section: Struktur Kelas Sosial */}
+            {/* Section 1: Struktur Kelas Sosial */}
             <div>
               <div className="flex items-center gap-3 mb-5 px-1">
                 <div className="p-1.5 rounded-lg bg-[#e4dac3]/50 border border-[#C4B49C]/40">
@@ -145,6 +235,7 @@ export default function StatistikPopulasiModal({
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 px-1">
                 {socialClasses.map((item, idx) => {
                   const Icon = item.icon;
+                  const jumlah = Math.floor(populasi * item.percent / 100);
                   return (
                     <div key={idx} className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex flex-col gap-4 relative group overflow-hidden transition-all hover:bg-[#e4dac3]/10 shadow-sm min-h-[140px]">
                       <div className="flex items-start justify-between relative z-10">
@@ -158,6 +249,7 @@ export default function StatistikPopulasiModal({
 
                       <div className="space-y-1 relative z-10">
                         <h4 className="text-xs font-black text-[#5c3c10] uppercase tracking-tight italic leading-none">{item.label}</h4>
+                        <p className="text-[9px] font-bold text-[#8b7e66] mt-1">{jumlah.toLocaleString('id-ID')} jiwa</p>
                         <div className="mt-2 h-1.5 w-full bg-[#e4dac3] rounded-full overflow-hidden border border-[#bfae93]/50">
                           <div className={`h-full ${item.color} rounded-full transition-all duration-1000`} style={{ width: `${item.percent}%` }} />
                         </div>
@@ -168,7 +260,7 @@ export default function StatistikPopulasiModal({
               </div>
             </div>
 
-            {/* Section: Metrik Demografi & Vitalitas */}
+            {/* Section 2: Metrik Demografi & Vitalitas */}
             <div className="pt-6 border-t border-[#C4B49C]/25">
               <div className="flex items-center gap-3 mb-6 px-1">
                 <div className="p-1.5 rounded-lg bg-[#e4dac3]/50 border border-[#C4B49C]/40">

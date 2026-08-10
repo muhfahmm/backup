@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import { useState } from "react";
-import { X, Smile, TrendingUp, BarChart3, Shield, Activity, Landmark, Heart, Sparkles } from "lucide-react";
+import { X, Smile, TrendingUp, Landmark, Coins, Apple, Plug, Home } from "lucide-react";
 
 interface StatistikKepuasanModalProps {
   isOpen: boolean;
@@ -21,23 +21,51 @@ export default function StatistikKepuasanModal({
   
   if (!isOpen) return null;
 
-  const countryName = selectedCountry?.country || "Indonesia";
   const generalSatisfaction = countryDetail?.kepuasan ?? 50.0;
 
-  // Derive sector satisfactions
+  // Sektor-sektor yang diminta
   const sectors = [
-    { name: "Kesehatan", score: 50, icon: Heart, color: "text-rose-600", desc: "Akses rumah sakit dan obat-obatan murah." },
-    { name: "Keamanan", score: 50, icon: Shield, color: "text-amber-600", desc: "Stabilitas politik dan ketertiban umum." },
-    { name: "Ekonomi & Pajak", score: 50, icon: Landmark, color: "text-emerald-600", desc: "Daya beli masyarakat dan beban pajak." },
-    { name: "Layanan Publik", score: 50, icon: Activity, color: "text-indigo-600", desc: "Kualitas infrastruktur, listrik dan air bersih." },
-    { name: "Sosial & Budaya", score: 50, icon: Sparkles, color: "text-purple-600", desc: "Kebebasan beragama dan toleransi masyarakat." }
+    { 
+      name: "Pajak", 
+      score: 50, 
+      icon: Landmark, 
+      color: "text-emerald-600", 
+      desc: "Daya beli masyarakat dan beban pajak." 
+    },
+    { 
+      name: "Harga Barang Pokok", 
+      score: 50, 
+      icon: Coins, 
+      color: "text-amber-600", 
+      desc: "Stabilitas harga bahan kebutuhan sehari-hari." 
+    },
+    { 
+      name: "Produksi Pangan", 
+      score: 50, 
+      icon: Apple, 
+      color: "text-green-600", 
+      desc: "Ketersediaan dan ketahanan pangan nasional." 
+    },
+    { 
+      name: "Produksi Listrik", 
+      score: 50, 
+      icon: Plug, 
+      color: "text-blue-600", 
+      desc: "Keseimbangan pasokan dan permintaan energi listrik." 
+    },
+    { 
+      name: "Hunian Permukiman", 
+      score: 50, 
+      icon: Home, 
+      color: "text-rose-600", 
+      desc: "Ketersediaan rumah layak huni dan akses perumahan." 
+    }
   ];
 
   return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
         
-        {/* Parchment radial gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
         {/* Header */}
@@ -53,9 +81,7 @@ export default function StatistikKepuasanModal({
             </div>
 
             <div className="flex items-center bg-[#e4dac3]/40 p-1 rounded-xl border border-[#bfae93]/50 backdrop-blur-md ml-4">
-              <button
-                className="px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20 cursor-pointer"
-              >
+              <button className="px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20 cursor-pointer">
                 Statistik
               </button>
               <button
@@ -64,7 +90,6 @@ export default function StatistikKepuasanModal({
               >
                 Naikkan Kepuasan
               </button>
-              {/* Tempat Wisata removed */}
             </div>
           </div>
 
@@ -74,11 +99,11 @@ export default function StatistikKepuasanModal({
           </button>
         </div>
 
-        {/* Content Area */}
+        {/* Content */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-8 animate-in fade-in duration-500">
             
-            {/* General Score Card */}
+            {/* Kartu skor umum */}
             <div className="bg-[#e4dac3]/25 border-2 border-[#C4B49C]/40 p-6 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-6 shadow-sm">
               <div className="flex items-center gap-5">
                 <div className="w-20 h-20 rounded-full bg-gradient-to-tr from-[#ffe07d] via-[#fcae1e] to-[#c77a00] border-4 border-[#FAF6EE] shadow-lg flex items-center justify-center">
@@ -99,11 +124,11 @@ export default function StatistikKepuasanModal({
               </div>
             </div>
 
-            {/* Sector Satisfactions breakdown */}
+            {/* Sektor-sektor */}
             <div>
               <div className="flex items-center gap-3 mb-5 px-1">
                 <div className="p-1.5 rounded-lg bg-[#e4dac3]/50 border border-[#C4B49C]/40">
-                  <BarChart3 className="h-4 w-4 text-[#5c3c10]" />
+                  <TrendingUp className="h-4 w-4 text-[#5c3c10]" />
                 </div>
                 <h3 className="text-lg font-black text-[#5c3c10] uppercase tracking-wider italic">Penilaian Sektoral</h3>
                 <div className="h-[1px] flex-1 bg-gradient-to-r from-[#C4B49C] to-transparent ml-4 opacity-50"></div>
