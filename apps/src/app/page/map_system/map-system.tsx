@@ -16,6 +16,7 @@ import { Navbar } from '../navbar/Navbar';
 import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
 import { calculateCountryNetBalance } from '@/app/logic/economic_logic/treasuryUpdater';
+import { calculateDailyPopulationChange, updateDailyPopulation } from '@/app/logic/populations_logic/population_logic';
 import { logger } from '../../../lib/logger';
 import { CountryDetailModal } from '../detail_negara/detail_negara';
 import NegaraUserModal from './negara_user';
@@ -44,6 +45,7 @@ export default function MapPage() {
             .catch(err => console.error("Failed to load metadata in MapPage:", err));
     }, []);
     const [playerNetBalanceAdjustment, setPlayerNetBalanceAdjustment] = useState<number>(0);
+    const [playerNetPopulationChange, setPlayerNetPopulationChange] = useState<number>(0);
     const [isPaused, setIsPaused] = useState(true);
     const [speed, setSpeed] = useState(1);
     const [currentDate, setCurrentDate] = useState<Date>(new Date());
@@ -366,8 +368,22 @@ export default function MapPage() {
 
     const prevBudgetUpdateDateRef = useRef<string | null>(null);
 
+    // ✅ NEW: Initialize population metrics when countryDetail first loads
     useEffect(() => {
-        if (!countryDetail || !currentDate || !metadata || Object.keys(metadata).length === 0) return;
+        if (!countryDetail) return;
+        
+        // Calculate initial population metrics untuk display
+        const populationMetrics = calculateDailyPopulationChange(countryDetail);
+        setPlayerNetPopulationChange(populationMetrics.netDailyChange);
+        
+        logger.log('PopulationInit', 'Initial population metrics calculated', {
+            populasi: countryDetail.jumlah_penduduk,
+            netChange: populationMetrics.netDailyChange,
+        });
+    }, [countryDetail?.jumlah_penduduk]); // Track jumlah_penduduk changes
+
+    useEffect(() => {
+        if (!countryDetail || !currentDate) return;
 
         const year = currentDate.getFullYear();
         const month = String(currentDate.getMonth() + 1).padStart(2, '0');
@@ -384,14 +400,26 @@ export default function MapPage() {
         const lastDate = prevBudgetUpdateDateRef.current;
         prevBudgetUpdateDateRef.current = currentDateStr;
 
+        // Calculate economy updates
         const netBalance = calculateCountryNetBalance(countryDetail);
 
-        // Calculate daily material production updates
-        const { hasUpdates, updates } = calculateDailyMaterialProduction(
-            countryDetail,
-            metadata,
-            currentDateStr
-        );
+        // ✅ ALWAYS calculate population updates (doesn't depend on metadata)
+        const populationMetrics = calculateDailyPopulationChange(countryDetail);
+        const populationUpdates = updateDailyPopulation(countryDetail, populationMetrics);
+        
+        // Store net population change for display in Navbar
+        setPlayerNetPopulationChange(populationMetrics.netDailyChange);
+
+        // ✅ Only calculate material production if metadata is loaded
+        let updates: Record<string, any> = {};
+        if (metadata && Object.keys(metadata).length > 0) {
+            const result = calculateDailyMaterialProduction(
+                countryDetail,
+                metadata,
+                currentDateStr
+            );
+            updates = result.hasUpdates ? result.updates : {};
+        }
 
         // Also deduct fuel consumption for power plants daily!
         const daysPassed = lastDate ? getDaysElapsed(lastDate, currentDateStr) : 0;
@@ -441,6 +469,7 @@ export default function MapPage() {
             return {
                 ...prev,
                 ...updates,
+                ...populationUpdates,  // Apply population changes
                 anggaran: (Number(prev.anggaran) || 0) + netBalance,
             };
         });
@@ -460,6 +489,7 @@ export default function MapPage() {
                 skipConfirm: true
             });
             setPlayerNetBalanceAdjustment(0);
+            setPlayerNetPopulationChange(0);
             // Toggle resetTrigger to signal all modals to reset
             setResetTrigger(prev => !prev);
         }
@@ -639,6 +669,7 @@ export default function MapPage() {
                 selectedCountry={selectedCountry}
                 countryDetail={countryDetail}
                 netBalanceAdjustment={playerNetBalanceAdjustment}
+                netPopulationChange={playerNetPopulationChange}
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}

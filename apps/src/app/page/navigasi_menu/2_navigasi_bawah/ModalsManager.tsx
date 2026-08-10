@@ -10,8 +10,7 @@ import StatistikKepuasanModal from "./1_kepuasan/1_statistik/StatistikKepuasanMo
 import NaikkanKepuasanModal from "./1_kepuasan/2_naikkan_kepuasan/NaikkanKepuasanModal";
 
 // 2. Populasi
-import RingkasanPopulasiModal from "./2_populasi/1_ringkasan/RingkasanPopulasiModal";
-import StatistikPopulasiModal from "./2_populasi/2_statistik/StatistikPopulasiModal";
+import RingkasanPopulasiModal from "./2_populasi/ringkasan/RingkasanPopulasiModal";
 
 // 3. Produksi & Konsumsi
 import KelistrikanModal from "./3_produksi_konsumsi/1_grid_nasional/KelistrikanModal";
@@ -168,22 +167,11 @@ function ModalsManager({
         <RingkasanPopulasiModal
           isOpen={true}
           onClose={onClose}
-          setActiveMenu={setActiveMenu}
           countryDetail={countryDetail}
           selectedCountry={selectedCountry}
         />
       );
-    case "Dashboard:Populasi":
-      return (
-        <StatistikPopulasiModal
-          isOpen={true}
-          onClose={onClose}
-          setActiveMenu={setActiveMenu}
-          countryDetail={countryDetail}
-          selectedCountry={selectedCountry}
-        />
-      );
-
+    
     // 3. Produksi & Konsumsi
     case "Menu:Kelistrikan":
       return (

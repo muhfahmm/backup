@@ -5,6 +5,7 @@ import {
     Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
+import { getNetPopulationChangeColor } from '@/app/logic/populations_logic/population_logic';
 import { menuItems, subMenuItems } from '../navigasi_menu/navigationData';
 
 interface Country {
@@ -21,6 +22,7 @@ interface NavbarProps {
     selectedCountry: Country | null;
     countryDetail: any;
     netBalanceAdjustment?: number;
+    netPopulationChange?: number;
     activeMenu?: string;
     onOpenGameMenu: () => void;
     onOpenSaveModal: () => void;
@@ -32,6 +34,7 @@ export function Navbar({
     selectedCountry,
     countryDetail,
     netBalanceAdjustment = 0,
+    netPopulationChange = 0,
     activeMenu = 'Peta Taktis',
     onOpenGameMenu,
     onOpenSaveModal,
@@ -42,6 +45,21 @@ export function Navbar({
     const netBalance = calculateCountryNetBalance(countryDetail) + netBalanceAdjustment;
     const netBalanceColor = netBalance >= 0 ? 'text-emerald-700' : 'text-rose-700';
     const netBalanceLabel = `${netBalance >= 0 ? '+ ' : '- '}${Math.abs(netBalance).toLocaleString('id-ID')}`;
+    
+    // Populasi logic
+    const populasi = Number(countryDetail?.jumlah_penduduk) || 0;
+    const netPopulationChangeColor = getNetPopulationChangeColor(netPopulationChange);
+    const netPopulationLabel = `${netPopulationChange >= 0 ? '+ ' : '- '}${Math.abs(netPopulationChange).toLocaleString('id-ID')}`;
+    
+    // DEBUG
+    if (typeof window !== 'undefined') {
+        console.log('[Navbar Debug]', {
+            countryDetail_exists: !!countryDetail,
+            jumlah_penduduk: countryDetail?.jumlah_penduduk,
+            populasi: populasi,
+            netPopulationChange: netPopulationChange,
+        });
+    }
 
     // Function to get active menu information
     const getActiveMenuInfo = () => {
@@ -146,7 +164,16 @@ export function Navbar({
                     <StatusItem 
                         icon={<Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} 
                         label="POPULASI" 
-                        value={countryDetail?.jumlah_penduduk ? countryDetail.jumlah_penduduk.toLocaleString('id-ID') : '-'} 
+                        value={countryDetail ? (
+                            <span className="flex items-center gap-1 sm:gap-2">
+                                <span>{populasi.toLocaleString('id-ID')}</span>
+                                <span className={`${netPopulationChangeColor} text-[8px] sm:text-[11px] font-black`}>
+                                    ({netPopulationLabel})
+                                </span>
+                            </span>
+                        ) : (
+                            '-'
+                        )} 
                     />
                     <StatusItem
                         icon={<Landmark className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}

@@ -14,7 +14,7 @@ interface GoldMetadata {
   satuan: string;
   waktu_pembangunan: number;
   biaya_pembangunan: number;
-  lowongan_kerja: number;
+  lowongan_kerja?: number;
   konsumsi_listrik: number;
 }
 

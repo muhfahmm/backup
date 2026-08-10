@@ -18,8 +18,7 @@ export const subMenuItems: Record<string, any[]> = {
     { id: "Action:NaikkanKepuasan", label: "Naikkan Kepuasan", icon: TrendingUp },
   ],
   "Populasi": [
-    { id: "Dashboard:Populasi:Overview", label: "Ringkasan Populasi", icon: Info },
-    { id: "Dashboard:Populasi", label: "Statistik Populasi", icon: Users2 },
+    { id: "Dashboard:Populasi:Overview", label: "Ringkasan Populasi", icon: Users2 },
   ],
   "Ekonomi": [
     { id: "Menu:Perdagangan", label: "Perdagangan", icon: ArrowRightLeft },

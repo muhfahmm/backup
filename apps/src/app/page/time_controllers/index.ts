@@ -9,7 +9,7 @@ export {
     SimulationCalendar,
     CalendarControlsHandler,
     CalendarDisplayFormatter,
-    CalendarUIState,
+    type CalendarUIState,
     createSimulationCalendar,
 } from './simulationCalendar';
 export { handleGameRestart, type RestartOptions } from './gameRestart';
