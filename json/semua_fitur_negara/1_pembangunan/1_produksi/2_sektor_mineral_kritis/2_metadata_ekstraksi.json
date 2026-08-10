@@ -8,7 +8,7 @@
     "satuan": "KG",
     "waktu_pembangunan": 120,
     "biaya_pembangunan": 6000,
-    "konsumsi_listrik": 80
+    "konsumsi_listrik": 50
   },
   "uranium": {
     "key": "2_tambang_uranium",

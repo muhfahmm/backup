@@ -58,6 +58,7 @@ interface BaseProduksiGridProps {
   title: string;
   Icon: any;
   countryDetail: any;
+  setCountryDetail?: (detail: any) => void;
   metadata: any;
   calculateProductionAmount: (key: string) => number;
   findMeta: (key: string) => any;
@@ -76,6 +77,7 @@ export default function BaseProduksiGrid({
   title,
   Icon,
   countryDetail,
+  setCountryDetail,
   metadata,
   calculateProductionAmount,
   findMeta,
@@ -230,22 +232,43 @@ export default function BaseProduksiGrid({
 
                 {/* FOOTER NON-LISTRIK */}
                 {!isElectricityTab && (
-                  <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center">
+                  <div className="border-t border-[#C4B49C]/20 mt-auto pt-2 pb-1 text-center min-h-[64px] flex flex-col justify-center gap-1">
                     {(() => {
-                      const isFoodCommodity = FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined;
-                      if (isFoodCommodity) {
-                        const pop = Number(countryDetail?.jumlah_penduduk) || 0;
-                        const totalProd = calculateProduction(key, countryDetail, metadata);
-                        const totalCons = calculateConsumption(pop, FOOD_CONSUMPTION_PER_CAPITA[key]);
-                        const nettoRaw = totalProd - totalCons;
-                        const netto = Math.max(0, nettoRaw);
-                        const colorClass = nettoRaw < 0 ? 'text-rose-600' : 'text-[#2e261a]';
+                      // Emas: tampilkan produksi tetap (tidak berubah-ubah seperti stok)
+                      if (key === 'emas') {
+                        const fixedProd = Number(bMeta?.produksi || 0) * perCount;
                         return (
-                          <span className={`font-black text-xl ${colorClass}`}>
-                            {netto.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 })}
+                          <span className="font-black text-xl text-[#2e261a]">
+                            {fixedProd.toLocaleString('id-ID')}
                           </span>
                         );
                       }
+
+                      const isFoodCommodity = FOOD_CONSUMPTION_PER_CAPITA[key] !== undefined;
+                      if (isFoodCommodity) {
+                        // Baca inventory yang sudah diakumulasi (Netto harian ditambah setiap hari)
+                        const accumulated = getMaterialStock(countryDetail, key);
+                        return (
+                          <>
+                            <span className="font-black text-xl text-[#2e261a]">
+                              {accumulated.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 })}
+                            </span>
+                            {setCountryDetail && (
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setCountryDetail({ ...countryDetail, [`inventory_${key}`]: 0 });
+                                }}
+                                className="text-[9px] font-bold text-[#8b7e66] hover:text-rose-600 underline transition-colors cursor-pointer"
+                                title="Reset stok ke 0"
+                              >
+                                Reset
+                              </button>
+                            )}
+                          </>
+                        );
+                      }
+
                       const stock = getMaterialStock(countryDetail, key);
                       const isFuel = ELECTRICITY_FUEL_RESOURCE_KEYS.includes(key);
                       const colorClass = (isFuel && stock > 0) ? 'text-emerald-600' : 'text-[#2e261a]';

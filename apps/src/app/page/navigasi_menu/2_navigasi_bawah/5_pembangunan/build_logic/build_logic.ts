@@ -2,6 +2,10 @@
 
 import { useEffect, useMemo } from "react";
 import { formatDate, getDaysElapsed } from "@/app/logic/production_logic";
+import {
+  FOOD_CONSUMPTION_PER_CAPITA,
+  calculateConsumption,
+} from "../../3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic";
 
 export const RESOURCE_KEY_ALIASES: Record<string, string> = {};
 
@@ -40,6 +44,7 @@ export function calculateDailyMaterialProduction(
   let hasUpdates = false;
   const updates: Record<string, any> = {};
   const allKeys = Object.keys(metadata);
+  const pop = Number(countryDetail?.jumlah_penduduk) || 0;
 
   for (const resourceKey of allKeys) {
     const buildingCount = Number(countryDetail?.[resourceKey]) || 0;
@@ -58,9 +63,22 @@ export function calculateDailyMaterialProduction(
     const daysPassed = getDaysElapsed(lastUpdateDate, currentDateStr);
     if (daysPassed <= 0) continue;
 
-    const dailyProduction = Number(bMeta.produksi) * buildingCount;
-    const productionAdded = dailyProduction * daysPassed;
+    const isFoodCommodity = FOOD_CONSUMPTION_PER_CAPITA[resourceKey] !== undefined;
 
+    let dailyAmount: number;
+    if (isFoodCommodity) {
+      // Untuk komoditas pangan: tambahkan Netto (Produksi - Konsumsi) per hari
+      const dailyProd = Number(bMeta.produksi) * buildingCount;
+      const dailyCons = calculateConsumption(pop, FOOD_CONSUMPTION_PER_CAPITA[resourceKey]);
+      const dailyNetto = dailyProd - dailyCons;
+      // Jika netto negatif (defisit), tidak tambahkan apa-apa (min 0)
+      dailyAmount = Math.max(0, dailyNetto);
+    } else {
+      // Untuk non-pangan: tambahkan produksi penuh
+      dailyAmount = Number(bMeta.produksi) * buildingCount;
+    }
+
+    const productionAdded = dailyAmount * daysPassed;
     const currentStock = Number(countryDetail?.[inventoryKey]) || 0;
     updates[inventoryKey] = currentStock + productionAdded;
     updates[lastUpdateKey] = currentDateStr;
@@ -69,6 +87,7 @@ export function calculateDailyMaterialProduction(
 
   return { hasUpdates, updates };
 }
+
 
 export function useMaterialProduction(
   countryDetail: any,
