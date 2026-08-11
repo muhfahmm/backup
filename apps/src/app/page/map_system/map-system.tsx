@@ -24,6 +24,9 @@ import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
 import { getDaysElapsed } from '@/app/logic/production_logic';
 import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
+import TopLeftIcon from './components/TopLeftIcon';
+import TopRightGiftIcon from './components/TopRightGiftIcon';
+import TopRightNewsIcon from './components/TopRightNewsIcon';
 
 interface Country {
     id: number;
@@ -63,6 +66,9 @@ export default function MapPage() {
     const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
     const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
     const [playerDetailModalOpen, setPlayerDetailModalOpen] = useState(false);
+    const [inboxModalOpen, setInboxModalOpen] = useState(false);
+    const [giftModalOpen, setGiftModalOpen] = useState(false);
+    const [newsModalOpen, setNewsModalOpen] = useState(false);
 
     const isMapInteractionDisabled = isSaveModalOpen || isPresidentMenuOpen || isRestartConfirmOpen || activeMenu !== 'Peta Taktis';
 
@@ -727,6 +733,13 @@ export default function MapPage() {
                 onOpenKepuasan={() => setActiveMenu("Dashboard:Kepuasan")}
             />
 
+            {/* Top Left Icon - Inbox */}
+            <TopLeftIcon onClick={() => setInboxModalOpen(true)} />
+
+            {/* Top Right Icons - Gift and News */}
+            <TopRightGiftIcon onClick={() => setGiftModalOpen(true)} />
+            <TopRightNewsIcon onClick={() => setNewsModalOpen(true)} />
+
             {/* Shifted Canvas Container */}
             <div className={`fixed top-20 inset-x-0 bottom-0 z-0 ${isMapInteractionDisabled ? 'pointer-events-none' : ''}`}>
                 <canvas
@@ -1007,6 +1020,102 @@ export default function MapPage() {
                 onClose={() => setIsRestartConfirmOpen(false)}
                 onConfirm={handleRestart}
             />
+
+            {/* Inbox Modal */}
+            {inboxModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-amber-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                        
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-amber-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-amber-800 tracking-widest uppercase">📬 INBOX</span>
+                            <button 
+                                onClick={() => setInboxModalOpen(false)}
+                                className="text-amber-800 hover:text-amber-950 font-black text-sm cursor-pointer"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada pesan baru</p>
+                            </div>
+                            
+                            <button 
+                                onClick={() => setInboxModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-amber-900 border-2 border-amber-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Gift Modal */}
+            {giftModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-rose-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                        
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-rose-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-rose-800 tracking-widest uppercase">🎁 HADIAH</span>
+                            <button 
+                                onClick={() => setGiftModalOpen(false)}
+                                className="text-rose-800 hover:text-rose-950 font-black text-sm cursor-pointer"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada hadiah yang tersedia</p>
+                            </div>
+                            
+                            <button 
+                                onClick={() => setGiftModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-rose-400 via-rose-500 to-rose-600 text-rose-900 border-2 border-rose-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* News Modal */}
+            {newsModalOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-blue-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
+                        
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-blue-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-blue-800 tracking-widest uppercase">📰 BERITA</span>
+                            <button 
+                                onClick={() => setNewsModalOpen(false)}
+                                className="text-blue-800 hover:text-blue-950 font-black text-sm cursor-pointer"
+                            >
+                                ✕
+                            </button>
+                        </div>
+                        
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada berita terbaru</p>
+                            </div>
+                            
+                            <button 
+                                onClick={() => setNewsModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600 text-blue-900 border-2 border-blue-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
         </main>
     );
 }
