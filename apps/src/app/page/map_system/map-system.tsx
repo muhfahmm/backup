@@ -23,6 +23,7 @@ import NegaraUserModal from './negara_user';
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
 import { getDaysElapsed } from '@/app/logic/production_logic';
+import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
 
 interface Country {
     id: number;
@@ -477,6 +478,53 @@ export default function MapPage() {
             };
         });
     }, [currentDate, countryDetail, metadata]);
+
+    // ─── Auto-refresh kepuasan di navbar ────────────────────────────────
+    // Hitung ulang kepuasan setiap kali countryDetail atau metadata berubah
+    // sehingga nilai di navbar selalu up-to-date tanpa harus buka modal
+    useEffect(() => {
+        if (!countryDetail || !metadata || Object.keys(metadata).length === 0) return;
+
+        const newKepuasan = calculateKepuasan(countryDetail, metadata);
+
+        // Hanya update jika berubah signifikan (> 0.1) untuk mencegah infinite loop
+        const currentKepuasan = countryDetail?.kepuasan ?? 50;
+        if (Math.abs(currentKepuasan - newKepuasan) < 0.1) return;
+
+        setCountryDetail((prev: any) => {
+            if (!prev) return prev;
+            return { ...prev, kepuasan: newKepuasan };
+        });
+    }, [
+        // Hanya track field-field yang benar-benar mempengaruhi kepuasan
+        countryDetail?.ppn,
+        countryDetail?.corporate,
+        countryDetail?.income_tax,
+        countryDetail?.cigarette_tax,
+        countryDetail?.environment_tax,
+        countryDetail?.harga,
+        countryDetail?.subsidyActive,
+        countryDetail?.jumlah_penduduk,
+        countryDetail?.rumah_subsidi,
+        countryDetail?.apartemen,
+        countryDetail?.mansion,
+        countryDetail?.pembangkit_listrik_tenaga_nuklir,
+        countryDetail?.pembangkit_listrik_tenaga_air,
+        countryDetail?.pembangkit_listrik_tenaga_surya,
+        countryDetail?.pembangkit_listrik_tenaga_uap,
+        countryDetail?.pembangkit_listrik_tenaga_gas,
+        countryDetail?.pembangkit_listrik_tenaga_angin,
+        // Sektor pangan — accumulated inventory
+        countryDetail?.accumulated_padi,
+        countryDetail?.accumulated_jagung,
+        countryDetail?.accumulated_kedelai,
+        countryDetail?.accumulated_ayam_unggas,
+        countryDetail?.accumulated_sapi_perah,
+        countryDetail?.accumulated_sapi_potong,
+        countryDetail?.accumulated_ikan,
+        countryDetail?.accumulated_udang,
+        metadata,
+    ]);
     const handleRestart = () => {
         if (selectedCountry) {
             if (typeof window !== 'undefined') {
