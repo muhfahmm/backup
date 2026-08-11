@@ -151,12 +151,12 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
 
         {/* Sub-Menu Extension Section */}
         {isMenuSelected && currentSubItems?.length > 0 && (
-          <div className="flex items-center gap-1.5 animate-in slide-in-from-left-4 fade-in duration-500 py-1">
+          <div className="flex items-center gap-1.5 animate-in slide-in-from-left-4 fade-in duration-500">
             {currentSubItems.map((sub: any) => (
               <div key={sub.id} className="relative group flex-shrink-0">
                 <button
                   onClick={() => setActiveMenu(sub.id)}
-                  className={`flex items-center justify-center p-2.5 rounded-xl transition-all cursor-pointer border ${activeMenu === sub.id
+                  className={`flex items-center justify-center p-2 rounded-lg transition-all cursor-pointer border ${activeMenu === sub.id
                     ? 'bg-[#e4dac3] border-[#5c3c10]/40 shadow-[0_2px_4px_rgba(0,0,0,0.05)]'
                     : 'bg-[#FAF6EE] hover:bg-[#e4dac3]/40 border-[#C4B49C]/40'
                     }`}
