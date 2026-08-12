@@ -10,6 +10,8 @@ interface NaikkanKepuasanModalProps {
   countryDetail: any;
   setCountryDetail: (detail: any) => void;
   selectedCountry: any;
+  presidentRating?: number;
+  setPresidentRating?: (rating: number) => void;
 }
 
 export default function NaikkanKepuasanModal({
@@ -18,7 +20,9 @@ export default function NaikkanKepuasanModal({
   setActiveMenu,
   countryDetail,
   setCountryDetail,
-  selectedCountry
+  selectedCountry,
+  presidentRating = 50,
+  setPresidentRating
 }: NaikkanKepuasanModalProps) {
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
 
@@ -117,6 +121,10 @@ export default function NaikkanKepuasanModal({
 
     const nextAnggaran = anggaran - cost;
     const nextKepuasan = Math.min(100, parseFloat((kepuasan + boost).toFixed(1)));
+    
+    // Calculate president rating increase (1 kepuasan boost = 0.5 rating increase, capped at 100)
+    const ratingBoost = boost * 0.5;
+    const nextPresidentRating = Math.min(100, presidentRating + ratingBoost);
 
     setCountryDetail({
       ...countryDetail,
@@ -124,9 +132,14 @@ export default function NaikkanKepuasanModal({
       kepuasan: nextKepuasan
     });
 
+    // Update president rating
+    if (setPresidentRating) {
+      setPresidentRating(nextPresidentRating);
+    }
+
     setFeedback({
       type: "success",
-      message: `Presiden berhasil meluncurkan program ${title}! Kepuasan rakyat naik +${boost}% dan anggaran berkurang.`
+      message: `Presiden berhasil meluncurkan program ${title}! Kepuasan rakyat naik +${boost}% dan peringkat presiden naik +${ratingBoost.toFixed(1)}⭐.`
     });
     setTimeout(() => setFeedback(null), 4000);
   };

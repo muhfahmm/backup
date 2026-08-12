@@ -69,6 +69,7 @@ export default function MapPage() {
     const [inboxModalOpen, setInboxModalOpen] = useState(false);
     const [giftModalOpen, setGiftModalOpen] = useState(false);
     const [newsModalOpen, setNewsModalOpen] = useState(false);
+    const [presidentRating, setPresidentRating] = useState<number>(50);
 
     const isMapInteractionDisabled = isSaveModalOpen || isPresidentMenuOpen || isRestartConfirmOpen || activeMenu !== 'Peta Taktis';
 
@@ -727,6 +728,7 @@ export default function MapPage() {
                 countryDetail={countryDetail}
                 netBalanceAdjustment={playerNetBalanceAdjustment}
                 netPopulationChange={playerNetPopulationChange}
+                presidentRating={presidentRating}
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
@@ -810,6 +812,8 @@ export default function MapPage() {
                 onOpenPlayerDetail={() => {
                     setPlayerDetailModalOpen(true);
                 }}
+                presidentRating={presidentRating}
+                setPresidentRating={setPresidentRating}
             />
 
             {/* Premium Floating Skeuomorphic Time Controller Widget */}

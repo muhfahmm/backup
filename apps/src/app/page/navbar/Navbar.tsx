@@ -2,7 +2,7 @@
 
 import React from 'react';
 import {
-    Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid
+    Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid, Star
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
 import { getNetPopulationChangeColor } from '@/app/logic/populations_logic/population_logic';
@@ -28,6 +28,7 @@ interface NavbarProps {
     onOpenSaveModal: () => void;
     onOpenRestartConfirm: () => void;
     onOpenKepuasan?: () => void;
+    presidentRating?: number;
 }
 
 export function Navbar({
@@ -39,7 +40,8 @@ export function Navbar({
     onOpenGameMenu,
     onOpenSaveModal,
     onOpenRestartConfirm,
-    onOpenKepuasan
+    onOpenKepuasan,
+    presidentRating = 50
 }: NavbarProps) {
     const anggaran = Number(countryDetail?.anggaran) || 0;
     const netBalance = calculateCountryNetBalance(countryDetail) + netBalanceAdjustment;
@@ -202,6 +204,13 @@ export function Navbar({
                             color={getKepuasanColor(countryDetail?.kepuasan ?? 50)} 
                         />
                     </button>
+
+                    <StatusItem 
+                        icon={<Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-500" />} 
+                        label="PERINGKAT" 
+                        value={`${presidentRating}/100`} 
+                        color={getPresidentRatingColor(presidentRating)} 
+                    />
                 </div>
             </div>
 
@@ -251,5 +260,13 @@ function getKepuasanColor(kepuasan: number): string {
     if (kepuasan >= 66) return 'text-green-600';
     if (kepuasan >= 41) return 'text-yellow-600';
     if (kepuasan >= 25) return 'text-red-600';
+    return 'text-red-700 font-black';
+}
+
+function getPresidentRatingColor(rating: number): string {
+    if (rating >= 80) return 'text-green-700 font-black';
+    if (rating >= 60) return 'text-green-600';
+    if (rating >= 40) return 'text-yellow-600';
+    if (rating >= 20) return 'text-red-600';
     return 'text-red-700 font-black';
 }

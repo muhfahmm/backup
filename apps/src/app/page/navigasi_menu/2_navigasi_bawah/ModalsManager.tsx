@@ -69,6 +69,8 @@ interface ModalsManagerProps {
   setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
   onOpenCountryDetail?: (countryName: string) => void;
   onOpenPlayerDetail?: () => void;
+  presidentRating?: number;
+  setPresidentRating?: (rating: number) => void;
 }
 
 function ModalsManager({
@@ -83,6 +85,8 @@ function ModalsManager({
   setProductionDeepLink,
   onOpenCountryDetail,
   onOpenPlayerDetail,
+  presidentRating = 50,
+  setPresidentRating,
 }: ModalsManagerProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [prefetchedAllCountries, setPrefetchedAllCountries] = useState<any[] | null>(null);
@@ -161,6 +165,8 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           selectedCountry={selectedCountry}
+          presidentRating={presidentRating}
+          setPresidentRating={setPresidentRating}
         />
       );
     // 2. Populasi
