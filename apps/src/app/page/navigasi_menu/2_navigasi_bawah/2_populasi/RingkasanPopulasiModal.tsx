@@ -13,7 +13,7 @@ import {
   type PopulationDailyMetrics,
   type PopulationSectoral,
 } from "@/app/logic/populations_logic/population_logic";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/country_static_data"; // 🔥 Tambahkan import
+import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan"; 
 
 import DetailKelahiranModal from "./kelahiran_modals/DetailKelahiranModal";
 import DetailKematianModal from "./kematian_modals/DetailKematianModal";
@@ -177,7 +177,7 @@ export default function RingkasanPopulasiModal({
             </div>
 
             <div
-              className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:opacity-85 active:scale-[0.98]"
+              className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:shadow-md hover:border-emerald-400 hover:bg-emerald-50/70 active:scale-[0.98]"
               onClick={() => setIsDetailBirthOpen(true)}
             >
               <div className="p-3 bg-emerald-500/10 rounded-xl">
@@ -229,20 +229,21 @@ export default function RingkasanPopulasiModal({
                   Saat ini, laju pertumbuhan harian berada pada angka <span className={`font-bold ${totalDailyDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{totalDailyDelta >= 0 ? '+' : ''}{totalDailyDelta.toLocaleString('id-ID')} jiwa per hari</span>.
                 </p>
 
+                {/* 🔥 TOMBOL KELAHIRAN & KEMATIAN - Berwarna hijau/merah permanen */}
                 <div className="pt-4 border-t border-[#C4B49C]/30 grid grid-cols-2 gap-4">
                   <div
-                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    className="cursor-pointer rounded-xl p-4 border-2 border-emerald-200 bg-emerald-50/80 hover:bg-emerald-100/70 hover:border-emerald-300 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center shadow-sm"
                     onClick={() => setIsDetailBirthOpen(true)}
                   >
                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Angka Kelahiran Harian</p>
-                    <p className="text-lg font-black text-emerald-700">+{dailyBirths.toLocaleString('id-ID')}</p>
+                    <p className="text-2xl font-black text-emerald-700 mt-1">+{dailyBirths.toLocaleString('id-ID')}</p>
                   </div>
                   <div
-                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    className="cursor-pointer rounded-xl p-4 border-2 border-rose-200 bg-rose-50/80 hover:bg-rose-100/70 hover:border-rose-300 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center shadow-sm"
                     onClick={() => setIsDetailDeathOpen(true)}
                   >
                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Angka Kematian Harian</p>
-                    <p className="text-lg font-black text-rose-700">-{dailyDeaths.toLocaleString('id-ID')}</p>
+                    <p className="text-2xl font-black text-rose-700 mt-1">-{dailyDeaths.toLocaleString('id-ID')}</p>
                   </div>
                 </div>
               </div>
@@ -292,7 +293,6 @@ export default function RingkasanPopulasiModal({
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
     </div>
   );
 }

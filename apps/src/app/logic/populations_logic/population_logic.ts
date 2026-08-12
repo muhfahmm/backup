@@ -5,7 +5,7 @@
 
 import { logger } from '../../../lib/logger';
 // 🔥 Import data statis 207 negara
-import { COUNTRY_STATIC_DATA } from './country_static_data';
+import { COUNTRY_STATIC_DATA } from './index_Kesejahteraan';
 
 // ==============================
 // Interface Tipe Data
@@ -20,7 +20,7 @@ export interface CountryDetail {
   harapan_hidup?: number;
   tingkat_keamanan?: number;
   inisiatif_aktif?: { nama: string; boost: number }[];
-  
+
   // Populasi tracking fields
   accumulated_births?: number;
   accumulated_deaths?: number;
@@ -93,7 +93,7 @@ export const calculateSectoralSatisfaction = (detail: CountryDetail): Population
 // ==============================
 export const calculateGeneralSatisfaction = (detail: CountryDetail): number => {
   const sektoral = calculateSectoralSatisfaction(detail);
-  
+
   const averageSectoral = (sektoral.pajak + sektoral.harga + sektoral.pangan + sektoral.listrik + sektoral.hunian) / 5;
   const initiativeBoost = detail.inisiatif_aktif?.reduce((sum, ini) => sum + ini.boost, 0) ?? 0;
   const generalSatisfaction = Math.min(200, averageSectoral + initiativeBoost);
@@ -208,7 +208,7 @@ export const calculateDailyPopulationChange = (
   }
 
   const populasi = detail.jumlah_penduduk || 10_000_000;
-  
+
   let defaults = null;
   if (countryName) {
     defaults = getCountryDefaults(countryName);
@@ -222,10 +222,10 @@ export const calculateDailyPopulationChange = (
   };
 
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
-  
+
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
-  
+
   // 🔥 PERBAIKAN: Panggil calculateDailyBirths dengan 8 parameter!
   const dailyBirths = calculateDailyBirths(
     populasi,
@@ -239,9 +239,9 @@ export const calculateDailyPopulationChange = (
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
-  
+
   const netDailyChange = dailyBirths - dailyDeaths;
-  
+
   const sektoral = calculateSectoralSatisfaction(detailWithDefaults);
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);
 
@@ -268,7 +268,7 @@ export const updateDailyPopulation = (
   if (!detail) return {};
 
   const dailyMetrics = metrics || calculateDailyPopulationChange(detail, countryName);
-  
+
   const currentPopulasi = Number(detail.jumlah_penduduk) || 10_000_000;
   const newPopulasi = Math.max(0, currentPopulasi + dailyMetrics.netDailyChange);
 

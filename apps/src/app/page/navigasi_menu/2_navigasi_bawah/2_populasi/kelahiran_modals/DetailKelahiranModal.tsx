@@ -1,8 +1,8 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { X, Users, Baby, HeartPulse, Home, GraduationCap, Banknote, ArrowUpRight, Smile, Heart, Activity } from "lucide-react";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/country_static_data";
+import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
 import {
   calculateGeneralSatisfaction,
   calculateDailyBirths,
@@ -10,6 +10,14 @@ import {
   calculateLifeExpectancy,
   calculateSecurityLevel,
 } from "@/app/logic/populations_logic/population_logic";
+
+// 🔥 Import ke-6 modal detail
+import DetailPopulasiDasarModal from "./DetailPopulasiDasarModal";
+import DetailKesejahteraanModal from "./DetailKesejahteraanModal";
+import DetailFasilitasKesehatanModal from "./DetailFasilitasKesehatanModal";
+import DetailKebijakanInsentifAnakModal from "./DetailKebijakanInsentifAnakModal";
+import DetailAngkaPernikahanModal from "./DetailAngkaPernikahanModal";
+import DetailTingkatPendidikanModal from "./DetailTingkatPendidikanModal";
 
 interface DetailKelahiranModalProps {
   isOpen: boolean;
@@ -30,6 +38,14 @@ export default function DetailKelahiranModal({
   dailyDeaths: propsDailyDeaths,
   netDailyChange: propsNetDailyChange,
 }: DetailKelahiranModalProps) {
+  // 🔥 State untuk 6 modal detail
+  const [openPopulasiDasar, setOpenPopulasiDasar] = useState(false);
+  const [openKesejahteraan, setOpenKesejahteraan] = useState(false);
+  const [openFasilitasKesehatan, setOpenFasilitasKesehatan] = useState(false);
+  const [openKebijakanInsentifAnak, setOpenKebijakanInsentifAnak] = useState(false);
+  const [openAngkaPernikahan, setOpenAngkaPernikahan] = useState(false);
+  const [openTingkatPendidikan, setOpenTingkatPendidikan] = useState(false);
+
   if (!isOpen) return null;
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
@@ -71,7 +87,7 @@ export default function DetailKelahiranModal({
   // 🔥 Pertumbuhan Bersih
   const netDailyChange = propsNetDailyChange !== undefined ? propsNetDailyChange : (dailyBirths - dailyDeaths);
 
-  // 🔥 Variabel perhitungan multiplier UI (agar error "Cannot find name" hilang)
+  // 🔥 Variabel perhitungan multiplier UI
   const welfareFactor = 0.75 + (livingCostIndex / 200);
   const idealHospitals = Math.ceil(populasi / 100000);
   const idealClinics = Math.ceil(populasi / 10000);
@@ -111,7 +127,7 @@ export default function DetailKelahiranModal({
         {/* Body */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-6 animate-in fade-in duration-500">
-            
+
             {/* Ringkasan Utama - Pertumbuhan Bersih */}
             <div className="bg-white/60 border-2 border-[#C4B49C]/20 p-6 rounded-2xl shadow-sm">
               <div className="flex items-center justify-between">
@@ -136,7 +152,7 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
               <p className="mt-4 text-xs text-[#8b7e66] font-medium">
-                {netDailyChange >= 0 
+                {netDailyChange >= 0
                   ? `Populasi bertambah ${formatNumber(netDailyChange)} jiwa setiap hari.`
                   : `Populasi berkurang ${formatNumber(Math.abs(netDailyChange))} jiwa setiap hari.`
                 }
@@ -145,10 +161,15 @@ export default function DetailKelahiranModal({
 
             {/* Breakdown Faktor Kelahiran - DENGAN CURSOR POINTER & HOVER EFFECT */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* 1. Populasi Dasar */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  {/* 🔥 Klik ikon untuk membuka modal detail */}
+                  <div
+                    className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenPopulasiDasar(true)}
+                  >
                     <Users className="h-4 w-4 text-blue-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Populasi Dasar</h4>
@@ -156,10 +177,13 @@ export default function DetailKelahiranModal({
                 <p className="text-sm font-bold text-[#2e261a]">{formatNumber(populasi)} jiwa</p>
               </div>
 
+              {/* 2. Kesejahteraan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div
+                    className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenKesejahteraan(true)}
+                  >
                     <Banknote className="h-4 w-4 text-amber-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kesejahteraan</h4>
@@ -170,10 +194,13 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
+              {/* 3. Fasilitas Kesehatan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div
+                    className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenFasilitasKesehatan(true)}
+                  >
                     <HeartPulse className="h-4 w-4 text-green-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
@@ -185,10 +212,13 @@ export default function DetailKelahiranModal({
                 <p className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</p>
               </div>
 
+              {/* 4. Kebijakan Insentif Anak */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div
+                    className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenKebijakanInsentifAnak(true)}
+                  >
                     <Home className="h-4 w-4 text-indigo-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kebijakan Insentif Anak</h4>
@@ -199,10 +229,13 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
+              {/* 5. Angka Pernikahan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-pink-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div
+                    className="p-1.5 bg-pink-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenAngkaPernikahan(true)}
+                  >
                     <Heart className="h-4 w-4 text-pink-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Angka Pernikahan</h4>
@@ -213,10 +246,13 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
+              {/* 6. Tingkat Pendidikan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-purple-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div
+                    className="p-1.5 bg-purple-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setOpenTingkatPendidikan(true)}
+                  >
                     <GraduationCap className="h-4 w-4 text-purple-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Pendidikan</h4>
@@ -226,6 +262,7 @@ export default function DetailKelahiranModal({
                   <span className="text-[10px] text-[#8b7e66]">× {educationFactor.toFixed(3)}</span>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -237,6 +274,50 @@ export default function DetailKelahiranModal({
           </button>
         </div>
       </div>
+
+      {/* 🔥 Render ke-6 modal detail di sini */}
+      <DetailPopulasiDasarModal
+        isOpen={openPopulasiDasar}
+        onClose={() => setOpenPopulasiDasar(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
+      <DetailKesejahteraanModal
+        isOpen={openKesejahteraan}
+        onClose={() => setOpenKesejahteraan(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
+      <DetailFasilitasKesehatanModal
+        isOpen={openFasilitasKesehatan}
+        onClose={() => setOpenFasilitasKesehatan(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
+      <DetailKebijakanInsentifAnakModal
+        isOpen={openKebijakanInsentifAnak}
+        onClose={() => setOpenKebijakanInsentifAnak(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
+      <DetailAngkaPernikahanModal
+        isOpen={openAngkaPernikahan}
+        onClose={() => setOpenAngkaPernikahan(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
+      <DetailTingkatPendidikanModal
+        isOpen={openTingkatPendidikan}
+        onClose={() => setOpenTingkatPendidikan(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+
     </div>
   );
 }

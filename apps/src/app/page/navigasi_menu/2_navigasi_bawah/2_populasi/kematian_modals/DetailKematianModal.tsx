@@ -1,7 +1,14 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { X, Users, Heart, Shield, Home, HeartPulse, Utensils, AlertTriangle, Factory, ArrowUpRight, Skull } from "lucide-react";
+import DetailHarapanHidupModal from './DetailHarapanHidupModal';
+import DetailKeamananModal from './DetailKeamananModal';
+import DetailTunawismaModal from './DetailTunawismaModal';
+import DetailKesehatanModal from './DetailKesehatanModal';
+import DetailKetahananPanganModal from './DetailKetahananPanganModal';
+import DetailKriminalitasModal from './DetailKriminalitasModal';
+import DetailPolusiModal from './DetailPolusiModal';
 
 interface DetailKematianModalProps {
   isOpen: boolean;
@@ -16,6 +23,15 @@ export default function DetailKematianModal({
   countryDetail,
   selectedCountry,
 }: DetailKematianModalProps) {
+  // State untuk masing-masing modal detail
+  const [isHarapanHidupOpen, setIsHarapanHidupOpen] = useState(false);
+  const [isKeamananOpen, setIsKeamananOpen] = useState(false);
+  const [isTunawismaOpen, setIsTunawismaOpen] = useState(false);
+  const [isKesehatanOpen, setIsKesehatanOpen] = useState(false);
+  const [isKetahananPanganOpen, setIsKetahananPanganOpen] = useState(false);
+  const [isKriminalitasOpen, setIsKriminalitasOpen] = useState(false);
+  const [isPolusiOpen, setIsPolusiOpen] = useState(false);
+
   if (!isOpen) return null;
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
@@ -109,8 +125,10 @@ export default function DetailKematianModal({
               {/* 1. Harapan Hidup */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsHarapanHidupOpen(true)}
+                  >
                     <Heart className="h-4 w-4 text-blue-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Harapan Hidup</h4>
@@ -125,8 +143,10 @@ export default function DetailKematianModal({
               {/* 2. Keamanan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsKeamananOpen(true)}
+                  >
                     <Shield className="h-4 w-4 text-indigo-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Keamanan</h4>
@@ -141,8 +161,10 @@ export default function DetailKematianModal({
               {/* 3. Tunawisma */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsTunawismaOpen(true)}
+                  >
                     <Home className="h-4 w-4 text-amber-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tunawisma</h4>
@@ -157,8 +179,10 @@ export default function DetailKematianModal({
               {/* 4. Kesehatan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsKesehatanOpen(true)}
+                  >
                     <HeartPulse className="h-4 w-4 text-green-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
@@ -173,8 +197,10 @@ export default function DetailKematianModal({
               {/* 5. Ketahanan Pangan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-orange-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-orange-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsKetahananPanganOpen(true)}
+                  >
                     <Utensils className="h-4 w-4 text-orange-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Ketahanan Pangan</h4>
@@ -189,8 +215,10 @@ export default function DetailKematianModal({
               {/* 6. Kriminalitas */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-rose-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-rose-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsKriminalitasOpen(true)}
+                  >
                     <AlertTriangle className="h-4 w-4 text-rose-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Kriminalitas</h4>
@@ -205,8 +233,10 @@ export default function DetailKematianModal({
               {/* 7. Polusi */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
-                  <div className="p-1.5 bg-gray-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                  <div 
+                    className="p-1.5 bg-gray-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
+                    onClick={() => setIsPolusiOpen(true)}
+                  >
                     <Factory className="h-4 w-4 text-gray-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Polusi</h4>
@@ -244,6 +274,50 @@ export default function DetailKematianModal({
           </button>
         </div>
       </div>
+
+      {/* Render semua modal detail (hanya yang terbuka) */}
+      <DetailHarapanHidupModal
+        isOpen={isHarapanHidupOpen}
+        onClose={() => setIsHarapanHidupOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailKeamananModal
+        isOpen={isKeamananOpen}
+        onClose={() => setIsKeamananOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailTunawismaModal
+        isOpen={isTunawismaOpen}
+        onClose={() => setIsTunawismaOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailKesehatanModal
+        isOpen={isKesehatanOpen}
+        onClose={() => setIsKesehatanOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailKetahananPanganModal
+        isOpen={isKetahananPanganOpen}
+        onClose={() => setIsKetahananPanganOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailKriminalitasModal
+        isOpen={isKriminalitasOpen}
+        onClose={() => setIsKriminalitasOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      <DetailPolusiModal
+        isOpen={isPolusiOpen}
+        onClose={() => setIsPolusiOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
     </div>
   );
 }
