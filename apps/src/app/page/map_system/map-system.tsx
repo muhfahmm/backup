@@ -1,4 +1,4 @@
-// detail path: c:\EM\apps\src\app\page\map_system\page.tsx
+// detail path: c:\EM\apps\src\app\page\map_system\map-system.tsx
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
