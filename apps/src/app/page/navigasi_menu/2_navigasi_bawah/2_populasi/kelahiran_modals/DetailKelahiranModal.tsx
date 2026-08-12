@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Users, Baby, HeartPulse, Home, GraduationCap, Banknote, ArrowUpRight, Smile, Heart, Activity } from "lucide-react";
+import { X, Users, Baby, HeartPulse, Home, GraduationCap, Banknote, ArrowUpRight, Smile, Heart, Activity, Info } from "lucide-react";
 import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
 import {
   calculateGeneralSatisfaction,
@@ -159,17 +159,19 @@ export default function DetailKelahiranModal({
               </p>
             </div>
 
-            {/* Breakdown Faktor Kelahiran - DENGAN CURSOR POINTER & HOVER EFFECT */}
+            {/* Breakdown Faktor Kelahiran - DENGAN TOMBOL INFO DI KANAN ATAS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               {/* 1. Populasi Dasar */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenPopulasiDasar(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  {/* 🔥 Klik ikon untuk membuka modal detail */}
-                  <div
-                    className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenPopulasiDasar(true)}
-                  >
+                  <div className="p-1.5 bg-blue-500/10 rounded-lg">
                     <Users className="h-4 w-4 text-blue-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Populasi Dasar</h4>
@@ -178,12 +180,15 @@ export default function DetailKelahiranModal({
               </div>
 
               {/* 2. Kesejahteraan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenKesejahteraan(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenKesejahteraan(true)}
-                  >
+                  <div className="p-1.5 bg-amber-500/10 rounded-lg">
                     <Banknote className="h-4 w-4 text-amber-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kesejahteraan</h4>
@@ -195,12 +200,15 @@ export default function DetailKelahiranModal({
               </div>
 
               {/* 3. Fasilitas Kesehatan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenFasilitasKesehatan(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenFasilitasKesehatan(true)}
-                  >
+                  <div className="p-1.5 bg-green-500/10 rounded-lg">
                     <HeartPulse className="h-4 w-4 text-green-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
@@ -213,12 +221,15 @@ export default function DetailKelahiranModal({
               </div>
 
               {/* 4. Kebijakan Insentif Anak */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenKebijakanInsentifAnak(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenKebijakanInsentifAnak(true)}
-                  >
+                  <div className="p-1.5 bg-indigo-500/10 rounded-lg">
                     <Home className="h-4 w-4 text-indigo-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kebijakan Insentif Anak</h4>
@@ -230,12 +241,15 @@ export default function DetailKelahiranModal({
               </div>
 
               {/* 5. Angka Pernikahan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenAngkaPernikahan(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="p-1.5 bg-pink-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenAngkaPernikahan(true)}
-                  >
+                  <div className="p-1.5 bg-pink-500/10 rounded-lg">
                     <Heart className="h-4 w-4 text-pink-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Angka Pernikahan</h4>
@@ -247,12 +261,15 @@ export default function DetailKelahiranModal({
               </div>
 
               {/* 6. Tingkat Pendidikan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setOpenTingkatPendidikan(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div
-                    className="p-1.5 bg-purple-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setOpenTingkatPendidikan(true)}
-                  >
+                  <div className="p-1.5 bg-purple-500/10 rounded-lg">
                     <GraduationCap className="h-4 w-4 text-purple-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Pendidikan</h4>
@@ -282,35 +299,30 @@ export default function DetailKelahiranModal({
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
       <DetailKesejahteraanModal
         isOpen={openKesejahteraan}
         onClose={() => setOpenKesejahteraan(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
       <DetailFasilitasKesehatanModal
         isOpen={openFasilitasKesehatan}
         onClose={() => setOpenFasilitasKesehatan(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
       <DetailKebijakanInsentifAnakModal
         isOpen={openKebijakanInsentifAnak}
         onClose={() => setOpenKebijakanInsentifAnak(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
       <DetailAngkaPernikahanModal
         isOpen={openAngkaPernikahan}
         onClose={() => setOpenAngkaPernikahan(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-
       <DetailTingkatPendidikanModal
         isOpen={openTingkatPendidikan}
         onClose={() => setOpenTingkatPendidikan(false)}

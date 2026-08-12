@@ -1,7 +1,15 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Users, Heart, Shield, Home, HeartPulse, Utensils, AlertTriangle, Factory, ArrowUpRight, Skull } from "lucide-react";
+import { X, Users, Heart, Shield, Home, HeartPulse, Utensils, AlertTriangle, Factory, ArrowUpRight, Skull, Info } from "lucide-react";
+import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
+import {
+  calculateGeneralSatisfaction,
+  calculateLifeExpectancy,
+  calculateSecurityLevel,
+  calculateDailyDeaths,
+} from "@/app/logic/populations_logic/population_logic";
+
 import DetailHarapanHidupModal from './grid_modals/DetailHarapanHidupModal';
 import DetailKeamananModal from './grid_modals/DetailKeamananModal';
 import DetailTunawismaModal from './grid_modals/DetailTunawismaModal';
@@ -35,6 +43,25 @@ export default function DetailKematianModal({
   if (!isOpen) return null;
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
+
+  // 🔥 Ambil livingCostIndex dari data statis (sama seperti modal utama)
+  const countryName = selectedCountry?.country?.toLowerCase?.() || "";
+  const staticData = COUNTRY_STATIC_DATA[countryName];
+  const livingCostIndex = countryDetail?.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
+
+  // 🔥 Hitung kepuasan umum, harapan hidup, dan tingkat keamanan (sama persis)
+  const detailWithDefaults = {
+    ...countryDetail,
+    living_cost_index: livingCostIndex,
+  };
+  const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
+  const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
+  const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
+
+  // 🔥 GUNAKAN FUNGSI RESMI DARI population_logic.ts! (Agar angkanya sama: -5.682)
+  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
+
+  // Data untuk tampilan kartu UI (Multiplier visual)
   const harapanHidup = countryDetail?.harapan_hidup ?? 70;
   const tingkatKeamanan = countryDetail?.tingkat_keamanan ?? 80;
   const homelessCount = countryDetail?.tunawisma ?? 0;
@@ -43,40 +70,20 @@ export default function DetailKematianModal({
   const tingkatKriminalitas = countryDetail?.tingkat_kriminalitas ?? 5;
   const polusiIndex = countryDetail?.polusi_index ?? 40;
 
-  // --- Logika perhitungan faktor kematian ---
-  const baseDeathRate = 0.000025;
-  const baseDeaths = populasi * baseDeathRate;
-
-  // Harapan Hidup (50 thn=1.2, 70 thn=1.0, 85 thn=0.8)
+  // --- Logika multiplier visual (Hanya untuk ditampilkan di UI, tidak memengaruhi angka akhir) ---
   const lifeExpectancyFactor = Math.max(0.8, 1.2 - (0.005 * (harapanHidup - 50)));
-
-  // Keamanan
   const securityFactor = Math.max(0.75, 1.0 - (0.005 * (tingkatKeamanan - 50)));
-
-  // Tunawisma (setiap 1% tunawisma = +5% kematian)
   const homelessRatio = homelessCount / populasi;
   const homelessFactor = 1 + (homelessRatio * 5);
-
-  // Kesehatan (ketersediaan RS)
   const idealHospitals = Math.ceil(populasi / 100000);
   const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 0;
   const healthFactor = 1.0 - (0.3 * (1 - hospitalRatio));
-
-  // Ketahanan Pangan (0.7 – 1.0)
   const foodSecurityFactor = 0.7 + (0.003 * indeksKetahananPangan);
-
-  // Kriminalitas (setiap 1% = +2% kematian)
   const crimeFactor = 1 + (tingkatKriminalitas * 0.02);
-
-  // Polusi (setiap 10 poin = +5% kematian)
   const pollutionFactor = 1 + (polusiIndex / 200);
 
-  // Total
-  const totalFactor = lifeExpectancyFactor * securityFactor * homelessFactor * healthFactor * foodSecurityFactor * crimeFactor * pollutionFactor;
-  const dailyDeaths = Math.floor(baseDeaths * totalFactor);
-
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
-  const countryName = selectedCountry?.country || "Indonesia";
+  const countryDisplayName = selectedCountry?.country || "Indonesia";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -91,7 +98,7 @@ export default function DetailKematianModal({
             </div>
             <div>
               <h2 className="text-2xl font-black text-[#5c3c10] tracking-tight leading-none uppercase">Rincian Angka Kematian</h2>
-              <p className="text-xs text-[#8b7e66] font-medium">Faktor-faktor yang memengaruhi kematian di {countryName}</p>
+              <p className="text-xs text-[#8b7e66] font-medium">Faktor-faktor yang memengaruhi kematian di {countryDisplayName}</p>
             </div>
           </div>
           <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
@@ -120,15 +127,18 @@ export default function DetailKematianModal({
               </p>
             </div>
 
-            {/* Breakdown Faktor - DENGAN CURSOR POINTER & HOVER EFFECT */}
+            {/* Breakdown Faktor - DENGAN TOMBOL INFO DI KANAN ATAS */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* 1. Harapan Hidup */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsHarapanHidupOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsHarapanHidupOpen(true)}
-                  >
+                  <div className="p-1.5 bg-blue-500/10 rounded-lg">
                     <Heart className="h-4 w-4 text-blue-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Harapan Hidup</h4>
@@ -141,12 +151,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 2. Keamanan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsKeamananOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsKeamananOpen(true)}
-                  >
+                  <div className="p-1.5 bg-indigo-500/10 rounded-lg">
                     <Shield className="h-4 w-4 text-indigo-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Keamanan</h4>
@@ -159,12 +172,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 3. Tunawisma */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsTunawismaOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsTunawismaOpen(true)}
-                  >
+                  <div className="p-1.5 bg-amber-500/10 rounded-lg">
                     <Home className="h-4 w-4 text-amber-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tunawisma</h4>
@@ -177,12 +193,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 4. Kesehatan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsKesehatanOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsKesehatanOpen(true)}
-                  >
+                  <div className="p-1.5 bg-green-500/10 rounded-lg">
                     <HeartPulse className="h-4 w-4 text-green-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
@@ -195,12 +214,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 5. Ketahanan Pangan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsKetahananPanganOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-orange-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsKetahananPanganOpen(true)}
-                  >
+                  <div className="p-1.5 bg-orange-500/10 rounded-lg">
                     <Utensils className="h-4 w-4 text-orange-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Ketahanan Pangan</h4>
@@ -213,12 +235,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 6. Kriminalitas */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsKriminalitasOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-rose-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsKriminalitasOpen(true)}
-                  >
+                  <div className="p-1.5 bg-rose-500/10 rounded-lg">
                     <AlertTriangle className="h-4 w-4 text-rose-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Kriminalitas</h4>
@@ -231,12 +256,15 @@ export default function DetailKematianModal({
               </div>
 
               {/* 7. Polusi */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+                <button
+                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
+                  onClick={() => setIsPolusiOpen(true)}
+                >
+                  <Info className="w-4 h-4" />
+                </button>
                 <div className="flex items-center gap-2">
-                  <div 
-                    className="p-1.5 bg-gray-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform"
-                    onClick={() => setIsPolusiOpen(true)}
-                  >
+                  <div className="p-1.5 bg-gray-500/10 rounded-lg">
                     <Factory className="h-4 w-4 text-gray-700" />
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Polusi</h4>
@@ -247,22 +275,6 @@ export default function DetailKematianModal({
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Setiap 10 poin polusi meningkatkan kematian sebesar 5%.</p>
               </div>
-            </div>
-
-            {/* Rumus Lengkap */}
-            <div className="bg-[#e4dac3]/30 border-2 border-[#C4B49C]/40 p-5 rounded-2xl space-y-2">
-              <h4 className="text-xs font-black text-[#5c3c10] uppercase tracking-wider flex items-center gap-2">
-                <ArrowUpRight className="h-4 w-4 text-[#5c3c10]" />
-                Rumus Perhitungan
-              </h4>
-              <p className="text-[10px] text-[#8b7e66] font-mono font-medium leading-relaxed">
-                Kematian = BaseRate × Populasi × <span className="text-blue-700">Harapan Hidup</span> × <span className="text-indigo-700">Keamanan</span> × <span className="text-amber-700">Tunawisma</span> × <span className="text-green-700">Kesehatan</span> × <span className="text-orange-700">Pangan</span> × <span className="text-rose-700">Kriminalitas</span> × <span className="text-gray-700">Polusi</span>
-              </p>
-              <p className="text-[10px] text-[#8b7e66] font-mono">
-                = {formatNumber(Math.floor(baseDeaths))} × {lifeExpectancyFactor.toFixed(3)} × {securityFactor.toFixed(3)} × {homelessFactor.toFixed(3)} × {healthFactor.toFixed(3)} × {foodSecurityFactor.toFixed(3)} × {crimeFactor.toFixed(3)} × {pollutionFactor.toFixed(3)}
-                <br />
-                = <span className="font-black text-rose-700">-{formatNumber(dailyDeaths)} jiwa/hari</span>
-              </p>
             </div>
           </div>
         </div>
