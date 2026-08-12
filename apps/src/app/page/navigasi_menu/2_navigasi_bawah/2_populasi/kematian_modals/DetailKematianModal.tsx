@@ -2,13 +2,13 @@
 
 import React, { useState } from "react";
 import { X, Users, Heart, Shield, Home, HeartPulse, Utensils, AlertTriangle, Factory, ArrowUpRight, Skull } from "lucide-react";
-import DetailHarapanHidupModal from './DetailHarapanHidupModal';
-import DetailKeamananModal from './DetailKeamananModal';
-import DetailTunawismaModal from './DetailTunawismaModal';
-import DetailKesehatanModal from './DetailKesehatanModal';
-import DetailKetahananPanganModal from './DetailKetahananPanganModal';
-import DetailKriminalitasModal from './DetailKriminalitasModal';
-import DetailPolusiModal from './DetailPolusiModal';
+import DetailHarapanHidupModal from './grid_modals/DetailHarapanHidupModal';
+import DetailKeamananModal from './grid_modals/DetailKeamananModal';
+import DetailTunawismaModal from './grid_modals/DetailTunawismaModal';
+import DetailKesehatanModal from './grid_modals/DetailKesehatanModal';
+import DetailKetahananPanganModal from './grid_modals/DetailKetahananPanganModal';
+import DetailKriminalitasModal from './grid_modals/DetailKriminalitasModal';
+import DetailPolusiModal from './grid_modals/DetailPolusiModal';
 
 interface DetailKematianModalProps {
   isOpen: boolean;

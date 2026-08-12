@@ -12,12 +12,12 @@ import {
 } from "@/app/logic/populations_logic/population_logic";
 
 // 🔥 Import ke-6 modal detail
-import DetailPopulasiDasarModal from "./DetailPopulasiDasarModal";
-import DetailKesejahteraanModal from "./DetailKesejahteraanModal";
-import DetailFasilitasKesehatanModal from "./DetailFasilitasKesehatanModal";
-import DetailKebijakanInsentifAnakModal from "./DetailKebijakanInsentifAnakModal";
-import DetailAngkaPernikahanModal from "./DetailAngkaPernikahanModal";
-import DetailTingkatPendidikanModal from "./DetailTingkatPendidikanModal";
+import DetailPopulasiDasarModal from "./grid_modals/DetailPopulasiDasarModal";
+import DetailKesejahteraanModal from "./grid_modals/DetailKesejahteraanModal";
+import DetailFasilitasKesehatanModal from "./grid_modals/DetailFasilitasKesehatanModal";
+import DetailKebijakanInsentifAnakModal from "./grid_modals/DetailKebijakanInsentifAnakModal";
+import DetailAngkaPernikahanModal from "./grid_modals/DetailAngkaPernikahanModal";
+import DetailTingkatPendidikanModal from "./grid_modals/DetailTingkatPendidikanModal";
 
 interface DetailKelahiranModalProps {
   isOpen: boolean;
