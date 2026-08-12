@@ -115,15 +115,50 @@ export const calculateSecurityLevel = (detail: CountryDetail, satisfaction: numb
 };
 
 // ==============================
-// 4. Hitung Daily Births (Kelahiran Harian)
+// 4. Hitung Daily Births (Kelahiran Harian) - Versi 8 Parameter
 // ==============================
 export const calculateDailyBirths = (
   populasi: number,
-  satisfaction: number
+  satisfaction: number,
+  livingCostIndex: number = 62.4,
+  jumlahRumahSakit: number = 0,
+  jumlahKlinik: number = 0,
+  programInsentifAnak: boolean = false,
+  angkaPernikahan: number = 0.05,
+  tingkatPendidikan: number = 0.5
 ): number => {
-  const baseBirthRate = 0.000042;
-  const birthMultiplier = 0.8 + (satisfaction / 100) * 0.4;
-  return Math.floor(populasi * baseBirthRate * birthMultiplier);
+  if (populasi <= 0) return 0;
+
+  // 1. Base birth rate (0.014% dari populasi per hari)
+  const baseBirthRate = 0.00014;
+  const baseBirths = populasi * baseBirthRate;
+
+  // 2. Faktor Kesejahteraan
+  const welfareFactor = 0.75 + (livingCostIndex / 200);
+
+  // 3. Faktor Kesehatan
+  const idealHospitals = Math.ceil(populasi / 100000);
+  const idealClinics = Math.ceil(populasi / 10000);
+  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
+  const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
+  const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
+
+  // 4. Faktor Kebijakan
+  const policyFactor = programInsentifAnak ? 1.2 : 1.0;
+
+  // 5. Faktor Pernikahan
+  const marriageFactor = 0.8 + (angkaPernikahan * 4);
+
+  // 6. Faktor Pendidikan
+  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
+
+  // 7. Faktor Kepuasan
+  const satisfactionFactor = 0.5 + (satisfaction / 200);
+
+  // Total Faktor
+  const totalFactor = welfareFactor * healthFactor * policyFactor * marriageFactor * educationFactor * satisfactionFactor;
+
+  return Math.floor(baseBirths * totalFactor);
 };
 
 // ==============================
@@ -191,7 +226,18 @@ export const calculateDailyPopulationChange = (
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
   
-  const dailyBirths = calculateDailyBirths(populasi, kepuasanUmum);
+  // 🔥 PERBAIKAN: Panggil calculateDailyBirths dengan 8 parameter!
+  const dailyBirths = calculateDailyBirths(
+    populasi,
+    kepuasanUmum,
+    livingCostIndex,
+    detail.jumlah_rumah_sakit ?? 0,
+    detail.jumlah_klinik ?? 0,
+    detail.program_insentif_anak ?? false,
+    detail.angka_pernikahan ?? 0.05,
+    detail.tingkat_pendidikan ?? 0.5
+  );
+
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
   
   const netDailyChange = dailyBirths - dailyDeaths;

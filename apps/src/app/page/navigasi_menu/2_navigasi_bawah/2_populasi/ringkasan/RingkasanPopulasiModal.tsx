@@ -7,6 +7,7 @@ import {
   calculateGeneralSatisfaction,
   calculateLifeExpectancy,
   calculateSecurityLevel,
+  calculateDailyBirths,
   calculateDailyDeaths,
   calculateHomelessCount,
   type PopulationDailyMetrics,
@@ -51,53 +52,27 @@ function hitungKepuasanSektoral(detail: CountryDetail): PopulationSectoral {
   return calculateSectoralSatisfaction(detail);
 }
 
-// 🔥 Fungsi baru untuk menghitung angka kelahiran harian dengan 6 faktor
-function calculateBirths(
-  populasi: number,
-  kepuasanUmum: number,
-  livingCostIndex: number,
-  jumlahRumahSakit: number,
-  jumlahKlinik: number,
-  programInsentifAnak: boolean,
-  angkaPernikahan: number = 0.05,
-  tingkatPendidikan: number = 0.5
-): number {
-  if (populasi <= 0) return 0;
-
-  const baseRate = 0.00014;
-  let baseBirths = populasi * baseRate;
-
-  const welfareFactor = 0.75 + (livingCostIndex / 200);
-  const idealHospitals = Math.ceil(populasi / 100000);
-  const idealClinics = Math.ceil(populasi / 10000);
-  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
-  const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
-  const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
-  const policyFactor = programInsentifAnak ? 1.2 : 1.0;
-  const marriageFactor = 0.8 + (angkaPernikahan * 4);
-  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
-  const satisfactionFactor = 0.5 + (kepuasanUmum / 200);
-
-  const totalFactor = welfareFactor * healthFactor * policyFactor * marriageFactor * educationFactor * satisfactionFactor;
-  return Math.floor(baseBirths * totalFactor);
-}
-
 // ==============================
 // Fungsi Penghitung Metrik Demografi Dinamis (diperbarui)
 // ==============================
 function hitungDemografi(detail: CountryDetail, countryName?: string) {
   const populasi = detail.jumlah_penduduk || 10_000_000;
-  const sektoral = hitungKepuasanSektoral(detail);
-  
-  const kepuasanUmum = calculateGeneralSatisfaction(detail);
-  const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
-  const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
   
   // 🔥 Ambil livingCostIndex dari data statis jika tidak ada di detail
   const staticData = countryName ? COUNTRY_STATIC_DATA[countryName.toLowerCase()] : null;
   const livingCostIndex = detail.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
 
-  const dailyBirths = calculateBirths(
+  const detailWithDefaults = {
+    ...detail,
+    living_cost_index: livingCostIndex,
+  };
+
+  const sektoral = hitungKepuasanSektoral(detailWithDefaults);
+  const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
+  const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
+  const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
+
+  const dailyBirths = calculateDailyBirths(
     populasi,
     kepuasanUmum,
     livingCostIndex,
@@ -201,7 +176,10 @@ export default function RingkasanPopulasiModal({
               </div>
             </div>
 
-            <div className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm">
+            <div 
+              className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:opacity-85 active:scale-[0.98]"
+              onClick={() => setIsDetailBirthOpen(true)}
+            >
               <div className="p-3 bg-emerald-500/10 rounded-xl">
                 <TrendingUp className="h-6 w-6 text-emerald-700" />
               </div>
@@ -303,6 +281,9 @@ export default function RingkasanPopulasiModal({
         onClose={() => setIsDetailBirthOpen(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
+        dailyBirths={dailyBirths}
+        dailyDeaths={dailyDeaths}
+        netDailyChange={totalDailyDelta}
       />
       
       <DetailKematianModal
