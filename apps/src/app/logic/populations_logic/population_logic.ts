@@ -4,7 +4,6 @@
  */
 
 import { logger } from '../../../lib/logger';
-// 🔥 Import data statis 207 negara
 import { COUNTRY_STATIC_DATA } from './index_Kesejahteraan';
 
 // ==============================
@@ -20,17 +19,13 @@ export interface CountryDetail {
   harapan_hidup?: number;
   tingkat_keamanan?: number;
   inisiatif_aktif?: { nama: string; boost: number }[];
-
-  // Populasi tracking fields
-  accumulated_births?: number;
-  accumulated_deaths?: number;
   [key: string]: any;
 }
 
 export interface PopulationDailyMetrics {
   dailyBirths: number;
   dailyDeaths: number;
-  netDailyChange: number;  // +/- per hari
+  netDailyChange: number;
   homelessCount: number;
   kepuasanUmum: number;
   lifeExpectancy: number;
@@ -93,11 +88,9 @@ export const calculateSectoralSatisfaction = (detail: CountryDetail): Population
 // ==============================
 export const calculateGeneralSatisfaction = (detail: CountryDetail): number => {
   const sektoral = calculateSectoralSatisfaction(detail);
-
   const averageSectoral = (sektoral.pajak + sektoral.harga + sektoral.pangan + sektoral.listrik + sektoral.hunian) / 5;
   const initiativeBoost = detail.inisiatif_aktif?.reduce((sum, ini) => sum + ini.boost, 0) ?? 0;
   const generalSatisfaction = Math.min(200, averageSectoral + initiativeBoost);
-
   return generalSatisfaction;
 };
 
@@ -115,54 +108,40 @@ export const calculateSecurityLevel = (detail: CountryDetail, satisfaction: numb
 };
 
 // ==============================
-// 4. Hitung Daily Births (Kelahiran Harian) - Versi 8 Parameter
+// 4. Hitung Daily Births (8 Parameter - Versi Lama)
 // ==============================
 export const calculateDailyBirths = (
   populasi: number,
   satisfaction: number,
-  livingCostIndex: number = 62.4,
-  jumlahRumahSakit: number = 0,
-  jumlahKlinik: number = 0,
+  livingCostIndex: number,
+  jumlahRumahSakit: number,
+  jumlahKlinik: number,
   programInsentifAnak: boolean = false,
   angkaPernikahan: number = 0.05,
   tingkatPendidikan: number = 0.5
 ): number => {
   if (populasi <= 0) return 0;
 
-  // 1. Base birth rate (0.014% dari populasi per hari)
   const baseBirthRate = 0.00014;
   const baseBirths = populasi * baseBirthRate;
 
-  // 2. Faktor Kesejahteraan
   const welfareFactor = 0.75 + (livingCostIndex / 200);
-
-  // 3. Faktor Kesehatan
   const idealHospitals = Math.ceil(populasi / 100000);
   const idealClinics = Math.ceil(populasi / 10000);
   const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
   const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
   const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
-
-  // 4. Faktor Kebijakan
   const policyFactor = programInsentifAnak ? 1.2 : 1.0;
-
-  // 5. Faktor Pernikahan
   const marriageFactor = 0.8 + (angkaPernikahan * 4);
-
-  // 6. Faktor Pendidikan
   const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
-
-  // 7. Faktor Kepuasan
   const satisfactionFactor = 0.5 + (satisfaction / 200);
 
-  // Total Faktor
   const totalFactor = welfareFactor * healthFactor * policyFactor * marriageFactor * educationFactor * satisfactionFactor;
-
   return Math.floor(baseBirths * totalFactor);
 };
 
 // ==============================
-// 5. Hitung Daily Deaths (Kematian Harian)
+// 5. Hitung Daily Deaths (3 Parameter - Versi Lama)
 // ==============================
 export const calculateDailyDeaths = (
   populasi: number,
@@ -208,25 +187,18 @@ export const calculateDailyPopulationChange = (
   }
 
   const populasi = detail.jumlah_penduduk || 10_000_000;
-
   let defaults = null;
   if (countryName) {
     defaults = getCountryDefaults(countryName);
   }
 
   const livingCostIndex = detail.living_cost_index ?? defaults?.livingCostIndex ?? 62.4;
-
-  const detailWithDefaults = {
-    ...detail,
-    living_cost_index: livingCostIndex,
-  };
+  const detailWithDefaults = { ...detail, living_cost_index: livingCostIndex };
 
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
-
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
 
-  // 🔥 PERBAIKAN: Panggil calculateDailyBirths dengan 8 parameter!
   const dailyBirths = calculateDailyBirths(
     populasi,
     kepuasanUmum,
@@ -239,9 +211,7 @@ export const calculateDailyPopulationChange = (
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
-
   const netDailyChange = dailyBirths - dailyDeaths;
-
   const sektoral = calculateSectoralSatisfaction(detailWithDefaults);
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);
 
@@ -258,7 +228,7 @@ export const calculateDailyPopulationChange = (
 };
 
 // ==============================
-// 8. Update Population Count
+// 8-11. Helper UI (Tetap sama)
 // ==============================
 export const updateDailyPopulation = (
   detail: CountryDetail,
@@ -266,15 +236,11 @@ export const updateDailyPopulation = (
   countryName?: string
 ): Partial<CountryDetail> => {
   if (!detail) return {};
-
   const dailyMetrics = metrics || calculateDailyPopulationChange(detail, countryName);
-
   const currentPopulasi = Number(detail.jumlah_penduduk) || 10_000_000;
   const newPopulasi = Math.max(0, currentPopulasi + dailyMetrics.netDailyChange);
-
   const accumulatedBirths = (Number(detail.accumulated_births) || 0) + dailyMetrics.dailyBirths;
   const accumulatedDeaths = (Number(detail.accumulated_deaths) || 0) + dailyMetrics.dailyDeaths;
-
   return {
     jumlah_penduduk: newPopulasi,
     accumulated_births: accumulatedBirths,
@@ -282,20 +248,11 @@ export const updateDailyPopulation = (
   };
 };
 
-// ==============================
-// 9. Format Population dengan Net Change (untuk UI)
-// ==============================
-export const formatPopulationWithNetChange = (
-  populasi: number,
-  netChange: number
-): string => {
+export const formatPopulationWithNetChange = (populasi: number, netChange: number): string => {
   const sign = netChange >= 0 ? '+' : '';
   return `${populasi.toLocaleString('id-ID')} (${sign}${netChange.toLocaleString('id-ID')}/hari)`;
 };
 
-// ==============================
-// 10. Get Color untuk Net Population Change
-// ==============================
 export const getNetPopulationChangeColor = (netChange: number): string => {
   if (netChange >= 100) return 'text-emerald-700';
   if (netChange >= 0) return 'text-emerald-600';
@@ -303,9 +260,6 @@ export const getNetPopulationChangeColor = (netChange: number): string => {
   return 'text-rose-700';
 };
 
-// ==============================
-// 11. Logger untuk debugging
-// ==============================
 export const logPopulationMetrics = (
   detail: CountryDetail,
   metrics: PopulationDailyMetrics,

@@ -10,6 +10,7 @@ import {
   calculateDailyDeaths,
 } from "@/app/logic/populations_logic/population_logic";
 
+// 🔥 Import 7 modal detail (pastikan path sesuai struktur Anda)
 import DetailHarapanHidupModal from './grid_modals/DetailHarapanHidupModal';
 import DetailKeamananModal from './grid_modals/DetailKeamananModal';
 import DetailTunawismaModal from './grid_modals/DetailTunawismaModal';
@@ -23,6 +24,7 @@ interface DetailKematianModalProps {
   onClose: () => void;
   countryDetail?: any;
   selectedCountry?: any;
+  homelessCount?: number; // Data tunawisma dari induk
 }
 
 export default function DetailKematianModal({
@@ -30,8 +32,9 @@ export default function DetailKematianModal({
   onClose,
   countryDetail,
   selectedCountry,
+  homelessCount: propsHomelessCount,
 }: DetailKematianModalProps) {
-  // State untuk masing-masing modal detail
+  // 🔥 State untuk 7 modal detail (agar tombol Info bisa membuka modal)
   const [isHarapanHidupOpen, setIsHarapanHidupOpen] = useState(false);
   const [isKeamananOpen, setIsKeamananOpen] = useState(false);
   const [isTunawismaOpen, setIsTunawismaOpen] = useState(false);
@@ -44,33 +47,27 @@ export default function DetailKematianModal({
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
 
-  // 🔥 Ambil livingCostIndex dari data statis (sama seperti modal utama)
   const countryName = selectedCountry?.country?.toLowerCase?.() || "";
   const staticData = COUNTRY_STATIC_DATA[countryName];
   const livingCostIndex = countryDetail?.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
 
-  // 🔥 Hitung kepuasan umum, harapan hidup, dan tingkat keamanan (sama persis)
-  const detailWithDefaults = {
-    ...countryDetail,
-    living_cost_index: livingCostIndex,
-  };
+  const detailWithDefaults = { ...countryDetail, living_cost_index: livingCostIndex };
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
   const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
 
-  // 🔥 GUNAKAN FUNGSI RESMI DARI population_logic.ts! (Agar angkanya sama: -5.682)
+  // 🔥 Fungsi 3 parameter
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
 
-  // Data untuk tampilan kartu UI (Multiplier visual)
+  // --- Data visual UI ---
   const harapanHidup = countryDetail?.harapan_hidup ?? 70;
   const tingkatKeamanan = countryDetail?.tingkat_keamanan ?? 80;
-  const homelessCount = countryDetail?.tunawisma ?? 0;
+  const homelessCount = propsHomelessCount ?? 0;
   const jumlahRumahSakit = countryDetail?.jumlah_rumah_sakit ?? 0;
   const indeksKetahananPangan = countryDetail?.indeks_ketahanan_pangan ?? 60;
   const tingkatKriminalitas = countryDetail?.tingkat_kriminalitas ?? 5;
   const polusiIndex = countryDetail?.polusi_index ?? 40;
 
-  // --- Logika multiplier visual (Hanya untuk ditampilkan di UI, tidak memengaruhi angka akhir) ---
   const lifeExpectancyFactor = Math.max(0.8, 1.2 - (0.005 * (harapanHidup - 50)));
   const securityFactor = Math.max(0.75, 1.0 - (0.005 * (tingkatKeamanan - 50)));
   const homelessRatio = homelessCount / populasi;
@@ -287,7 +284,7 @@ export default function DetailKematianModal({
         </div>
       </div>
 
-      {/* Render semua modal detail (hanya yang terbuka) */}
+      {/* 🔥 RENDER 7 MODAL DETAIL DI SINI (Agar tombol Info berfungsi) */}
       <DetailHarapanHidupModal
         isOpen={isHarapanHidupOpen}
         onClose={() => setIsHarapanHidupOpen(false)}
