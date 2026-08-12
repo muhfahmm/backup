@@ -104,12 +104,15 @@ export default function DetailKematianModal({
               </p>
             </div>
 
-            {/* Breakdown Faktor */}
+            {/* Breakdown Faktor - DENGAN CURSOR POINTER & HOVER EFFECT */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {/* 1. Harapan Hidup */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-blue-500/10 rounded-lg"><Heart className="h-4 w-4 text-blue-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Heart className="h-4 w-4 text-blue-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Harapan Hidup</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -122,7 +125,10 @@ export default function DetailKematianModal({
               {/* 2. Keamanan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-indigo-500/10 rounded-lg"><Shield className="h-4 w-4 text-indigo-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Shield className="h-4 w-4 text-indigo-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Keamanan</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -135,7 +141,10 @@ export default function DetailKematianModal({
               {/* 3. Tunawisma */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-amber-500/10 rounded-lg"><Home className="h-4 w-4 text-amber-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Home className="h-4 w-4 text-amber-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tunawisma</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -148,7 +157,10 @@ export default function DetailKematianModal({
               {/* 4. Kesehatan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-green-500/10 rounded-lg"><HeartPulse className="h-4 w-4 text-green-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <HeartPulse className="h-4 w-4 text-green-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -161,7 +173,10 @@ export default function DetailKematianModal({
               {/* 5. Ketahanan Pangan */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-orange-500/10 rounded-lg"><Utensils className="h-4 w-4 text-orange-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-orange-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Utensils className="h-4 w-4 text-orange-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Ketahanan Pangan</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -174,7 +189,10 @@ export default function DetailKematianModal({
               {/* 6. Kriminalitas */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-rose-500/10 rounded-lg"><AlertTriangle className="h-4 w-4 text-rose-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-rose-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <AlertTriangle className="h-4 w-4 text-rose-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Kriminalitas</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -187,7 +205,10 @@ export default function DetailKematianModal({
               {/* 7. Polusi */}
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-gray-500/10 rounded-lg"><Factory className="h-4 w-4 text-gray-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-gray-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Factory className="h-4 w-4 text-gray-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Polusi</h4>
                 </div>
                 <div className="flex items-center gap-2">

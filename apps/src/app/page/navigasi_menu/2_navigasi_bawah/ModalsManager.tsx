@@ -10,7 +10,7 @@ import StatistikKepuasanModal from "./1_kepuasan/1_statistik/StatistikKepuasanMo
 import NaikkanKepuasanModal from "./1_kepuasan/2_naikkan_kepuasan/NaikkanKepuasanModal";
 
 // 2. Populasi
-import RingkasanPopulasiModal from "./2_populasi/ringkasan/RingkasanPopulasiModal";
+import RingkasanPopulasiModal from "./2_populasi/RingkasanPopulasiModal";
 
 // 3. Produksi & Konsumsi
 import KelistrikanModal from "./3_produksi_konsumsi/1_grid_nasional/KelistrikanModal";
@@ -180,7 +180,7 @@ function ModalsManager({
           selectedCountry={selectedCountry}
         />
       );
-    
+
     // 3. Produksi & Konsumsi
     case "Menu:Kelistrikan":
       return (

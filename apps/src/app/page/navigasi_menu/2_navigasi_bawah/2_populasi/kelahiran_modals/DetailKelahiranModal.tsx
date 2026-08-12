@@ -112,7 +112,7 @@ export default function DetailKelahiranModal({
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar">
           <div className="space-y-6 animate-in fade-in duration-500">
             
-            {/* Ringkasan Utama - Pertumbuhan Bersih (Sesuai data di modal utama) */}
+            {/* Ringkasan Utama - Pertumbuhan Bersih */}
             <div className="bg-white/60 border-2 border-[#C4B49C]/20 p-6 rounded-2xl shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
@@ -143,11 +143,14 @@ export default function DetailKelahiranModal({
               </p>
             </div>
 
-            {/* Breakdown Faktor Kelahiran (Menampilkan variabel-variabel multiplier) */}
+            {/* Breakdown Faktor Kelahiran - DENGAN CURSOR POINTER & HOVER EFFECT */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-blue-500/10 rounded-lg"><Users className="h-4 w-4 text-blue-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-blue-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Users className="h-4 w-4 text-blue-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Populasi Dasar</h4>
                 </div>
                 <p className="text-sm font-bold text-[#2e261a]">{formatNumber(populasi)} jiwa</p>
@@ -155,7 +158,10 @@ export default function DetailKelahiranModal({
 
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-amber-500/10 rounded-lg"><Banknote className="h-4 w-4 text-amber-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-amber-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Banknote className="h-4 w-4 text-amber-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kesejahteraan</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -166,7 +172,10 @@ export default function DetailKelahiranModal({
 
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-green-500/10 rounded-lg"><HeartPulse className="h-4 w-4 text-green-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-green-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <HeartPulse className="h-4 w-4 text-green-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
                 </div>
                 <div className="flex justify-between text-xs">
@@ -178,7 +187,10 @@ export default function DetailKelahiranModal({
 
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-indigo-500/10 rounded-lg"><Home className="h-4 w-4 text-indigo-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-indigo-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Home className="h-4 w-4 text-indigo-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kebijakan Insentif Anak</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -189,7 +201,10 @@ export default function DetailKelahiranModal({
 
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-pink-500/10 rounded-lg"><Heart className="h-4 w-4 text-pink-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-pink-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <Heart className="h-4 w-4 text-pink-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Angka Pernikahan</h4>
                 </div>
                 <div className="flex items-center gap-2">
@@ -200,7 +215,10 @@ export default function DetailKelahiranModal({
 
               <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2">
                 <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-purple-500/10 rounded-lg"><GraduationCap className="h-4 w-4 text-purple-700" /></div>
+                  {/* 🔥 Tambahkan cursor-pointer dan efek scale disini */}
+                  <div className="p-1.5 bg-purple-500/10 rounded-lg cursor-pointer hover:scale-105 transition-transform">
+                    <GraduationCap className="h-4 w-4 text-purple-700" />
+                  </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Pendidikan</h4>
                 </div>
                 <div className="flex items-center gap-2">

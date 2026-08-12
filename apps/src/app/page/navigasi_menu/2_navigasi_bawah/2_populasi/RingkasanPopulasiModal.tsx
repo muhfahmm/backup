@@ -15,8 +15,8 @@ import {
 } from "@/app/logic/populations_logic/population_logic";
 import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/country_static_data"; // 🔥 Tambahkan import
 
-import DetailKelahiranModal from "./DetailKelahiranModal";
-import DetailKematianModal from "./DetailKematianModal";
+import DetailKelahiranModal from "./kelahiran_modals/DetailKelahiranModal";
+import DetailKematianModal from "./kematian_modals/DetailKematianModal";
 
 // ==============================
 // Tipe data yang diharapkan dari countryDetail
@@ -57,7 +57,7 @@ function hitungKepuasanSektoral(detail: CountryDetail): PopulationSectoral {
 // ==============================
 function hitungDemografi(detail: CountryDetail, countryName?: string) {
   const populasi = detail.jumlah_penduduk || 10_000_000;
-  
+
   // 🔥 Ambil livingCostIndex dari data statis jika tidak ada di detail
   const staticData = countryName ? COUNTRY_STATIC_DATA[countryName.toLowerCase()] : null;
   const livingCostIndex = detail.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
@@ -84,10 +84,10 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
-  
+
   const totalDailyDelta = dailyBirths - dailyDeaths;
   const totalMonthlyGrowthPercent = ((totalDailyDelta * 30) / populasi) * 100;
-  
+
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);
 
   return {
@@ -108,16 +108,16 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
 // ==============================
 // Komponen Modal
 // ==============================
-export default function RingkasanPopulasiModal({ 
-  isOpen, 
+export default function RingkasanPopulasiModal({
+  isOpen,
   onClose,
   countryDetail,
   selectedCountry
 }: RingkasanPopulasiModalProps) {
-  
+
   const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
   const [isDetailDeathOpen, setIsDetailDeathOpen] = useState(false);
-  
+
   const metrics = useMemo(() => {
     if (!countryDetail) return null;
     // 🔥 Kirim countryName ke fungsi hitungDemografi
@@ -126,7 +126,7 @@ export default function RingkasanPopulasiModal({
 
   if (!isOpen || !metrics) return null;
 
-  const { 
+  const {
     populasi,
     dailyBirths,
     dailyDeaths,
@@ -142,20 +142,20 @@ export default function RingkasanPopulasiModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
-        
+
         {/* Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
         {/* Header */}
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-3">
-              <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
-                <Users2 className="h-6 w-6 text-[#5c3c10]" />
-              </div>
-              <div>
-                <h2 className="text-2xl font-black text-[#5c3c10] tracking-tight leading-none uppercase">Kependudukan</h2>
-              </div>
+            <div className="p-2 bg-[#5c3c10]/10 rounded-xl border border-[#5c3c10]/20">
+              <Users2 className="h-6 w-6 text-[#5c3c10]" />
             </div>
+            <div>
+              <h2 className="text-2xl font-black text-[#5c3c10] tracking-tight leading-none uppercase">Kependudukan</h2>
+            </div>
+          </div>
 
           <button onClick={onClose} className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
             <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
@@ -176,7 +176,7 @@ export default function RingkasanPopulasiModal({
               </div>
             </div>
 
-            <div 
+            <div
               className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:opacity-85 active:scale-[0.98]"
               onClick={() => setIsDetailBirthOpen(true)}
             >
@@ -216,7 +216,7 @@ export default function RingkasanPopulasiModal({
         {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
           <div className="space-y-6 animate-in fade-in duration-500">
-            
+
             {/* Informasi Demografi */}
             <div className="bg-[#e4dac3]/20 border-2 border-[#C4B49C]/30 p-6 rounded-2xl space-y-4">
               <h3 className="text-md font-black text-[#5c3c10] uppercase tracking-wider flex items-center gap-2">
@@ -225,19 +225,19 @@ export default function RingkasanPopulasiModal({
               </h3>
               <div className="space-y-4 font-sans text-sm text-[#5c3c10] font-medium leading-relaxed">
                 <p>
-                  Negara <span className="font-bold">{countryName}</span> memiliki total populasi terdaftar sebanyak <span className="font-bold">{populasi.toLocaleString('id-ID')} jiwa</span>. 
+                  Negara <span className="font-bold">{countryName}</span> memiliki total populasi terdaftar sebanyak <span className="font-bold">{populasi.toLocaleString('id-ID')} jiwa</span>.
                   Saat ini, laju pertumbuhan harian berada pada angka <span className={`font-bold ${totalDailyDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{totalDailyDelta >= 0 ? '+' : ''}{totalDailyDelta.toLocaleString('id-ID')} jiwa per hari</span>.
                 </p>
-                
+
                 <div className="pt-4 border-t border-[#C4B49C]/30 grid grid-cols-2 gap-4">
-                  <div 
+                  <div
                     className="cursor-pointer hover:opacity-80 transition-opacity"
                     onClick={() => setIsDetailBirthOpen(true)}
                   >
                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Angka Kelahiran Harian</p>
                     <p className="text-lg font-black text-emerald-700">+{dailyBirths.toLocaleString('id-ID')}</p>
                   </div>
-                  <div 
+                  <div
                     className="cursor-pointer hover:opacity-80 transition-opacity"
                     onClick={() => setIsDetailDeathOpen(true)}
                   >
@@ -262,10 +262,10 @@ export default function RingkasanPopulasiModal({
                     <span className="text-rose-700">Status: Pertumbuhan Populasi Negatif!</span>
                   )}{" "}
                   Demografi nasional saat ini menunjukkan tren {totalMonthlyGrowthPercent >= 0 ? 'ekspansi' : 'kontraksi'} sebesar <span className="text-[#2e261a]">{totalMonthlyGrowthPercent.toFixed(2)}% per bulan</span>.
-                  {kepuasanUmum >= 70 
+                  {kepuasanUmum >= 70
                     ? " Layanan publik berjalan stabil dan kepuasan tinggi mendorong pertumbuhan."
-                    : kepuasanUmum < 40 
-                      ? " Rendahnya kepuasan rakyat mengancam stabilitas demografi." 
+                    : kepuasanUmum < 40
+                      ? " Rendahnya kepuasan rakyat mengancam stabilitas demografi."
                       : " Kepuasan rakyat cukup moderat, perlu peningkatan di beberapa sektor."}
                 </p>
               </div>
@@ -285,14 +285,14 @@ export default function RingkasanPopulasiModal({
         dailyDeaths={dailyDeaths}
         netDailyChange={totalDailyDelta}
       />
-      
+
       <DetailKematianModal
         isOpen={isDetailDeathOpen}
         onClose={() => setIsDetailDeathOpen(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />
-      
+
     </div>
   );
 }
