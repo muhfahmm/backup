@@ -108,7 +108,7 @@ export default function BottomNav({ activeMenu, setActiveMenu, countryDetail, is
   return (
     <div className={`absolute bottom-12 left-1/2 -translate-x-1/2 w-max max-w-[95vw] transition-all duration-500 cursor-not-allowed z-[200] ${isOtherModalOpen ? 'opacity-50' : 'opacity-100'
       }`}>
-      <nav className={`flex items-center gap-2 bg-[#FAF6EE] px-2.5 py-2 rounded-2xl border-2 border-[#C4B49C] shadow-2xl transition-all duration-500 ease-in-out overflow-visible ${isMenuSelected ? 'min-w-[320px]' : ''}`}>
+      <nav className="flex items-center gap-2 bg-[#FAF6EE] px-2.5 py-2 rounded-2xl border-2 border-[#C4B49C] shadow-2xl transition-all duration-500 ease-in-out overflow-visible">
 
         {/* Main Navigation Section */}
         <div className="flex items-center gap-2">

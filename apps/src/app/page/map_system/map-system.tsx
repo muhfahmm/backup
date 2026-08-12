@@ -476,12 +476,38 @@ export default function MapPage() {
 
         setCountryDetail((prev: any) => {
             if (!prev) return prev;
+
+            let currentCompletedBoost = 0;
+            let currentOngoing = prev.ongoingConstructions || [];
+
+            const currentCompletedEvents = currentOngoing.filter((c: any) => {
+                if (c.type !== "event") return false;
+                return c.endDate <= currentDateStr;
+            });
+
+            if (currentCompletedEvents.length > 0) {
+                currentCompletedEvents.forEach((c: any) => {
+                    currentCompletedBoost += Number(c.boost) || 0;
+                });
+                const completedIds = currentCompletedEvents.map((c: any) => c.id);
+                currentOngoing = currentOngoing.filter((c: any) => !completedIds.includes(c.id));
+
+                if (currentCompletedBoost > 0) {
+                    const ratingBoost = currentCompletedBoost * 0.5;
+                    setPresidentRating((prevRating) => Math.min(100, prevRating + ratingBoost));
+                }
+            }
+
+            const nextKepuasan = Math.min(100, parseFloat(((prev.kepuasan ?? 50) + currentCompletedBoost).toFixed(1)));
+
             return {
                 ...prev,
                 ...updates,
                 ...populationUpdates,  // Apply population changes
                 anggaran: (Number(prev.anggaran) || 0) + netBalance,
                 satisfaction: prev.satisfaction, // Preserve satisfaction scores
+                ongoingConstructions: currentOngoing,
+                kepuasan: nextKepuasan,
             };
         });
     }, [currentDate, countryDetail, metadata]);

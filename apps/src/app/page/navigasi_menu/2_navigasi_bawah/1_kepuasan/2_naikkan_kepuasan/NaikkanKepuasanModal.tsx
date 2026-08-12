@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { X, Smile, Coins, Sparkles, AlertCircle, CheckCircle2 } from "lucide-react";
-import DanaTidakCukupModal from "./DanaTidakCukupModal"; // 🔥 Import file baru yang ada di folder sama
+import { useState, useEffect } from "react";
+import { X, Smile, Coins, Sparkles, AlertCircle, CheckCircle2, Clock } from "lucide-react";
+import DanaTidakCukupModal from "./DanaTidakCukupModal";
 
 interface NaikkanKepuasanModalProps {
   isOpen: boolean;
@@ -13,6 +13,8 @@ interface NaikkanKepuasanModalProps {
   selectedCountry: any;
   presidentRating?: number;
   setPresidentRating?: (rating: number) => void;
+  // 🔥 Tambahkan currentDate opsional untuk penjadwalan
+  currentDate?: string | Date;
 }
 
 export default function NaikkanKepuasanModal({
@@ -23,11 +25,10 @@ export default function NaikkanKepuasanModal({
   setCountryDetail,
   selectedCountry,
   presidentRating = 50,
-  setPresidentRating
+  setPresidentRating,
+  currentDate,
 }: NaikkanKepuasanModalProps) {
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
-  
-  // 🔥 State untuk membuka modal Dana Tidak Cukup
   const [isDanaTidakCukupOpen, setIsDanaTidakCukupOpen] = useState(false);
   const [pendingCost, setPendingCost] = useState(0);
   const [pendingTitle, setPendingTitle] = useState("");
@@ -38,8 +39,37 @@ export default function NaikkanKepuasanModal({
   const anggaran = countryDetail?.anggaran || 0;
   const kepuasan = countryDetail?.kepuasan ?? 50.0;
 
+  // 🔥 Helper untuk menambah hari (sama dengan yang ada di komponen lain)
+  const addDays = (dateString: string, days: number): string => {
+    const [y, m, d] = dateString.split('-').map(Number);
+    const date = new Date(y, m - 1, d);
+    date.setDate(date.getDate() + days);
+    const yy = date.getFullYear();
+    const mm = String(date.getMonth() + 1).padStart(2, '0');
+    const dd = String(date.getDate()).padStart(2, '0');
+    return `${yy}-${mm}-${dd}`;
+  };
+
+  // 🔥 Mendapatkan tanggal saat ini dalam format YYYY-MM-DD
+  const getSafeDateString = (): string => {
+    if (currentDate) {
+      const d = currentDate instanceof Date ? currentDate : new Date(currentDate);
+      if (!isNaN(d.getTime())) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return `${y}-${m}-${day}`;
+      }
+    }
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  };
+
   // ==========================================
-  // DATA INISIATIF
+  // DATA INISIATIF (DENGAN DURASI)
   // ==========================================
   const initiatives = [
     {
@@ -48,6 +78,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori konser musik untuk meningkatkan kebahagiaan warga.",
       cost: 25000,
       boost: 5,
+      duration: 1, // 1 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -58,6 +89,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori festival budaya untuk meningkatkan kegembiraan rakyat.",
       cost: 50000,
       boost: 10,
+      duration: 3, // 3 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -68,6 +100,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori karnaval besar untuk meningkatkan semangat komunitas.",
       cost: 150000,
       boost: 15,
+      duration: 3, // 3 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -78,6 +111,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori turnamen tenis Piala Davis untuk meningkatkan kebanggaan nasional.",
       cost: 400000,
       boost: 30,
+      duration: 7, // 7 hari (asumsi, bisa disesuaikan)
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -88,6 +122,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori Piala Dunia Rugbi untuk meningkatkan semangat olahraga.",
       cost: 500000,
       boost: 50,
+      duration: 14, // 14 hari (asumsi)
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -98,6 +133,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori Olimpiade untuk meningkatkan prestise internasional.",
       cost: 1500000,
       boost: 75,
+      duration: 40, // 40 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -108,6 +144,7 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori Piala Dunia FIFA untuk meningkatkan kebanggaan nasional.",
       cost: 2500000,
       boost: 100,
+      duration: 30, // 30 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -118,55 +155,150 @@ export default function NaikkanKepuasanModal({
       desc: "Sponsori balapan Formula 1 untuk meningkatkan gengsi dan pariwisata nasional.",
       cost: 800000,
       boost: 40,
+      duration: 3, // 3 hari
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
     },
   ];
 
-  const handleInitiative = (cost: number, boost: number, title: string) => {
-    // 🔥 Jika dana tidak cukup, buka modal DanaTidakCukup, bukan setFeedback error
+  // helper to format date same as BaseProduksiGrid
+  const formatBadgeDate = (dateString: string) => {
+    if (!dateString) return '';
+    try {
+      const [y, m, d] = dateString.split('-').map(Number);
+      const date = new Date(y, m - 1, d);
+      if (isNaN(date.getTime())) return dateString;
+      const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+      const parts = new Intl.DateTimeFormat('id-ID', options).formatToParts(date);
+      const day = parts.find((p) => p.type === 'day')?.value || '';
+      const month = parts.find((p) => p.type === 'month')?.value || '';
+      const year = parts.find((p) => p.type === 'year')?.value || '';
+      return `${day} ${month}, ${year}`;
+    } catch {
+      return dateString;
+    }
+  };
+
+  // 🔥 Logika penyelesaian acara (seperti TempatUmumModal)
+  useState(() => {
+    // We can use a React useEffect to run every time currentDate, countryDetail, or presidentRating changes
+  });
+
+  // Run event completion check on date changes
+  useState(() => {});
+  
+  // Real implementation of completion check:
+  const checkCompletion = () => {
+    if (!isOpen || !countryDetail || !currentDate) return;
+
+    const safeDateString = getSafeDateString();
+    let now: Date;
+    try {
+      now = new Date(safeDateString + 'T00:00:00');
+      if (isNaN(now.getTime())) throw new Error('Invalid date');
+    } catch {
+      now = new Date();
+    }
+
+    const ongoing = countryDetail.ongoingConstructions || [];
+    let updated = false;
+    let newConstructions = [...ongoing];
+    let newDetail = { ...countryDetail };
+    let newPresidentRating = presidentRating;
+
+    // Filter events that have ended
+    const completedEvents = newConstructions.filter((c) => {
+      if (c.type !== "event") return false;
+      let endDate: Date;
+      try {
+        endDate = new Date(c.endDate + 'T00:00:00');
+        if (isNaN(endDate.getTime())) throw new Error('Invalid endDate');
+      } catch {
+        return false;
+      }
+      return endDate <= now;
+    });
+
+    if (completedEvents.length > 0) {
+      completedEvents.forEach((c) => {
+        // Boost kepuasan
+        const boost = Number(c.boost) || 0;
+        newDetail.kepuasan = Math.min(100, parseFloat(((newDetail.kepuasan ?? 50) + boost).toFixed(1)));
+        
+        // Boost rating presiden
+        const ratingBoost = boost * 0.5;
+        newPresidentRating = Math.min(100, newPresidentRating + ratingBoost);
+      });
+
+      const completedIds = completedEvents.map((c) => c.id);
+      newConstructions = newConstructions.filter((c) => !completedIds.includes(c.id));
+      newDetail.ongoingConstructions = newConstructions;
+      updated = true;
+    }
+
+    if (updated) {
+      setCountryDetail(newDetail);
+      if (setPresidentRating) {
+        setPresidentRating(newPresidentRating);
+      }
+    }
+  };
+
+  // Run whenever currentDate changes or modal opens
+  useEffect(() => {
+    checkCompletion();
+  }, [currentDate, isOpen, countryDetail]);
+
+  const handleInitiative = (cost: number, boost: number, title: string, duration: number, itemId: string) => {
     if (anggaran < cost) {
       setPendingCost(cost);
       setPendingTitle(title);
       setIsDanaTidakCukupOpen(true);
-      setFeedback(null); // Bersihkan feedback error lama jika ada
+      setFeedback(null);
       return;
     }
 
     const nextAnggaran = anggaran - cost;
-    const nextKepuasan = Math.min(100, parseFloat((kepuasan + boost).toFixed(1)));
-    
-    // Calculate president rating increase (1 kepuasan boost = 0.5 rating increase, capped at 100)
-    const ratingBoost = boost * 0.5;
-    const nextPresidentRating = Math.min(100, presidentRating + ratingBoost);
 
-    setCountryDetail({
+    // 🔥 Persiapkan data acara yang akan dijalankan
+    const currentDateStr = getSafeDateString();
+    const endDateStr = addDays(currentDateStr, duration);
+
+    // 🔥 Update countryDetail: kurangi uang (kepuasan TIDAK naik instan)
+    const updatedDetail = {
       ...countryDetail,
       anggaran: nextAnggaran,
-      kepuasan: nextKepuasan
+    };
+
+    // 🔥 Tambahkan ke ongoingConstructions
+    if (!updatedDetail.ongoingConstructions) {
+      updatedDetail.ongoingConstructions = [];
+    }
+    updatedDetail.ongoingConstructions.push({
+      id: `event_${Date.now()}`,
+      buildingKey: itemId, // Gunakan itemId (misal "konser")
+      title: title, // Nama acara
+      startDate: currentDateStr,
+      endDate: endDateStr,
+      type: "event",
+      boost: boost, // Simpan rating/kepuasan boost di objek
+      quantity: 1,
+      cost: cost,
     });
 
-    // Update president rating
-    if (setPresidentRating) {
-      setPresidentRating(nextPresidentRating);
-    }
+    setCountryDetail(updatedDetail);
 
     setFeedback({
       type: "success",
-      message: `Presiden berhasil meluncurkan program ${title}! Kepuasan rakyat naik +${boost}% dan peringkat presiden naik +${ratingBoost.toFixed(1)}⭐.`
+      message: `Presiden meluncurkan program ${title}! Anggaran berkurang -${cost.toLocaleString('id-ID')} EM. Acara berlangsung selama ${duration} hari dan akan selesai serta meningkatkan kepuasan pada ${formatBadgeDate(endDateStr)}.`,
     });
-    setTimeout(() => setFeedback(null), 4000);
+    setTimeout(() => setFeedback(null), 6000);
   };
 
   return (
-    // PERBAIKAN 3: Hapus bg-black/65, gunakan bg-transparent dan pointer-events-none di lapisan luar
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      
-      {/* PERBAIKAN 4: Tambahkan pointer-events-auto di lapisan dalam agar tombol tetap bisa diklik */}
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
-        
-        {/* Parchment radial gradient background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
 
         {/* Header */}
@@ -202,18 +334,17 @@ export default function NaikkanKepuasanModal({
           </button>
         </div>
 
-        {/* Dynamic Treasury Bar */}
+        {/* Treasury Bar */}
         <div className="px-8 py-4 bg-[#e4dac3]/20 border-b border-[#C4B49C]/20 flex flex-col sm:flex-row items-center justify-between gap-4 relative z-10">
           <div className="flex items-center gap-3">
             <Coins className="h-5 w-5 text-amber-700" />
             <span className="text-xs font-bold text-[#5c3c10] uppercase tracking-wide">
-              Anggaran Kas Negara saat ini:
+              Anggaran Kas Negara:
             </span>
             <span className="text-sm font-black text-[#2e261a]">
               {anggaran.toLocaleString("id-ID")}
             </span>
           </div>
-
           <div className="flex items-center gap-3">
             <Smile className="h-5 w-5 text-emerald-700" />
             <span className="text-xs font-bold text-[#5c3c10] uppercase tracking-wide">
@@ -248,11 +379,24 @@ export default function NaikkanKepuasanModal({
             <div className="grid grid-cols-1 gap-4">
               {initiatives.map((item) => {
                 const Icon = item.icon;
+                const ongoingEvents = (countryDetail?.ongoingConstructions || []).filter(
+                  (c: any) => c.type === "event" && c.buildingKey === item.id
+                );
+                const isEventOngoing = ongoingEvents.length > 0;
+                const lastEndDate = isEventOngoing ? ongoingEvents[ongoingEvents.length - 1].endDate : null;
+
                 return (
                   <div
                     key={item.id}
-                    className="bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-5 transition-all hover:bg-[#e4dac3]/10 shadow-sm"
+                    className="relative bg-[#FAF6EE] border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex flex-col md:flex-row items-center justify-between gap-5 transition-all hover:bg-[#e4dac3]/10 shadow-sm"
                   >
+                    {/* Badge Tanggal Selesai */}
+                    {isEventOngoing && (
+                      <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-20 bg-[#2e261a] text-[#FAF6EE] text-[9px] font-bold px-2 py-0.5 border border-[#C4B49C] rounded-sm shadow-md tracking-wider whitespace-nowrap uppercase">
+                        Selesai: {formatBadgeDate(lastEndDate)}
+                      </div>
+                    )}
+
                     <div className="flex items-start gap-4">
                       <div className={`p-3.5 rounded-xl bg-black/5 border border-black/5 ${item.color} shrink-0`}>
                         <Icon size={24} />
@@ -269,9 +413,14 @@ export default function NaikkanKepuasanModal({
                         <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed max-w-xl">
                           {item.desc}
                         </p>
+                        {/* 🔥 Tampilkan durasi */}
+                        <div className="flex items-center gap-1.5 text-[10px] text-[#8b7e66] font-medium mt-1">
+                          <Clock size={14} className="text-[#8b7e66]" />
+                          <span>Durasi: {item.duration} hari</span>
+                        </div>
                       </div>
                     </div>
-
+ 
                     <div className="flex flex-col items-center md:items-end gap-2 shrink-0">
                       <div className="text-right">
                         <p className="text-[10px] text-[#8b7e66] font-black uppercase tracking-wider text-center md:text-right leading-none">
@@ -282,10 +431,15 @@ export default function NaikkanKepuasanModal({
                         </p>
                       </div>
                       <button
-                        onClick={() => handleInitiative(item.cost, item.boost, item.title)}
-                        className="px-6 py-2.5 rounded-xl bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 shadow-md hover:brightness-110 active:scale-95 transition-all font-black text-xs uppercase cursor-pointer"
+                        onClick={() => handleInitiative(item.cost, item.boost, item.title, item.duration, item.id)}
+                        disabled={isEventOngoing}
+                        className={`px-6 py-2.5 rounded-xl font-black text-xs uppercase shadow-md transition-all ${
+                          isEventOngoing
+                            ? "bg-gray-300 text-gray-500 border border-gray-400/40 cursor-not-allowed opacity-75"
+                            : "bg-gradient-to-b from-[#ffe07d] via-[#fcae1e] to-[#c77a00] text-[#5c3c10] border-2 border-[#1e2f3d]/15 hover:brightness-110 active:scale-95 cursor-pointer"
+                        }`}
                       >
-                        Pilih Acara
+                        {isEventOngoing ? "Sedang Berlangsung" : "Pilih Acara"}
                       </button>
                     </div>
                   </div>
@@ -296,7 +450,7 @@ export default function NaikkanKepuasanModal({
         </div>
       </div>
 
-      {/* 🔥 Panggil Modal Dana Tidak Cukup di sini */}
+      {/* Modal Dana Tidak Cukup */}
       <DanaTidakCukupModal
         isOpen={isDanaTidakCukupOpen}
         onClose={() => setIsDanaTidakCukupOpen(false)}
@@ -304,7 +458,6 @@ export default function NaikkanKepuasanModal({
         currentBudget={anggaran}
         actionName={`Sponsori ${pendingTitle}`}
       />
-      
     </div>
   );
 }

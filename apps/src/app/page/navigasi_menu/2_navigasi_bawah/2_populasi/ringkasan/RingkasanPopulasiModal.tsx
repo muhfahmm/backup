@@ -133,7 +133,7 @@ export default function RingkasanPopulasiModal({
         </div>
 
         {/* Summary Cards (tetap) */}
-        <div className="px-6 py-3 bg-[#e4dac3]/20 border-b border-[#C4B49C]/20 relative z-10">
+        <div className="px-8 py-3 bg-[#e4dac3]/20 border-b border-[#C4B49C]/20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm">
               <div className="p-3 bg-blue-500/10 rounded-xl">
@@ -180,7 +180,7 @@ export default function RingkasanPopulasiModal({
         </div>
 
         {/* Content Area - tanpa card Kondisi Sosial */}
-        <div className="flex-1 overflow-y-auto p-6 bg-[#FAF6EE]/40 relative z-10">
+        <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
           <div className="space-y-6 animate-in fade-in duration-500">
             
             {/* Hanya satu card Informasi Demografi dengan lebar penuh */}

@@ -167,6 +167,7 @@ function ModalsManager({
           selectedCountry={selectedCountry}
           presidentRating={presidentRating}
           setPresidentRating={setPresidentRating}
+          currentDate={currentDate}
         />
       );
     // 2. Populasi
