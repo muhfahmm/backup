@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
 import { useState } from "react";
 import { X, Smile, Coins, Sparkles, AlertCircle, CheckCircle2 } from "lucide-react";
+import DanaTidakCukupModal from "./DanaTidakCukupModal"; // 🔥 Import file baru yang ada di folder sama
 
 interface NaikkanKepuasanModalProps {
   isOpen: boolean;
@@ -25,6 +26,11 @@ export default function NaikkanKepuasanModal({
   setPresidentRating
 }: NaikkanKepuasanModalProps) {
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
+  
+  // 🔥 State untuk membuka modal Dana Tidak Cukup
+  const [isDanaTidakCukupOpen, setIsDanaTidakCukupOpen] = useState(false);
+  const [pendingCost, setPendingCost] = useState(0);
+  const [pendingTitle, setPendingTitle] = useState("");
 
   if (!isOpen) return null;
 
@@ -33,8 +39,7 @@ export default function NaikkanKepuasanModal({
   const kepuasan = countryDetail?.kepuasan ?? 50.0;
 
   // ==========================================
-  // PERBAIKAN 1: Hapus JSX <div> yang tercecer di dalam array
-  // PERBAIKAN 2: Perbaiki typo 'bg-amber/800/10' menjadi 'bg-amber-800/10'
+  // DATA INISIATIF
   // ==========================================
   const initiatives = [
     {
@@ -62,7 +67,7 @@ export default function NaikkanKepuasanModal({
       title: "Karnaval",
       desc: "Sponsori karnaval besar untuk meningkatkan semangat komunitas.",
       cost: 150000,
-      boost: 120,
+      boost: 15,
       icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
@@ -72,8 +77,8 @@ export default function NaikkanKepuasanModal({
       title: "Piala Davis",
       desc: "Sponsori turnamen tenis Piala Davis untuk meningkatkan kebanggaan nasional.",
       cost: 400000,
-      boost: 300,
-      icon: Sparkles, // PERBAIKAN: Tambahkan icon dan hilangkan JSX yang error
+      boost: 30,
+      icon: Sparkles,
       color: "text-amber-600",
       bg: "bg-amber-800/10",
     },
@@ -85,7 +90,7 @@ export default function NaikkanKepuasanModal({
       boost: 50,
       icon: Sparkles,
       color: "text-amber-600",
-      bg: "bg-amber-800/10", // PERBAIKAN: typo
+      bg: "bg-amber-800/10",
     },
     {
       id: "olimpiade",
@@ -107,15 +112,25 @@ export default function NaikkanKepuasanModal({
       color: "text-amber-600",
       bg: "bg-amber-800/10",
     },
+    {
+      id: "balap_f1",
+      title: "Balap F1",
+      desc: "Sponsori balapan Formula 1 untuk meningkatkan gengsi dan pariwisata nasional.",
+      cost: 800000,
+      boost: 40,
+      icon: Sparkles,
+      color: "text-amber-600",
+      bg: "bg-amber-800/10",
+    },
   ];
 
   const handleInitiative = (cost: number, boost: number, title: string) => {
+    // 🔥 Jika dana tidak cukup, buka modal DanaTidakCukup, bukan setFeedback error
     if (anggaran < cost) {
-      setFeedback({
-        type: "error",
-        message: `Anggaran negara tidak mencukupi untuk mendanai ${title}! Diperlukan ${cost.toLocaleString("id-ID")} EM.`
-      });
-      setTimeout(() => setFeedback(null), 4000);
+      setPendingCost(cost);
+      setPendingTitle(title);
+      setIsDanaTidakCukupOpen(true);
+      setFeedback(null); // Bersihkan feedback error lama jika ada
       return;
     }
 
@@ -178,7 +193,6 @@ export default function NaikkanKepuasanModal({
               >
                 Naikkan Kepuasan
               </button>
-              {/* Tempat Wisata removed */}
             </div>
           </div>
 
@@ -281,6 +295,16 @@ export default function NaikkanKepuasanModal({
           </div>
         </div>
       </div>
+
+      {/* 🔥 Panggil Modal Dana Tidak Cukup di sini */}
+      <DanaTidakCukupModal
+        isOpen={isDanaTidakCukupOpen}
+        onClose={() => setIsDanaTidakCukupOpen(false)}
+        requiredCost={pendingCost}
+        currentBudget={anggaran}
+        actionName={`Sponsori ${pendingTitle}`}
+      />
+      
     </div>
   );
 }

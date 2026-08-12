@@ -1,0 +1,1 @@
+(async()=>{try{const res=await fetch('http://localhost:3000/api/building-metadata'); const text=await res.text(); console.log('status',res.status); console.log(text.slice(0,2000)); }catch(e){console.error('err',e);} })();

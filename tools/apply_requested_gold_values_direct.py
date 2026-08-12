@@ -1,0 +1,258 @@
+import re
+import unicodedata
+from pathlib import Path
+
+root = Path(r'c:\utama\project\project-sendiri\EM\json\semua_fitur_negara\1_pembangunan\1_produksi\2_sektor_mineral_kritis')
+
+rows = [
+    ("Afganistan", 17),
+    ("Arab Saudi", 25),
+    ("Armenia", 20),
+    ("Azerbaijan", 20),
+    ("Bahrain", 72),
+    ("Bangladesh", 21),
+    ("Bhutan", 18),
+    ("Brunei", 17),
+    ("China", 50),
+    ("Filipina", 100),
+    ("Georgia", 16),
+    ("Hong kong", 38),
+    ("India", 41),
+    ("Indonesia", 39),
+    ("Irak", 54),
+    ("Iran", 16),
+    ("Israel", 13),
+    ("Jepang", 15),
+    ("Kamboja", 25),
+    ("Kazakhstan", 48),
+    ("Kirgizstan", 31),
+    ("Korea Selatan", 19),
+    ("Korea Utara", 45),
+    ("Kuwait", 43),
+    ("Laos", 19),
+    ("Lebanon", 24),
+    ("Makau", 40),
+    ("Malaysia", 34),
+    ("Maldives", 20),
+    ("Mongolia", 24),
+    ("Myanmar", 17),
+    ("Nepal", 29),
+    ("Oman", 39),
+    ("Pakistan", 52),
+    ("Palestina", 18),
+    ("Qatar", 15),
+    ("Republik timor-leste", 18),
+    ("Singapura", 43),
+    ("Sri lanka", 24),
+    ("Suriah", 16),
+    ("Taiwan", 28),
+    ("Tajikistan", 17),
+    ("Thailand", 46),
+    ("Turkmenistan", 15),
+    ("Uni emirat arab", 38),
+    ("Uzbekistan", 28),
+    ("Vietnam", 22),
+    ("Yaman", 40),
+    ("Yordania", 15),
+    ("Afrika Selatan", 45),
+    ("Aljazair", 45),
+    ("Angola", 45),
+    ("Benin", 45),
+    ("Botswana", 45),
+    ("Burkina faso", 45),
+    ("Burundi", 45),
+    ("Chad", 45),
+    ("Djibouti", 45),
+    ("Eritrea", 45),
+    ("Eswatini", 45),
+    ("Ethiopia", 45),
+    ("Gabon", 45),
+    ("Gambia", 45),
+    ("Ghana", 45),
+    ("Guinea", 45),
+    ("Guinea-bissau", 45),
+    ("Kamerun", 45),
+    ("Kenya", 45),
+    ("Komoro", 45),
+    ("Kongo", 45),
+    ("Lesotho", 45),
+    ("Liberia", 45),
+    ("Libya", 45),
+    ("Madagaskar", 45),
+    ("Malawi", 45),
+    ("Mali", 45),
+    ("Maroko", 45),
+    ("Mauritania", 45),
+    ("Mauritius", 45),
+    ("Mesir", 45),
+    ("Mozambik", 45),
+    ("Namibia", 45),
+    ("Niger", 45),
+    ("Nigeria", 45),
+    ("Pantai gading", 45),
+    ("Republik afrika tengah", 45),
+    ("Republik demokratik kongo", 45),
+    ("Republik sudan", 45),
+    ("Republik tanzania", 45),
+    ("Republik uganda", 45),
+    ("Republik zambia", 45),
+    ("Republik zimbabwe", 45),
+    ("Rwanda", 45),
+    ("Sao tome dan principe", 45),
+    ("Senegal", 45),
+    ("Seychelles", 45),
+    ("Sierra leone", 45),
+    ("Somalia", 45),
+    ("Sudan selatan", 45),
+    ("Tanjung verde", 45),
+    ("Togo", 45),
+    ("Tunisia", 45),
+    ("Albania", 20),
+    ("Andorra", 20),
+    ("Austria", 50),
+    ("Belanda", 28),
+    ("Belarus", 45),
+    ("Belgia", 25),
+    ("Bosnia dan hercegovina", 16),
+    ("Bulgaria", 12),
+    ("Ceko", 38),
+    ("Denmark", 33),
+    ("Estonia", 25),
+    ("Finlandia", 17),
+    ("Gibraltar", 15),
+    ("Hungaria", 31),
+    ("Inggris", 11),
+    ("Irlandia", 15),
+    ("Islandia", 16),
+    ("Italia", 50),
+    ("Jerman", 32),
+    ("Kepulauan faroe", 20),
+    ("Kosovo", 15),
+    ("Kroasia", 18),
+    ("Latvia", 36),
+    ("Liechtenstein", 12),
+    ("Lithuania", 20),
+    ("Luksemburg", 15),
+    ("Makedonia utara", 18),
+    ("Malta", 18),
+    ("Moldova", 15),
+    ("Monako", 19),
+    ("Montenegro", 19),
+    ("Norwegia", 38),
+    ("Polandia", 25),
+    ("Portugal", 23),
+    ("Prancis", 12),
+    ("Republik rumania", 36),
+    ("Republik serbia", 50),
+    ("Rusia", 36),
+    ("San marino", 36),
+    ("Siprus", 40),
+    ("Slovenia", 36),
+    ("Slowakia", 15),
+    ("Spanyol", 13),
+    ("Swedia", 17),
+    ("Swiss", 41),
+    ("Turki", 32),
+    ("Ukraina", 39),
+    ("Vatikan", 40),
+    ("Yunani", 26),
+    ("Amerika Serikat", 16),
+    ("Antigua dan Barbuda", 12),
+    ("Bahama", 24),
+    ("Barbados", 19),
+    ("Belize", 16),
+    ("Bermuda", 18),
+    ("Costa rica", 24),
+    ("Curacao", 12),
+    ("Dominika", 16),
+    ("El salvador", 20),
+    ("Greenland", 16),
+    ("Grenada", 35),
+    ("Guatemala", 24),
+    ("Haiti", 20),
+    ("Honduras", 20),
+    ("Jamaika", 16),
+    ("Kanada", 23),
+    ("Kuba", 29),
+    ("Meksiko", 18),
+    ("Nikaragua", 15),
+    ("Panama", 45),
+    ("Puerto rico", 12),
+    ("Republik dominika", 28),
+    ("Saint kitts dan nevis", 44),
+    ("Saint lucia", 15),
+    ("Saint vincent dan grenadine", 16),
+    ("Trinidad dan tobago", 17),
+    ("Argentina", 34),
+    ("Bolivia", 49),
+    ("Brazil", 21),
+    ("Chile", 21),
+    ("Ekuador", 45),
+    ("Guiana prancis", 15),
+    ("Guyana", 42),
+    ("Kolombia", 40),
+    ("Paraguay", 18),
+    ("Peru", 11),
+    ("Suriname", 50),
+    ("Uruguay", 16),
+    ("Venezuela", 43),
+    ("Australia", 15),
+    ("Fiji", 16),
+    ("Guam", 18),
+    ("Kiribati", 18),
+    ("Marshall", 32),
+    ("Mikronesia", 47),
+    ("Nauru", 19),
+    ("Palau", 19),
+    ("Papua nugini", 46),
+    ("Samoa", 16),
+    ("Samoa amerika", 20),
+    ("Selandia baru", 23),
+    ("Tahiti", 19),
+    ("Tuvalu", 15),
+    ("Tonga", 15),
+    ("Vanuatu", 16),
+]
+
+
+def normalize_name(text: str) -> str:
+    text = unicodedata.normalize('NFKD', text)
+    text = text.encode('ascii', 'ignore').decode('ascii')
+    text = re.sub(r'[^a-z0-9]+', '_', text.lower()).strip('_')
+    return text
+
+
+def find_target_files(root_dir: Path):
+    files = []
+    for path in root_dir.rglob('*.ts'):
+        if path.is_file():
+            files.append(path)
+    return files
+
+files = find_target_files(root)
+slug_to_file = {}
+for path in files:
+    text = path.read_text(encoding='utf-8')
+    match = re.search(r'const\s+([a-z0-9_]+)_ekstraksi\s*=', text)
+    if not match:
+        continue
+    slug = normalize_name(match.group(1))
+    slug_to_file[slug] = path
+
+updated = 0
+missing = []
+for country, value in rows:
+    slug = normalize_name(country)
+    path = slug_to_file.get(slug)
+    if not path:
+        missing.append(country)
+        continue
+    text = path.read_text(encoding='utf-8')
+    new_text = re.sub(r'(\bemas\s*:\s*)(\d+)', rf'\g<1>{value}', text, count=1)
+    if new_text != text:
+        path.write_text(new_text, encoding='utf-8')
+        updated += 1
+
+print(f'updated={updated}')
+print('missing_count=', len(missing))
+print('sample_missing=', missing[:10])
