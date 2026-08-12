@@ -574,6 +574,7 @@ export default function MapPage() {
             });
             setPlayerNetBalanceAdjustment(0);
             setPlayerNetPopulationChange(0);
+            setPresidentRating(50);
             // Toggle resetTrigger to signal all modals to reset
             setResetTrigger(prev => !prev);
         }
