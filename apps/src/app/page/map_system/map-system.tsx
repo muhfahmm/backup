@@ -1023,26 +1023,31 @@ export default function MapPage() {
 
             {/* Inbox Modal */}
             {inboxModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-[#C4B49C] shadow-2xl w-full max-w-6xl h-[84vh] relative overflow-hidden flex flex-col font-sans pointer-events-auto">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-amber-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
                         
-                        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-                            <div className="flex items-center gap-3">
-                                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">📬 Inbox</h2>
-                            </div>
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-amber-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-amber-800 tracking-widest uppercase">📬 INBOX</span>
                             <button 
                                 onClick={() => setInboxModalOpen(false)}
-                                className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+                                className="text-amber-800 hover:text-amber-950 font-black text-sm cursor-pointer"
                             >
-                                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                                ✕
                             </button>
                         </div>
                         
-                        <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
-                            <div className="text-center py-16">
-                                <p className="text-lg text-[#8b7e66] font-semibold">Tidak ada pesan baru</p>
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada pesan baru</p>
                             </div>
+                            
+                            <button 
+                                onClick={() => setInboxModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-amber-400 via-amber-500 to-amber-600 text-amber-900 border-2 border-amber-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1050,26 +1055,31 @@ export default function MapPage() {
 
             {/* Gift Modal */}
             {giftModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-[#C4B49C] shadow-2xl w-full max-w-6xl h-[84vh] relative overflow-hidden flex flex-col font-sans pointer-events-auto">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-rose-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
                         
-                        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-                            <div className="flex items-center gap-3">
-                                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">🎁 Hadiah</h2>
-                            </div>
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-rose-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-rose-800 tracking-widest uppercase">🎁 HADIAH</span>
                             <button 
                                 onClick={() => setGiftModalOpen(false)}
-                                className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+                                className="text-rose-800 hover:text-rose-950 font-black text-sm cursor-pointer"
                             >
-                                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                                ✕
                             </button>
                         </div>
                         
-                        <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
-                            <div className="text-center py-16">
-                                <p className="text-lg text-[#8b7e66] font-semibold">Tidak ada hadiah yang tersedia</p>
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada hadiah yang tersedia</p>
                             </div>
+                            
+                            <button 
+                                onClick={() => setGiftModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-rose-400 via-rose-500 to-rose-600 text-rose-900 border-2 border-rose-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -1077,26 +1087,31 @@ export default function MapPage() {
 
             {/* News Modal */}
             {newsModalOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-[#C4B49C] shadow-2xl w-full max-w-6xl h-[84vh] relative overflow-hidden flex flex-col font-sans pointer-events-auto">
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-sm">
+                    <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-blue-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
                         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
                         
-                        <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
-                            <div className="flex items-center gap-3">
-                                <h2 className="text-2xl font-bold text-[#5c3c10] tracking-tight leading-none uppercase">📰 Berita</h2>
-                            </div>
+                        <div className="flex items-center justify-between mb-4 border-b-2 border-blue-600/30 pb-3 z-10">
+                            <span className="text-[12px] font-black text-blue-800 tracking-widest uppercase">📰 BERITA</span>
                             <button 
                                 onClick={() => setNewsModalOpen(false)}
-                                className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+                                className="text-blue-800 hover:text-blue-950 font-black text-sm cursor-pointer"
                             >
-                                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                                ✕
                             </button>
                         </div>
                         
-                        <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
-                            <div className="text-center py-16">
-                                <p className="text-lg text-[#8b7e66] font-semibold">Tidak ada berita terbaru</p>
+                        <div className="z-10 flex flex-col gap-4">
+                            <div className="text-center py-8">
+                                <p className="text-[#8b7e66] font-semibold">Tidak ada berita terbaru</p>
                             </div>
+                            
+                            <button 
+                                onClick={() => setNewsModalOpen(false)}
+                                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600 text-blue-900 border-2 border-blue-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                            >
+                                Tutup
+                            </button>
                         </div>
                     </div>
                 </div>
