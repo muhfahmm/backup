@@ -1,18 +1,21 @@
 "use client"
 
-import { useState, useEffect, useMemo } from "react";
-import { X, Users, Info, TrendingUp, ShieldAlert, BadgeDollarSign, Activity, Users2 } from "lucide-react";
+import { useState, useMemo } from "react";
+import { X, Users, Info, TrendingUp, ShieldAlert, BadgeDollarSign, Users2 } from "lucide-react";
 import {
   calculateSectoralSatisfaction,
   calculateGeneralSatisfaction,
   calculateLifeExpectancy,
   calculateSecurityLevel,
-  calculateDailyBirths,
   calculateDailyDeaths,
   calculateHomelessCount,
   type PopulationDailyMetrics,
   type PopulationSectoral,
 } from "@/app/logic/populations_logic/population_logic";
+import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/country_static_data"; // 🔥 Tambahkan import
+
+import DetailKelahiranModal from "./DetailKelahiranModal";
+import DetailKematianModal from "./DetailKematianModal";
 
 // ==============================
 // Tipe data yang diharapkan dari countryDetail
@@ -27,6 +30,11 @@ interface CountryDetail {
   harapan_hidup?: number;
   tingkat_keamanan?: number;
   inisiatif_aktif?: { nama: string; boost: number }[];
+  jumlah_rumah_sakit?: number;
+  jumlah_klinik?: number;
+  program_insentif_anak?: boolean;
+  angka_pernikahan?: number;
+  tingkat_pendidikan?: number;
 }
 
 interface RingkasanPopulasiModalProps {
@@ -43,10 +51,41 @@ function hitungKepuasanSektoral(detail: CountryDetail): PopulationSectoral {
   return calculateSectoralSatisfaction(detail);
 }
 
+// 🔥 Fungsi baru untuk menghitung angka kelahiran harian dengan 6 faktor
+function calculateBirths(
+  populasi: number,
+  kepuasanUmum: number,
+  livingCostIndex: number,
+  jumlahRumahSakit: number,
+  jumlahKlinik: number,
+  programInsentifAnak: boolean,
+  angkaPernikahan: number = 0.05,
+  tingkatPendidikan: number = 0.5
+): number {
+  if (populasi <= 0) return 0;
+
+  const baseRate = 0.00014;
+  let baseBirths = populasi * baseRate;
+
+  const welfareFactor = 0.75 + (livingCostIndex / 200);
+  const idealHospitals = Math.ceil(populasi / 100000);
+  const idealClinics = Math.ceil(populasi / 10000);
+  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
+  const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
+  const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
+  const policyFactor = programInsentifAnak ? 1.2 : 1.0;
+  const marriageFactor = 0.8 + (angkaPernikahan * 4);
+  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
+  const satisfactionFactor = 0.5 + (kepuasanUmum / 200);
+
+  const totalFactor = welfareFactor * healthFactor * policyFactor * marriageFactor * educationFactor * satisfactionFactor;
+  return Math.floor(baseBirths * totalFactor);
+}
+
 // ==============================
-// Fungsi Penghitung Metrik Demografi Dinamis
+// Fungsi Penghitung Metrik Demografi Dinamis (diperbarui)
 // ==============================
-function hitungDemografi(detail: CountryDetail) {
+function hitungDemografi(detail: CountryDetail, countryName?: string) {
   const populasi = detail.jumlah_penduduk || 10_000_000;
   const sektoral = hitungKepuasanSektoral(detail);
   
@@ -54,14 +93,27 @@ function hitungDemografi(detail: CountryDetail) {
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
   
-  const dailyBirths = calculateDailyBirths(populasi, kepuasanUmum);
+  // 🔥 Ambil livingCostIndex dari data statis jika tidak ada di detail
+  const staticData = countryName ? COUNTRY_STATIC_DATA[countryName.toLowerCase()] : null;
+  const livingCostIndex = detail.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
+
+  const dailyBirths = calculateBirths(
+    populasi,
+    kepuasanUmum,
+    livingCostIndex,
+    detail.jumlah_rumah_sakit ?? 0,
+    detail.jumlah_klinik ?? 0,
+    detail.program_insentif_anak ?? false,
+    detail.angka_pernikahan ?? 0.05,
+    detail.tingkat_pendidikan ?? 0.5
+  );
+
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
   
   const totalDailyDelta = dailyBirths - dailyDeaths;
   const totalMonthlyGrowthPercent = ((totalDailyDelta * 30) / populasi) * 100;
   
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);
-  const livingCostIndex = detail.living_cost_index ?? 62.4;
 
   return {
     populasi,
@@ -88,10 +140,14 @@ export default function RingkasanPopulasiModal({
   selectedCountry
 }: RingkasanPopulasiModalProps) {
   
+  const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
+  const [isDetailDeathOpen, setIsDetailDeathOpen] = useState(false);
+  
   const metrics = useMemo(() => {
     if (!countryDetail) return null;
-    return hitungDemografi(countryDetail);
-  }, [countryDetail]);
+    // 🔥 Kirim countryName ke fungsi hitungDemografi
+    return hitungDemografi(countryDetail, selectedCountry?.country);
+  }, [countryDetail, selectedCountry]);
 
   if (!isOpen || !metrics) return null;
 
@@ -132,7 +188,7 @@ export default function RingkasanPopulasiModal({
           </button>
         </div>
 
-        {/* Summary Cards (tetap) */}
+        {/* Summary Cards */}
         <div className="px-8 py-3 bg-[#e4dac3]/20 border-b border-[#C4B49C]/20 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm">
@@ -179,11 +235,11 @@ export default function RingkasanPopulasiModal({
           </div>
         </div>
 
-        {/* Content Area - tanpa card Kondisi Sosial */}
+        {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10">
           <div className="space-y-6 animate-in fade-in duration-500">
             
-            {/* Hanya satu card Informasi Demografi dengan lebar penuh */}
+            {/* Informasi Demografi */}
             <div className="bg-[#e4dac3]/20 border-2 border-[#C4B49C]/30 p-6 rounded-2xl space-y-4">
               <h3 className="text-md font-black text-[#5c3c10] uppercase tracking-wider flex items-center gap-2">
                 <Info className="h-5 w-5 text-[#8b7e66]" />
@@ -194,12 +250,19 @@ export default function RingkasanPopulasiModal({
                   Negara <span className="font-bold">{countryName}</span> memiliki total populasi terdaftar sebanyak <span className="font-bold">{populasi.toLocaleString('id-ID')} jiwa</span>. 
                   Saat ini, laju pertumbuhan harian berada pada angka <span className={`font-bold ${totalDailyDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{totalDailyDelta >= 0 ? '+' : ''}{totalDailyDelta.toLocaleString('id-ID')} jiwa per hari</span>.
                 </p>
+                
                 <div className="pt-4 border-t border-[#C4B49C]/30 grid grid-cols-2 gap-4">
-                  <div>
+                  <div 
+                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setIsDetailBirthOpen(true)}
+                  >
                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Angka Kelahiran Harian</p>
                     <p className="text-lg font-black text-emerald-700">+{dailyBirths.toLocaleString('id-ID')}</p>
                   </div>
-                  <div>
+                  <div 
+                    className="cursor-pointer hover:opacity-80 transition-opacity"
+                    onClick={() => setIsDetailDeathOpen(true)}
+                  >
                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Angka Kematian Harian</p>
                     <p className="text-lg font-black text-rose-700">-{dailyDeaths.toLocaleString('id-ID')}</p>
                   </div>
@@ -207,7 +270,7 @@ export default function RingkasanPopulasiModal({
               </div>
             </div>
 
-            {/* Laporan Analisis (tetap menggunakan kepuasanUmum untuk teks) */}
+            {/* Laporan Analisis Demografi */}
             <div className="bg-[#e4dac3]/30 border-2 border-[#C4B49C]/40 p-5 rounded-2xl flex items-center gap-5 relative overflow-hidden group">
               <div className="p-3 bg-[#5c3c10]/5 rounded-xl border border-[#5c3c10]/15">
                 <Info className="h-6 w-6 text-[#5c3c10]" />
@@ -233,6 +296,22 @@ export default function RingkasanPopulasiModal({
           </div>
         </div>
       </div>
+
+      {/* Render modal detail */}
+      <DetailKelahiranModal
+        isOpen={isDetailBirthOpen}
+        onClose={() => setIsDetailBirthOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      
+      <DetailKematianModal
+        isOpen={isDetailDeathOpen}
+        onClose={() => setIsDetailDeathOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+      />
+      
     </div>
   );
 }

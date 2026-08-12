@@ -5,6 +5,7 @@ import {
     Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid, Star
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
+// 🔥 Import fungsi warna dari logic populasi (sesuai file yang Anda berikan)
 import { getNetPopulationChangeColor } from '@/app/logic/populations_logic/population_logic';
 import { menuItems, subMenuItems } from '../navigasi_menu/navigationData';
 
@@ -23,6 +24,9 @@ interface NavbarProps {
     countryDetail: any;
     netBalanceAdjustment?: number;
     netPopulationChange?: number;
+    // 🔥 Data demografi harian (dihitung oleh parent, diteruskan ke Navbar)
+    dailyBirths?: number;
+    dailyDeaths?: number;
     activeMenu?: string;
     onOpenGameMenu: () => void;
     onOpenSaveModal: () => void;
@@ -36,6 +40,8 @@ export function Navbar({
     countryDetail,
     netBalanceAdjustment = 0,
     netPopulationChange = 0,
+    dailyBirths = 0,
+    dailyDeaths = 0,
     activeMenu = 'Peta Taktis',
     onOpenGameMenu,
     onOpenSaveModal,
@@ -52,16 +58,6 @@ export function Navbar({
     const populasi = Number(countryDetail?.jumlah_penduduk) || 0;
     const netPopulationChangeColor = getNetPopulationChangeColor(netPopulationChange);
     const netPopulationLabel = `${netPopulationChange >= 0 ? '+ ' : '- '}${Math.abs(netPopulationChange).toLocaleString('id-ID')}`;
-    
-    // DEBUG
-    if (typeof window !== 'undefined') {
-        console.log('[Navbar Debug]', {
-            countryDetail_exists: !!countryDetail,
-            jumlah_penduduk: countryDetail?.jumlah_penduduk,
-            populasi: populasi,
-            netPopulationChange: netPopulationChange,
-        });
-    }
 
     // Function to get active menu information
     const getActiveMenuInfo = () => {
@@ -152,7 +148,6 @@ export function Navbar({
                         <span className="text-[9px] sm:text-[12px] font-black text-black tracking-tight uppercase">
                             {selectedCountry ? selectedCountry.country : 'Main Simulation'}
                         </span>
-                        {/* IBUKOTA TETAP DIPERTAHANKAN DI SINI */}
                         <span className="text-[7px] sm:text-[10px] font-bold text-black/60 uppercase tracking-widest">
                             {selectedCountry ? selectedCountry.capital : 'Global Map'}
                         </span>
@@ -160,23 +155,37 @@ export function Navbar({
                 </div>
             </div>
 
-            {/* 2. Center: Live Stats Items (DIPOSISIKAN TEPAT DI TENGAH LAYAR) */}
+            {/* 2. Center: Live Stats Items */}
             <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-1 sm:gap-4 lg:gap-6 overflow-x-auto [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth z-10">
                 <div className="flex items-center gap-1 sm:gap-4 lg:gap-6 min-w-max">
-                    <StatusItem 
-                        icon={<Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} 
-                        label="POPULASI" 
-                        value={countryDetail ? (
-                            <span className="flex items-center gap-1 sm:gap-2">
-                                <span>{populasi.toLocaleString('id-ID')}</span>
-                                <span className={`${netPopulationChangeColor} text-[8px] sm:text-[11px] font-black`}>
-                                    ({netPopulationLabel})
+                    
+                    {/* 🔥 POPULASI DENGAN TOOLTIP DEMOGRAFI */}
+                    <div className="group relative flex-shrink-0">
+                        <StatusItem 
+                            icon={<Users className="w-3 h-3 sm:w-3.5 sm:h-3.5" />} 
+                            label="POPULASI" 
+                            value={
+                                <span className="flex items-center gap-1 sm:gap-2">
+                                    <span>{populasi.toLocaleString('id-ID')}</span>
+                                    <span className={`${netPopulationChangeColor} text-[8px] sm:text-[11px] font-black`}>
+                                        ({netPopulationLabel})
+                                    </span>
                                 </span>
-                            </span>
-                        ) : (
-                            '-'
-                        )} 
-                    />
+                            } 
+                        />
+                        {/* Tooltip Rincian Demografi Harian */}
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-max bg-[#FAF6EE] border border-[#C4B49C] shadow-lg rounded-xl p-3 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none">
+                            <p className="text-[10px] font-black text-[#5c3c10] uppercase tracking-wider mb-1.5 border-b border-[#C4B49C]/30 pb-1.5 text-center">Rincian Demografi</p>
+                            <div className="grid grid-cols-2 gap-x-6 text-[11px] font-bold text-[#5c3c10]">
+                                <span className="text-emerald-700 text-center">Lahir: +{dailyBirths.toLocaleString('id-ID')}</span>
+                                <span className="text-rose-700 text-center">Mati: -{dailyDeaths.toLocaleString('id-ID')}</span>
+                            </div>
+                            <div className="mt-1.5 pt-1.5 border-t border-[#C4B49C]/30 text-[10px] text-[#8b7e66] text-center">
+                                Pertumbuhan Bersih: <span className={`font-bold ${netPopulationChangeColor}`}>{netPopulationLabel}</span>
+                            </div>
+                        </div>
+                    </div>
+
                     <StatusItem
                         icon={<Landmark className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
                         label="KAS NEGARA"

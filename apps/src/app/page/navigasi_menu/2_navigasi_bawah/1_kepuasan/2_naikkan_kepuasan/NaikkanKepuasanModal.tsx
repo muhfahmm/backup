@@ -227,7 +227,7 @@ export default function NaikkanKepuasanModal({
         newDetail.kepuasan = Math.min(100, parseFloat(((newDetail.kepuasan ?? 50) + boost).toFixed(1)));
         
         // Boost rating presiden
-        const ratingBoost = boost * 0.5;
+        const ratingBoost = boost;
         newPresidentRating = Math.min(100, newPresidentRating + ratingBoost);
       });
 

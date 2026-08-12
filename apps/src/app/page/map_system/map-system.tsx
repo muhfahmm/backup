@@ -493,7 +493,7 @@ export default function MapPage() {
                 currentOngoing = currentOngoing.filter((c: any) => !completedIds.includes(c.id));
 
                 if (currentCompletedBoost > 0) {
-                    const ratingBoost = currentCompletedBoost * 0.5;
+                    const ratingBoost = currentCompletedBoost;
                     setPresidentRating((prevRating) => Math.min(100, prevRating + ratingBoost));
                 }
             }

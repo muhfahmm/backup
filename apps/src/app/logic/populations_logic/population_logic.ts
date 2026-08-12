@@ -4,6 +4,8 @@
  */
 
 import { logger } from '../../../lib/logger';
+// 🔥 Import data statis 207 negara
+import { COUNTRY_STATIC_DATA } from './country_static_data';
 
 // ==============================
 // Interface Tipe Data
@@ -28,7 +30,7 @@ export interface CountryDetail {
 export interface PopulationDailyMetrics {
   dailyBirths: number;
   dailyDeaths: number;
-  netDailyChange: number;  // +/- per hari (seperti netBalance di treasury)
+  netDailyChange: number;  // +/- per hari
   homelessCount: number;
   kepuasanUmum: number;
   lifeExpectancy: number;
@@ -45,7 +47,22 @@ export interface PopulationSectoral {
 }
 
 // ==============================
-// 1. Hitung Kepuasan Sektoral (dari RingkasanPopulasiModal)
+// Helper: Mendapatkan nilai default berdasarkan negara
+// ==============================
+const getCountryDefaults = (countryName?: string) => {
+  if (!countryName) return null;
+  const key = countryName.toLowerCase().trim();
+  const data = COUNTRY_STATIC_DATA[key];
+  if (data) {
+    return {
+      livingCostIndex: data.livingCostIndex,
+    };
+  }
+  return null;
+};
+
+// ==============================
+// 1. Hitung Kepuasan Sektoral
 // ==============================
 export const calculateSectoralSatisfaction = (detail: CountryDetail): PopulationSectoral => {
   const pajak = detail.rata_rata_pajak !== undefined
@@ -89,13 +106,11 @@ export const calculateGeneralSatisfaction = (detail: CountryDetail): number => {
 // ==============================
 export const calculateLifeExpectancy = (detail: CountryDetail, satisfaction: number): number => {
   const baseLife = detail.harapan_hidup ?? 73.2;
-  // Kepuasan tinggi → harapan hidup membaik (±5 tahun dari base)
   return Math.max(30, baseLife + (satisfaction - 50) * 0.1);
 };
 
 export const calculateSecurityLevel = (detail: CountryDetail, satisfaction: number): number => {
   const baseSecurity = detail.tingkat_keamanan ?? 84.5;
-  // Kepuasan mempengaruhi keamanan (±15% dari base)
   return Math.min(100, Math.max(10, baseSecurity + (satisfaction - 50) * 0.15));
 };
 
@@ -107,7 +122,6 @@ export const calculateDailyBirths = (
   satisfaction: number
 ): number => {
   const baseBirthRate = 0.000042;
-  // Kepuasan tinggi → kelahiran naik (multiplier 0.8 – 1.2)
   const birthMultiplier = 0.8 + (satisfaction / 100) * 0.4;
   return Math.floor(populasi * baseBirthRate * birthMultiplier);
 };
@@ -139,9 +153,12 @@ export const calculateHomelessCount = (
 };
 
 // ==============================
-// 7. MAIN: Hitung Daily Population Metrics (seperti calculateCountryNetBalance)
+// 7. MAIN: Hitung Daily Population Metrics
 // ==============================
-export const calculateDailyPopulationChange = (detail: CountryDetail): PopulationDailyMetrics => {
+export const calculateDailyPopulationChange = (
+  detail: CountryDetail,
+  countryName?: string
+): PopulationDailyMetrics => {
   if (!detail || typeof detail !== 'object') {
     return {
       dailyBirths: 0,
@@ -157,25 +174,30 @@ export const calculateDailyPopulationChange = (detail: CountryDetail): Populatio
 
   const populasi = detail.jumlah_penduduk || 10_000_000;
   
-  // Hitung kepuasan umum terlebih dahulu
-  const kepuasanUmum = calculateGeneralSatisfaction(detail);
+  let defaults = null;
+  if (countryName) {
+    defaults = getCountryDefaults(countryName);
+  }
+
+  const livingCostIndex = detail.living_cost_index ?? defaults?.livingCostIndex ?? 62.4;
+
+  const detailWithDefaults = {
+    ...detail,
+    living_cost_index: livingCostIndex,
+  };
+
+  const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
   
-  // Hitung indikator demografi
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detail, kepuasanUmum);
   
-  // Hitung daily metrics
   const dailyBirths = calculateDailyBirths(populasi, kepuasanUmum);
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
   
-  // Net daily change: +births -deaths (seperti +income -expense di treasury)
   const netDailyChange = dailyBirths - dailyDeaths;
   
-  // Hitung homeless
-  const sektoral = calculateSectoralSatisfaction(detail);
+  const sektoral = calculateSectoralSatisfaction(detailWithDefaults);
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);
-  
-  const livingCostIndex = detail.living_cost_index ?? 62.4;
 
   return {
     dailyBirths,
@@ -190,21 +212,20 @@ export const calculateDailyPopulationChange = (detail: CountryDetail): Populatio
 };
 
 // ==============================
-// 8. Update Population Count (dipanggil setiap hari dari map-system)
+// 8. Update Population Count
 // ==============================
 export const updateDailyPopulation = (
   detail: CountryDetail,
-  metrics?: PopulationDailyMetrics
+  metrics?: PopulationDailyMetrics,
+  countryName?: string
 ): Partial<CountryDetail> => {
   if (!detail) return {};
 
-  // Jika metrics tidak diberikan, hitung dulu
-  const dailyMetrics = metrics || calculateDailyPopulationChange(detail);
+  const dailyMetrics = metrics || calculateDailyPopulationChange(detail, countryName);
   
   const currentPopulasi = Number(detail.jumlah_penduduk) || 10_000_000;
   const newPopulasi = Math.max(0, currentPopulasi + dailyMetrics.netDailyChange);
 
-  // Track accumulated births/deaths (opsional, untuk statistik)
   const accumulatedBirths = (Number(detail.accumulated_births) || 0) + dailyMetrics.dailyBirths;
   const accumulatedDeaths = (Number(detail.accumulated_deaths) || 0) + dailyMetrics.dailyDeaths;
 
@@ -216,7 +237,7 @@ export const updateDailyPopulation = (
 };
 
 // ==============================
-// 9. Format Population dengan Net Change (untuk UI, seperti formatCurrencyEM)
+// 9. Format Population dengan Net Change (untuk UI)
 // ==============================
 export const formatPopulationWithNetChange = (
   populasi: number,
@@ -227,13 +248,13 @@ export const formatPopulationWithNetChange = (
 };
 
 // ==============================
-// 10. Get Color untuk Net Population Change (untuk UI, seperti netBalanceColor)
+// 10. Get Color untuk Net Population Change
 // ==============================
 export const getNetPopulationChangeColor = (netChange: number): string => {
-  if (netChange >= 100) return 'text-emerald-700';      // Pertumbuhan bagus
-  if (netChange >= 0) return 'text-emerald-600';        // Stabil/tumbuh
-  if (netChange >= -100) return 'text-yellow-600';      // Turun sedikit
-  return 'text-rose-700';                               // Turun drastis
+  if (netChange >= 100) return 'text-emerald-700';
+  if (netChange >= 0) return 'text-emerald-600';
+  if (netChange >= -100) return 'text-yellow-600';
+  return 'text-rose-700';
 };
 
 // ==============================
