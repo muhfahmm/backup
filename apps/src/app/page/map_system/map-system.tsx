@@ -65,6 +65,7 @@ export default function MapPage() {
     const [activeMenu, setActiveMenu] = useState('Peta Taktis');
     const [resetTrigger, setResetTrigger] = useState(false);
     const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
+    const [tempatUmumDeepLink, setTempatUmumDeepLink] = useState<string | null>(null);
     const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
     const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
     const [playerDetailModalOpen, setPlayerDetailModalOpen] = useState(false);
@@ -834,6 +835,8 @@ export default function MapPage() {
                 resetTrigger={resetTrigger}
                 productionDeepLink={productionDeepLink}
                 setProductionDeepLink={setProductionDeepLink}
+                tempatUmumDeepLink={tempatUmumDeepLink}
+                setTempatUmumDeepLink={setTempatUmumDeepLink}
                 onOpenCountryDetail={(targetCountry: string) => {
                     setCountryDetailModalName(targetCountry);
                     setCountryDetailModalOpen(true);

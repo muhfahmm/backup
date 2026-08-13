@@ -25,6 +25,7 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
   currentDate?: string | Date;
+  initialTab?: string; // 🔥 Tab awal yang akan ditampilkan
 }
 
 interface MaterialRequirement {
@@ -73,9 +74,17 @@ export default function TempatUmumModal({
   setCountryDetail,
   onGotoProduction,
   currentDate,
+  initialTab = "infrastruktur", // 🔥 Default ke infrastruktur, bisa di-override
 }: ModalProps) {
   // 🔥 FIX 3: Pastikan nama state adalah activeTabId dan setActiveTabId
-  const [activeTabId, setActiveTabId] = useState<string>("infrastruktur");
+  const [activeTabId, setActiveTabId] = useState<string>(initialTab);
+
+  useEffect(() => {
+    if (isOpen && initialTab) {
+      setActiveTabId(initialTab);
+    }
+  }, [isOpen, initialTab]);
+
   const [selectedBuilding, setSelectedBuilding] = useState<{ key: string; label: string } | null>(null);
   const [metadata, setMetadata] = useState<any>(null);
   const [loadingMetadata, setLoadingMetadata] = useState<boolean>(false);

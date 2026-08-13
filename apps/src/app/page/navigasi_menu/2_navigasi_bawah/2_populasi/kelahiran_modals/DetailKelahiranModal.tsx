@@ -27,6 +27,7 @@ interface DetailKelahiranModalProps {
   dailyBirths?: number;
   dailyDeaths?: number;
   netDailyChange?: number;
+  onOpenTempatUmum?: (tabId: string) => void; // Handler untuk buka TempatUmumModal dengan tab tertentu
 }
 
 export default function DetailKelahiranModal({
@@ -37,6 +38,7 @@ export default function DetailKelahiranModal({
   dailyBirths: propsDailyBirths,
   dailyDeaths: propsDailyDeaths,
   netDailyChange: propsNetDailyChange,
+  onOpenTempatUmum,
 }: DetailKelahiranModalProps) {
   // 🔥 State untuk 6 modal detail
   const [openPopulasiDasar, setOpenPopulasiDasar] = useState(false);
@@ -159,11 +161,11 @@ export default function DetailKelahiranModal({
               </p>
             </div>
 
-            {/* Breakdown Faktor Kelahiran - DENGAN TOMBOL INFO DI KANAN ATAS */}
+            {/* Breakdown Faktor Kelahiran */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-              {/* 1. Populasi Dasar */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 1. Populasi Dasar - (TANPA POINTER) */}
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
                   onClick={() => setOpenPopulasiDasar(true)}
@@ -179,8 +181,8 @@ export default function DetailKelahiranModal({
                 <p className="text-sm font-bold text-[#2e261a]">{formatNumber(populasi)} jiwa</p>
               </div>
 
-              {/* 2. Kesejahteraan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 2. Kesejahteraan - (TANPA POINTER) */}
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
                   onClick={() => setOpenKesejahteraan(true)}
@@ -199,11 +201,17 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
-              {/* 3. Fasilitas Kesehatan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 3. Fasilitas Kesehatan - (DENGAN POINTER DAN NAVIGASI KHUSUS) */}
+              <div 
+                className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
+                onClick={() => onOpenTempatUmum?.('kesehatan')}
+              >
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setOpenFasilitasKesehatan(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenFasilitasKesehatan(true);
+                  }}
                 >
                   <Info className="w-4 h-4" />
                 </button>
@@ -220,8 +228,8 @@ export default function DetailKelahiranModal({
                 <p className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</p>
               </div>
 
-              {/* 4. Kebijakan Insentif Anak */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 4. Kebijakan Insentif Anak - (TANPA POINTER) */}
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
                   onClick={() => setOpenKebijakanInsentifAnak(true)}
@@ -240,8 +248,8 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
-              {/* 5. Angka Pernikahan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 5. Angka Pernikahan - (TANPA POINTER) */}
+              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
                   onClick={() => setOpenAngkaPernikahan(true)}
@@ -260,11 +268,17 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
-              {/* 6. Tingkat Pendidikan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative hover:shadow-md hover:border-[#5c3c10]/40 transition-all duration-200 active:scale-[0.98]">
+              {/* 6. Tingkat Pendidikan - (DENGAN POINTER DAN NAVIGASI KHUSUS) */}
+              <div 
+                className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
+                onClick={() => onOpenTempatUmum?.('pendidikan')}
+              >
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setOpenTingkatPendidikan(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenTingkatPendidikan(true);
+                  }}
                 >
                   <Info className="w-4 h-4" />
                 </button>

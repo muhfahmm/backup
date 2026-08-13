@@ -25,6 +25,9 @@ interface DetailKematianModalProps {
   countryDetail?: any;
   selectedCountry?: any;
   homelessCount?: number; // Data tunawisma dari induk
+  onOpenTempatUmum?: (tabId: string) => void;
+  onOpenIndustriPangan?: () => void;
+  onOpenArmada?: (tabId: 'aktif' | 'infrastruktur' | 'polisi') => void;
 }
 
 export default function DetailKematianModal({
@@ -33,6 +36,9 @@ export default function DetailKematianModal({
   countryDetail,
   selectedCountry,
   homelessCount: propsHomelessCount,
+  onOpenTempatUmum,
+  onOpenIndustriPangan,
+  onOpenArmada,
 }: DetailKematianModalProps) {
   // 🔥 State untuk 7 modal detail (agar tombol Info bisa membuka modal)
   const [isHarapanHidupOpen, setIsHarapanHidupOpen] = useState(false);
@@ -190,10 +196,16 @@ export default function DetailKematianModal({
               </div>
 
               {/* 4. Kesehatan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+              <div 
+                className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
+                onClick={() => onOpenTempatUmum?.('kesehatan')}
+              >
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setIsKesehatanOpen(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsKesehatanOpen(true);
+                  }}
                 >
                   <Info className="w-4 h-4" />
                 </button>
@@ -211,10 +223,16 @@ export default function DetailKematianModal({
               </div>
 
               {/* 5. Ketahanan Pangan */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+              <div 
+                className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
+                onClick={() => onOpenIndustriPangan?.()}
+              >
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setIsKetahananPanganOpen(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsKetahananPanganOpen(true);
+                  }}
                 >
                   <Info className="w-4 h-4" />
                 </button>
@@ -232,10 +250,16 @@ export default function DetailKematianModal({
               </div>
 
               {/* 6. Kriminalitas */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
+              <div 
+                className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
+                onClick={() => onOpenArmada?.('polisi')}
+              >
                 <button
                   className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setIsKriminalitasOpen(true)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setIsKriminalitasOpen(true);
+                  }}
                 >
                   <Info className="w-4 h-4" />
                 </button>

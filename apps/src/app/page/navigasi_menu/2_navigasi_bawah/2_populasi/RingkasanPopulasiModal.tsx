@@ -17,6 +17,7 @@ import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejah
 
 import DetailKelahiranModal from "./kelahiran_modals/DetailKelahiranModal";
 import DetailKematianModal from "./kematian_modals/DetailKematianModal";
+import TempatUmumModal from "../5_pembangunan/2_tempat_umum/TempatUmumModal";
 
 // ==============================
 // Tipe data yang diharapkan dari countryDetail
@@ -43,6 +44,8 @@ interface RingkasanPopulasiModalProps {
   onClose: () => void;
   countryDetail: any;
   selectedCountry: any;
+  setActiveMenu?: (menu: string) => void;
+  onOpenArmadaTab?: (tab: 'aktif' | 'infrastruktur' | 'polisi') => void;
 }
 
 // ==============================
@@ -112,11 +115,15 @@ export default function RingkasanPopulasiModal({
   isOpen,
   onClose,
   countryDetail,
-  selectedCountry
+  selectedCountry,
+  setActiveMenu,
+  onOpenArmadaTab,
 }: RingkasanPopulasiModalProps) {
 
   const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
   const [isDetailDeathOpen, setIsDetailDeathOpen] = useState(false);
+  const [isTempatUmumOpen, setIsTempatUmumOpen] = useState(false);
+  const [tempatUmumActiveTab, setTempatUmumActiveTab] = useState<string>("infrastruktur");
 
   const metrics = useMemo(() => {
     if (!countryDetail) return null;
@@ -285,6 +292,11 @@ export default function RingkasanPopulasiModal({
         dailyBirths={dailyBirths}
         dailyDeaths={dailyDeaths}
         netDailyChange={totalDailyDelta}
+        onOpenTempatUmum={(tabId: string) => {
+          setTempatUmumActiveTab(tabId);
+          setIsTempatUmumOpen(true);
+          setIsDetailBirthOpen(false);
+        }}
       />
 
       <DetailKematianModal
@@ -292,6 +304,28 @@ export default function RingkasanPopulasiModal({
         onClose={() => setIsDetailDeathOpen(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
+        onOpenTempatUmum={(tabId: string) => {
+          setTempatUmumActiveTab(tabId);
+          setIsTempatUmumOpen(true);
+          setIsDetailDeathOpen(false);
+        }}
+        onOpenIndustriPangan={() => {
+          setActiveMenu?.("Menu:IndustriPangan");
+        }}
+        onOpenArmada={(tabId) => {
+          onOpenArmadaTab?.(tabId);
+        }}
+      />
+
+      <TempatUmumModal
+        isOpen={isTempatUmumOpen}
+        onClose={() => setIsTempatUmumOpen(false)}
+        countryDetail={countryDetail}
+        setCountryDetail={(updated) => {
+          // Update countryDetail melalui parent jika diperlukan
+          // Atau gunakan hook context jika tersedia
+        }}
+        initialTab={tempatUmumActiveTab}
       />
     </div>
   );

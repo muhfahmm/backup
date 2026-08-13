@@ -13,10 +13,18 @@ interface ModalProps {
   setCountryDetail: (detail: any) => void;
   onGotoProduction?: (tab: string, key: string) => void;
   currentDate?: string | Date;
+  initialTab?: 'aktif' | 'infrastruktur' | 'polisi';
 }
 
-export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction, currentDate }: ModalProps) {
-  const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
+export default function ArmadaModal({ isOpen, onClose, countryDetail, setCountryDetail, onGotoProduction, currentDate, initialTab = 'aktif' }: ModalProps) {
+  const [activeTab, setActiveTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>(initialTab);
+  
+  useEffect(() => {
+    if (isOpen && initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [isOpen, initialTab]);
+
   const [highlightInfraKey, setHighlightInfraKey] = useState<string | null>(null);
 
   if (!isOpen) return null;

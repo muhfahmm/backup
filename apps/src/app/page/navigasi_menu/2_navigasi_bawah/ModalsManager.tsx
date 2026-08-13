@@ -67,6 +67,8 @@ interface ModalsManagerProps {
   resetTrigger?: boolean;
   productionDeepLink?: { tab: string; key: string } | null;
   setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
+  tempatUmumDeepLink?: string | null;
+  setTempatUmumDeepLink?: (value: string | null) => void;
   onOpenCountryDetail?: (countryName: string) => void;
   onOpenPlayerDetail?: () => void;
   presidentRating?: number;
@@ -83,6 +85,8 @@ function ModalsManager({
   resetTrigger,
   productionDeepLink,
   setProductionDeepLink,
+  tempatUmumDeepLink,
+  setTempatUmumDeepLink,
   onOpenCountryDetail,
   onOpenPlayerDetail,
   presidentRating = 50,
@@ -90,6 +94,7 @@ function ModalsManager({
 }: ModalsManagerProps) {
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [prefetchedAllCountries, setPrefetchedAllCountries] = useState<any[] | null>(null);
+  const [armadaInitialTab, setArmadaInitialTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
 
   useEffect(() => {
     fetchBuildingMetadata()
@@ -178,6 +183,11 @@ function ModalsManager({
           onClose={onClose}
           countryDetail={countryDetail}
           selectedCountry={selectedCountry}
+          setActiveMenu={setActiveMenu}
+          onOpenArmadaTab={(tab) => {
+            setArmadaInitialTab(tab);
+            setActiveMenu("Menu:Armada");
+          }}
         />
       );
 
@@ -355,6 +365,7 @@ function ModalsManager({
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           currentDate={currentDate}
+          initialTab={armadaInitialTab}
           onGotoProduction={(tab, key) => {
             setActiveMenu("Menu:Produksi");
             setProductionDeepLink?.({ tab, key });
