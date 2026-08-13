@@ -6,6 +6,12 @@
 import { logger } from '../../../lib/logger';
 import { COUNTRY_STATIC_DATA } from './index_Kesejahteraan';
 
+// Import dari logic yang baru dibuat
+import { calculateKeamananLogic } from "@/app/page/navigasi_menu/2_navigasi_bawah/2_populasi/kematian_modals/logic/keamananLogic";
+import { calculateKesehatanLogic } from "@/app/page/navigasi_menu/2_navigasi_bawah/2_populasi/kematian_modals/logic/kesehatanLogic";
+import { calculateTunawismaLogic } from "@/app/page/navigasi_menu/2_navigasi_bawah/2_populasi/kematian_modals/logic/tunawismaLogic";
+import { calculateKriminalitasLogic } from "@/app/page/navigasi_menu/2_navigasi_bawah/2_populasi/kematian_modals/logic/kriminalitasLogic";
+
 // ==============================
 // Interface Tipe Data
 // ==============================
@@ -146,9 +152,38 @@ export const calculateDailyBirths = (
 export const calculateDailyDeaths = (
   populasi: number,
   lifeExpectancy: number,
-  securityLevel: number
+  securityLevel: number,
+  detail?: any
 ): number => {
   const baseDeathRate = 0.000018;
+
+  if (detail) {
+    const harapanHidup = detail?.harapan_hidup ?? 70;
+    const indeksKetahananPangan = detail?.indeks_ketahanan_pangan ?? 60;
+    const polusiIndex = detail?.polusi_index ?? 40;
+
+    const keamananRes = calculateKeamananLogic(detail, populasi);
+    const kesehatanRes = calculateKesehatanLogic(detail, populasi);
+
+    // Hitung homelessCount secara dinamis dari detail
+    const sektoral = calculateSectoralSatisfaction(detail);
+    const calculatedHomeless = calculateHomelessCount(populasi, sektoral.hunian);
+
+    const tunawismaRes = calculateTunawismaLogic(detail, populasi, calculatedHomeless);
+    const kriminalitasRes = calculateKriminalitasLogic(detail, populasi);
+
+    const lifeExpectancyFactor = Math.max(0.8, 1.2 - (0.005 * (harapanHidup - 50)));
+    const securityFactor = keamananRes.securityFactor;
+    const homelessFactor = tunawismaRes.homelessFactor;
+    const healthFactor = kesehatanRes.healthFactor;
+    const foodSecurityFactor = 0.7 + (0.003 * indeksKetahananPangan);
+    const crimeFactor = kriminalitasRes.crimeFactor;
+    const pollutionFactor = 1 + (polusiIndex / 200);
+
+    const combinedFactor = lifeExpectancyFactor * securityFactor * homelessFactor * healthFactor * foodSecurityFactor * crimeFactor * pollutionFactor;
+    return Math.floor(populasi * baseDeathRate * combinedFactor);
+  }
+
   const lifeFactor = 73.2 / lifeExpectancy;
   const securityFactor = 84.5 / securityLevel;
   return Math.floor(populasi * baseDeathRate * lifeFactor * securityFactor);
@@ -210,7 +245,7 @@ export const calculateDailyPopulationChange = (
     detail.tingkat_pendidikan ?? 0.5
   );
 
-  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
+  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
   const netDailyChange = dailyBirths - dailyDeaths;
   const sektoral = calculateSectoralSatisfaction(detailWithDefaults);
   const homelessCount = calculateHomelessCount(populasi, sektoral.hunian);

@@ -86,7 +86,7 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
     detail.tingkat_pendidikan ?? 0.5
   );
 
-  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
+  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
 
   const totalDailyDelta = dailyBirths - dailyDeaths;
   const totalMonthlyGrowthPercent = ((totalDailyDelta * 30) / populasi) * 100;
@@ -304,6 +304,7 @@ export default function RingkasanPopulasiModal({
         onClose={() => setIsDetailDeathOpen(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
+        homelessCount={homelessCount}
         onOpenTempatUmum={(tabId: string) => {
           setTempatUmumActiveTab(tabId);
           setIsTempatUmumOpen(true);

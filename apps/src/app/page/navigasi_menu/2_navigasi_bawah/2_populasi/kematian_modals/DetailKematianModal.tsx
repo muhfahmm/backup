@@ -19,6 +19,12 @@ import DetailKetahananPanganModal from './grid_modals/DetailKetahananPanganModal
 import DetailKriminalitasModal from './grid_modals/DetailKriminalitasModal';
 import DetailPolusiModal from './grid_modals/DetailPolusiModal';
 
+// Import dari logic yang baru dibuat
+import { calculateKeamananLogic } from "./logic/keamananLogic";
+import { calculateKesehatanLogic } from "./logic/kesehatanLogic";
+import { calculateTunawismaLogic } from "./logic/tunawismaLogic";
+import { calculateKriminalitasLogic } from "./logic/kriminalitasLogic";
+
 interface DetailKematianModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -62,28 +68,33 @@ export default function DetailKematianModal({
   const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
 
-  // 🔥 Fungsi 3 parameter
-  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
-
-  // --- Data visual UI ---
+  // --- Data visual UI & Logic Baru ---
   const harapanHidup = countryDetail?.harapan_hidup ?? 70;
-  const tingkatKeamanan = countryDetail?.tingkat_keamanan ?? 80;
-  const homelessCount = propsHomelessCount ?? 0;
-  const jumlahRumahSakit = countryDetail?.jumlah_rumah_sakit ?? 0;
   const indeksKetahananPangan = countryDetail?.indeks_ketahanan_pangan ?? 60;
-  const tingkatKriminalitas = countryDetail?.tingkat_kriminalitas ?? 5;
   const polusiIndex = countryDetail?.polusi_index ?? 40;
 
+  // Hitung dengan logic baru
+  const keamananRes = calculateKeamananLogic(countryDetail, populasi);
+  const kesehatanRes = calculateKesehatanLogic(countryDetail, populasi);
+  const tunawismaRes = calculateTunawismaLogic(countryDetail, populasi, propsHomelessCount);
+  const kriminalitasRes = calculateKriminalitasLogic(countryDetail, populasi);
+
+  const tingkatKeamanan = keamananRes.tingkatKeamanan;
+  const homelessCount = tunawismaRes.homelessCount;
+  const jumlahRumahSakit = kesehatanRes.jumlahRumahSakit;
+  const tingkatKriminalitas = kriminalitasRes.tingkatKriminalitas;
+
   const lifeExpectancyFactor = Math.max(0.8, 1.2 - (0.005 * (harapanHidup - 50)));
-  const securityFactor = Math.max(0.75, 1.0 - (0.005 * (tingkatKeamanan - 50)));
+  const securityFactor = keamananRes.securityFactor;
   const homelessRatio = homelessCount / populasi;
-  const homelessFactor = 1 + (homelessRatio * 5);
-  const idealHospitals = Math.ceil(populasi / 100000);
-  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 0;
-  const healthFactor = 1.0 - (0.3 * (1 - hospitalRatio));
+  const homelessFactor = tunawismaRes.homelessFactor;
+  const hospitalRatio = kesehatanRes.kesehatanRatio;
+  const healthFactor = kesehatanRes.healthFactor;
   const foodSecurityFactor = 0.7 + (0.003 * indeksKetahananPangan);
-  const crimeFactor = 1 + (tingkatKriminalitas * 0.02);
+  const crimeFactor = kriminalitasRes.crimeFactor;
   const pollutionFactor = 1 + (polusiIndex / 200);
+
+  const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
 
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
   const countryDisplayName = selectedCountry?.country || "Indonesia";

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, AlertTriangle } from "lucide-react";
+import { calculateKriminalitasLogic } from "../logic/kriminalitasLogic";
 
 interface DetailKriminalitasModalProps {
   isOpen: boolean;
@@ -18,9 +19,10 @@ export default function DetailKriminalitasModal({
 }: DetailKriminalitasModalProps) {
   if (!isOpen) return null;
 
-  const tingkatKriminalitas = countryDetail?.tingkat_kriminalitas ?? 5;
+  const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
+  const result = calculateKriminalitasLogic(countryDetail, populasi);
   const countryName = selectedCountry?.country || "Indonesia";
-  const factor = 1 + (tingkatKriminalitas * 0.02);
+  const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -46,25 +48,33 @@ export default function DetailKriminalitasModal({
             <div className="bg-white/60 border-2 border-[#C4B49C]/20 p-6 rounded-2xl shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Tingkat Kriminalitas</p>
-                  <p className="text-4xl font-black text-rose-700 mt-1">{tingkatKriminalitas}%</p>
+                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Tingkat Kriminalitas (Tersesuaikan)</p>
+                  <p className="text-4xl font-black text-rose-700 mt-1">{result.tingkatKriminalitas.toFixed(2)}%</p>
                 </div>
                 <div className="p-4 bg-rose-50 rounded-full border border-rose-200">
                   <AlertTriangle className="h-10 w-10 text-rose-600" />
                 </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-rose-50/60 p-3 rounded-xl border border-rose-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali</p>
-                  <p className="text-xl font-black text-rose-700">× {factor.toFixed(3)}</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Bangunan Keamanan</p>
+                  <p className="text-xl font-black text-rose-700">{result.totalBangunanPolisi} / {result.idealPolisi}</p>
+                </div>
+                <div className="bg-[#e4dac3]/30 p-3 rounded-xl border border-[#C4B49C]/30">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rasio Kebutuhan</p>
+                  <p className="text-xl font-black text-[#5c3c10]">{result.polisiRatio.toFixed(2)}</p>
+                </div>
+                <div className="bg-rose-50/60 p-3 rounded-xl border border-rose-200">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali Kematian</p>
+                  <p className="text-xl font-black text-rose-700">× {result.crimeFactor.toFixed(3)}</p>
                 </div>
                 <div className="bg-red-50/60 p-3 rounded-xl border border-red-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Semakin tinggi</p>
-                  <p className="text-xl font-black text-red-700">semakin banyak kematian</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Keterangan</p>
+                  <p className="text-sm font-bold text-red-700">Semakin banyak polisi, kriminalitas turun</p>
                 </div>
               </div>
               <p className="mt-4 text-xs text-[#8b7e66] font-medium">
-                Setiap 1% kriminalitas meningkatkan angka kematian sebesar 2%. Kejahatan seringkali berujung pada kekerasan dan cedera fatal.
+                Sistem keamanan wilayah yang diperkuat dengan bangunan pengamanan (pos polisi, armada mobil polisi, akademi polisi) secara signifikan menekan angka kejahatan. Semakin lengkap infrastruktur kepolisian, rasio kriminalitas semakin kecil, sehingga meminimalisir kematian akibat tindakan kriminalitas.
               </p>
             </div>
           </div>

@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, HeartPulse } from "lucide-react";
+import { calculateKesehatanLogic } from "../logic/kesehatanLogic";
 
 interface DetailKesehatanModalProps {
   isOpen: boolean;
@@ -19,11 +20,8 @@ export default function DetailKesehatanModal({
   if (!isOpen) return null;
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
-  const jumlahRumahSakit = countryDetail?.jumlah_rumah_sakit ?? 0;
+  const result = calculateKesehatanLogic(countryDetail, populasi);
   const countryName = selectedCountry?.country || "Indonesia";
-  const idealHospitals = Math.ceil(populasi / 100000);
-  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 0;
-  const healthFactor = 1.0 - (0.3 * (1 - hospitalRatio));
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
   return (
@@ -50,25 +48,29 @@ export default function DetailKesehatanModal({
             <div className="bg-white/60 border-2 border-[#C4B49C]/20 p-6 rounded-2xl shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Ketersediaan RS</p>
-                  <p className="text-3xl font-black text-[#2e261a] mt-1">{jumlahRumahSakit} RS <span className="text-lg text-[#8b7e66] font-bold">/ {formatNumber(populasi)} jiwa</span></p>
+                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Ketersediaan RS & Klinik</p>
+                  <p className="text-3xl font-black text-[#2e261a] mt-1">{result.jumlahRumahSakit} RS <span className="text-lg text-[#8b7e66] font-bold">/ {formatNumber(populasi)} jiwa</span></p>
                 </div>
                 <div className="p-4 bg-green-50 rounded-full border border-green-200">
                   <HeartPulse className="h-10 w-10 text-green-600" />
                 </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div className="bg-green-50/60 p-3 rounded-xl border border-green-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rasio RS (ideal 1:100.000)</p>
-                  <p className="text-xl font-black text-green-700">{hospitalRatio.toFixed(2)}</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Bangunan Medis</p>
+                  <p className="text-xl font-black text-green-700">{result.totalBangunanMedis} / {result.idealKesehatan}</p>
+                </div>
+                <div className="bg-[#e4dac3]/30 p-3 rounded-xl border border-[#C4B49C]/30">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rasio Fasilitas</p>
+                  <p className="text-xl font-black text-[#5c3c10]">{result.kesehatanRatio.toFixed(2)}</p>
                 </div>
                 <div className="bg-rose-50/60 p-3 rounded-xl border border-rose-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali</p>
-                  <p className="text-xl font-black text-rose-700">× {healthFactor.toFixed(3)}</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali Kematian</p>
+                  <p className="text-xl font-black text-rose-700">× {result.healthFactor.toFixed(3)}</p>
                 </div>
               </div>
               <p className="mt-4 text-xs text-[#8b7e66] font-medium">
-                Semakin banyak rumah sakit, semakin rendah angka kematian akibat penyakit yang seharusnya bisa diobati.
+                Semakin banyak rumah sakit besar, rumah sakit kecil, dan pusat diagnostik, maka rasio fasilitas medis semakin besar. Hal ini secara signifikan menurunkan angka kematian akibat penyakit atau kondisi darurat medis yang dapat diobati.
               </p>
             </div>
           </div>

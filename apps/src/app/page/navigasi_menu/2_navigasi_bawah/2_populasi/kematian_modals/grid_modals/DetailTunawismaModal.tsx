@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, Home } from "lucide-react";
+import { calculateTunawismaLogic } from "../logic/tunawismaLogic";
 
 interface DetailTunawismaModalProps {
   isOpen: boolean;
@@ -19,10 +20,10 @@ export default function DetailTunawismaModal({
   if (!isOpen) return null;
 
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
-  const homelessCount = countryDetail?.tunawisma ?? 0;
+  const rawHomeless = countryDetail?.tunawisma ?? 0;
+  const result = calculateTunawismaLogic(countryDetail, populasi, rawHomeless);
   const countryName = selectedCountry?.country || "Indonesia";
-  const ratio = homelessCount / populasi;
-  const factor = 1 + (ratio * 5);
+  const ratio = result.homelessCount / populasi;
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
   return (
@@ -49,25 +50,33 @@ export default function DetailTunawismaModal({
             <div className="bg-white/60 border-2 border-[#C4B49C]/20 p-6 rounded-2xl shadow-sm">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Jumlah Tunawisma</p>
-                  <p className="text-4xl font-black text-amber-700 mt-1">{formatNumber(homelessCount)} <span className="text-lg text-[#8b7e66] font-bold">jiwa</span></p>
+                  <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Jumlah Tunawisma (Tersesuaikan)</p>
+                  <p className="text-4xl font-black text-amber-700 mt-1">{formatNumber(result.homelessCount)} <span className="text-lg text-[#8b7e66] font-bold">jiwa</span></p>
                 </div>
                 <div className="p-4 bg-amber-50 rounded-full border border-amber-200">
                   <Home className="h-10 w-10 text-amber-600" />
                 </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4">
                 <div className="bg-amber-50/60 p-3 rounded-xl border border-amber-200">
                   <p className="text-[10px] text-[#8b7e66] font-black uppercase">Persentase</p>
                   <p className="text-xl font-black text-amber-700">{(ratio * 100).toFixed(2)}%</p>
                 </div>
+                <div className="bg-[#e4dac3]/30 p-3 rounded-xl border border-[#C4B49C]/30">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Bangunan Pendukung</p>
+                  <p className="text-xl font-black text-[#5c3c10]">{result.totalBangunanHunian} / {result.idealHunian}</p>
+                </div>
+                <div className="bg-[#e4dac3]/30 p-3 rounded-xl border border-[#C4B49C]/30">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rasio Ketersediaan</p>
+                  <p className="text-xl font-black text-[#5c3c10]">{result.hunianRatio.toFixed(2)}</p>
+                </div>
                 <div className="bg-rose-50/60 p-3 rounded-xl border border-rose-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali</p>
-                  <p className="text-xl font-black text-rose-700">× {factor.toFixed(3)}</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali Kematian</p>
+                  <p className="text-xl font-black text-rose-700">× {result.homelessFactor.toFixed(3)}</p>
                 </div>
               </div>
               <p className="mt-4 text-xs text-[#8b7e66] font-medium">
-                Setiap 1% populasi tunawisma meningkatkan angka kematian sebesar 5%. Tunawisma erat kaitannya dengan masalah kesehatan dan kekurangan akses layanan dasar.
+                Pembangunan kawasan komersial dan akomodasi (mall, hotel, pusat grosir) membantu menurunkan jumlah tunawisma secara tidak langsung melalui penciptaan lapangan kerja dan opsi hunian sementara. Semakin banyak bangunan pendukung, persentase tunawisma riil berkurang, sehingga menekan angka kematian akibat ketiadaan tempat tinggal layak.
               </p>
             </div>
           </div>

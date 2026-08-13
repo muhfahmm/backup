@@ -84,7 +84,7 @@ export default function DetailKelahiranModal({
 
   const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
-  const dailyDeaths = propsDailyDeaths !== undefined ? propsDailyDeaths : calculateDailyDeaths(populasi, lifeExpectancy, securityLevel);
+  const dailyDeaths = propsDailyDeaths !== undefined ? propsDailyDeaths : calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
 
   // 🔥 Pertumbuhan Bersih
   const netDailyChange = propsNetDailyChange !== undefined ? propsNetDailyChange : (dailyBirths - dailyDeaths);

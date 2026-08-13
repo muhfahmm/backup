@@ -2,6 +2,7 @@
 
 import React from "react";
 import { X, Shield } from "lucide-react";
+import { calculateKeamananLogic } from "../logic/keamananLogic";
 
 interface DetailKeamananModalProps {
   isOpen: boolean;
@@ -18,9 +19,10 @@ export default function DetailKeamananModal({
 }: DetailKeamananModalProps) {
   if (!isOpen) return null;
 
-  const tingkatKeamanan = countryDetail?.tingkat_keamanan ?? 80;
+  const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
+  const result = calculateKeamananLogic(countryDetail, populasi);
   const countryName = selectedCountry?.country || "Indonesia";
-  const factor = Math.max(0.75, 1.0 - (0.005 * (tingkatKeamanan - 50)));
+  const formatNumber = (num: number) => num.toLocaleString('id-ID');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -47,24 +49,28 @@ export default function DetailKeamananModal({
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Indeks Keamanan</p>
-                  <p className="text-4xl font-black text-indigo-700 mt-1">{tingkatKeamanan}%</p>
+                  <p className="text-4xl font-black text-indigo-700 mt-1">{result.tingkatKeamanan}%</p>
                 </div>
                 <div className="p-4 bg-indigo-50 rounded-full border border-indigo-200">
                   <Shield className="h-10 w-10 text-indigo-600" />
                 </div>
               </div>
-              <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-4">
                 <div className="bg-indigo-50/60 p-3 rounded-xl border border-indigo-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali</p>
-                  <p className="text-xl font-black text-indigo-700">× {factor.toFixed(3)}</p>
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Bangunan Penegakan Hukum</p>
+                  <p className="text-xl font-black text-indigo-700">{result.totalBangunanHukum} / {result.idealHukum}</p>
                 </div>
-                <div className="bg-green-50/60 p-3 rounded-xl border border-green-200">
-                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Semakin tinggi</p>
-                  <p className="text-xl font-black text-green-700">semakin rendah kematian</p>
+                <div className="bg-[#e4dac3]/30 p-3 rounded-xl border border-[#C4B49C]/30">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rasio Bangunan</p>
+                  <p className="text-xl font-black text-[#5c3c10]">{result.hukumRatio.toFixed(2)}</p>
+                </div>
+                <div className="bg-rose-50/60 p-3 rounded-xl border border-rose-200">
+                  <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali Kematian</p>
+                  <p className="text-xl font-black text-rose-700">× {result.securityFactor.toFixed(3)}</p>
                 </div>
               </div>
               <p className="mt-4 text-xs text-[#8b7e66] font-medium">
-                Lingkungan yang aman mengurangi risiko kriminalitas dan kecelakaan, sehingga menekan angka kematian.
+                Ketersediaan bangunan penegakan hukum yang memadai (pos polisi, pengadilan, kejaksaan, akademi polisi, pusat bantuan hukum) memperkuat sistem keamanan. Semakin banyak bangunan penegakan hukum, rasio kekurangan pengamanan semakin kecil, sehingga menekan risiko kematian akibat kriminalitas dan kecelakaan.
               </p>
             </div>
           </div>
