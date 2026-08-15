@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Newspaper } from 'lucide-react';
+import { Newspaper, X } from 'lucide-react'; // 🔥 Tambahkan import X
 
 interface TopRightNewsIconProps {
   onClick?: () => void;
@@ -20,30 +20,48 @@ export default function TopRightNewsIcon({ onClick, isOpen, onClose }: TopRightN
         <Newspaper className="w-7 h-7 text-cyan-900 font-bold transition-transform group-hover:scale-125" />
       </button>
 
-      {/* News Modal */}
+      {/* 🔥 News Modal - Ukuran Besar seperti modal lainnya */}
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent">
-          <div className="bg-[#FAF6EE] rounded-2xl p-6 border-4 border-blue-600 shadow-2xl w-full max-w-md relative overflow-hidden flex flex-col font-sans">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
-            
-            <div className="flex items-center justify-between mb-4 border-b-2 border-blue-600/30 pb-3 z-10">
-              <span className="text-[12px] font-black text-blue-800 tracking-widest uppercase">📰 BERITA</span>
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
+          <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
+
+            {/* 🔥 HEADER MODAL */}
+            <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10 shrink-0">
+              <div className="flex items-center gap-3">
+                <div className="p-2 bg-blue-600/10 rounded-xl border border-blue-600/20">
+                  <Newspaper className="h-6 w-6 text-blue-600" />
+                </div>
+                <div>
+                  <h2 className="text-2xl font-black text-[#5c3c10] tracking-tight leading-none uppercase">Berita & Update Negara</h2>
+                  <p className="text-xs text-[#8b7e66] font-medium">Kabar terkini seputar politik, ekonomi, dan pertahanan nasional</p>
+                </div>
+              </div>
               <button 
                 onClick={onClose}
-                className="text-blue-800 hover:text-blue-950 font-black text-sm cursor-pointer"
+                className="p-2.5 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 active:bg-black/10 transition-all cursor-pointer font-black text-xs uppercase flex items-center gap-1.5 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
               >
-                ✕
+                <span className="text-[10px] font-black uppercase tracking-widest pl-1">Tutup</span>
+                <X className="h-5 w-5" />
               </button>
             </div>
-            
-            <div className="z-10 flex flex-col gap-4">
-              <div className="text-center py-8">
-                <p className="text-[#8b7e66] font-semibold">Tidak ada berita terbaru</p>
+
+            {/* 🔥 BODY MODAL */}
+            <div className="flex-1 overflow-y-auto p-8 bg-[#FAF6EE]/40 relative z-10 no-scrollbar flex flex-col items-center justify-center">
+              <div className="flex flex-col items-center justify-center text-center space-y-4 max-w-md mx-auto">
+                <Newspaper className="h-16 w-16 text-[#C4B49C]/50" />
+                <h4 className="text-lg font-black text-[#5c3c10] uppercase">Tidak Ada Berita</h4>
+                <p className="text-xs text-[#8b7e66] leading-relaxed">
+                  Belum ada berita atau update yang masuk. Pantau terus perkembangan situasi nasional dan internasional.
+                </p>
               </div>
-              
+            </div>
+
+            {/* 🔥 FOOTER MODAL */}
+            <div className="p-4 bg-[#FAF6EE] border-t-2 border-[#C4B49C]/20 flex justify-end relative z-10 shrink-0">
               <button 
                 onClick={onClose}
-                className="w-full py-3 px-4 rounded-xl bg-gradient-to-b from-blue-400 via-blue-500 to-blue-600 text-blue-900 border-2 border-blue-700 shadow-lg hover:brightness-110 active:scale-98 font-black text-xs uppercase transition-all cursor-pointer text-center"
+                className="px-8 py-3 rounded-xl border-2 border-[#C4B49C] bg-transparent text-[#8b7e66] hover:text-[#5c3c10] hover:bg-black/5 transition-all font-black text-xs uppercase tracking-wider cursor-pointer"
               >
                 Tutup
               </button>
