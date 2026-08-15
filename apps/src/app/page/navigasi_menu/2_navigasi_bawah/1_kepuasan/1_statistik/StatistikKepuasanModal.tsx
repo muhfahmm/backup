@@ -8,6 +8,7 @@ import {
   calculatePanganScore,
   calculateListrikScore,
   calculateHunianScore,
+  calculateLayananPublikScore,
 } from "@/app/logic/kepuasanCalculator";
 
 interface StatistikKepuasanModalProps {
@@ -40,9 +41,10 @@ export default function StatistikKepuasanModal({
   const panganScore  = calculatePanganScore(countryDetail, metadata);
   const listrikScore = calculateListrikScore(countryDetail, metadata);
   const hunianScore  = calculateHunianScore(countryDetail, metadata);
+  const layananPublikScore = calculateLayananPublikScore(countryDetail);
   
-  // Hitung general satisfaction sebagai rata-rata dari 5 sektor
-  const generalSatisfaction = (pajakScore + hargaScore + panganScore + listrikScore + hunianScore) / 5;
+  // Hitung general satisfaction sebagai rata-rata dari 6 sektor
+  const generalSatisfaction = (pajakScore + hargaScore + panganScore + listrikScore + hunianScore + layananPublikScore) / 6;
 
   // Update kepuasan di countryDetail setiap kali generalSatisfaction berubah
   useEffect(() => {
@@ -98,6 +100,14 @@ export default function StatistikKepuasanModal({
       color: "text-rose-600", 
       desc: "Ketersediaan rumah layak huni dan akses perumahan.",
       menuId: "Menu:HunianPermukiman"
+    },
+    { 
+      name: "Layanan Publik & Tempat Umum", 
+      score: Math.round(layananPublikScore), 
+      icon: Landmark, 
+      color: "text-yellow-700", 
+      desc: "Rasio ketersediaan sarana sosial, kesehatan, pendidikan, keamanan, dan rekreasi.",
+      menuId: "Menu:TempatUmum"
     }
   ];
 

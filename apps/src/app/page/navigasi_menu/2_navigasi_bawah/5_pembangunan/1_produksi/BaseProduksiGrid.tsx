@@ -253,18 +253,6 @@ export default function BaseProduksiGrid({
                             <span className="font-black text-xl text-[#2e261a]">
                               {accumulated.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 3 })}
                             </span>
-                            {setCountryDetail && (
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  setCountryDetail({ ...countryDetail, [`inventory_${key}`]: 0 });
-                                }}
-                                className="text-[9px] font-bold text-[#8b7e66] hover:text-rose-600 underline transition-colors cursor-pointer"
-                                title="Reset stok ke 0"
-                              >
-                                Reset
-                              </button>
-                            )}
                           </>
                         );
                       }

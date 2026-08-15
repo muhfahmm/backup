@@ -124,7 +124,8 @@ export const calculateDailyBirths = (
   jumlahKlinik: number,
   programInsentifAnak: boolean = false,
   angkaPernikahan: number = 0.05,
-  tingkatPendidikan: number = 0.5
+  tingkatPendidikan: number = 0.5,
+  detail?: any
 ): number => {
   if (populasi <= 0) return 0;
 
@@ -132,14 +133,41 @@ export const calculateDailyBirths = (
   const baseBirths = populasi * baseBirthRate;
 
   const welfareFactor = 0.75 + (livingCostIndex / 200);
-  const idealHospitals = Math.ceil(populasi / 100000);
-  const idealClinics = Math.ceil(populasi / 10000);
-  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
-  const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
-  const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
+
+  let healthFactor = 1.0;
+  if (detail) {
+    const baseRumahSakit = Number(detail.jumlah_rumah_sakit ?? 0);
+    const rsBesar = Number(detail.rumah_sakit_besar ?? 0);
+    const rsKecil = Number(detail.rumah_sakit_kecil ?? 0);
+    const pusatDiagnostik = Number(detail.pusat_diagnostik ?? 0);
+    const totalBangunanMedis = baseRumahSakit + rsBesar + rsKecil + pusatDiagnostik;
+    const idealKesehatan = Math.ceil(populasi / 100000) || 1;
+    const kesehatanRatio = Math.min(1, totalBangunanMedis / idealKesehatan);
+    healthFactor = 0.7 + 0.3 * kesehatanRatio;
+  } else {
+    const idealHospitals = Math.ceil(populasi / 100000);
+    const idealClinics = Math.ceil(populasi / 10000);
+    const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
+    const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
+    healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
+  }
+
   const policyFactor = programInsentifAnak ? 1.2 : 1.0;
-  const marriageFactor = 0.8 + (angkaPernikahan * 4);
-  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
+  
+  // Pernikahan card and its factor logic removed (always default 1.0)
+  const marriageFactor = 1.0;
+
+  let eduRatio = 0.5;
+  if (detail) {
+    const eduKeys = ["prasekolah", "dasar", "menengah", "lanjutan", "universitas", "lembaga_pendidikan", "laboratorium", "observatorium", "pusat_penelitian", "pusat_pengembangan", "literasi"];
+    const totalEducation = eduKeys.reduce((sum, key) => sum + (Number(detail[key]) || 0), 0);
+    const idealEducation = Math.ceil(populasi / 50000) || 1;
+    eduRatio = Math.min(1, totalEducation / idealEducation);
+  } else {
+    eduRatio = tingkatPendidikan;
+  }
+  const educationFactor = 1.1 - (0.3 * eduRatio);
+
   const satisfactionFactor = 0.5 + (satisfaction / 200);
 
   const totalFactor = welfareFactor * healthFactor * policyFactor * marriageFactor * educationFactor * satisfactionFactor;
@@ -242,7 +270,8 @@ export const calculateDailyPopulationChange = (
     detail.jumlah_klinik ?? 0,
     detail.program_insentif_anak ?? false,
     detail.angka_pernikahan ?? 0.05,
-    detail.tingkat_pendidikan ?? 0.5
+    detail.tingkat_pendidikan ?? 0.5,
+    detailWithDefaults
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);

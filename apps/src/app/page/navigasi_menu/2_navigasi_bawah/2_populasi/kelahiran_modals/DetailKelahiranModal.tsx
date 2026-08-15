@@ -11,13 +11,14 @@ import {
   calculateSecurityLevel,
 } from "@/app/logic/populations_logic/population_logic";
 
-// 🔥 Import ke-6 modal detail
+// 🔥 Import ke-5 modal detail
 import DetailPopulasiDasarModal from "./grid_modals/DetailPopulasiDasarModal";
 import DetailKesejahteraanModal from "./grid_modals/DetailKesejahteraanModal";
 import DetailFasilitasKesehatanModal from "./grid_modals/DetailFasilitasKesehatanModal";
 import DetailKebijakanInsentifAnakModal from "./grid_modals/DetailKebijakanInsentifAnakModal";
-import DetailAngkaPernikahanModal from "./grid_modals/DetailAngkaPernikahanModal";
 import DetailTingkatPendidikanModal from "./grid_modals/DetailTingkatPendidikanModal";
+
+import { calculateKesehatanLogic } from "../kematian_modals/logic/kesehatanLogic";
 
 interface DetailKelahiranModalProps {
   isOpen: boolean;
@@ -40,12 +41,11 @@ export default function DetailKelahiranModal({
   netDailyChange: propsNetDailyChange,
   onOpenTempatUmum,
 }: DetailKelahiranModalProps) {
-  // 🔥 State untuk 6 modal detail
+  // 🔥 State untuk 5 modal detail
   const [openPopulasiDasar, setOpenPopulasiDasar] = useState(false);
   const [openKesejahteraan, setOpenKesejahteraan] = useState(false);
   const [openFasilitasKesehatan, setOpenFasilitasKesehatan] = useState(false);
   const [openKebijakanInsentifAnak, setOpenKebijakanInsentifAnak] = useState(false);
-  const [openAngkaPernikahan, setOpenAngkaPernikahan] = useState(false);
   const [openTingkatPendidikan, setOpenTingkatPendidikan] = useState(false);
 
   if (!isOpen) return null;
@@ -64,22 +64,33 @@ export default function DetailKelahiranModal({
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
 
   // Ambil data user
-  const jumlahRumahSakit = countryDetail?.jumlah_rumah_sakit ?? 0;
-  const jumlahKlinik = countryDetail?.jumlah_klinik ?? 0;
   const programInsentifAnak = countryDetail?.program_insentif_anak ?? false;
-  const angkaPernikahan = countryDetail?.angka_pernikahan ?? 0.05;
-  const tingkatPendidikan = countryDetail?.tingkat_pendidikan ?? 0.5;
+
+  // Kesehatan - mengambil data dinamis seperti di menu kematian
+  const kesehatanRes = calculateKesehatanLogic(countryDetail, populasi);
+  const jumlahRumahSakit = kesehatanRes.jumlahRumahSakit;
+  const hospitalRatio = kesehatanRes.kesehatanRatio;
+  const healthFactor = 0.7 + 0.3 * hospitalRatio;
+
+  // Pendidikan - mengambil data dinamis (total sekolah dibangun / ideal)
+  const eduKeys = ["prasekolah", "dasar", "menengah", "lanjutan", "universitas", "lembaga_pendidikan", "laboratorium", "observatorium", "pusat_penelitian", "pusat_pengembangan", "literasi"];
+  const totalEducation = eduKeys.reduce((sum, key) => sum + (Number(countryDetail?.[key]) || 0), 0);
+  const idealEducation = Math.ceil(populasi / 50000) || 1;
+  const educationRatio = Math.min(1, totalEducation / idealEducation);
+  const tingkatPendidikan = educationRatio;
+  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
 
   // 🔥 Hitung Kelahiran dan Kematian (atau gunakan nilai dari props jika tersedia)
   const dailyBirths = propsDailyBirths !== undefined ? propsDailyBirths : calculateDailyBirths(
     populasi,
     kepuasanUmum,
     livingCostIndex,
-    jumlahRumahSakit,
-    jumlahKlinik,
+    0,
+    0,
     programInsentifAnak,
-    angkaPernikahan,
-    tingkatPendidikan
+    0,
+    tingkatPendidikan,
+    detailWithDefaults
   );
 
   const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
@@ -91,14 +102,7 @@ export default function DetailKelahiranModal({
 
   // 🔥 Variabel perhitungan multiplier UI
   const welfareFactor = 0.75 + (livingCostIndex / 200);
-  const idealHospitals = Math.ceil(populasi / 100000);
-  const idealClinics = Math.ceil(populasi / 10000);
-  const hospitalRatio = idealHospitals > 0 ? Math.min(1, jumlahRumahSakit / idealHospitals) : 1;
-  const clinicRatio = idealClinics > 0 ? Math.min(1, jumlahKlinik / idealClinics) : 1;
-  const healthFactor = 0.7 + 0.3 * ((hospitalRatio + clinicRatio) / 2);
   const policyFactor = programInsentifAnak ? 1.2 : 1.0;
-  const marriageFactor = 0.8 + (angkaPernikahan * 4);
-  const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
   const satisfactionFactor = 0.5 + (kepuasanUmum / 200);
 
   const formatNumber = (num: number) => num.toLocaleString('id-ID');
@@ -221,11 +225,11 @@ export default function DetailKelahiranModal({
                   </div>
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Fasilitas Kesehatan</h4>
                 </div>
-                <div className="flex justify-between text-xs">
-                  <span>RS: {jumlahRumahSakit} (rasio {hospitalRatio.toFixed(2)})</span>
-                  <span>Klinik: {jumlahKlinik} (rasio {clinicRatio.toFixed(2)})</span>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-bold text-[#2e261a]">{jumlahRumahSakit} RS (rasio {hospitalRatio.toFixed(2)})</span>
+                  <span className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</span>
                 </div>
-                <p className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</p>
+                <p className="text-[10px] text-[#8b7e66]">Fasilitas medis pendukung persalinan aman.</p>
               </div>
 
               {/* 4. Kebijakan Insentif Anak - (TANPA POINTER) */}
@@ -248,27 +252,7 @@ export default function DetailKelahiranModal({
                 </div>
               </div>
 
-              {/* 5. Angka Pernikahan - (TANPA POINTER) */}
-              <div className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative">
-                <button
-                  className="absolute top-2 right-2 p-1.5 rounded-full bg-white/80 hover:bg-white shadow-sm border border-[#C4B49C]/30 text-[#8b7e66] hover:text-[#5c3c10] transition-colors cursor-pointer"
-                  onClick={() => setOpenAngkaPernikahan(true)}
-                >
-                  <Info className="w-4 h-4" />
-                </button>
-                <div className="flex items-center gap-2">
-                  <div className="p-1.5 bg-pink-500/10 rounded-lg">
-                    <Heart className="h-4 w-4 text-pink-700" />
-                  </div>
-                  <h4 className="text-xs font-black text-[#5c3c10] uppercase">Angka Pernikahan</h4>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-[#2e261a]">{(angkaPernikahan * 100).toFixed(1)}% per tahun</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {marriageFactor.toFixed(3)}</span>
-                </div>
-              </div>
-
-              {/* 6. Tingkat Pendidikan - (DENGAN POINTER DAN NAVIGASI KHUSUS) */}
+              {/* 5. Tingkat Pendidikan - (DENGAN POINTER DAN NAVIGASI KHUSUS) */}
               <div 
                 className="bg-[#e4dac3]/15 border border-[#C4B49C]/30 p-4 rounded-xl space-y-2 relative cursor-pointer hover:shadow-md hover:border-[#5c3c10]/40 hover:bg-[#e4dac3]/25 transition-all duration-200 active:scale-[0.98]"
                 onClick={() => onOpenTempatUmum?.('pendidikan')}
@@ -289,9 +273,10 @@ export default function DetailKelahiranModal({
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Tingkat Pendidikan</h4>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-[#2e261a]">{(tingkatPendidikan * 100).toFixed(0)}%</span>
+                  <span className="text-sm font-bold text-[#2e261a]">{(tingkatPendidikan * 100).toFixed(0)}% (rasio {educationRatio.toFixed(2)})</span>
                   <span className="text-[10px] text-[#8b7e66]">× {educationFactor.toFixed(3)}</span>
                 </div>
+                <p className="text-[10px] text-[#8b7e66]">Tingkat edukasi memengaruhi perencanaan keluarga.</p>
               </div>
 
             </div>
@@ -306,7 +291,7 @@ export default function DetailKelahiranModal({
         </div>
       </div>
 
-      {/* 🔥 Render ke-6 modal detail di sini */}
+      {/* 🔥 Render modal detail */}
       <DetailPopulasiDasarModal
         isOpen={openPopulasiDasar}
         onClose={() => setOpenPopulasiDasar(false)}
@@ -328,12 +313,6 @@ export default function DetailKelahiranModal({
       <DetailKebijakanInsentifAnakModal
         isOpen={openKebijakanInsentifAnak}
         onClose={() => setOpenKebijakanInsentifAnak(false)}
-        countryDetail={countryDetail}
-        selectedCountry={selectedCountry}
-      />
-      <DetailAngkaPernikahanModal
-        isOpen={openAngkaPernikahan}
-        onClose={() => setOpenAngkaPernikahan(false)}
         countryDetail={countryDetail}
         selectedCountry={selectedCountry}
       />

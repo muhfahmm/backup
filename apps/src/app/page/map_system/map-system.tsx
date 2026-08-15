@@ -24,9 +24,9 @@ import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
 import { getDaysElapsed } from '@/app/logic/production_logic';
 import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
-import TopLeftIcon from './components/inbox/TopLeftIcon';
-import TopRightGiftIcon from './components/reward/TopRightGiftIcon';
-import TopRightNewsIcon from './components/news/TopRightNewsIcon';
+import TopLeftIcon from './components/inbox/inboxModals';
+import TopRightGiftIcon from './components/reward/rewardModals';
+import TopRightNewsIcon from './components/news/newsModals';
 
 interface Country {
     id: number;
@@ -563,6 +563,13 @@ export default function MapPage() {
         countryDetail?.accumulated_sapi_potong,
         countryDetail?.accumulated_ikan,
         countryDetail?.accumulated_udang,
+        // Tempat Umum & Layanan Publik keys
+        countryDetail?.jalur_sepeda, countryDetail?.jalan_raya, countryDetail?.terminal_bus, countryDetail?.stasiun_kereta_api, countryDetail?.kereta_bawah_tanah, countryDetail?.pelabuhan, countryDetail?.bandara, countryDetail?.helipad,
+        countryDetail?.prasekolah, countryDetail?.dasar, countryDetail?.menengah, countryDetail?.lanjutan, countryDetail?.universitas, countryDetail?.lembaga_pendidikan, countryDetail?.laboratorium, countryDetail?.observatorium, countryDetail?.pusat_penelitian, countryDetail?.pusat_pengembangan, countryDetail?.literasi,
+        countryDetail?.rumah_sakit_besar, countryDetail?.rumah_sakit_kecil, countryDetail?.pusat_diagnostik, countryDetail?.harapan_hidup, countryDetail?.indeks_kesehatan,
+        countryDetail?.pusat_bantuan_hukum, countryDetail?.pengadilan, countryDetail?.kejaksaan, countryDetail?.pos_polisi, countryDetail?.armada_mobil_polisi, countryDetail?.akademi_polisi, countryDetail?.indeks_korupsi, countryDetail?.indeks_keamanan,
+        countryDetail?.kolam_renang, countryDetail?.sirkuit_balap, countryDetail?.stadion, countryDetail?.stadion_internasional, countryDetail?.gym, countryDetail?.golf, countryDetail?.esports, countryDetail?.gokart, countryDetail?.bioskop, countryDetail?.teater,
+        countryDetail?.mall, countryDetail?.hotel, countryDetail?.pusat_grosir_tekstil,
         metadata,
     ]);
     const handleRestart = () => {

@@ -328,6 +328,29 @@ export default function TempatUmumModal({
 
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
 
+  const categoriesList = [
+    { id: "infrastruktur", label: "Infrastruktur", keys: ["jalur_sepeda", "jalan_raya", "terminal_bus", "stasiun_kereta_api", "kereta_bawah_tanah", "pelabuhan", "bandara", "helipad"] },
+    { id: "pendidikan", label: "Pendidikan", keys: ["prasekolah", "dasar", "menengah", "lanjutan", "universitas", "lembaga_pendidikan", "laboratorium", "observatorium", "pusat_penelitian", "pusat_pengembangan", "literasi"] },
+    { id: "kesehatan", label: "Kesehatan", keys: ["rumah_sakit_besar", "rumah_sakit_kecil", "pusat_diagnostik", "harapan_hidup", "indeks_kesehatan"] },
+    { id: "penegakan_hukum", label: "Penegakan Hukum", keys: ["pusat_bantuan_hukum", "pengadilan", "kejaksaan", "pos_polisi", "armada_mobil_polisi", "akademi_polisi", "indeks_korupsi", "indeks_keamanan"] },
+    { id: "olahraga_hiburan", label: "Olahraga & Hiburan", keys: ["kolam_renang", "sirkuit_balap", "stadion", "stadion_internasional", "gym", "golf", "esports", "gokart", "bioskop", "teater"] },
+    { id: "komersial", label: "Komersial", keys: ["mall", "hotel", "pusat_grosir_tekstil"] },
+  ];
+
+  const totalPenduduk = Number(data.jumlah_penduduk) || 1;
+
+  const calculatedCategories = categoriesList.map((cat) => {
+    const totalVal = cat.keys.reduce((sum, key) => sum + (Number(data[key]) || 0), 0);
+    const indexVal = totalVal / totalPenduduk;
+    const bonusVal = Math.round(indexVal * 100000);
+    return {
+      ...cat,
+      total: totalVal,
+      index: indexVal,
+      bonus: bonusVal,
+    };
+  });
+
   return (
     <>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -492,7 +515,7 @@ export default function TempatUmumModal({
                 )}
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8 border-t-2 border-[#C4B49C]/20 pt-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-8 border-t-2 border-[#C4B49C]/20 pt-6">
                 <div className="rounded-2xl border border-[#C4B49C]/30 bg-white/70 p-4">
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Total Fasilitas Publik</p>
                   <p className="text-2xl font-black text-[#2e261a] mt-1">{formatNumber(totalValue)}</p>
@@ -501,6 +524,56 @@ export default function TempatUmumModal({
                   <p className="text-[10px] font-black uppercase tracking-widest text-[#5c3c10]">Catatan Pembangunan</p>
                   <p className="text-xs text-[#8b7e66] mt-1">Data fasilitas umum disinkronisasi berkala dari laporan statistik nasional.</p>
                 </div>
+                {(() => {
+                  const activeCategory = calculatedCategories.find((cat) => cat.id === activeTabId);
+                  if (!activeCategory) return null;
+
+                  const targets: Record<string, number> = {
+                    infrastruktur: 0.00005,
+                    pendidikan: 0.0001,
+                    kesehatan: 0.00004,
+                    penegakan_hukum: 0.0005,
+                    olahraga_hiburan: 0.00008,
+                    komersial: 0.00002,
+                  };
+
+                  const targetRatio = targets[activeCategory.id] || 0.0001;
+                  const percentageMet = Math.min(100, (activeCategory.index / targetRatio) * 100);
+                  const satisfactionScore = Math.round(percentageMet);
+
+                  return (
+                    <div className="rounded-2xl border-3 border-[#5c3c10]/40 bg-gradient-to-r from-amber-50 to-amber-100/70 p-5 shadow-md flex flex-col justify-between">
+                      <div className="flex justify-between items-center">
+                        <span className="text-[10px] font-black text-[#5c3c10] uppercase tracking-widest">
+                          Indeks Kepuasan Rakyat ({activeCategory.label})
+                        </span>
+                        <span className="text-2xl font-black text-amber-700">
+                          {satisfactionScore} / 100
+                        </span>
+                      </div>
+                      
+                      <div className="w-full h-3 bg-gray-200 rounded-full mt-3 overflow-hidden">
+                        <div
+                          className="h-full rounded-full bg-gradient-to-r from-amber-400 to-amber-600 transition-all duration-200"
+                          style={{ width: `${satisfactionScore}%` }}
+                        />
+                      </div>
+
+                      <p className="text-[10px] text-amber-700 font-bold mt-3">
+                        {satisfactionScore >= 80
+                          ? `✅ Ketersediaan fasilitas ${activeCategory.label.toLowerCase()} sangat mencukupi bagi seluruh rakyat.`
+                          : satisfactionScore >= 50
+                          ? `⚠️ Fasilitas ${activeCategory.label.toLowerCase()} masih terbatas, perlu pembangunan lebih lanjut.`
+                          : `🔴 Krisis fasilitas ${activeCategory.label.toLowerCase()}, tingkat keterpenuhan sangat rendah.`}
+                      </p>
+
+                      <div className="mt-3 grid grid-cols-2 gap-2 text-[10px] text-amber-800/80 border-t border-[#C4B49C]/20 pt-2">
+                        <div>Rasio per kapita: <span className="font-bold">{activeCategory.index.toFixed(6)}</span></div>
+                        <div>Persentase keterpenuhan: <span className="font-bold">{percentageMet.toFixed(1)}%</span></div>
+                      </div>
+                    </div>
+                  );
+                })()}
               </div>
             </div>
           </div>

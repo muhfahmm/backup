@@ -190,11 +190,35 @@ export function calculateHunianScore(countryDetail: any, metadata: any): number 
   return Math.min(100, Math.max(1, Math.round((ratio / 2) * 100)));
 }
 
+export function calculateLayananPublikScore(countryDetail: any): number {
+  const population = Number(countryDetail?.jumlah_penduduk) || 0;
+  if (population <= 0) return 50;
+
+  const categories = [
+    { keys: ["jalur_sepeda", "jalan_raya", "terminal_bus", "stasiun_kereta_api", "kereta_bawah_tanah", "pelabuhan", "bandara", "helipad"], target: 0.00005 },
+    { keys: ["prasekolah", "dasar", "menengah", "lanjutan", "universitas", "lembaga_pendidikan", "laboratorium", "observatorium", "pusat_penelitian", "pusat_pengembangan", "literasi"], target: 0.0001 },
+    { keys: ["rumah_sakit_besar", "rumah_sakit_kecil", "pusat_diagnostik", "harapan_hidup", "indeks_kesehatan"], target: 0.00004 },
+    { keys: ["pusat_bantuan_hukum", "pengadilan", "kejaksaan", "pos_polisi", "armada_mobil_polisi", "akademi_polisi", "indeks_korupsi", "indeks_keamanan"], target: 0.0005 },
+    { keys: ["kolam_renang", "sirkuit_balap", "stadion", "stadion_internasional", "gym", "golf", "esports", "gokart", "bioskop", "teater"], target: 0.00008 },
+    { keys: ["mall", "hotel", "pusat_grosir_tekstil"], target: 0.00002 },
+  ];
+
+  let totalScore = 0;
+  categories.forEach((cat) => {
+    const totalVal = cat.keys.reduce((sum, key) => sum + (Number(countryDetail[key]) || 0), 0);
+    const indexVal = totalVal / population;
+    const percentageMet = Math.min(100, (indexVal / cat.target) * 100);
+    totalScore += percentageMet;
+  });
+
+  return Math.round(totalScore / categories.length);
+}
+
 // ─── Main exported function ──────────────────────────────────────────────────
 
 /**
  * Hitung skor kepuasan rakyat dari countryDetail & metadata.
- * Mengembalikan nilai 0–100 sebagai rata-rata 5 sektor.
+ * Mengembalikan nilai 0–100 sebagai rata-rata 6 sektor.
  */
 export function calculateKepuasan(countryDetail: any, metadata: any): number {
   if (!countryDetail) return 50;
@@ -204,6 +228,7 @@ export function calculateKepuasan(countryDetail: any, metadata: any): number {
   const panganScore  = calculatePanganScore(countryDetail, metadata);
   const listrikScore = calculateListrikScore(countryDetail, metadata);
   const hunianScore  = calculateHunianScore(countryDetail, metadata);
+  const layananPublikScore = calculateLayananPublikScore(countryDetail);
 
-  return (pajakScore + hargaScore + panganScore + listrikScore + hunianScore) / 5;
+  return (pajakScore + hargaScore + panganScore + listrikScore + hunianScore + layananPublikScore) / 6;
 }
