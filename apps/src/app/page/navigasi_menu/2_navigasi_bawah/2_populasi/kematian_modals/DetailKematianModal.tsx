@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { X, Users, Heart, Shield, Home, HeartPulse, Utensils, AlertTriangle, Factory, ArrowUpRight, Skull, Info } from "lucide-react";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
+
 import {
   calculateGeneralSatisfaction,
   calculateLifeExpectancy,
@@ -10,7 +10,7 @@ import {
   calculateDailyDeaths,
 } from "@/app/logic/populations_logic/population_logic";
 
-// 🔥 Import 7 modal detail (pastikan path sesuai struktur Anda)
+// ðŸ”¥ Import 7 modal detail (pastikan path sesuai struktur Anda)
 import DetailHarapanHidupModal from './grid_modals/DetailHarapanHidupModal';
 import DetailKeamananModal from './grid_modals/DetailKeamananModal';
 import DetailTunawismaModal from './grid_modals/DetailTunawismaModal';
@@ -46,7 +46,7 @@ export default function DetailKematianModal({
   onOpenIndustriPangan,
   onOpenArmada,
 }: DetailKematianModalProps) {
-  // 🔥 State untuk 7 modal detail (agar tombol Info bisa membuka modal)
+  // ðŸ”¥ State untuk 7 modal detail (agar tombol Info bisa membuka modal)
   const [isHarapanHidupOpen, setIsHarapanHidupOpen] = useState(false);
   const [isKeamananOpen, setIsKeamananOpen] = useState(false);
   const [isTunawismaOpen, setIsTunawismaOpen] = useState(false);
@@ -60,10 +60,8 @@ export default function DetailKematianModal({
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
 
   const countryName = selectedCountry?.country?.toLowerCase?.() || "";
-  const staticData = COUNTRY_STATIC_DATA[countryName];
-  const livingCostIndex = countryDetail?.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
 
-  const detailWithDefaults = { ...countryDetail, living_cost_index: livingCostIndex };
+  const detailWithDefaults = { ...countryDetail };
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
   const lifeExpectancy = calculateLifeExpectancy(detailWithDefaults, kepuasanUmum);
   const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
@@ -159,7 +157,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{harapanHidup} tahun</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {lifeExpectancyFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {lifeExpectancyFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Semakin tinggi harapan hidup, semakin rendah angka kematian.</p>
               </div>
@@ -180,7 +178,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{tingkatKeamanan}%</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {securityFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {securityFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Lingkungan aman mengurangi kematian akibat kriminalitas dan kecelakaan.</p>
               </div>
@@ -201,7 +199,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{formatNumber(homelessCount)} jiwa ({ (homelessRatio * 100).toFixed(2)}%)</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {homelessFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {homelessFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Setiap 1% populasi tunawisma meningkatkan kematian sebesar 5%.</p>
               </div>
@@ -228,7 +226,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{jumlahRumahSakit} RS (rasio {hospitalRatio.toFixed(2)})</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {healthFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Ketersediaan RS yang cukup menurunkan kematian akibat penyakit yang dapat diobati.</p>
               </div>
@@ -255,7 +253,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{indeksKetahananPangan}%</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {foodSecurityFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {foodSecurityFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Ketersediaan pangan yang cukup mengurangi kematian akibat malnutrisi.</p>
               </div>
@@ -282,7 +280,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{tingkatKriminalitas}%</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {crimeFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {crimeFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Setiap 1% kriminalitas meningkatkan kematian sebesar 2%.</p>
               </div>
@@ -303,7 +301,7 @@ export default function DetailKematianModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{polusiIndex}</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {pollutionFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {pollutionFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Setiap 10 poin polusi meningkatkan kematian sebesar 5%.</p>
               </div>
@@ -319,7 +317,7 @@ export default function DetailKematianModal({
         </div>
       </div>
 
-      {/* 🔥 RENDER 7 MODAL DETAIL DI SINI (Agar tombol Info berfungsi) */}
+      {/* ðŸ”¥ RENDER 7 MODAL DETAIL DI SINI (Agar tombol Info berfungsi) */}
       <DetailHarapanHidupModal
         isOpen={isHarapanHidupOpen}
         onClose={() => setIsHarapanHidupOpen(false)}
@@ -365,3 +363,4 @@ export default function DetailKematianModal({
     </div>
   );
 }
+

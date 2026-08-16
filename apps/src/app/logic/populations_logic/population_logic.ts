@@ -4,7 +4,6 @@
  */
 
 import { logger } from '../../../lib/logger';
-import { COUNTRY_STATIC_DATA } from './index_Kesejahteraan';
 
 // Import dari logic yang baru dibuat
 import { calculateKeamananLogic } from "@/app/page/navigasi_menu/2_navigasi_bawah/2_populasi/kematian_modals/logic/keamananLogic";
@@ -36,7 +35,6 @@ export interface PopulationDailyMetrics {
   kepuasanUmum: number;
   lifeExpectancy: number;
   securityLevel: number;
-  livingCostIndex: number;
 }
 
 export interface PopulationSectoral {
@@ -48,20 +46,6 @@ export interface PopulationSectoral {
 }
 
 // ==============================
-// Helper: Mendapatkan nilai default berdasarkan negara
-// ==============================
-const getCountryDefaults = (countryName?: string) => {
-  if (!countryName) return null;
-  const key = countryName.toLowerCase().trim();
-  const data = COUNTRY_STATIC_DATA[key];
-  if (data) {
-    return {
-      livingCostIndex: data.livingCostIndex,
-    };
-  }
-  return null;
-};
-
 // ==============================
 // 1. Hitung Kepuasan Sektoral
 // ==============================
@@ -245,18 +229,12 @@ export const calculateDailyPopulationChange = (
       kepuasanUmum: 50,
       lifeExpectancy: 73.2,
       securityLevel: 84.5,
-      livingCostIndex: 62.4,
     };
   }
 
   const populasi = detail.jumlah_penduduk || 10_000_000;
-  let defaults = null;
-  if (countryName) {
-    defaults = getCountryDefaults(countryName);
-  }
 
-  const livingCostIndex = detail.living_cost_index ?? defaults?.livingCostIndex ?? 62.4;
-  const detailWithDefaults = { ...detail, living_cost_index: livingCostIndex };
+  const detailWithDefaults = { ...detail };
 
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
   const lifeExpectancy = calculateLifeExpectancy(detail, kepuasanUmum);
@@ -265,7 +243,7 @@ export const calculateDailyPopulationChange = (
   const dailyBirths = calculateDailyBirths(
     populasi,
     kepuasanUmum,
-    livingCostIndex,
+    0, // livingCostIndex tidak lagi digunakan, diganti dengan satisfaction.price
     detail.jumlah_rumah_sakit ?? 0,
     detail.jumlah_klinik ?? 0,
     detail.program_insentif_anak ?? false,
@@ -287,7 +265,6 @@ export const calculateDailyPopulationChange = (
     kepuasanUmum,
     lifeExpectancy,
     securityLevel,
-    livingCostIndex,
   };
 };
 

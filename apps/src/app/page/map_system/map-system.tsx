@@ -25,6 +25,8 @@ import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
 import { getDaysElapsed } from '@/app/logic/production_logic';
 import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
+import { calculatePresidentRating, getMonthsDifference } from '@/app/logic/peringkatCalculator';
+import { calculateKesejahteraan } from '@/app/logic/kesejahteraanCalculator';
 import TopLeftIcon from './menu_notifikasi/inbox/inboxModals';
 import TopRightGiftIcon from './menu_notifikasi/reward/rewardModals';
 import TopRightNewsIcon from './menu_notifikasi/news/newsModals';
@@ -74,6 +76,7 @@ export default function MapPage() {
     const [giftModalOpen, setGiftModalOpen] = useState(false);
     const [newsModalOpen, setNewsModalOpen] = useState(false);
     const [presidentRating, setPresidentRating] = useState<number>(50);
+    const [kesejahteraan, setKesejahteraan] = useState<number>(50);
 
     // Sync presidentRating state to countryDetail so simulation ticks always use the newest rating
     useEffect(() => {
@@ -571,57 +574,22 @@ export default function MapPage() {
 
             const nextKepuasan = Math.min(100, parseFloat(((prev.kepuasan ?? 50) + currentCompletedBoost).toFixed(1)));
 
-            // --- HITUNG PENURUNAN PERINGKAT BERDASARKAN KEPUASAN ---
-            let ratingMonthCounter = prev.rating_month_counter ?? 0;
-            let currentRating = prev.presidentRating ?? 50;
-
-            const getMonthsDifference = (d1Str: string, d2Str: string) => {
-                try {
-                    const d1 = new Date(d1Str);
-                    const d2 = new Date(d2Str);
-                    if (isNaN(d1.getTime()) || isNaN(d2.getTime())) return 0;
-                    return (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth());
-                } catch {
-                    return 0;
-                }
-            };
-
+            // --- HITUNG PENURUNAN PERINGKAT BERDASARKAN KEPUASAN (menggunakan peringkatCalculator) ---
             const monthsPassed = lastDate ? getMonthsDifference(lastDate, currentDateStr) : 0;
-            if (monthsPassed > 0) {
-                ratingMonthCounter += monthsPassed;
-            }
+            
+            const ratingResult = calculatePresidentRating({
+                currentRating: prev.presidentRating ?? 50,
+                ratingMonthCounter: prev.rating_month_counter ?? 0,
+                lastRatingThreshold: prev.last_rating_threshold ?? 12,
+                monthsPassed,
+                currentKepuasan: nextKepuasan,
+                currentCompletedBoost: currentCompletedBoost,
+                lastDate,
+                currentDate: currentDateStr,
+            });
 
-            // Tentukan threshold bulan penurunan peringkat berdasarkan kepuasan saat ini
-            let threshold = 12;
-            if (nextKepuasan <= 25) {
-                threshold = 1;
-            } else if (nextKepuasan <= 40) {
-                threshold = 3;
-            } else if (nextKepuasan <= 65) {
-                threshold = 6;
-            } else if (nextKepuasan <= 80) {
-                threshold = 9;
-            } else {
-                threshold = 12;
-            }
-
-            // Skala counter jika tier threshold kepuasan berubah agar persentase progress tetap terjaga secara proporsional tanpa lonjakan atau stuck
-            const prevThreshold = prev.last_rating_threshold ?? threshold;
-            if (prevThreshold !== threshold && prevThreshold > 0) {
-                ratingMonthCounter = Math.round((ratingMonthCounter / prevThreshold) * threshold);
-            }
-
-            let ratingDecrease = 0;
-            if (ratingMonthCounter >= threshold) {
-                ratingDecrease = Math.floor(ratingMonthCounter / threshold);
-                ratingMonthCounter = ratingMonthCounter % threshold;
-            }
-
-            // Rating baru = rating saat ini + boost dari event - penurunan peringkat bulanan
-            const eventCompletedRating = Math.min(100, currentRating + currentCompletedBoost);
-            const nextRating = Math.max(0, eventCompletedRating - ratingDecrease);
-
-            if (nextRating !== currentRating || currentCompletedBoost > 0) {
+            const nextRating = ratingResult.nextRating;
+            if (nextRating !== (prev.presidentRating ?? 50) || currentCompletedBoost > 0) {
                 setPresidentRating(nextRating);
             }
 
@@ -633,9 +601,9 @@ export default function MapPage() {
                 satisfaction: prev.satisfaction, // Preserve satisfaction scores
                 ongoingConstructions: currentOngoing,
                 kepuasan: nextKepuasan,
-                presidentRating: nextRating,
-                rating_month_counter: ratingMonthCounter,
-                last_rating_threshold: threshold,
+                presidentRating: ratingResult.presidentRating,
+                rating_month_counter: ratingResult.rating_month_counter,
+                last_rating_threshold: ratingResult.last_rating_threshold,
             };
         });
     }, [currentDate, countryDetail, metadata, selectedCountry?.country]);
@@ -693,6 +661,79 @@ export default function MapPage() {
         countryDetail?.mall, countryDetail?.hotel, countryDetail?.pusat_grosir_tekstil,
         metadata,
     ]);
+
+    // ─── Auto-refresh kesejahteraan di navbar ────────────────────────────────
+    // Hitung ulang indeks kesejahteraan setiap kali field pendidikan, kesehatan, atau tempat umum berubah
+    // Kesejahteraan otomatis naik/turun berdasarkan fasilitas yang dimiliki
+    useEffect(() => {
+        if (!countryDetail || !metadata || Object.keys(metadata).length === 0) return;
+
+        const kesejahteraanResult = calculateKesejahteraan(countryDetail, countryDetail?.kesejahteraan);
+        
+        // Hanya update jika berubah signifikan (> 1 poin) untuk mencegah infinite loop
+        const currentKesejahteraan = countryDetail?.kesejahteraan ?? 50;
+        if (Math.abs(currentKesejahteraan - kesejahteraanResult.overallScore) < 1) return;
+
+        setCountryDetail((prev: any) => {
+            if (!prev) return prev;
+            return { 
+                ...prev, 
+                kesejahteraan: kesejahteraanResult.overallScore,
+                kesejahteraanTrend: kesejahteraanResult.trend,
+            };
+        });
+        
+        setKesejahteraan(kesejahteraanResult.overallScore);
+    }, [
+        // Sektor Pendidikan
+        countryDetail?.prasekolah,
+        countryDetail?.dasar,
+        countryDetail?.menengah,
+        countryDetail?.lanjutan,
+        countryDetail?.universitas,
+        countryDetail?.lembaga_pendidikan,
+        countryDetail?.laboratorium,
+        countryDetail?.observatorium,
+        countryDetail?.pusat_penelitian,
+        countryDetail?.pusat_pengembangan,
+        countryDetail?.literasi,
+        
+        // Sektor Kesehatan
+        countryDetail?.rumah_sakit_besar,
+        countryDetail?.rumah_sakit_kecil,
+        countryDetail?.pusat_diagnostik,
+        countryDetail?.harapan_hidup,
+        countryDetail?.indeks_kesehatan,
+        
+        // Sektor Tempat Umum
+        countryDetail?.jalur_sepeda,
+        countryDetail?.jalan_raya,
+        countryDetail?.terminal_bus,
+        countryDetail?.stasiun_kereta_api,
+        countryDetail?.kereta_bawah_tanah,
+        countryDetail?.pelabuhan,
+        countryDetail?.bandara,
+        countryDetail?.helipad,
+        countryDetail?.kolam_renang,
+        countryDetail?.sirkuit_balap,
+        countryDetail?.stadion,
+        countryDetail?.stadion_internasional,
+        countryDetail?.gym,
+        countryDetail?.golf,
+        countryDetail?.esports,
+        countryDetail?.gokart,
+        countryDetail?.bioskop,
+        countryDetail?.teater,
+        countryDetail?.mall,
+        countryDetail?.hotel,
+        countryDetail?.pusat_grosir_tekstil,
+        
+        // Populasi untuk rasio kalkulasi
+        countryDetail?.jumlah_penduduk,
+        
+        metadata,
+    ]);
+
     const handleRestart = () => {
         if (selectedCountry) {
             if (typeof window !== 'undefined') {
@@ -710,6 +751,7 @@ export default function MapPage() {
             setPlayerNetBalanceAdjustment(0);
             setPlayerNetPopulationChange(0);
             setPresidentRating(50);
+            setKesejahteraan(50);
             // Toggle resetTrigger to signal all modals to reset
             setResetTrigger(prev => !prev);
         }

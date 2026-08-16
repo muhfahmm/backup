@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import React, { useState } from "react";
 import { X, Users, Baby, HeartPulse, Home, GraduationCap, Banknote, ArrowUpRight, Smile, Heart, Activity, Info } from "lucide-react";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
+
 import {
   calculateGeneralSatisfaction,
   calculateDailyBirths,
@@ -11,7 +11,7 @@ import {
   calculateSecurityLevel,
 } from "@/app/logic/populations_logic/population_logic";
 
-// 🔥 Import ke-5 modal detail
+// ðŸ”¥ Import ke-5 modal detail
 import DetailPopulasiDasarModal from "./grid_modals/DetailPopulasiDasarModal";
 import DetailKesejahteraanModal from "./grid_modals/DetailKesejahteraanModal";
 import DetailFasilitasKesehatanModal from "./grid_modals/DetailFasilitasKesehatanModal";
@@ -41,7 +41,7 @@ export default function DetailKelahiranModal({
   netDailyChange: propsNetDailyChange,
   onOpenTempatUmum,
 }: DetailKelahiranModalProps) {
-  // 🔥 State untuk 5 modal detail
+  // ðŸ”¥ State untuk 5 modal detail
   const [openPopulasiDasar, setOpenPopulasiDasar] = useState(false);
   const [openKesejahteraan, setOpenKesejahteraan] = useState(false);
   const [openFasilitasKesehatan, setOpenFasilitasKesehatan] = useState(false);
@@ -53,13 +53,10 @@ export default function DetailKelahiranModal({
   const populasi = countryDetail?.jumlah_penduduk || 10_000_000;
 
   const countryName = selectedCountry?.country?.toLowerCase?.() || "";
-  const staticData = COUNTRY_STATIC_DATA[countryName];
-  const livingCostIndex = countryDetail?.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
 
-  // 🔥 Siapkan detail untuk menghitung kepuasan (sama seperti di modal utama)
+  // ðŸ”¥ Siapkan detail untuk menghitung kepuasan (sama seperti di modal utama)
   const detailWithDefaults = {
     ...countryDetail,
-    living_cost_index: livingCostIndex,
   };
   const kepuasanUmum = calculateGeneralSatisfaction(detailWithDefaults);
 
@@ -80,11 +77,11 @@ export default function DetailKelahiranModal({
   const tingkatPendidikan = educationRatio;
   const educationFactor = 1.1 - (0.3 * tingkatPendidikan);
 
-  // 🔥 Hitung Kelahiran dan Kematian (atau gunakan nilai dari props jika tersedia)
+  // ðŸ”¥ Hitung Kelahiran dan Kematian (atau gunakan nilai dari props jika tersedia)
   const dailyBirths = propsDailyBirths !== undefined ? propsDailyBirths : calculateDailyBirths(
     populasi,
     kepuasanUmum,
-    livingCostIndex,
+    0, // livingCostIndex tidak lagi digunakan
     0,
     0,
     programInsentifAnak,
@@ -97,11 +94,11 @@ export default function DetailKelahiranModal({
   const securityLevel = calculateSecurityLevel(detailWithDefaults, kepuasanUmum);
   const dailyDeaths = propsDailyDeaths !== undefined ? propsDailyDeaths : calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
 
-  // 🔥 Pertumbuhan Bersih
+  // ðŸ”¥ Pertumbuhan Bersih
   const netDailyChange = propsNetDailyChange !== undefined ? propsNetDailyChange : (dailyBirths - dailyDeaths);
 
-  // 🔥 Variabel perhitungan multiplier UI
-  const welfareFactor = 0.75 + (livingCostIndex / 200);
+  // ðŸ”¥ Variabel perhitungan multiplier UI
+  const welfareFactor = 0.75; // Tanpa livingCostIndex
   const policyFactor = programInsentifAnak ? 1.2 : 1.0;
   const satisfactionFactor = 0.5 + (kepuasanUmum / 200);
 
@@ -200,8 +197,8 @@ export default function DetailKelahiranModal({
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kesejahteraan</h4>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-[#2e261a]">{livingCostIndex.toFixed(1)} INDX</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {welfareFactor.toFixed(3)}</span>
+                  <span className="text-sm font-bold text-[#2e261a]">â€” INDX</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {welfareFactor.toFixed(3)}</span>
                 </div>
               </div>
 
@@ -227,7 +224,7 @@ export default function DetailKelahiranModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{jumlahRumahSakit} RS (rasio {hospitalRatio.toFixed(2)})</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {healthFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {healthFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Fasilitas medis pendukung persalinan aman.</p>
               </div>
@@ -248,7 +245,7 @@ export default function DetailKelahiranModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{programInsentifAnak ? 'Aktif' : 'Tidak Aktif'}</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {policyFactor.toFixed(2)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {policyFactor.toFixed(2)}</span>
                 </div>
               </div>
 
@@ -274,7 +271,7 @@ export default function DetailKelahiranModal({
                 </div>
                 <div className="flex items-center gap-2">
                   <span className="text-sm font-bold text-[#2e261a]">{(tingkatPendidikan * 100).toFixed(0)}% (rasio {educationRatio.toFixed(2)})</span>
-                  <span className="text-[10px] text-[#8b7e66]">× {educationFactor.toFixed(3)}</span>
+                  <span className="text-[10px] text-[#8b7e66]">Ã— {educationFactor.toFixed(3)}</span>
                 </div>
                 <p className="text-[10px] text-[#8b7e66]">Tingkat edukasi memengaruhi perencanaan keluarga.</p>
               </div>
@@ -291,7 +288,7 @@ export default function DetailKelahiranModal({
         </div>
       </div>
 
-      {/* 🔥 Render modal detail */}
+      {/* ðŸ”¥ Render modal detail */}
       <DetailPopulasiDasarModal
         isOpen={openPopulasiDasar}
         onClose={() => setOpenPopulasiDasar(false)}

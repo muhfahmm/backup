@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import React from "react";
 import { X, Banknote } from "lucide-react";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan";
+
 
 interface DetailKesejahteraanModalProps {
     isOpen: boolean;
@@ -20,13 +20,11 @@ export default function DetailKesejahteraanModal({
     if (!isOpen) return null;
 
     const countryName = selectedCountry?.country?.toLowerCase?.() || "";
-    const staticData = COUNTRY_STATIC_DATA[countryName];
-    const livingCostIndex = countryDetail?.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
     const formatNumber = (num: number) => num.toLocaleString('id-ID');
     const countryDisplayName = selectedCountry?.country || "Indonesia";
 
     // Faktor kesejahteraan
-    const welfareFactor = 0.75 + (livingCostIndex / 200);
+    const welfareFactor = 0.75;
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
@@ -53,7 +51,7 @@ export default function DetailKesejahteraanModal({
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Indeks Kesejahteraan</p>
-                                    <p className="text-4xl font-black text-amber-700 mt-1">{livingCostIndex.toFixed(1)} <span className="text-lg text-[#8b7e66] font-bold">INDX</span></p>
+                                    <p className="text-4xl font-black text-amber-700 mt-1">â€” <span className="text-lg text-[#8b7e66] font-bold">INDX</span></p>
                                 </div>
                                 <div className="p-4 bg-amber-50 rounded-full border border-amber-200">
                                     <Banknote className="h-10 w-10 text-amber-600" />
@@ -62,11 +60,11 @@ export default function DetailKesejahteraanModal({
                             <div className="mt-4 grid grid-cols-2 gap-4">
                                 <div className="bg-amber-50/60 p-3 rounded-xl border border-amber-200">
                                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Faktor Pengali</p>
-                                    <p className="text-xl font-black text-amber-700">× {welfareFactor.toFixed(3)}</p>
+                                    <p className="text-xl font-black text-amber-700">Ã— {welfareFactor.toFixed(3)}</p>
                                 </div>
                                 <div className="bg-blue-50/60 p-3 rounded-xl border border-blue-200">
                                     <p className="text-[10px] text-[#8b7e66] font-black uppercase">Rentang</p>
-                                    <p className="text-xl font-black text-blue-700">0.75 – 1.25</p>
+                                    <p className="text-xl font-black text-blue-700">0.75 â€“ 1.25</p>
                                 </div>
                             </div>
                             <p className="mt-4 text-xs text-[#8b7e66] font-medium">

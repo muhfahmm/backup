@@ -12,12 +12,13 @@ import {
   calculateHomelessCount,
   type PopulationDailyMetrics,
   type PopulationSectoral,
-} from "@/app/logic/populations_logic/population_logic";
-import { COUNTRY_STATIC_DATA } from "@/app/logic/populations_logic/index_Kesejahteraan"; 
+} from "@/app/logic/populations_logic/population_logic"; 
 
 import DetailKelahiranModal from "./kelahiran_modals/DetailKelahiranModal";
 import DetailKematianModal from "./kematian_modals/DetailKematianModal";
 import TempatUmumModal from "../5_pembangunan/2_tempat_umum/TempatUmumModal";
+import IndeksKesejahteraanModal from "./indeks_kesejahteraan_modals/IndeksKesejahteraanModal";
+import TunawismaDetailModal from "./tunawisma_modals/TunawismaDetailModal";
 
 // ==============================
 // Tipe data yang diharapkan dari countryDetail
@@ -26,6 +27,7 @@ interface CountryDetail {
   jumlah_penduduk: number;
   rata_rata_pajak?: number;
   living_cost_index?: number;
+  kesejahteraan_index?: number;  // Indeks kesejahteraan dari database
   indeks_ketahanan_pangan?: number;
   surplus_listrik?: number;
   tingkat_hunian_layak?: number;
@@ -46,6 +48,7 @@ interface RingkasanPopulasiModalProps {
   selectedCountry: any;
   setActiveMenu?: (menu: string) => void;
   onOpenArmadaTab?: (tab: 'aktif' | 'infrastruktur' | 'polisi') => void;
+  onOpenTempatUmum?: (tab: string) => void;  // ← NEW
 }
 
 // ==============================
@@ -61,13 +64,9 @@ function hitungKepuasanSektoral(detail: CountryDetail): PopulationSectoral {
 function hitungDemografi(detail: CountryDetail, countryName?: string) {
   const populasi = detail.jumlah_penduduk || 10_000_000;
 
-  // 🔥 Ambil livingCostIndex dari data statis jika tidak ada di detail
-  const staticData = countryName ? COUNTRY_STATIC_DATA[countryName.toLowerCase()] : null;
-  const livingCostIndex = detail.living_cost_index ?? staticData?.livingCostIndex ?? 62.4;
-
+  // ðŸ”¥ Ambil livingCostIndex dan kesejahteraanIndex dari data statis jika tidak ada di detail
   const detailWithDefaults = {
     ...detail,
-    living_cost_index: livingCostIndex,
   };
 
   const sektoral = hitungKepuasanSektoral(detailWithDefaults);
@@ -77,14 +76,13 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
 
   const dailyBirths = calculateDailyBirths(
     populasi,
-    kepuasanUmum,
-    livingCostIndex,
+    kepuasanUmum, 0,
     detail.jumlah_rumah_sakit ?? 0,
     detail.jumlah_klinik ?? 0,
     detail.program_insentif_anak ?? false,
     detail.angka_pernikahan ?? 0.05,
     detail.tingkat_pendidikan ?? 0.5,
-    detailWithDefaults  // ← sama persis dengan calculateDailyPopulationChange agar konsisten dengan Navbar
+    detailWithDefaults  // â† sama persis dengan calculateDailyPopulationChange agar konsisten dengan Navbar
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
@@ -101,7 +99,6 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
     totalDailyDelta,
     totalMonthlyGrowthPercent,
     homelessCount,
-    livingCostIndex,
     securityLevel,
     lifeExpectancy,
     kepuasanUmum,
@@ -119,16 +116,19 @@ export default function RingkasanPopulasiModal({
   selectedCountry,
   setActiveMenu,
   onOpenArmadaTab,
+  onOpenTempatUmum,
 }: RingkasanPopulasiModalProps) {
 
   const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
   const [isDetailDeathOpen, setIsDetailDeathOpen] = useState(false);
   const [isTempatUmumOpen, setIsTempatUmumOpen] = useState(false);
   const [tempatUmumActiveTab, setTempatUmumActiveTab] = useState<string>("infrastruktur");
+  const [isKesejahteraanOpen, setIsKesejahteraanOpen] = useState(false);
+  const [isTunawismaOpen, setIsTunawismaOpen] = useState(false);
 
   const metrics = useMemo(() => {
     if (!countryDetail) return null;
-    // 🔥 Kirim countryName ke fungsi hitungDemografi
+    // ðŸ”¥ Kirim countryName ke fungsi hitungDemografi
     return hitungDemografi(countryDetail, selectedCountry?.country);
   }, [countryDetail, selectedCountry]);
 
@@ -141,7 +141,6 @@ export default function RingkasanPopulasiModal({
     totalDailyDelta,
     totalMonthlyGrowthPercent,
     homelessCount,
-    livingCostIndex,
     kepuasanUmum,
   } = metrics;
 
@@ -199,7 +198,10 @@ export default function RingkasanPopulasiModal({
               </div>
             </div>
 
-            <div className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm">
+            <div
+              className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:shadow-md hover:border-emerald-400 hover:bg-emerald-50/70 active:scale-[0.98]"
+              onClick={() => setIsTunawismaOpen(true)}
+            >
               <div className="p-3 bg-rose-500/10 rounded-xl">
                 <ShieldAlert className="h-6 w-6 text-rose-700" />
               </div>
@@ -209,13 +211,16 @@ export default function RingkasanPopulasiModal({
               </div>
             </div>
 
-            <div className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm">
+            <div
+              className="bg-[#FAF6EE]/80 border-2 border-[#C4B49C]/30 p-4 rounded-xl flex items-center gap-4 transition-all shadow-sm cursor-pointer hover:shadow-md hover:border-emerald-400 hover:bg-emerald-50/70 active:scale-[0.98]"
+              onClick={() => setIsKesejahteraanOpen(true)}
+            >
               <div className="p-3 bg-amber-500/10 rounded-xl">
                 <BadgeDollarSign className="h-6 w-6 text-amber-700" />
               </div>
               <div>
                 <p className="text-[10px] text-[#8b7e66] font-black uppercase tracking-wider">Kesejahteraan</p>
-                <p className="text-lg font-black text-[#2e261a] leading-tight">{livingCostIndex.toFixed(1)} <span className="text-[9px] text-[#8b7e66]">INDX</span></p>
+                <p className="text-lg font-black text-[#2e261a] leading-tight">— <span className="text-[9px] text-[#8b7e66]">INDX</span></p>
               </div>
             </div>
           </div>
@@ -237,7 +242,7 @@ export default function RingkasanPopulasiModal({
                   Saat ini, laju pertumbuhan harian berada pada angka <span className={`font-bold ${totalDailyDelta >= 0 ? 'text-emerald-700' : 'text-rose-700'}`}>{totalDailyDelta >= 0 ? '+' : ''}{totalDailyDelta.toLocaleString('id-ID')} jiwa per hari</span>.
                 </p>
 
-                {/* 🔥 TOMBOL KELAHIRAN & KEMATIAN - Berwarna hijau/merah permanen */}
+                {/* ðŸ”¥ TOMBOL KELAHIRAN & KEMATIAN - Berwarna hijau/merah permanen */}
                 <div className="pt-4 border-t border-[#C4B49C]/30 grid grid-cols-2 gap-4">
                   <div
                     className="cursor-pointer rounded-xl p-4 border-2 border-emerald-200 bg-emerald-50/80 hover:bg-emerald-100/70 hover:border-emerald-300 active:scale-[0.98] transition-all duration-200 flex flex-col items-center justify-center text-center shadow-sm"
@@ -328,6 +333,32 @@ export default function RingkasanPopulasiModal({
           // Atau gunakan hook context jika tersedia
         }}
         initialTab={tempatUmumActiveTab}
+      />
+
+      <IndeksKesejahteraanModal
+        isOpen={isKesejahteraanOpen}
+        onClose={() => setIsKesejahteraanOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+        metrics={metrics}
+        setActiveMenu={setActiveMenu}
+        onOpenTempatUmum={(tabId: string) => {
+          setTempatUmumActiveTab(tabId);
+          setIsTempatUmumOpen(true);
+          setIsKesejahteraanOpen(false);
+        }}
+        onOpenIndustriPangan={() => {
+          setActiveMenu?.("Menu:IndustriPangan");
+          setIsKesejahteraanOpen(false);
+        }}
+      />
+
+      <TunawismaDetailModal
+        isOpen={isTunawismaOpen}
+        onClose={() => setIsTunawismaOpen(false)}
+        countryDetail={countryDetail}
+        selectedCountry={selectedCountry}
+        homelessCount={homelessCount}
       />
     </div>
   );

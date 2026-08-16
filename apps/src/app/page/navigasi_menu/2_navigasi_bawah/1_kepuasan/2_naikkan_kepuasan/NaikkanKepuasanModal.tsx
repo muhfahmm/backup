@@ -407,7 +407,7 @@ export default function NaikkanKepuasanModal({
                             {item.title}
                           </h4>
                           <span className="bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">
-                            +{item.boost}% Peringkat
+                            +{item.boost}% Kepuasan
                           </span>
                         </div>
                         <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed max-w-xl">
