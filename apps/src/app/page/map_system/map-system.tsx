@@ -74,7 +74,29 @@ export default function MapPage() {
     const [newsModalOpen, setNewsModalOpen] = useState(false);
     const [presidentRating, setPresidentRating] = useState<number>(50);
 
-    const isMapInteractionDisabled = isSaveModalOpen || isPresidentMenuOpen || isRestartConfirmOpen || activeMenu !== 'Peta Taktis';
+    const nonModalMenus = [
+        "",
+        "Peta Taktis",
+        "Kepuasan",
+        "Populasi",
+        "ProduksiKonsumsi",
+        "Ekonomi",
+        "Pembangunan",
+        "Pertahanan",
+        "Geopolitik",
+        "Sosial & Budaya",
+        "Kementerian"
+    ];
+    const isMapInteractionDisabled = 
+        isSaveModalOpen || 
+        isPresidentMenuOpen || 
+        isRestartConfirmOpen || 
+        countryDetailModalOpen || 
+        playerDetailModalOpen || 
+        inboxModalOpen || 
+        giftModalOpen || 
+        newsModalOpen || 
+        !nonModalMenus.includes(activeMenu);
 
     const dateTextRef = useRef<HTMLSpanElement | null>(null);
     const progressBarRef = useRef<HTMLDivElement | null>(null);
