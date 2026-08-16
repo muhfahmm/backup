@@ -24,9 +24,9 @@ import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_bawah/5_pembangunan/build_logic/build_logic';
 import { getDaysElapsed } from '@/app/logic/production_logic';
 import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
-import TopLeftIcon from './components/inbox/inboxModals';
-import TopRightGiftIcon from './components/reward/rewardModals';
-import TopRightNewsIcon from './components/news/newsModals';
+import TopLeftIcon from './menu_notifikasi/inbox/inboxModals';
+import TopRightGiftIcon from './menu_notifikasi/reward/rewardModals';
+import TopRightNewsIcon from './menu_notifikasi/news/newsModals';
 
 interface Country {
     id: number;
