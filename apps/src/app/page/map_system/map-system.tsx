@@ -26,7 +26,7 @@ import { calculateDailyMaterialProduction } from '../navigasi_menu/2_navigasi_ba
 import { getDaysElapsed } from '@/app/logic/production_logic';
 import { calculateKepuasan } from '@/app/logic/kepuasanCalculator';
 import { calculatePresidentRating, getMonthsDifference } from '@/app/logic/peringkatCalculator';
-import { calculateKesejahteraan } from '@/app/logic/kesejahteraanCalculator';
+import { calculateKesejahteraan, calculateKesejahteraanDecay } from '@/app/logic/kesejahteraanCalculator';
 import TopLeftIcon from './menu_notifikasi/inbox/inboxModals';
 import TopRightGiftIcon from './menu_notifikasi/reward/rewardModals';
 import TopRightNewsIcon from './menu_notifikasi/news/newsModals';
@@ -69,6 +69,7 @@ export default function MapPage() {
     const [resetTrigger, setResetTrigger] = useState(false);
     const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
     const [tempatUmumDeepLink, setTempatUmumDeepLink] = useState<string | null>(null);
+    const [kesejahteraanDeepLink, setKesejahteraanDeepLink] = useState<boolean>(false);
     const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
     const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
     const [playerDetailModalOpen, setPlayerDetailModalOpen] = useState(false);
@@ -376,6 +377,9 @@ export default function MapPage() {
                         if (restoredDetail.presidentRating !== undefined) {
                             setPresidentRating(Number(restoredDetail.presidentRating));
                         }
+                        if (restoredDetail.kesejahteraan !== undefined) {
+                            setKesejahteraan(Number(restoredDetail.kesejahteraan));
+                        }
                         
                         // Clean up saved state from localStorage so it doesn't re-apply
                         localStorage.removeItem('presiden_simulator_load_save');
@@ -593,6 +597,20 @@ export default function MapPage() {
                 setPresidentRating(nextRating);
             }
 
+            // --- HITUNG PENURUNAN KESEJAHTERAAN BERDASARKAN KEPUASAN ---
+            const decayResult = calculateKesejahteraanDecay({
+                currentKesejahteraan: prev.kesejahteraan ?? 50,
+                kesejahteraanMonthCounter: prev.kesejahteraan_month_counter ?? 0,
+                lastKesejahteraanThreshold: prev.last_kesejahteraan_threshold ?? 12,
+                monthsPassed,
+                currentKepuasan: nextKepuasan,
+            });
+
+            const nextKesejahteraan = decayResult.nextKesejahteraan;
+            if (nextKesejahteraan !== (prev.kesejahteraan ?? 50)) {
+                setKesejahteraan(nextKesejahteraan);
+            }
+
             return {
                 ...prev,
                 ...updates,
@@ -604,6 +622,9 @@ export default function MapPage() {
                 presidentRating: ratingResult.presidentRating,
                 rating_month_counter: ratingResult.rating_month_counter,
                 last_rating_threshold: ratingResult.last_rating_threshold,
+                kesejahteraan: nextKesejahteraan,
+                kesejahteraan_month_counter: decayResult.kesejahteraan_month_counter,
+                last_kesejahteraan_threshold: decayResult.last_kesejahteraan_threshold,
             };
         });
     }, [currentDate, countryDetail, metadata, selectedCountry?.country]);
@@ -668,7 +689,17 @@ export default function MapPage() {
     useEffect(() => {
         if (!countryDetail || !metadata || Object.keys(metadata).length === 0) return;
 
-        const kesejahteraanResult = calculateKesejahteraan(countryDetail, countryDetail?.kesejahteraan);
+        // Ambil logic constants & helper
+        const FOOD_CONSUMPTION_PER_CAPITA = require('@/app/page/navigasi_menu/2_navigasi_bawah/3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic').FOOD_CONSUMPTION_PER_CAPITA;
+        const calculateProduction = require('@/app/page/navigasi_menu/2_navigasi_bawah/3_produksi_konsumsi/2_industri_pangan/logic/produksiKonsumsiLogic').calculateProduction;
+
+        const kesejahteraanResult = calculateKesejahteraan(
+            countryDetail,
+            metadata,
+            FOOD_CONSUMPTION_PER_CAPITA,
+            calculateProduction,
+            countryDetail?.kesejahteraan
+        );
         
         // Hanya update jika berubah signifikan (> 1 poin) untuk mencegah infinite loop
         const currentKesejahteraan = countryDetail?.kesejahteraan ?? 50;
@@ -932,10 +963,15 @@ export default function MapPage() {
                 dailyBirths={playerDailyBirths}
                 dailyDeaths={playerDailyDeaths}
                 presidentRating={presidentRating}
+                kesejahteraan={kesejahteraan}
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
                 onOpenKepuasan={() => setActiveMenu("Dashboard:Kepuasan")}
+                onOpenKesejahteraan={() => {
+                    setKesejahteraanDeepLink(true);
+                    setActiveMenu("Dashboard:Populasi:Overview");
+                }}
             />
 
             {/* Top Left Icon - Inbox */}
@@ -1010,6 +1046,8 @@ export default function MapPage() {
                 setProductionDeepLink={setProductionDeepLink}
                 tempatUmumDeepLink={tempatUmumDeepLink}
                 setTempatUmumDeepLink={setTempatUmumDeepLink}
+                kesejahteraanDeepLink={kesejahteraanDeepLink}
+                setKesejahteraanDeepLink={setKesejahteraanDeepLink}
                 onOpenCountryDetail={(targetCountry: string) => {
                     setCountryDetailModalName(targetCountry);
                     setCountryDetailModalOpen(true);

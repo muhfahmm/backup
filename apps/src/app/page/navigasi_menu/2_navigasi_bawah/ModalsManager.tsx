@@ -69,6 +69,10 @@ interface ModalsManagerProps {
   setProductionDeepLink?: (value: { tab: string; key: string } | null) => void;
   tempatUmumDeepLink?: string | null;
   setTempatUmumDeepLink?: (value: string | null) => void;
+  tempatUmumInitialTab?: string;
+  setTempatUmumInitialTab?: (value: string) => void;
+  kesejahteraanDeepLink?: boolean;
+  setKesejahteraanDeepLink?: (value: boolean) => void;
   onOpenCountryDetail?: (countryName: string) => void;
   onOpenPlayerDetail?: () => void;
   presidentRating?: number;
@@ -87,6 +91,8 @@ function ModalsManager({
   setProductionDeepLink,
   tempatUmumDeepLink,
   setTempatUmumDeepLink,
+  kesejahteraanDeepLink,
+  setKesejahteraanDeepLink,
   onOpenCountryDetail,
   onOpenPlayerDetail,
   presidentRating = 50,
@@ -95,6 +101,7 @@ function ModalsManager({
   const [metadata, setMetadata] = useState<Record<string, any>>({});
   const [prefetchedAllCountries, setPrefetchedAllCountries] = useState<any[] | null>(null);
   const [armadaInitialTab, setArmadaInitialTab] = useState<'aktif' | 'infrastruktur' | 'polisi'>('aktif');
+  const [tempatUmumInitialTab, setTempatUmumInitialTab] = useState<string>('infrastruktur');
 
   useEffect(() => {
     fetchBuildingMetadata()
@@ -175,18 +182,26 @@ function ModalsManager({
           currentDate={currentDate}
         />
       );
-    // 2. Populasi
     case "Dashboard:Populasi:Overview":
       return (
         <RingkasanPopulasiModal
           isOpen={true}
-          onClose={onClose}
+          onClose={() => {
+            setKesejahteraanDeepLink?.(false);
+            onClose();
+          }}
           countryDetail={countryDetail}
           selectedCountry={selectedCountry}
           setActiveMenu={setActiveMenu}
+          initialOpenKesejahteraan={kesejahteraanDeepLink}
           onOpenArmadaTab={(tab) => {
             setArmadaInitialTab(tab);
             setActiveMenu("Menu:Armada");
+          }}
+          onOpenTempatUmum={(tabId) => {
+            setTempatUmumInitialTab(tabId);
+            setTempatUmumDeepLink?.(tabId);
+            setActiveMenu("Menu:TempatUmum");
           }}
         />
       );
@@ -303,11 +318,16 @@ function ModalsManager({
       return (
         <TempatUmumModal
           isOpen={true}
-          onClose={onClose}
+          onClose={() => {
+            setTempatUmumDeepLink?.(null);
+            onClose();
+          }}
           countryDetail={countryDetail}
           setCountryDetail={setCountryDetail}
           currentDate={currentDate}
+          initialTab={tempatUmumDeepLink || tempatUmumInitialTab || 'infrastruktur'}
           onGotoProduction={(tab, key) => {
+            setTempatUmumDeepLink?.(null);
             setActiveMenu("Menu:Produksi");
             setProductionDeepLink?.({ tab, key });
           }}

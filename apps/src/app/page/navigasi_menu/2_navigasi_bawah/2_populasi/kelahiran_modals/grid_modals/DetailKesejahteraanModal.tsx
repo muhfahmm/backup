@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React from "react";
 import { X, Banknote } from "lucide-react";
@@ -51,7 +51,10 @@ export default function DetailKesejahteraanModal({
                             <div className="flex items-center justify-between">
                                 <div>
                                     <p className="text-sm font-black text-[#8b7e66] uppercase tracking-wider">Indeks Kesejahteraan</p>
-                                    <p className="text-4xl font-black text-amber-700 mt-1">â€” <span className="text-lg text-[#8b7e66] font-bold">INDX</span></p>
+                                    <p className="text-4xl font-black text-amber-700 mt-1">
+                                        {countryDetail?.kesejahteraan !== undefined ? Math.round(Number(countryDetail.kesejahteraan)) : 50}{" "}
+                                        <span className="text-lg text-[#8b7e66] font-bold">INDX</span>
+                                    </p>
                                 </div>
                                 <div className="p-4 bg-amber-50 rounded-full border border-amber-200">
                                     <Banknote className="h-10 w-10 text-amber-600" />

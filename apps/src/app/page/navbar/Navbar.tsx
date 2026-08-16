@@ -1,11 +1,13 @@
+// navbar
 'use client';
 
 import React from 'react';
 import {
-    Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid, Star
+    Power, Users, Landmark, Save, RotateCcw, Smile, LayoutGrid, Star,
+    Activity // ✅ TAMBAHAN: Import Activity agar error hilang
 } from 'lucide-react';
 import { calculateCountryNetBalance, formatCurrencyEM } from '@/app/logic/economic_logic/treasuryUpdater';
-// 🔥 Import fungsi warna dari logic populasi (sesuai file yang Anda berikan)
+// 🔥 Import fungsi warna dari logic populasi
 import { getNetPopulationChangeColor } from '@/app/logic/populations_logic/population_logic';
 import { menuItems, subMenuItems } from '../navigasi_menu/navigationData';
 
@@ -24,7 +26,7 @@ interface NavbarProps {
     countryDetail: any;
     netBalanceAdjustment?: number;
     netPopulationChange?: number;
-    // 🔥 Data demografi harian (dihitung oleh parent, diteruskan ke Navbar)
+    // 🔥 Data demografi harian
     dailyBirths?: number;
     dailyDeaths?: number;
     activeMenu?: string;
@@ -32,7 +34,9 @@ interface NavbarProps {
     onOpenSaveModal: () => void;
     onOpenRestartConfirm: () => void;
     onOpenKepuasan?: () => void;
+    onOpenKesejahteraan?: () => void;
     presidentRating?: number;
+    kesejahteraan?: number;
 }
 
 export function Navbar({
@@ -47,7 +51,9 @@ export function Navbar({
     onOpenSaveModal,
     onOpenRestartConfirm,
     onOpenKepuasan,
-    presidentRating = 50
+    onOpenKesejahteraan,
+    presidentRating = 50,
+    kesejahteraan = 50,
 }: NavbarProps) {
     const anggaran = Number(countryDetail?.anggaran) || 0;
     const netBalance = calculateCountryNetBalance(countryDetail) + netBalanceAdjustment;
@@ -220,6 +226,19 @@ export function Navbar({
                         value={`${presidentRating}/100`} 
                         color={getPresidentRatingColor(presidentRating)} 
                     />
+
+                    <button 
+                        onClick={onOpenKesejahteraan}
+                        className="cursor-pointer hover:opacity-80 transition-opacity"
+                        title="Klik untuk melihat detail kesejahteraan"
+                    >
+                        <StatusItem
+                            icon={<Activity className="w-3 h-3 sm:w-3.5 sm:h-3.5" />}
+                            label="KESEJAHTERAAN"
+                            value={`${kesejahteraan}/100`}
+                            color={getKesejahteraanColorClass(kesejahteraan)}
+                        />
+                    </button>
                 </div>
             </div>
 
@@ -277,5 +296,13 @@ function getPresidentRatingColor(rating: number): string {
     if (rating >= 60) return 'text-green-600';
     if (rating >= 40) return 'text-yellow-600';
     if (rating >= 20) return 'text-red-600';
+    return 'text-red-700 font-black';
+}
+
+function getKesejahteraanColorClass(score: number): string {
+    if (score >= 81) return 'text-emerald-700 font-black';
+    if (score >= 61) return 'text-emerald-600';
+    if (score >= 41) return 'text-yellow-600';
+    if (score >= 21) return 'text-orange-600';
     return 'text-red-700 font-black';
 }

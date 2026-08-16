@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { X, Users, Info, TrendingUp, ShieldAlert, BadgeDollarSign, Users2 } from "lucide-react";
 import {
   calculateSectoralSatisfaction,
@@ -48,7 +48,8 @@ interface RingkasanPopulasiModalProps {
   selectedCountry: any;
   setActiveMenu?: (menu: string) => void;
   onOpenArmadaTab?: (tab: 'aktif' | 'infrastruktur' | 'polisi') => void;
-  onOpenTempatUmum?: (tab: string) => void;  // ← NEW
+  onOpenTempatUmum?: (tab: string) => void;
+  initialOpenKesejahteraan?: boolean;
 }
 
 // ==============================
@@ -117,6 +118,7 @@ export default function RingkasanPopulasiModal({
   setActiveMenu,
   onOpenArmadaTab,
   onOpenTempatUmum,
+  initialOpenKesejahteraan,
 }: RingkasanPopulasiModalProps) {
 
   const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
@@ -125,6 +127,13 @@ export default function RingkasanPopulasiModal({
   const [tempatUmumActiveTab, setTempatUmumActiveTab] = useState<string>("infrastruktur");
   const [isKesejahteraanOpen, setIsKesejahteraanOpen] = useState(false);
   const [isTunawismaOpen, setIsTunawismaOpen] = useState(false);
+
+  // Buka otomatis modal Kesejahteraan jika dipanggil via Deep Link Kesejahteraan Navbar
+  useEffect(() => {
+    if (isOpen && initialOpenKesejahteraan) {
+      setIsKesejahteraanOpen(true);
+    }
+  }, [isOpen, initialOpenKesejahteraan]);
 
   const metrics = useMemo(() => {
     if (!countryDetail) return null;
@@ -220,7 +229,10 @@ export default function RingkasanPopulasiModal({
               </div>
               <div>
                 <p className="text-[10px] text-[#8b7e66] font-black uppercase tracking-wider">Kesejahteraan</p>
-                <p className="text-lg font-black text-[#2e261a] leading-tight">— <span className="text-[9px] text-[#8b7e66]">INDX</span></p>
+                <p className="text-lg font-black text-[#2e261a] leading-tight">
+                  {countryDetail?.kesejahteraan !== undefined ? Math.round(Number(countryDetail.kesejahteraan)) : 50}{" "}
+                  <span className="text-[9px] text-[#8b7e66]">INDX</span>
+                </p>
               </div>
             </div>
           </div>
@@ -343,8 +355,12 @@ export default function RingkasanPopulasiModal({
         metrics={metrics}
         setActiveMenu={setActiveMenu}
         onOpenTempatUmum={(tabId: string) => {
-          setTempatUmumActiveTab(tabId);
-          setIsTempatUmumOpen(true);
+          if (onOpenTempatUmum) {
+            onOpenTempatUmum(tabId);
+          } else {
+            setTempatUmumActiveTab(tabId);
+            setIsTempatUmumOpen(true);
+          }
           setIsKesejahteraanOpen(false);
         }}
         onOpenIndustriPangan={() => {

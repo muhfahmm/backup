@@ -1,7 +1,10 @@
 "use client"
 
 import { useState, useMemo, useEffect } from "react";
-import { X, Info, TrendingUp, TrendingDown, BookOpen, Heart, MapPin } from "lucide-react";
+import {
+  X, Info, TrendingUp, TrendingDown, BookOpen, Heart, MapPin,
+  Wheat, Home, Library, Hospital, Landmark, CheckCircle, Sprout
+} from "lucide-react";
 import {
   calculateKesejahteraan,
   getKesejahteraanStatus,
@@ -42,8 +45,13 @@ export default function IndeksKesejahteraanModal({
   // 🔥 Hitung kesejahteraan dari countryDetail (untuk detail & trend)
   const kesejahteraan = useMemo(() => {
     if (!countryDetail) return null;
-    return calculateKesejahteraan(countryDetail);
-  }, [countryDetail]);
+    return calculateKesejahteraan(
+      countryDetail,
+      metadata,
+      FOOD_CONSUMPTION_PER_CAPITA,
+      calculateProduction
+    );
+  }, [countryDetail, metadata]);
 
   // ─── Skor aktual dari setiap menu (formula identik dengan modal asal) ────────
 
@@ -151,20 +159,7 @@ export default function IndeksKesejahteraanModal({
     return Math.min(100, Math.max(1, Math.round((ratio / 2) * 100)));
   }, [countryDetail, metadata]);
 
-  /**
-   * 🆕 SKOR KESELURUHAN — rata-rata dari kelima sektor
-   */
-  const overallScore = useMemo(() => {
-    const scores = [
-      pendidikanActualScore,
-      kesehatanActualScore,
-      infrastrukturActualScore,
-      panganActualScore,
-      hunianActualScore,
-    ];
-    const total = scores.reduce((a, b) => a + b, 0);
-    return Math.round(total / scores.length);
-  }, [pendidikanActualScore, kesehatanActualScore, infrastrukturActualScore, panganActualScore, hunianActualScore]);
+  const overallScore = kesejahteraan?.overallScore ?? 50;
 
   if (!isOpen || !kesejahteraan) return null;
 
@@ -200,7 +195,7 @@ export default function IndeksKesejahteraanModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-transparent pointer-events-none">
-      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
+      <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans pointer-events-auto">
 
         {/* Background */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.03)_0%,transparent_100%)] pointer-events-none" />
@@ -282,6 +277,7 @@ export default function IndeksKesejahteraanModal({
               <div
                 onClick={() => {
                   onOpenTempatUmum?.('pendidikan');
+                  if (!onOpenTempatUmum) setActiveMenu?.("Menu:TempatUmum");
                   onClose();
                 }}
                 className={`rounded-xl p-5 border-2 ${pendidikanColor.border} ${pendidikanColor.bg} space-y-3 cursor-pointer transition-all duration-200 hover:shadow-lg`}
@@ -289,7 +285,7 @@ export default function IndeksKesejahteraanModal({
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <BookOpen className={`h-5 w-5 ${pendidikanColor.icon}`} />
+                    <Library className={`h-5 w-5 ${pendidikanColor.icon}`} />
                     <div>
                       <p className="text-xs font-black text-[#8b7e66] uppercase">Pendidikan</p>
                       <p className="text-sm font-bold text-[#5c3c10]">35% Bobot</p>
@@ -308,6 +304,7 @@ export default function IndeksKesejahteraanModal({
               <div
                 onClick={() => {
                   onOpenTempatUmum?.('kesehatan');
+                  if (!onOpenTempatUmum) setActiveMenu?.("Menu:TempatUmum");
                   onClose();
                 }}
                 className={`rounded-xl p-5 border-2 ${kesehatanColor.border} ${kesehatanColor.bg} space-y-3 cursor-pointer transition-all duration-200 hover:shadow-lg`}
@@ -315,7 +312,7 @@ export default function IndeksKesejahteraanModal({
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <Heart className={`h-5 w-5 ${kesehatanColor.icon}`} />
+                    <Hospital className={`h-5 w-5 ${kesehatanColor.icon}`} />
                     <div>
                       <p className="text-xs font-black text-[#8b7e66] uppercase">Kesehatan</p>
                       <p className="text-sm font-bold text-[#5c3c10]">40% Bobot (Prioritas)</p>
@@ -335,6 +332,7 @@ export default function IndeksKesejahteraanModal({
               <div
                 onClick={() => {
                   onOpenTempatUmum?.('infrastruktur');
+                  if (!onOpenTempatUmum) setActiveMenu?.("Menu:TempatUmum");
                   onClose();
                 }}
                 className={`rounded-xl p-5 border-2 ${tempatUmumColor.border} ${tempatUmumColor.bg} space-y-3 cursor-pointer transition-all duration-200 hover:shadow-lg`}
@@ -342,7 +340,7 @@ export default function IndeksKesejahteraanModal({
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <MapPin className={`h-5 w-5 ${tempatUmumColor.icon}`} />
+                    <Landmark className={`h-5 w-5 ${tempatUmumColor.icon}`} />
                     <div>
                       <p className="text-xs font-black text-[#8b7e66] uppercase">Tempat Umum</p>
                       <p className="text-sm font-bold text-[#5c3c10]">25% Bobot</p>
@@ -372,7 +370,7 @@ export default function IndeksKesejahteraanModal({
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">🌾</span>
+                    <Wheat className={`h-5 w-5 ${panganColor.icon}`} />
                     <div>
                       <p className="text-xs font-black text-[#8b7e66] uppercase">Pangan</p>
                       <p className="text-sm font-bold text-[#5c3c10]">Kepuasan Rakyat</p>
@@ -397,7 +395,7 @@ export default function IndeksKesejahteraanModal({
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="text-2xl">🏘️</span>
+                    <Home className={`h-5 w-5 ${hunianColor.icon}`} />
                     <div>
                       <p className="text-xs font-black text-[#8b7e66] uppercase">Hunian & Permukiman</p>
                       <p className="text-sm font-bold text-[#5c3c10]">Kepuasan Rakyat</p>
@@ -418,7 +416,7 @@ export default function IndeksKesejahteraanModal({
               <div className="space-y-3">
                 {pendidikanActualScore < 60 && (
                   <div className="flex items-start gap-3 p-3 bg-blue-50 rounded-lg border border-blue-200">
-                    <span className="text-lg font-black">📚</span>
+                    <Library className="h-5 w-5 text-blue-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-blue-700">Tingkatkan Pendidikan</p>
                       <p className="text-xs text-blue-600 font-bold">Bangun lebih banyak sekolah, universitas, dan pusat penelitian</p>
@@ -427,7 +425,7 @@ export default function IndeksKesejahteraanModal({
                 )}
                 {kesehatanActualScore < 60 && (
                   <div className="flex items-start gap-3 p-3 bg-red-50 rounded-lg border border-red-200">
-                    <span className="text-lg font-black">🏥</span>
+                    <Hospital className="h-5 w-5 text-red-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-red-700">Tingkatkan Kesehatan</p>
                       <p className="text-xs text-red-600 font-bold">Investasi besar dalam rumah sakit, klinik, dan program kesehatan masyarakat</p>
@@ -436,7 +434,7 @@ export default function IndeksKesejahteraanModal({
                 )}
                 {infrastrukturActualScore < 60 && (
                   <div className="flex items-start gap-3 p-3 bg-purple-50 rounded-lg border border-purple-200">
-                    <span className="text-lg font-black">🏛️</span>
+                    <Landmark className="h-5 w-5 text-purple-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-purple-700">Tingkatkan Fasilitas Publik</p>
                       <p className="text-xs text-purple-600 font-bold">Bangun infrastruktur transportasi, rekreasi, dan komersial</p>
@@ -445,7 +443,7 @@ export default function IndeksKesejahteraanModal({
                 )}
                 {panganActualScore < 60 && (
                   <div className="flex items-start gap-3 p-3 bg-yellow-50 rounded-lg border border-yellow-200">
-                    <span className="text-lg font-black">🌾</span>
+                    <Wheat className="h-5 w-5 text-yellow-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-yellow-700">Tingkatkan Ketahanan Pangan</p>
                       <p className="text-xs text-yellow-600 font-bold">Dukung sektor pertanian dan distribusi pangan yang lebih baik</p>
@@ -454,7 +452,7 @@ export default function IndeksKesejahteraanModal({
                 )}
                 {hunianActualScore < 60 && (
                   <div className="flex items-start gap-3 p-3 bg-cyan-50 rounded-lg border border-cyan-200">
-                    <span className="text-lg font-black">🏘️</span>
+                    <Home className="h-5 w-5 text-cyan-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-cyan-700">Tingkatkan Hunian Layak</p>
                       <p className="text-xs text-cyan-600 font-bold">Program pembangunan perumahan dan perbaikan permukiman</p>
@@ -463,7 +461,7 @@ export default function IndeksKesejahteraanModal({
                 )}
                 {overallScore >= 60 && (
                   <div className="flex items-start gap-3 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
-                    <span className="text-lg font-black">✓</span>
+                    <CheckCircle className="h-5 w-5 text-emerald-700 flex-shrink-0" />
                     <div>
                       <p className="text-sm font-black text-emerald-700">Status Kesejahteraan Baik</p>
                       <p className="text-xs text-emerald-600 font-bold">Lanjutkan investasi seimbang di semua sektor untuk pertumbuhan berkelanjutan</p>

@@ -376,20 +376,96 @@ export interface KesejahteraanIndex {
  * - 61-80: Baik (kesejahteraan tinggi)
  * - 81-100: Sangat Baik (kesejahteraan luar biasa)
  */
-export function calculateKesejahteraan(countryDetail: any, previousScore?: number): KesejahteraanIndex {
-  const pendidikan = calculatePendidikanScore(countryDetail);
-  const kesehatan = calculateKesehatanScore(countryDetail);
-  const tempatUmum = calculateTempatUmumScore(countryDetail);
+/**
+ * Hitung Indeks Kesejahteraan Keseluruhan secara presisi sesuai dengan modal detail
+ */
+export function calculateKesejahteraan(
+  countryDetail: any,
+  metadata: any,
+  FOOD_CONSUMPTION_PER_CAPITA: any,
+  calculateProduction: any,
+  previousScore?: number
+): KesejahteraanIndex {
+  // Sektor 1: Pendidikan
+  const pop = Number(countryDetail?.jumlah_penduduk) || 1;
+  const pendKeys = ["prasekolah", "dasar", "menengah", "lanjutan", "universitas", "lembaga_pendidikan", "laboratorium", "observatorium", "pusat_penelitian", "pusat_pengembangan", "literasi"];
+  const pendTotal = pendKeys.reduce((s, k) => s + (Number(countryDetail?.[k]) || 0), 0);
+  const pendIndex = pendTotal / pop;
+  const pendidikanScore = Math.min(100, Math.round((pendIndex / 0.0001) * 100));
 
-  // 🔥 Hitung skor Pangan dari indeks_ketahanan_pangan
-  const panganScore = Math.round(countryDetail?.indeks_ketahanan_pangan ?? 50);
+  // Sektor 2: Kesehatan
+  const kesKeys = ["rumah_sakit_besar", "rumah_sakit_kecil", "pusat_diagnostik", "harapan_hidup", "indeks_kesehatan"];
+  const kesTotal = kesKeys.reduce((s, k) => s + (Number(countryDetail?.[k]) || 0), 0);
+  const kesIndex = kesTotal / pop;
+  const kesehatanScore = Math.min(100, Math.round((kesIndex / 0.00004) * 100));
 
-  // 🔥 Hitung skor Hunian dari tingkat_hunian_layak
-  const hunianScore = Math.round(countryDetail?.tingkat_hunian_layak ?? 50);
+  // Sektor 3: Tempat Umum (Infrastruktur)
+  const infraKeys = ["jalur_sepeda", "jalan_raya", "terminal_bus", "stasiun_kereta_api", "kereta_bawah_tanah", "pelabuhan", "bandara", "helipad"];
+  const infraTotal = infraKeys.reduce((s, k) => s + (Number(countryDetail?.[k]) || 0), 0);
+  const infraIndex = infraTotal / pop;
+  const tempatUmumScore = Math.min(100, Math.round((infraIndex / 0.00005) * 100));
 
-  // 🔥 Indeks Kesejahteraan = Rata-rata 5 sektor (Pendidikan + Kesehatan + Tempat Umum + Pangan + Hunian) / 5
+  // Sektor 4: Pangan
+  let panganScore = 1;
+  const storedFood = countryDetail?.satisfaction?.food;
+  if (!metadata) {
+    panganScore = storedFood !== undefined && storedFood !== null ? Math.round(Number(storedFood)) : 0;
+  } else {
+    const allKeys = Object.keys(FOOD_CONSUMPTION_PER_CAPITA || {});
+    let totalRatio = 0;
+    let count = 0;
+    for (const key of allKeys) {
+      const prod = calculateProduction ? calculateProduction(key, countryDetail, metadata) : 0;
+      const cons = (pop / 1000) * FOOD_CONSUMPTION_PER_CAPITA[key];
+      if (cons > 0) {
+        totalRatio += Math.min(prod / cons, 2);
+        count++;
+      }
+    }
+    if (count === 0) {
+      panganScore = Math.round(Number(countryDetail?.indeks_ketahanan_pangan) || 1);
+    } else {
+      const avgRatio = totalRatio / count;
+      panganScore = Math.min(100, Math.max(1, Math.round((avgRatio / 2) * 100)));
+    }
+  }
+
+  // Sektor 5: Hunian
+  let hunianScore = 1;
+  const storedHousing = countryDetail?.satisfaction?.housing;
+  if (!metadata) {
+    hunianScore = storedHousing !== undefined && storedHousing !== null ? Math.round(Number(storedHousing)) : 0;
+  } else {
+    const HUNIAN_KEYS = ["rumah_subsidi", "apartemen", "mansion"];
+    const findMeta = (key: string) => {
+      if (!metadata) return undefined;
+      if (metadata[key]) return metadata[key];
+      for (const k of Object.keys(metadata)) {
+        const entry = metadata[k];
+        if (!entry) continue;
+        if (entry.dataKey === key) return entry;
+        if (k.endsWith(`_${key}`) || k === `1_${key}`) return entry;
+      }
+      return undefined;
+    };
+    let totalCapacity = 0;
+    for (const key of HUNIAN_KEYS) {
+      const count = Number(countryDetail?.[key]) || 0;
+      const meta = findMeta(key);
+      const kapasitas = Number(meta?.kapasitas) || 0;
+      totalCapacity += count * kapasitas;
+    }
+    if (totalCapacity <= 0) {
+      hunianScore = 1;
+    } else {
+      const ratio = Math.min(totalCapacity / pop, 2);
+      hunianScore = Math.min(100, Math.max(1, Math.round((ratio / 2) * 100)));
+    }
+  }
+
+  // Indeks Kesejahteraan Keseluruhan (rata-rata 5 sektor)
   const overallScore = Math.round(
-    (pendidikan.score + kesehatan.score + tempatUmum.score + panganScore + hunianScore) / 5
+    (pendidikanScore + kesehatanScore + tempatUmumScore + panganScore + hunianScore) / 5
   );
 
   // Tentukan trend
@@ -402,18 +478,36 @@ export function calculateKesejahteraan(countryDetail: any, previousScore?: numbe
     }
   }
 
+  // Fallback dummy structs for backward compatibility
+  const dummyPendidikanMetrics: PendidikanMetrics = {
+    totalFacilities: pendTotal,
+    score: pendidikanScore,
+    detail: { prasekolah: 0, dasar: 0, menengah: 0, lanjutan: 0, universitas: 0, lembagaPendidikan: 0, laboratorium: 0, observatorium: 0, pusatPenelitian: 0, pusatPengembangan: 0, literasi: 0 }
+  };
+  const dummyKesehatanMetrics: KesehatanMetrics = {
+    totalFacilities: kesTotal,
+    score: kesehatanScore,
+    detail: { rumahSakitBesar: 0, rumahSakitKecil: 0, pusatDiagnostik: 0, harapanHidup: 0, indeksKesehatan: 0 },
+    lifeExpectancyBonus: 0
+  };
+  const dummyTempatUmumMetrics: TempatUmumMetrics = {
+    totalFacilities: infraTotal,
+    score: tempatUmumScore,
+    detail: { transportasi: 0, rekreasi: 0, komersial: 0 }
+  };
+
   return {
     overallScore: Math.min(100, Math.max(1, overallScore)),
-    pendidikanScore: pendidikan.score,
-    kesehatanScore: kesehatan.score,
-    tempatUmumScore: tempatUmum.score,
+    pendidikanScore,
+    kesehatanScore,
+    tempatUmumScore,
     panganScore,
     hunianScore,
     trend,
     detail: {
-      pendidikan,
-      kesehatan,
-      tempatUmum,
+      pendidikan: dummyPendidikanMetrics,
+      kesehatan: dummyKesehatanMetrics,
+      tempatUmum: dummyTempatUmumMetrics,
       pangan: { score: panganScore },
       hunian: { score: hunianScore },
     },
@@ -485,3 +579,90 @@ Breakdown:
     - ${kesejahteraan.detail.tempatUmum.totalFacilities} fasilitas umum
   `.trim();
 }
+
+// ─── Decay: Penurunan Indeks Kesejahteraan Berbasis Waktu ─────────────────
+
+/**
+ * Threshold (bulan) sebelum indeks kesejahteraan berkurang 1 poin,
+ * berdasarkan kepuasan rakyat — identik dengan logika peringkat presiden.
+ *
+ * Kepuasan 0–25   → turun 1 poin setiap 1 bulan
+ * Kepuasan 26–45  → turun 1 poin setiap 3 bulan
+ * Kepuasan 46–65  → turun 1 poin setiap 6 bulan
+ * Kepuasan 66–79  → turun 1 poin setiap 9 bulan
+ * Kepuasan 80–100 → turun 1 poin setiap 12 bulan (1 tahun)
+ */
+export function getKesejahteraanDecayThreshold(kepuasan: number): number {
+  if (kepuasan <= 25) return 1;
+  if (kepuasan <= 45) return 3;
+  if (kepuasan <= 65) return 6;
+  if (kepuasan <= 79) return 9;
+  return 12; // 80 - 100
+}
+
+export interface KesejahteraanDecayInput {
+  currentKesejahteraan: number;
+  kesejahteraanMonthCounter: number;
+  lastKesejahteraanThreshold: number;
+  monthsPassed: number;
+  currentKepuasan: number;
+}
+
+export interface KesejahteraanDecayOutput {
+  nextKesejahteraan: number;
+  kesejahteraan_month_counter: number;
+  last_kesejahteraan_threshold: number;
+  decayThisTick: number;
+}
+
+/**
+ * Hitung penurunan indeks kesejahteraan untuk simulation tick ini.
+ * Pola identik dengan calculatePresidentRating di peringkatCalculator.ts.
+ *
+ * Flow:
+ * 1. Tambahkan monthsPassed ke counter
+ * 2. Tentukan threshold dari kepuasan saat ini
+ * 3. Scale counter jika threshold berubah (smooth transition)
+ * 4. Hitung penurunan (floor(counter / threshold))
+ * 5. Reset counter dengan sisa (counter % threshold)
+ * 6. Clamp ke [1, 100]
+ */
+export function calculateKesejahteraanDecay(input: KesejahteraanDecayInput): KesejahteraanDecayOutput {
+  const {
+    currentKesejahteraan,
+    kesejahteraanMonthCounter,
+    lastKesejahteraanThreshold,
+    monthsPassed,
+    currentKepuasan,
+  } = input;
+
+  // Step 1: Tambahkan bulan yang berlalu ke counter
+  let counter = kesejahteraanMonthCounter + (monthsPassed > 0 ? monthsPassed : 0);
+
+  // Step 2: Tentukan threshold baru berdasarkan kepuasan
+  const newThreshold = getKesejahteraanDecayThreshold(currentKepuasan);
+
+  // Step 3: Scale counter jika threshold berubah (smooth transition)
+  const prevThreshold = lastKesejahteraanThreshold || newThreshold;
+  if (prevThreshold !== newThreshold && prevThreshold > 0) {
+    counter = Math.round((counter / prevThreshold) * newThreshold);
+  }
+
+  // Step 4 & 5: Hitung penurunan dan sisa counter
+  let decay = 0;
+  let finalCounter = counter;
+  if (counter >= newThreshold && newThreshold > 0) {
+    decay = Math.floor(counter / newThreshold);
+    finalCounter = counter % newThreshold;
+  }
+
+  const nextKesejahteraan = Math.max(1, Math.min(100, currentKesejahteraan - decay));
+
+  return {
+    nextKesejahteraan,
+    kesejahteraan_month_counter: finalCounter,
+    last_kesejahteraan_threshold: newThreshold,
+    decayThisTick: decay,
+  };
+}
+

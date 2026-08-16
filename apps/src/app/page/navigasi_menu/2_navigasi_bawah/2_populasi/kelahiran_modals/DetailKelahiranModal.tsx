@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import React, { useState } from "react";
 import { X, Users, Baby, HeartPulse, Home, GraduationCap, Banknote, ArrowUpRight, Smile, Heart, Activity, Info } from "lucide-react";
@@ -197,7 +197,9 @@ export default function DetailKelahiranModal({
                   <h4 className="text-xs font-black text-[#5c3c10] uppercase">Kesejahteraan</h4>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-bold text-[#2e261a]">â€” INDX</span>
+                  <span className="text-sm font-bold text-[#2e261a]">
+                    {countryDetail?.kesejahteraan !== undefined ? Math.round(Number(countryDetail.kesejahteraan)) : 50} INDX
+                  </span>
                   <span className="text-[10px] text-[#8b7e66]">Ã— {welfareFactor.toFixed(3)}</span>
                 </div>
               </div>
