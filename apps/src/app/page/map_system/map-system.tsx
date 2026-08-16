@@ -92,19 +92,50 @@ export default function MapPage() {
 
     const [isRatingWarningOpen, setIsRatingWarningOpen] = useState(false);
     const [hasShownRatingWarning, setHasShownRatingWarning] = useState(false);
+    const [warningType, setWarningType] = useState<"peringkat" | "kepuasan" | "kesejahteraan">("peringkat");
+    const [warningValue, setWarningValue] = useState<number>(50);
 
-    // Tampilkan modal peringatan ketika peringkat turun ke 10 atau kurang
+    // Tampilkan modal peringatan ketika peringkat, kepuasan, atau kesejahteraan turun ke 10 atau kurang
     useEffect(() => {
+        const kepuasanVal = countryDetail?.kepuasan ?? 50;
+        const kesejahteraanVal = countryDetail?.kesejahteraan ?? 50;
+
+        let triggerWarning = false;
+        let type: "peringkat" | "kepuasan" | "kesejahteraan" = "peringkat";
+        let value = 50;
+
         if (presidentRating <= 10) {
+            triggerWarning = true;
+            type = "peringkat";
+            value = presidentRating;
+        } else if (kepuasanVal <= 10) {
+            triggerWarning = true;
+            type = "kepuasan";
+            value = Math.round(kepuasanVal);
+        } else if (kesejahteraanVal <= 10) {
+            triggerWarning = true;
+            type = "kesejahteraan";
+            value = Math.round(kesejahteraanVal);
+        }
+
+        if (triggerWarning) {
             if (!hasShownRatingWarning) {
+                setWarningType(type);
+                setWarningValue(value);
                 setIsRatingWarningOpen(true);
                 setHasShownRatingWarning(true);
+
+                // 🔥 HENTIKAN PAKSA SIMULATION CALENDAR / CLOCK
+                setIsPaused(true);
+                if (timeManagerRef.current) {
+                    timeManagerRef.current.setPaused(true);
+                }
             }
         } else {
-            // Reset trigger jika peringkat naik kembali di atas 10
+            // Reset trigger jika semua indikator sudah aman di atas 10
             setHasShownRatingWarning(false);
         }
-    }, [presidentRating, hasShownRatingWarning]);
+    }, [presidentRating, countryDetail?.kepuasan, countryDetail?.kesejahteraan, hasShownRatingWarning]);
 
     const nonModalMenus = [
         "",
@@ -342,6 +373,7 @@ export default function MapPage() {
                 // Ongoing constructions array
                 ongoingConstructions: mergedData.ongoingConstructions || [],
                 kesejahteraan_bonus: mergedData.kesejahteraan_bonus ?? 0,
+                kesejahteraan_decay: mergedData.kesejahteraan_decay ?? 0,
             });
         } catch (e) {
             console.error("Failed to load country data:", e);
@@ -625,6 +657,7 @@ export default function MapPage() {
             }
 
             const nextKesejahteraanBonus = (prev.kesejahteraan_bonus ?? 0) + currentCompletedKesejahteraanBoost;
+            const nextKesejahteraanDecay = (prev.kesejahteraan_decay ?? 0) + decayResult.decayThisTick;
 
             return {
                 ...prev,
@@ -639,6 +672,7 @@ export default function MapPage() {
                 last_rating_threshold: ratingResult.last_rating_threshold,
                 kesejahteraan: nextKesejahteraan,
                 kesejahteraan_bonus: nextKesejahteraanBonus,
+                kesejahteraan_decay: nextKesejahteraanDecay,
                 kesejahteraan_month_counter: decayResult.kesejahteraan_month_counter,
                 last_kesejahteraan_threshold: decayResult.last_kesejahteraan_threshold,
             };
@@ -1316,6 +1350,8 @@ export default function MapPage() {
                 isOpen={isRatingWarningOpen}
                 onClose={() => setIsRatingWarningOpen(false)}
                 currentRating={presidentRating}
+                warningType={warningType}
+                currentValue={warningValue}
             />
 
         </main>
