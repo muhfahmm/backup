@@ -191,6 +191,8 @@ function ModalsManager({
             onClose();
           }}
           countryDetail={countryDetail}
+          setCountryDetail={setCountryDetail}
+          currentDate={currentDate}
           selectedCountry={selectedCountry}
           setActiveMenu={setActiveMenu}
           initialOpenKesejahteraan={kesejahteraanDeepLink}

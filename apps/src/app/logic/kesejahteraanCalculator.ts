@@ -463,10 +463,24 @@ export function calculateKesejahteraan(
     }
   }
 
-  // Indeks Kesejahteraan Keseluruhan (rata-rata 5 sektor)
-  const overallScore = Math.round(
+  // Indeks Kesejahteraan Keseluruhan (rata-rata 5 sektor + bonus dari program bantuan sosial)
+  const baseScore = Math.round(
     (pendidikanScore + kesehatanScore + tempatUmumScore + panganScore + hunianScore) / 5
   );
+  const bonus = Number(countryDetail?.kesejahteraan_bonus) || 0;
+  const overallScore = Math.min(100, baseScore + bonus);
+  console.log('[calculateKesejahteraan] Calc results:', {
+    country: countryDetail?.country,
+    pendidikanScore,
+    kesehatanScore,
+    tempatUmumScore,
+    panganScore,
+    hunianScore,
+    baseScore,
+    kesejahteraan_bonus: countryDetail?.kesejahteraan_bonus,
+    bonus,
+    overallScore
+  });
 
   // Tentukan trend
   let trend: 'naik' | 'turun' | 'stabil' = 'stabil';

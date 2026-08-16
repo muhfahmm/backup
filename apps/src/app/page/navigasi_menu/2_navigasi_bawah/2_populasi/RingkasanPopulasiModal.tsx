@@ -50,6 +50,8 @@ interface RingkasanPopulasiModalProps {
   onOpenArmadaTab?: (tab: 'aktif' | 'infrastruktur' | 'polisi') => void;
   onOpenTempatUmum?: (tab: string) => void;
   initialOpenKesejahteraan?: boolean;
+  setCountryDetail?: (detail: any) => void;
+  currentDate?: Date | string;
 }
 
 // ==============================
@@ -119,6 +121,8 @@ export default function RingkasanPopulasiModal({
   onOpenArmadaTab,
   onOpenTempatUmum,
   initialOpenKesejahteraan,
+  setCountryDetail,
+  currentDate,
 }: RingkasanPopulasiModalProps) {
 
   const [isDetailBirthOpen, setIsDetailBirthOpen] = useState(false);
@@ -351,9 +355,11 @@ export default function RingkasanPopulasiModal({
         isOpen={isKesejahteraanOpen}
         onClose={() => setIsKesejahteraanOpen(false)}
         countryDetail={countryDetail}
+        setCountryDetail={setCountryDetail}
         selectedCountry={selectedCountry}
         metrics={metrics}
         setActiveMenu={setActiveMenu}
+        currentDate={currentDate}
         onOpenTempatUmum={(tabId: string) => {
           if (onOpenTempatUmum) {
             onOpenTempatUmum(tabId);

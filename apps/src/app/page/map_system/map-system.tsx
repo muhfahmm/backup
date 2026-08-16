@@ -138,11 +138,14 @@ export default function MapPage() {
     const hasInitRef = useRef(false);
 
     useEffect(() => {
-        const handleGlobalMouseUp = () => {
+        const handleGlobalMouseUp = (e: MouseEvent) => {
+            // Hindari memproses event hasil dispatch kita sendiri untuk mencegah loop tak terbatas
+            if (e.target && (e.target as HTMLElement).id === 'map-canvas') return;
+            
             const canvas = document.getElementById('map-canvas');
             if (canvas) {
                 const event = new MouseEvent('mouseup', {
-                    bubbles: true,
+                    bubbles: false, // Set false agar tidak memicu bubble up ke window lagi
                     cancelable: true,
                     view: window,
                 });
@@ -338,6 +341,7 @@ export default function MapPage() {
                 susu: mergedData.susu ?? 0,
                 // Ongoing constructions array
                 ongoingConstructions: mergedData.ongoingConstructions || [],
+                kesejahteraan_bonus: mergedData.kesejahteraan_bonus ?? 0,
             });
         } catch (e) {
             console.error("Failed to load country data:", e);
@@ -561,6 +565,7 @@ export default function MapPage() {
             if (!prev) return prev;
 
             let currentCompletedBoost = 0;
+            let currentCompletedKesejahteraanBoost = 0;
             let currentOngoing = prev.ongoingConstructions || [];
 
             const currentCompletedEvents = currentOngoing.filter((c: any) => {
@@ -569,8 +574,15 @@ export default function MapPage() {
             });
 
             if (currentCompletedEvents.length > 0) {
+                console.log('[MapPage Tick] Completed events found:', currentCompletedEvents);
                 currentCompletedEvents.forEach((c: any) => {
-                    currentCompletedBoost += Number(c.boost) || 0;
+                    if (c.category === "Kesejahteraan") {
+                        currentCompletedKesejahteraanBoost += Number(c.boost) || 0;
+                        console.log('[MapPage Tick] Kesejahteraan event completed!', { name: c.name, boost: c.boost });
+                    } else {
+                        currentCompletedBoost += Number(c.boost) || 0;
+                        console.log('[MapPage Tick] Kepuasan event completed!', { name: c.name, boost: c.boost });
+                    }
                 });
                 const completedIds = currentCompletedEvents.map((c: any) => c.id);
                 currentOngoing = currentOngoing.filter((c: any) => !completedIds.includes(c.id));
@@ -592,14 +604,15 @@ export default function MapPage() {
                 currentDate: currentDateStr,
             });
 
-            const nextRating = ratingResult.nextRating;
-            if (nextRating !== (prev.presidentRating ?? 50) || currentCompletedBoost > 0) {
-                setPresidentRating(nextRating);
+            if (ratingResult.nextRating !== (prev.presidentRating ?? 50) || currentCompletedBoost > 0) {
+                setPresidentRating(ratingResult.nextRating);
             }
 
             // --- HITUNG PENURUNAN KESEJAHTERAAN BERDASARKAN KEPUASAN ---
+            // Tambahkan boost bantuan sosial kesejahteraan ke score dasar sebelum dikurangi decay
+            const baseKesejahteraan = Math.min(100, (prev.kesejahteraan ?? 50) + currentCompletedKesejahteraanBoost);
             const decayResult = calculateKesejahteraanDecay({
-                currentKesejahteraan: prev.kesejahteraan ?? 50,
+                currentKesejahteraan: baseKesejahteraan,
                 kesejahteraanMonthCounter: prev.kesejahteraan_month_counter ?? 0,
                 lastKesejahteraanThreshold: prev.last_kesejahteraan_threshold ?? 12,
                 monthsPassed,
@@ -610,6 +623,8 @@ export default function MapPage() {
             if (nextKesejahteraan !== (prev.kesejahteraan ?? 50)) {
                 setKesejahteraan(nextKesejahteraan);
             }
+
+            const nextKesejahteraanBonus = (prev.kesejahteraan_bonus ?? 0) + currentCompletedKesejahteraanBoost;
 
             return {
                 ...prev,
@@ -623,6 +638,7 @@ export default function MapPage() {
                 rating_month_counter: ratingResult.rating_month_counter,
                 last_rating_threshold: ratingResult.last_rating_threshold,
                 kesejahteraan: nextKesejahteraan,
+                kesejahteraan_bonus: nextKesejahteraanBonus,
                 kesejahteraan_month_counter: decayResult.kesejahteraan_month_counter,
                 last_kesejahteraan_threshold: decayResult.last_kesejahteraan_threshold,
             };
@@ -761,6 +777,9 @@ export default function MapPage() {
         
         // Populasi untuk rasio kalkulasi
         countryDetail?.jumlah_penduduk,
+        
+        // Bonus kesejahteraan
+        countryDetail?.kesejahteraan_bonus,
         
         metadata,
     ]);
@@ -963,7 +982,7 @@ export default function MapPage() {
                 dailyBirths={playerDailyBirths}
                 dailyDeaths={playerDailyDeaths}
                 presidentRating={presidentRating}
-                kesejahteraan={kesejahteraan}
+                kesejahteraan={countryDetail?.kesejahteraan !== undefined ? Math.round(Number(countryDetail.kesejahteraan)) : kesejahteraan}
                 onOpenGameMenu={() => setIsPresidentMenuOpen(true)}
                 onOpenSaveModal={openSaveModal}
                 onOpenRestartConfirm={() => setIsRestartConfirmOpen(true)}
