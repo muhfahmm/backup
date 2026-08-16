@@ -323,7 +323,7 @@ export default function NaikkanKepuasanModal({
               <button
                 className="px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all bg-[#5c3c10] text-[#FAF6EE] shadow-md shadow-[#5c3c10]/20 cursor-pointer"
               >
-                Naikkan Kepuasan
+                Naikkan Peringkat
               </button>
             </div>
           </div>
@@ -407,7 +407,7 @@ export default function NaikkanKepuasanModal({
                             {item.title}
                           </h4>
                           <span className="bg-emerald-500/10 text-emerald-700 border border-emerald-500/20 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-wider">
-                            +{item.boost}% Kepuasan
+                            +{item.boost}% Peringkat
                           </span>
                         </div>
                         <p className="text-xs text-[#8b7e66] font-semibold leading-relaxed max-w-xl">

@@ -137,7 +137,7 @@ export default function StatistikKepuasanModal({
                 onClick={() => setActiveMenu?.("Action:NaikkanKepuasan")}
                 className="px-6 py-2 rounded-lg text-xs font-black uppercase tracking-widest transition-all text-[#8b7e66] hover:text-[#5c3c10] cursor-pointer"
               >
-                Naikkan Kepuasan
+                Naikkan Peringkat
               </button>
             </div>
           </div>

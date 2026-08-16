@@ -74,6 +74,17 @@ export default function MapPage() {
     const [newsModalOpen, setNewsModalOpen] = useState(false);
     const [presidentRating, setPresidentRating] = useState<number>(50);
 
+    // Sync presidentRating state to countryDetail so simulation ticks always use the newest rating
+    useEffect(() => {
+        if (!countryDetail) return;
+        if (countryDetail.presidentRating !== presidentRating) {
+            setCountryDetail((prev: any) => {
+                if (!prev || prev.presidentRating === presidentRating) return prev;
+                return { ...prev, presidentRating };
+            });
+        }
+    }, [presidentRating, countryDetail?.presidentRating]);
+
     const nonModalMenus = [
         "",
         "Peta Taktis",
@@ -342,6 +353,9 @@ export default function MapPage() {
                         }
                         
                         setCountryDetail(restoredDetail);
+                        if (restoredDetail.presidentRating !== undefined) {
+                            setPresidentRating(Number(restoredDetail.presidentRating));
+                        }
                         
                         // Clean up saved state from localStorage so it doesn't re-apply
                         localStorage.removeItem('presiden_simulator_load_save');
@@ -536,14 +550,63 @@ export default function MapPage() {
                 });
                 const completedIds = currentCompletedEvents.map((c: any) => c.id);
                 currentOngoing = currentOngoing.filter((c: any) => !completedIds.includes(c.id));
-
-                if (currentCompletedBoost > 0) {
-                    const ratingBoost = currentCompletedBoost;
-                    setPresidentRating((prevRating) => Math.min(100, prevRating + ratingBoost));
-                }
             }
 
             const nextKepuasan = Math.min(100, parseFloat(((prev.kepuasan ?? 50) + currentCompletedBoost).toFixed(1)));
+
+            // --- HITUNG PENURUNAN PERINGKAT BERDASARKAN KEPUASAN ---
+            let ratingMonthCounter = prev.rating_month_counter ?? 0;
+            let currentRating = prev.presidentRating ?? 50;
+
+            const getMonthsDifference = (d1Str: string, d2Str: string) => {
+                try {
+                    const d1 = new Date(d1Str);
+                    const d2 = new Date(d2Str);
+                    if (isNaN(d1.getTime()) || isNaN(d2.getTime())) return 0;
+                    return (d2.getFullYear() - d1.getFullYear()) * 12 + (d2.getMonth() - d1.getMonth());
+                } catch {
+                    return 0;
+                }
+            };
+
+            const monthsPassed = lastDate ? getMonthsDifference(lastDate, currentDateStr) : 0;
+            if (monthsPassed > 0) {
+                ratingMonthCounter += monthsPassed;
+            }
+
+            // Tentukan threshold bulan penurunan peringkat berdasarkan kepuasan saat ini
+            let threshold = 12;
+            if (nextKepuasan <= 25) {
+                threshold = 1;
+            } else if (nextKepuasan <= 40) {
+                threshold = 3;
+            } else if (nextKepuasan <= 65) {
+                threshold = 6;
+            } else if (nextKepuasan <= 80) {
+                threshold = 9;
+            } else {
+                threshold = 12;
+            }
+
+            // Skala counter jika tier threshold kepuasan berubah agar persentase progress tetap terjaga secara proporsional tanpa lonjakan atau stuck
+            const prevThreshold = prev.last_rating_threshold ?? threshold;
+            if (prevThreshold !== threshold && prevThreshold > 0) {
+                ratingMonthCounter = Math.round((ratingMonthCounter / prevThreshold) * threshold);
+            }
+
+            let ratingDecrease = 0;
+            if (ratingMonthCounter >= threshold) {
+                ratingDecrease = Math.floor(ratingMonthCounter / threshold);
+                ratingMonthCounter = ratingMonthCounter % threshold;
+            }
+
+            // Rating baru = rating saat ini + boost dari event - penurunan peringkat bulanan
+            const eventCompletedRating = Math.min(100, currentRating + currentCompletedBoost);
+            const nextRating = Math.max(0, eventCompletedRating - ratingDecrease);
+
+            if (nextRating !== currentRating || currentCompletedBoost > 0) {
+                setPresidentRating(nextRating);
+            }
 
             return {
                 ...prev,
@@ -553,6 +616,9 @@ export default function MapPage() {
                 satisfaction: prev.satisfaction, // Preserve satisfaction scores
                 ongoingConstructions: currentOngoing,
                 kepuasan: nextKepuasan,
+                presidentRating: nextRating,
+                rating_month_counter: ratingMonthCounter,
+                last_rating_threshold: threshold,
             };
         });
     }, [currentDate, countryDetail, metadata, selectedCountry?.country]);
@@ -669,7 +735,10 @@ export default function MapPage() {
                     religion: countryDetail?.religion || '-',
                     unVote: countryDetail?.un_vote || 0,
                     kepuasan: countryDetail?.kepuasan ?? 50,
-                    countryDetail: countryDetail, // Save entire countryDetail with all production data
+                    countryDetail: {
+                        ...countryDetail,
+                        presidentRating: presidentRating
+                    }, // Save entire countryDetail with all production data and president rating
                 }),
             });
 
