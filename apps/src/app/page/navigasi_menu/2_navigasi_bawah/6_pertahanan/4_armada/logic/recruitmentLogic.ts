@@ -1,4 +1,4 @@
-import armadaMetadata from "../../../../../../../../../json/semua_fitur_negara/2_pertahanan/3_armada_militer/metadata_armada_militer.json";
+import armadaMetadata from "../../../../../../../../../json/semua_fitur_negara/2_pertahanan/1_armada_militer/metadata_armada_militer.json";
 
 /**
  * Menghitung waktu perekrutan berdasarkan jumlah pasukan

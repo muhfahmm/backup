@@ -1,5 +1,16 @@
- npm run dev
+# Dependensi Instalasi (Lakukan sekali saja saat setup awal)
+npm install
 
- npm run tauri:dev
+# --- TAURI (DESKTOP NATIVE RUST) ---
+# Menjalankan development mode:
+npm run tauri:dev
 
- cd C:\utama\project\project-sendiri\em && npm run dev
+# Membangun file executable desktop (Production/Release):
+npm run tauri:build
+
+# --- ELECTRON (DESKTOP HYBRID CHROME) ---
+# Menjalankan development mode (otomatis menyalakan dev server & window):
+npm run electron:dev
+
+# Menjalankan window electron secara manual (server harus sudah jalan):
+npm run electron:start

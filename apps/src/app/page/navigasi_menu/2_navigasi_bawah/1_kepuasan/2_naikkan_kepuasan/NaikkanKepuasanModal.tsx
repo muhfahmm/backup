@@ -351,7 +351,7 @@ export default function NaikkanKepuasanModal({
               Kepuasan Sipil:
             </span>
             <span className="text-sm font-black text-[#2e261a]">
-              {kepuasan}%
+              {Math.round(kepuasan)}%
             </span>
           </div>
         </div>

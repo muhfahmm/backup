@@ -5,6 +5,7 @@
   "workspaces": [
     "apps"
   ],
+  "main": "electron-main.js",
   "scripts": {
     "dev": "npm run dev -w frontend",
     "build": "npm run build --workspaces --if-present",
@@ -13,12 +14,18 @@
     "tauri:dev": "npm run tauri:dev -w frontend",
     "tauri:build": "npm run tauri:build -w frontend",
     "tauri:android:dev": "npm run tauri:android:dev -w frontend",
-    "tauri:android:build": "npm run tauri:android:build -w frontend"
+    "tauri:android:build": "npm run tauri:android:build -w frontend",
+    "tauri:serve": "npm run tauri:serve -w frontend",
+    "tauri:serve-mobile": "npm run tauri:serve-mobile -w frontend",
+    "electron:dev": "concurrently \"npm run dev\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron:start": "electron ."
   },
   "devDependencies": {
     "concurrently": "^9.2.1",
+    "electron": "^43.4.0",
     "esbuild": "^0.28.1",
     "nodemon": "^3.1.14",
-    "ts-morph": "^28.0.0"
+    "ts-morph": "^28.0.0",
+    "wait-on": "^9.1.0"
   }
 }
