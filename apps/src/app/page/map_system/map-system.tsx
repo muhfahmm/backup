@@ -122,6 +122,22 @@ export default function MapPage() {
         return () => window.removeEventListener('mouseup', handleGlobalMouseUp);
     }, []);
 
+    // Close navigation menu modals if inbox, gift, or news modal is opened
+    useEffect(() => {
+        if (inboxModalOpen || giftModalOpen || newsModalOpen) {
+            setActiveMenu("Peta Taktis");
+        }
+    }, [inboxModalOpen, giftModalOpen, newsModalOpen]);
+
+    // Close inbox, gift, and news modals if a navigation menu modal is opened
+    useEffect(() => {
+        if (!nonModalMenus.includes(activeMenu)) {
+            setInboxModalOpen(false);
+            setGiftModalOpen(false);
+            setNewsModalOpen(false);
+        }
+    }, [activeMenu]);
+
     // Initialize high-performance simulation clock on mount
     useEffect(() => {
         const manager = new SimulationTimeManager(

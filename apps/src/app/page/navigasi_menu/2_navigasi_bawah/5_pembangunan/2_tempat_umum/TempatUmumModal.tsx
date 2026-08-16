@@ -323,7 +323,7 @@ export default function TempatUmumModal({
   };
 
   const buildingCons = totalBuildingElectricityConsumption();
-  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const populationDemand = 0;
   const estimatedConsumption = Math.max(0, Math.round(buildingCons > 0 ? buildingCons + populationDemand : totalProductionMW * 0.7 + populationDemand));
 
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
@@ -606,6 +606,7 @@ export default function TempatUmumModal({
             cost={cost}
             waktuPembangunan={bMeta?.waktu_pembangunan}
             dampakKepuasan={1.0}
+            konsumsiListrik={bMeta?.konsumsi_listrik}
             requirements={requirements}
             materialStocks={materialStocks}
             anggaran={Number(countryDetail?.anggaran) || 0}

@@ -502,7 +502,7 @@ export default function ProduksiModal({
     return total;
   }, [metadata, countryDetail]);
 
-  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const populationDemand = 0;
   const estimatedConsumption = Math.max(0, Math.round(totalBuildingElectricityConsumption > 0 ? totalBuildingElectricityConsumption + populationDemand : totalProductionMW * 0.7 + populationDemand));
 
   const ongoingConstructions = countryDetail?.ongoingConstructions || [];
@@ -608,6 +608,7 @@ export default function ProduksiModal({
             waktuPembangunan={bMeta?.waktu_pembangunan}
             produksiPerHari={bMeta?.produksi}
             produksiLabel={bMeta?.label || selectedBuilding.label}
+            konsumsiListrik={bMeta?.konsumsi_listrik}
             requirements={selectedBuildingRequirements?.requirements || []}
             materialStocks={materialStocks}
             anggaran={Number(countryDetail?.anggaran) || 0}

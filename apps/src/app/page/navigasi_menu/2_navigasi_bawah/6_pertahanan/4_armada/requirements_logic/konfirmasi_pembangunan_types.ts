@@ -17,6 +17,7 @@ export interface KonfirmasiPembangunanModalProps {
   dampakKepuasan?: number;
   produksiPerHari?: number;
   produksiLabel?: string;
+  konsumsiListrik?: number;
   requirements: MaterialRequirement[];
   materialStocks: Record<string, number>;
   anggaran: number;

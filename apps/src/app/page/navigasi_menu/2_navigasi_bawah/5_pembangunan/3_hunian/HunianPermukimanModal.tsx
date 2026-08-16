@@ -332,7 +332,7 @@ export default function HunianPermukimanModal({
   };
 
   const buildingCons = totalBuildingElectricityConsumption();
-  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const populationDemand = 0;
   const estimatedConsumption = Math.max(
     0,
     Math.round(
@@ -636,6 +636,7 @@ export default function HunianPermukimanModal({
             cost={cost}
             waktuPembangunan={bMeta?.waktu_pembangunan}
             dampakKepuasan={1.5}
+            konsumsiListrik={bMeta?.konsumsi_listrik}
             requirements={requirements}
             materialStocks={materialStocks}
             anggaran={Number(countryDetail?.anggaran) || 0}

@@ -312,6 +312,7 @@ export default function InfrastrukturMiliter({
       buildingDescription: selectedForBuild.label,
       cost: buildingData.biaya_pembangunan || 0,
       waktuPembangunan: buildingData.waktu_pembangunan || 0,
+      konsumsiListrik: buildingData.konsumsi_listrik,
       requirements: [] as any[],
       materialStocks: materialStocks,
       anggaran: Number(countryDetail?.anggaran) || 0,

@@ -224,6 +224,7 @@ export default function ArmadaPolisi({ countryDetail, setCountryDetail: _setCoun
           buildingDescription={selectedForBuild.label}
           cost={polisiData[selectedForBuild.key as keyof typeof polisiData].biaya_pembangunan}
           waktuPembangunan={polisiData[selectedForBuild.key as keyof typeof polisiData].waktu_pembangunan}
+          konsumsiListrik={polisiData[selectedForBuild.key as keyof typeof polisiData].konsumsi_listrik}
           requirements={[]}
           materialStocks={{}}
           anggaran={Number(countryDetail?.anggaran) || 0}

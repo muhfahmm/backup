@@ -124,7 +124,7 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
   };
 
   const userBuildingConsumption = calculateBuildingElectricityConsumption(countryDetail);
-  const populationDemand = (countryDetail?.jumlah_penduduk ?? 0) / 50000;
+  const populationDemand = 0;
   const estimatedConsumptionMW = Math.max(0, Math.round(userBuildingConsumption + populationDemand));
   const balanceMW = totalCapacityMW - estimatedConsumptionMW;
 
@@ -164,7 +164,7 @@ export default function KelistrikanModal({ isOpen, onClose, countryDetail, setCo
 
     const buildingConsumption = calculateBuildingElectricityConsumption(country);
     const population = Number(country?.jumlah_penduduk) || 0;
-    const populationDemand = population / 50000;
+    const populationDemand = 0;
     const totalConsumptionCalc = buildingConsumption > 0
       ? buildingConsumption + populationDemand
       : (totalProduction * 0.7) + populationDemand;

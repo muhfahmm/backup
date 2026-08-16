@@ -14,6 +14,7 @@ export default function KonfirmasiArmadaPolisiModal({
   dampakKepuasan,
   produksiPerHari,
   produksiLabel,
+  konsumsiListrik,
   requirements,
   materialStocks,
   anggaran,
@@ -134,6 +135,20 @@ export default function KonfirmasiArmadaPolisiModal({
                 <span>Dampak ke Kepuasan:</span>
                 <span className="text-emerald-700 font-bold">+{dampakKepuasan.toFixed(1)}</span>
               </div>
+            )}
+
+            {/* Kondisional Listrik */}
+            {konsumsiListrik !== undefined && konsumsiListrik !== null && (
+              <>
+                <div className="flex justify-between">
+                  <span>Konsumsi Listrik per bangunan:</span>
+                  <span className="text-[#2e261a] font-semibold">{konsumsiListrik} MW</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Konsumsi Listrik Total ({buildQuantity} unit):</span>
+                  <span className="text-[#2e261a] font-semibold">{(konsumsiListrik * buildQuantity).toFixed(4).replace(/\.?0+$/, '')} MW</span>
+                </div>
+              </>
             )}
 
             {requirements && requirements.length > 0 ? (

@@ -162,7 +162,7 @@ export function calculateListrikScore(countryDetail: any, metadata: any): number
   );
 
   const userBuildingConsumption = calculateBuildingElectricityConsumption(countryDetail, metadata);
-  const populationDemand = (population || 0) / 50000;
+  const populationDemand = 0;
   const estimatedConsumptionMW = Math.max(0, Math.round(userBuildingConsumption + populationDemand));
 
   if (estimatedConsumptionMW <= 0) return 50;
