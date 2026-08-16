@@ -80,6 +80,7 @@ interface ModalsKonfirmasiBeliProps {
   partners: TradePartner[];
   currentDate?: Date;
   initialPartnerName?: string;
+  prefetchedAllCountries?: any[];
 }
 
 // --- HARGA DEFAULT PASAR (BERLAKU UNTUK BELI) ---
@@ -190,7 +191,8 @@ export default function ModalsKonfirmasiBeli({
   setCountryDetail, 
   partners,
   currentDate,
-  initialPartnerName
+  initialPartnerName,
+  prefetchedAllCountries
 }: ModalsKonfirmasiBeliProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -226,15 +228,29 @@ export default function ModalsKonfirmasiBeli({
       return;
     }
 
+    if (lastCountryRef.current !== targetCountry) {
+      partnerStartDateRef.current = null;
+      lastCountryRef.current = targetCountry;
+    }
+
+    // Check if we already have it in prefetchedAllCountries to show immediately!
+    const matched = prefetchedAllCountries?.find(c => {
+      const cName = (c.name_id || c.name_en || c.nama || c.country || '').toLowerCase().trim();
+      return cName === targetCountry.toLowerCase().trim();
+    });
+
+    if (matched) {
+      setPartnerDataRaw(matched);
+      if (!partnerStartDateRef.current) {
+        partnerStartDateRef.current = currentDate ? formatDate(currentDate) : formatDate(new Date());
+      }
+      return;
+    }
+
     const pathEntry = (countryPaths as Record<string, string>)[targetCountry];
     if (!pathEntry) {
       setPartnerDataRaw(null);
       return;
-    }
-
-    if (lastCountryRef.current !== targetCountry) {
-      partnerStartDateRef.current = null;
-      lastCountryRef.current = targetCountry;
     }
 
     const fetchData = async () => {
@@ -256,13 +272,27 @@ export default function ModalsKonfirmasiBeli({
     };
 
     fetchData();
-  }, [isOpen, targetCountry, currentDate]);
+  }, [isOpen, targetCountry, currentDate, prefetchedAllCountries]);
+
+  // Initialize game_start_date in countryDetail if not present to have a persistent simulation start date
+  useEffect(() => {
+    if (isOpen && countryDetail && !countryDetail.game_start_date && currentDate) {
+      setCountryDetail(prev => {
+        if (!prev) return prev;
+        if (prev.game_start_date) return prev;
+        return {
+          ...prev,
+          game_start_date: formatDate(currentDate)
+        };
+      });
+    }
+  }, [isOpen, countryDetail, currentDate, setCountryDetail]);
 
   const partnerData = useMemo(() => {
     if (!partnerDataRaw) return null;
-    const baseDate = partnerStartDateRef.current || formatDate(currentDate || new Date());
-    return normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, new Date(baseDate));
-  }, [partnerDataRaw]);
+    const gameStartDate = (countryDetail?.game_start_date as string) || (currentDate ? formatDate(currentDate) : formatDate(new Date()));
+    return normalizePartnerBuildDates(partnerDataRaw, ALL_IMPORT_KEYS, new Date(gameStartDate));
+  }, [partnerDataRaw, countryDetail?.game_start_date, currentDate]);
 
   // --- EFEK UPDATE HARGA PASAR SETIAP HARI ---
   useEffect(() => {
@@ -383,12 +413,16 @@ export default function ModalsKonfirmasiBeli({
       finalBuildDate = formatDate(yesterday);
     }
 
-    return calculateProductionIncrement(
+    const baseProduction = calculateProductionIncrement(
       bMeta.produksi,
       buildingCount,
       finalBuildDate,
       currentDateStr
     );
+
+    const soldCount = Number(countryDetail?.[`total_sold_${effectiveSelectedProduct}`]) || 0;
+    const boughtCount = Number(countryDetail?.[`total_bought_${effectiveSelectedProduct}`]) || 0;
+    return Math.max(0, baseProduction + boughtCount - soldCount);
   }, [effectiveSelectedProduct, currentDate, countryDetail, findMeta]);
 
   const partnerProduction = useMemo(() => {
@@ -402,15 +436,25 @@ export default function ModalsKonfirmasiBeli({
     const pBuildDateKey = `build_date_${effectiveSelectedProduct}`;
     const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
     const currentDateStr = formatDate(currentDate);
-    const pFinalBuildDate = typeof pBuildDate === 'string' && pBuildDate ? pBuildDate : currentDateStr;
+    let pFinalBuildDate: string;
+    if (typeof pBuildDate === 'string' && pBuildDate) {
+      pFinalBuildDate = pBuildDate;
+    } else {
+      const thirtyDaysAgo = new Date(currentDate);
+      thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+      pFinalBuildDate = formatDate(thirtyDaysAgo);
+    }
 
-    return calculateProductionIncrement(
+    const basePartnerProd = calculateProductionIncrement(
       pMeta.produksi,
       pBuildingCount,
       pFinalBuildDate,
       currentDateStr
     );
-  }, [effectiveSelectedProduct, currentDate, partnerData, findMeta]);
+
+    const partnerSold = Number(countryDetail?.[`partner_sold_${targetCountry}_${effectiveSelectedProduct}`]) || 0;
+    return Math.max(0, basePartnerProd - partnerSold);
+  }, [effectiveSelectedProduct, currentDate, partnerData, findMeta, countryDetail, targetCountry]);
 
   // --- EFEK INISIALISASI PRODUK DAN NEGARA ---
   useEffect(() => {
@@ -568,14 +612,35 @@ export default function ModalsKonfirmasiBeli({
     const detail = countryDetail ?? {};
     const currentBudget = typeof detail.anggaran === "number" ? detail.anggaran : 0;
 
+    if (quantity > partnerProduction) {
+      alert(`Stok mitra tidak mencukupi! Stok tersedia hanya ${partnerProduction.toLocaleString("id-ID")} unit.`);
+      return;
+    }
+
     if (currentBudget < totalPrice) {
       alert(`Kas Negara tidak mencukupi! Butuh ${totalPrice.toLocaleString("id-ID")} EM.`);
       return;
     }
 
-    setCountryDetail({ ...detail, anggaran: currentBudget - totalPrice });
+    const boughtKey = `total_bought_${effectiveSelectedProduct}`;
+    const currentBought = Number(detail[boughtKey]) || 0;
+
+    const partnerSoldKey = `partner_sold_${targetCountry}_${effectiveSelectedProduct}`;
+    const currentPartnerSold = Number(detail[partnerSoldKey]) || 0;
+
+    // Simpan juga accumulatedKey untuk kecocokan kode lama
+    const accumulatedKey = `accumulated_${effectiveSelectedProduct}`;
+
+    setCountryDetail({ 
+      ...detail, 
+      anggaran: currentBudget - totalPrice,
+      [boughtKey]: currentBought + quantity,
+      [partnerSoldKey]: currentPartnerSold + quantity,
+      [accumulatedKey]: stockAvailable + quantity
+    });
+
     onConfirm(totalPrice, `${quantity}x Satuan`);
-    alert(`Berhasil membeli ${quantity} ${formatLabel(selectedProduct)} dari ${effectiveSelectedCountry}.`);
+    alert(`Berhasil membeli ${quantity} ${formatLabel(effectiveSelectedProduct)} dari ${targetCountry}.`);
     onClose();
   };
 
@@ -656,9 +721,9 @@ export default function ModalsKonfirmasiBeli({
 
           <div className="flex flex-col gap-1">
             <div className="flex justify-between items-center pt-1 pb-0">
-              <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(selectedProduct)} (Mitra):</span>
+              <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Bangunan {formatLabel(effectiveSelectedProduct)} (Mitra):</span>
               <span className="text-sm font-black text-[#2e261a]">
-                {Number(partnerData?.[selectedProduct] || 0).toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                {Number(partnerData?.[effectiveSelectedProduct] || 0).toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
               </span>
             </div>
             <div className="flex justify-between items-center pt-0 pb-1">

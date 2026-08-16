@@ -27,6 +27,7 @@ interface ModalProps {
   setCountryDetail: (detail: ModalCountryDetail | ((prev: ModalCountryDetail) => ModalCountryDetail)) => void;
   currentDate?: Date;
   resetTrigger?: boolean;
+  prefetchedAllCountries?: any[];
 }
 
 export interface TradeHistoryItem {
@@ -37,7 +38,15 @@ export interface TradeHistoryItem {
   negara: string;
 }
 
-export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCountryDetail, currentDate, resetTrigger }: ModalProps) {
+export default function PerdaganganModal({ 
+  isOpen, 
+  onClose, 
+  countryDetail, 
+  setCountryDetail, 
+  currentDate, 
+  resetTrigger,
+  prefetchedAllCountries 
+}: ModalProps) {
   const [historyFilter, setHistoryFilter] = useState<"semua" | "jual" | "beli">("semua");
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
   const [historyResetVersion, setHistoryResetVersion] = useState(0);
@@ -240,6 +249,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         partners={allPartners}
         currentDate={currentDate}
         initialPartnerName={activeTradePartner?.nama_negara}
+        prefetchedAllCountries={prefetchedAllCountries}
       />
 
       <JualModalsMenu 
@@ -251,6 +261,7 @@ export default function PerdaganganModal({ isOpen, onClose, countryDetail, setCo
         currentDate={currentDate}
         partners={allPartners}
         initialPartnerName={activeTradePartner?.nama_negara}
+        prefetchedAllCountries={prefetchedAllCountries}
       />
 
       <MitraModalsMenu 

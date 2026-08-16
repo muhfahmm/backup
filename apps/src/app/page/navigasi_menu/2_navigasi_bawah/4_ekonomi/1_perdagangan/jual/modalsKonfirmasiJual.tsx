@@ -80,6 +80,7 @@ interface JualModalsMenuProps {
   currentDate?: Date;
   partners: TradePartner[];
   initialPartnerName?: string;
+  prefetchedAllCountries?: any[];
 }
 
 // --- HARGA DEFAULT PER KOMODITAS ---
@@ -235,7 +236,7 @@ const generateCandleData = (
   return data.reverse();
 };
 
-export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate, partners, initialPartnerName }: JualModalsMenuProps) {
+export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCountryDetail, onConfirm, currentDate, partners, initialPartnerName, prefetchedAllCountries }: JualModalsMenuProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
   const [loadingMetadata, setLoadingMetadata] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -260,6 +261,20 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     const name = selectedCountry || partners[0]?.nama_negara;
     if (!name) {
       setPartnerData(null);
+      return;
+    }
+
+    // Check if we already have it in prefetchedAllCountries to show immediately!
+    const matched = prefetchedAllCountries?.find(c => {
+      const cName = (c.name_id || c.name_en || c.nama || c.country || '').toLowerCase().trim();
+      return cName === name.toLowerCase().trim();
+    });
+
+    if (matched) {
+      setPartnerData(matched);
+      if (!partnerStartDateRef.current) {
+        partnerStartDateRef.current = currentDate ? formatDate(currentDate) : formatDate(new Date());
+      }
       return;
     }
 
@@ -288,7 +303,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     };
 
     fetchData();
-  }, [selectedCountry, partners, currentDate]);
+  }, [selectedCountry, partners, currentDate, prefetchedAllCountries]);
 
   const findMeta = useCallback((key: string) => {
     if (!metadata) return undefined;
@@ -324,12 +339,16 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
       finalBuildDate = formatDate(yesterday);
     }
 
-    return calculateProductionIncrement(
+    const baseProduction = calculateProductionIncrement(
       bMeta.produksi,
       buildingCount,
       finalBuildDate,
       currentDateStr
     );
+
+    const soldCount = Number(countryDetail?.[`total_sold_${selectedProduct}`]) || 0;
+    const boughtCount = Number(countryDetail?.[`total_bought_${selectedProduct}`]) || 0;
+    return Math.max(0, baseProduction + boughtCount - soldCount);
   }, [selectedProduct, currentDate, countryDetail, findMeta]);
 
   const partnerProduction = useMemo(() => {
@@ -451,6 +470,8 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
   const currentPrice = useMemo(() => {
     return marketPrices[selectedProduct] || 0;
   }, [marketPrices, selectedProduct]);
+
+  const totalPrice = currentPrice * quantity;
 
   // --- EFEK: Update harga pasar setiap hari ---
   useEffect(() => {
@@ -641,6 +662,9 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     }
 
     const totalPendapatan = currentPrice * quantity;
+    const soldKey = `total_sold_${selectedProduct}`;
+    const currentSold = Number(detail[soldKey]) || 0;
+
     const accumulatedKey = `accumulated_${selectedProduct}`;
     const currentAccumulated = Number(detail[accumulatedKey] || stockAvailable);
     const newAccumulated = Math.max(0, currentAccumulated - quantity);
@@ -648,6 +672,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
     setCountryDetail({ 
       ...detail, 
       anggaran: currentBudget + totalPendapatan,
+      [soldKey]: currentSold + quantity,
       [accumulatedKey]: newAccumulated 
     });
 
@@ -741,7 +766,7 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
                 <div className="flex justify-between items-center pt-0 pb-1">
                   <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Produksi Mitra (Total):</span>
                   <span className="text-sm font-black text-[#2e261a]">
-                    {stockAvailable > 0 ? partnerProduction.toLocaleString('id-ID') : '0'} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                    {(stockAvailable > 0 ? partnerProduction : 0).toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
                   </span>
                 </div>
               </div>
@@ -772,6 +797,15 @@ export default function JualModalsMenu({ isOpen, onClose, countryDetail, setCoun
                 <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Harga / unit:</span>
                 <div className="flex items-center gap-1.5">
                   <span className="text-lg font-black text-[#2e261a]">{currentPrice.toLocaleString("id-ID")}</span>
+                  <span className="text-[10px] text-[#8b7e66] font-bold mt-0.5">EM</span>
+                </div>
+              </div>
+
+              {/* Tampilkan Total Pendapatan */}
+              <div className="flex justify-between items-center border-t border-[#C4B49C]/20 pt-2 mt-1">
+                <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Total Pendapatan :</span>
+                <div className="flex items-center gap-1.5">
+                  <span className="text-lg font-black text-[#2e261a]">{totalPrice.toLocaleString("id-ID")}</span>
                   <span className="text-[10px] text-[#8b7e66] font-bold mt-0.5">EM</span>
                 </div>
               </div>

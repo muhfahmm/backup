@@ -229,6 +229,7 @@ function ModalsManager({
           setCountryDetail={setCountryDetail}
           currentDate={currentDate}
           resetTrigger={resetTrigger}
+          prefetchedAllCountries={prefetchedAllCountries || undefined}
         />
       );
     case "Menu:Pajak":
