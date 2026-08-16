@@ -12,6 +12,7 @@ import { SimulationTimeManager, createSimulationCalendar } from '../time_control
 import { handleGameRestart } from '../time_controllers';
 import { GameMenuModal } from '../navbar/GameMenuModal';
 import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
+import { ModalsPeringatanPeringkat } from '../navbar/modalsPeringatanPeringkat';
 import { Navbar } from '../navbar/Navbar';
 import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
@@ -84,6 +85,22 @@ export default function MapPage() {
             });
         }
     }, [presidentRating, countryDetail?.presidentRating]);
+
+    const [isRatingWarningOpen, setIsRatingWarningOpen] = useState(false);
+    const [hasShownRatingWarning, setHasShownRatingWarning] = useState(false);
+
+    // Tampilkan modal peringatan ketika peringkat turun ke 10 atau kurang
+    useEffect(() => {
+        if (presidentRating <= 10) {
+            if (!hasShownRatingWarning) {
+                setIsRatingWarningOpen(true);
+                setHasShownRatingWarning(true);
+            }
+        } else {
+            // Reset trigger jika peringkat naik kembali di atas 10
+            setHasShownRatingWarning(false);
+        }
+    }, [presidentRating, hasShownRatingWarning]);
 
     const nonModalMenus = [
         "",
@@ -1193,6 +1210,13 @@ export default function MapPage() {
                 isOpen={isRestartConfirmOpen}
                 onClose={() => setIsRestartConfirmOpen(false)}
                 onConfirm={handleRestart}
+            />
+
+            {/* Peringatan Peringkat Kritis Modal */}
+            <ModalsPeringatanPeringkat
+                isOpen={isRatingWarningOpen}
+                onClose={() => setIsRatingWarningOpen(false)}
+                currentRating={presidentRating}
             />
 
         </main>

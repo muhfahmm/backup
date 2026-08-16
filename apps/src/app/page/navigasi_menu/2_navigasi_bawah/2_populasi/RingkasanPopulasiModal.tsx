@@ -83,7 +83,8 @@ function hitungDemografi(detail: CountryDetail, countryName?: string) {
     detail.jumlah_klinik ?? 0,
     detail.program_insentif_anak ?? false,
     detail.angka_pernikahan ?? 0.05,
-    detail.tingkat_pendidikan ?? 0.5
+    detail.tingkat_pendidikan ?? 0.5,
+    detailWithDefaults  // ← sama persis dengan calculateDailyPopulationChange agar konsisten dengan Navbar
   );
 
   const dailyDeaths = calculateDailyDeaths(populasi, lifeExpectancy, securityLevel, detailWithDefaults);
