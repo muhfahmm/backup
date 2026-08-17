@@ -12,7 +12,8 @@ import { SimulationTimeManager, createSimulationCalendar } from '../time_control
 import { handleGameRestart } from '../time_controllers';
 import { GameMenuModal } from '../navbar/GameMenuModal';
 import { ConfirmRestartModal } from '../navbar/ConfirmRestartModal';
-import { ModalsPeringatanPeringkat } from '../navbar/modalsPeringatanPeringkat';
+import { ModalsPeringatanPeringkat } from './menu_notifikasi/notifikasi_peringatan/modalsPeringatanPeringkat';
+import ModalsKudeta, { KudetaType } from './menu_notifikasi/notifikasi_peringatan/modalsKudeta';
 import { Navbar } from '../navbar/Navbar';
 import BottomNav from '../navigasi_menu/2_navigasi_bawah/BottomNav';
 import ModalsManager from '../navigasi_menu/2_navigasi_bawah/ModalsManager';
@@ -106,6 +107,10 @@ export default function MapPage() {
     const [hasShownRatingWarning, setHasShownRatingWarning] = useState(false);
     const [warningType, setWarningType] = useState<"peringkat" | "kepuasan" | "kesejahteraan">("peringkat");
     const [warningValue, setWarningValue] = useState<number>(50);
+
+    const [isKudetaOpen, setIsKudetaOpen] = useState(false);
+    const [kudetaType, setKudetaType] = useState<KudetaType>("peringkat");
+    const [kudetaValue, setKudetaValue] = useState<number>(1);
     // Tampilkan modal peringatan ketika peringkat, kepuasan, atau kesejahteraan turun ke 10 atau kurang
     // Serta trigger notifikasi peringatan dini di inbox saat mencapai threshold (25-20-15)
     useEffect(() => {
@@ -175,10 +180,32 @@ export default function MapPage() {
             }
         }
 
-        // 2. CRITICAL MODAL WARNINGS
+        // 2. CRITICAL MODAL WARNINGS & KUDETA (GAME OVER)
         let triggerWarning = false;
         let type: "peringkat" | "kepuasan" | "kesejahteraan" = "peringkat";
         let value = 50;
+
+        // Cek Kudeta terlebih dahulu (titik didih di angka <= 1)
+        if (presidentRating <= 1 || kepuasanVal <= 1 || kesejahteraanVal <= 1) {
+            let kType: KudetaType = "peringkat";
+            let kVal = presidentRating;
+            if (kepuasanVal <= 1) {
+                kType = "kepuasan";
+                kVal = Math.round(kepuasanVal);
+            } else if (kesejahteraanVal <= 1) {
+                kType = "kesejahteraan";
+                kVal = Math.round(kesejahteraanVal);
+            }
+
+            setKudetaType(kType);
+            setKudetaValue(kVal);
+            setIsKudetaOpen(true);
+            setIsPaused(true);
+            if (timeManagerRef.current) {
+                timeManagerRef.current.setPaused(true);
+            }
+            return;
+        }
 
         if (presidentRating <= 10) {
             triggerWarning = true;
@@ -1137,6 +1164,7 @@ export default function MapPage() {
                   setActiveMenu("Action:NaikkanKepuasan");
                 } else if (notif.type === 'kesejahteraan') {
                   // → Indeks Kesejahteraan, tab "Naikkan Kesejahteraan"
+                  setKesejahteraanInitialTab("naikkan"); // 🔥 Set tab ke Naikkan dulu
                   setKesejahteraanDeepLink(true);
                   setActiveMenu("Dashboard:Populasi:Overview");
                 }
@@ -1207,6 +1235,8 @@ export default function MapPage() {
                 setTempatUmumDeepLink={setTempatUmumDeepLink}
                 kesejahteraanDeepLink={kesejahteraanDeepLink}
                 setKesejahteraanDeepLink={setKesejahteraanDeepLink}
+                kesejahteraanInitialTab={kesejahteraanInitialTab}
+                setKesejahteraanInitialTab={setKesejahteraanInitialTab}
                 onOpenCountryDetail={(targetCountry: string) => {
                     setCountryDetailModalName(targetCountry);
                     setCountryDetailModalOpen(true);
@@ -1458,6 +1488,18 @@ export default function MapPage() {
                 currentRating={presidentRating}
                 warningType={warningType}
                 currentValue={warningValue}
+            />
+
+            {/* Modals Kudeta (Game Over) */}
+            <ModalsKudeta
+                isOpen={isKudetaOpen}
+                kudetaType={kudetaType}
+                currentValue={kudetaValue}
+                countryName={selectedCountry?.country}
+                onRestart={() => {
+                    handleRestart();
+                    setIsKudetaOpen(false);
+                }}
             />
 
         </main>

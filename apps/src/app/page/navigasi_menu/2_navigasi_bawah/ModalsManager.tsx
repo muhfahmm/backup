@@ -96,6 +96,7 @@ function ModalsManager({
   kesejahteraanDeepLink,
   setKesejahteraanDeepLink,
   kesejahteraanInitialTab,
+  setKesejahteraanInitialTab,
   onOpenCountryDetail,
   onOpenPlayerDetail,
   presidentRating = 50,
@@ -191,6 +192,7 @@ function ModalsManager({
           isOpen={true}
           onClose={() => {
             setKesejahteraanDeepLink?.(false);
+            setKesejahteraanInitialTab?.("statistik"); // Reset tab setelah ditutup
             onClose();
           }}
           countryDetail={countryDetail}
