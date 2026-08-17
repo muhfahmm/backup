@@ -6,6 +6,8 @@ import { NotificationMessage } from './logic/1_notifikasi_pokok/1_kepuasan_dan_p
 import KepuasanNotification from './logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/1_kepuasan/kepuasanNotification';
 import PeringkatNotification from './logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/2_peringkat/peringkatNotification';
 import KesejahteraanNotification from './logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/3_kesejahteraan/kesejahteraanNotification';
+import TradeBeliNotification from './logic/1_notifikasi_pokok/4_perdagangan/2_beli/tradeBeliNotification';
+import TradeJualNotification from './logic/1_notifikasi_pokok/4_perdagangan/1_jual/tradeJualNotification';
 
 interface TopLeftIconProps {
   onClick?: () => void;
@@ -97,10 +99,30 @@ export default function TopLeftIcon({
                     const handleRedirect = onRedirectClick ? () => onRedirectClick(notif) : undefined;
                     switch (notif.type) {
                       case 'kepuasan':
+                        if ((notif as any).tradeType === 'jual') {
+                          return (
+                            <TradeJualNotification
+                              key={notif.id}
+                              notification={notif}
+                              onAccept={handleAction}
+                              onReject={handleRedirect}
+                            />
+                          );
+                        }
                         return <KepuasanNotification key={notif.id} notification={notif} onActionClick={handleAction} onRedirectClick={handleRedirect} />;
                       case 'peringkat':
                         return <PeringkatNotification key={notif.id} notification={notif} onActionClick={handleAction} onRedirectClick={handleRedirect} />;
                       case 'kesejahteraan':
+                        if ((notif as any).tradeType === 'beli') {
+                          return (
+                            <TradeBeliNotification
+                              key={notif.id}
+                              notification={notif}
+                              onAccept={handleAction}
+                              onReject={handleRedirect}
+                            />
+                          );
+                        }
                         return <KesejahteraanNotification key={notif.id} notification={notif} onActionClick={handleAction} onRedirectClick={handleRedirect} />;
                       default:
                         return (

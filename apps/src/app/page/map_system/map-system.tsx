@@ -34,6 +34,9 @@ import TopRightNewsIcon from './menu_notifikasi/news/newsModals';
 import { NotificationMessage, getKepuasanWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/1_kepuasan/kepuasanLogic';
 import { getPeringkatWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/2_peringkat/peringkatLogic';
 import { getKesejahteraanWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/3_kesejahteraan/kesejahteraanLogic';
+import { getTradeAgreementsForCountry } from '../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
+import { generateAITradeBeliNotification } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/4_perdagangan/2_beli/tradeBeliLogic';
+import { generateAITradeJualNotification } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/4_perdagangan/1_jual/tradeJualLogic';
 
 interface Country {
     id: number;
@@ -239,6 +242,75 @@ export default function MapPage() {
             setHasShownRatingWarning(false);
         }
     }, [presidentRating, countryDetail?.kepuasan, countryDetail?.kesejahteraan, hasShownRatingWarning, hasShownEarlyWarning, currentDate]);
+
+    // --- TIMED WEEKLY TRADE OFFER NOTIFICATIONS (1-2 PER WEEK) ---
+    useEffect(() => {
+        if (!currentDate || !countryDetail) return;
+        const gameStartStr = countryDetail.game_start_date as string | undefined;
+        if (!gameStartStr) return;
+
+        // Hitung selisih hari simulasi kalender
+        const startParts = gameStartStr.split("-").map(Number);
+        const startDate = new Date(startParts[0], startParts[1] - 1, startParts[2]);
+        const currentOnlyDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+        const diffDays = Math.round((currentOnlyDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24));
+
+        if (diffDays < 7) return;
+
+        // Cari index hari dalam seminggu (misal hari ke 3 dan 6 memicu)
+        const dayInWeek = diffDays % 7;
+        const currentWeekIndex = Math.floor(diffDays / 7);
+
+        // Track last notification sent days to prevent duplicate sends on the same day
+        const globalLastSentDay = Number(countryDetail.last_trade_notification_day ?? -1);
+        if (diffDays === globalLastSentDay) return;
+
+        // Pemicu: 1-2 kali per minggu (hari ke-2 dan hari ke-5 di setiap minggu)
+        if (dayInWeek === 2 || dayInWeek === 5) {
+            const myCountry = countryDetail.country || countryDetail.nama || "";
+            const partners = getTradeAgreementsForCountry(myCountry);
+            if (partners.length === 0) return;
+
+            // Ambil partner acak
+            const targetPartner = partners[Math.floor(Math.random() * partners.length)];
+            const partnerName = targetPartner.mitra;
+
+            // Cari produk yang paling menguntungkan (misal Uranium, Semikonduktor, Logam Tanah Jarang)
+            const premiumProducts = ["uranium", "semikonduktor", "logam_tanah_jarang", "mobil", "litium"];
+            const productKey = premiumProducts[Math.floor(Math.random() * premiumProducts.length)];
+            
+            // Generate random trade quantities and competitive prices
+            const quantity = Math.floor(Math.random() * 300) + 20;
+            const prices: Record<string, number> = {
+                uranium: 8000, semikonduktor: 4000, logam_tanah_jarang: 5000, mobil: 15000, litium: 3000
+            };
+            const basePrice = prices[productKey] || 100;
+            const pricePerUnit = Math.round(basePrice * (0.85 + Math.random() * 0.3) * 100) / 100;
+
+            const yearStr = currentDate.getFullYear();
+            const monthStr = String(currentDate.getMonth() + 1).padStart(2, '0');
+            const dayStr = String(currentDate.getDate()).padStart(2, '0');
+            const dateStr = `${yearStr}-${monthStr}-${dayStr}`;
+
+            // Selang-seling tipe tawaran: Jual (AI beli dari User) atau Beli (AI jual ke User)
+            const isAIBuying = Math.random() > 0.5;
+            let newNotif: any;
+
+            if (isAIBuying) {
+                // AI Ingin Membeli Produk User (Jual)
+                newNotif = generateAITradeJualNotification(partnerName, productKey, quantity, pricePerUnit, dateStr);
+            } else {
+                // AI Ingin Menjual Produk ke User (Beli)
+                newNotif = generateAITradeBeliNotification(partnerName, productKey, quantity, pricePerUnit, dateStr);
+            }
+
+            setNotifications(prev => [newNotif, ...prev]);
+            setCountryDetail((prev: any) => ({
+                ...prev,
+                last_trade_notification_day: diffDays
+            }));
+        }
+    }, [currentDate, countryDetail, setCountryDetail]);
 
     const nonModalMenus = [
         "",
@@ -1146,6 +1218,52 @@ export default function MapPage() {
               notifications={notifications}
               onClearAll={() => setNotifications([])}
               onActionClick={(notif) => {
+                // Intersep jika ini tawaran transaksi dagang AI
+                const tNotif = notif as any;
+                if (tNotif.tradeType === 'jual') {
+                  // AI Ingin Membeli Produk User (Jual): Tambah Kas, Kurangi Stok User
+                  const myStock = Number(countryDetail?.[tNotif.productKey] || 0);
+                  if (myStock < tNotif.quantity) {
+                    alert(`Gagal menyetujui transaksi! Stok ${tNotif.productKey} Anda hanya ${myStock} unit.`);
+                    return;
+                  }
+                  
+                  const budget = Number(countryDetail?.anggaran || 0);
+                  setCountryDetail((prev: any) => ({
+                    ...prev,
+                    anggaran: budget + tNotif.totalPrice,
+                    [tNotif.productKey]: myStock - tNotif.quantity,
+                    [`total_sold_${tNotif.productKey}`]: Number(prev?.[`total_sold_${tNotif.productKey}`] || 0) + tNotif.quantity
+                  }));
+                  
+                  alert(`Berhasil mengekspor ${tNotif.quantity} unit ${tNotif.productKey} ke ${tNotif.partnerName} senilai ${tNotif.totalPrice.toLocaleString('id-ID')} EM!`);
+                  setNotifications(prev => prev.filter(n => n.id !== notif.id));
+                  setInboxModalOpen(false);
+                  return;
+                }
+
+                if (tNotif.tradeType === 'beli') {
+                  // AI Menjual ke User (Beli): Kurangi Kas, Tambah Stok User
+                  const budget = Number(countryDetail?.anggaran || 0);
+                  if (budget < tNotif.totalPrice) {
+                    alert(`Gagal menyetujui transaksi! Anggaran negara tidak mencukupi.`);
+                    return;
+                  }
+                  
+                  const myStock = Number(countryDetail?.[tNotif.productKey] || 0);
+                  setCountryDetail((prev: any) => ({
+                    ...prev,
+                    anggaran: budget - tNotif.totalPrice,
+                    [tNotif.productKey]: myStock + tNotif.quantity,
+                    [`total_bought_${tNotif.productKey}`]: Number(prev?.[`total_bought_${tNotif.productKey}`] || 0) + tNotif.quantity
+                  }));
+                  
+                  alert(`Berhasil mengimpor ${tNotif.quantity} unit ${tNotif.productKey} dari ${tNotif.partnerName} senilai ${tNotif.totalPrice.toLocaleString('id-ID')} EM!`);
+                  setNotifications(prev => prev.filter(n => n.id !== notif.id));
+                  setInboxModalOpen(false);
+                  return;
+                }
+
                 // Handle notification action click (secondary/informational actions)
                 if (notif.type === 'kepuasan') {
                   setActiveMenu("Sosial & Budaya");
@@ -1158,13 +1276,22 @@ export default function MapPage() {
                 setInboxModalOpen(false);
               }}
               onRedirectClick={(notif) => {
-                // 🔥 Redirect langsung ke menu yang relevan dengan tab yang tepat
+                const tNotif = notif as any;
+                if (tNotif.tradeType === 'jual' || tNotif.tradeType === 'beli') {
+                  // Tolak Tawaran: Hapus notifikasi dari feed
+                  setNotifications(prev => prev.filter(n => n.id !== notif.id));
+                  alert("Penawaran ditolak.");
+                  setInboxModalOpen(false);
+                  return;
+                }
+
+                //  Redirect langsung ke menu yang relevan dengan tab yang tepat
                 if (notif.type === 'kepuasan' || notif.type === 'peringkat') {
                   // → Kepuasan Rakyat, tab "Naikkan Peringkat"
                   setActiveMenu("Action:NaikkanKepuasan");
                 } else if (notif.type === 'kesejahteraan') {
                   // → Indeks Kesejahteraan, tab "Naikkan Kesejahteraan"
-                  setKesejahteraanInitialTab("naikkan"); // 🔥 Set tab ke Naikkan dulu
+                  setKesejahteraanInitialTab("naikkan"); //  Set tab ke Naikkan dulu
                   setKesejahteraanDeepLink(true);
                   setActiveMenu("Dashboard:Populasi:Overview");
                 }
