@@ -1,3 +1,5 @@
+// root dari folder 1_perdagangan
+
 "use client"
 import React, { useMemo, useState, useEffect } from "react";
 import { X, ArrowRightLeft, Info } from "lucide-react";
