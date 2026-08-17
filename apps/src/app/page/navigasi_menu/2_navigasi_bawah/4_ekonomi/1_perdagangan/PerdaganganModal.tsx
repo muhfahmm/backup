@@ -1,12 +1,11 @@
-// root dari folder 1_perdagangan
-
 "use client"
 import React, { useMemo, useState, useEffect } from "react";
-import { X, ArrowRightLeft, Info } from "lucide-react";
+import { X, ArrowRightLeft } from "lucide-react";
 import JualModalsMenu from "./jual/modalsKonfirmasiJual";
 import MitraModalsMenu, { TradePartner } from "./mitra/mitraModalsMenu";
 import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli";
 import { getTradeAgreementsForCountry } from '../../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
+import TawaranPembelianTable from "./tawaran_beli/TawaranPembelianTable";
 
 interface AgreementData {
   no: number;
@@ -40,6 +39,40 @@ export interface TradeHistoryItem {
   negara: string;
 }
 
+// --- Ekspor Interface untuk Tawaran AI ---
+export interface PartnerOffer {
+  id: string;
+  partnerName: string;
+  productKey: string;
+  quantity: number;
+  pricePerUnit: number;
+  totalPrice: number;
+  validUntil: Date;
+}
+
+const DEFAULT_PRICES: Record<string, number> = {
+  uranium: 8000, batu_bara: 100, minyak_bumi: 150, gas_alam: 120, garam: 50,
+  litium: 3000, logam_tanah_jarang: 5000, semikonduktor: 4000, mobil: 15000, sepeda_motor: 5000,
+  semen_beton: 300, kayu: 200, ayam_unggas: 60, sapi_perah: 200,
+  sapi_potong: 180, domba_kambing: 150, padi: 80, gandum: 90, jagung: 70,
+  sayur: 100, umbi: 60, kedelai: 120, kelapa_sawit: 130, kopi: 300,
+  teh: 250, kakao: 350, tebu: 100, karet: 200,
+  udang: 500, mutiara: 1000, ikan: 300, air_mineral: 50,
+  gula: 150, roti: 200, pengolahan_daging: 250, mie_instan: 180, minyak_goreng: 220,
+  susu: 160
+};
+
+const ALL_IMPORT_KEYS = [
+  "uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "litium", "logam_tanah_jarang", "bijih_besi",
+  "semikonduktor", "mobil", "sepeda_motor", "semen_beton", "kayu",
+  "ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing",
+  "padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet",
+  "udang", "mutiara", "ikan",
+  "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"
+];
+
+const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
+
 export default function PerdaganganModal({ 
   isOpen, 
   onClose, 
@@ -53,23 +86,26 @@ export default function PerdaganganModal({
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
   const [historyResetVersion, setHistoryResetVersion] = useState(0);
 
-  // State untuk membuka modal anak
+  // State untuk modal anak
   const [isConfirmBeliOpen, setIsConfirmBeliOpen] = useState(false);
   const [isJualOpen, setIsJualOpen] = useState(false);
   const [isMitraOpen, setIsMitraOpen] = useState(false);
   const [activeTradePartner, setActiveTradePartner] = useState<TradePartner | null>(null);
 
-  // Fungsi trigger untuk Beli dari halaman Mitra
+  // --- State untuk fitur Tawaran AI ---
+  const [isOfferOpen, setIsOfferOpen] = useState(false);
+  const [partnerOffers, setPartnerOffers] = useState<PartnerOffer[]>([]);
+  const [activeOfferProduct, setActiveOfferProduct] = useState<string | undefined>(undefined);
+
+  // Fungsi trigger dari Mitra
   const openBeliModals = (partner: TradePartner) => {
-    console.log("Membuka modal Beli dari mitra:", partner.nama_negara);
     setActiveTradePartner(partner);
+    setActiveOfferProduct(undefined);
     setIsMitraOpen(false);
     setIsConfirmBeliOpen(true);
   };
 
-  // Fungsi trigger untuk Jual dari halaman Mitra
   const openJualModals = (partner: TradePartner) => {
-    console.log("Membuka modal Jual dari mitra:", partner.nama_negara);
     setActiveTradePartner(partner);
     setIsMitraOpen(false);
     setIsJualOpen(true);
@@ -128,7 +164,6 @@ export default function PerdaganganModal({
     }));
   }, [countryDetail?.region, countryName]);
 
-  // Local UI state for partners so we can remove (putus hubungan) without mutating registry files
   const [partnersState, setPartnersState] = useState<TradePartner[]>([]);
 
   useEffect(() => {
@@ -137,7 +172,59 @@ export default function PerdaganganModal({
 
   const handleRemovePartner = (partnerId: number) => {
     setPartnersState((prev) => prev.filter(p => p.id !== partnerId));
-    // Optional: record action/log or update countryDetail if needed
+  };
+
+  // --- PERBAIKAN: Logika AI Menghasilkan Tawaran 30 Hari ke Depan ---
+  useEffect(() => {
+    if (!isOpen || partnersState.length === 0) {
+      setPartnerOffers([]);
+      return;
+    }
+
+    // Simulasi AI: Mitra menawarkan barang secara acak saat modal dibuka
+    const generateOffers = () => {
+      const newOffers: PartnerOffer[] = [];
+      const shuffledPartners = [...partnersState].sort(() => 0.5 - Math.random()).slice(0, 3);
+      
+      shuffledPartners.forEach((partner) => {
+        const randomProduct = ALL_IMPORT_KEYS[Math.floor(Math.random() * ALL_IMPORT_KEYS.length)];
+        const basePrice = DEFAULT_PRICES[randomProduct] || 100;
+        const priceMultiplier = 0.8 + (Math.random() * 0.4);
+        const pricePerUnit = Math.round(basePrice * priceMultiplier * 100) / 100;
+        const quantity = Math.floor(Math.random() * 500) + 10;
+
+        // PERBAIKAN: Tentukan tanggal berlaku 30 hari ke depan berdasarkan SIMULATION CALENDAR (currentDate)
+        const validUntil = currentDate ? new Date(currentDate) : new Date();
+        validUntil.setDate(validUntil.getDate() + 30);
+
+        newOffers.push({
+          id: `offer-${Date.now()}-${partner.id}`,
+          partnerName: partner.nama_negara,
+          productKey: randomProduct,
+          quantity: quantity,
+          pricePerUnit: pricePerUnit,
+          totalPrice: pricePerUnit * quantity,
+          validUntil: validUntil
+        });
+      });
+      setPartnerOffers(newOffers);
+    };
+
+    generateOffers();
+    // Jika tanggal simulasi berubah, tawaran akan dibuat ulang
+  }, [isOpen, partnersState, currentDate]);
+
+  // --- Fungsi Terima Tawaran ---
+  const handleAcceptOffer = (offer: PartnerOffer) => {
+    const targetPartner = partnersState.find(p => p.nama_negara === offer.partnerName);
+    if (targetPartner) {
+      setActiveTradePartner(targetPartner);
+      setActiveOfferProduct(offer.productKey);
+      setIsOfferOpen(false); // Tutup tabel tawaran
+      setIsConfirmBeliOpen(true); // Buka modal beli
+    } else {
+      alert("Mitra tidak ditemukan.");
+    }
   };
 
   const filteredHistory = effectiveHistory.filter((item) => {
@@ -189,7 +276,7 @@ export default function PerdaganganModal({
                 Jual
               </button>
               <button
-                onClick={() => { setActiveTradePartner(null); setIsConfirmBeliOpen(true); }}
+                onClick={() => { setActiveTradePartner(null); setActiveOfferProduct(undefined); setIsConfirmBeliOpen(true); }}
                 className="flex-1 min-w-[150px] py-3 rounded-lg bg-[#2d6e6e] hover:bg-[#255c5c] active:bg-[#1f4f4f] text-[#FAF6EE] text-xs font-bold uppercase tracking-wide cursor-pointer transition-all shadow-sm"
               >
                 Beli
@@ -200,7 +287,23 @@ export default function PerdaganganModal({
               >
                 Jual Semuanya
               </button>
+              <button
+                onClick={() => setIsOfferOpen(!isOfferOpen)}
+                className={`flex-1 min-w-[150px] py-3 rounded-lg text-xs font-bold uppercase tracking-wide cursor-pointer transition-all shadow-sm ${isOfferOpen ? 'bg-amber-700 text-white' : 'bg-[#2d6e6e] hover:bg-[#255c5c] text-[#FAF6EE]'}`}
+              >
+                Tawaran Pembelian
+              </button>
             </div>
+
+            {/* --- PERBAIKAN: Kirim currentDate ke komponen tabel agar bisa mengecek kadaluwarsa --- */}
+            {isOfferOpen && (
+              <TawaranPembelianTable 
+                offers={partnerOffers} 
+                onAcceptOffer={handleAcceptOffer} 
+                onClose={() => setIsOfferOpen(false)} 
+                currentDate={currentDate || new Date()} 
+              />
+            )}
 
             <div className="flex items-center justify-between mb-3">
               <h3 className="text-[10px] font-black text-[#5c3c10] uppercase tracking-widest">Riwayat 180 Hari Terakhir</h3>
@@ -242,15 +345,16 @@ export default function PerdaganganModal({
         </div>
       </div>
 
-      <ModalsKonfirmasiBeli 
-        isOpen={isConfirmBeliOpen} 
-        onClose={() => { setIsConfirmBeliOpen(false); setActiveTradePartner(null); }} 
-        countryDetail={countryDetail} 
-        setCountryDetail={setCountryDetail} 
-        onConfirm={(biaya, kuantitas) => addHistoryEntry("beli", biaya, kuantitas)} 
+      <ModalsKonfirmasiBeli
+        isOpen={isConfirmBeliOpen}
+        onClose={() => { setIsConfirmBeliOpen(false); setActiveTradePartner(null); setActiveOfferProduct(undefined); }}
+        countryDetail={countryDetail}
+        setCountryDetail={setCountryDetail}
+        onConfirm={(biaya, kuantitas) => addHistoryEntry("beli", biaya, kuantitas)}
         partners={allPartners}
         currentDate={currentDate}
         initialPartnerName={activeTradePartner?.nama_negara}
+        initialProductKey={activeOfferProduct}
         prefetchedAllCountries={prefetchedAllCountries}
       />
 
@@ -273,6 +377,20 @@ export default function PerdaganganModal({
         onOpenBeli={openBeliModals}
         onOpenJual={openJualModals}
         onRemovePartner={handleRemovePartner}
+        currentUserCountry={countryName}
+        onAddPartner={(name, region) => {
+          setPartnersState(prev => [
+            ...prev,
+            {
+              id: Date.now(),
+              nama_negara: name,
+              region: region,
+              status_hubungan: "Aktif",
+              total_nilai_dagang: 0,
+              jenis_perjanjian: "Bilateral"
+            }
+          ]);
+        }}
       />
     </>
   );

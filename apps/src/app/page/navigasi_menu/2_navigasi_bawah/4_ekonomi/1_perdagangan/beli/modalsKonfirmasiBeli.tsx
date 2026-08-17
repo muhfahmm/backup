@@ -2,11 +2,19 @@
 
 "use client"
 import React, { useState, useEffect, useMemo, useCallback, useRef } from "react";
-import { X, ChevronDown, Plus, Minus, ShoppingCart } from "lucide-react";
+import { X, Plus, Minus, ShoppingCart } from "lucide-react";
 import { TradePartner } from "../mitra/mitraModalsMenu";
 import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
 import { calculateProductionIncrement, formatDate, normalizePartnerBuildDates } from '@/app/logic/production_logic';
 import countryPaths from '@/app/page/map_system/country-paths.json';
+import { COUNTRIES_DATA } from "@/app/page/map_system/map-data";
+
+const getFlagEmoji = (countryName: string) => {
+  const matched = COUNTRIES_DATA.find(c => c.country.toLowerCase().trim() === countryName.toLowerCase().trim());
+  if (!matched || !matched.iso) return "";
+  const codePoints = matched.iso.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
+  return String.fromCodePoint(...codePoints) + " ";
+};
 
 import { 
   hasUraniumBuilding, 
@@ -50,6 +58,9 @@ import {
   hasSusuBuilding
 } from "./index";
 
+// --- IMPORT MODAL PICKER BARU ---
+import PilihItemModal from "./PilihItemModal";
+
 interface CountryDetail {
   [key: string]: unknown;
   anggaran?: number;
@@ -73,6 +84,16 @@ const ALL_IMPORT_KEYS = [
   "air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"
 ];
 
+// --- DEFINISI KATEGORI UNTUK PRODUK BELI ---
+const CATEGORY_MAP: Record<string, string[]> = {
+  'Mineral Kritis': ["uranium", "batu_bara", "minyak_bumi", "gas_alam", "garam", "litium", "logam_tanah_jarang", "bijih_besi"],
+  'Manufaktur': ["semikonduktor", "mobil", "sepeda_motor", "semen_beton", "kayu"],
+  'Peternakan': ["ayam_unggas", "sapi_perah", "sapi_potong", "domba_kambing"],
+  'Agrikultur': ["padi", "gandum", "jagung", "sayur", "umbi", "kedelai", "kelapa_sawit", "kopi", "teh", "kakao", "tebu", "karet"],
+  'Perikanan': ["udang", "mutiara", "ikan"],
+  'Olahan Pangan': ["air_mineral", "gula", "roti", "pengolahan_daging", "mie_instan", "minyak_goreng", "susu"]
+};
+
 interface ModalsKonfirmasiBeliProps {
   isOpen: boolean;
   onClose: () => void;
@@ -82,6 +103,7 @@ interface ModalsKonfirmasiBeliProps {
   partners: TradePartner[];
   currentDate?: Date;
   initialPartnerName?: string;
+  initialProductKey?: string;
   prefetchedAllCountries?: any[];
 }
 
@@ -194,6 +216,7 @@ export default function ModalsKonfirmasiBeli({
   partners,
   currentDate,
   initialPartnerName,
+  initialProductKey,
   prefetchedAllCountries
 }: ModalsKonfirmasiBeliProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
@@ -206,11 +229,20 @@ export default function ModalsKonfirmasiBeli({
   const lastCountryRef = useRef<string>("");
   const isInitialized = useRef(false);
 
-  // --- TAMBAHAN: STATE UNTUK MARKET PRICES, CHART, TIME RANGE ---
+  // --- STATE UNTUK MODAL PICKER BARU ---
+  const [isProductPickerOpen, setIsProductPickerOpen] = useState(false);
+  const [isCountryPickerOpen, setIsCountryPickerOpen] = useState(false);
+
+  // --- STATE UNTUK MARKET PRICES, CHART, TIME RANGE ---
   const [marketPrices, setMarketPrices] = useState<Record<string, number>>(DEFAULT_PRICES);
   const [ohlcSeries, setOhlcSeries] = useState<Record<string, {time: Date; open: number; high: number; low: number; close: number}[]>>({});
   const prevDateRef = useRef<string | null>(null);
   const [timeRange, setTimeRange] = useState<'1d' | '1w' | '1m' | '6m' | '1y'>('1d');
+
+  // ===========================
+  // PERBAIKAN: Pindahkan formatLabel KE ATAS sebelum dipakai useMemo
+  // ===========================
+  const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
 
   const targetCountry = selectedCountry || partners[0]?.nama_negara || "";
 
@@ -393,7 +425,30 @@ export default function ModalsKonfirmasiBeli({
     return true;
   };
 
+  // ===========================
+  // DATA KATEGORI PRODUK (SUDAH BISA MENGAKSES formatLabel)
+  // ===========================
+  const groupedProductItems = useMemo(() => {
+    return Object.entries(CATEGORY_MAP).map(([category, keys]) => ({
+      category,
+      items: keys.map(key => ({
+        label: formatLabel(key),
+        value: key,
+        disabled: checkMap[key] ? !checkMap[key](partnerData) : false
+      }))
+    }));
+  }, [partnerData]);
+
+  const countryItems = useMemo(() => {
+    return partners.map(p => ({
+      label: p.nama_negara,
+      value: p.nama_negara,
+      disabled: false
+    }));
+  }, [partners]);
+
   const effectiveSelectedProduct = selectedProduct || (partnerData ? getFirstAvailableProduct() : "");
+  const effectiveSelectedCountry = selectedCountry || partners[0]?.nama_negara || "";
 
   const stockAvailable = useMemo(() => {
     if (!effectiveSelectedProduct) return 0;
@@ -467,11 +522,15 @@ export default function ModalsKonfirmasiBeli({
 
     if (!partnerData) return;
 
-    const firstAvailable = getFirstAvailableProduct();
-    const selectedAvailable = selectedProduct ? isProductAvailable(selectedProduct) : false;
-
-    if (!selectedAvailable) {
-      setSelectedProduct(firstAvailable);
+    let targetProduct = selectedProduct;
+    if (initialProductKey && isProductAvailable(initialProductKey)) {
+      targetProduct = initialProductKey;
+    } else if (!isProductAvailable(selectedProduct)) {
+      targetProduct = getFirstAvailableProduct();
+    }
+    
+    if (targetProduct !== selectedProduct) {
+      setSelectedProduct(targetProduct);
       setQuantity(1);
     }
 
@@ -482,7 +541,7 @@ export default function ModalsKonfirmasiBeli({
     }
 
     isInitialized.current = true;
-  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct, initialPartnerName]);
+  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct, initialPartnerName, initialProductKey]);
 
   useEffect(() => {
     if (!isOpen || !selectedProduct || !countryDetail) return;
@@ -517,8 +576,6 @@ export default function ModalsKonfirmasiBeli({
 
   if (!isOpen) return null;
 
-  const formatLabel = (key: string) => key.replace(/_/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
-  const effectiveSelectedCountry = selectedCountry || partners[0]?.nama_negara || "";
   const currentMeta = findMeta(effectiveSelectedProduct);
 
   // HARGA DINAMIS PASAR
@@ -651,7 +708,7 @@ export default function ModalsKonfirmasiBeli({
       <div className="bg-[#FAF6EE] border-4 border-[#C4B49C] rounded-2xl w-full max-w-6xl h-[84vh] overflow-hidden shadow-2xl flex flex-col relative font-sans">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,0,0,0.02)_0%,transparent_100%)] pointer-events-none" />
         
-        {/* HEADER - Diperbaiki agar sama dengan Jual Komoditas */}
+        {/* HEADER */}
         <div className="px-8 py-6 border-b-2 border-[#C4B49C]/30 flex items-center justify-between bg-[#FAF6EE] relative z-10">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-emerald-600/10 rounded-xl border border-emerald-600/20">
@@ -669,48 +726,49 @@ export default function ModalsKonfirmasiBeli({
         </div>
 
         <div className="flex-1 overflow-y-auto px-5 pt-5 pb-2 relative z-10 space-y-4">
+          
+          {/* --- INPUT CARD PRODUK & NEGARA (MENGGANTIKAN SELECT) --- */}
           <div className="grid grid-cols-2 gap-4">
             <div className="flex flex-col gap-1">
               <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Produk:</label>
-              <div className="relative">
-                <select
-                  value={effectiveSelectedProduct}
-                  onChange={(e) => setSelectedProduct(e.target.value)}
-                  className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
-                >
-                  {ALL_IMPORT_KEYS.map((key) => {
-                    const checkFn = checkMap[key];
-                    const disabled = checkFn ? !checkFn(partnerData) : false;
-                    return (
-                      <option 
-                        key={key} 
-                        value={key} 
-                        disabled={disabled}
-                        className={disabled ? 'text-red-500 font-bold' : ''}
-                      >
-                        {formatLabel(key)}
-                      </option>
-                    );
-                  })}
-                </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
-              </div>
+              <button
+                onClick={() => setIsProductPickerOpen(true)}
+                className="w-full px-4 py-3 rounded-md bg-[#3b7d7d] text-white text-sm font-bold flex items-center justify-between hover:bg-[#2e6363] transition-all shadow-sm cursor-pointer"
+              >
+                <span>{formatLabel(effectiveSelectedProduct)}</span>
+                <span className="text-[10px] opacity-70 uppercase tracking-wider">Ubah</span>
+              </button>
             </div>
 
             <div className="flex flex-col gap-1">
               <label className="text-[#5c3c10] font-bold text-sm tracking-wide">Negara:</label>
-              <div className="relative">
-                <select
-                  value={effectiveSelectedCountry}
-                  onChange={(e) => setSelectedCountry(e.target.value)}
-                  className="w-full px-3 py-2 rounded-md bg-[#3b7d7d] text-white text-sm font-bold border-none focus:ring-2 focus:ring-[#c77a00] appearance-none"
-                >
-                  {partners.map((p) => (
-                    <option key={p.id} value={p.nama_negara}>{p.nama_negara}</option>
-                  ))}
-                </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white pointer-events-none" />
-              </div>
+              <button
+                onClick={() => setIsCountryPickerOpen(true)}
+                className="w-full px-4 py-3 rounded-md bg-[#3b7d7d] text-white text-sm font-bold flex items-center justify-between hover:bg-[#2e6363] transition-all shadow-sm cursor-pointer"
+              >
+                  <span className="flex items-center gap-2">
+                    {(() => {
+                      const matched = COUNTRIES_DATA.find(c => c.country.toLowerCase().trim() === effectiveSelectedCountry.toLowerCase().trim());
+                      const iso = matched?.iso;
+                      if (!iso || iso.length !== 2) {
+                        return (
+                          <div className="w-8 h-5 rounded-sm bg-[#FAF6EE]/20 border border-[#FAF6EE]/30 flex-shrink-0 shadow-sm" />
+                        );
+                      }
+                      return (
+                        <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#FAF6EE]/30 flex-shrink-0 shadow-sm bg-[#FAF6EE] relative">
+                          <img
+                            src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+                            alt={effectiveSelectedCountry}
+                            className="w-full h-full object-cover absolute inset-0"
+                          />
+                        </div>
+                      );
+                    })()}
+                    <span>{effectiveSelectedCountry}</span>
+                  </span>
+                 <span className="text-[10px] opacity-70 uppercase tracking-wider">Ubah</span>
+              </button>
             </div>
           </div>
 
@@ -797,6 +855,26 @@ export default function ModalsKonfirmasiBeli({
           <button onClick={handleConfirm} className="flex-1 py-2.5 rounded-lg bg-[#3b7d7d] hover:bg-[#2e6363] text-[#FAF6EE] text-xs font-black uppercase tracking-wide shadow-sm">Beli</button>
         </div>
       </div>
+
+      {/* --- MODAL PILIH PRODUK (Mengirim groupedProductItems) --- */}
+      <PilihItemModal
+        isOpen={isProductPickerOpen}
+        onClose={() => setIsProductPickerOpen(false)}
+        title="Pilih Produk Komoditas"
+        data={groupedProductItems}
+        selectedValue={effectiveSelectedProduct}
+        onSelect={(val) => setSelectedProduct(val)}
+      />
+
+      {/* --- MODAL PILIH NEGARA (Mengirim countryItems) --- */}
+      <PilihItemModal
+        isOpen={isCountryPickerOpen}
+        onClose={() => setIsCountryPickerOpen(false)}
+        title="Pilih Negara Mitra"
+        data={countryItems}
+        selectedValue={effectiveSelectedCountry}
+        onSelect={(val) => setSelectedCountry(val)}
+      />
     </div>
   );
 }

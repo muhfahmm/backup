@@ -3,9 +3,11 @@
 "use client"
 
 import React, { useState } from "react";
-import { X, Handshake, ChevronRight, Globe } from "lucide-react";
+import { X, Handshake, ChevronRight, Globe, Plus } from "lucide-react";
 import MitraDetailModals from "./mitraDetailModals";
 import ConfirmRemoveTradeModal from "./ConfirmRemoveTradeModal";
+import TambahMitraBaru from "./tambahMitraBaru";
+import { COUNTRIES_DATA } from "../../../../../map_system/map-data";
 
 export interface TradePartner {
   id: number;
@@ -23,6 +25,8 @@ interface MitraModalsMenuProps {
   onOpenBeli?: (partner: TradePartner) => void;
   onOpenJual?: (partner: TradePartner) => void;
   onRemovePartner?: (partnerId: number) => void;
+  onAddPartner?: (countryName: string, region: string) => void;
+  currentUserCountry?: string;
 }
 
 export default function MitraModalsMenu({ 
@@ -31,12 +35,22 @@ export default function MitraModalsMenu({
   partners,
   onOpenBeli,
   onOpenJual,
-  onRemovePartner
+  onRemovePartner,
+  onAddPartner,
+  currentUserCountry = "Amerika serikat"
 }: MitraModalsMenuProps) {
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const [selectedPartner, setSelectedPartner] = useState<TradePartner | null>(null);
   const [isRemoveConfirmOpen, setIsRemoveConfirmOpen] = useState(false);
   const [removeTarget, setRemoveTarget] = useState<TradePartner | null>(null);
+  const [isTambahOpen, setIsTambahOpen] = useState(false);
+
+  const getFlagEmoji = (countryName: string) => {
+    const matched = COUNTRIES_DATA.find(c => c.country.toLowerCase().trim() === countryName.toLowerCase().trim());
+    if (!matched || !matched.iso) return "";
+    const codePoints = matched.iso.toUpperCase().split('').map(c => 127397 + c.charCodeAt(0));
+    return String.fromCodePoint(...codePoints);
+  };
 
   if (!isOpen) return null;
 
@@ -91,24 +105,45 @@ export default function MitraModalsMenu({
                       key={idx}
                       className="bg-white/70 border border-[#C4B49C]/40 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 transition-all hover:shadow-md hover:border-[#5c3c10]/50"
                     >
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-1 flex-wrap">
-                          <h4 className="text-sm font-black text-[#5c3c10] uppercase">{partner.nama_negara}</h4>
-                          {partner.jenis_perjanjian && (
-                            <span className="px-2 py-0.5 bg-blue-600/10 text-blue-700 border border-blue-600/20 rounded-full text-[8px] font-bold uppercase tracking-wider">
-                              {partner.jenis_perjanjian}
+                      <div className="flex-1 flex items-center gap-3">
+                        {/* Flag Image Rendering (Pinjaman & Hutang style) */}
+                        {(() => {
+                          const matched = COUNTRIES_DATA.find(c => c.country.toLowerCase().trim() === partner.nama_negara.toLowerCase().trim());
+                          const iso = matched?.iso;
+                          if (!iso || iso.length !== 2) {
+                            return (
+                              <div className="w-8 h-5 rounded-sm bg-[#e4dac3] border border-[#5c3c10]/20 flex-shrink-0 shadow-sm" />
+                            );
+                          }
+                          return (
+                            <div className="w-8 h-5 rounded-sm overflow-hidden border border-[#5c3c10]/20 flex-shrink-0 shadow-sm bg-[#e4dac3] relative">
+                              <img
+                                src={`https://flagcdn.com/w80/${iso.toLowerCase()}.png`}
+                                alt={partner.nama_negara}
+                                className="w-full h-full object-cover absolute inset-0"
+                              />
+                            </div>
+                          );
+                        })()}
+                        <div>
+                          <div className="flex items-center gap-2 mb-1 flex-wrap">
+                            <h4 className="text-sm font-black text-[#5c3c10] uppercase">{partner.nama_negara}</h4>
+                            {partner.jenis_perjanjian && (
+                              <span className="px-2 py-0.5 bg-blue-600/10 text-blue-700 border border-blue-600/20 rounded-full text-[8px] font-bold uppercase tracking-wider">
+                                {partner.jenis_perjanjian}
+                              </span>
+                            )}
+                            <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider
+                              ${partner.status_hubungan === 'Aktif' ? 'bg-emerald-600/10 text-emerald-700 border border-emerald-600/20' : 
+                                partner.status_hubungan === 'Pasif' ? 'bg-amber-600/10 text-amber-700 border border-amber-600/20' : 
+                                'bg-gray-300/30 text-[#8b7e66]'}`}>
+                              {partner.status_hubungan}
                             </span>
-                          )}
-                          <span className={`px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider
-                            ${partner.status_hubungan === 'Aktif' ? 'bg-emerald-600/10 text-emerald-700 border border-emerald-600/20' : 
-                              partner.status_hubungan === 'Pasif' ? 'bg-amber-600/10 text-amber-700 border border-amber-600/20' : 
-                              'bg-gray-300/30 text-[#8b7e66]'}`}>
-                            {partner.status_hubungan}
-                          </span>
+                          </div>
+                          <p className="text-[10px] text-[#8b7e66] font-semibold flex items-center gap-1">
+                            {partner.region}
+                          </p>
                         </div>
-                        <p className="text-[10px] text-[#8b7e66] font-semibold flex items-center gap-1">
-                          {partner.region}
-                        </p>
                       </div>
                       <div className="flex items-center gap-4">
                         {partner.total_nilai_dagang !== undefined && (
@@ -118,13 +153,14 @@ export default function MitraModalsMenu({
                           </div>
                         )}
                         <div className="flex items-center gap-3">
+                          {/* --- PERBAIKAN: Tambahkan cursor-pointer --- */}
                           <button
                             onClick={(e) => {
                               e.stopPropagation();
                               setRemoveTarget(partner);
                               setIsRemoveConfirmOpen(true);
                             }}
-                            className="px-3 py-2 rounded-lg border-2 border-emerald-600 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 text-[11px] font-black uppercase tracking-wider transition-all"
+                            className="px-3 py-2 rounded-lg border-2 border-emerald-600 text-emerald-700 bg-emerald-50 hover:bg-emerald-100 text-[11px] font-black uppercase tracking-wider transition-all cursor-pointer"
                           >
                             Putus Hubungan
                           </button>
@@ -133,6 +169,17 @@ export default function MitraModalsMenu({
                       </div>
                     </div>
                   ))}
+
+                  {/* TAMBAHAN BUTTON TAMBAH MITRA */}
+                  <button
+                    onClick={() => setIsTambahOpen(true)}
+                    className="bg-white/70 border-2 border-dashed border-[#C4B49C]/60 p-4 rounded-xl flex flex-col sm:flex-row sm:items-center justify-center gap-3 transition-all hover:border-[#5c3c10] hover:bg-[#FAF6EE] hover:shadow-md cursor-pointer min-h-[80px]"
+                  >
+                    <div className="p-2 rounded-full bg-[#5c3c10]/10 border border-[#5c3c10]/20">
+                      <Plus className="h-6 w-6 text-[#5c3c10]" />
+                    </div>
+                    <span className="text-sm font-black text-[#5c3c10] uppercase tracking-wider">Tambah Mitra</span>
+                  </button>
                 </div>
               )}
             </div>
@@ -147,6 +194,17 @@ export default function MitraModalsMenu({
           if (removeTarget && onRemovePartner) onRemovePartner(removeTarget.id);
           setIsRemoveConfirmOpen(false);
           setRemoveTarget(null);
+        }}
+      />
+
+      <TambahMitraBaru
+        isOpen={isTambahOpen}
+        onClose={() => setIsTambahOpen(false)}
+        currentUserCountry={currentUserCountry}
+        partners={partners}
+        onAddPartner={(name, region) => {
+          if (onAddPartner) onAddPartner(name, region);
+          setIsTambahOpen(false);
         }}
       />
     </>
