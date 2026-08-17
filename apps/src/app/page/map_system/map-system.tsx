@@ -30,6 +30,9 @@ import { calculateKesejahteraan, calculateKesejahteraanDecay } from '@/app/logic
 import TopLeftIcon from './menu_notifikasi/inbox/inboxModals';
 import TopRightGiftIcon from './menu_notifikasi/reward/rewardModals';
 import TopRightNewsIcon from './menu_notifikasi/news/newsModals';
+import { NotificationMessage, getKepuasanWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/1_kepuasan/kepuasanLogic';
+import { getPeringkatWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/2_peringkat/peringkatLogic';
+import { getKesejahteraanWarningMessage } from './menu_notifikasi/inbox/logic/1_notifikasi_pokok/1_kepuasan_dan_peringkat/3_kesejahteraan/kesejahteraanLogic';
 
 interface Country {
     id: number;
@@ -70,6 +73,7 @@ export default function MapPage() {
     const [productionDeepLink, setProductionDeepLink] = useState<{ tab: string; key: string } | null>(null);
     const [tempatUmumDeepLink, setTempatUmumDeepLink] = useState<string | null>(null);
     const [kesejahteraanDeepLink, setKesejahteraanDeepLink] = useState<boolean>(false);
+    const [kesejahteraanInitialTab, setKesejahteraanInitialTab] = useState<"statistik" | "naikkan">("statistik");
     const [countryDetailModalOpen, setCountryDetailModalOpen] = useState(false);
     const [countryDetailModalName, setCountryDetailModalName] = useState<string | null>(null);
     const [playerDetailModalOpen, setPlayerDetailModalOpen] = useState(false);
@@ -78,6 +82,14 @@ export default function MapPage() {
     const [newsModalOpen, setNewsModalOpen] = useState(false);
     const [presidentRating, setPresidentRating] = useState<number>(50);
     const [kesejahteraan, setKesejahteraan] = useState<number>(50);
+    const [notifications, setNotifications] = useState<NotificationMessage[]>([]);
+    
+    // Track triggers to prevent spamming notifications on every tick when index is in warning zone
+    const [hasShownEarlyWarning, setHasShownEarlyWarning] = useState<{
+        kepuasan: boolean;
+        peringkat: boolean;
+        kesejahteraan: boolean;
+    }>({ kepuasan: false, peringkat: false, kesejahteraan: false });
 
     // Sync presidentRating state to countryDetail so simulation ticks always use the newest rating
     useEffect(() => {
@@ -94,12 +106,76 @@ export default function MapPage() {
     const [hasShownRatingWarning, setHasShownRatingWarning] = useState(false);
     const [warningType, setWarningType] = useState<"peringkat" | "kepuasan" | "kesejahteraan">("peringkat");
     const [warningValue, setWarningValue] = useState<number>(50);
-
     // Tampilkan modal peringatan ketika peringkat, kepuasan, atau kesejahteraan turun ke 10 atau kurang
+    // Serta trigger notifikasi peringatan dini di inbox saat mencapai threshold (25-20-15)
     useEffect(() => {
         const kepuasanVal = countryDetail?.kepuasan ?? 50;
         const kesejahteraanVal = countryDetail?.kesejahteraan ?? 50;
+        
+        // Formatting date inline
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const currentDateStr = `${year}-${month}-${day}`;
 
+        // 1. EARLY WARNING INBOX NOTIFICATIONS
+        const nextEarlyWarning = { ...hasShownEarlyWarning };
+        let hasNotificationUpdates = false;
+        const newNotifs: NotificationMessage[] = [];
+
+        // Kepuasan early warning (threshold <= 25, modal limit <= 10)
+        if (kepuasanVal <= 25 && kepuasanVal > 10) {
+            if (!hasShownEarlyWarning.kepuasan) {
+                newNotifs.push(getKepuasanWarningMessage(kepuasanVal, currentDateStr));
+                nextEarlyWarning.kepuasan = true;
+                hasNotificationUpdates = true;
+            }
+        } else if (kepuasanVal > 25) {
+            if (hasShownEarlyWarning.kepuasan) {
+                nextEarlyWarning.kepuasan = false;
+                hasNotificationUpdates = true;
+            }
+        }
+
+        // Peringkat early warning (threshold <= 20, modal limit <= 10)
+        if (presidentRating <= 20 && presidentRating > 10) {
+            if (!hasShownEarlyWarning.peringkat) {
+                newNotifs.push(getPeringkatWarningMessage(presidentRating, currentDateStr));
+                nextEarlyWarning.peringkat = true;
+                hasNotificationUpdates = true;
+            }
+        } else if (presidentRating > 20) {
+            if (hasShownEarlyWarning.peringkat) {
+                nextEarlyWarning.peringkat = false;
+                hasNotificationUpdates = true;
+            }
+        }
+
+        // Kesejahteraan early warning (threshold <= 15, modal limit <= 10)
+        if (kesejahteraanVal <= 15 && kesejahteraanVal > 10) {
+            if (!hasShownEarlyWarning.kesejahteraan) {
+                newNotifs.push(getKesejahteraanWarningMessage(kesejahteraanVal, currentDateStr));
+                nextEarlyWarning.kesejahteraan = true;
+                hasNotificationUpdates = true;
+            }
+        } else if (kesejahteraanVal > 15) {
+            if (hasShownEarlyWarning.kesejahteraan) {
+                nextEarlyWarning.kesejahteraan = false;
+                hasNotificationUpdates = true;
+            }
+        }
+
+        if (hasNotificationUpdates) {
+            setHasShownEarlyWarning(nextEarlyWarning);
+            if (newNotifs.length > 0) {
+                setNotifications(prev => [
+                    ...newNotifs,
+                    ...prev
+                ]);
+            }
+        }
+
+        // 2. CRITICAL MODAL WARNINGS
         let triggerWarning = false;
         let type: "peringkat" | "kepuasan" | "kesejahteraan" = "peringkat";
         let value = 50;
@@ -135,7 +211,7 @@ export default function MapPage() {
             // Reset trigger jika semua indikator sudah aman di atas 10
             setHasShownRatingWarning(false);
         }
-    }, [presidentRating, countryDetail?.kepuasan, countryDetail?.kesejahteraan, hasShownRatingWarning]);
+    }, [presidentRating, countryDetail?.kepuasan, countryDetail?.kesejahteraan, hasShownRatingWarning, hasShownEarlyWarning, currentDate]);
 
     const nonModalMenus = [
         "",
@@ -836,6 +912,10 @@ export default function MapPage() {
             setPlayerNetPopulationChange(0);
             setPresidentRating(50);
             setKesejahteraan(50);
+            // 🔥 Reset semua notifikasi dan early warning flags agar tidak terbawa ke game baru
+            setNotifications([]);
+            setHasShownEarlyWarning({ kepuasan: false, peringkat: false, kesejahteraan: false });
+            setHasShownRatingWarning(false);
             // Toggle resetTrigger to signal all modals to reset
             setResetTrigger(prev => !prev);
         }
@@ -1025,17 +1105,43 @@ export default function MapPage() {
                     setKesejahteraanDeepLink(true);
                     setActiveMenu("Dashboard:Populasi:Overview");
                 }}
-            />
-
-            {/* Top Left Icon - Inbox */}
+            />            {/* Top Left Icon - Inbox */}
             <TopLeftIcon 
               onClick={() => {
                 setInboxModalOpen(true);
                 setGiftModalOpen(false);
                 setNewsModalOpen(false);
+                // Mark all notifications as read when opening inbox
+                setNotifications(prev => prev.map(n => ({ ...n, isRead: true })));
               }} 
               isOpen={inboxModalOpen}
               onClose={() => setInboxModalOpen(false)}
+              notifications={notifications}
+              onClearAll={() => setNotifications([])}
+              onActionClick={(notif) => {
+                // Handle notification action click (secondary/informational actions)
+                if (notif.type === 'kepuasan') {
+                  setActiveMenu("Sosial & Budaya");
+                } else if (notif.type === 'peringkat') {
+                  setActiveMenu("Sosial & Budaya"); // Pidato kenegaraan / program bantuan
+                } else if (notif.type === 'kesejahteraan') {
+                  setKesejahteraanDeepLink(true);
+                  setActiveMenu("Dashboard:Populasi:Overview");
+                }
+                setInboxModalOpen(false);
+              }}
+              onRedirectClick={(notif) => {
+                // 🔥 Redirect langsung ke menu yang relevan dengan tab yang tepat
+                if (notif.type === 'kepuasan' || notif.type === 'peringkat') {
+                  // → Kepuasan Rakyat, tab "Naikkan Peringkat"
+                  setActiveMenu("Action:NaikkanKepuasan");
+                } else if (notif.type === 'kesejahteraan') {
+                  // → Indeks Kesejahteraan, tab "Naikkan Kesejahteraan"
+                  setKesejahteraanDeepLink(true);
+                  setActiveMenu("Dashboard:Populasi:Overview");
+                }
+                setInboxModalOpen(false);
+              }}
             />
 
             {/* Top Right Icons - Gift and News */}

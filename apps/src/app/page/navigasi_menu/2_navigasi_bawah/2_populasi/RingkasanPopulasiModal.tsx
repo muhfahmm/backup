@@ -50,6 +50,7 @@ interface RingkasanPopulasiModalProps {
   onOpenArmadaTab?: (tab: 'aktif' | 'infrastruktur' | 'polisi') => void;
   onOpenTempatUmum?: (tab: string) => void;
   initialOpenKesejahteraan?: boolean;
+  initialKesejahteraanTab?: "statistik" | "naikkan";
   setCountryDetail?: (detail: any) => void;
   currentDate?: Date | string;
 }
@@ -121,6 +122,7 @@ export default function RingkasanPopulasiModal({
   onOpenArmadaTab,
   onOpenTempatUmum,
   initialOpenKesejahteraan,
+  initialKesejahteraanTab,
   setCountryDetail,
   currentDate,
 }: RingkasanPopulasiModalProps) {
@@ -360,6 +362,7 @@ export default function RingkasanPopulasiModal({
         metrics={metrics}
         setActiveMenu={setActiveMenu}
         currentDate={currentDate}
+        initialTab={initialKesejahteraanTab}
         onOpenTempatUmum={(tabId: string) => {
           if (onOpenTempatUmum) {
             onOpenTempatUmum(tabId);

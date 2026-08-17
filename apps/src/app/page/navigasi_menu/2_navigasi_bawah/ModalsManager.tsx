@@ -73,6 +73,8 @@ interface ModalsManagerProps {
   setTempatUmumInitialTab?: (value: string) => void;
   kesejahteraanDeepLink?: boolean;
   setKesejahteraanDeepLink?: (value: boolean) => void;
+  kesejahteraanInitialTab?: "statistik" | "naikkan";
+  setKesejahteraanInitialTab?: (value: "statistik" | "naikkan") => void;
   onOpenCountryDetail?: (countryName: string) => void;
   onOpenPlayerDetail?: () => void;
   presidentRating?: number;
@@ -93,6 +95,7 @@ function ModalsManager({
   setTempatUmumDeepLink,
   kesejahteraanDeepLink,
   setKesejahteraanDeepLink,
+  kesejahteraanInitialTab,
   onOpenCountryDetail,
   onOpenPlayerDetail,
   presidentRating = 50,
@@ -196,6 +199,7 @@ function ModalsManager({
           selectedCountry={selectedCountry}
           setActiveMenu={setActiveMenu}
           initialOpenKesejahteraan={kesejahteraanDeepLink}
+          initialKesejahteraanTab={kesejahteraanInitialTab}
           onOpenArmadaTab={(tab) => {
             setArmadaInitialTab(tab);
             setActiveMenu("Menu:Armada");

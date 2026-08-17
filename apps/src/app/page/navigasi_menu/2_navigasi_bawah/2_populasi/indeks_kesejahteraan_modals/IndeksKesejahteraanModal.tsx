@@ -26,6 +26,7 @@ interface IndeksKesejahteraanModalProps {
   onOpenTempatUmum?: (tab: string) => void;
   onOpenIndustriPangan?: () => void;
   currentDate?: Date | string;
+  initialTab?: "statistik" | "naikkan";
 }
 
 export default function IndeksKesejahteraanModal({
@@ -39,6 +40,7 @@ export default function IndeksKesejahteraanModal({
   onOpenTempatUmum,
   onOpenIndustriPangan,
   currentDate,
+  initialTab,
 }: IndeksKesejahteraanModalProps) {
   // 🔥 State Tab Menu Aktif
   const [activeTab, setActiveTab] = useState<"statistik" | "naikkan">("statistik");
@@ -50,12 +52,14 @@ export default function IndeksKesejahteraanModal({
     fetchBuildingMetadata().then((data) => setMetadata(data || {}));
   }, [isOpen]);
 
-  // Reset tab saat modal ditutup/dibuka kembali
+  // Reset tab saat modal ditutup/dibuka kembali; atau langsung ke initialTab saat dibuka
   useEffect(() => {
-    if (!isOpen) {
+    if (isOpen) {
+      setActiveTab(initialTab ?? "statistik");
+    } else {
       setActiveTab("statistik");
     }
-  }, [isOpen]);
+  }, [isOpen, initialTab]);
 
   // 🔥 Hitung kesejahteraan dari countryDetail (untuk detail & trend)
   const kesejahteraan = useMemo(() => {
