@@ -105,6 +105,7 @@ interface ModalsKonfirmasiBeliProps {
   initialPartnerName?: string;
   initialProductKey?: string;
   prefetchedAllCountries?: any[];
+  partnerOffers?: any[];
 }
 
 // --- HARGA DEFAULT PASAR (BERLAKU UNTUK BELI) ---
@@ -217,7 +218,8 @@ export default function ModalsKonfirmasiBeli({
   currentDate,
   initialPartnerName,
   initialProductKey,
-  prefetchedAllCountries
+  prefetchedAllCountries,
+  partnerOffers = []
 }: ModalsKonfirmasiBeliProps) {
   const [metadata, setMetadata] = useState<MetadataMap>({});
   const [selectedProduct, setSelectedProduct] = useState<string>("");
@@ -528,10 +530,28 @@ export default function ModalsKonfirmasiBeli({
     } else if (!isProductAvailable(selectedProduct)) {
       targetProduct = getFirstAvailableProduct();
     }
+
+    let initialQty = 1;
+    if (initialPartnerName && targetProduct && partnerOffers.length > 0) {
+      const matchedOffer = partnerOffers.find(
+        o => o.partnerName.toLowerCase().trim() === initialPartnerName.toLowerCase().trim() &&
+             o.productKey === targetProduct
+      );
+      if (matchedOffer) {
+        initialQty = matchedOffer.quantity;
+        // Dan set harga pasar untuk produk ini agar sesuai dengan tawaran
+        setMarketPrices(prev => ({
+          ...prev,
+          [targetProduct]: matchedOffer.pricePerUnit
+        }));
+      }
+    }
     
     if (targetProduct !== selectedProduct) {
       setSelectedProduct(targetProduct);
-      setQuantity(1);
+      setQuantity(initialQty);
+    } else if (initialQty !== quantity && initialQty !== 1) {
+      setQuantity(initialQty);
     }
 
     if (initialPartnerName && !selectedCountry) {
@@ -541,7 +561,7 @@ export default function ModalsKonfirmasiBeli({
     }
 
     isInitialized.current = true;
-  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct, initialPartnerName, initialProductKey]);
+  }, [isOpen, partners, partnerData, selectedCountry, selectedProduct, initialPartnerName, initialProductKey, partnerOffers]);
 
   useEffect(() => {
     if (!isOpen || !selectedProduct || !countryDetail) return;
@@ -671,7 +691,14 @@ export default function ModalsKonfirmasiBeli({
     const detail = countryDetail ?? {};
     const currentBudget = typeof detail.anggaran === "number" ? detail.anggaran : 0;
 
-    if (quantity > partnerProduction) {
+    // Cek apakah ini transaksi dari tawaran AI yang valid
+    const matchedOffer = partnerOffers?.find(
+      o => o.partnerName.toLowerCase().trim() === targetCountry.toLowerCase().trim() &&
+           o.productKey === effectiveSelectedProduct &&
+           o.quantity === quantity
+    );
+
+    if (!matchedOffer && quantity > partnerProduction) {
       alert(`Stok mitra tidak mencukupi! Stok tersedia hanya ${partnerProduction.toLocaleString("id-ID")} unit.`);
       return;
     }
@@ -789,7 +816,14 @@ export default function ModalsKonfirmasiBeli({
             <div className="flex justify-between items-center pt-0 pb-1">
               <span className="text-[#5c3c10] font-bold text-sm tracking-wide">Produksi Mitra (Total):</span>
               <span className="text-sm font-black text-[#2e261a]">
-                {partnerProduction.toLocaleString('id-ID')} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
+                {(() => {
+                  const matchedOffer = partnerOffers?.find(
+                    o => o.partnerName.toLowerCase().trim() === targetCountry.toLowerCase().trim() &&
+                         o.productKey === effectiveSelectedProduct
+                  );
+                  const displayValue = matchedOffer ? Math.max(matchedOffer.quantity, partnerProduction) : partnerProduction;
+                  return displayValue.toLocaleString('id-ID');
+                })()} <span className="text-[10px] text-[#8b7e66] font-bold">Unit</span>
               </span>
             </div>
           </div>

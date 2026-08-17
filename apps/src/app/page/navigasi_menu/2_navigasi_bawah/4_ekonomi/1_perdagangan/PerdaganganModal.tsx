@@ -6,6 +6,8 @@ import MitraModalsMenu, { TradePartner } from "./mitra/mitraModalsMenu";
 import ModalsKonfirmasiBeli from "./beli/modalsKonfirmasiBeli";
 import { getTradeAgreementsForCountry } from '../../../../../../../../json/database_mitra_perdagangan/tradeAgreementRegistry';
 import TawaranPembelianTable from "./tawaran_beli/TawaranPembelianTable";
+import { fetchBuildingMetadata } from '@/lib/buildingMetadata';
+import { calculateProductionIncrement, formatDate } from '@/app/logic/production_logic';
 
 interface AgreementData {
   no: number;
@@ -85,6 +87,25 @@ export default function PerdaganganModal({
   const [historyFilter, setHistoryFilter] = useState<"semua" | "jual" | "beli">("semua");
   const [history, setHistory] = useState<TradeHistoryItem[]>([]);
   const [historyResetVersion, setHistoryResetVersion] = useState(0);
+  const [metadata, setMetadata] = useState<Record<string, any>>({});
+
+  useEffect(() => {
+    if (!isOpen) return;
+    fetchBuildingMetadata().then(data => setMetadata(data || {}));
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen && countryDetail && !countryDetail.game_start_date && currentDate) {
+      setCountryDetail(prev => {
+        if (!prev) return prev;
+        if (prev.game_start_date) return prev;
+        return {
+          ...prev,
+          game_start_date: formatDate(currentDate)
+        };
+      });
+    }
+  }, [isOpen, countryDetail, currentDate, setCountryDetail]);
 
   // State untuk modal anak
   const [isConfirmBeliOpen, setIsConfirmBeliOpen] = useState(false);
@@ -141,16 +162,20 @@ export default function PerdaganganModal({
     return "semua" as const;
   }, [historyFilter, resetTrigger]);
 
+  const [offersResetVersion, setOffersResetVersion] = useState(0);
+
   const handleResetHistory = () => {
     setHistory([]);
     setHistoryFilter("semua");
+    setPartnerOffers([]);
     setHistoryResetVersion((prev) => prev + 1);
+    setOffersResetVersion((prev) => prev + 1);
   };
 
   useEffect(() => {
-    if (!resetTrigger || historyResetVersion >= 1) return;
+    if (!resetTrigger) return;
     handleResetHistory();
-  }, [resetTrigger, historyResetVersion]);
+  }, [resetTrigger]);
 
   const allPartners = useMemo((): TradePartner[] => {
     const agreements = getTradeAgreementsForCountry(countryName);
@@ -181,26 +206,108 @@ export default function PerdaganganModal({
       return;
     }
 
+    // Hitung selisih hari dari game_start_date ke currentDate
+    const gameStartStr = countryDetail?.game_start_date as string | undefined;
+    if (gameStartStr && currentDate) {
+      // Hilangkan komponen waktu untuk perbandingan tanggal murni
+      const startParts = gameStartStr.split("-").map(Number);
+      const startDate = new Date(startParts[0], startParts[1] - 1, startParts[2]);
+      
+      const currentOnlyDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate());
+      
+      const diffTime = currentOnlyDate.getTime() - startDate.getTime();
+      const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
+      
+      // Jika belum mencapai 7 hari (1 minggu), tawaran harus kosong
+      if (diffDays < 7) {
+        setPartnerOffers([]);
+        return;
+      }
+    } else {
+      // Jika gameStartStr belum siap, kosongkan tawaran sementara
+      setPartnerOffers([]);
+      return;
+    }
+
     // Simulasi AI: Mitra menawarkan barang secara acak saat modal dibuka
     const generateOffers = () => {
       const newOffers: PartnerOffer[] = [];
-      const shuffledPartners = [...partnersState].sort(() => 0.5 - Math.random()).slice(0, 3);
+      
+      // Hitung target jumlah tawaran: minimal 5 (atau seadanya jika mitra kurang dari 5) dan maksimal menyesuaikan jumlah mitra
+      const totalPartners = partnersState.length;
+      const minOffers = Math.min(5, totalPartners);
+      const offerSize = minOffers + Math.floor(Math.random() * (totalPartners - minOffers + 1));
+      
+      const shuffledPartners = [...partnersState].sort(() => 0.5 - Math.random()).slice(0, offerSize);
       
       shuffledPartners.forEach((partner) => {
-        const randomProduct = ALL_IMPORT_KEYS[Math.floor(Math.random() * ALL_IMPORT_KEYS.length)];
-        const basePrice = DEFAULT_PRICES[randomProduct] || 100;
+        // Cari data negara mitra dari prefetchedAllCountries untuk menghitung produksi
+        const partnerData = prefetchedAllCountries?.find(
+          c => (c.country || c.nama || "").toLowerCase().trim() === partner.nama_negara.toLowerCase().trim()
+        );
+
+        let chosenProduct: string | null = null;
+        let partnerProd = 500; // Fallback jika data belum termuat
+
+        if (partnerData) {
+          const shuffledProducts = [...ALL_IMPORT_KEYS].sort(() => 0.5 - Math.random());
+
+          for (const prodKey of shuffledProducts) {
+            const pBuildingCount = Number(partnerData[prodKey] || 0);
+            if (pBuildingCount === 0) continue;
+
+            const pMeta = metadata[prodKey] || Object.values(metadata).find((m: any) => m.dataKey === prodKey);
+            if (!pMeta || !pMeta.produksi || !currentDate) continue;
+
+            const pBuildDateKey = `build_date_${prodKey}`;
+            const pBuildDate = partnerData[pBuildDateKey] as string | undefined;
+            const currentDateStr = formatDate(currentDate);
+            let pFinalBuildDate: string;
+            if (typeof pBuildDate === 'string' && pBuildDate) {
+              pFinalBuildDate = pBuildDate;
+            } else {
+              const thirtyDaysAgo = new Date(currentDate);
+              thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+              pFinalBuildDate = formatDate(thirtyDaysAgo);
+            }
+
+            const basePartnerProd = calculateProductionIncrement(
+              pMeta.produksi,
+              pBuildingCount,
+              pFinalBuildDate,
+              currentDateStr
+            );
+
+            const partnerSold = Number(countryDetail?.[`partner_sold_${partner.nama_negara}_${prodKey}`]) || 0;
+            const totalProd = Math.max(0, basePartnerProd - partnerSold);
+
+            if (totalProd > 0) {
+              chosenProduct = prodKey;
+              partnerProd = totalProd;
+              break;
+            }
+          }
+        } else {
+          chosenProduct = ALL_IMPORT_KEYS[Math.floor(Math.random() * ALL_IMPORT_KEYS.length)];
+        }
+
+        // Jika tidak ada produk yang diproduksi oleh mitra ini (dan data negara siap), lewati
+        if (!chosenProduct) return;
+
+        const basePrice = DEFAULT_PRICES[chosenProduct] || 100;
         const priceMultiplier = 0.8 + (Math.random() * 0.4);
         const pricePerUnit = Math.round(basePrice * priceMultiplier * 100) / 100;
-        const quantity = Math.floor(Math.random() * 500) + 10;
+        
+        // Batasi kuantitas tawaran maksimal sebesar total produksi mitra
+        const quantity = Math.min(partnerProd, Math.floor(Math.random() * 500) + 10);
 
-        // PERBAIKAN: Tentukan tanggal berlaku 30 hari ke depan berdasarkan SIMULATION CALENDAR (currentDate)
         const validUntil = currentDate ? new Date(currentDate) : new Date();
         validUntil.setDate(validUntil.getDate() + 30);
 
         newOffers.push({
           id: `offer-${Date.now()}-${partner.id}`,
           partnerName: partner.nama_negara,
-          productKey: randomProduct,
+          productKey: chosenProduct,
           quantity: quantity,
           pricePerUnit: pricePerUnit,
           totalPrice: pricePerUnit * quantity,
@@ -212,7 +319,7 @@ export default function PerdaganganModal({
 
     generateOffers();
     // Jika tanggal simulasi berubah, tawaran akan dibuat ulang
-  }, [isOpen, partnersState, currentDate]);
+  }, [isOpen, partnersState, currentDate, prefetchedAllCountries, resetTrigger]);
 
   // --- Fungsi Terima Tawaran ---
   const handleAcceptOffer = (offer: PartnerOffer) => {
@@ -356,6 +463,7 @@ export default function PerdaganganModal({
         initialPartnerName={activeTradePartner?.nama_negara}
         initialProductKey={activeOfferProduct}
         prefetchedAllCountries={prefetchedAllCountries}
+        partnerOffers={partnerOffers}
       />
 
       <JualModalsMenu 
